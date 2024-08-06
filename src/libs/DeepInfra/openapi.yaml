@@ -1,0 +1,3713 @@
+openapi: 3.0.1
+info:
+  title: DeepApi
+  version: 0.1.0
+paths:
+  /cli/version:
+    get:
+      summary: Cli Version
+      operationId: cli_version_cli_version_get
+      parameters:
+        - name: version
+          in: query
+          required: true
+          schema:
+            title: Version
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/me:
+    get:
+      summary: Me
+      operationId: me_v1_me_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Me'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Delete Account
+      operationId: delete_account_v1_me_delete
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Me'
+      security:
+        - HTTPBearer: [ ]
+    patch:
+      summary: Account Update Details
+      operationId: account_update_details_v1_me_patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/emails:
+    get:
+      summary: Account Email Values
+      operationId: account_email_values_v1_me_emails_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailsOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/rate_limit:
+    get:
+      summary: Account Rate Limit
+      operationId: account_rate_limit_v1_me_rate_limit_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/rate_limit/request:
+    post:
+      summary: Request Rate Limit Increase
+      operationId: request_rate_limit_increase_v1_me_rate_limit_request_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RateLimitRequestIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/deploy:
+    post:
+      summary: Deploy Create
+      operationId: deploy_create_v1_deploy_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeployModelIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployResult'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '423':
+          description: Locked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /deploy/hf/:
+    post:
+      summary: Deploy Create Hf
+      operationId: deploy_create_hf_deploy_hf__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HFModel'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployResult'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '423':
+          description: Locked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /deploy/llm/gpu_availability:
+    get:
+      summary: Deploy Gpu Availability
+      operationId: deploy_gpu_availability_deploy_llm_gpu_availability_get
+      parameters:
+        - name: source
+          in: query
+          schema:
+            title: Source
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployGPUAvailability'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /deploy/llm:
+    post:
+      summary: Deploy Create Llm
+      operationId: deploy_create_llm_deploy_llm_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeployLLMIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentOut'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  /deploy/list/:
+    get:
+      summary: Deploy List
+      operationId: deploy_list_deploy_list__get
+      parameters:
+        - name: status
+          in: query
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+          schema:
+            title: Status
+            type: string
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Deploy List Deploy List  Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeploymentOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      deprecated: true
+      security:
+        - HTTPBearer: [ ]
+  /deploy/list:
+    get:
+      summary: Deploy List
+      operationId: deploy_list_deploy_list_get
+      parameters:
+        - name: status
+          in: query
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+          schema:
+            title: Status
+            type: string
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Deploy List Deploy List Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeploymentOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/deploy/{deploy_id}':
+    get:
+      summary: Deploy Status
+      operationId: deploy_status_deploy__deploy_id__get
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    put:
+      summary: Deploy Update
+      operationId: deploy_update_deploy__deploy_id__put
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeployLLMUpdateIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployStatusOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Deploy Delete
+      operationId: deploy_delete_deploy__deploy_id__delete
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployDelete'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/deploy/{deploy_id}/stats':
+    get:
+      summary: Deploy Stats
+      operationId: deploy_stats_deploy__deploy_id__stats_get
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+        - name: from
+          in: query
+          description: 'start of period, unix ts or ''now-5h'', supported units s(ec), m(min), h(our), d(ay), w(eek), M(onth)'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period, unix ts or ''now-5h'', supported units s(ec), m(min), h(our), d(ay), w(eek), M(onth)'
+        - name: to
+          in: query
+          description: 'end of period, unix ts or now-relative, check from, defaults to now'
+          schema:
+            title: To
+            type: string
+            description: 'end of period, unix ts or now-relative, check from, defaults to now'
+            default: now
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentStatsOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '410':
+          description: Gone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/deploy/{deploy_id}/stats2':
+    get:
+      summary: Deploy Detailed Stats
+      operationId: deploy_detailed_stats_deploy__deploy_id__stats2_get
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+        - name: from
+          in: query
+          description: 'start of period, unix ts or ''now-5h'', supported units s, m, h, d, w'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period, unix ts or ''now-5h'', supported units s, m, h, d, w'
+        - name: to
+          in: query
+          description: 'end of period, unix ts or now-relative, check from, defaults to now'
+          schema:
+            title: To
+            type: string
+            description: 'end of period, unix ts or now-relative, check from, defaults to now'
+            default: now
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailedDeploymentStatsOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '410':
+          description: Gone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /models/private/list:
+    get:
+      summary: Private Models List
+      operationId: private_models_list_models_private_list_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Private Models List Models Private List Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelOut'
+      security:
+        - HTTPBearer: [ ]
+  /models/list:
+    get:
+      summary: Models List
+      operationId: models_list_models_list_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Models List Models List Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelOut'
+  '/models/{model_name}/versions':
+    get:
+      summary: Model Versions
+      operationId: model_versions_models__model_name__versions_get
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Model Versions Models  Model Name  Versions Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelVersionOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/models/{model_name}/publicity':
+    post:
+      summary: Model Publicity
+      operationId: model_publicity_models__model_name__publicity_post
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelPublicityIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/models/{model_name}/meta':
+    post:
+      summary: Model Meta Update
+      operationId: model_meta_update_models__model_name__meta_post
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelMetaIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/models/{model_name}':
+    get:
+      summary: Models Info
+      operationId: models_info_models__model_name__get
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+        - name: version
+          in: query
+          schema:
+            title: Version
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelInfoOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Model Delete
+      operationId: model_delete_models__model_name__delete
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+        - name: version
+          in: query
+          description: 'delete a particular version, pass ''ALL'' to wipe everything'
+          required: true
+          schema:
+            title: Version
+            type: string
+            description: 'delete a particular version, pass ''ALL'' to wipe everything'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /models/featured:
+    get:
+      summary: Models Featured
+      operationId: models_featured_models_featured_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Models Featured Models Featured Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelOut'
+  '/models/{model_name}/schema/{variantKey}':
+    get:
+      summary: Model Schema
+      operationId: model_schema_models__model_name__schema__variantKey__get
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+        - name: variantKey
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/SchemaVariantKey'
+        - name: version
+          in: query
+          schema:
+            title: Version
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaOut'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '423':
+          description: Locked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/inference/deploy/{deploy_id}':
+    post:
+      summary: Inference Deploy
+      operationId: inference_deploy_v1_inference_deploy__deploy_id__post
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/inference/{model_name}':
+    post:
+      summary: Inference Model
+      operationId: inference_model_v1_inference__model_name__post
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+        - name: version
+          in: query
+          description: model version to run inference against
+          schema:
+            title: Version
+            type: string
+            description: model version to run inference against
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '423':
+          description: Locked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/completions:
+    post:
+      summary: Openai Completions
+      operationId: openai_completions_v1_openai_completions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAICompletionsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/chat/completions:
+    post:
+      summary: Openai Chat Completions
+      operationId: openai_chat_completions_v1_openai_chat_completions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIChatCompletionsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/embeddings:
+    post:
+      summary: Openai Embeddings
+      operationId: openai_embeddings_v1_openai_embeddings_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIEmbeddingsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/models:
+    get:
+      summary: Openai Models
+      operationId: openai_models_v1_openai_models_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIModelsOut'
+      security:
+        - HTTPBearer: [ ]
+  /v1/feedback:
+    post:
+      summary: Submit Feedback
+      description: Submit feedback
+      operationId: submit_feedback_v1_feedback_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/audio/speech:
+    post:
+      summary: Openai Audio Speech
+      operationId: openai_audio_speech_v1_openai_audio_speech_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAITextToSpeechIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/logs/query:
+    get:
+      summary: Logs Query
+      description: "Query inference logs.\n* Without timestamps (from/to) returns last `limit` messages (in last month).\n* With `from` only, returns first `limit` messages after `from` (inclusive).\n* With `to` only, returns last `limit` messages before `to` (inclusive).\n* With both `from` and `to`, return the first `limit` messages after `from`, but not later than `to`.\n* `from` and `to` should be no more than a month apart."
+      operationId: logs_query_v1_logs_query_get
+      parameters:
+        - name: deploy_id
+          in: query
+          description: the deploy id to get the logs from
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+            description: the deploy id to get the logs from
+        - name: from
+          in: query
+          description: 'start of period, in fractional seconds since unix epoch (inclusive)'
+          schema:
+            title: From
+            type: string
+            description: 'start of period, in fractional seconds since unix epoch (inclusive)'
+        - name: to
+          in: query
+          description: 'end of period, in fractional seconds since unix epoch (exclusive)'
+          schema:
+            title: To
+            type: string
+            description: 'end of period, in fractional seconds since unix epoch (exclusive)'
+        - name: limit
+          in: query
+          description: 'how many items to return at most (default 100, in [1, 1000])'
+          schema:
+            title: Limit
+            type: integer
+            description: 'how many items to return at most (default 100, in [1, 1000])'
+            default: 100
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogQueryOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/deployment_logs/query:
+    get:
+      summary: Deployment Logs Query
+      description: "Query deployment logs.\n* Without timestamps (from/to) returns last `limit` messages (in last month).\n* With `from` only, returns first `limit` messages after `from` (inclusive).\n* With `to` only, returns last `limit` messages before `to` (inclusive).\n* With both `from` and `to`, return the first `limit` messages after `from`, but not later than `to`.\n* `from` and `to` should be no more than a month apart."
+      operationId: deployment_logs_query_v1_deployment_logs_query_get
+      parameters:
+        - name: deploy_id
+          in: query
+          description: the deploy id to get the logs from
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+            description: the deploy id to get the logs from
+        - name: pod_name
+          in: query
+          description: the pod name to get the logs from
+          schema:
+            title: Pod Name
+            type: string
+            description: the pod name to get the logs from
+        - name: from
+          in: query
+          description: 'start of period, in fractional seconds since unix epoch (inclusive)'
+          schema:
+            title: From
+            type: string
+            description: 'start of period, in fractional seconds since unix epoch (inclusive)'
+        - name: to
+          in: query
+          description: 'end of period, in fractional seconds since unix epoch (exclusive)'
+          schema:
+            title: To
+            type: string
+            description: 'end of period, in fractional seconds since unix epoch (exclusive)'
+        - name: limit
+          in: query
+          description: 'how many items to return at most (default 100, in [1, 1000])'
+          schema:
+            title: Limit
+            type: integer
+            description: 'how many items to return at most (default 100, in [1, 1000])'
+            default: 100
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentLogQueryOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /github/login:
+    get:
+      summary: Github Login
+      description: Initiate github SSO login flow. Callback is /github/callback
+      operationId: github_login_github_login_get
+      parameters:
+        - name: login_id
+          in: query
+          schema:
+            title: Login Id
+            type: string
+        - name: origin
+          in: query
+          schema:
+            title: Origin
+            type: string
+        - name: deal
+          in: query
+          schema:
+            title: Deal
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /github/cli/login:
+    get:
+      summary: Github Cli Login
+      description: "deepctl is calling this request waiting for auth token during login.\nThe token is stored in /github/callback"
+      operationId: github_cli_login_github_cli_login_get
+      parameters:
+        - name: login_id
+          in: query
+          required: true
+          schema:
+            title: Login Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/api-tokens:
+    get:
+      summary: Get Api Tokens
+      operationId: get_api_tokens_v1_api_tokens_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Api Tokens V1 Api Tokens Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiToken'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Create Api Token
+      operationId: create_api_token_v1_api_tokens_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiTokenIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiToken'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/api-tokens/{api_token}':
+    get:
+      summary: Get Api Token
+      operationId: get_api_token_v1_api_tokens__api_token__get
+      parameters:
+        - name: api_token
+          in: path
+          required: true
+          schema:
+            title: Api Token
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiToken'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Delete Api Token
+      operationId: delete_api_token_v1_api_tokens__api_token__delete
+      parameters:
+        - name: api_token
+          in: path
+          required: true
+          schema:
+            title: Api Token
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /payment/checklist:
+    get:
+      summary: Get Checklist
+      operationId: get_checklist_payment_checklist_get
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checklist'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /payment/config:
+    get:
+      summary: Get Config
+      operationId: get_config_payment_config_get
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Set Config
+      operationId: set_config_payment_config_post
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /payment/billing-portal:
+    get:
+      summary: Billing Portal
+      description: "Redirect to the stripe billing portal page, where the user can manage\ntheir email and payment methods"
+      operationId: billing_portal_payment_billing_portal_get
+      parameters:
+        - name: return_url
+          in: query
+          schema:
+            title: Return Url
+            type: string
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillingPortalOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /payment/usage:
+    get:
+      summary: Usage
+      operationId: usage_payment_usage_get
+      parameters:
+        - name: from
+          in: query
+          description: 'start of period, YYYY.MM or current(-N) format'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period, YYYY.MM or current(-N) format'
+        - name: to
+          in: query
+          description: 'end of period (if missing a single month marked by from is return), same format as from'
+          schema:
+            title: To
+            type: string
+            description: 'end of period (if missing a single month marked by from is return), same format as from'
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /payment/deepstart/application:
+    post:
+      summary: Deepstart Apply
+      operationId: deepstart_apply_payment_deepstart_application_post
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeepStartApplicationIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepStartApplicationOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+components:
+  schemas:
+    BillingPortalOut:
+      title: BillingPortalOut
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+    Checklist:
+      title: Checklist
+      required:
+        - stripe_balance
+      type: object
+      properties:
+        email:
+          title: Email
+          type: boolean
+          default: false
+        billing_address:
+          title: Billing Address
+          type: boolean
+          default: false
+        payment_method:
+          title: Payment Method
+          type: boolean
+          default: false
+        suspended:
+          title: Suspended
+          type: boolean
+          default: false
+        overdue_invoices:
+          title: Overdue Invoices
+          type: number
+          default: 0
+        last_checked:
+          title: Last Checked
+          type: integer
+          default: 0
+        stripe_balance:
+          title: Stripe Balance
+          type: number
+          description: Negative value indicates funds ready-to-spend. Positive value indicates money owed
+        limit:
+          title: Limit
+          type: number
+        suspend_reason:
+          $ref: '#/components/schemas/SuspendReason'
+    ConfigIn:
+      title: ConfigIn
+      type: object
+      properties:
+        limit:
+          title: Limit
+          type: number
+          description: Set usage limit (in USD). Negative means no limit.null/not-set means don't change it
+    ConfigOut:
+      title: ConfigOut
+      required:
+        - limit
+      type: object
+      properties:
+        limit:
+          title: Limit
+          type: number
+          description: Spending limit (in USD). Negative means no limit
+    DeepStartApplicationIn:
+      title: DeepStartApplicationIn
+      required:
+        - company
+        - ceo
+        - funding
+        - founded_on
+        - website
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        uid:
+          title: Uid
+          type: string
+        company:
+          title: Company
+          type: string
+        ceo:
+          title: Ceo
+          type: string
+        funding:
+          title: Funding
+          type: string
+        founded_on:
+          title: Founded On
+          type: string
+        website:
+          title: Website
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+        status:
+          title: Status
+          type: string
+          default: pending
+        deal:
+          title: Deal
+          type: string
+    DeepStartApplicationOut:
+      title: DeepStartApplicationOut
+      required:
+        - company
+        - ceo
+        - funding
+        - founded_on
+        - website
+        - email
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        uid:
+          title: Uid
+          type: string
+        company:
+          title: Company
+          type: string
+        ceo:
+          title: Ceo
+          type: string
+        funding:
+          title: Funding
+          type: string
+        founded_on:
+          title: Founded On
+          type: string
+        website:
+          title: Website
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+        status:
+          title: Status
+          type: string
+          default: pending
+        deal:
+          title: Deal
+          type: string
+        email:
+          title: Email
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ModelMeta:
+      title: ModelMeta
+      required:
+        - provider
+        - model_name
+        - task
+      type: object
+      properties:
+        provider:
+          title: Provider
+          type: string
+        model_name:
+          title: Model Name
+          type: string
+        task:
+          title: Task
+          type: string
+        plan_id:
+          title: Plan Id
+          type: string
+    SuspendReason:
+      title: SuspendReason
+      enum:
+        - payment-method
+        - overdue-invoices
+        - limit-reached
+        - admin
+      type: string
+      description: An enumeration.
+    TimeInterval:
+      title: TimeInterval
+      type: object
+      properties:
+        fr:
+          title: Fr
+          type: integer
+          default: 0
+        to:
+          title: To
+          type: integer
+          default: '4000000000000'
+      description: 'Inclusive, in ms'
+    UsageItem:
+      title: UsageItem
+      required:
+        - model
+        - units
+        - rate
+        - cost
+        - pricing_type
+        - interval
+      type: object
+      properties:
+        model:
+          $ref: '#/components/schemas/ModelMeta'
+        units:
+          title: Units
+          type: integer
+          description: billed seconds or tokens
+        rate:
+          title: Rate
+          type: number
+          description: rate in cents/sec or cents per token
+        cost:
+          title: Cost
+          type: integer
+          description: model cost in cents
+        pricing_type:
+          title: Pricing Type
+          type: string
+          description: pricing type
+        interval:
+          title: Interval
+          allOf:
+            - $ref: '#/components/schemas/TimeInterval'
+          description: time interval with this particular pricing
+    UsageMonth:
+      title: UsageMonth
+      required:
+        - period
+        - interval
+        - items
+        - total_cost
+      type: object
+      properties:
+        period:
+          title: Period
+          type: string
+          description: YYYY.MM formatted period
+        interval:
+          title: Interval
+          allOf:
+            - $ref: '#/components/schemas/TimeInterval'
+          description: time interval in this period
+        items:
+          title: Items
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageItem'
+        total_cost:
+          title: Total Cost
+          type: integer
+          description: total cost for all items in cents
+        invoice_id:
+          title: Invoice Id
+          type: string
+          description: 'Stripe Invoice ID, or EMPTY|NOT_FINAL'
+          default: NOT_FINAL
+    UsageOut:
+      title: UsageOut
+      required:
+        - months
+        - initial_month
+      type: object
+      properties:
+        months:
+          title: Months
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageMonth'
+        initial_month:
+          title: Initial Month
+          type: string
+          description: The first month for this account
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+    ApiToken:
+      title: ApiToken
+      required:
+        - token
+        - created_at
+        - name
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+          description: creation unix timestamp
+        name:
+          title: Name
+          type: string
+    ApiTokenIn:
+      title: ApiTokenIn
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+    ChatCompletionAssistantMessage:
+      title: ChatCompletionAssistantMessage
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - assistant
+          type: string
+          description: the role of the author of this message
+          default: assistant
+        content:
+          title: Content
+          type: string
+          description: the message content
+        name:
+          title: Name
+          type: string
+        tool_calls:
+          title: Tool Calls
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatCompletionMessageToolCall'
+          description: the tool calls generated by the mode
+    ChatCompletionContentPartImage:
+      title: ChatCompletionContentPartImage
+      required:
+        - type
+        - image_url
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - image_url
+          type: string
+        image_url:
+          $ref: '#/components/schemas/ImageURL'
+    ChatCompletionContentPartText:
+      title: ChatCompletionContentPartText
+      required:
+        - type
+        - text
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - text
+          type: string
+        text:
+          title: Text
+          type: string
+    ChatCompletionMessageToolCall:
+      title: ChatCompletionMessageToolCall
+      required:
+        - id
+        - type
+        - function
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: the id of the tool call
+        type:
+          title: Type
+          type: string
+          description: the type of the tool call. only function is supported currently
+        function:
+          title: Function
+          allOf:
+            - $ref: '#/components/schemas/Function'
+          description: the function that the model called
+    ChatCompletionSystemMessage:
+      title: ChatCompletionSystemMessage
+      required:
+        - content
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - system
+          type: string
+          description: the role of the author of this message
+          default: system
+        content:
+          title: Content
+          type: string
+          description: the message content
+        name:
+          title: Name
+          type: string
+    ChatCompletionToolMessage:
+      title: ChatCompletionToolMessage
+      required:
+        - content
+        - tool_call_id
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - tool
+          type: string
+          description: the role of the author of this message
+          default: tool
+        content:
+          title: Content
+          type: string
+          description: the message content
+        tool_call_id:
+          title: Tool Call Id
+          type: string
+    ChatCompletionUserMessage:
+      title: ChatCompletionUserMessage
+      required:
+        - content
+      type: object
+      properties:
+        role:
+          title: Role
+          enum:
+            - user
+          type: string
+          description: the role of the author of this message
+          default: user
+        content:
+          title: Content
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/ChatCompletionContentPartText'
+                  - $ref: '#/components/schemas/ChatCompletionContentPartImage'
+          description: the message content
+        name:
+          title: Name
+          type: string
+    ChatTools:
+      title: ChatTools
+      required:
+        - function
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+          default: function
+        function:
+          $ref: '#/components/schemas/FunctionDefinition'
+    DeepError:
+      title: DeepError
+      required:
+        - error
+      type: object
+      properties:
+        error:
+          title: Error
+          type: string
+          description: Error
+          example: Model not found
+    DeployDelete:
+      title: DeployDelete
+      required:
+        - deploy_id
+      type: object
+      properties:
+        deploy_id:
+          title: Deploy Id
+          type: string
+          description: Deploy Id
+          example: fkj843kjh8
+    DeployGPUAvailability:
+      title: DeployGPUAvailability
+      required:
+        - gpus
+      type: object
+      properties:
+        gpus:
+          title: Gpus
+          type: array
+          items:
+            $ref: '#/components/schemas/GPUAvailabilityInfo'
+          description: 'A list of all provided GPUs configurations, including their price and wether they are available'
+    DeployGPUs:
+      title: DeployGPUs
+      enum:
+        - A100-80GB
+        - H100-80GB
+      type: string
+      description: An enumeration.
+    DeployInstances:
+      title: DeployInstances
+      required:
+        - running
+        - pending
+      type: object
+      properties:
+        running:
+          title: Running
+          type: integer
+        pending:
+          title: Pending
+          type: integer
+    DeployLLMConfig:
+      title: DeployLLMConfig
+      required:
+        - gpu
+        - num_gpus
+        - max_batch_size
+        - weights
+      type: object
+      properties:
+        gpu:
+          allOf:
+            - $ref: '#/components/schemas/DeployGPUs'
+          description: The type of GPU the deployment is running on
+        num_gpus:
+          title: Num Gpus
+          type: integer
+          description: Number of GPUs used by one instance
+        max_batch_size:
+          title: Max Batch Size
+          type: integer
+          description: Maximum number of concurrent requests
+        weights:
+          title: Weights
+          allOf:
+            - $ref: '#/components/schemas/HFWeights'
+          description: Model weights information
+    DeployLLMIn:
+      title: DeployLLMIn
+      required:
+        - model_name
+        - gpu
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+          description: model name for deepinfra (username/mode-name format)
+        gpu:
+          allOf:
+            - $ref: '#/components/schemas/DeployGPUs'
+          description: The GPU you want to run on
+        num_gpus:
+          title: Num Gpus
+          maximum: 8.0
+          minimum: 1.0
+          type: integer
+          description: Number of GPUs you want for this model
+          default: 1
+        max_batch_size:
+          title: Max Batch Size
+          maximum: 256.0
+          minimum: 1.0
+          type: integer
+          description: Maximum number of concurrent requests
+          default: 96
+        hf:
+          $ref: '#/components/schemas/HFWeights'
+        settings:
+          $ref: '#/components/schemas/ScaleSettings'
+    DeployLLMUpdateIn:
+      title: DeployLLMUpdateIn
+      required:
+        - settings
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/ScaleSettings'
+    DeployModelIn:
+      title: DeployModelIn
+      required:
+        - model_name
+      type: object
+      properties:
+        provider:
+          allOf:
+            - $ref: '#/components/schemas/ModelProvider'
+          description: namespace for the model name
+          default: cnt
+        model_name:
+          title: Model Name
+          type: string
+          description: model name in specified provider
+        version:
+          title: Version
+          type: string
+          description: 'A specific revision, if left empty uses the last one'
+    DeployResult:
+      title: DeployResult
+      required:
+        - deploy_id
+      type: object
+      properties:
+        deploy_id:
+          title: Deploy Id
+          type: string
+          description: Deploy Id
+          example: fkj843kjh8
+    DeployStatusOut:
+      title: DeployStatusOut
+      required:
+        - deploy_id
+      type: object
+      properties:
+        deploy_id:
+          title: Deploy Id
+          type: string
+          description: Deploy Id
+          example: fkj843kjh8
+    DeployType:
+      title: DeployType
+      enum:
+        - legacy
+        - llm
+      type: string
+      description: An enumeration.
+    DeploymentLogEntry:
+      title: DeploymentLogEntry
+      required:
+        - ts
+        - line
+      type: object
+      properties:
+        ts:
+          title: Ts
+          type: string
+        line:
+          title: Line
+          type: string
+    DeploymentLogQueryOut:
+      title: DeploymentLogQueryOut
+      type: object
+      properties:
+        entries:
+          title: Entries
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              maxItems: 2
+              minItems: 2
+              type: array
+              items:
+                title: type
+          description: mapping of pod names to log lines ordered by increasing timestamp
+    DeploymentOut:
+      title: DeploymentOut
+      required:
+        - deploy_id
+        - model_name
+        - version
+        - task
+        - status
+        - fail_reason
+        - created_at
+        - updated_at
+      type: object
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/DeployType'
+          default: legacy
+        deploy_id:
+          title: Deploy Id
+          type: string
+          description: Deploy Id
+          example: fkj843kjh8
+        model_name:
+          title: Model Name
+          type: string
+          description: Model Id from huggingface
+          example: google/vit-base-patch16-224
+        version:
+          title: Version
+          type: string
+          description: Model version
+          example: d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b
+        task:
+          title: Task
+          type: string
+          description: Task
+          example: image-classification
+        status:
+          title: Status
+          type: string
+          description: Status
+          example: deployed
+        fail_reason:
+          title: Fail Reason
+          type: string
+          description: Failure reason
+          example: Initialization failed
+        created_at:
+          title: Created At
+          type: string
+          description: Created at
+          format: date-time
+          example: '2021-08-27T17:19:21.0000000+00:00'
+        updated_at:
+          title: Updated At
+          type: string
+          description: Updated at
+          format: date-time
+          example: '2021-08-27T17:19:21.0000000+00:00'
+        instances:
+          title: Instances
+          allOf:
+            - $ref: '#/components/schemas/DeployInstances'
+          description: Details about number of instances running right now
+        config:
+          title: Config
+          allOf:
+            - $ref: '#/components/schemas/DeployLLMConfig'
+          description: Immutable deploy configuration
+        settings:
+          title: Settings
+          allOf:
+            - $ref: '#/components/schemas/ScaleSettings'
+          description: Scale Settings
+    DeploymentStatsOut:
+      title: DeploymentStatsOut
+      required:
+        - requests
+        - total_time
+        - total_tokens
+        - input_tokens
+        - output_tokens
+        - total_amount
+        - avg_time
+        - avg95_time
+        - errors
+      type: object
+      properties:
+        requests:
+          title: Requests
+          type: integer
+          description: number of inference requests in the provided interval
+        total_time:
+          title: Total Time
+          type: integer
+          description: total number of seconds spend in inference
+        total_tokens:
+          title: Total Tokens
+          type: integer
+          description: total number of tokens generated
+        input_tokens:
+          title: Input Tokens
+          type: integer
+          description: number of input tokens generated
+        output_tokens:
+          title: Output Tokens
+          type: integer
+          description: number of output tokens generated
+        total_amount:
+          title: Total Amount
+          type: integer
+          description: total number of cents spent
+        avg_time:
+          title: Avg Time
+          type: number
+          description: average millisecond inference time
+        avg95_time:
+          title: Avg95 Time
+          type: number
+          description: 95th percentile inference time (estimated)
+        errors:
+          title: Errors
+          type: integer
+          description: number of errors
+    DetailedDeploymentStatsOut:
+      title: DetailedDeploymentStatsOut
+      type: object
+      properties:
+        llm:
+          title: Llm
+          allOf:
+            - $ref: '#/components/schemas/LLMDeploymentStatsOut'
+          description: LLM Deployment Stats
+        embeddings:
+          title: Embeddings
+          allOf:
+            - $ref: '#/components/schemas/EmbeddingsDeploymentStatsOut'
+          description: Embeddings Deployment Stats
+        time:
+          title: Time
+          allOf:
+            - $ref: '#/components/schemas/TimeDeploymentStatsOut'
+          description: Time based Deployment Stats
+    EmailsOut:
+      title: EmailsOut
+      required:
+        - emails
+      type: object
+      properties:
+        emails:
+          title: Emails
+          type: array
+          items:
+            type: string
+          description: List of emails verified by theauthenticaiton provider
+    EmbeddingsDeploymentStatsOut:
+      title: EmbeddingsDeploymentStatsOut
+      required:
+        - requests
+        - input_tokens
+        - avg_tpt_ms
+        - avg95_tpt_ms
+        - total_amount_cents
+        - errors
+      type: object
+      properties:
+        requests:
+          title: Requests
+          type: integer
+          description: number of inference requests in the provided interval
+        input_tokens:
+          title: Input Tokens
+          type: integer
+          description: number of input tokens generated
+        avg_tpt_ms:
+          title: Avg Tpt Ms
+          type: number
+          description: average millisecond time per token
+        avg95_tpt_ms:
+          title: Avg95 Tpt Ms
+          type: number
+          description: 95th percentile time per token (estimated)
+        total_amount_cents:
+          title: Total Amount Cents
+          type: integer
+          description: total number of cents spent
+        errors:
+          title: Errors
+          type: integer
+          description: number of errors
+    FeedbackIn:
+      title: FeedbackIn
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+          description: The message you'd like to send to deepinfra team
+        contact_email:
+          title: Contact Email
+          type: string
+          description: Optional contact email to reach you back
+          format: email
+    Function:
+      title: Function
+      required:
+        - name
+        - arguments
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: the name of the function to call
+        arguments:
+          title: Arguments
+          type: string
+          description: 'the function arguments, generated by the model in JSON format. the model does not always generate valid JSON, and may hallucinate parameters not defined by your function schema'
+    FunctionDefinition:
+      title: FunctionDefinition
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        parameters:
+          title: Parameters
+    GPUAvailabilityInfo:
+      title: GPUAvailabilityInfo
+      required:
+        - gpu_config
+        - usd_per_hour
+        - available
+      type: object
+      properties:
+        gpu_config:
+          title: Gpu Config
+          type: string
+        usd_per_hour:
+          title: Usd Per Hour
+          type: number
+        available:
+          title: Available
+          type: boolean
+    HFModel:
+      title: HFModel
+      required:
+        - model_name
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+          description: Model Id from huggingface
+          example: google/vit-base-patch16-224
+        task:
+          title: Task
+          type: string
+          description: Task
+          example: image-classification
+    HFTasksE:
+      title: HFTasksE
+      enum:
+        - automatic-speech-recognition
+        - image-classification
+        - question-answering
+        - token-classification
+        - text-to-image
+        - fill-mask
+        - zero-shot-image-classification
+        - text2text-generation
+        - text-generation
+        - text-classification
+        - object-detection
+        - embeddings
+        - dreambooth
+        - custom
+        - text-to-speech
+      type: string
+      description: An enumeration.
+    HFWeights:
+      title: HFWeights
+      required:
+        - repo
+      type: object
+      properties:
+        repo:
+          title: Repo
+          type: string
+          description: huggingface repository i.e username/reponame
+        revision:
+          title: Revision
+          type: string
+          description: commit sha or branch name
+        token:
+          title: Token
+          type: string
+          description: huggingface access token with read access to the repo
+    ImageURL:
+      title: ImageURL
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        detail:
+          title: Detail
+          enum:
+            - auto
+            - low
+            - high
+          type: string
+          default: auto
+    LLMDeploymentStatsOut:
+      title: LLMDeploymentStatsOut
+      required:
+        - requests
+        - input_tokens
+        - output_tokens
+        - avg_ttft_ms
+        - avg95_ttft_ms
+        - avg_tpt_ms
+        - avg95_tpt_ms
+        - total_amount_cents
+        - errors
+      type: object
+      properties:
+        requests:
+          title: Requests
+          type: integer
+          description: number of inference requests in the provided interval
+        input_tokens:
+          title: Input Tokens
+          type: integer
+          description: number of input tokens generated
+        output_tokens:
+          title: Output Tokens
+          type: integer
+          description: number of output tokens generated
+        avg_ttft_ms:
+          title: Avg Ttft Ms
+          type: number
+          description: average millisecond time to first token
+        avg95_ttft_ms:
+          title: Avg95 Ttft Ms
+          type: number
+          description: 95th percentile time to first token (estimated)
+        avg_tpt_ms:
+          title: Avg Tpt Ms
+          type: number
+          description: average millisecond time per token
+        avg95_tpt_ms:
+          title: Avg95 Tpt Ms
+          type: number
+          description: 95th percentile time per token (estimated)
+        total_amount_cents:
+          title: Total Amount Cents
+          type: integer
+          description: total number of cents spent
+        errors:
+          title: Errors
+          type: integer
+          description: number of errors
+    LogEntry:
+      title: LogEntry
+      required:
+        - ts
+        - line
+      type: object
+      properties:
+        ts:
+          title: Ts
+          type: string
+        line:
+          title: Line
+          type: string
+    LogQueryOut:
+      title: LogQueryOut
+      type: object
+      properties:
+        entries:
+          title: Entries
+          type: array
+          items:
+            maxItems: 2
+            minItems: 2
+            type: array
+            items:
+              title: type
+          description: list of log lines ordered by increasing timestamp
+    Me:
+      title: Me
+      required:
+        - uid
+        - display_name
+        - provider
+        - is_admin
+        - name
+        - is_business_account
+        - company
+        - website
+      type: object
+      properties:
+        uid:
+          title: Uid
+          type: string
+        email:
+          title: Email
+          type: string
+        display_name:
+          title: Display Name
+          type: string
+          description: Name that is used to identifythe account on the website
+        provider:
+          title: Provider
+          type: string
+          description: 'Authentication provider, e.g. ''github'''
+        picture:
+          title: Picture
+          type: string
+        is_admin:
+          title: Is Admin
+          type: boolean
+        name:
+          title: Name
+          type: string
+          description: Personal name
+        is_business_account:
+          title: Is Business Account
+          type: boolean
+        company:
+          title: Company
+          type: string
+          description: Company name
+        website:
+          title: Website
+          type: string
+          description: Company website address
+    MeIn:
+      title: MeIn
+      type: object
+      properties:
+        name:
+          title: Name
+          minLength: 1
+          type: string
+          description: Personal name
+        email:
+          title: Email
+          minLength: 1
+          type: string
+        is_business_account:
+          title: Is Business Account
+          type: boolean
+        company:
+          title: Company
+          minLength: 1
+          type: string
+          description: Company name
+        website:
+          title: Website
+          minLength: 1
+          type: string
+          description: Company website address
+    ModelDocBlock:
+      title: ModelDocBlock
+      required:
+        - key
+        - url
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/ModelDocBlockKey'
+        url:
+          title: Url
+          type: string
+    ModelDocBlockKey:
+      title: ModelDocBlockKey
+      enum:
+        - http
+        - deepctl
+        - js-text-gen
+        - js-emb
+        - js-text-to-img
+        - js-speech-to-text
+        - openai-python
+        - openai-http
+        - openai-js
+        - openai-comp-python
+        - openai-comp-http
+        - openai-comp-js
+        - openai-emb-py
+        - openai-emb-http
+        - openai-emb-js
+      type: string
+      description: An enumeration.
+    ModelFieldInfo:
+      title: ModelFieldInfo
+      required:
+        - name
+        - ftype
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        parent:
+          title: Parent
+          type: string
+        ftype:
+          title: Ftype
+          type: string
+        description:
+          title: Description
+          type: string
+        allowed:
+          title: Allowed
+          type: array
+          items: { }
+        default:
+          title: Default
+        examples:
+          title: Examples
+          type: array
+          items: { }
+        minimum:
+          title: Minimum
+          type: number
+        exclusiveMinimum:
+          title: Exclusiveminimum
+          type: number
+        maximum:
+          title: Maximum
+          type: number
+        exclusiveMaximum:
+          title: Exclusivemaximum
+          type: number
+    ModelInfoOut:
+      title: ModelInfoOut
+      required:
+        - model_name
+        - type
+        - tags
+        - reported_type
+        - version
+        - featured
+        - public
+        - curl_inv
+        - cmdline_inv
+        - txt_docs
+        - out_example
+        - out_docs
+        - pricing
+        - schemas
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+        type:
+          title: Type
+          type: string
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+        reported_type:
+          title: Reported Type
+          type: string
+        version:
+          title: Version
+          type: string
+        description:
+          title: Description
+          type: string
+        featured:
+          title: Featured
+          type: boolean
+        owner:
+          title: Owner
+          type: boolean
+          default: false
+        public:
+          title: Public
+          type: boolean
+        curl_inv:
+          title: Curl Inv
+          type: string
+        cmdline_inv:
+          title: Cmdline Inv
+          type: string
+        txt_docs:
+          title: Txt Docs
+          type: string
+        out_example:
+          title: Out Example
+          type: string
+        out_docs:
+          title: Out Docs
+          type: string
+        mask_token:
+          title: Mask Token
+          type: string
+        in_schema:
+          title: In Schema
+        out_schema:
+          title: Out Schema
+        in_fields:
+          title: In Fields
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelFieldInfo'
+        pricing:
+          title: Pricing
+          anyOf:
+            - $ref: '#/components/schemas/ModelPricingTime'
+            - $ref: '#/components/schemas/ModelPricingUptime'
+            - $ref: '#/components/schemas/ModelPricingTokens'
+            - $ref: '#/components/schemas/ModelPricingInputLength'
+            - $ref: '#/components/schemas/ModelPricingInputTokens'
+            - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
+        doc_blocks:
+          title: Doc Blocks
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelDocBlock'
+        schemas:
+          title: Schemas
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaVariant'
+        meta:
+          title: Meta
+          type: object
+        max_tokens:
+          title: Max Tokens
+          type: integer
+        replaced_by:
+          title: Replaced By
+          type: string
+        deprecated:
+          title: Deprecated
+          type: integer
+        quantization:
+          title: Quantization
+          type: string
+        expected:
+          title: Expected
+          type: string
+          format: date
+    ModelMetaIn:
+      title: ModelMetaIn
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+          description: short model description in plain text
+        github_url:
+          title: Github Url
+          type: string
+          description: source code project link (empty to delete)
+        paper_url:
+          title: Paper Url
+          type: string
+          description: paper/research link (empty to delete)
+        license_url:
+          title: License Url
+          type: string
+          description: usage license link (empty to delete)
+        readme:
+          title: Readme
+          type: string
+          description: markdown flavored model readme
+        cover_img_url:
+          title: Cover Img Url
+          type: string
+          description: dataurl or regular url to cover image (empty to delete)
+        reported_type:
+          allOf:
+            - $ref: '#/components/schemas/HFTasksE'
+          description: model type
+      additionalProperties: false
+    ModelOut:
+      title: ModelOut
+      required:
+        - model_name
+        - type
+        - reported_type
+        - pricing
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+          description: Model Name
+          example: microsoft/resnet-50
+        type:
+          title: Type
+          type: string
+          description: raw type of the model
+          example: image-classification
+        reported_type:
+          title: Reported Type
+          type: string
+          description: reported type of the model
+          example: text-generation
+        description:
+          title: Description
+          type: string
+          description: description of the model
+          default: ''
+          example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
+        cover_img_url:
+          title: Cover Img Url
+          type: string
+          description: cover image link
+          default: ''
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
+          description: list of tags
+        pricing:
+          title: Pricing
+          anyOf:
+            - $ref: '#/components/schemas/ModelPricingTime'
+            - $ref: '#/components/schemas/ModelPricingTokens'
+            - $ref: '#/components/schemas/ModelPricingInputLength'
+            - $ref: '#/components/schemas/ModelPricingInputTokens'
+            - $ref: '#/components/schemas/ModelPricingUptime'
+            - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
+          description: The pricing type and cost for this model
+        max_tokens:
+          title: Max Tokens
+          type: integer
+          description: 'The maximum context size of this model, if applicable'
+        replaced_by:
+          title: Replaced By
+          type: string
+        deprecated:
+          title: Deprecated
+          type: integer
+        quantization:
+          title: Quantization
+          type: string
+        expected:
+          title: Expected
+          type: string
+          format: date
+    ModelPricingInputCharacterLength:
+      title: ModelPricingInputCharacterLength
+      required:
+        - cents_per_input_chars
+      type: object
+      properties:
+        cents_per_input_chars:
+          title: Cents Per Input Chars
+          type: number
+        type:
+          title: Type
+          type: string
+          default: input_character_length
+    ModelPricingInputLength:
+      title: ModelPricingInputLength
+      required:
+        - cents_per_input_sec
+      type: object
+      properties:
+        cents_per_input_sec:
+          title: Cents Per Input Sec
+          type: number
+        type:
+          title: Type
+          type: string
+          default: input_length
+    ModelPricingInputTokens:
+      title: ModelPricingInputTokens
+      required:
+        - cents_per_input_token
+      type: object
+      properties:
+        cents_per_input_token:
+          title: Cents Per Input Token
+          type: number
+        type:
+          title: Type
+          type: string
+          default: input_tokens
+    ModelPricingTime:
+      title: ModelPricingTime
+      required:
+        - cents_per_sec
+      type: object
+      properties:
+        cents_per_sec:
+          title: Cents Per Sec
+          type: number
+        type:
+          title: Type
+          type: string
+          default: time
+    ModelPricingTokens:
+      title: ModelPricingTokens
+      required:
+        - cents_per_input_token
+        - cents_per_output_token
+      type: object
+      properties:
+        cents_per_input_token:
+          title: Cents Per Input Token
+          type: number
+        cents_per_output_token:
+          title: Cents Per Output Token
+          type: number
+        type:
+          title: Type
+          type: string
+          default: tokens
+    ModelPricingUptime:
+      title: ModelPricingUptime
+      required:
+        - cents_per_sec
+      type: object
+      properties:
+        cents_per_sec:
+          title: Cents Per Sec
+          type: number
+        type:
+          title: Type
+          type: string
+          default: uptime
+    ModelProvider:
+      title: ModelProvider
+      enum:
+        - huggingface
+        - deepinfra
+        - cnt
+      type: string
+      description: An enumeration.
+    ModelPublicityIn:
+      title: ModelPublicityIn
+      required:
+        - public
+      type: object
+      properties:
+        public:
+          title: Public
+          type: boolean
+          description: whether to make the model public of private
+    ModelVersionOut:
+      title: ModelVersionOut
+      required:
+        - model_name
+        - version
+        - uploaded_at
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+          description: Model Name
+          example: microsoft/resnet-50
+        version:
+          title: Version
+          type: string
+          description: Version identifier
+          example: 06dbf5f73be4b5eca79e137e00c4825f467cd5b172c64b6c9255dc4b5a25a03a
+        uploaded_at:
+          title: Uploaded At
+          type: string
+          description: Upload time
+          format: date-time
+          example: '2023-01-19T21:52:03.6262410+00:00'
+    OpenAIChatCompletionsIn:
+      title: OpenAIChatCompletionsIn
+      required:
+        - model
+        - messages
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: model name
+          example: meta-llama/Llama-2-70b-chat-hf
+        messages:
+          title: Messages
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/ChatCompletionToolMessage'
+              - $ref: '#/components/schemas/ChatCompletionAssistantMessage'
+              - $ref: '#/components/schemas/ChatCompletionUserMessage'
+              - $ref: '#/components/schemas/ChatCompletionSystemMessage'
+          description: 'conversation messages: (user,assistant,tool)*,user including one system message anywhere'
+        stream:
+          title: Stream
+          type: boolean
+          description: whether to stream the output via SSE or return the full response
+          default: false
+        temperature:
+          title: Temperature
+          maximum: 2.0
+          minimum: 0.0
+          type: number
+          description: 'What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic'
+          default: 1
+        top_p:
+          title: Top P
+          maximum: 1.0
+          exclusiveMinimum: false
+          type: number
+          default: 1
+        max_tokens:
+          title: Max Tokens
+          maximum: 1000000.0
+          minimum: 0.0
+          type: integer
+          description: "The maximum number of tokens to generate in the chat completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length."
+          default: 512
+        stop:
+          title: Stop
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: up to 16 sequences where the API will stop generating further tokens
+        n:
+          title: N
+          maximum: 2.0
+          minimum: 1.0
+          type: integer
+          description: number of sequences to return. n != 1 incompatible with streaming
+          default: 1
+        presence_penalty:
+          title: Presence Penalty
+          maximum: 2.0
+          minimum: -2.0
+          type: number
+          description: 'Positive values penalize new tokens based on whether they appear in the text so far, increasing the model''s likelihood to talk about new topics.'
+          default: 0
+        frequency_penalty:
+          title: Frequency Penalty
+          maximum: 2.0
+          minimum: -2.0
+          type: number
+          description: 'Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model''s likelihood to talk about new topics.'
+          default: 0
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatTools'
+          description: 'A list of tools the model may call. Currently, only functions are supported as a tool.'
+        tool_choice:
+          title: Tool Choice
+          type: string
+          description: Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
+        response_format:
+          title: Response Format
+          allOf:
+            - $ref: '#/components/schemas/ResponseFormat'
+          description: 'The format of the response. Currently, only json is supported.'
+        repetition_penalty:
+          title: Repetition Penalty
+          type: number
+          description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
+          default: 1
+    OpenAICompletionsIn:
+      title: OpenAICompletionsIn
+      required:
+        - model
+        - prompt
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: model name
+          example: meta-llama/Llama-2-70b-chat-hf
+        prompt:
+          title: Prompt
+          type: string
+          description: input prompt - a single string is currently supported
+        max_tokens:
+          title: Max Tokens
+          maximum: 1000000.0
+          exclusiveMinimum: false
+          type: integer
+          description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length."
+          default: 512
+        temperature:
+          title: Temperature
+          maximum: 2.0
+          minimum: 0.0
+          type: number
+          description: 'What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic'
+          default: 1
+        top_p:
+          title: Top P
+          maximum: 1.0
+          exclusiveMinimum: false
+          type: number
+          default: 1
+        n:
+          title: N
+          maximum: 2.0
+          minimum: 1.0
+          type: integer
+          description: number of sequences to return. n != 1 incompatible with streaming
+          default: 1
+        stream:
+          title: Stream
+          type: boolean
+          description: whether to stream the output via SSE or return the full response
+          default: false
+        logprobs:
+          title: Logprobs
+          type: integer
+          description: return top tokens and their log-probabilities
+        echo:
+          title: Echo
+          type: boolean
+          description: return prompt as part of the respons
+        stop:
+          title: Stop
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: up to 16 sequences where the API will stop generating further tokens
+        presence_penalty:
+          title: Presence Penalty
+          maximum: 2.0
+          minimum: -2.0
+          type: number
+          description: 'Positive values penalize new tokens based on whether they appear in the text so far, increasing the model''s likelihood to talk about new topics.'
+          default: 0
+        frequency_penalty:
+          title: Frequency Penalty
+          maximum: 2.0
+          minimum: -2.0
+          type: number
+          description: 'Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model''s likelihood to talk about new topics.'
+          default: 0
+        response_format:
+          title: Response Format
+          allOf:
+            - $ref: '#/components/schemas/ResponseFormat'
+          description: 'The format of the response. Currently, only json is supported.'
+        repetition_penalty:
+          title: Repetition Penalty
+          type: number
+          description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
+          default: 1
+    OpenAIEmbeddingsIn:
+      title: OpenAIEmbeddingsIn
+      required:
+        - model
+        - input
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: model name
+          example: thenlper/gte-large
+        input:
+          title: Input
+          anyOf:
+            - maxItems: 1024
+              type: array
+              items:
+                type: string
+            - type: string
+          description: sequences to embed
+          example:
+            - I like chocolate
+        encoding_format:
+          title: Encoding Format
+          enum:
+            - float
+          type: string
+          description: format used when encoding
+          default: float
+    OpenAIModelOut:
+      title: OpenAIModelOut
+      required:
+        - id
+        - created
+        - owned_by
+        - root
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        object:
+          title: Object
+          type: string
+          default: model
+        created:
+          title: Created
+          type: integer
+        owned_by:
+          title: Owned By
+          type: string
+        root:
+          title: Root
+          type: string
+        parent:
+          title: Parent
+          type: 'null'
+    OpenAIModelsOut:
+      title: OpenAIModelsOut
+      type: object
+      properties:
+        object:
+          title: Object
+          type: string
+          default: list
+        data:
+          title: Data
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAIModelOut'
+    OpenAITextToSpeechIn:
+      title: OpenAITextToSpeechIn
+      required:
+        - model
+        - input
+      type: object
+      properties:
+        webhook:
+          title: Webhook
+          maxLength: 2083
+          minLength: 1
+          type: string
+          description: 'The webhook to call when inference is done, by default you will get the output in the response of your inference request'
+          format: uri
+        model:
+          title: Model
+          type: string
+          description: model name
+          example: deepinfra/tts
+        input:
+          title: Input
+          type: string
+          description: text to convert to speech
+          example: 'Hello, how are you?'
+        voice:
+          allOf:
+            - $ref: '#/components/schemas/TtsVoice'
+          description: Preset voices to use for the speech.
+          default: luna
+        response_format:
+          allOf:
+            - $ref: '#/components/schemas/TtsResponseFormat'
+          description: response format for the speech
+          default: wav
+        speed:
+          title: Speed
+          maximum: 4.0
+          minimum: 0.25
+          type: number
+          description: speed of the speech
+          default: 1
+    RateLimitOut:
+      title: RateLimitOut
+      required:
+        - rate_limit
+      type: object
+      properties:
+        rate_limit:
+          title: Rate Limit
+          type: integer
+          description: Per model rate limit
+    RateLimitRequestIn:
+      title: RateLimitRequestIn
+      required:
+        - rate_limit
+        - reason
+      type: object
+      properties:
+        rate_limit:
+          title: Rate Limit
+          type: integer
+        reason:
+          title: Reason
+          maxLength: 2048
+          type: string
+    ResponseFormat:
+      title: ResponseFormat
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - text
+            - json_object
+          type: string
+          description: 'Response type, such as JSON mode'
+          default: text
+          example: json_object
+    ScaleSettings:
+      title: ScaleSettings
+      type: object
+      properties:
+        min_instances:
+          title: Min Instances
+          maximum: 16.0
+          minimum: 1.0
+          type: integer
+          description: Minimum number of model instances to run
+          default: 1
+        max_instances:
+          title: Max Instances
+          maximum: 16.0
+          minimum: 1.0
+          type: integer
+          description: Maximum number of model instances to run
+          default: 1
+    SchemaFieldOut:
+      title: SchemaFieldOut
+      required:
+        - name
+        - ftype
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        parent:
+          title: Parent
+          type: string
+        ftype:
+          title: Ftype
+          type: string
+        description:
+          title: Description
+          type: string
+        allowed:
+          title: Allowed
+          type: array
+          items: { }
+        default:
+          title: Default
+        examples:
+          title: Examples
+          type: array
+          items: { }
+        minimum:
+          title: Minimum
+          type: number
+        exclusiveMinimum:
+          title: Exclusiveminimum
+          type: number
+        maximum:
+          title: Maximum
+          type: number
+        exclusiveMaximum:
+          title: Exclusivemaximum
+          type: number
+    SchemaOut:
+      title: SchemaOut
+      required:
+        - variant
+        - fields_in
+      type: object
+      properties:
+        variant:
+          $ref: '#/components/schemas/SchemaVariant'
+        schema_in:
+          title: Schema In
+          type: object
+        schema_out:
+          title: Schema Out
+          type: object
+        schema_stream:
+          title: Schema Stream
+          type: object
+        fields_in:
+          title: Fields In
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaFieldOut'
+    SchemaVariant:
+      title: SchemaVariant
+      required:
+        - key
+        - url
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/SchemaVariantKey'
+        url:
+          title: Url
+          type: string
+    SchemaVariantKey:
+      title: SchemaVariantKey
+      enum:
+        - default
+        - openai-completions
+        - openai-chat-completions
+        - openai-embeddings
+      type: string
+      description: An enumeration.
+    TimeDeploymentStatsOut:
+      title: TimeDeploymentStatsOut
+      required:
+        - requests
+        - total_time_s
+        - total_amount_cents
+        - avg_time_ms
+        - avg95_time_ms
+        - errors
+      type: object
+      properties:
+        requests:
+          title: Requests
+          type: integer
+          description: number of inference requests in the provided interval
+        total_time_s:
+          title: Total Time S
+          type: integer
+          description: total number of seconds spend in inference
+        total_amount_cents:
+          title: Total Amount Cents
+          type: integer
+          description: total number of cents spent
+        avg_time_ms:
+          title: Avg Time Ms
+          type: number
+          description: average millisecond inference time
+        avg95_time_ms:
+          title: Avg95 Time Ms
+          type: number
+          description: 95th percentile inference time (estimated)
+        errors:
+          title: Errors
+          type: integer
+          description: number of errors
+    TtsResponseFormat:
+      title: TtsResponseFormat
+      enum:
+        - wav
+      type: string
+      description: An enumeration.
+    TtsVoice:
+      title: TtsVoice
+      enum:
+        - luna
+        - aura
+        - quartz
+      type: string
+      description: An enumeration.
+  securitySchemes:
+    HTTPBearer:
+      type: http
+      scheme: bearer
