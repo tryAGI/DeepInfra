@@ -38,7 +38,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; } = TtsVoice.Luna;
+        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; } = "luna";
 
         /// <summary>
         /// response format for the speech<br/>
@@ -46,7 +46,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; } = TtsResponseFormat.Wav;
+        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; } = "wav";
 
         /// <summary>
         /// speed of the speech<br/>

@@ -18,7 +18,7 @@ namespace DeepInfra
         /// Default Value: 4000000000000
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to")]
-        public long To { get; set; } = 4000000000000;
+        public int To { get; set; } = "4000000000000";
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

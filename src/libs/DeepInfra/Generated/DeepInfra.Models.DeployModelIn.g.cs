@@ -16,7 +16,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ModelProvider?>? Provider { get; set; } = ModelProvider.Cnt;
+        public global::System.AllOf<global::DeepInfra.ModelProvider?>? Provider { get; set; } = "cnt";
 
         /// <summary>
         /// model name in specified provider
