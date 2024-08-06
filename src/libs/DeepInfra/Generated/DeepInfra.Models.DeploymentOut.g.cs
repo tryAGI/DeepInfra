@@ -15,7 +15,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployType?>? Type { get; set; } = DeployType.Legacy;
+        public global::System.AllOf<global::DeepInfra.DeployType?>? Type { get; set; } = "legacy";
 
         /// <summary>
         /// Deploy Id<br/>
