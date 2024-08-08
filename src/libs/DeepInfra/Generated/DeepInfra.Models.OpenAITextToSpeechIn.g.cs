@@ -33,20 +33,18 @@ namespace DeepInfra
         public required string Input { get; set; }
 
         /// <summary>
-        /// Preset voices to use for the speech.<br/>
-        /// Default Value: luna
+        /// Preset voices to use for the speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; } = "luna";
+        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; }
 
         /// <summary>
-        /// response format for the speech<br/>
-        /// Default Value: wav
+        /// response format for the speech
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; } = "wav";
+        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; }
 
         /// <summary>
         /// speed of the speech<br/>

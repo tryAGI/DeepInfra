@@ -129,6 +129,10 @@ namespace DeepInfra
         /// <param name="topP">
         /// Default Value: 1
         /// </param>
+        /// <param name="topK">
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </param>
         /// <param name="n">
         /// number of sequences to return. n != 1 incompatible with streaming<br/>
         /// Default Value: 1
@@ -171,6 +175,7 @@ namespace DeepInfra
             int maxTokens = 512,
             double temperature = 1,
             double topP = 1,
+            int topK = 0,
             int n = 1,
             bool stream = false,
             int logprobs = default,
@@ -189,6 +194,7 @@ namespace DeepInfra
                 MaxTokens = maxTokens,
                 Temperature = temperature,
                 TopP = topP,
+                TopK = topK,
                 N = n,
                 Stream = stream,
                 Logprobs = logprobs,

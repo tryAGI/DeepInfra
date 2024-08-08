@@ -1,28 +1,30 @@
 using Microsoft.OpenApi;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Readers;
 
 var path = args[0];
 var text = await File.ReadAllTextAsync(path);
 
-// text = text.Replace("description: *run_temperature_description", "description: empty");
-// text = text.Replace("description: &run_temperature_description ", "description: ");
-//
-// text = text.Replace("description: *run_top_p_description", "description: empty");
-// text = text.Replace("description: &run_top_p_description ", "description: ");
-
+text = text.Replace("\"exclusiveMaximum\":1000.0", "\"exclusiveMinimum\":false");
 text = text.Replace("\"exclusiveMinimum\": 0.0", "\"exclusiveMinimum\": false");
 text = text.Replace("\"exclusiveMinimum\":0.0", "\"exclusiveMinimum\":false");
 text = text.Replace("\"type\":\"String\"", "\"type\":\"string\"");
 
 var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
-// openApiDocument.Components.Schemas["ParallelToolCalls"]!.Default = null;
-// openApiDocument.Components.Schemas["ParallelToolCalls"]!.Nullable = true;
-//
-// openApiDocument.Components.Schemas["CreateEmbeddingRequest"]!.Properties["dimensions"].Nullable = true;
-//
-// openApiDocument.Components.Schemas["CreateChatCompletionResponse"]!.Properties["choices"].Items.Required.Remove("logprobs");
-//     
+
+openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Format = "int64";
+if (long.TryParse(
+    (openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Default as OpenApiString)?.Value ?? string.Empty,
+    out var to))
+{
+    openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Default = new OpenApiLong(to);
+}
+openApiDocument.Components.Schemas["DeploymentOut"]!.Properties["type"].Default = null;
+openApiDocument.Components.Schemas["DeployModelIn"]!.Properties["provider"].Default = null;
+openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["voice"].Default = null;
+openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["response_format"].Default = null;
+
 text = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
 _ = new OpenApiStringReader().Read(text, out diagnostics);
 

@@ -1853,7 +1853,8 @@ components:
         to:
           title: To
           type: integer
-          default: '4000000000000'
+          format: int64
+          default: 4000000000000
       description: 'Inclusive, in ms'
     UsageItem:
       title: UsageItem
@@ -2269,7 +2270,6 @@ components:
           allOf:
             - $ref: '#/components/schemas/ModelProvider'
           description: namespace for the model name
-          default: cnt
         model_name:
           title: Model Name
           type: string
@@ -2352,7 +2352,6 @@ components:
         type:
           allOf:
             - $ref: '#/components/schemas/DeployType'
-          default: legacy
         deploy_id:
           title: Deploy Id
           type: string
@@ -3262,6 +3261,13 @@ components:
           exclusiveMinimum: false
           type: number
           default: 1
+        top_k:
+          title: Top K
+          minimum: 0.0
+          exclusiveMinimum: false
+          type: integer
+          description: Sample from the best k (number of) tokens. 0 means off
+          default: 0
         max_tokens:
           title: Max Tokens
           maximum: 1000000.0
@@ -3354,6 +3360,13 @@ components:
           exclusiveMinimum: false
           type: number
           default: 1
+        top_k:
+          title: Top K
+          minimum: 0.0
+          exclusiveMinimum: false
+          type: integer
+          description: Sample from the best k (number of) tokens. 0 means off
+          default: 0
         n:
           title: N
           maximum: 2.0
@@ -3505,12 +3518,10 @@ components:
           allOf:
             - $ref: '#/components/schemas/TtsVoice'
           description: Preset voices to use for the speech.
-          default: luna
         response_format:
           allOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
           description: response format for the speech
-          default: wav
         speed:
           title: Speed
           maximum: 4.0

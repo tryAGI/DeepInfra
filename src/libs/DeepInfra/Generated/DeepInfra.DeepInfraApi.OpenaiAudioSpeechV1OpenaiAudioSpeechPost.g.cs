@@ -115,12 +115,10 @@ namespace DeepInfra
         /// Example: Hello, how are you?
         /// </param>
         /// <param name="voice">
-        /// Preset voices to use for the speech.<br/>
-        /// Default Value: luna
+        /// Preset voices to use for the speech.
         /// </param>
         /// <param name="responseFormat">
-        /// response format for the speech<br/>
-        /// Default Value: wav
+        /// response format for the speech
         /// </param>
         /// <param name="speed">
         /// speed of the speech<br/>

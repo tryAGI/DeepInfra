@@ -11,11 +11,11 @@ namespace DeepInfra
     public sealed partial class DeploymentOut
     {
         /// <summary>
-        /// Default Value: legacy
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployType?>? Type { get; set; } = "legacy";
+        public global::System.AllOf<global::DeepInfra.DeployType?>? Type { get; set; }
 
         /// <summary>
         /// Deploy Id<br/>

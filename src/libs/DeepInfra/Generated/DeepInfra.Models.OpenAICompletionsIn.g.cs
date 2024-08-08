@@ -47,6 +47,13 @@ namespace DeepInfra
         public double TopP { get; set; } = 1;
 
         /// <summary>
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_k")]
+        public int TopK { get; set; } = 0;
+
+        /// <summary>
         /// number of sequences to return. n != 1 incompatible with streaming<br/>
         /// Default Value: 1
         /// </summary>

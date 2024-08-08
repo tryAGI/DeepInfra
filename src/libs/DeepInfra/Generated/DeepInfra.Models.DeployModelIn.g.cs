@@ -11,12 +11,11 @@ namespace DeepInfra
     public sealed partial class DeployModelIn
     {
         /// <summary>
-        /// namespace for the model name<br/>
-        /// Default Value: cnt
+        /// namespace for the model name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ModelProvider?>? Provider { get; set; } = "cnt";
+        public global::System.AllOf<global::DeepInfra.ModelProvider?>? Provider { get; set; }
 
         /// <summary>
         /// model name in specified provider

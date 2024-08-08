@@ -46,6 +46,13 @@ namespace DeepInfra
         public double TopP { get; set; } = 1;
 
         /// <summary>
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_k")]
+        public int TopK { get; set; } = 0;
+
+        /// <summary>
         /// The maximum number of tokens to generate in the chat completion.<br/>
         /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
         /// Default Value: 512

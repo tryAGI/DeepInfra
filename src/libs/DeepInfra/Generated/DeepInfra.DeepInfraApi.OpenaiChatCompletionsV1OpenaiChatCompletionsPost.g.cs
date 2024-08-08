@@ -128,6 +128,10 @@ namespace DeepInfra
         /// <param name="topP">
         /// Default Value: 1
         /// </param>
+        /// <param name="topK">
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate in the chat completion.<br/>
         /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
@@ -171,6 +175,7 @@ namespace DeepInfra
             bool stream = false,
             double temperature = 1,
             double topP = 1,
+            int topK = 0,
             int maxTokens = 512,
             global::System.AnyOf<string?, global::System.Collections.Generic.IList<string?>?>? stop = default,
             int n = 1,
@@ -189,6 +194,7 @@ namespace DeepInfra
                 Stream = stream,
                 Temperature = temperature,
                 TopP = topP,
+                TopK = topK,
                 MaxTokens = maxTokens,
                 Stop = stop,
                 N = n,
