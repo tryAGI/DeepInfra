@@ -40,7 +40,7 @@ namespace DeepInfra
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Patch,
                 requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/me", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.MeIn),
