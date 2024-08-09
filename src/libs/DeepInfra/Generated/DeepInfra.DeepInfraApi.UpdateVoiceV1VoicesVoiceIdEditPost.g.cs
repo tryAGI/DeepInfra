@@ -5,45 +5,50 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareAccountUpdateDetailsV1MePatchArguments(
+        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::DeepInfra.MeIn request);
-        partial void PrepareAccountUpdateDetailsV1MePatchRequest(
+            ref string voiceId,
+            global::DeepInfra.UpdateVoiceIn request);
+        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::DeepInfra.MeIn request);
-        partial void ProcessAccountUpdateDetailsV1MePatchResponse(
+            string voiceId,
+            global::DeepInfra.UpdateVoiceIn request);
+        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessAccountUpdateDetailsV1MePatchResponseContent(
+        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Account Update Details
+        /// Update Voice
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> AccountUpdateDetailsV1MePatchAsync(
-            global::DeepInfra.MeIn request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+            string voiceId,
+            global::DeepInfra.UpdateVoiceIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareAccountUpdateDetailsV1MePatchArguments(
+            PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
                 httpClient: _httpClient,
+                voiceId: ref voiceId,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Patch,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/me", global::System.UriKind.RelativeOrAbsolute));
+                method: global::System.Net.Http.HttpMethod.Post,
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}/edit", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.MeIn),
+                content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.UpdateVoiceIn),
                 encoding: global::System.Text.Encoding.UTF8,
                 mediaType: "application/json");
             httpRequest.Content = __httpRequestContent;
@@ -51,9 +56,10 @@ namespace DeepInfra
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareAccountUpdateDetailsV1MePatchRequest(
+            PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                voiceId: voiceId,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -64,7 +70,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessAccountUpdateDetailsV1MePatchResponse(
+            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -74,7 +80,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessAccountUpdateDetailsV1MePatchResponseContent(
+            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -89,44 +95,32 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Voice) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// Account Update Details
+        /// Update Voice
         /// </summary>
-        /// <param name="name">
-        /// Personal name
-        /// </param>
-        /// <param name="email"></param>
-        /// <param name="isBusinessAccount"></param>
-        /// <param name="company">
-        /// Company name
-        /// </param>
-        /// <param name="website">
-        /// Company website address
-        /// </param>
+        /// <param name="voiceId"></param>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> AccountUpdateDetailsV1MePatchAsync(
-            string? name = default,
-            string? email = default,
-            bool isBusinessAccount = default,
-            string? company = default,
-            string? website = default,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+            string voiceId,
+            string name,
+            string description,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::DeepInfra.MeIn
+            var request = new global::DeepInfra.UpdateVoiceIn
             {
                 Name = name,
-                Email = email,
-                IsBusinessAccount = isBusinessAccount,
-                Company = company,
-                Website = website,
+                Description = description,
             };
 
-            return await AccountUpdateDetailsV1MePatchAsync(
+            return await UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+                voiceId: voiceId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

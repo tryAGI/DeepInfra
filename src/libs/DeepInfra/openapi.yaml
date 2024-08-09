@@ -1309,6 +1309,159 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/voices:
+    get:
+      summary: Get Voices
+      description: Get available voices for a given user
+      operationId: get_voices_v1_voices_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetVoicesOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/voices/{voice_id}':
+    get:
+      summary: Get Voice
+      description: Get a voice by its id
+      operationId: get_voice_v1_voices__voice_id__get
+      parameters:
+        - name: voice_id
+          in: path
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voice'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Delete Voice
+      operationId: delete_voice_v1_voices__voice_id__delete
+      parameters:
+        - name: voice_id
+          in: path
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/voices/add:
+    post:
+      summary: Create Voice
+      description: Create a new voice
+      operationId: create_voice_v1_voices_add_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voice'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/voices/{voice_id}/edit':
+    post:
+      summary: Update Voice
+      operationId: update_voice_v1_voices__voice_id__edit_post
+      parameters:
+        - name: voice_id
+          in: path
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVoiceIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voice'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
@@ -2587,6 +2740,15 @@ components:
         available:
           title: Available
           type: boolean
+    GetVoicesOut:
+      title: GetVoicesOut
+      type: object
+      properties:
+        voices:
+          title: Voices
+          type: array
+          items:
+            $ref: '#/components/schemas/Voice'
     HFModel:
       title: HFModel
       required:
@@ -3718,6 +3880,46 @@ components:
         - quartz
       type: string
       description: An enumeration.
+    UpdateVoiceIn:
+      title: UpdateVoiceIn
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+    Voice:
+      title: Voice
+      required:
+        - user_id
+        - voice_id
+        - name
+      type: object
+      properties:
+        user_id:
+          title: User Id
+          type: string
+        voice_id:
+          title: Voice Id
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          default: ''
+        created_at:
+          title: Created At
+          type: integer
+        updated_at:
+          title: Updated At
+          type: integer
   securitySchemes:
     HTTPBearer:
       type: http
