@@ -5,50 +5,55 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostArguments(
+        partial void PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string voiceId,
             ref string xDeepinfraSource,
-            global::DeepInfra.OpenAITextToSpeechIn request);
-        partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostRequest(
+            global::DeepInfra.ElevenLabsTextToSpeechIn request);
+        partial void PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string voiceId,
             string xDeepinfraSource,
-            global::DeepInfra.OpenAITextToSpeechIn request);
-        partial void ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse(
+            global::DeepInfra.ElevenLabsTextToSpeechIn request);
+        partial void ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponseContent(
+        partial void ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Openai Audio Speech
+        /// Text To Speech
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+        public async global::System.Threading.Tasks.Task<object> TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+            string voiceId,
             string xDeepinfraSource,
-            global::DeepInfra.OpenAITextToSpeechIn request,
+            global::DeepInfra.ElevenLabsTextToSpeechIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostArguments(
+            PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostArguments(
                 httpClient: _httpClient,
+                voiceId: ref voiceId,
                 xDeepinfraSource: ref xDeepinfraSource,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/openai/audio/speech", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/elevenlabs/v1/text-to-speech/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.OpenAITextToSpeechIn),
+                content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.ElevenLabsTextToSpeechIn),
                 encoding: global::System.Text.Encoding.UTF8,
                 mediaType: "application/json");
             httpRequest.Content = __httpRequestContent;
@@ -56,9 +61,10 @@ namespace DeepInfra
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostRequest(
+            PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
                 request: request);
 
@@ -70,7 +76,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse(
+            ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -80,7 +86,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponseContent(
+            ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -100,51 +106,49 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Openai Audio Speech
+        /// Text To Speech
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="model">
-        /// model name<br/>
-        /// Example: deepinfra/tts
-        /// </param>
-        /// <param name="input">
+        /// <param name="text">
         /// Text to convert to speech<br/>
         /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
         /// All my people from the front to the back nod, back nod<br/>
         /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
         /// They said I rap like a robot, so call me Rap-bot
         /// </param>
-        /// <param name="voice">
-        /// Preset voices to use for the speech.
+        /// <param name="modelId">
+        /// Model ID to use for the conversion<br/>
+        /// Default Value: deepinfra/tts
         /// </param>
-        /// <param name="responseFormat">
-        /// response format for the speech
+        /// <param name="outputFormat">
+        /// Output format for the speech<br/>
+        /// Default Value: wav
         /// </param>
-        /// <param name="speed">
-        /// speed of the speech<br/>
-        /// Default Value: 1
+        /// <param name="languageCode">
+        /// ISO 639-1, 2 letter language code
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
-            string model,
-            string input,
+        public async global::System.Threading.Tasks.Task<object> TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+            string voiceId,
+            string text,
             string xDeepinfraSource = default,
-            global::System.AllOf<global::DeepInfra.TtsVoice?>? voice = default,
-            global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? responseFormat = default,
-            double speed = 1,
+            global::System.AllOf<global::DeepInfra.TtsModel?>? modelId = default,
+            global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? outputFormat = default,
+            string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::DeepInfra.OpenAITextToSpeechIn
+            var request = new global::DeepInfra.ElevenLabsTextToSpeechIn
             {
-                Model = model,
-                Input = input,
-                Voice = voice,
-                ResponseFormat = responseFormat,
-                Speed = speed,
+                Text = text,
+                ModelId = modelId,
+                OutputFormat = outputFormat,
+                LanguageCode = languageCode,
             };
 
-            return await OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+            return await TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+                voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
