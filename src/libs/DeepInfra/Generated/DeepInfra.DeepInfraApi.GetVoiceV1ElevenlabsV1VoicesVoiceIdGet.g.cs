@@ -5,44 +5,50 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareCreateVoiceV1VoicesAddPostArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareCreateVoiceV1VoicesAddPostRequest(
+        partial void PrepareGetVoiceV1ElevenlabsV1VoicesVoiceIdGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessCreateVoiceV1VoicesAddPostResponse(
+            ref string voiceId);
+        partial void PrepareGetVoiceV1ElevenlabsV1VoicesVoiceIdGetRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string voiceId);
+        partial void ProcessGetVoiceV1ElevenlabsV1VoicesVoiceIdGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateVoiceV1VoicesAddPostResponseContent(
+        partial void ProcessGetVoiceV1ElevenlabsV1VoicesVoiceIdGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Voice<br/>
-        /// Create a new voice
+        /// Get Voice<br/>
+        /// Get a voice by its id
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> CreateVoiceV1VoicesAddPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> GetVoiceV1ElevenlabsV1VoicesVoiceIdGetAsync(
+            string voiceId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareCreateVoiceV1VoicesAddPostArguments(
-                httpClient: _httpClient);
+            PrepareGetVoiceV1ElevenlabsV1VoicesVoiceIdGetArguments(
+                httpClient: _httpClient,
+                voiceId: ref voiceId);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/voices/add", global::System.UriKind.RelativeOrAbsolute));
+                method: global::System.Net.Http.HttpMethod.Get,
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/elevenlabs/v1/voices/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareCreateVoiceV1VoicesAddPostRequest(
+            PrepareGetVoiceV1ElevenlabsV1VoicesVoiceIdGetRequest(
                 httpClient: _httpClient,
-                httpRequestMessage: httpRequest);
+                httpRequestMessage: httpRequest,
+                voiceId: voiceId);
 
             using var response = await _httpClient.SendAsync(
                 request: httpRequest,
@@ -52,7 +58,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessCreateVoiceV1VoicesAddPostResponse(
+            ProcessGetVoiceV1ElevenlabsV1VoicesVoiceIdGetResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -62,7 +68,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessCreateVoiceV1VoicesAddPostResponseContent(
+            ProcessGetVoiceV1ElevenlabsV1VoicesVoiceIdGetResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
