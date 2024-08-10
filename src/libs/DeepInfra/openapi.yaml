@@ -1309,11 +1309,11 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  /v1/voices:
+  /v1/elevenlabs/v1/voices:
     get:
       summary: Get Voices
       description: Get available voices for a given user
-      operationId: get_voices_v1_voices_get
+      operationId: get_voices_v1_elevenlabs_v1_voices_get
       responses:
         '200':
           description: Successful Response
@@ -1329,11 +1329,47 @@ paths:
                 $ref: '#/components/schemas/DeepError'
       security:
         - HTTPBearer: [ ]
-  '/v1/voices/{voice_id}':
+  '/v1/elevenlabs/v1/text-to-speech/{voice_id}':
+    post:
+      summary: Text To Speech
+      operationId: text_to_speech_v1_elevenlabs_v1_text_to_speech__voice_id__post
+      parameters:
+        - name: voice_id
+          in: path
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ElevenLabsTextToSpeechIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/elevenlabs/v1/voices/{voice_id}':
     get:
       summary: Get Voice
       description: Get a voice by its id
-      operationId: get_voice_v1_voices__voice_id__get
+      operationId: get_voice_v1_elevenlabs_v1_voices__voice_id__get
       parameters:
         - name: voice_id
           in: path
@@ -1364,7 +1400,7 @@ paths:
         - HTTPBearer: [ ]
     delete:
       summary: Delete Voice
-      operationId: delete_voice_v1_voices__voice_id__delete
+      operationId: delete_voice_v1_elevenlabs_v1_voices__voice_id__delete
       parameters:
         - name: voice_id
           in: path
@@ -1398,11 +1434,11 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  /v1/voices/add:
+  /v1/elevenlabs/v1/voices/add:
     post:
       summary: Create Voice
       description: Create a new voice
-      operationId: create_voice_v1_voices_add_post
+      operationId: create_voice_v1_elevenlabs_v1_voices_add_post
       responses:
         '200':
           description: Successful Response
@@ -1418,10 +1454,10 @@ paths:
                 $ref: '#/components/schemas/DeepError'
       security:
         - HTTPBearer: [ ]
-  '/v1/voices/{voice_id}/edit':
+  '/v1/elevenlabs/v1/voices/{voice_id}/edit':
     post:
       summary: Update Voice
-      operationId: update_voice_v1_voices__voice_id__edit_post
+      operationId: update_voice_v1_elevenlabs_v1_voices__voice_id__edit_post
       parameters:
         - name: voice_id
           in: path
@@ -2631,6 +2667,31 @@ components:
           allOf:
             - $ref: '#/components/schemas/TimeDeploymentStatsOut'
           description: Time based Deployment Stats
+    ElevenLabsTextToSpeechIn:
+      title: ElevenLabsTextToSpeechIn
+      required:
+        - text
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: Text to convert to speech
+          example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
+        model_id:
+          allOf:
+            - $ref: '#/components/schemas/TtsModel'
+          description: Model ID to use for the conversion
+          default: deepinfra/tts
+        output_format:
+          allOf:
+            - $ref: '#/components/schemas/TtsResponseFormat'
+          description: Output format for the speech
+          default: wav
+        language_code:
+          title: Language Code
+          type: string
+          description: 'ISO 639-1, 2 letter language code'
     EmailsOut:
       title: EmailsOut
       required:
@@ -3659,13 +3720,6 @@ components:
         - input
       type: object
       properties:
-        webhook:
-          title: Webhook
-          maxLength: 2083
-          minLength: 1
-          type: string
-          description: 'The webhook to call when inference is done, by default you will get the output in the response of your inference request'
-          format: uri
         model:
           title: Model
           type: string
@@ -3674,8 +3728,8 @@ components:
         input:
           title: Input
           type: string
-          description: text to convert to speech
-          example: 'Hello, how are you?'
+          description: Text to convert to speech
+          example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         voice:
           allOf:
             - $ref: '#/components/schemas/TtsVoice'
@@ -3866,6 +3920,12 @@ components:
           title: Errors
           type: integer
           description: number of errors
+    TtsModel:
+      title: TtsModel
+      enum:
+        - deepinfra/tts
+      type: string
+      description: An enumeration.
     TtsResponseFormat:
       title: TtsResponseFormat
       enum:
