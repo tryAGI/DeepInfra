@@ -5,20 +5,20 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
+        partial void PrepareUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             global::DeepInfra.UpdateVoiceIn request);
-        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
+        partial void PrepareUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             global::DeepInfra.UpdateVoiceIn request);
-        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
+        partial void ProcessUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
+        partial void ProcessUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostAsync(
             string voiceId,
             global::DeepInfra.UpdateVoiceIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -39,14 +39,14 @@ namespace DeepInfra
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
+            PrepareUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostArguments(
                 httpClient: _httpClient,
                 voiceId: ref voiceId,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}/edit", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/elevenlabs/v1/voices/{voiceId}/edit", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.UpdateVoiceIn),
                 encoding: global::System.Text.Encoding.UTF8,
@@ -56,7 +56,7 @@ namespace DeepInfra
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
+            PrepareUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 voiceId: voiceId,
@@ -70,7 +70,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
+            ProcessUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -80,7 +80,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
+            ProcessUpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -107,7 +107,7 @@ namespace DeepInfra
         /// <param name="description"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostAsync(
             string voiceId,
             string name,
             string description,
@@ -119,7 +119,7 @@ namespace DeepInfra
                 Description = description,
             };
 
-            return await UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+            return await UpdateVoiceV1ElevenlabsV1VoicesVoiceIdEditPostAsync(
                 voiceId: voiceId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
