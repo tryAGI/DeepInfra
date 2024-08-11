@@ -5,47 +5,46 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareGetVoiceV1VoicesVoiceIdGetArguments(
+        partial void PrepareDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId);
-        partial void PrepareGetVoiceV1VoicesVoiceIdGetRequest(
+        partial void PrepareDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId);
-        partial void ProcessGetVoiceV1VoicesVoiceIdGetResponse(
+        partial void ProcessDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetVoiceV1VoicesVoiceIdGetResponseContent(
+        partial void ProcessDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Voice<br/>
-        /// Get a voice by its id
+        /// Delete Voice
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> GetVoiceV1VoicesVoiceIdGetAsync(
+        public async global::System.Threading.Tasks.Task<object> DeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteAsync(
             string voiceId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareGetVoiceV1VoicesVoiceIdGetArguments(
+            PrepareDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteArguments(
                 httpClient: _httpClient,
                 voiceId: ref voiceId);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
+                method: global::System.Net.Http.HttpMethod.Delete,
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/elevenlabs/v1/voices/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareGetVoiceV1VoicesVoiceIdGetRequest(
+            PrepareDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 voiceId: voiceId);
@@ -58,7 +57,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessGetVoiceV1VoicesVoiceIdGetResponse(
+            ProcessDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -68,7 +67,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessGetVoiceV1VoicesVoiceIdGetResponseContent(
+            ProcessDeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -83,7 +82,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Voice) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
