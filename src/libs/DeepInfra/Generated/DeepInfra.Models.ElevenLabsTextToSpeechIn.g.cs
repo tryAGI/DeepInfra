@@ -8,16 +8,8 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class OpenAITextToSpeechIn
+    public sealed partial class ElevenLabsTextToSpeechIn
     {
-        /// <summary>
-        /// model name<br/>
-        /// Example: deepinfra/tts
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
-
         /// <summary>
         /// Text to convert to speech<br/>
         /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
@@ -25,30 +17,31 @@ namespace DeepInfra
         /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
         /// They said I rap like a robot, so call me Rap-bot
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Input { get; set; }
+        public required string Text { get; set; }
 
         /// <summary>
-        /// Preset voices to use for the speech.
+        /// Model ID to use for the conversion<br/>
+        /// Default Value: deepinfra/tts
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; }
+        public global::System.AllOf<global::DeepInfra.TtsModel?>? ModelId { get; set; } = "deepinfra/tts";
 
         /// <summary>
-        /// response format for the speech
+        /// Output format for the speech<br/>
+        /// Default Value: wav
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; }
+        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? OutputFormat { get; set; } = "wav";
 
         /// <summary>
-        /// speed of the speech<br/>
-        /// Default Value: 1
+        /// ISO 639-1, 2 letter language code
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
-        public double Speed { get; set; } = 1;
+        [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
+        public string? LanguageCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

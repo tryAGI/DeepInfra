@@ -5,49 +5,44 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareDeleteVoiceV1VoicesVoiceIdDeleteArguments(
+        partial void PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref string voiceId);
-        partial void PrepareDeleteVoiceV1VoicesVoiceIdDeleteRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string voiceId);
-        partial void ProcessDeleteVoiceV1VoicesVoiceIdDeleteResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeleteVoiceV1VoicesVoiceIdDeleteResponseContent(
+        partial void ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Delete Voice
+        /// Create Voice<br/>
+        /// Create a new voice
         /// </summary>
-        /// <param name="voiceId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> DeleteVoiceV1VoicesVoiceIdDeleteAsync(
-            string voiceId,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> CreateVoiceV1ElevenlabsV1VoicesAddPostAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareDeleteVoiceV1VoicesVoiceIdDeleteArguments(
-                httpClient: _httpClient,
-                voiceId: ref voiceId);
+            PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostArguments(
+                httpClient: _httpClient);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Delete,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
+                method: global::System.Net.Http.HttpMethod.Post,
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/elevenlabs/v1/voices/add", global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareDeleteVoiceV1VoicesVoiceIdDeleteRequest(
+            PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostRequest(
                 httpClient: _httpClient,
-                httpRequestMessage: httpRequest,
-                voiceId: voiceId);
+                httpRequestMessage: httpRequest);
 
             using var response = await _httpClient.SendAsync(
                 request: httpRequest,
@@ -57,7 +52,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessDeleteVoiceV1VoicesVoiceIdDeleteResponse(
+            ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -67,7 +62,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessDeleteVoiceV1VoicesVoiceIdDeleteResponseContent(
+            ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -82,7 +77,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Voice) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
