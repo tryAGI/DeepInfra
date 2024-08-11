@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
             ref string from,
-            ref string to);
+            ref string? to);
         partial void PrepareDeployStatsDeployDeployIdStatsGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
             string from,
-            string to);
+            string? to);
         partial void ProcessDeployStatsDeployDeployIdStatsGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -41,7 +41,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentStatsOut> DeployStatsDeployDeployIdStatsGetAsync(
             string deployId,
             string from,
-            string to,
+            string? to,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

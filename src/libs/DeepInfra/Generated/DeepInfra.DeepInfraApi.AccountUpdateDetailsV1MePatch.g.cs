@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> AccountUpdateDetailsV1MePatchAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AccountUpdateDetailsV1MePatchResponse> AccountUpdateDetailsV1MePatchAsync(
             global::DeepInfra.MeIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -40,7 +40,7 @@ namespace DeepInfra
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Patch,
+                method: new global::System.Net.Http.HttpMethod("PATCH"),
                 requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/me", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.MeIn),
@@ -89,7 +89,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.AccountUpdateDetailsV1MePatchResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -109,7 +109,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> AccountUpdateDetailsV1MePatchAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AccountUpdateDetailsV1MePatchResponse> AccountUpdateDetailsV1MePatchAsync(
             string? name = default,
             string? email = default,
             bool isBusinessAccount = default,

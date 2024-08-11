@@ -8,16 +8,16 @@ namespace DeepInfra
         partial void PrepareInferenceModelV1InferenceModelNamePostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string modelName,
-            ref string version,
-            ref string xDeepinfraSource,
-            ref string userAgent);
+            ref string? version,
+            ref string? xDeepinfraSource,
+            ref string? userAgent);
         partial void PrepareInferenceModelV1InferenceModelNamePostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
-            string version,
-            string xDeepinfraSource,
-            string userAgent);
+            string? version,
+            string? xDeepinfraSource,
+            string? userAgent);
         partial void ProcessInferenceModelV1InferenceModelNamePostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -38,11 +38,11 @@ namespace DeepInfra
         /// <param name="userAgent"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> InferenceModelV1InferenceModelNamePostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.InferenceModelV1InferenceModelNamePostResponse> InferenceModelV1InferenceModelNamePostAsync(
             string modelName,
-            string version,
-            string xDeepinfraSource,
-            string userAgent,
+            string? version,
+            string? xDeepinfraSource,
+            string? userAgent,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -102,7 +102,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.InferenceModelV1InferenceModelNamePostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

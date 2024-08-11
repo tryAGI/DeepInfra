@@ -32,7 +32,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> ModelDeleteModelsModelNameDeleteAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelDeleteModelsModelNameDeleteResponse> ModelDeleteModelsModelNameDeleteAsync(
             string modelName,
             string version,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -90,7 +90,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.ModelDeleteModelsModelNameDeleteResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

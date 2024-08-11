@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareDeepstartApplyPaymentDeepstartApplicationPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string session,
+            ref string? session,
             global::DeepInfra.DeepStartApplicationIn request);
         partial void PrepareDeepstartApplyPaymentDeepstartApplicationPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string session,
+            string? session,
             global::DeepInfra.DeepStartApplicationIn request);
         partial void ProcessDeepstartApplyPaymentDeepstartApplicationPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,7 +31,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyPaymentDeepstartApplicationPostAsync(
-            string session,
+            string? session,
             global::DeepInfra.DeepStartApplicationIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -123,7 +123,7 @@ namespace DeepInfra
             string funding,
             string foundedOn,
             string website,
-            string session = default,
+            string? session = default,
             string? id = default,
             string? uid = default,
             int createdAt = default,

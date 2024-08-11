@@ -7,14 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xDeepinfraSource,
-            ref string userAgent,
+            ref string? xDeepinfraSource,
+            ref string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request);
         partial void PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xDeepinfraSource,
-            string userAgent,
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request);
         partial void ProcessOpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -33,9 +33,9 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
-            string xDeepinfraSource,
-            string userAgent,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +101,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -124,11 +124,11 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
             string model,
-            global::System.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
-            string xDeepinfraSource = default,
-            string userAgent = default,
+            global::System.AnyOf<global::System.Collections.Generic.IList<string>?, string?> input,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

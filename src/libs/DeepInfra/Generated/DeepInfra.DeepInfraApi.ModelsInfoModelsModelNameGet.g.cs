@@ -8,12 +8,12 @@ namespace DeepInfra
         partial void PrepareModelsInfoModelsModelNameGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string modelName,
-            ref string version);
+            ref string? version);
         partial void PrepareModelsInfoModelsModelNameGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
-            string version);
+            string? version);
         partial void ProcessModelsInfoModelsModelNameGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -32,7 +32,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelInfoOut> ModelsInfoModelsModelNameGetAsync(
             string modelName,
-            string version,
+            string? version,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

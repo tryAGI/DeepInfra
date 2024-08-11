@@ -7,15 +7,15 @@ namespace DeepInfra
     {
         partial void PrepareGithubLoginGithubLoginGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string loginId,
-            ref string origin,
-            ref string deal);
+            ref string? loginId,
+            ref string? origin,
+            ref string? deal);
         partial void PrepareGithubLoginGithubLoginGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string loginId,
-            string origin,
-            string deal);
+            string? loginId,
+            string? origin,
+            string? deal);
         partial void ProcessGithubLoginGithubLoginGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,10 +34,10 @@ namespace DeepInfra
         /// <param name="deal"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> GithubLoginGithubLoginGetAsync(
-            string loginId,
-            string origin,
-            string deal,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.GithubLoginGithubLoginGetResponse> GithubLoginGithubLoginGetAsync(
+            string? loginId,
+            string? origin,
+            string? deal,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -95,7 +95,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.GithubLoginGithubLoginGetResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

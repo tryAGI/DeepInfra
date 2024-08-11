@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareSetConfigPaymentConfigPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string session,
+            ref string? session,
             global::DeepInfra.ConfigIn request);
         partial void PrepareSetConfigPaymentConfigPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string session,
+            string? session,
             global::DeepInfra.ConfigIn request);
         partial void ProcessSetConfigPaymentConfigPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,7 +31,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ConfigOut> SetConfigPaymentConfigPostAsync(
-            string session,
+            string? session,
             global::DeepInfra.ConfigIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -109,7 +109,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ConfigOut> SetConfigPaymentConfigPostAsync(
-            string session = default,
+            string? session = default,
             double limit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

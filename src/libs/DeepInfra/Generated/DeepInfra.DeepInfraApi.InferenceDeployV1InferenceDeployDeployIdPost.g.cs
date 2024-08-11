@@ -8,14 +8,14 @@ namespace DeepInfra
         partial void PrepareInferenceDeployV1InferenceDeployDeployIdPostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
-            ref string xDeepinfraSource,
-            ref string userAgent);
+            ref string? xDeepinfraSource,
+            ref string? userAgent);
         partial void PrepareInferenceDeployV1InferenceDeployDeployIdPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
-            string xDeepinfraSource,
-            string userAgent);
+            string? xDeepinfraSource,
+            string? userAgent);
         partial void ProcessInferenceDeployV1InferenceDeployDeployIdPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,10 +33,10 @@ namespace DeepInfra
         /// <param name="userAgent"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> InferenceDeployV1InferenceDeployDeployIdPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse> InferenceDeployV1InferenceDeployDeployIdPostAsync(
             string deployId,
-            string xDeepinfraSource,
-            string userAgent,
+            string? xDeepinfraSource,
+            string? userAgent,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -94,7 +94,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.InferenceDeployV1InferenceDeployDeployIdPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

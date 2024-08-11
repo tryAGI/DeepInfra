@@ -7,11 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareDeployGpuAvailabilityDeployLlmGpuAvailabilityGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string source);
+            ref string? source);
         partial void PrepareDeployGpuAvailabilityDeployLlmGpuAvailabilityGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string source);
+            string? source);
         partial void ProcessDeployGpuAvailabilityDeployLlmGpuAvailabilityGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,7 +28,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployGPUAvailability> DeployGpuAvailabilityDeployLlmGpuAvailabilityGetAsync(
-            string source,
+            string? source,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

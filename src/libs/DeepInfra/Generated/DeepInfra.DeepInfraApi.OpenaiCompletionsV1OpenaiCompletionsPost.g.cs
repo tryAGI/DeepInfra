@@ -7,14 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiCompletionsV1OpenaiCompletionsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xDeepinfraSource,
-            ref string userAgent,
+            ref string? xDeepinfraSource,
+            ref string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request);
         partial void PrepareOpenaiCompletionsV1OpenaiCompletionsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xDeepinfraSource,
-            string userAgent,
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request);
         partial void ProcessOpenaiCompletionsV1OpenaiCompletionsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -33,9 +33,9 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
-            string xDeepinfraSource,
-            string userAgent,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +101,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.OpenaiCompletionsV1OpenaiCompletionsPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -167,11 +167,11 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
             string model,
             string prompt,
-            string xDeepinfraSource = default,
-            string userAgent = default,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
             int maxTokens = 512,
             double temperature = 1,
             double topP = 1,
@@ -180,10 +180,10 @@ namespace DeepInfra
             bool stream = false,
             int logprobs = default,
             bool echo = default,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string?>?>? stop = default,
+            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? stop = default,
             double presencePenalty = 0,
             double frequencyPenalty = 0,
-            global::System.AllOf<global::DeepInfra.ResponseFormat?>? responseFormat = default,
+            global::System.AllOf<global::DeepInfra.ResponseFormat4?>? responseFormat = default,
             double repetitionPenalty = 1,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

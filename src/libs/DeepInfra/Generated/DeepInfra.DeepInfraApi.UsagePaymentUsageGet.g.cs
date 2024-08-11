@@ -8,14 +8,14 @@ namespace DeepInfra
         partial void PrepareUsagePaymentUsageGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string from,
-            ref string to,
-            ref string session);
+            ref string? to,
+            ref string? session);
         partial void PrepareUsagePaymentUsageGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string from,
-            string to,
-            string session);
+            string? to,
+            string? session);
         partial void ProcessUsagePaymentUsageGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -39,8 +39,8 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.UsageOut> UsagePaymentUsageGetAsync(
             string from,
-            string to,
-            string session,
+            string? to,
+            string? session,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

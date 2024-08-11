@@ -8,15 +8,15 @@ namespace DeepInfra
         partial void PrepareLogsQueryV1LogsQueryGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
-            ref string from,
-            ref string to,
+            ref string? from,
+            ref string? to,
             ref int limit);
         partial void PrepareLogsQueryV1LogsQueryGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
-            string from,
-            string to,
+            string? from,
+            string? to,
             int limit);
         partial void ProcessLogsQueryV1LogsQueryGetResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,8 +53,8 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.LogQueryOut> LogsQueryV1LogsQueryGetAsync(
             string deployId,
-            string from,
-            string to,
+            string? from,
+            string? to,
             int limit,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
