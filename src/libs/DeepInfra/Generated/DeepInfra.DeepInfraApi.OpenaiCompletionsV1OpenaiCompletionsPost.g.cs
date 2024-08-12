@@ -180,10 +180,10 @@ namespace DeepInfra
             bool stream = false,
             int logprobs = default,
             bool echo = default,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? stop = default,
+            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? stop = default,
             double presencePenalty = 0,
             double frequencyPenalty = 0,
-            global::System.AllOf<global::DeepInfra.ResponseFormat4?>? responseFormat = default,
+            global::System.AllOf<global::DeepInfra.ResponseFormat4>? responseFormat = default,
             double repetitionPenalty = 1,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

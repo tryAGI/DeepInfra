@@ -69,11 +69,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<string?, int>>? Type14 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<string?, int?>>? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, int>? Type15 { get; set; }
+        public global::System.AnyOf<string?, int?>? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -93,7 +93,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.TimeInterval?>? Type20 { get; set; }
+        public global::System.AllOf<global::DeepInfra.TimeInterval>? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -137,7 +137,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.Function2?>? Type31 { get; set; }
+        public global::System.AllOf<global::DeepInfra.Function2>? Type31 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -193,15 +193,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText?, global::DeepInfra.ChatCompletionContentPartImage?>>?>? Type45 { get; set; }
+        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>>? Type45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText?, global::DeepInfra.ChatCompletionContentPartImage?>>? Type46 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>? Type46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText?, global::DeepInfra.ChatCompletionContentPartImage?>? Type47 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>? Type47 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -253,7 +253,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.HFWeights?>? Type60 { get; set; }
+        public global::System.AllOf<global::DeepInfra.HFWeights>? Type60 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -321,15 +321,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.DeployInstances?>? Type77 { get; set; }
+        public global::System.AllOf<global::DeepInfra.DeployInstances>? Type77 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.DeployLLMConfig?>? Type78 { get; set; }
+        public global::System.AllOf<global::DeepInfra.DeployLLMConfig>? Type78 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.ScaleSettings?>? Type79 { get; set; }
+        public global::System.AllOf<global::DeepInfra.ScaleSettings>? Type79 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -341,7 +341,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.LLMDeploymentStatsOut?>? Type82 { get; set; }
+        public global::System.AllOf<global::DeepInfra.LLMDeploymentStatsOut>? Type82 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -349,7 +349,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.EmbeddingsDeploymentStatsOut?>? Type84 { get; set; }
+        public global::System.AllOf<global::DeepInfra.EmbeddingsDeploymentStatsOut>? Type84 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -357,7 +357,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.TimeDeploymentStatsOut?>? Type86 { get; set; }
+        public global::System.AllOf<global::DeepInfra.TimeDeploymentStatsOut>? Type86 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -493,7 +493,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ModelPricingTime?, global::DeepInfra.ModelPricingUptime?, global::DeepInfra.ModelPricingTokens?, global::DeepInfra.ModelPricingInputLength?, global::DeepInfra.ModelPricingInputTokens?, global::DeepInfra.ModelPricingInputCharacterLength?>? Type120 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength>? Type120 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -553,7 +553,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ModelPricingTime?, global::DeepInfra.ModelPricingTokens?, global::DeepInfra.ModelPricingInputLength?, global::DeepInfra.ModelPricingInputTokens?, global::DeepInfra.ModelPricingUptime?, global::DeepInfra.ModelPricingInputCharacterLength?>? Type135 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength>? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -569,15 +569,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage?, global::DeepInfra.ChatCompletionAssistantMessage?, global::DeepInfra.ChatCompletionUserMessage?, global::DeepInfra.ChatCompletionSystemMessage?>>? Type139 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>>? Type139 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage?, global::DeepInfra.ChatCompletionAssistantMessage?, global::DeepInfra.ChatCompletionUserMessage?, global::DeepInfra.ChatCompletionSystemMessage?>? Type140 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>? Type140 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? Type141 { get; set; }
+        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -585,7 +585,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.ResponseFormat4?>? Type143 { get; set; }
+        public global::System.AllOf<global::DeepInfra.ResponseFormat4>? Type143 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -605,7 +605,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::System.Collections.Generic.IList<string>?, string?>? Type148 { get; set; }
+        public global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?>? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>

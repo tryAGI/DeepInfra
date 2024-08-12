@@ -51,7 +51,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AllOf<global::DeepInfra.TimeInterval?> Interval { get; set; }
+        public required global::System.AllOf<global::DeepInfra.TimeInterval> Interval { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
