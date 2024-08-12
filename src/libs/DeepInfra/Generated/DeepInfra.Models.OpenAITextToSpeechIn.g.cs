@@ -11,12 +11,6 @@ namespace DeepInfra
     public sealed partial class OpenAITextToSpeechIn
     {
         /// <summary>
-        /// The webhook to call when inference is done, by default you will get the output in the response of your inference request
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("webhook")]
-        public string? Webhook { get; set; }
-
-        /// <summary>
         /// model name<br/>
         /// Example: deepinfra/tts
         /// </summary>
@@ -25,8 +19,11 @@ namespace DeepInfra
         public required string Model { get; set; }
 
         /// <summary>
-        /// text to convert to speech<br/>
-        /// Example: Hello, how are you?
+        /// Text to convert to speech<br/>
+        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
+        /// All my people from the front to the back nod, back nod<br/>
+        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
+        /// They said I rap like a robot, so call me Rap-bot
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]

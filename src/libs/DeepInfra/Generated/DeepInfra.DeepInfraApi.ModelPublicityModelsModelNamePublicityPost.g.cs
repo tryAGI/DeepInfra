@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> ModelPublicityModelsModelNamePublicityPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelPublicityModelsModelNamePublicityPostResponse> ModelPublicityModelsModelNamePublicityPostAsync(
             string modelName,
             global::DeepInfra.ModelPublicityIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -95,7 +95,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.ModelPublicityModelsModelNamePublicityPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -108,7 +108,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> ModelPublicityModelsModelNamePublicityPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelPublicityModelsModelNamePublicityPostResponse> ModelPublicityModelsModelNamePublicityPostAsync(
             string modelName,
             bool @public,
             global::System.Threading.CancellationToken cancellationToken = default)

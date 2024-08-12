@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xDeepinfraSource,
+            ref string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xDeepinfraSource,
+            string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,8 +30,8 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
-            string xDeepinfraSource,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+            string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +95,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -103,16 +103,16 @@ namespace DeepInfra
         /// Openai Audio Speech
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="webhook">
-        /// The webhook to call when inference is done, by default you will get the output in the response of your inference request
-        /// </param>
         /// <param name="model">
         /// model name<br/>
         /// Example: deepinfra/tts
         /// </param>
         /// <param name="input">
-        /// text to convert to speech<br/>
-        /// Example: Hello, how are you?
+        /// Text to convert to speech<br/>
+        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
+        /// All my people from the front to the back nod, back nod<br/>
+        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
+        /// They said I rap like a robot, so call me Rap-bot
         /// </param>
         /// <param name="voice">
         /// Preset voices to use for the speech.
@@ -126,11 +126,10 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
             string model,
             string input,
-            string xDeepinfraSource = default,
-            string? webhook = default,
+            string? xDeepinfraSource = default,
             global::System.AllOf<global::DeepInfra.TtsVoice?>? voice = default,
             global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? responseFormat = default,
             double speed = 1,
@@ -138,7 +137,6 @@ namespace DeepInfra
         {
             var request = new global::DeepInfra.OpenAITextToSpeechIn
             {
-                Webhook = webhook,
                 Model = model,
                 Input = input,
                 Voice = voice,

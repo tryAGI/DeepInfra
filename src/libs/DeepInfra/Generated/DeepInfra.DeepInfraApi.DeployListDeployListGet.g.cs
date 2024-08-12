@@ -7,11 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareDeployListDeployListGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string status);
+            ref string? status);
         partial void PrepareDeployListDeployListGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string status);
+            string? status);
         partial void ProcessDeployListDeployListGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>> DeployListDeployListGetAsync(
-            string status,
+            string? status,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

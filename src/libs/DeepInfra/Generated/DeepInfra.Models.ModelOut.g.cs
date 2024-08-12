@@ -51,7 +51,7 @@ namespace DeepInfra
         /// list of tags
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
-        public global::System.Collections.Generic.IList<string?>? Tags { get; set; }
+        public global::System.Collections.Generic.IList<string>? Tags { get; set; }
 
         /// <summary>
         /// The pricing type and cost for this model

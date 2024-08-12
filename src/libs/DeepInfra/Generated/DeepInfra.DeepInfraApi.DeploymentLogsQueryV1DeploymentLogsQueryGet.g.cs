@@ -8,17 +8,17 @@ namespace DeepInfra
         partial void PrepareDeploymentLogsQueryV1DeploymentLogsQueryGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
-            ref string podName,
-            ref string from,
-            ref string to,
+            ref string? podName,
+            ref string? from,
+            ref string? to,
             ref int limit);
         partial void PrepareDeploymentLogsQueryV1DeploymentLogsQueryGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
-            string podName,
-            string from,
-            string to,
+            string? podName,
+            string? from,
+            string? to,
             int limit);
         partial void ProcessDeploymentLogsQueryV1DeploymentLogsQueryGetResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -58,9 +58,9 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentLogQueryOut> DeploymentLogsQueryV1DeploymentLogsQueryGetAsync(
             string deployId,
-            string podName,
-            string from,
-            string to,
+            string? podName,
+            string? from,
+            string? to,
             int limit,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

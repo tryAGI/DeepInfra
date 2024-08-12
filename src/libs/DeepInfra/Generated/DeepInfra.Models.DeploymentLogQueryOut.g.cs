@@ -12,7 +12,7 @@ namespace DeepInfra
         /// mapping of pod names to log lines ordered by increasing timestamp
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entries")]
-        public object? Entries { get; set; }
+        public global::DeepInfra.DeploymentLogQueryOutEntries? Entries { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

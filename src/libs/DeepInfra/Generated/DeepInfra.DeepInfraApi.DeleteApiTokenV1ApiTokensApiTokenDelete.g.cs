@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="apiToken"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> DeleteApiTokenV1ApiTokensApiTokenDeleteAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeleteApiTokenV1ApiTokensApiTokenDeleteResponse> DeleteApiTokenV1ApiTokensApiTokenDeleteAsync(
             string apiToken,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,7 +82,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.DeleteApiTokenV1ApiTokensApiTokenDeleteResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

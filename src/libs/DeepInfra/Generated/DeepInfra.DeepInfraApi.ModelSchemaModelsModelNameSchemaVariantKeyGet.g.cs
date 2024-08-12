@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string modelName,
             ref global::DeepInfra.SchemaVariantKey variantKey,
-            ref string version);
+            ref string? version);
         partial void PrepareModelSchemaModelsModelNameSchemaVariantKeyGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
             global::DeepInfra.SchemaVariantKey variantKey,
-            string version);
+            string? version);
         partial void ProcessModelSchemaModelsModelNameSchemaVariantKeyGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -38,7 +38,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.SchemaOut> ModelSchemaModelsModelNameSchemaVariantKeyGetAsync(
             string modelName,
             global::DeepInfra.SchemaVariantKey variantKey,
-            string version,
+            string? version,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

@@ -7,14 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xDeepinfraSource,
-            ref string userAgent,
+            ref string? xDeepinfraSource,
+            ref string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request);
         partial void PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xDeepinfraSource,
-            string userAgent,
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request);
         partial void ProcessOpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -33,9 +33,9 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
-            string xDeepinfraSource,
-            string userAgent,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
+            string? xDeepinfraSource,
+            string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +101,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -167,23 +167,23 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
             string model,
             global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage?, global::DeepInfra.ChatCompletionAssistantMessage?, global::DeepInfra.ChatCompletionUserMessage?, global::DeepInfra.ChatCompletionSystemMessage?>> messages,
-            string xDeepinfraSource = default,
-            string userAgent = default,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
             bool stream = false,
             double temperature = 1,
             double topP = 1,
             int topK = 0,
             int maxTokens = 512,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string?>?>? stop = default,
+            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? stop = default,
             int n = 1,
             double presencePenalty = 0,
             double frequencyPenalty = 0,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
             string? toolChoice = default,
-            global::System.AllOf<global::DeepInfra.ResponseFormat?>? responseFormat = default,
+            global::System.AllOf<global::DeepInfra.ResponseFormat4?>? responseFormat = default,
             double repetitionPenalty = 1,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

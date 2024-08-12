@@ -7,11 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareGetChecklistPaymentChecklistGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string session);
+            ref string? session);
         partial void PrepareGetChecklistPaymentChecklistGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string session);
+            string? session);
         partial void ProcessGetChecklistPaymentChecklistGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,7 +28,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Checklist> GetChecklistPaymentChecklistGetAsync(
-            string session,
+            string? session,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

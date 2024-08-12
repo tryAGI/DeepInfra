@@ -19,19 +19,19 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_in")]
-        public object? SchemaIn { get; set; }
+        public global::DeepInfra.SchemaOutSchemaIn? SchemaIn { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_out")]
-        public object? SchemaOut1 { get; set; }
+        public global::DeepInfra.SchemaOutSchemaOut1? SchemaOut1 { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_stream")]
-        public object? SchemaStream { get; set; }
+        public global::DeepInfra.SchemaOutSchemaStream? SchemaStream { get; set; }
 
         /// <summary>
         /// 

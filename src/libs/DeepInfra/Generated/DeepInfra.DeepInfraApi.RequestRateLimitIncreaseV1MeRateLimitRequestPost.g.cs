@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> RequestRateLimitIncreaseV1MeRateLimitRequestPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.RequestRateLimitIncreaseV1MeRateLimitRequestPostResponse> RequestRateLimitIncreaseV1MeRateLimitRequestPostAsync(
             global::DeepInfra.RateLimitRequestIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -89,7 +89,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.RequestRateLimitIncreaseV1MeRateLimitRequestPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -100,7 +100,7 @@ namespace DeepInfra
         /// <param name="reason"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> RequestRateLimitIncreaseV1MeRateLimitRequestPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.RequestRateLimitIncreaseV1MeRateLimitRequestPostResponse> RequestRateLimitIncreaseV1MeRateLimitRequestPostAsync(
             int rateLimit,
             string reason,
             global::System.Threading.CancellationToken cancellationToken = default)

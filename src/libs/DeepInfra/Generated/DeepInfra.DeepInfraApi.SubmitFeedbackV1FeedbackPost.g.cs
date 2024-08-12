@@ -28,7 +28,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> SubmitFeedbackV1FeedbackPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse> SubmitFeedbackV1FeedbackPostAsync(
             global::DeepInfra.FeedbackIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -90,7 +90,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.Object) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.SubmitFeedbackV1FeedbackPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -106,7 +106,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<object> SubmitFeedbackV1FeedbackPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse> SubmitFeedbackV1FeedbackPostAsync(
             string message,
             string? contactEmail = default,
             global::System.Threading.CancellationToken cancellationToken = default)

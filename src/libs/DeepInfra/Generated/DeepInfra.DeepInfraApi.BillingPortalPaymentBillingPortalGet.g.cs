@@ -7,13 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareBillingPortalPaymentBillingPortalGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string returnUrl,
-            ref string session);
+            ref string? returnUrl,
+            ref string? session);
         partial void PrepareBillingPortalPaymentBillingPortalGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string returnUrl,
-            string session);
+            string? returnUrl,
+            string? session);
         partial void ProcessBillingPortalPaymentBillingPortalGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,8 +33,8 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.BillingPortalOut> BillingPortalPaymentBillingPortalGetAsync(
-            string returnUrl,
-            string session,
+            string? returnUrl,
+            string? session,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
