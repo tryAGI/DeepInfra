@@ -66,14 +66,14 @@ paths:
           content:
             application/json:
               schema: { }
-        '403':
-          description: Forbidden
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
-        '404':
-          description: Not Found
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
@@ -84,6 +84,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/username:
+    patch:
+      summary: Account Set Username
+      operationId: account_set_username_v1_me_username_patch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeUsername'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   /v1/me/emails:
@@ -291,6 +327,12 @@ paths:
                 $ref: '#/components/schemas/DeploymentOut'
         '402':
           description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
@@ -3032,6 +3074,19 @@ components:
           minLength: 1
           type: string
           description: Company website address
+    MeUsername:
+      title: MeUsername
+      required:
+        - username
+      type: object
+      properties:
+        username:
+          title: Username
+          maxLength: 39
+          minLength: 1
+          pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
+          type: string
+          description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
     ModelDocBlock:
       title: ModelDocBlock
       required:

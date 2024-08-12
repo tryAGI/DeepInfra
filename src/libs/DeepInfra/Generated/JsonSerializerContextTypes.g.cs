@@ -445,342 +445,350 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelDocBlock? Type108 { get; set; }
+        public global::DeepInfra.MeUsername? Type108 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelDocBlockKey? Type109 { get; set; }
+        public global::DeepInfra.ModelDocBlock? Type109 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelFieldInfo? Type110 { get; set; }
+        public global::DeepInfra.ModelDocBlockKey? Type110 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfoAllowedItem>? Type111 { get; set; }
+        public global::DeepInfra.ModelFieldInfo? Type111 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelFieldInfoAllowedItem? Type112 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfoAllowedItem>? Type112 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelFieldInfoDefault? Type113 { get; set; }
+        public global::DeepInfra.ModelFieldInfoAllowedItem? Type113 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfoExample>? Type114 { get; set; }
+        public global::DeepInfra.ModelFieldInfoDefault? Type114 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelFieldInfoExample? Type115 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfoExample>? Type115 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelInfoOut? Type116 { get; set; }
+        public global::DeepInfra.ModelFieldInfoExample? Type116 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelInfoOutInSchema? Type117 { get; set; }
+        public global::DeepInfra.ModelInfoOut? Type117 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelInfoOutOutSchema? Type118 { get; set; }
+        public global::DeepInfra.ModelInfoOutInSchema? Type118 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? Type119 { get; set; }
+        public global::DeepInfra.ModelInfoOutOutSchema? Type119 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength>? Type120 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? Type120 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingTime? Type121 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength>? Type121 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingUptime? Type122 { get; set; }
+        public global::DeepInfra.ModelPricingTime? Type122 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingTokens? Type123 { get; set; }
+        public global::DeepInfra.ModelPricingUptime? Type123 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingInputLength? Type124 { get; set; }
+        public global::DeepInfra.ModelPricingTokens? Type124 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingInputTokens? Type125 { get; set; }
+        public global::DeepInfra.ModelPricingInputLength? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPricingInputCharacterLength? Type126 { get; set; }
+        public global::DeepInfra.ModelPricingInputTokens? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>? Type127 { get; set; }
+        public global::DeepInfra.ModelPricingInputCharacterLength? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant>? Type128 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaVariant? Type129 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant>? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaVariantKey? Type130 { get; set; }
+        public global::DeepInfra.SchemaVariant? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelInfoOutMeta? Type131 { get; set; }
+        public global::DeepInfra.SchemaVariantKey? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelMetaIn? Type132 { get; set; }
+        public global::DeepInfra.ModelInfoOutMeta? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.HFTasksE?>? Type133 { get; set; }
+        public global::DeepInfra.ModelMetaIn? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelOut? Type134 { get; set; }
+        public global::System.AllOf<global::DeepInfra.HFTasksE?>? Type134 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength>? Type135 { get; set; }
+        public global::DeepInfra.ModelOut? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPublicityIn? Type136 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength>? Type136 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelVersionOut? Type137 { get; set; }
+        public global::DeepInfra.ModelPublicityIn? Type137 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIChatCompletionsIn? Type138 { get; set; }
+        public global::DeepInfra.ModelVersionOut? Type138 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>>? Type139 { get; set; }
+        public global::DeepInfra.OpenAIChatCompletionsIn? Type139 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>? Type140 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>>? Type140 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Type141 { get; set; }
+        public global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? Type142 { get; set; }
+        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Type142 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.ResponseFormat4>? Type143 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? Type143 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ResponseFormat4? Type144 { get; set; }
+        public global::System.AllOf<global::DeepInfra.ResponseFormat4>? Type144 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ResponseFormatType? Type145 { get; set; }
+        public global::DeepInfra.ResponseFormat4? Type145 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAICompletionsIn? Type146 { get; set; }
+        public global::DeepInfra.ResponseFormatType? Type146 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIEmbeddingsIn? Type147 { get; set; }
+        public global::DeepInfra.OpenAICompletionsIn? Type147 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?>? Type148 { get; set; }
+        public global::DeepInfra.OpenAIEmbeddingsIn? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? Type149 { get; set; }
+        public global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?>? Type149 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIModelOut? Type150 { get; set; }
+        public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? Type150 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public object? Type151 { get; set; }
+        public global::DeepInfra.OpenAIModelOut? Type151 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIModelsOut? Type152 { get; set; }
+        public object? Type152 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? Type153 { get; set; }
+        public global::DeepInfra.OpenAIModelsOut? Type153 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAITextToSpeechIn? Type154 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? Type154 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Type155 { get; set; }
+        public global::DeepInfra.OpenAITextToSpeechIn? Type155 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.TtsVoice? Type156 { get; set; }
+        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Type156 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitOut? Type157 { get; set; }
+        public global::DeepInfra.TtsVoice? Type157 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitRequestIn? Type158 { get; set; }
+        public global::DeepInfra.RateLimitOut? Type158 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaFieldOut? Type159 { get; set; }
+        public global::DeepInfra.RateLimitRequestIn? Type159 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutAllowedItem>? Type160 { get; set; }
+        public global::DeepInfra.SchemaFieldOut? Type160 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaFieldOutAllowedItem? Type161 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutAllowedItem>? Type161 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaFieldOutDefault? Type162 { get; set; }
+        public global::DeepInfra.SchemaFieldOutAllowedItem? Type162 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutExample>? Type163 { get; set; }
+        public global::DeepInfra.SchemaFieldOutDefault? Type163 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaFieldOutExample? Type164 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutExample>? Type164 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOut? Type165 { get; set; }
+        public global::DeepInfra.SchemaFieldOutExample? Type165 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOutSchemaIn? Type166 { get; set; }
+        public global::DeepInfra.SchemaOut? Type166 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOutSchemaOut1? Type167 { get; set; }
+        public global::DeepInfra.SchemaOutSchemaIn? Type167 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOutSchemaStream? Type168 { get; set; }
+        public global::DeepInfra.SchemaOutSchemaOut1? Type168 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut>? Type169 { get; set; }
+        public global::DeepInfra.SchemaOutSchemaStream? Type169 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.UpdateVoiceIn? Type170 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut>? Type170 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.CliVersionCliVersionGetResponse? Type171 { get; set; }
+        public global::DeepInfra.UpdateVoiceIn? Type171 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.AccountUpdateDetailsV1MePatchResponse? Type172 { get; set; }
+        public global::DeepInfra.CliVersionCliVersionGetResponse? Type172 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RequestRateLimitIncreaseV1MeRateLimitRequestPostResponse? Type173 { get; set; }
+        public global::DeepInfra.AccountUpdateDetailsV1MePatchResponse? Type173 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type174 { get; set; }
+        public global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse? Type174 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type175 { get; set; }
+        public global::DeepInfra.RequestRateLimitIncreaseV1MeRateLimitRequestPostResponse? Type175 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type176 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type176 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelPublicityModelsModelNamePublicityPostResponse? Type177 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type177 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelMetaUpdateModelsModelNameMetaPostResponse? Type178 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type178 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ModelDeleteModelsModelNameDeleteResponse? Type179 { get; set; }
+        public global::DeepInfra.ModelPublicityModelsModelNamePublicityPostResponse? Type179 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse? Type180 { get; set; }
+        public global::DeepInfra.ModelMetaUpdateModelsModelNameMetaPostResponse? Type180 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.InferenceModelV1InferenceModelNamePostResponse? Type181 { get; set; }
+        public global::DeepInfra.ModelDeleteModelsModelNameDeleteResponse? Type181 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse? Type182 { get; set; }
+        public global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse? Type182 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse? Type183 { get; set; }
+        public global::DeepInfra.InferenceModelV1InferenceModelNamePostResponse? Type183 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse? Type184 { get; set; }
+        public global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse? Type184 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse? Type185 { get; set; }
+        public global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse? Type185 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse? Type186 { get; set; }
+        public global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse? Type186 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse? Type187 { get; set; }
+        public global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse? Type187 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.DeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse? Type188 { get; set; }
+        public global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse? Type188 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.GithubLoginGithubLoginGetResponse? Type189 { get; set; }
+        public global::DeepInfra.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse? Type189 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse? Type190 { get; set; }
+        public global::DeepInfra.DeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse? Type190 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type191 { get; set; }
+        public global::DeepInfra.GithubLoginGithubLoginGetResponse? Type191 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.DeleteApiTokenV1ApiTokensApiTokenDeleteResponse? Type192 { get; set; }
+        public global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse? Type192 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type193 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::DeepInfra.DeleteApiTokenV1ApiTokensApiTokenDeleteResponse? Type194 { get; set; }
     }
 }
