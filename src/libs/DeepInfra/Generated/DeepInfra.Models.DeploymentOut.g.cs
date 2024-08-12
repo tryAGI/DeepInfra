@@ -84,21 +84,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instances")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployInstances?>? Instances { get; set; }
+        public global::System.AllOf<global::DeepInfra.DeployInstances>? Instances { get; set; }
 
         /// <summary>
         /// Immutable deploy configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployLLMConfig?>? Config { get; set; }
+        public global::System.AllOf<global::DeepInfra.DeployLLMConfig>? Config { get; set; }
 
         /// <summary>
         /// Scale Settings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ScaleSettings?>? Settings { get; set; }
+        public global::System.AllOf<global::DeepInfra.ScaleSettings>? Settings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

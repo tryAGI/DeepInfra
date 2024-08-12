@@ -23,7 +23,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage?, global::DeepInfra.ChatCompletionAssistantMessage?, global::DeepInfra.ChatCompletionUserMessage?, global::DeepInfra.ChatCompletionSystemMessage?>> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> Messages { get; set; }
 
         /// <summary>
         /// whether to stream the output via SSE or return the full response<br/>
@@ -65,7 +65,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? Stop { get; set; }
+        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
 
         /// <summary>
         /// number of sequences to return. n != 1 incompatible with streaming<br/>
@@ -105,7 +105,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ResponseFormat4?>? ResponseFormat { get; set; }
+        public global::System.AllOf<global::DeepInfra.ResponseFormat4>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>

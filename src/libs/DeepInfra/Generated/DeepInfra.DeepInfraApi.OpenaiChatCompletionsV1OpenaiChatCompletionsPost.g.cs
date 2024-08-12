@@ -169,7 +169,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
             string model,
-            global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage?, global::DeepInfra.ChatCompletionAssistantMessage?, global::DeepInfra.ChatCompletionUserMessage?, global::DeepInfra.ChatCompletionSystemMessage?>> messages,
+            global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             bool stream = false,
@@ -177,13 +177,13 @@ namespace DeepInfra
             double topP = 1,
             int topK = 0,
             int maxTokens = 512,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? stop = default,
+            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? stop = default,
             int n = 1,
             double presencePenalty = 0,
             double frequencyPenalty = 0,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
             string? toolChoice = default,
-            global::System.AllOf<global::DeepInfra.ResponseFormat4?>? responseFormat = default,
+            global::System.AllOf<global::DeepInfra.ResponseFormat4>? responseFormat = default,
             double repetitionPenalty = 1,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

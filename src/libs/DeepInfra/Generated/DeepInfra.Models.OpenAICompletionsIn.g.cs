@@ -84,7 +84,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>?>? Stop { get; set; }
+        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
 
         /// <summary>
         /// Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
@@ -105,7 +105,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ResponseFormat4?>? ResponseFormat { get; set; }
+        public global::System.AllOf<global::DeepInfra.ResponseFormat4>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>

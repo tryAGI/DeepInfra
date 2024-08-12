@@ -126,7 +126,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
             string model,
-            global::System.AnyOf<global::System.Collections.Generic.IList<string>?, string?> input,
+            global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?> input,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float,
