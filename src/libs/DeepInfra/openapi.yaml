@@ -3074,6 +3074,13 @@ components:
           minLength: 1
           type: string
           description: Company website address
+        username:
+          title: Username
+          maxLength: 39
+          minLength: 1
+          pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
+          type: string
+          description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
     MeUsername:
       title: MeUsername
       required:

@@ -107,6 +107,9 @@ namespace DeepInfra
         /// <param name="website">
         /// Company website address
         /// </param>
+        /// <param name="username">
+        /// String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AccountUpdateDetailsV1MePatchResponse> AccountUpdateDetailsV1MePatchAsync(
@@ -115,6 +118,7 @@ namespace DeepInfra
             bool isBusinessAccount = default,
             string? company = default,
             string? website = default,
+            string? username = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::DeepInfra.MeIn
@@ -124,6 +128,7 @@ namespace DeepInfra
                 IsBusinessAccount = isBusinessAccount,
                 Company = company,
                 Website = website,
+                Username = username,
             };
 
             return await AccountUpdateDetailsV1MePatchAsync(
