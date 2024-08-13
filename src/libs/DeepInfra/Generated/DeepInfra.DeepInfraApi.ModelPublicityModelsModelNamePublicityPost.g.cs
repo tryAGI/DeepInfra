@@ -103,7 +103,7 @@ namespace DeepInfra
         /// Model Publicity
         /// </summary>
         /// <param name="modelName"></param>
-        /// <param name="@public">
+        /// <param name="public">
         /// whether to make the model public of private
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

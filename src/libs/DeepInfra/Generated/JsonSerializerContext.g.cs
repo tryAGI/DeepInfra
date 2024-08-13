@@ -49,9 +49,9 @@ namespace DeepInfra
             typeof(global::OpenApiGenerator.JsonConverters.TtsVoiceJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.TtsVoiceNullableJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2),
+            typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1),
             typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory6),
             typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory4),
-            typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonSerializerContextTypes))]
