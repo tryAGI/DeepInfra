@@ -3,10 +3,10 @@
 namespace OpenApiGenerator.JsonConverters
 {
     /// <inheritdoc />
-    public class AnyOfJsonConverter<T1, T2, T3, T4, T5, T6> : global::System.Text.Json.Serialization.JsonConverter<global::System.AnyOf<T1, T2, T3, T4, T5, T6>>
+    public class AnyOfJsonConverter<T1, T2, T3, T4, T5, T6, T7> : global::System.Text.Json.Serialization.JsonConverter<global::System.AnyOf<T1, T2, T3, T4, T5, T6, T7>>
     {
         /// <inheritdoc />
-        public override global::System.AnyOf<T1, T2, T3, T4, T5, T6> Read(
+        public override global::System.AnyOf<T1, T2, T3, T4, T5, T6, T7> Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -86,7 +86,19 @@ namespace OpenApiGenerator.JsonConverters
             catch (global::System.Text.Json.JsonException)
             {
             }
-            var result = new global::System.AnyOf<T1, T2, T3, T4, T5, T6>(
+
+            readerCopy = reader;
+            T7? value7 = default;
+            try
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                value7 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+            }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+            var result = new global::System.AnyOf<T1, T2, T3, T4, T5, T6, T7>(
                 value1,
 
                 value2,
@@ -97,11 +109,13 @@ namespace OpenApiGenerator.JsonConverters
 
                 value5,
 
-                value6
+                value6,
+
+                value7
                 );
             if (!result.Validate())
             {
-                throw new global::System.Text.Json.JsonException($"Invalid JSON format for AnyOf<{typeof(T1).Name}, {typeof(T2).Name}, {typeof(T3).Name}, {typeof(T4).Name}, {typeof(T5).Name}, {typeof(T6).Name}>");
+                throw new global::System.Text.Json.JsonException($"Invalid JSON format for AnyOf<{typeof(T1).Name}, {typeof(T2).Name}, {typeof(T3).Name}, {typeof(T4).Name}, {typeof(T5).Name}, {typeof(T6).Name}, {typeof(T7).Name}>");
             }
 
             if (value1 != null)
@@ -145,13 +159,20 @@ namespace OpenApiGenerator.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T6).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+
+            else if (value7 != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             return result;
         }
 
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::System.AnyOf<T1, T2, T3, T4, T5, T6> value,
+            global::System.AnyOf<T1, T2, T3, T4, T5, T6, T7> value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
@@ -159,7 +180,7 @@ namespace OpenApiGenerator.JsonConverters
 
             if (!value.Validate())
             {
-                throw new global::System.Text.Json.JsonException($"Invalid AnyOf<{typeof(T1).Name}, {typeof(T2).Name}, {typeof(T3).Name}, {typeof(T4).Name}, {typeof(T5).Name}, {typeof(T6).Name}> object.");
+                throw new global::System.Text.Json.JsonException($"Invalid AnyOf<{typeof(T1).Name}, {typeof(T2).Name}, {typeof(T3).Name}, {typeof(T4).Name}, {typeof(T5).Name}, {typeof(T6).Name}, {typeof(T7).Name}> object.");
             }
 
             if (value.IsValue1)
@@ -202,6 +223,13 @@ namespace OpenApiGenerator.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T6), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T6?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T6).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value6, typeInfo);
+            }
+
+            else if (value.IsValue7)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value7, typeInfo);
             }
         }
     }

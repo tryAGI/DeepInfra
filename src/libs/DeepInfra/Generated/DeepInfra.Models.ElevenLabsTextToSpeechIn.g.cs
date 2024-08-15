@@ -26,8 +26,7 @@ namespace DeepInfra
         /// Default Value: deepinfra/tts
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsModel?>? ModelId { get; set; } = global::DeepInfra.TtsModel.DeepinfraTts;
+        public string? ModelId { get; set; } = "deepinfra/tts";
 
         /// <summary>
         /// Output format for the speech<br/>

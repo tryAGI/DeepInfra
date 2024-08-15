@@ -3,12 +3,12 @@
 namespace OpenApiGenerator.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AnyOfJsonConverterFactory6 : global::System.Text.Json.Serialization.JsonConverterFactory
+    public sealed class AnyOfJsonConverterFactory7 : global::System.Text.Json.Serialization.JsonConverterFactory
     {
         /// <inheritdoc />
         public override bool CanConvert(global::System.Type? typeToConvert)
         {
-            return typeToConvert is { IsGenericType: true } && typeToConvert.GetGenericTypeDefinition() == typeof(global::System.AnyOf<,,,,,>);
+            return typeToConvert is { IsGenericType: true } && typeToConvert.GetGenericTypeDefinition() == typeof(global::System.AnyOf<,,,,,,>);
         }
 
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace OpenApiGenerator.JsonConverters
             typeToConvert = typeToConvert ?? throw new global::System.ArgumentNullException(nameof(typeToConvert));
         
             return (global::System.Text.Json.Serialization.JsonConverter)global::System.Activator.CreateInstance(
-                typeof(AnyOfJsonConverter<,,,,,>).MakeGenericType(typeToConvert.GenericTypeArguments))!;
+                typeof(AnyOfJsonConverter<,,,,,,>).MakeGenericType(typeToConvert.GenericTypeArguments))!;
         }
     }
 }

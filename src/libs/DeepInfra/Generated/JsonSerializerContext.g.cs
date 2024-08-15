@@ -32,8 +32,6 @@ namespace DeepInfra
             typeof(global::OpenApiGenerator.JsonConverters.ModelProviderNullableJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.DeployTypeJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.DeployTypeNullableJsonConverter),
-            typeof(global::OpenApiGenerator.JsonConverters.TtsModelJsonConverter),
-            typeof(global::OpenApiGenerator.JsonConverters.TtsModelNullableJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.TtsResponseFormatJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.TtsResponseFormatNullableJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.HFTasksEJsonConverter),
@@ -50,7 +48,7 @@ namespace DeepInfra
             typeof(global::OpenApiGenerator.JsonConverters.TtsVoiceNullableJsonConverter),
             typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2),
             typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1),
-            typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory6),
+            typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory7),
             typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory4),
         })]
 
