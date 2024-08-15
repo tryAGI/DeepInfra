@@ -7,7 +7,7 @@ namespace System
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct AnyOf<T1, T2, T3, T4, T5, T6> : global::System.IEquatable<AnyOf<T1, T2, T3, T4, T5, T6>>
+    public readonly partial struct AnyOf<T1, T2, T3, T4, T5, T6, T7> : global::System.IEquatable<AnyOf<T1, T2, T3, T4, T5, T6, T7>>
     {
         /// <summary>
         /// 
@@ -29,12 +29,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T1 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T1 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T1?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value1;
+        public static implicit operator T1?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value1;
 
         /// <summary>
         /// 
@@ -64,12 +64,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T2 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T2 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T2?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value2;
+        public static implicit operator T2?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value2;
 
         /// <summary>
         /// 
@@ -99,12 +99,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T3 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T3 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T3?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value3;
+        public static implicit operator T3?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value3;
 
         /// <summary>
         /// 
@@ -134,12 +134,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T4 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T4 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T4?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value4;
+        public static implicit operator T4?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value4;
 
         /// <summary>
         /// 
@@ -169,12 +169,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T5 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T5 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T5?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value5;
+        public static implicit operator T5?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value5;
 
         /// <summary>
         /// 
@@ -204,12 +204,12 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T6 value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T6 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T6?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value6;
+        public static implicit operator T6?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value6;
 
         /// <summary>
         /// 
@@ -222,13 +222,49 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public T7? Value7 { get; init; }
+#else
+        public T7? Value7 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value7))]
+#endif
+        public bool IsValue7 => Value7 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6, T7>(T7 value) => new AnyOf<T1, T2, T3, T4, T5, T6, T7>(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator T7?(AnyOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value7;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public AnyOf(T7? value)
+        {
+            Value7 = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AnyOf(
             T1? value1,
             T2? value2,
             T3? value3,
             T4? value4,
             T5? value5,
-            T6? value6
+            T6? value6,
+            T7? value7
             )
         {
             Value1 = value1;
@@ -237,12 +273,14 @@ namespace System
             Value4 = value4;
             Value5 = value5;
             Value6 = value6;
+            Value7 = value7;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Value7 as object ??
             Value6 as object ??
             Value5 as object ??
             Value4 as object ??
@@ -256,7 +294,7 @@ namespace System
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 || IsValue2 || IsValue3 || IsValue4 || IsValue5 || IsValue6;
+            return IsValue1 || IsValue2 || IsValue3 || IsValue4 || IsValue5 || IsValue6 || IsValue7;
         }
 
         /// <summary>
@@ -278,6 +316,8 @@ namespace System
                 typeof(T5),
                 Value6,
                 typeof(T6),
+                Value7,
+                typeof(T7),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -290,7 +330,7 @@ namespace System
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(AnyOf<T1, T2, T3, T4, T5, T6> other)
+        public bool Equals(AnyOf<T1, T2, T3, T4, T5, T6, T7> other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<T1?>.Default.Equals(Value1, other.Value1) &&
@@ -298,22 +338,23 @@ namespace System
                 global::System.Collections.Generic.EqualityComparer<T3?>.Default.Equals(Value3, other.Value3) &&
                 global::System.Collections.Generic.EqualityComparer<T4?>.Default.Equals(Value4, other.Value4) &&
                 global::System.Collections.Generic.EqualityComparer<T5?>.Default.Equals(Value5, other.Value5) &&
-                global::System.Collections.Generic.EqualityComparer<T6?>.Default.Equals(Value6, other.Value6) 
+                global::System.Collections.Generic.EqualityComparer<T6?>.Default.Equals(Value6, other.Value6) &&
+                global::System.Collections.Generic.EqualityComparer<T7?>.Default.Equals(Value7, other.Value7) 
                 ;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(AnyOf<T1, T2, T3, T4, T5, T6> obj1, AnyOf<T1, T2, T3, T4, T5, T6> obj2)
+        public static bool operator ==(AnyOf<T1, T2, T3, T4, T5, T6, T7> obj1, AnyOf<T1, T2, T3, T4, T5, T6, T7> obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<AnyOf<T1, T2, T3, T4, T5, T6>>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<AnyOf<T1, T2, T3, T4, T5, T6, T7>>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(AnyOf<T1, T2, T3, T4, T5, T6> obj1, AnyOf<T1, T2, T3, T4, T5, T6> obj2)
+        public static bool operator !=(AnyOf<T1, T2, T3, T4, T5, T6, T7> obj1, AnyOf<T1, T2, T3, T4, T5, T6, T7> obj2)
         {
             return !(obj1 == obj2);
         }
@@ -323,7 +364,7 @@ namespace System
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is AnyOf<T1, T2, T3, T4, T5, T6> o && Equals(o);
+            return obj is AnyOf<T1, T2, T3, T4, T5, T6, T7> o && Equals(o);
         }
     }
 }

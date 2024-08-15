@@ -2721,8 +2721,8 @@ components:
           description: Text to convert to speech
           example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         model_id:
-          allOf:
-            - $ref: '#/components/schemas/TtsModel'
+          title: Model Id
+          type: string
           description: Model ID to use for the conversion
           default: deepinfra/tts
         output_format:
@@ -3252,6 +3252,7 @@ components:
             - $ref: '#/components/schemas/ModelPricingInputLength'
             - $ref: '#/components/schemas/ModelPricingInputTokens'
             - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
+            - $ref: '#/components/schemas/ModelPricingImageUnits'
         doc_blocks:
           title: Doc Blocks
           type: array
@@ -3364,6 +3365,7 @@ components:
             - $ref: '#/components/schemas/ModelPricingInputTokens'
             - $ref: '#/components/schemas/ModelPricingUptime'
             - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
+            - $ref: '#/components/schemas/ModelPricingImageUnits'
           description: The pricing type and cost for this model
         max_tokens:
           title: Max Tokens
@@ -3382,6 +3384,31 @@ components:
           title: Expected
           type: string
           format: date
+    ModelPricingImageUnits:
+      title: ModelPricingImageUnits
+      required:
+        - cents_per_image_unit
+        - default_width
+        - default_height
+        - default_iterations
+      type: object
+      properties:
+        cents_per_image_unit:
+          title: Cents Per Image Unit
+          type: number
+        default_width:
+          title: Default Width
+          type: integer
+        default_height:
+          title: Default Height
+          type: integer
+        default_iterations:
+          title: Default Iterations
+          type: integer
+        type:
+          title: Type
+          type: string
+          default: image_units
     ModelPricingInputCharacterLength:
       title: ModelPricingInputCharacterLength
       required:
@@ -3982,12 +4009,6 @@ components:
           title: Errors
           type: integer
           description: number of errors
-    TtsModel:
-      title: TtsModel
-      enum:
-        - deepinfra/tts
-      type: string
-      description: An enumeration.
     TtsResponseFormat:
       title: TtsResponseFormat
       enum:

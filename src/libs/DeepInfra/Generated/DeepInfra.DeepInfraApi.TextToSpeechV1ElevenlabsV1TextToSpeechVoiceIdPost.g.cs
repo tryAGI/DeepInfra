@@ -134,7 +134,7 @@ namespace DeepInfra
             string voiceId,
             string text,
             string? xDeepinfraSource = default,
-            global::System.AllOf<global::DeepInfra.TtsModel?>? modelId = default,
+            string? modelId = "deepinfra/tts",
             global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? outputFormat = default,
             string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default)
