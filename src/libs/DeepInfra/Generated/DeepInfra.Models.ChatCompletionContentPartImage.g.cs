@@ -13,8 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ChatCompletionContentPartImageTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ChatCompletionContentPartImageType Type { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartImageType Type { get; set; }
 
         /// <summary>
         /// 
