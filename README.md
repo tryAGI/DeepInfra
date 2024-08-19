@@ -1,4 +1,4 @@
-# DeepInfra
+# [DeepInfra](https://deepinfra.com/docs/deep_infra_api)
 
 [![Nuget package](https://img.shields.io/nuget/vpre/DeepInfra)](https://www.nuget.org/packages/DeepInfra/)
 [![dotnet](https://github.com/tryAGI/DeepInfra/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/tryAGI/DeepInfra/actions/workflows/dotnet.yml)
