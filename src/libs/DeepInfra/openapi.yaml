@@ -3074,8 +3074,8 @@ components:
           minLength: 1
           type: string
           description: Company website address
-        username:
-          title: Username
+        display_name:
+          title: Display Name
           maxLength: 39
           minLength: 1
           pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
