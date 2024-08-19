@@ -6,6 +6,9 @@
 
 namespace DeepInfra
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[] 
@@ -53,7 +56,7 @@ namespace DeepInfra
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonSerializerContextTypes))]
-    internal sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
 }
