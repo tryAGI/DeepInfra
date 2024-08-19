@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrimmingHelper", "src\helpe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepInfra.IntegrationTests", "src\tests\DeepInfra.IntegrationTests\DeepInfra.IntegrationTests.csproj", "{A3F06E45-DFA8-4236-BFF5-425091762548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDocs", "src\helpers\GenerateDocs\GenerateDocs.csproj", "{76B1F623-DFAE-4A87-BF5C-7A6E419443E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{A3F06E45-DFA8-4236-BFF5-425091762548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F06E45-DFA8-4236-BFF5-425091762548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3F06E45-DFA8-4236-BFF5-425091762548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B1F623-DFAE-4A87-BF5C-7A6E419443E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B1F623-DFAE-4A87-BF5C-7A6E419443E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B1F623-DFAE-4A87-BF5C-7A6E419443E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B1F623-DFAE-4A87-BF5C-7A6E419443E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{594DCFD8-E707-4232-B878-90FA3D880474} = {1A008ECD-2300-4BE4-A302-49DDF8BE0D54}
 		{9F7DC3A1-B113-4577-875D-73B2DDD6647A} = {1A008ECD-2300-4BE4-A302-49DDF8BE0D54}
 		{A3F06E45-DFA8-4236-BFF5-425091762548} = {AAA11B78-2764-4520-A97E-46AA7089A588}
+		{76B1F623-DFAE-4A87-BF5C-7A6E419443E6} = {1A008ECD-2300-4BE4-A302-49DDF8BE0D54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CED9A020-DBA5-4BE6-8096-75E528648EC1}
