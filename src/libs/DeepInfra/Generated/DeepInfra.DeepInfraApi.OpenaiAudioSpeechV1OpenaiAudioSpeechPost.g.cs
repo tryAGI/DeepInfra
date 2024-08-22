@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool useCache,
             ref string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool useCache,
             string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void ProcessOpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse(
@@ -26,11 +28,15 @@ namespace DeepInfra
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+            bool useCache,
             string? xDeepinfraSource,
             global::DeepInfra.OpenAITextToSpeechIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -41,12 +47,13 @@ namespace DeepInfra
                 client: _httpClient);
             PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostArguments(
                 httpClient: _httpClient,
+                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/openai/audio/speech", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/openai/audio/speech?use_cache={useCache}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.OpenAITextToSpeechIn);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -60,6 +67,7 @@ namespace DeepInfra
             PrepareOpenaiAudioSpeechV1OpenaiAudioSpeechPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 request: request);
 
@@ -103,6 +111,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="model">
         /// model name<br/>
@@ -130,6 +141,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
             string model,
             string input,
+            bool useCache = true,
             string? xDeepinfraSource = default,
             global::System.AllOf<global::DeepInfra.TtsVoice?>? voice = default,
             global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? responseFormat = default,
@@ -146,6 +158,7 @@ namespace DeepInfra
             };
 
             return await OpenaiAudioSpeechV1OpenaiAudioSpeechPostAsync(
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

@@ -949,6 +949,12 @@ paths:
           schema:
             title: Deploy Id
             type: string
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1044,6 +1050,12 @@ paths:
       summary: Openai Completions
       operationId: openai_completions_v1_openai_completions_post
       parameters:
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1079,6 +1091,12 @@ paths:
       summary: Openai Chat Completions
       operationId: openai_chat_completions_v1_openai_chat_completions_post
       parameters:
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1114,6 +1132,12 @@ paths:
       summary: Openai Embeddings
       operationId: openai_embeddings_v1_openai_embeddings_post
       parameters:
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1193,6 +1217,12 @@ paths:
       summary: Openai Audio Speech
       operationId: openai_audio_speech_v1_openai_audio_speech_post
       parameters:
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
         - name: x-deepinfra-source
           in: header
           schema:
