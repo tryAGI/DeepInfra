@@ -7,12 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiCompletionsV1OpenaiCompletionsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request);
         partial void PrepareOpenaiCompletionsV1OpenaiCompletionsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request);
@@ -28,12 +30,16 @@ namespace DeepInfra
         /// <summary>
         /// Openai Completions
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAICompletionsIn request,
@@ -45,13 +51,14 @@ namespace DeepInfra
                 client: _httpClient);
             PrepareOpenaiCompletionsV1OpenaiCompletionsPostArguments(
                 httpClient: _httpClient,
+                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/openai/completions", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/openai/completions?use_cache={useCache}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.OpenAICompletionsIn);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -65,6 +72,7 @@ namespace DeepInfra
             PrepareOpenaiCompletionsV1OpenaiCompletionsPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request);
@@ -109,6 +117,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Completions
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="model">
@@ -171,6 +182,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsV1OpenaiCompletionsPostAsync(
             string model,
             string prompt,
+            bool useCache = true,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             int maxTokens = 512,
@@ -208,6 +220,7 @@ namespace DeepInfra
             };
 
             return await OpenaiCompletionsV1OpenaiCompletionsPostAsync(
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request,

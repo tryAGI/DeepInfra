@@ -8,12 +8,14 @@ namespace DeepInfra
         partial void PrepareInferenceDeployV1InferenceDeployDeployIdPostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
+            ref bool useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent);
         partial void PrepareInferenceDeployV1InferenceDeployDeployIdPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent);
         partial void ProcessInferenceDeployV1InferenceDeployDeployIdPostResponse(
@@ -29,12 +31,16 @@ namespace DeepInfra
         /// Inference Deploy
         /// </summary>
         /// <param name="deployId"></param>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse> InferenceDeployV1InferenceDeployDeployIdPostAsync(
             string deployId,
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -44,12 +50,13 @@ namespace DeepInfra
             PrepareInferenceDeployV1InferenceDeployDeployIdPostArguments(
                 httpClient: _httpClient,
                 deployId: ref deployId,
+                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/inference/deploy/{deployId}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/inference/deploy/{deployId}?use_cache={useCache}", global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -58,6 +65,7 @@ namespace DeepInfra
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 deployId: deployId,
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent);
 

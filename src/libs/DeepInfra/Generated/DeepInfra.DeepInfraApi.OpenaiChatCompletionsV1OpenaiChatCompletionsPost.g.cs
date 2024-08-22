@@ -7,12 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request);
         partial void PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request);
@@ -28,12 +30,16 @@ namespace DeepInfra
         /// <summary>
         /// Openai Chat Completions
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request,
@@ -45,13 +51,14 @@ namespace DeepInfra
                 client: _httpClient);
             PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostArguments(
                 httpClient: _httpClient,
+                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/openai/chat/completions", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/openai/chat/completions?use_cache={useCache}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.OpenAIChatCompletionsIn);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -65,6 +72,7 @@ namespace DeepInfra
             PrepareOpenaiChatCompletionsV1OpenaiChatCompletionsPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request);
@@ -109,6 +117,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Chat Completions
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="model">
@@ -171,6 +182,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
             string model,
             global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
+            bool useCache = true,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             bool stream = false,
@@ -208,6 +220,7 @@ namespace DeepInfra
             };
 
             return await OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request,

@@ -7,12 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request);
         partial void PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request);
@@ -28,12 +30,16 @@ namespace DeepInfra
         /// <summary>
         /// Openai Embeddings
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
+            bool useCache,
             string? xDeepinfraSource,
             string? userAgent,
             global::DeepInfra.OpenAIEmbeddingsIn request,
@@ -45,13 +51,14 @@ namespace DeepInfra
                 client: _httpClient);
             PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostArguments(
                 httpClient: _httpClient,
+                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/openai/embeddings", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/openai/embeddings?use_cache={useCache}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.OpenAIEmbeddingsIn);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -65,6 +72,7 @@ namespace DeepInfra
             PrepareOpenaiEmbeddingsV1OpenaiEmbeddingsPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request);
@@ -109,6 +117,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Embeddings
         /// </summary>
+        /// <param name="useCache">
+        /// Default Value: true
+        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="model">
@@ -128,6 +139,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
             string model,
             global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?> input,
+            bool useCache = true,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float,
@@ -141,6 +153,7 @@ namespace DeepInfra
             };
 
             return await OpenaiEmbeddingsV1OpenaiEmbeddingsPostAsync(
+                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
                 request: request,
