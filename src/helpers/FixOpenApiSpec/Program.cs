@@ -1,6 +1,7 @@
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
+using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 
 var path = args[0];
@@ -12,6 +13,28 @@ text = text.Replace("\"exclusiveMinimum\":0.0", "\"exclusiveMinimum\":false");
 text = text.Replace("\"type\":\"String\"", "\"type\":\"string\"");
 
 var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
+
+openApiDocument.Servers.Add(new OpenApiServer
+{
+    Url = "https://api.deepinfra.com/v1/",
+});
+
+openApiDocument.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
+{
+    Type = SecuritySchemeType.Http,
+    Scheme = "bearer",
+});
+openApiDocument.SecurityRequirements.Add(new OpenApiSecurityRequirement
+{
+    [new OpenApiSecurityScheme
+    {
+        Reference = new OpenApiReference
+        {
+            Id = "Bearer",
+            Type = ReferenceType.SecurityScheme
+        }
+    }] = new List<string>(),
+});
 
 openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Format = "int64";
 if (long.TryParse(

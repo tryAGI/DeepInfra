@@ -12,7 +12,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public const string BaseUrl = "";
+        public const string BaseUrl = "https://api.deepinfra.com/v1/";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
 

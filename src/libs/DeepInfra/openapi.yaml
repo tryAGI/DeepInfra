@@ -2,6 +2,8 @@ openapi: 3.0.1
 info:
   title: DeepApi
   version: 0.1.0
+servers:
+  - url: https://api.deepinfra.com/v1/
 paths:
   /cli/version:
     get:
@@ -4097,3 +4099,8 @@ components:
     HTTPBearer:
       type: http
       scheme: bearer
+    Bearer:
+      type: http
+      scheme: bearer
+security:
+  - Bearer: [ ]
