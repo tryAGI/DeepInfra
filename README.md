@@ -9,8 +9,6 @@
 - Fully generated C# SDK based on [official DeepInfra OpenAPI specification](https://api.deepinfra.com/openapi.json) using [OpenApiGenerator](https://github.com/HavenDV/OpenApiGenerator)
 - Same day update to support new features
 - Updated and supported automatically if there are no breaking changes
-- Contains a supported list of constants such as current prices, models, and other
-- Source generator to define functions natively through C# interfaces
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
 - Support all DeepInfra API endpoints including Object Detection, Token Classification, Image Classification, Fill Mask and more.
