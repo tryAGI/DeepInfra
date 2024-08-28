@@ -24,6 +24,26 @@ namespace DeepInfra
         /// 
         /// </summary>
         OpenaiEmbeddings,
+        /// <summary>
+        /// 
+        /// </summary>
+        CreateVoice,
+        /// <summary>
+        /// 
+        /// </summary>
+        ReadVoice,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateVoice,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeleteVoice,
+        /// <summary>
+        /// 
+        /// </summary>
+        ListVoices,
     }
 
     /// <summary>
@@ -42,6 +62,11 @@ namespace DeepInfra
                 SchemaVariantKey.OpenaiCompletions => "openai-completions",
                 SchemaVariantKey.OpenaiChatCompletions => "openai-chat-completions",
                 SchemaVariantKey.OpenaiEmbeddings => "openai-embeddings",
+                SchemaVariantKey.CreateVoice => "create-voice",
+                SchemaVariantKey.ReadVoice => "read-voice",
+                SchemaVariantKey.UpdateVoice => "update-voice",
+                SchemaVariantKey.DeleteVoice => "delete-voice",
+                SchemaVariantKey.ListVoices => "list-voices",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +81,11 @@ namespace DeepInfra
                 "openai-completions" => SchemaVariantKey.OpenaiCompletions,
                 "openai-chat-completions" => SchemaVariantKey.OpenaiChatCompletions,
                 "openai-embeddings" => SchemaVariantKey.OpenaiEmbeddings,
+                "create-voice" => SchemaVariantKey.CreateVoice,
+                "read-voice" => SchemaVariantKey.ReadVoice,
+                "update-voice" => SchemaVariantKey.UpdateVoice,
+                "delete-voice" => SchemaVariantKey.DeleteVoice,
+                "list-voices" => SchemaVariantKey.ListVoices,
                 _ => null,
             };
         }
