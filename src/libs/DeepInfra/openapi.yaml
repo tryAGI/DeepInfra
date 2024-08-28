@@ -3156,6 +3156,21 @@ components:
         - openai-emb-py
         - openai-emb-http
         - openai-emb-js
+        - create-voice-http
+        - create-voice-python
+        - create-voice-js
+        - read-voice-http
+        - read-voice-python
+        - read-voice-js
+        - update-voice-http
+        - update-voice-python
+        - update-voice-js
+        - delete-voice-http
+        - delete-voice-python
+        - delete-voice-js
+        - list-voices-http
+        - list-voices-python
+        - list-voices-js
       type: string
       description: An enumeration.
     ModelFieldInfo:
@@ -4004,6 +4019,11 @@ components:
         - openai-completions
         - openai-chat-completions
         - openai-embeddings
+        - create-voice
+        - read-voice
+        - update-voice
+        - delete-voice
+        - list-voices
       type: string
       description: An enumeration.
     TimeDeploymentStatsOut:

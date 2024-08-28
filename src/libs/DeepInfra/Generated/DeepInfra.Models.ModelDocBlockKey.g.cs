@@ -68,6 +68,66 @@ namespace DeepInfra
         /// 
         /// </summary>
         OpenaiEmbJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        CreateVoiceHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        CreateVoicePython,
+        /// <summary>
+        /// 
+        /// </summary>
+        CreateVoiceJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        ReadVoiceHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        ReadVoicePython,
+        /// <summary>
+        /// 
+        /// </summary>
+        ReadVoiceJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateVoiceHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateVoicePython,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpdateVoiceJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeleteVoiceHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeleteVoicePython,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeleteVoiceJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        ListVoicesHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        ListVoicesPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        ListVoicesJs,
     }
 
     /// <summary>
@@ -97,6 +157,21 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiEmbPy => "openai-emb-py",
                 ModelDocBlockKey.OpenaiEmbHttp => "openai-emb-http",
                 ModelDocBlockKey.OpenaiEmbJs => "openai-emb-js",
+                ModelDocBlockKey.CreateVoiceHttp => "create-voice-http",
+                ModelDocBlockKey.CreateVoicePython => "create-voice-python",
+                ModelDocBlockKey.CreateVoiceJs => "create-voice-js",
+                ModelDocBlockKey.ReadVoiceHttp => "read-voice-http",
+                ModelDocBlockKey.ReadVoicePython => "read-voice-python",
+                ModelDocBlockKey.ReadVoiceJs => "read-voice-js",
+                ModelDocBlockKey.UpdateVoiceHttp => "update-voice-http",
+                ModelDocBlockKey.UpdateVoicePython => "update-voice-python",
+                ModelDocBlockKey.UpdateVoiceJs => "update-voice-js",
+                ModelDocBlockKey.DeleteVoiceHttp => "delete-voice-http",
+                ModelDocBlockKey.DeleteVoicePython => "delete-voice-python",
+                ModelDocBlockKey.DeleteVoiceJs => "delete-voice-js",
+                ModelDocBlockKey.ListVoicesHttp => "list-voices-http",
+                ModelDocBlockKey.ListVoicesPython => "list-voices-python",
+                ModelDocBlockKey.ListVoicesJs => "list-voices-js",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -122,6 +197,21 @@ namespace DeepInfra
                 "openai-emb-py" => ModelDocBlockKey.OpenaiEmbPy,
                 "openai-emb-http" => ModelDocBlockKey.OpenaiEmbHttp,
                 "openai-emb-js" => ModelDocBlockKey.OpenaiEmbJs,
+                "create-voice-http" => ModelDocBlockKey.CreateVoiceHttp,
+                "create-voice-python" => ModelDocBlockKey.CreateVoicePython,
+                "create-voice-js" => ModelDocBlockKey.CreateVoiceJs,
+                "read-voice-http" => ModelDocBlockKey.ReadVoiceHttp,
+                "read-voice-python" => ModelDocBlockKey.ReadVoicePython,
+                "read-voice-js" => ModelDocBlockKey.ReadVoiceJs,
+                "update-voice-http" => ModelDocBlockKey.UpdateVoiceHttp,
+                "update-voice-python" => ModelDocBlockKey.UpdateVoicePython,
+                "update-voice-js" => ModelDocBlockKey.UpdateVoiceJs,
+                "delete-voice-http" => ModelDocBlockKey.DeleteVoiceHttp,
+                "delete-voice-python" => ModelDocBlockKey.DeleteVoicePython,
+                "delete-voice-js" => ModelDocBlockKey.DeleteVoiceJs,
+                "list-voices-http" => ModelDocBlockKey.ListVoicesHttp,
+                "list-voices-python" => ModelDocBlockKey.ListVoicesPython,
+                "list-voices-js" => ModelDocBlockKey.ListVoicesJs,
                 _ => null,
             };
         }

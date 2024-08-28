@@ -5,18 +5,18 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareDeployListDeployListGetArguments(
+        partial void PrepareDeployListDeployListGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? status);
-        partial void PrepareDeployListDeployListGetRequest(
+        partial void PrepareDeployListDeployListGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? status);
-        partial void ProcessDeployListDeployListGetResponse(
+        partial void ProcessDeployListDeployListGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeployListDeployListGetResponseContent(
+        partial void ProcessDeployListDeployListGet2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -29,13 +29,13 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>> DeployListDeployListGetAsync(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>> DeployListDeployListGet2Async(
             string? status,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareDeployListDeployListGetArguments(
+            PrepareDeployListDeployListGet2Arguments(
                 httpClient: _httpClient,
                 status: ref status);
 
@@ -46,7 +46,7 @@ namespace DeepInfra
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareDeployListDeployListGetRequest(
+            PrepareDeployListDeployListGet2Request(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 status: status);
@@ -59,7 +59,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessDeployListDeployListGetResponse(
+            ProcessDeployListDeployListGet2Response(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -69,7 +69,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessDeployListDeployListGetResponseContent(
+            ProcessDeployListDeployListGet2ResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
