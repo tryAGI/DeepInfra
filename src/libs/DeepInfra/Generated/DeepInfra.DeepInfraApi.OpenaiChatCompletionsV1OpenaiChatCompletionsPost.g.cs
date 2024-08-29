@@ -190,7 +190,7 @@ namespace DeepInfra
             double topP = 1,
             int topK = 0,
             int maxTokens = 512,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? stop = default,
+            global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
             int n = 1,
             double presencePenalty = 0,
             double frequencyPenalty = 0,
