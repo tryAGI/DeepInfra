@@ -25,7 +25,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?> Input { get; set; }
+        public required global::System.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>

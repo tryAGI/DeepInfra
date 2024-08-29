@@ -69,11 +69,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<string?, int?>>? Type14 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<string, int?>>? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, int?>? Type15 { get; set; }
+        public global::System.AnyOf<string, int?>? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -193,7 +193,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>>? Type45 { get; set; }
+        public global::System.AnyOf<string, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>>? Type45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -577,7 +577,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Type141 { get; set; }
+        public global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -605,7 +605,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::System.Collections.Generic.IList<string>, string?>? Type148 { get; set; }
+        public global::System.AnyOf<global::System.Collections.Generic.IList<string>, string>? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>

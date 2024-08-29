@@ -24,7 +24,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AnyOf<string?, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>> Content { get; set; }
+        public required global::System.AnyOf<string, global::System.Collections.Generic.IList<global::System.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>> Content { get; set; }
 
         /// <summary>
         /// 
