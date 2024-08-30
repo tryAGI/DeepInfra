@@ -3680,6 +3680,8 @@ components:
           description: 'The format of the response. Currently, only json is supported.'
         repetition_penalty:
           title: Repetition Penalty
+          maximum: 5.0
+          minimum: 0.01
           type: number
           description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
           default: 1
@@ -3775,6 +3777,8 @@ components:
           description: 'The format of the response. Currently, only json is supported.'
         repetition_penalty:
           title: Repetition Penalty
+          maximum: 5.0
+          minimum: 0.01
           type: number
           description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
           default: 1
