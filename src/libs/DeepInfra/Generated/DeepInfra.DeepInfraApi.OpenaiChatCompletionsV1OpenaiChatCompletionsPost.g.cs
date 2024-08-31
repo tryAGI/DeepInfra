@@ -39,10 +39,10 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
-            bool useCache,
-            string? xDeepinfraSource,
-            string? userAgent,
             global::DeepInfra.OpenAIChatCompletionsIn request,
+            bool useCache = true,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));

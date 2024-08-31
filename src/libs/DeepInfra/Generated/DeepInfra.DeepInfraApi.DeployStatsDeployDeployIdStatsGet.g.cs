@@ -41,7 +41,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentStatsOut> DeployStatsDeployDeployIdStatsGetAsync(
             string deployId,
             string from,
-            string? to,
+            string? to = "now",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

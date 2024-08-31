@@ -39,8 +39,8 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.UsageOut> UsagePaymentUsageGetAsync(
             string from,
-            string? to,
-            string? session,
+            string? to = default,
+            string? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

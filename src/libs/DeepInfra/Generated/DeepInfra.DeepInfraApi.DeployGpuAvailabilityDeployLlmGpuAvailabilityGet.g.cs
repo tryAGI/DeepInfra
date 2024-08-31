@@ -28,7 +28,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployGPUAvailability> DeployGpuAvailabilityDeployLlmGpuAvailabilityGetAsync(
-            string? source,
+            string? source = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
