@@ -53,9 +53,9 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.LogQueryOut> LogsQueryV1LogsQueryGetAsync(
             string deployId,
-            string? from,
-            string? to,
-            int limit,
+            string? from = default,
+            string? to = default,
+            int limit = 100,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

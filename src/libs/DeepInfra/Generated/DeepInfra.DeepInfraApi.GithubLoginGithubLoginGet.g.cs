@@ -35,9 +35,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.GithubLoginGithubLoginGetResponse> GithubLoginGithubLoginGetAsync(
-            string? loginId,
-            string? origin,
-            string? deal,
+            string? loginId = default,
+            string? origin = default,
+            string? deal = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

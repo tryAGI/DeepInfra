@@ -38,7 +38,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.SchemaOut> ModelSchemaModelsModelNameSchemaVariantKeyGetAsync(
             string modelName,
             global::DeepInfra.SchemaVariantKey variantKey,
-            string? version,
+            string? version = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

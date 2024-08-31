@@ -32,7 +32,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelInfoOut> ModelsInfoModelsModelNameGetAsync(
             string modelName,
-            string? version,
+            string? version = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

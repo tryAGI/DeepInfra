@@ -40,9 +40,9 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.InferenceModelV1InferenceModelNamePostResponse> InferenceModelV1InferenceModelNamePostAsync(
             string modelName,
-            string? version,
-            string? xDeepinfraSource,
-            string? userAgent,
+            string? version = default,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

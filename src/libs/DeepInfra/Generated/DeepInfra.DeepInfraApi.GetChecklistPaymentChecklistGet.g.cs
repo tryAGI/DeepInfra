@@ -28,7 +28,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Checklist> GetChecklistPaymentChecklistGetAsync(
-            string? session,
+            string? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
