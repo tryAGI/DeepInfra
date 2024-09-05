@@ -2858,6 +2858,7 @@ components:
           type: string
         parameters:
           title: Parameters
+          type: object
     GPUAvailabilityInfo:
       title: GPUAvailabilityInfo
       required:
