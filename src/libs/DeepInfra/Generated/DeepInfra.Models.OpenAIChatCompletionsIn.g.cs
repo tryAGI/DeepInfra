@@ -54,11 +54,10 @@ namespace DeepInfra
 
         /// <summary>
         /// The maximum number of tokens to generate in the chat completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
-        /// Default Value: 512
+        /// The total length of input tokens and generated tokens is limited by the model's context length.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int MaxTokens { get; set; } = 512;
+        public int MaxTokens { get; set; }
 
         /// <summary>
         /// up to 16 sequences where the API will stop generating further tokens
