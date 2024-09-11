@@ -146,8 +146,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate in the chat completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
-        /// Default Value: 512
+        /// The total length of input tokens and generated tokens is limited by the model's context length.
         /// </param>
         /// <param name="stop">
         /// up to 16 sequences where the API will stop generating further tokens
@@ -189,7 +188,7 @@ namespace DeepInfra
             double temperature = 1,
             double topP = 1,
             int topK = 0,
-            int maxTokens = 512,
+            int maxTokens = default,
             global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
             int n = 1,
             double presencePenalty = 0,
