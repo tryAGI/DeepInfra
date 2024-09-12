@@ -1513,6 +1513,12 @@ paths:
       summary: Create Voice
       description: Create a new voice
       operationId: create_voice_v1_elevenlabs_v1_voices_add_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_create_voice_v1_elevenlabs_v1_voices_add_post'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -1526,6 +1532,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   '/v1/elevenlabs/v1/voices/{voice_id}/edit':
@@ -2249,6 +2261,26 @@ components:
         name:
           title: Name
           type: string
+    Body_create_voice_v1_elevenlabs_v1_voices_add_post:
+      title: Body_create_voice_v1_elevenlabs_v1_voices_add_post
+      required:
+        - name
+        - description
+        - files
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        files:
+          title: Files
+          type: array
+          items:
+            type: string
+            format: binary
     ChatCompletionAssistantMessage:
       title: ChatCompletionAssistantMessage
       type: object
