@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class BodyCreateVoiceV1ElevenlabsV1VoicesAddPost
+    public sealed partial class BodyCreateVoiceV1VoicesAddPost
     {
         /// <summary>
         /// 

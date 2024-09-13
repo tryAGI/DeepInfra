@@ -125,7 +125,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.BodyCreateVoiceV1ElevenlabsV1VoicesAddPost? Type28 { get; set; }
+        public global::DeepInfra.BodyCreateVoiceV1VoicesAddPost? Type28 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -781,11 +781,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse? Type192 { get; set; }
+        public global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse? Type192 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.DeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse? Type193 { get; set; }
+        public global::DeepInfra.DeleteVoiceV1VoicesVoiceIdDeleteResponse? Type193 { get; set; }
         /// <summary>
         /// 
         /// </summary>

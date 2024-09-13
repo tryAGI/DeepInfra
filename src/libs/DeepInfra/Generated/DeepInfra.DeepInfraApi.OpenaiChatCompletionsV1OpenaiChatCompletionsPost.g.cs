@@ -176,6 +176,9 @@ namespace DeepInfra
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="user">
+        /// A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
@@ -197,6 +200,7 @@ namespace DeepInfra
             string? toolChoice = default,
             global::System.AllOf<global::DeepInfra.ResponseFormat4>? responseFormat = default,
             double repetitionPenalty = 1,
+            string? user = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::DeepInfra.OpenAIChatCompletionsIn
@@ -216,6 +220,7 @@ namespace DeepInfra
                 ToolChoice = toolChoice,
                 ResponseFormat = responseFormat,
                 RepetitionPenalty = repetitionPenalty,
+                User = user,
             };
 
             return await OpenaiChatCompletionsV1OpenaiChatCompletionsPostAsync(
