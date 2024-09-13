@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class DeleteVoiceV1ElevenlabsV1VoicesVoiceIdDeleteResponse
+    public sealed partial class DeleteVoiceV1VoicesVoiceIdDeleteResponse
     {
 
         /// <summary>

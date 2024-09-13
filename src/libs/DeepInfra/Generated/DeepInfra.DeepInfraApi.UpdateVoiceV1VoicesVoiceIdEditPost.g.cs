@@ -1,4 +1,3 @@
-using System.Linq;
 
 #nullable enable
 
@@ -6,62 +5,62 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostArguments(
+        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::DeepInfra.BodyCreateVoiceV1ElevenlabsV1VoicesAddPost request);
-        partial void PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostRequest(
+            ref string voiceId,
+            global::DeepInfra.UpdateVoiceIn request);
+        partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::DeepInfra.BodyCreateVoiceV1ElevenlabsV1VoicesAddPost request);
-        partial void ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponse(
+            string voiceId,
+            global::DeepInfra.UpdateVoiceIn request);
+        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponseContent(
+        partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Voice<br/>
-        /// Create a new voice
+        /// Update Voice
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> CreateVoiceV1ElevenlabsV1VoicesAddPostAsync(
-            global::DeepInfra.BodyCreateVoiceV1ElevenlabsV1VoicesAddPost request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+            string voiceId,
+            global::DeepInfra.UpdateVoiceIn request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostArguments(
+            PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
                 httpClient: _httpClient,
+                voiceId: ref voiceId,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/v1/elevenlabs/v1/voices/add", global::System.UriKind.RelativeOrAbsolute));
-            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.Name}"),
-                name: "name");
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.Description}"),
-                name: "description");
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"[{string.Join(",", request.Files.Select(x => x))}]"),
-                name: "files");
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}/edit", global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.UpdateVoiceIn);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
             httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareCreateVoiceV1ElevenlabsV1VoicesAddPostRequest(
+            PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                voiceId: voiceId,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -72,7 +71,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponse(
+            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -82,7 +81,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessCreateVoiceV1ElevenlabsV1VoicesAddPostResponseContent(
+            ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -102,28 +101,27 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Create Voice<br/>
-        /// Create a new voice
+        /// Update Voice
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
-        /// <param name="files"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> CreateVoiceV1ElevenlabsV1VoicesAddPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+            string voiceId,
             string name,
             string description,
-            global::System.Collections.Generic.IList<byte[]> files,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::DeepInfra.BodyCreateVoiceV1ElevenlabsV1VoicesAddPost
+            var request = new global::DeepInfra.UpdateVoiceIn
             {
                 Name = name,
                 Description = description,
-                Files = files,
             };
 
-            return await CreateVoiceV1ElevenlabsV1VoicesAddPostAsync(
+            return await UpdateVoiceV1VoicesVoiceIdEditPostAsync(
+                voiceId: voiceId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

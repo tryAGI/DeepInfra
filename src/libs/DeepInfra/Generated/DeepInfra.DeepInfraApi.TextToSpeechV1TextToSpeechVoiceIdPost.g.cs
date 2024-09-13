@@ -5,22 +5,22 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostArguments(
+        partial void PrepareTextToSpeechV1TextToSpeechVoiceIdPostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string? xDeepinfraSource,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
-        partial void PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostRequest(
+        partial void PrepareTextToSpeechV1TextToSpeechVoiceIdPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string? xDeepinfraSource,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
-        partial void ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse(
+        partial void ProcessTextToSpeechV1TextToSpeechVoiceIdPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponseContent(
+        partial void ProcessTextToSpeechV1TextToSpeechVoiceIdPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -33,7 +33,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse> TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse> TextToSpeechV1TextToSpeechVoiceIdPostAsync(
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? xDeepinfraSource = default,
@@ -43,7 +43,7 @@ namespace DeepInfra
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostArguments(
+            PrepareTextToSpeechV1TextToSpeechVoiceIdPostArguments(
                 httpClient: _httpClient,
                 voiceId: ref voiceId,
                 xDeepinfraSource: ref xDeepinfraSource,
@@ -51,7 +51,7 @@ namespace DeepInfra
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/elevenlabs/v1/text-to-speech/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/text-to-speech/{voiceId}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.ElevenLabsTextToSpeechIn);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -62,7 +62,7 @@ namespace DeepInfra
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostRequest(
+            PrepareTextToSpeechV1TextToSpeechVoiceIdPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 voiceId: voiceId,
@@ -77,7 +77,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse(
+            ProcessTextToSpeechV1TextToSpeechVoiceIdPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -87,7 +87,7 @@ namespace DeepInfra
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessTextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponseContent(
+            ProcessTextToSpeechV1TextToSpeechVoiceIdPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -102,7 +102,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::DeepInfra.SourceGenerationContext.Default.TextToSpeechV1TextToSpeechVoiceIdPostResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -131,7 +131,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse> TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse> TextToSpeechV1TextToSpeechVoiceIdPostAsync(
             string voiceId,
             string text,
             string? xDeepinfraSource = default,
@@ -148,7 +148,7 @@ namespace DeepInfra
                 LanguageCode = languageCode,
             };
 
-            return await TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostAsync(
+            return await TextToSpeechV1TextToSpeechVoiceIdPostAsync(
                 voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
                 request: request,

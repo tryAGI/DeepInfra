@@ -1383,11 +1383,11 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  /v1/elevenlabs/v1/voices:
+  /v1/voices:
     get:
       summary: Get Voices
       description: Get available voices for a given user
-      operationId: get_voices_v1_elevenlabs_v1_voices_get
+      operationId: get_voices_v1_voices_get
       responses:
         '200':
           description: Successful Response
@@ -1403,10 +1403,10 @@ paths:
                 $ref: '#/components/schemas/DeepError'
       security:
         - HTTPBearer: [ ]
-  '/v1/elevenlabs/v1/text-to-speech/{voice_id}':
+  '/v1/text-to-speech/{voice_id}':
     post:
       summary: Text To Speech
-      operationId: text_to_speech_v1_elevenlabs_v1_text_to_speech__voice_id__post
+      operationId: text_to_speech_v1_text_to_speech__voice_id__post
       parameters:
         - name: voice_id
           in: path
@@ -1439,11 +1439,11 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  '/v1/elevenlabs/v1/voices/{voice_id}':
+  '/v1/voices/{voice_id}':
     get:
       summary: Get Voice
       description: Get a voice by its id
-      operationId: get_voice_v1_elevenlabs_v1_voices__voice_id__get
+      operationId: get_voice_v1_voices__voice_id__get
       parameters:
         - name: voice_id
           in: path
@@ -1474,7 +1474,7 @@ paths:
         - HTTPBearer: [ ]
     delete:
       summary: Delete Voice
-      operationId: delete_voice_v1_elevenlabs_v1_voices__voice_id__delete
+      operationId: delete_voice_v1_voices__voice_id__delete
       parameters:
         - name: voice_id
           in: path
@@ -1508,16 +1508,16 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  /v1/elevenlabs/v1/voices/add:
+  /v1/voices/add:
     post:
       summary: Create Voice
       description: Create a new voice
-      operationId: create_voice_v1_elevenlabs_v1_voices_add_post
+      operationId: create_voice_v1_voices_add_post
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_create_voice_v1_elevenlabs_v1_voices_add_post'
+              $ref: '#/components/schemas/Body_create_voice_v1_voices_add_post'
         required: true
       responses:
         '200':
@@ -1540,10 +1540,10 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  '/v1/elevenlabs/v1/voices/{voice_id}/edit':
+  '/v1/voices/{voice_id}/edit':
     post:
       summary: Update Voice
-      operationId: update_voice_v1_elevenlabs_v1_voices__voice_id__edit_post
+      operationId: update_voice_v1_voices__voice_id__edit_post
       parameters:
         - name: voice_id
           in: path
@@ -2261,8 +2261,8 @@ components:
         name:
           title: Name
           type: string
-    Body_create_voice_v1_elevenlabs_v1_voices_add_post:
-      title: Body_create_voice_v1_elevenlabs_v1_voices_add_post
+    Body_create_voice_v1_voices_add_post:
+      title: Body_create_voice_v1_voices_add_post
       required:
         - name
         - description
@@ -3717,6 +3717,10 @@ components:
           type: number
           description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
           default: 1
+        user:
+          title: User
+          type: string
+          description: 'A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
       required:
@@ -3814,6 +3818,10 @@ components:
           type: number
           description: 'Alternative penalty for repetition, but multiplicative instead of additive (> 1 penalize, < 1 encourage)'
           default: 1
+        user:
+          title: User
+          type: string
+          description: 'A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:

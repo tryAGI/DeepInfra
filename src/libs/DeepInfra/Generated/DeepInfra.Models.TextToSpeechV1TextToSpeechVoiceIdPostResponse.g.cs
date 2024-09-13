@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class TextToSpeechV1ElevenlabsV1TextToSpeechVoiceIdPostResponse
+    public sealed partial class TextToSpeechV1TextToSpeechVoiceIdPostResponse
     {
 
         /// <summary>
