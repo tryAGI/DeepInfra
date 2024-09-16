@@ -9,12 +9,14 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string? xDeepinfraSource,
+            ref string? xiApiKey,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
         partial void PrepareTextToSpeechV1TextToSpeechVoiceIdPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string? xDeepinfraSource,
+            string? xiApiKey,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
         partial void ProcessTextToSpeechV1TextToSpeechVoiceIdPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,6 +32,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -37,6 +40,7 @@ namespace DeepInfra
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -47,6 +51,7 @@ namespace DeepInfra
                 httpClient: _httpClient,
                 voiceId: ref voiceId,
                 xDeepinfraSource: ref xDeepinfraSource,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -67,6 +72,7 @@ namespace DeepInfra
                 httpRequestMessage: httpRequest,
                 voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -111,6 +117,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="text">
         /// Text to convert to speech<br/>
         /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
@@ -135,6 +142,7 @@ namespace DeepInfra
             string voiceId,
             string text,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             string? modelId = "deepinfra/tts",
             global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? outputFormat = default,
             string? languageCode = default,
@@ -151,6 +159,7 @@ namespace DeepInfra
             return await TextToSpeechV1TextToSpeechVoiceIdPostAsync(
                 voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
+                xiApiKey: xiApiKey,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

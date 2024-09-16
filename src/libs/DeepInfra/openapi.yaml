@@ -1388,6 +1388,12 @@ paths:
       summary: Get Voices
       description: Get available voices for a given user
       operationId: get_voices_v1_voices_get
+      parameters:
+        - name: xi-api-Key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1401,6 +1407,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   '/v1/text-to-speech/{voice_id}':
@@ -1418,6 +1430,11 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -1451,6 +1468,11 @@ paths:
           schema:
             title: Voice Id
             type: string
+        - name: xi-api-Key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1481,6 +1503,11 @@ paths:
           required: true
           schema:
             title: Voice Id
+            type: string
+        - name: xi-api-Key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       responses:
         '200':
@@ -1513,6 +1540,12 @@ paths:
       summary: Create Voice
       description: Create a new voice
       operationId: create_voice_v1_voices_add_post
+      parameters:
+        - name: xi-api-Key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           multipart/form-data:
@@ -1550,6 +1583,11 @@ paths:
           required: true
           schema:
             title: Voice Id
+            type: string
+        - name: xi-api-Key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:

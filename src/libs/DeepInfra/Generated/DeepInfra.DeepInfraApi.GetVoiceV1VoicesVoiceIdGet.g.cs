@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareGetVoiceV1VoicesVoiceIdGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string voiceId);
+            ref string voiceId,
+            ref string? xiApiKey);
         partial void PrepareGetVoiceV1VoicesVoiceIdGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string voiceId);
+            string voiceId,
+            string? xiApiKey);
         partial void ProcessGetVoiceV1VoicesVoiceIdGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -26,17 +28,20 @@ namespace DeepInfra
         /// Get a voice by its id
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> GetVoiceV1VoicesVoiceIdGetAsync(
             string voiceId,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
             PrepareGetVoiceV1VoicesVoiceIdGetArguments(
                 httpClient: _httpClient,
-                voiceId: ref voiceId);
+                voiceId: ref voiceId,
+                xiApiKey: ref xiApiKey);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -48,7 +53,8 @@ namespace DeepInfra
             PrepareGetVoiceV1VoicesVoiceIdGetRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
-                voiceId: voiceId);
+                voiceId: voiceId,
+                xiApiKey: xiApiKey);
 
             using var response = await _httpClient.SendAsync(
                 request: httpRequest,

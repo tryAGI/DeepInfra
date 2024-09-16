@@ -6,10 +6,12 @@ namespace DeepInfra
     public partial class DeepInfraApi
     {
         partial void PrepareGetVoicesV1VoicesGetArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey);
         partial void PrepareGetVoicesV1VoicesGetRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey);
         partial void ProcessGetVoicesV1VoicesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -23,15 +25,18 @@ namespace DeepInfra
         /// Get Voices<br/>
         /// Get available voices for a given user
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.GetVoicesOut> GetVoicesV1VoicesGetAsync(
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
             PrepareGetVoicesV1VoicesGetArguments(
-                httpClient: _httpClient);
+                httpClient: _httpClient,
+                xiApiKey: ref xiApiKey);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -42,7 +47,8 @@ namespace DeepInfra
                 request: httpRequest);
             PrepareGetVoicesV1VoicesGetRequest(
                 httpClient: _httpClient,
-                httpRequestMessage: httpRequest);
+                httpRequestMessage: httpRequest,
+                xiApiKey: xiApiKey);
 
             using var response = await _httpClient.SendAsync(
                 request: httpRequest,
