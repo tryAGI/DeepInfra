@@ -8,11 +8,13 @@ namespace DeepInfra
         partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
+            ref string? xiApiKey,
             global::DeepInfra.UpdateVoiceIn request);
         partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
+            string? xiApiKey,
             global::DeepInfra.UpdateVoiceIn request);
         partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,12 +29,14 @@ namespace DeepInfra
         /// Update Voice
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
             string voiceId,
             global::DeepInfra.UpdateVoiceIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,6 +46,7 @@ namespace DeepInfra
             PrepareUpdateVoiceV1VoicesVoiceIdEditPostArguments(
                 httpClient: _httpClient,
                 voiceId: ref voiceId,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -61,6 +66,7 @@ namespace DeepInfra
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 voiceId: voiceId,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -104,6 +110,7 @@ namespace DeepInfra
         /// Update Voice
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -112,6 +119,7 @@ namespace DeepInfra
             string voiceId,
             string name,
             string description,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::DeepInfra.UpdateVoiceIn
@@ -122,6 +130,7 @@ namespace DeepInfra
 
             return await UpdateVoiceV1VoicesVoiceIdEditPostAsync(
                 voiceId: voiceId,
+                xiApiKey: xiApiKey,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
