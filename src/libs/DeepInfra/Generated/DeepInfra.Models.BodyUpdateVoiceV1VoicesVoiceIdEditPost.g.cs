@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class UpdateVoiceIn
+    public sealed partial class BodyUpdateVoiceV1VoicesVoiceIdEditPost
     {
         /// <summary>
         /// 
