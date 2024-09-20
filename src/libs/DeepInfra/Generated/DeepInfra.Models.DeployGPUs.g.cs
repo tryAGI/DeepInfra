@@ -16,6 +16,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         H10080GB,
+        /// <summary>
+        /// 
+        /// </summary>
+        H200141GB,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace DeepInfra
             {
                 DeployGPUs.A10080GB => "A100-80GB",
                 DeployGPUs.H10080GB => "H100-80GB",
+                DeployGPUs.H200141GB => "H200-141GB",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace DeepInfra
             {
                 "A100-80GB" => DeployGPUs.A10080GB,
                 "H100-80GB" => DeployGPUs.H10080GB,
+                "H200-141GB" => DeployGPUs.H200141GB,
                 _ => null,
             };
         }
