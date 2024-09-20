@@ -1591,9 +1591,9 @@ paths:
             type: string
       requestBody:
         content:
-          application/json:
+          application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/UpdateVoiceIn'
+              $ref: '#/components/schemas/Body_update_voice_v1_voices__voice_id__edit_post'
         required: true
       responses:
         '200':
@@ -2319,6 +2319,19 @@ components:
           items:
             type: string
             format: binary
+    Body_update_voice_v1_voices__voice_id__edit_post:
+      title: Body_update_voice_v1_voices__voice_id__edit_post
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
     ChatCompletionAssistantMessage:
       title: ChatCompletionAssistantMessage
       type: object
@@ -4157,19 +4170,6 @@ components:
         - quartz
       type: string
       description: An enumeration.
-    UpdateVoiceIn:
-      title: UpdateVoiceIn
-      required:
-        - name
-        - description
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
     Voice:
       title: Voice
       required:

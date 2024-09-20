@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
             ref string? xiApiKey,
-            global::DeepInfra.UpdateVoiceIn request);
+            global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request);
         partial void PrepareUpdateVoiceV1VoicesVoiceIdEditPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
             string? xiApiKey,
-            global::DeepInfra.UpdateVoiceIn request);
+            global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request);
         partial void ProcessUpdateVoiceV1VoicesVoiceIdEditPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,7 +35,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceV1VoicesVoiceIdEditPostAsync(
             string voiceId,
-            global::DeepInfra.UpdateVoiceIn request,
+            global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -52,11 +52,11 @@ namespace DeepInfra
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/v1/voices/{voiceId}/edit", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.UpdateVoiceIn);
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::DeepInfra.SourceGenerationContext.Default.BodyUpdateVoiceV1VoicesVoiceIdEditPost);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
+                mediaType: "application/x-www-form-urlencoded");
             httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -122,7 +122,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::DeepInfra.UpdateVoiceIn
+            var request = new global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost
             {
                 Name = name,
                 Description = description,
