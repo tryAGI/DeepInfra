@@ -1088,6 +1088,37 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/openai/files:
+    post:
+      summary: Openai Files
+      operationId: openai_files_v1_openai_files_post
+      parameters:
+        - name: use_cache
+          in: query
+          schema:
+            title: Use Cache
+            type: boolean
+            default: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_files_v1_openai_files_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/chat/completions:
     post:
       summary: Openai Chat Completions
@@ -2315,6 +2346,22 @@ components:
           type: string
         files:
           title: Files
+          type: array
+          items:
+            type: string
+            format: binary
+    Body_openai_files_v1_openai_files_post:
+      title: Body_openai_files_v1_openai_files_post
+      required:
+        - purpose
+        - file
+      type: object
+      properties:
+        purpose:
+          title: Purpose
+          type: string
+        file:
+          title: File
           type: array
           items:
             type: string
