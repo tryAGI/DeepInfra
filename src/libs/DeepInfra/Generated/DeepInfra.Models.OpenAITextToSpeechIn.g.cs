@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -33,22 +31,22 @@ namespace DeepInfra
         /// Preset voices to use for the speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsVoice?>? Voice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsVoiceJsonConverter))]
+        public global::DeepInfra.TtsVoice? Voice { get; set; }
 
         /// <summary>
         /// response format for the speech
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
+        public global::DeepInfra.TtsResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// speed of the speech<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
-        public double Speed { get; set; } = 1;
+        public double? Speed { get; set; } = 1;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

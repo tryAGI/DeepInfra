@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
@@ -7,16 +8,21 @@ using Microsoft.OpenApi.Readers;
 var path = args[0];
 var text = await File.ReadAllTextAsync(path);
 
-text = text.Replace("\"exclusiveMaximum\":1000.0", "\"exclusiveMinimum\":false");
-text = text.Replace("\"exclusiveMinimum\": 0.0", "\"exclusiveMinimum\": false");
-text = text.Replace("\"exclusiveMinimum\":0.0", "\"exclusiveMinimum\":false");
 text = text.Replace("\"type\":\"String\"", "\"type\":\"string\"");
+
+// Replace string like this `,"exclusiveMaximum":9.223372036854776e+18` to `,"maximum":9.223372036854776e+18, "exclusiveMaximum":true`
+// and this `,"exclusiveMaximum":1000.0` to `,"maximum":1000.0, "exclusiveMaximum":true`
+// only maximum
+Regex exclusiveMaximumRegex = new(@",\s*""exclusiveMaximum"":(?<value>\d+(\.\d+)?(e\+\d+)?)", RegexOptions.Compiled);
+text = exclusiveMaximumRegex.Replace(text, @", ""maximum"":${value}, ""exclusiveMaximum"":true");
+Regex exclusiveMinimumRegex = new(@",\s*""exclusiveMinimum"":(?<value>\d+(\.\d+)?(e\+\d+)?)", RegexOptions.Compiled);
+text = exclusiveMinimumRegex.Replace(text, @", ""minimum"":${value}, ""exclusiveMinimum"":true");
 
 var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
 
 openApiDocument.Servers.Add(new OpenApiServer
 {
-    Url = "https://api.deepinfra.com/v1/",
+    Url = "https://api.deepinfra.com/",
 });
 
 openApiDocument.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme

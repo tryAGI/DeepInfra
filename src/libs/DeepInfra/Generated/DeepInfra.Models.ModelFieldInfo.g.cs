@@ -56,25 +56,25 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimum")]
-        public double Minimum { get; set; }
+        public double? Minimum { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("exclusiveMinimum")]
-        public double ExclusiveMinimum { get; set; }
+        public double? ExclusiveMinimum { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum")]
-        public double Maximum { get; set; }
+        public double? Maximum { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("exclusiveMaximum")]
-        public double ExclusiveMaximum { get; set; }
+        public double? ExclusiveMaximum { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

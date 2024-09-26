@@ -23,16 +23,16 @@ namespace DeepInfra
         /// Example: [I like chocolate]
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
+        public required global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>
         /// Default Value: float
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("encoding_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter))]
         public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? EncodingFormat { get; set; } = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float;
 
         /// <summary>

@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -14,9 +12,9 @@ namespace DeepInfra
         /// The type of GPU the deployment is running on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AllOf<global::DeepInfra.DeployGPUs?> Gpu { get; set; }
+        public required global::DeepInfra.DeployGPUs Gpu { get; set; }
 
         /// <summary>
         /// Number of GPUs used by one instance
@@ -36,9 +34,8 @@ namespace DeepInfra
         /// Model weights information
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weights")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AllOf<global::DeepInfra.HFWeights> Weights { get; set; }
+        public required global::DeepInfra.HFWeights Weights { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

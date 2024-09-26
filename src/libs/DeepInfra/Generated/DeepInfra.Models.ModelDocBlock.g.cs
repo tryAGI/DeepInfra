@@ -12,7 +12,7 @@ namespace DeepInfra
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ModelDocBlockKeyJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::DeepInfra.ModelDocBlockKey Key { get; set; }
 

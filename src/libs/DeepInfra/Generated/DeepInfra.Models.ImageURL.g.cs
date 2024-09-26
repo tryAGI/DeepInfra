@@ -19,7 +19,7 @@ namespace DeepInfra
         /// Default Value: auto
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("detail")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ImageURLDetailJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ImageURLDetailJsonConverter))]
         public global::DeepInfra.ImageURLDetail? Detail { get; set; } = global::DeepInfra.ImageURLDetail.Auto;
 
         /// <summary>

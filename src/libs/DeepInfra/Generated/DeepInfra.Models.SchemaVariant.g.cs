@@ -12,7 +12,7 @@ namespace DeepInfra
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.SchemaVariantKeyJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::DeepInfra.SchemaVariantKey Key { get; set; }
 

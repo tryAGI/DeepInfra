@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -21,23 +19,23 @@ namespace DeepInfra
         /// The GPU you want to run on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AllOf<global::DeepInfra.DeployGPUs?> Gpu { get; set; }
+        public required global::DeepInfra.DeployGPUs Gpu { get; set; }
 
         /// <summary>
         /// Number of GPUs you want for this model<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
-        public int NumGpus { get; set; } = 1;
+        public int? NumGpus { get; set; } = 1;
 
         /// <summary>
         /// Maximum number of concurrent requests<br/>
         /// Default Value: 96
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
-        public int MaxBatchSize { get; set; } = 96;
+        public int? MaxBatchSize { get; set; } = 96;
 
         /// <summary>
         /// 

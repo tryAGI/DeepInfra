@@ -3,7 +3,7 @@ info:
   title: DeepApi
   version: 0.1.0
 servers:
-  - url: https://api.deepinfra.com/v1/
+  - url: https://api.deepinfra.com/
 paths:
   /cli/version:
     get:
@@ -3749,13 +3749,15 @@ components:
         top_p:
           title: Top P
           maximum: 1.0
-          exclusiveMinimum: false
+          minimum: 0.0
+          exclusiveMinimum: true
           type: number
           default: 1
         top_k:
           title: Top K
+          maximum: 1000.0
+          exclusiveMaximum: true
           minimum: 0.0
-          exclusiveMinimum: false
           type: integer
           description: Sample from the best k (number of) tokens. 0 means off
           default: 0
@@ -3820,6 +3822,13 @@ components:
           title: User
           type: string
           description: 'A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
+        seed:
+          title: Seed
+          maximum: 9223372036854776000
+          exclusiveMaximum: true
+          minimum: 0.0
+          type: integer
+          description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
       required:
@@ -3839,7 +3848,8 @@ components:
         max_tokens:
           title: Max Tokens
           maximum: 1000000.0
-          exclusiveMinimum: false
+          minimum: 0.0
+          exclusiveMinimum: true
           type: integer
           description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length."
           default: 512
@@ -3853,13 +3863,15 @@ components:
         top_p:
           title: Top P
           maximum: 1.0
-          exclusiveMinimum: false
+          minimum: 0.0
+          exclusiveMinimum: true
           type: number
           default: 1
         top_k:
           title: Top K
+          maximum: 1000.0
+          exclusiveMaximum: true
           minimum: 0.0
-          exclusiveMinimum: false
           type: integer
           description: Sample from the best k (number of) tokens. 0 means off
           default: 0
@@ -3921,6 +3933,13 @@ components:
           title: User
           type: string
           description: 'A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
+        seed:
+          title: Seed
+          maximum: 9223372036854776000
+          exclusiveMaximum: true
+          minimum: 0.0
+          type: integer
+          description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:

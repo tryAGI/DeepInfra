@@ -14,20 +14,22 @@
 - Support all DeepInfra API endpoints including Object Detection, Token Classification, Image Classification, Fill Mask and more.
 
 ## Usage
+
+To interact with the OpenAI like API, you need to use `tryAGI.OpenAI` library:
+```
+<PackageReference Include="tryAGI.OpenAI" Version="3.7.0" />
+```
 ```csharp
-using var api = new DeepInfraApi("API_KEY");
-string response = await api.Chat.CreateChatCompletionAsync(
-    messages: ["Generate five random words."],
-    model: CreateChatCompletionRequestModel.Gpt4oMini);
-Console.WriteLine(response); // "apple, banana, cherry, date, elderberry"
+using OpenAI;
 
+using var client = CustomProviders.DeepInfra(apiKey);
 var enumerable = api.Chat.CreateChatCompletionAsStreamAsync(
-    messages: ["Generate five random words."],
-    model: CreateChatCompletionRequestModel.Gpt4oMini);
+    model: "meta-llama/Meta-Llama-3-8B-Instruct",
+    messages: ["What is the capital of the United States?"]);
 
-await foreach (string response in enumerable)
+await foreach (var response in enumerable)
 {
-    Console.WriteLine(response);
+    Console.Write(response.Choices[0].Delta.Content);
 }
 ```
 
@@ -36,3 +38,13 @@ await foreach (string response in enumerable)
 Priority place for bugs: https://github.com/tryAGI/DeepInfra/issues  
 Priority place for ideas and general questions: https://github.com/tryAGI/DeepInfra/discussions  
 Discord: https://discord.gg/Ca2xhfBf3v  
+
+## Acknowledgments
+
+![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png)
+
+This project is supported by JetBrains through the [Open Source Support Program](https://jb.gg/OpenSourceSupport).
+
+![CodeRabbit logo](https://opengraph.githubassets.com/1c51002d7d0bbe0c4fd72ff8f2e58192702f73a7037102f77e4dbb98ac00ea8f/marketplace/coderabbitai)
+
+This project is supported by CodeRabbit through the [Open Source Support Program](https://github.com/marketplace/coderabbitai).

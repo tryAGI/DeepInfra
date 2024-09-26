@@ -62,7 +62,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("owner")]
-        public bool Owner { get; set; } = false;
+        public bool? Owner { get; set; } = false;
 
         /// <summary>
         /// 
@@ -134,9 +134,9 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory7))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverterFactory7))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits> Pricing { get; set; }
+        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits> Pricing { get; set; }
 
         /// <summary>
         /// 
@@ -161,7 +161,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int MaxTokens { get; set; }
+        public int? MaxTokens { get; set; }
 
         /// <summary>
         /// 
@@ -173,7 +173,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        public int Deprecated { get; set; }
+        public int? Deprecated { get; set; }
 
         /// <summary>
         /// 
@@ -185,7 +185,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected")]
-        public global::System.DateTime Expected { get; set; }
+        public global::System.DateTime? Expected { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

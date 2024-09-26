@@ -12,37 +12,37 @@ namespace DeepInfra
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
-        public bool Email { get; set; } = false;
+        public bool? Email { get; set; } = false;
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_address")]
-        public bool BillingAddress { get; set; } = false;
+        public bool? BillingAddress { get; set; } = false;
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payment_method")]
-        public bool PaymentMethod { get; set; } = false;
+        public bool? PaymentMethod { get; set; } = false;
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspended")]
-        public bool Suspended { get; set; } = false;
+        public bool? Suspended { get; set; } = false;
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overdue_invoices")]
-        public double OverdueInvoices { get; set; } = 0;
+        public double? OverdueInvoices { get; set; } = 0;
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_checked")]
-        public int LastChecked { get; set; } = 0;
+        public int? LastChecked { get; set; } = 0;
 
         /// <summary>
         /// Negative value indicates funds ready-to-spend. Positive value indicates money owed
@@ -55,13 +55,13 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
-        public double Limit { get; set; }
+        public double? Limit { get; set; }
 
         /// <summary>
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspend_reason")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.SuspendReasonJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter))]
         public global::DeepInfra.SuspendReason? SuspendReason { get; set; }
 
         /// <summary>

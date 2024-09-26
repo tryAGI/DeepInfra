@@ -13,14 +13,14 @@ namespace DeepInfra
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_instances")]
-        public int MinInstances { get; set; } = 1;
+        public int? MinInstances { get; set; } = 1;
 
         /// <summary>
         /// Maximum number of model instances to run<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_instances")]
-        public int MaxInstances { get; set; } = 1;
+        public int? MaxInstances { get; set; } = 1;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

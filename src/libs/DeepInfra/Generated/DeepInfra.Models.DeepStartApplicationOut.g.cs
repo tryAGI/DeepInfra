@@ -59,7 +59,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public int CreatedAt { get; set; }
+        public int? CreatedAt { get; set; }
 
         /// <summary>
         /// Default Value: pending

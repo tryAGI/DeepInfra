@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -28,9 +26,8 @@ namespace DeepInfra
         /// the function that the model called
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.AllOf<global::DeepInfra.Function2> Function { get; set; }
+        public required global::DeepInfra.Function Function { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

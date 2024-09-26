@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -14,8 +12,8 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployType?>? Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployTypeJsonConverter))]
+        public global::DeepInfra.DeployType? Type { get; set; }
 
         /// <summary>
         /// Deploy Id<br/>
@@ -83,22 +81,19 @@ namespace DeepInfra
         /// Details about number of instances running right now
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instances")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployInstances>? Instances { get; set; }
+        public global::DeepInfra.DeployInstances? Instances { get; set; }
 
         /// <summary>
         /// Immutable deploy configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.DeployLLMConfig>? Config { get; set; }
+        public global::DeepInfra.DeployLLMConfig? Config { get; set; }
 
         /// <summary>
         /// Scale Settings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.ScaleSettings>? Settings { get; set; }
+        public global::DeepInfra.ScaleSettings? Settings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

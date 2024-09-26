@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace DeepInfra.JsonConverters
 {
     /// <inheritdoc />
     public sealed class OpenAIEmbeddingsInEncodingFormatNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.OpenAIEmbeddingsInEncodingFormat?>

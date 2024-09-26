@@ -24,7 +24,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_business_account")]
-        public bool IsBusinessAccount { get; set; }
+        public bool? IsBusinessAccount { get; set; }
 
         /// <summary>
         /// Company name

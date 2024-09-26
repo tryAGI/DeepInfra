@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -50,8 +48,8 @@ namespace DeepInfra
         /// model type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.HFTasksE?>? ReportedType { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.HFTasksEJsonConverter))]
+        public global::DeepInfra.HFTasksE? ReportedType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace DeepInfra.JsonConverters
 {
     /// <inheritdoc />
     public sealed class ResponseFormatTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.ResponseFormatType?>

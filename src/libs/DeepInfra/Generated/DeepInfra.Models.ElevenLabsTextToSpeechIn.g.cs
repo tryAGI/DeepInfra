@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -33,8 +31,8 @@ namespace DeepInfra
         /// Default Value: wav
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::DeepInfra.TtsResponseFormat?>? OutputFormat { get; set; } = global::DeepInfra.TtsResponseFormat.Wav;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
+        public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; } = global::DeepInfra.TtsResponseFormat.Wav;
 
         /// <summary>
         /// ISO 639-1, 2 letter language code
