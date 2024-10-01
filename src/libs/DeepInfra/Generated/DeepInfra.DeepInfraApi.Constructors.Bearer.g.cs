@@ -5,12 +5,12 @@ namespace DeepInfra
 {
     public sealed partial class DeepInfraApi
     {
-        /// <inheritdoc cref="DeepInfraApi(global::System.Net.Http.HttpClient?, global::System.Uri?, global::DeepInfra.EndPointAuthorization?)"/>
+        /// <inheritdoc cref="DeepInfraApi(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::DeepInfra.EndPointAuthorization}?)"/>
         public DeepInfraApi(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::DeepInfra.EndPointAuthorization? authorization = null) : this(httpClient, baseUri, authorization)
+            global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>? authorizations = null) : this(httpClient, baseUri, authorizations)
         {
             Authorizing(_httpClient, ref apiKey);
 
