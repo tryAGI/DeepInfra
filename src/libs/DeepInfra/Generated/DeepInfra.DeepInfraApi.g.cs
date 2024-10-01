@@ -15,7 +15,7 @@ namespace DeepInfra
         public const string BaseUrl = "https://api.deepinfra.com/";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
-        private global::DeepInfra.EndPointAuthorization? _authorization;
+        private global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization> _authorizations;
 
         /// <summary>
         /// 
@@ -30,15 +30,15 @@ namespace DeepInfra
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="baseUri"></param>
-        /// <param name="authorization"></param>
+        /// <param name="authorizations"></param>
         public DeepInfraApi(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::DeepInfra.EndPointAuthorization? authorization = null)
+            global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>? authorizations = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);
-            _authorization = authorization;
+            _authorizations = authorizations ?? new global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>();
 
             Initialized(_httpClient);
         }
