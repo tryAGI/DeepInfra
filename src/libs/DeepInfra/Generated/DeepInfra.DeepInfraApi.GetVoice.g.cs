@@ -43,11 +43,6 @@ namespace DeepInfra
                 voiceId: ref voiceId,
                 xiApiKey: ref xiApiKey);
 
-            if (xiApiKey != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("xi-api-Key", xiApiKey);
-            }
-
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/voices/{voiceId}",
                 baseUri: _httpClient.BaseAddress); 
@@ -55,6 +50,19 @@ namespace DeepInfra
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+
+            if (_authorization != null)
+            {{
+                httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                    scheme: _authorization.Name,
+                    parameter: _authorization.Value);
+            }}
+
+            if (xiApiKey != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("xi-api-Key", xiApiKey.ToString());
+            }
+
 
             PrepareRequest(
                 client: _httpClient,

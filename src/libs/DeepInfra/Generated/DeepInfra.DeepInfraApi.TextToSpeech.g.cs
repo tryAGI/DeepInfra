@@ -54,15 +54,6 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            if (xDeepinfraSource != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource);
-            }
-            if (xiApiKey != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("xi-api-key", xiApiKey);
-            }
-
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/text-to-speech/{voiceId}",
                 baseUri: _httpClient.BaseAddress); 
@@ -70,6 +61,23 @@ namespace DeepInfra
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+
+            if (_authorization != null)
+            {{
+                httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                    scheme: _authorization.Name,
+                    parameter: _authorization.Value);
+            }}
+
+            if (xDeepinfraSource != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
+            }
+            if (xiApiKey != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
