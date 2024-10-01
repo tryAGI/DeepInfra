@@ -51,11 +51,6 @@ namespace DeepInfra
                 xDeepinfraSource: ref xDeepinfraSource,
                 request: request);
 
-            if (xDeepinfraSource != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource);
-            }
-
             var __pathBuilder = new PathBuilder(
                 path: "/v1/openai/audio/speech",
                 baseUri: _httpClient.BaseAddress); 
@@ -66,6 +61,19 @@ namespace DeepInfra
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+
+            if (_authorization != null)
+            {{
+                httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                    scheme: _authorization.Name,
+                    parameter: _authorization.Value);
+            }}
+
+            if (xDeepinfraSource != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
+            }
+
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,

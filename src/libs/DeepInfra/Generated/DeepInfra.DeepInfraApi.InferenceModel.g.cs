@@ -54,15 +54,6 @@ namespace DeepInfra
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent);
 
-            if (xDeepinfraSource != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource);
-            }
-            if (userAgent != default)
-            {
-                _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("user-agent", userAgent);
-            }
-
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/inference/{modelName}",
                 baseUri: _httpClient.BaseAddress); 
@@ -73,6 +64,23 @@ namespace DeepInfra
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+
+            if (_authorization != null)
+            {{
+                httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                    scheme: _authorization.Name,
+                    parameter: _authorization.Value);
+            }}
+
+            if (xDeepinfraSource != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
+            }
+            if (userAgent != default)
+            {
+                httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
+            }
+
 
             PrepareRequest(
                 client: _httpClient,
