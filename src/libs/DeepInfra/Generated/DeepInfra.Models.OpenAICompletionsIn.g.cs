@@ -41,10 +41,18 @@ namespace DeepInfra
         public double? Temperature { get; set; } = 1;
 
         /// <summary>
+        /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
         public double? TopP { get; set; } = 1;
+
+        /// <summary>
+        /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("min_p")]
+        public double? MinP { get; set; } = 0;
 
         /// <summary>
         /// Sample from the best k (number of) tokens. 0 means off<br/>
