@@ -2111,7 +2111,6 @@ components:
         - funding
         - founded_on
         - website
-        - email
       type: object
       properties:
         id:
