@@ -77,8 +77,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Email { get; set; }
+        public string? Email { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
