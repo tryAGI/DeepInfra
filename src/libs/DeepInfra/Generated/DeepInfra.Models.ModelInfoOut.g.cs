@@ -155,7 +155,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
-        public global::DeepInfra.ModelInfoOutMeta? Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         /// 
