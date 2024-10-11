@@ -1964,6 +1964,51 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  '/payment/usage/{api_token}':
+    get:
+      summary: Usage Api Token
+      operationId: usage_api_token_payment_usage__api_token__get
+      parameters:
+        - name: api_token
+          in: path
+          required: true
+          schema:
+            title: Api Token
+            type: string
+        - name: from
+          in: query
+          description: 'start of period, YYYY.MM or current(-N) format'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period, YYYY.MM or current(-N) format'
+        - name: to
+          in: query
+          description: 'end of period (if missing a single month marked by from is return), same format as from'
+          schema:
+            title: To
+            type: string
+            description: 'end of period (if missing a single month marked by from is return), same format as from'
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /payment/deepstart/application:
     post:
       summary: Deepstart Apply
