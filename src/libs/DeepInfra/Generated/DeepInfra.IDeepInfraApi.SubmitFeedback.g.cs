@@ -11,7 +11,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse> SubmitFeedbackAsync(
+        global::System.Threading.Tasks.Task<string> SubmitFeedbackAsync(
             global::DeepInfra.FeedbackIn request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -27,7 +27,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.SubmitFeedbackV1FeedbackPostResponse> SubmitFeedbackAsync(
+        global::System.Threading.Tasks.Task<string> SubmitFeedbackAsync(
             string message,
             string? contactEmail = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeleteVoiceV1VoicesVoiceIdDeleteResponse> DeleteVoiceAsync(
+        public async global::System.Threading.Tasks.Task<string> DeleteVoiceAsync(
             string voiceId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -113,9 +113,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.DeleteVoiceV1VoicesVoiceIdDeleteResponse), JsonSerializerContext) as global::DeepInfra.DeleteVoiceV1VoicesVoiceIdDeleteResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
     }
 }

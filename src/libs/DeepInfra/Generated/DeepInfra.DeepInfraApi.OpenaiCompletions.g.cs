@@ -38,7 +38,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             global::DeepInfra.OpenAICompletionsIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -142,9 +142,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse), JsonSerializerContext) as global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -223,7 +221,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiCompletionsV1OpenaiCompletionsPostResponse> OpenaiCompletionsAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             string model,
             string prompt,
             bool? useCache = true,

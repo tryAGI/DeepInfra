@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse> AccountSetUsernameAsync(
+        public async global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
             global::DeepInfra.MeUsername request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -109,9 +109,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse), JsonSerializerContext) as global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -122,7 +120,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse> AccountSetUsernameAsync(
+        public async global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
             string username,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

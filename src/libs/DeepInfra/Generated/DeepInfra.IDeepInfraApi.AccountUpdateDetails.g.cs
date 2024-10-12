@@ -10,7 +10,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.AccountUpdateDetailsV1MePatchResponse> AccountUpdateDetailsAsync(
+        global::System.Threading.Tasks.Task<string> AccountUpdateDetailsAsync(
             global::DeepInfra.MeIn request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -33,7 +33,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.AccountUpdateDetailsV1MePatchResponse> AccountUpdateDetailsAsync(
+        global::System.Threading.Tasks.Task<string> AccountUpdateDetailsAsync(
             string? name = default,
             string? email = default,
             bool? isBusinessAccount = default,

@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="version"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.CliVersionCliVersionGetResponse> CliVersionAsync(
+        public async global::System.Threading.Tasks.Task<string> CliVersionAsync(
             string version,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -104,9 +104,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.CliVersionCliVersionGetResponse), JsonSerializerContext) as global::DeepInfra.CliVersionCliVersionGetResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
     }
 }

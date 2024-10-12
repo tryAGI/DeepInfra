@@ -15,7 +15,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             global::DeepInfra.OpenAIEmbeddingsIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -44,7 +44,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiEmbeddingsV1OpenaiEmbeddingsPostResponse> OpenaiEmbeddingsAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
             bool? useCache = true,

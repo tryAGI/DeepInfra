@@ -38,19 +38,19 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed")]
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutAllowedItem>? Allowed { get; set; }
+        public global::System.Collections.Generic.IList<object>? Allowed { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default")]
-        public global::DeepInfra.SchemaFieldOutDefault? Default { get; set; }
+        public object? Default { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("examples")]
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOutExample>? Examples { get; set; }
+        public global::System.Collections.Generic.IList<object>? Examples { get; set; }
 
         /// <summary>
         /// 

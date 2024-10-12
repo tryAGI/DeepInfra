@@ -11,7 +11,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.ModelMetaUpdateModelsModelNameMetaPostResponse> ModelMetaUpdateAsync(
+        global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
             global::DeepInfra.ModelMetaIn request,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -43,7 +43,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.ModelMetaUpdateModelsModelNameMetaPostResponse> ModelMetaUpdateAsync(
+        global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
             string? description = default,
             string? githubUrl = default,

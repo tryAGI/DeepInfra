@@ -36,7 +36,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse> TextToSpeechAsync(
+        public async global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? xDeepinfraSource = default,
@@ -137,9 +137,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse), JsonSerializerContext) as global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -168,7 +166,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.TextToSpeechV1TextToSpeechVoiceIdPostResponse> TextToSpeechAsync(
+        public async global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             string text,
             string? xDeepinfraSource = default,
