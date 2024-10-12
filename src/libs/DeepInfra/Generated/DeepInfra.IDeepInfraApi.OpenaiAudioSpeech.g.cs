@@ -14,7 +14,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             global::DeepInfra.OpenAITextToSpeechIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -50,7 +50,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             string model,
             string input,
             bool? useCache = true,

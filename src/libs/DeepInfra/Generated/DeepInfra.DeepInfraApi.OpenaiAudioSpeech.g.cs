@@ -35,7 +35,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             global::DeepInfra.OpenAITextToSpeechIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -132,9 +132,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse), JsonSerializerContext) as global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -167,7 +165,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiAudioSpeechV1OpenaiAudioSpeechPostResponse> OpenaiAudioSpeechAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             string model,
             string input,
             bool? useCache = true,

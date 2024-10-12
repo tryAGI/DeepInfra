@@ -116,13 +116,13 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in_schema")]
-        public global::DeepInfra.ModelInfoOutInSchema? InSchema { get; set; }
+        public object? InSchema { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_schema")]
-        public global::DeepInfra.ModelInfoOutOutSchema? OutSchema { get; set; }
+        public object? OutSchema { get; set; }
 
         /// <summary>
         /// 

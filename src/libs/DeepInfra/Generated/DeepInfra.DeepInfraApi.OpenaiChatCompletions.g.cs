@@ -38,7 +38,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             global::DeepInfra.OpenAIChatCompletionsIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -142,9 +142,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse), JsonSerializerContext) as global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -222,7 +220,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsAsync(
+        public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             string model,
             global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
             bool? useCache = true,

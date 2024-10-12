@@ -12,7 +12,7 @@ namespace DeepInfra
         /// <param name="loginId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse> GithubCliLoginAsync(
+        global::System.Threading.Tasks.Task<string> GithubCliLoginAsync(
             string loginId,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -15,7 +15,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             global::DeepInfra.OpenAIChatCompletionsIn request,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -97,7 +97,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.OpenaiChatCompletionsV1OpenaiChatCompletionsPostResponse> OpenaiChatCompletionsAsync(
+        global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             string model,
             global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
             bool? useCache = true,

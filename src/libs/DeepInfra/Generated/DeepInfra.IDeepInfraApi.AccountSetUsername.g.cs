@@ -10,7 +10,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse> AccountSetUsernameAsync(
+        global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
             global::DeepInfra.MeUsername request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -22,7 +22,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.AccountSetUsernameV1MeUsernamePatchResponse> AccountSetUsernameAsync(
+        global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
             string username,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

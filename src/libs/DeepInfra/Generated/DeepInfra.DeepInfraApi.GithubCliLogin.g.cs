@@ -29,7 +29,7 @@ namespace DeepInfra
         /// <param name="loginId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse> GithubCliLoginAsync(
+        public async global::System.Threading.Tasks.Task<string> GithubCliLoginAsync(
             string loginId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,9 +106,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse), JsonSerializerContext) as global::DeepInfra.GithubCliLoginGithubCliLoginGetResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
     }
 }

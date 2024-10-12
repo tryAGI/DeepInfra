@@ -38,7 +38,7 @@ namespace DeepInfra
         /// <param name="userAgent"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse> InferenceDeployAsync(
+        public async global::System.Threading.Tasks.Task<string> InferenceDeployAsync(
             string deployId,
             bool? useCache = true,
             string? xDeepinfraSource = default,
@@ -134,9 +134,7 @@ namespace DeepInfra
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse), JsonSerializerContext) as global::DeepInfra.InferenceDeployV1InferenceDeployDeployIdPostResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
     }
 }
