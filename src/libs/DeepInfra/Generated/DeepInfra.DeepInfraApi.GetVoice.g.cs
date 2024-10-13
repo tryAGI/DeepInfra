@@ -115,7 +115,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.Voice), JsonSerializerContext) as global::DeepInfra.Voice ??
+                global::DeepInfra.Voice.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

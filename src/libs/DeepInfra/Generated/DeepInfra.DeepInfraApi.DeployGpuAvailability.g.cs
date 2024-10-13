@@ -105,7 +105,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.DeployGPUAvailability), JsonSerializerContext) as global::DeepInfra.DeployGPUAvailability ??
+                global::DeepInfra.DeployGPUAvailability.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

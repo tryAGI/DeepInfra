@@ -113,7 +113,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.BillingPortalOut), JsonSerializerContext) as global::DeepInfra.BillingPortalOut ??
+                global::DeepInfra.BillingPortalOut.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
