@@ -123,7 +123,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.DeploymentStatsOut), JsonSerializerContext) as global::DeepInfra.DeploymentStatsOut ??
+                global::DeepInfra.DeploymentStatsOut.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
