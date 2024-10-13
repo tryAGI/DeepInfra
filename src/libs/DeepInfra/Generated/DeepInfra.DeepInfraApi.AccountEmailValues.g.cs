@@ -96,7 +96,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.EmailsOut), JsonSerializerContext) as global::DeepInfra.EmailsOut ??
+                global::DeepInfra.EmailsOut.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

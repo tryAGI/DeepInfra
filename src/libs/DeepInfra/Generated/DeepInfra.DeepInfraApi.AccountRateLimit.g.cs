@@ -96,7 +96,7 @@ namespace DeepInfra
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::DeepInfra.RateLimitOut), JsonSerializerContext) as global::DeepInfra.RateLimitOut ??
+                global::DeepInfra.RateLimitOut.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
