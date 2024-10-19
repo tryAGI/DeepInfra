@@ -184,6 +184,12 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mmlu")]
+        public double? Mmlu { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected")]
         public global::System.DateTime? Expected { get; set; }
 
