@@ -3501,6 +3501,9 @@ components:
         quantization:
           title: Quantization
           type: string
+        mmlu:
+          title: Mmlu
+          type: number
         expected:
           title: Expected
           type: string
@@ -3603,6 +3606,9 @@ components:
         quantization:
           title: Quantization
           type: string
+        mmlu:
+          title: Mmlu
+          type: number
         expected:
           title: Expected
           type: string
