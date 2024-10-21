@@ -3094,6 +3094,7 @@ components:
         - dreambooth
         - custom
         - text-to-speech
+        - text-to-video
       type: string
       description: An enumeration.
     HFWeights:

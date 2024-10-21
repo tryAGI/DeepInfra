@@ -68,6 +68,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         TextToSpeech,
+        /// <summary>
+        /// 
+        /// </summary>
+        TextToVideo,
     }
 
     /// <summary>
@@ -97,6 +101,7 @@ namespace DeepInfra
                 HFTasksE.Dreambooth => "dreambooth",
                 HFTasksE.Custom => "custom",
                 HFTasksE.TextToSpeech => "text-to-speech",
+                HFTasksE.TextToVideo => "text-to-video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -122,6 +127,7 @@ namespace DeepInfra
                 "dreambooth" => HFTasksE.Dreambooth,
                 "custom" => HFTasksE.Custom,
                 "text-to-speech" => HFTasksE.TextToSpeech,
+                "text-to-video" => HFTasksE.TextToVideo,
                 _ => null,
             };
         }
