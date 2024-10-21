@@ -22,6 +22,13 @@ namespace DeepInfra
         public string? Email { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("email_verified")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool EmailVerified { get; set; }
+
+        /// <summary>
         /// Name that is used to identifythe account on the website
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
