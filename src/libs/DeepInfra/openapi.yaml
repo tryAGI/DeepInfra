@@ -3212,6 +3212,7 @@ components:
       title: Me
       required:
         - uid
+        - email_verified
         - display_name
         - provider
         - is_admin
@@ -3227,6 +3228,9 @@ components:
         email:
           title: Email
           type: string
+        email_verified:
+          title: Email Verified
+          type: boolean
         display_name:
           title: Display Name
           type: string
