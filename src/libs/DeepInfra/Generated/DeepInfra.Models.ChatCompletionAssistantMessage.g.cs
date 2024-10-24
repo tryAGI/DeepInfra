@@ -14,7 +14,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionAssistantMessageRoleJsonConverter))]
-        public global::DeepInfra.ChatCompletionAssistantMessageRole? Role { get; set; } = global::DeepInfra.ChatCompletionAssistantMessageRole.Assistant;
+        public global::DeepInfra.ChatCompletionAssistantMessageRole? Role { get; set; }
 
         /// <summary>
         /// the message content

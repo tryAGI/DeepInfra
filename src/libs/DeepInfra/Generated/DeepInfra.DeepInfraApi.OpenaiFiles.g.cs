@@ -34,7 +34,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request,
-            bool? useCache = true,
+            bool? useCache = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -73,7 +73,7 @@ namespace DeepInfra
                 }
             }
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (useCache != true)
+            if (useCache != default)
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{useCache}"),
@@ -144,7 +144,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             string purpose,
             global::System.Collections.Generic.IList<byte[]> file,
-            bool? useCache = true,
+            bool? useCache = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost

@@ -17,7 +17,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             global::DeepInfra.OpenAIEmbeddingsIn request,
-            bool? useCache = true,
+            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -47,10 +47,10 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
-            bool? useCache = true,
+            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
-            global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float,
+            global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

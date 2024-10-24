@@ -15,7 +15,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request,
-            bool? useCache = true,
+            bool? useCache = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             string purpose,
             global::System.Collections.Generic.IList<byte[]> file,
-            bool? useCache = true,
+            bool? useCache = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

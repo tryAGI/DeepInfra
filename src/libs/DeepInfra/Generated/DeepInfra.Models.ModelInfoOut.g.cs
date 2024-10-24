@@ -62,7 +62,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("owner")]
-        public bool? Owner { get; set; } = false;
+        public bool? Owner { get; set; }
 
         /// <summary>
         /// 

@@ -12,7 +12,7 @@ namespace DeepInfra
         /// Default Value: list
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        public string? Object { get; set; } = "list";
+        public string? Object { get; set; }
 
         /// <summary>
         /// 

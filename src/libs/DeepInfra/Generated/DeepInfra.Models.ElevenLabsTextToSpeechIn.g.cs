@@ -24,7 +24,7 @@ namespace DeepInfra
         /// Default Value: deepinfra/tts
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        public string? ModelId { get; set; } = "deepinfra/tts";
+        public string? ModelId { get; set; }
 
         /// <summary>
         /// Output format for the speech<br/>
@@ -32,7 +32,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
-        public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; } = global::DeepInfra.TtsResponseFormat.Wav;
+        public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; }
 
         /// <summary>
         /// ISO 639-1, 2 letter language code

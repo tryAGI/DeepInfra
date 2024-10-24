@@ -16,7 +16,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             global::DeepInfra.OpenAITextToSpeechIn request,
-            bool? useCache = true,
+            bool? useCache = default,
             string? xDeepinfraSource = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -53,11 +53,11 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             string model,
             string input,
-            bool? useCache = true,
+            bool? useCache = default,
             string? xDeepinfraSource = default,
             global::DeepInfra.TtsVoice? voice = default,
             global::DeepInfra.TtsResponseFormat? responseFormat = default,
-            double? speed = 1,
+            double? speed = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -38,8 +38,8 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployCreateLlmAsync(
             string modelName,
             global::DeepInfra.DeployGPUs gpu,
-            int? numGpus = 1,
-            int? maxBatchSize = 96,
+            int? numGpus = default,
+            int? maxBatchSize = default,
             global::DeepInfra.HFWeights? hf = default,
             global::DeepInfra.ScaleSettings? settings = default,
             global::System.Threading.CancellationToken cancellationToken = default);

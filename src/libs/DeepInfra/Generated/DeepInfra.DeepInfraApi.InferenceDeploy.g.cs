@@ -40,7 +40,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> InferenceDeployAsync(
             string deployId,
-            bool? useCache = true,
+            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default)

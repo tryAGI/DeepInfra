@@ -41,7 +41,7 @@ namespace DeepInfra
         /// Default Value: NOT_FINAL
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("invoice_id")]
-        public string? InvoiceId { get; set; } = "NOT_FINAL";
+        public string? InvoiceId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

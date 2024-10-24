@@ -36,7 +36,7 @@ namespace DeepInfra
             string? podName = default,
             string? from = default,
             string? to = default,
-            int? limit = 100,
+            int? limit = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

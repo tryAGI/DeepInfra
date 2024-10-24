@@ -31,49 +31,49 @@ namespace DeepInfra
         /// Default Value: 512
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int? MaxTokens { get; set; } = 512;
+        public int? MaxTokens { get; set; }
 
         /// <summary>
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public double? Temperature { get; set; } = 1;
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public double? TopP { get; set; } = 1;
+        public double? TopP { get; set; }
 
         /// <summary>
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_p")]
-        public double? MinP { get; set; } = 0;
+        public double? MinP { get; set; }
 
         /// <summary>
         /// Sample from the best k (number of) tokens. 0 means off<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_k")]
-        public int? TopK { get; set; } = 0;
+        public int? TopK { get; set; }
 
         /// <summary>
         /// number of sequences to return. n != 1 incompatible with streaming<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n")]
-        public int? N { get; set; } = 1;
+        public int? N { get; set; }
 
         /// <summary>
         /// whether to stream the output via SSE or return the full response<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
-        public bool? Stream { get; set; } = false;
+        public bool? Stream { get; set; }
 
         /// <summary>
         /// return top tokens and their log-probabilities
@@ -99,14 +99,14 @@ namespace DeepInfra
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("presence_penalty")]
-        public double? PresencePenalty { get; set; } = 0;
+        public double? PresencePenalty { get; set; }
 
         /// <summary>
         /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("frequency_penalty")]
-        public double? FrequencyPenalty { get; set; } = 0;
+        public double? FrequencyPenalty { get; set; }
 
         /// <summary>
         /// The format of the response. Currently, only json is supported.
@@ -119,7 +119,7 @@ namespace DeepInfra
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("repetition_penalty")]
-        public double? RepetitionPenalty { get; set; } = 1;
+        public double? RepetitionPenalty { get; set; }
 
         /// <summary>
         /// A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.
