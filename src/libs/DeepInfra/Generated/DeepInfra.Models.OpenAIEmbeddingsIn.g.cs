@@ -33,7 +33,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("encoding_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter))]
-        public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? EncodingFormat { get; set; } = global::DeepInfra.OpenAIEmbeddingsInEncodingFormat.Float;
+        public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? EncodingFormat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

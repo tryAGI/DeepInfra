@@ -20,7 +20,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("detail")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ImageURLDetailJsonConverter))]
-        public global::DeepInfra.ImageURLDetail? Detail { get; set; } = global::DeepInfra.ImageURLDetail.Auto;
+        public global::DeepInfra.ImageURLDetail? Detail { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -148,7 +148,7 @@ namespace DeepInfra
             string? id = default,
             string? uid = default,
             int? createdAt = default,
-            string? status = "pending",
+            string? status = default,
             string? deal = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

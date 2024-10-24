@@ -19,7 +19,7 @@ namespace DeepInfra
         /// Default Value: input_character_length
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; } = "input_character_length";
+        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -12,13 +12,13 @@ namespace DeepInfra
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fr")]
-        public int? Fr { get; set; } = 0;
+        public int? Fr { get; set; }
 
         /// <summary>
         /// Default Value: 4000000000000L
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to")]
-        public long? To { get; set; } = 4000000000000L;
+        public long? To { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

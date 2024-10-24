@@ -20,7 +20,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentStatsOut> DeployStatsAsync(
             string deployId,
             string from,
-            string? to = "now",
+            string? to = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

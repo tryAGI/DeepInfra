@@ -19,7 +19,7 @@ namespace DeepInfra
         /// Default Value: model
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        public string? Object { get; set; } = "model";
+        public string? Object { get; set; }
 
         /// <summary>
         /// 

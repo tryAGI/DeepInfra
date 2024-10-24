@@ -12,7 +12,7 @@ namespace DeepInfra
         /// Default Value: function
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; } = "function";
+        public string? Type { get; set; }
 
         /// <summary>
         /// 

@@ -65,7 +65,7 @@ namespace DeepInfra
         /// Default Value: pending
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        public string? Status { get; set; } = "pending";
+        public string? Status { get; set; }
 
         /// <summary>
         /// 

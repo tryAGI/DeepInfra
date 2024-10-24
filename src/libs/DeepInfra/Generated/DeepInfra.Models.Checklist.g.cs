@@ -12,37 +12,37 @@ namespace DeepInfra
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
-        public bool? Email { get; set; } = false;
+        public bool? Email { get; set; }
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_address")]
-        public bool? BillingAddress { get; set; } = false;
+        public bool? BillingAddress { get; set; }
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payment_method")]
-        public bool? PaymentMethod { get; set; } = false;
+        public bool? PaymentMethod { get; set; }
 
         /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspended")]
-        public bool? Suspended { get; set; } = false;
+        public bool? Suspended { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overdue_invoices")]
-        public double? OverdueInvoices { get; set; } = 0;
+        public double? OverdueInvoices { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_checked")]
-        public int? LastChecked { get; set; } = 0;
+        public int? LastChecked { get; set; }
 
         /// <summary>
         /// Negative value indicates funds ready-to-spend. Positive value indicates money owed

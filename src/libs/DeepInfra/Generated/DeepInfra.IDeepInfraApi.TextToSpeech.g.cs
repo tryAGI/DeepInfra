@@ -51,8 +51,8 @@ namespace DeepInfra
             string text,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
-            string? modelId = "deepinfra/tts",
-            global::DeepInfra.TtsResponseFormat? outputFormat = global::DeepInfra.TtsResponseFormat.Wav,
+            string? modelId = default,
+            global::DeepInfra.TtsResponseFormat? outputFormat = default,
             string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

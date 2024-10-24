@@ -28,14 +28,14 @@ namespace DeepInfra
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
-        public int? NumGpus { get; set; } = 1;
+        public int? NumGpus { get; set; }
 
         /// <summary>
         /// Maximum number of concurrent requests<br/>
         /// Default Value: 96
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
-        public int? MaxBatchSize { get; set; } = 96;
+        public int? MaxBatchSize { get; set; }
 
         /// <summary>
         /// 
