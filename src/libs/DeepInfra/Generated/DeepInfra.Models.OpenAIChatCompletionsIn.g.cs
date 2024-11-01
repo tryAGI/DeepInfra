@@ -75,7 +75,7 @@ namespace DeepInfra
         public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
 
         /// <summary>
-        /// number of sequences to return. n != 1 incompatible with streaming<br/>
+        /// number of sequences to return<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n")]
