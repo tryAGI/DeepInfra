@@ -182,7 +182,7 @@ namespace DeepInfra
         /// Default Value: 0
         /// </param>
         /// <param name="n">
-        /// number of sequences to return. n != 1 incompatible with streaming<br/>
+        /// number of sequences to return<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="stream">

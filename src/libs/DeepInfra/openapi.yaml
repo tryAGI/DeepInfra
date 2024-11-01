@@ -3840,10 +3840,10 @@ components:
           description: up to 16 sequences where the API will stop generating further tokens
         n:
           title: N
-          maximum: 2.0
+          maximum: 4.0
           minimum: 1.0
           type: integer
-          description: number of sequences to return. n != 1 incompatible with streaming
+          description: number of sequences to return
           default: 1
         presence_penalty:
           title: Presence Penalty
@@ -3948,10 +3948,10 @@ components:
           default: 0
         n:
           title: N
-          maximum: 2.0
+          maximum: 4.0
           minimum: 1.0
           type: integer
-          description: number of sequences to return. n != 1 incompatible with streaming
+          description: number of sequences to return
           default: 1
         stream:
           title: Stream

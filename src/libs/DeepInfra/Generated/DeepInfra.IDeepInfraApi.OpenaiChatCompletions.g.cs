@@ -65,7 +65,7 @@ namespace DeepInfra
         /// up to 16 sequences where the API will stop generating further tokens
         /// </param>
         /// <param name="n">
-        /// number of sequences to return. n != 1 incompatible with streaming<br/>
+        /// number of sequences to return<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="presencePenalty">
