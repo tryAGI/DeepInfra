@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareCreateApiTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.ApiTokenIn request);
         partial void PrepareCreateApiTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.ApiTokenIn request);
         partial void ProcessCreateApiTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Create Api Token
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ApiToken> CreateApiTokenAsync(
             global::DeepInfra.ApiTokenIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,6 +41,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareCreateApiTokenArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -62,6 +67,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -75,6 +86,7 @@ namespace DeepInfra
             PrepareCreateApiTokenRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,11 +129,13 @@ namespace DeepInfra
         /// <summary>
         /// Create Api Token
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="name"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ApiToken> CreateApiTokenAsync(
             string name,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.ApiTokenIn
@@ -130,6 +144,7 @@ namespace DeepInfra
             };
 
             return await CreateApiTokenAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

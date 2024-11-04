@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiFilesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? useCache,
+            ref string? xiApiKey,
             global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request);
         partial void PrepareOpenaiFilesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? useCache,
+            string? xiApiKey,
             global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request);
         partial void ProcessOpenaiFilesResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -26,15 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Openai Files
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request,
-            bool? useCache = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -43,15 +41,12 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiFilesArguments(
                 httpClient: HttpClient,
-                useCache: ref useCache,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/openai/files",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_cache", useCache?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -72,12 +67,18 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (useCache != default)
+            if (xiApiKey != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{useCache}"),
-                    name: "use_cache");
+                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
+                    name: "xi-api-key");
             } 
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Purpose}"),
@@ -93,7 +94,7 @@ namespace DeepInfra
             PrepareOpenaiFilesRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                useCache: useCache,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -134,9 +135,7 @@ namespace DeepInfra
         /// <summary>
         /// Openai Files
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="purpose"></param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -144,7 +143,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
             string purpose,
             global::System.Collections.Generic.IList<byte[]> file,
-            bool? useCache = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost
@@ -154,7 +153,7 @@ namespace DeepInfra
             };
 
             return await OpenaiFilesAsync(
-                useCache: useCache,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

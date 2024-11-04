@@ -7,29 +7,25 @@ namespace DeepInfra
         /// <summary>
         /// Openai Embeddings
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             global::DeepInfra.OpenAIEmbeddingsIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Openai Embeddings
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: thenlper/gte-large
@@ -47,9 +43,9 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

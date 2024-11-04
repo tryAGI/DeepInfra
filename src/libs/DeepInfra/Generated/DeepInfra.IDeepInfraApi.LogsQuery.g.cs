@@ -26,6 +26,7 @@ namespace DeepInfra
         /// how many items to return at most (default 100, in [1, 1000])<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.LogQueryOut> LogsQueryAsync(
@@ -33,6 +34,7 @@ namespace DeepInfra
             string? from = default,
             string? to = default,
             int? limit = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

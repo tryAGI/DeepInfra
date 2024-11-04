@@ -15,12 +15,14 @@ namespace DeepInfra
         /// end of period, unix ts or now-relative, check from, defaults to now<br/>
         /// Default Value: now
         /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.DetailedDeploymentStatsOut> DeployDetailedStatsAsync(
             string deployId,
             string from,
             string? to = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

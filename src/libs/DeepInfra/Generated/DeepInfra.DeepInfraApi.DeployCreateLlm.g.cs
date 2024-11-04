@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareDeployCreateLlmArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.DeployLLMIn request);
         partial void PrepareDeployCreateLlmRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.DeployLLMIn request);
         partial void ProcessDeployCreateLlmResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Deploy Create Llm
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployCreateLlmAsync(
             global::DeepInfra.DeployLLMIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,6 +41,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareDeployCreateLlmArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -62,6 +67,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -75,6 +86,7 @@ namespace DeepInfra
             PrepareDeployCreateLlmRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,6 +129,7 @@ namespace DeepInfra
         /// <summary>
         /// Deploy Create Llm
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="modelName">
         /// model name for deepinfra (username/mode-name format)
         /// </param>
@@ -138,6 +151,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployCreateLlmAsync(
             string modelName,
             global::DeepInfra.DeployGPUs gpu,
+            string? xiApiKey = default,
             int? numGpus = default,
             int? maxBatchSize = default,
             global::DeepInfra.HFWeights? hf = default,
@@ -155,6 +169,7 @@ namespace DeepInfra
             };
 
             return await DeployCreateLlmAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -32,6 +32,12 @@ paths:
     get:
       summary: Me
       operationId: me_v1_me_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -39,11 +45,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Me'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
     delete:
       summary: Delete Account
       operationId: delete_account_v1_me_delete
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -51,11 +69,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Me'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
     patch:
       summary: Account Update Details
       operationId: account_update_details_v1_me_patch
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -92,6 +122,12 @@ paths:
     patch:
       summary: Account Set Username
       operationId: account_set_username_v1_me_username_patch
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -128,6 +164,12 @@ paths:
     get:
       summary: Account Email Values
       operationId: account_email_values_v1_me_emails_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -141,12 +183,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   /v1/me/rate_limit:
     get:
       summary: Account Rate Limit
       operationId: account_rate_limit_v1_me_rate_limit_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -160,12 +214,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   /v1/me/rate_limit/request:
     post:
       summary: Request Rate Limit Increase
       operationId: request_rate_limit_increase_v1_me_rate_limit_request_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -202,6 +268,12 @@ paths:
     post:
       summary: Deploy Create
       operationId: deploy_create_v1_deploy_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -245,6 +317,12 @@ paths:
     post:
       summary: Deploy Create Hf
       operationId: deploy_create_hf_deploy_hf__post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -295,6 +373,11 @@ paths:
             title: Source
             type: string
             default: ''
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -314,6 +397,12 @@ paths:
     post:
       summary: Deploy Create Llm
       operationId: deploy_create_llm_deploy_llm_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -359,6 +448,11 @@ paths:
             title: Status
             type: string
             description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -396,6 +490,11 @@ paths:
             title: Status
             type: string
             description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -431,6 +530,11 @@ paths:
           schema:
             title: Deploy Id
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -461,6 +565,11 @@ paths:
           required: true
           schema:
             title: Deploy Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -511,6 +620,11 @@ paths:
           schema:
             title: Deploy Id
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -559,6 +673,11 @@ paths:
             type: string
             description: 'end of period, unix ts or now-relative, check from, defaults to now'
             default: now
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -613,6 +732,11 @@ paths:
             type: string
             description: 'end of period, unix ts or now-relative, check from, defaults to now'
             default: now
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -644,6 +768,12 @@ paths:
     get:
       summary: Private Models List
       operationId: private_models_list_models_private_list_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -654,6 +784,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ModelOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   /models/list:
@@ -680,6 +816,11 @@ paths:
           required: true
           schema:
             title: Model Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       responses:
         '200':
@@ -715,6 +856,11 @@ paths:
           required: true
           schema:
             title: Model Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -758,6 +904,11 @@ paths:
           required: true
           schema:
             title: Model Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -807,6 +958,11 @@ paths:
           schema:
             title: Version
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -846,6 +1002,11 @@ paths:
             title: Version
             type: string
             description: 'delete a particular version, pass ''ALL'' to wipe everything'
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -907,6 +1068,11 @@ paths:
           schema:
             title: Version
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -951,12 +1117,6 @@ paths:
           schema:
             title: Deploy Id
             type: string
-        - name: use_cache
-          in: query
-          schema:
-            title: Use Cache
-            type: boolean
-            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -966,6 +1126,11 @@ paths:
           in: header
           schema:
             title: User-Agent
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       responses:
         '200':
@@ -1015,6 +1180,11 @@ paths:
           schema:
             title: User-Agent
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1052,12 +1222,6 @@ paths:
       summary: Openai Completions
       operationId: openai_completions_v1_openai_completions_post
       parameters:
-        - name: use_cache
-          in: query
-          schema:
-            title: Use Cache
-            type: boolean
-            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1067,6 +1231,11 @@ paths:
           in: header
           schema:
             title: User-Agent
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -1093,12 +1262,11 @@ paths:
       summary: Openai Files
       operationId: openai_files_v1_openai_files_post
       parameters:
-        - name: use_cache
-          in: query
+        - name: xi-api-key
+          in: header
           schema:
-            title: Use Cache
-            type: boolean
-            default: true
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           multipart/form-data:
@@ -1124,12 +1292,6 @@ paths:
       summary: Openai Chat Completions
       operationId: openai_chat_completions_v1_openai_chat_completions_post
       parameters:
-        - name: use_cache
-          in: query
-          schema:
-            title: Use Cache
-            type: boolean
-            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1139,6 +1301,11 @@ paths:
           in: header
           schema:
             title: User-Agent
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -1165,12 +1332,6 @@ paths:
       summary: Openai Embeddings
       operationId: openai_embeddings_v1_openai_embeddings_post
       parameters:
-        - name: use_cache
-          in: query
-          schema:
-            title: Use Cache
-            type: boolean
-            default: true
         - name: x-deepinfra-source
           in: header
           schema:
@@ -1180,6 +1341,11 @@ paths:
           in: header
           schema:
             title: User-Agent
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -1205,6 +1371,12 @@ paths:
     get:
       summary: Openai Models
       operationId: openai_models_v1_openai_models_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1212,6 +1384,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OpenAIModelsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
   /v1/feedback:
@@ -1219,6 +1397,12 @@ paths:
       summary: Submit Feedback
       description: Submit feedback
       operationId: submit_feedback_v1_feedback_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -1250,16 +1434,15 @@ paths:
       summary: Openai Audio Speech
       operationId: openai_audio_speech_v1_openai_audio_speech_post
       parameters:
-        - name: use_cache
-          in: query
-          schema:
-            title: Use Cache
-            type: boolean
-            default: true
         - name: x-deepinfra-source
           in: header
           schema:
             title: X-Deepinfra-Source
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       requestBody:
         content:
@@ -1317,6 +1500,11 @@ paths:
             type: integer
             description: 'how many items to return at most (default 100, in [1, 1000])'
             default: 100
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1387,6 +1575,11 @@ paths:
             type: integer
             description: 'how many items to return at most (default 100, in [1, 1000])'
             default: 100
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1420,7 +1613,7 @@ paths:
       description: Get available voices for a given user
       operationId: get_voices_v1_voices_get
       parameters:
-        - name: xi-api-Key
+        - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
@@ -1499,7 +1692,7 @@ paths:
           schema:
             title: Voice Id
             type: string
-        - name: xi-api-Key
+        - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
@@ -1535,7 +1728,7 @@ paths:
           schema:
             title: Voice Id
             type: string
-        - name: xi-api-Key
+        - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
@@ -1572,7 +1765,7 @@ paths:
       description: Create a new voice
       operationId: create_voice_v1_voices_add_post
       parameters:
-        - name: xi-api-Key
+        - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
@@ -1615,7 +1808,7 @@ paths:
           schema:
             title: Voice Id
             type: string
-        - name: xi-api-Key
+        - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
@@ -1674,6 +1867,11 @@ paths:
           schema:
             title: Deal
             type: string
+        - name: ti_token
+          in: query
+          schema:
+            title: Ti Token
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1714,6 +1912,12 @@ paths:
     get:
       summary: Get Api Tokens
       operationId: get_api_tokens_v1_api_tokens_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1724,11 +1928,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ApiToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
     post:
       summary: Create Api Token
       operationId: create_api_token_v1_api_tokens_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       requestBody:
         content:
           application/json:
@@ -1767,6 +1983,11 @@ paths:
           schema:
             title: Api Token
             type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -1797,6 +2018,11 @@ paths:
           required: true
           schema:
             title: Api Token
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
             type: string
       responses:
         '200':
@@ -3261,6 +3487,24 @@ components:
           title: Website
           type: string
           description: Company website address
+        is_team_account:
+          title: Is Team Account
+          type: boolean
+          default: false
+        is_team_owner:
+          title: Is Team Owner
+          type: boolean
+          default: false
+        team_role:
+          title: Team Role
+          type: string
+        team_display_name:
+          title: Team Display Name
+          type: string
+        is_team_upgrade_enabled:
+          title: Is Team Upgrade Enabled
+          type: boolean
+          default: false
     MeIn:
       title: MeIn
       type: object

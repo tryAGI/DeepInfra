@@ -8,16 +8,16 @@ namespace DeepInfra
         partial void PrepareInferenceDeployArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
-            ref bool? useCache,
             ref string? xDeepinfraSource,
-            ref string? userAgent);
+            ref string? userAgent,
+            ref string? xiApiKey);
         partial void PrepareInferenceDeployRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
-            bool? useCache,
             string? xDeepinfraSource,
-            string? userAgent);
+            string? userAgent,
+            string? xiApiKey);
         partial void ProcessInferenceDeployResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -31,18 +31,16 @@ namespace DeepInfra
         /// Inference Deploy
         /// </summary>
         /// <param name="deployId"></param>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> InferenceDeployAsync(
             string deployId,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -50,16 +48,13 @@ namespace DeepInfra
             PrepareInferenceDeployArguments(
                 httpClient: HttpClient,
                 deployId: ref deployId,
-                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent);
+                userAgent: ref userAgent,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/inference/deploy/{deployId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_cache", useCache?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -89,6 +84,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
             }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
 
 
             PrepareRequest(
@@ -98,9 +97,9 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 deployId: deployId,
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent);
+                userAgent: userAgent,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

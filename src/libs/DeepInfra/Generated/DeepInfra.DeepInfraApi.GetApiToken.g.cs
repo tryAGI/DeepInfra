@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareGetApiTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string apiToken);
+            ref string apiToken,
+            ref string? xiApiKey);
         partial void PrepareGetApiTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string apiToken);
+            string apiToken,
+            string? xiApiKey);
         partial void ProcessGetApiTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,17 +27,20 @@ namespace DeepInfra
         /// Get Api Token
         /// </summary>
         /// <param name="apiToken"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ApiToken> GetApiTokenAsync(
             string apiToken,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetApiTokenArguments(
                 httpClient: HttpClient,
-                apiToken: ref apiToken);
+                apiToken: ref apiToken,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/api-tokens/{apiToken}",
@@ -61,13 +66,20 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareGetApiTokenRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                apiToken: apiToken);
+                apiToken: apiToken,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

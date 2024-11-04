@@ -69,7 +69,7 @@ namespace DeepInfra
 
             if (xiApiKey != default)
             {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-Key", xiApiKey.ToString());
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
 
