@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareDeployList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? status);
+            ref string? status,
+            ref string? xiApiKey);
         partial void PrepareDeployList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? status);
+            string? status,
+            string? xiApiKey);
         partial void ProcessDeployList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -27,17 +29,20 @@ namespace DeepInfra
         /// <param name="status">
         /// A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted
         /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>> DeployList2Async(
             string? status = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDeployList2Arguments(
                 httpClient: HttpClient,
-                status: ref status);
+                status: ref status,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: "/deploy/list",
@@ -66,13 +71,20 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDeployList2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                status: status);
+                status: status,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

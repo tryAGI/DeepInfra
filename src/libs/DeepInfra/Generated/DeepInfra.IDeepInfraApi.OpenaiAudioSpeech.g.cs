@@ -7,26 +7,22 @@ namespace DeepInfra
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             global::DeepInfra.OpenAITextToSpeechIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: deepinfra/tts
@@ -53,8 +49,8 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             string model,
             string input,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             global::DeepInfra.TtsVoice? voice = default,
             global::DeepInfra.TtsResponseFormat? responseFormat = default,
             double? speed = default,

@@ -7,16 +7,16 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiCompletionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent,
+            ref string? xiApiKey,
             global::DeepInfra.OpenAICompletionsIn request);
         partial void PrepareOpenaiCompletionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? useCache,
             string? xDeepinfraSource,
             string? userAgent,
+            string? xiApiKey,
             global::DeepInfra.OpenAICompletionsIn request);
         partial void ProcessOpenaiCompletionsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,19 +30,17 @@ namespace DeepInfra
         /// <summary>
         /// Openai Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             global::DeepInfra.OpenAICompletionsIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -51,17 +49,14 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiCompletionsArguments(
                 httpClient: HttpClient,
-                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/openai/completions",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_cache", useCache?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -91,6 +86,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
             }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -105,9 +104,9 @@ namespace DeepInfra
             PrepareOpenaiCompletionsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -148,11 +147,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: meta-llama/Llama-2-70b-chat-hf
@@ -224,9 +221,9 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             string model,
             string prompt,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             int? maxTokens = default,
             double? temperature = default,
             double? topP = default,
@@ -268,9 +265,9 @@ namespace DeepInfra
             };
 
             return await OpenaiCompletionsAsync(
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -7,16 +7,16 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiChatCompletionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? useCache,
             ref string? xDeepinfraSource,
             ref string? userAgent,
+            ref string? xiApiKey,
             global::DeepInfra.OpenAIChatCompletionsIn request);
         partial void PrepareOpenaiChatCompletionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? useCache,
             string? xDeepinfraSource,
             string? userAgent,
+            string? xiApiKey,
             global::DeepInfra.OpenAIChatCompletionsIn request);
         partial void ProcessOpenaiChatCompletionsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -30,19 +30,17 @@ namespace DeepInfra
         /// <summary>
         /// Openai Chat Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             global::DeepInfra.OpenAIChatCompletionsIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -51,17 +49,14 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiChatCompletionsArguments(
                 httpClient: HttpClient,
-                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/openai/chat/completions",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_cache", useCache?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -91,6 +86,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
             }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -105,9 +104,9 @@ namespace DeepInfra
             PrepareOpenaiChatCompletionsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -148,11 +147,9 @@ namespace DeepInfra
         /// <summary>
         /// Openai Chat Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: meta-llama/Llama-2-70b-chat-hf
@@ -223,9 +220,9 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
             string model,
             global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             bool? stream = default,
             double? temperature = default,
             double? topP = default,
@@ -267,9 +264,9 @@ namespace DeepInfra
             };
 
             return await OpenaiChatCompletionsAsync(
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -71,7 +71,7 @@ namespace DeepInfra
 
             if (xiApiKey != default)
             {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-Key", xiApiKey.ToString());
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
@@ -79,7 +79,7 @@ namespace DeepInfra
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-Key");
+                    name: "xi-api-key");
             } 
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Name}"),

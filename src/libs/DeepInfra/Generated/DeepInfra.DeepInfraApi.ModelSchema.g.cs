@@ -9,13 +9,15 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string modelName,
             ref global::DeepInfra.SchemaVariantKey variantKey,
-            ref string? version);
+            ref string? version,
+            ref string? xiApiKey);
         partial void PrepareModelSchemaRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
             global::DeepInfra.SchemaVariantKey variantKey,
-            string? version);
+            string? version,
+            string? xiApiKey);
         partial void ProcessModelSchemaResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,12 +35,14 @@ namespace DeepInfra
         /// An enumeration.
         /// </param>
         /// <param name="version"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.SchemaOut> ModelSchemaAsync(
             string modelName,
             global::DeepInfra.SchemaVariantKey variantKey,
             string? version = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -47,7 +51,8 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 modelName: ref modelName,
                 variantKey: ref variantKey,
-                version: ref version);
+                version: ref version,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/models/{modelName}/schema/{variantKey}",
@@ -76,6 +81,12 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -84,7 +95,8 @@ namespace DeepInfra
                 httpRequestMessage: __httpRequest,
                 modelName: modelName,
                 variantKey: variantKey,
-                version: version);
+                version: version,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

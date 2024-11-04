@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareDeployStatusArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string deployId);
+            ref string deployId,
+            ref string? xiApiKey);
         partial void PrepareDeployStatusRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string deployId);
+            string deployId,
+            string? xiApiKey);
         partial void ProcessDeployStatusResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,17 +27,20 @@ namespace DeepInfra
         /// Deploy Status
         /// </summary>
         /// <param name="deployId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployStatusAsync(
             string deployId,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDeployStatusArguments(
                 httpClient: HttpClient,
-                deployId: ref deployId);
+                deployId: ref deployId,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/deploy/{deployId}",
@@ -61,13 +66,20 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDeployStatusRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                deployId: deployId);
+                deployId: deployId,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

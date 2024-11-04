@@ -9,13 +9,15 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
             ref string from,
-            ref string? to);
+            ref string? to,
+            ref string? xiApiKey);
         partial void PrepareDeployDetailedStatsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
             string from,
-            string? to);
+            string? to,
+            string? xiApiKey);
         partial void ProcessDeployDetailedStatsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -36,12 +38,14 @@ namespace DeepInfra
         /// end of period, unix ts or now-relative, check from, defaults to now<br/>
         /// Default Value: now
         /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DetailedDeploymentStatsOut> DeployDetailedStatsAsync(
             string deployId,
             string from,
             string? to = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -50,7 +54,8 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 deployId: ref deployId,
                 from: ref from,
-                to: ref to);
+                to: ref to,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/deploy/{deployId}/stats2",
@@ -80,6 +85,12 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -88,7 +99,8 @@ namespace DeepInfra
                 httpRequestMessage: __httpRequest,
                 deployId: deployId,
                 from: from,
-                to: to);
+                to: to,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

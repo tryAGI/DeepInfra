@@ -9,13 +9,15 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string? loginId,
             ref string? origin,
-            ref string? deal);
+            ref string? deal,
+            ref string? tiToken);
         partial void PrepareGithubLoginRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? loginId,
             string? origin,
-            string? deal);
+            string? deal,
+            string? tiToken);
         partial void ProcessGithubLoginResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -32,12 +34,14 @@ namespace DeepInfra
         /// <param name="loginId"></param>
         /// <param name="origin"></param>
         /// <param name="deal"></param>
+        /// <param name="tiToken"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> GithubLoginAsync(
             string? loginId = default,
             string? origin = default,
             string? deal = default,
+            string? tiToken = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -46,7 +50,8 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 loginId: ref loginId,
                 origin: ref origin,
-                deal: ref deal);
+                deal: ref deal,
+                tiToken: ref tiToken);
 
             var __pathBuilder = new PathBuilder(
                 path: "/github/login",
@@ -55,6 +60,7 @@ namespace DeepInfra
                 .AddOptionalParameter("login_id", loginId) 
                 .AddOptionalParameter("origin", origin) 
                 .AddOptionalParameter("deal", deal) 
+                .AddOptionalParameter("ti_token", tiToken) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -85,7 +91,8 @@ namespace DeepInfra
                 httpRequestMessage: __httpRequest,
                 loginId: loginId,
                 origin: origin,
-                deal: deal);
+                deal: deal,
+                tiToken: tiToken);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

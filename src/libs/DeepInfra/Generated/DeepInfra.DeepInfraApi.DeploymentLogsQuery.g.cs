@@ -11,7 +11,8 @@ namespace DeepInfra
             ref string? podName,
             ref string? from,
             ref string? to,
-            ref int? limit);
+            ref int? limit,
+            ref string? xiApiKey);
         partial void PrepareDeploymentLogsQueryRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -19,7 +20,8 @@ namespace DeepInfra
             string? podName,
             string? from,
             string? to,
-            int? limit);
+            int? limit,
+            string? xiApiKey);
         partial void ProcessDeploymentLogsQueryResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,6 +56,7 @@ namespace DeepInfra
         /// how many items to return at most (default 100, in [1, 1000])<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentLogQueryOut> DeploymentLogsQueryAsync(
@@ -62,6 +65,7 @@ namespace DeepInfra
             string? from = default,
             string? to = default,
             int? limit = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -72,7 +76,8 @@ namespace DeepInfra
                 podName: ref podName,
                 from: ref from,
                 to: ref to,
-                limit: ref limit);
+                limit: ref limit,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/deployment_logs/query",
@@ -105,6 +110,12 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
@@ -115,7 +126,8 @@ namespace DeepInfra
                 podName: podName,
                 from: from,
                 to: to,
-                limit: limit);
+                limit: limit,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

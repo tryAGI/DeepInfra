@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareRequestRateLimitIncreaseArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.RateLimitRequestIn request);
         partial void PrepareRequestRateLimitIncreaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.RateLimitRequestIn request);
         partial void ProcessRequestRateLimitIncreaseResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Request Rate Limit Increase
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> RequestRateLimitIncreaseAsync(
             global::DeepInfra.RateLimitRequestIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,6 +41,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareRequestRateLimitIncreaseArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -62,6 +67,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -75,6 +86,7 @@ namespace DeepInfra
             PrepareRequestRateLimitIncreaseRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -115,6 +127,7 @@ namespace DeepInfra
         /// <summary>
         /// Request Rate Limit Increase
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="rateLimit"></param>
         /// <param name="reason"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -122,6 +135,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> RequestRateLimitIncreaseAsync(
             int rateLimit,
             string reason,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.RateLimitRequestIn
@@ -131,6 +145,7 @@ namespace DeepInfra
             };
 
             return await RequestRateLimitIncreaseAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

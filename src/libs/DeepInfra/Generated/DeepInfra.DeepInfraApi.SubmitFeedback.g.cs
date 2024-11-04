@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareSubmitFeedbackArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.FeedbackIn request);
         partial void PrepareSubmitFeedbackRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.FeedbackIn request);
         partial void ProcessSubmitFeedbackResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -25,11 +27,13 @@ namespace DeepInfra
         /// Submit Feedback<br/>
         /// Submit feedback
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> SubmitFeedbackAsync(
             global::DeepInfra.FeedbackIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -38,6 +42,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareSubmitFeedbackArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -63,6 +68,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -76,6 +87,7 @@ namespace DeepInfra
             PrepareSubmitFeedbackRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,6 +129,7 @@ namespace DeepInfra
         /// Submit Feedback<br/>
         /// Submit feedback
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="message">
         /// The message you'd like to send to deepinfra team
         /// </param>
@@ -127,6 +140,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> SubmitFeedbackAsync(
             string message,
+            string? xiApiKey = default,
             string? contactEmail = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -137,6 +151,7 @@ namespace DeepInfra
             };
 
             return await SubmitFeedbackAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

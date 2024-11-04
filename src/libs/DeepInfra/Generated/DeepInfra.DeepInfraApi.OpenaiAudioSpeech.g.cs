@@ -7,14 +7,14 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiAudioSpeechArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? useCache,
             ref string? xDeepinfraSource,
+            ref string? xiApiKey,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void PrepareOpenaiAudioSpeechRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? useCache,
             string? xDeepinfraSource,
+            string? xiApiKey,
             global::DeepInfra.OpenAITextToSpeechIn request);
         partial void ProcessOpenaiAudioSpeechResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -28,17 +28,15 @@ namespace DeepInfra
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             global::DeepInfra.OpenAITextToSpeechIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -47,16 +45,13 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiAudioSpeechArguments(
                 httpClient: HttpClient,
-                useCache: ref useCache,
                 xDeepinfraSource: ref xDeepinfraSource,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/v1/openai/audio/speech",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("use_cache", useCache?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -82,6 +77,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
             }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -96,8 +95,8 @@ namespace DeepInfra
             PrepareOpenaiAudioSpeechRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -138,10 +137,8 @@ namespace DeepInfra
         /// <summary>
         /// Openai Audio Speech
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: deepinfra/tts
@@ -168,8 +165,8 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
             string model,
             string input,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
+            string? xiApiKey = default,
             global::DeepInfra.TtsVoice? voice = default,
             global::DeepInfra.TtsResponseFormat? responseFormat = default,
             double? speed = default,
@@ -185,8 +182,8 @@ namespace DeepInfra
             };
 
             return await OpenaiAudioSpeechAsync(
-                useCache: useCache,
                 xDeepinfraSource: xDeepinfraSource,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

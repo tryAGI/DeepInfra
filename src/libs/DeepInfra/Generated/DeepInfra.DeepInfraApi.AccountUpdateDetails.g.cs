@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareAccountUpdateDetailsArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.MeIn request);
         partial void PrepareAccountUpdateDetailsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.MeIn request);
         partial void ProcessAccountUpdateDetailsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Account Update Details
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> AccountUpdateDetailsAsync(
             global::DeepInfra.MeIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,6 +41,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareAccountUpdateDetailsArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -62,6 +67,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -75,6 +86,7 @@ namespace DeepInfra
             PrepareAccountUpdateDetailsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -115,6 +127,7 @@ namespace DeepInfra
         /// <summary>
         /// Account Update Details
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="name">
         /// Personal name
         /// </param>
@@ -132,6 +145,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> AccountUpdateDetailsAsync(
+            string? xiApiKey = default,
             string? name = default,
             string? email = default,
             bool? isBusinessAccount = default,
@@ -151,6 +165,7 @@ namespace DeepInfra
             };
 
             return await AccountUpdateDetailsAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

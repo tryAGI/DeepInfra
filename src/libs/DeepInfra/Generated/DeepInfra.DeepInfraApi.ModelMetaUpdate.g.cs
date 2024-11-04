@@ -8,11 +8,13 @@ namespace DeepInfra
         partial void PrepareModelMetaUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string modelName,
+            ref string? xiApiKey,
             global::DeepInfra.ModelMetaIn request);
         partial void PrepareModelMetaUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
+            string? xiApiKey,
             global::DeepInfra.ModelMetaIn request);
         partial void ProcessModelMetaUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,12 +29,14 @@ namespace DeepInfra
         /// Model Meta Update
         /// </summary>
         /// <param name="modelName"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
             global::DeepInfra.ModelMetaIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,6 +46,7 @@ namespace DeepInfra
             PrepareModelMetaUpdateArguments(
                 httpClient: HttpClient,
                 modelName: ref modelName,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -67,6 +72,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -81,6 +92,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 modelName: modelName,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -122,6 +134,7 @@ namespace DeepInfra
         /// Model Meta Update
         /// </summary>
         /// <param name="modelName"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="description">
         /// short model description in plain text
         /// </param>
@@ -147,6 +160,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
+            string? xiApiKey = default,
             string? description = default,
             string? githubUrl = default,
             string? paperUrl = default,
@@ -169,6 +183,7 @@ namespace DeepInfra
 
             return await ModelMetaUpdateAsync(
                 modelName: modelName,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

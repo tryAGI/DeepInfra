@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareDeployCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
             global::DeepInfra.DeployModelIn request);
         partial void PrepareDeployCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
             global::DeepInfra.DeployModelIn request);
         partial void ProcessDeployCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,13 @@ namespace DeepInfra
         /// <summary>
         /// Deploy Create
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployResult> DeployCreateAsync(
             global::DeepInfra.DeployModelIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,6 +41,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareDeployCreateArguments(
                 httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -62,6 +67,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -75,6 +86,7 @@ namespace DeepInfra
             PrepareDeployCreateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,6 +129,7 @@ namespace DeepInfra
         /// <summary>
         /// Deploy Create
         /// </summary>
+        /// <param name="xiApiKey"></param>
         /// <param name="provider">
         /// namespace for the model name
         /// </param>
@@ -130,6 +143,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployResult> DeployCreateAsync(
             string modelName,
+            string? xiApiKey = default,
             global::DeepInfra.ModelProvider? provider = default,
             string? version = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -142,6 +156,7 @@ namespace DeepInfra
             };
 
             return await DeployCreateAsync(
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

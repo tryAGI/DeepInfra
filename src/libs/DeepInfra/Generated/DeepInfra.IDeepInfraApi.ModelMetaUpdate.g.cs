@@ -8,18 +8,21 @@ namespace DeepInfra
         /// Model Meta Update
         /// </summary>
         /// <param name="modelName"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
             global::DeepInfra.ModelMetaIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Model Meta Update
         /// </summary>
         /// <param name="modelName"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="description">
         /// short model description in plain text
         /// </param>
@@ -45,6 +48,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> ModelMetaUpdateAsync(
             string modelName,
+            string? xiApiKey = default,
             string? description = default,
             string? githubUrl = default,
             string? paperUrl = default,

@@ -7,29 +7,25 @@ namespace DeepInfra
         /// <summary>
         /// Openai Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             global::DeepInfra.OpenAICompletionsIn request,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Openai Completions
         /// </summary>
-        /// <param name="useCache">
-        /// Default Value: true
-        /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: meta-llama/Llama-2-70b-chat-hf
@@ -101,9 +97,9 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             string model,
             string prompt,
-            bool? useCache = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             int? maxTokens = default,
             double? temperature = default,
             double? topP = default,

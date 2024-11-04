@@ -8,11 +8,13 @@ namespace DeepInfra
         partial void PrepareDeployUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string deployId,
+            ref string? xiApiKey,
             global::DeepInfra.DeployLLMUpdateIn request);
         partial void PrepareDeployUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string deployId,
+            string? xiApiKey,
             global::DeepInfra.DeployLLMUpdateIn request);
         partial void ProcessDeployUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,12 +29,14 @@ namespace DeepInfra
         /// Deploy Update
         /// </summary>
         /// <param name="deployId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployStatusOut> DeployUpdateAsync(
             string deployId,
             global::DeepInfra.DeployLLMUpdateIn request,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,6 +46,7 @@ namespace DeepInfra
             PrepareDeployUpdateArguments(
                 httpClient: HttpClient,
                 deployId: ref deployId,
+                xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -67,6 +72,12 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -81,6 +92,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 deployId: deployId,
+                xiApiKey: xiApiKey,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -124,12 +136,14 @@ namespace DeepInfra
         /// Deploy Update
         /// </summary>
         /// <param name="deployId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="settings"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployStatusOut> DeployUpdateAsync(
             string deployId,
             global::DeepInfra.ScaleSettings settings,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.DeployLLMUpdateIn
@@ -139,6 +153,7 @@ namespace DeepInfra
 
             return await DeployUpdateAsync(
                 deployId: deployId,
+                xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

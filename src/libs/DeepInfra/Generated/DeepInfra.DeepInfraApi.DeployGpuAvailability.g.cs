@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareDeployGpuAvailabilityArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? source);
+            ref string? source,
+            ref string? xiApiKey);
         partial void PrepareDeployGpuAvailabilityRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? source);
+            string? source,
+            string? xiApiKey);
         partial void ProcessDeployGpuAvailabilityResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,17 +27,20 @@ namespace DeepInfra
         /// Deploy Gpu Availability
         /// </summary>
         /// <param name="source"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployGPUAvailability> DeployGpuAvailabilityAsync(
             string? source = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDeployGpuAvailabilityArguments(
                 httpClient: HttpClient,
-                source: ref source);
+                source: ref source,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: "/deploy/llm/gpu_availability",
@@ -64,13 +69,20 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDeployGpuAvailabilityRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                source: source);
+                source: source,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

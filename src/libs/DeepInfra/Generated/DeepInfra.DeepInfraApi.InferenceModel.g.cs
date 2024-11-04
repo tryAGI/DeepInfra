@@ -10,14 +10,16 @@ namespace DeepInfra
             ref string modelName,
             ref string? version,
             ref string? xDeepinfraSource,
-            ref string? userAgent);
+            ref string? userAgent,
+            ref string? xiApiKey);
         partial void PrepareInferenceModelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string modelName,
             string? version,
             string? xDeepinfraSource,
-            string? userAgent);
+            string? userAgent,
+            string? xiApiKey);
         partial void ProcessInferenceModelResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -36,6 +38,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> InferenceModelAsync(
@@ -43,6 +46,7 @@ namespace DeepInfra
             string? version = default,
             string? xDeepinfraSource = default,
             string? userAgent = default,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -52,7 +56,8 @@ namespace DeepInfra
                 modelName: ref modelName,
                 version: ref version,
                 xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent);
+                userAgent: ref userAgent,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/inference/{modelName}",
@@ -89,6 +94,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
             }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
 
 
             PrepareRequest(
@@ -100,7 +109,8 @@ namespace DeepInfra
                 modelName: modelName,
                 version: version,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent);
+                userAgent: userAgent,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

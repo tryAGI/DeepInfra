@@ -7,11 +7,13 @@ namespace DeepInfra
     {
         partial void PrepareDeployDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string deployId);
+            ref string deployId,
+            ref string? xiApiKey);
         partial void PrepareDeployDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string deployId);
+            string deployId,
+            string? xiApiKey);
         partial void ProcessDeployDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,17 +27,20 @@ namespace DeepInfra
         /// Deploy Delete
         /// </summary>
         /// <param name="deployId"></param>
+        /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployDelete> DeployDeleteAsync(
             string deployId,
+            string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDeployDeleteArguments(
                 httpClient: HttpClient,
-                deployId: ref deployId);
+                deployId: ref deployId,
+                xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/deploy/{deployId}",
@@ -61,13 +66,20 @@ namespace DeepInfra
                 }
             }
 
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
             PrepareDeployDeleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                deployId: deployId);
+                deployId: deployId,
+                xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
