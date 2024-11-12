@@ -119,91 +119,83 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="Me" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="uid"></param>
+        /// <param name="email"></param>
+        /// <param name="emailVerified"></param>
+        /// <param name="displayName">
+        /// Name that is used to identifythe account on the website
+        /// </param>
+        /// <param name="provider">
+        /// Authentication provider, e.g. 'github'
+        /// </param>
+        /// <param name="picture"></param>
+        /// <param name="isAdmin"></param>
+        /// <param name="name">
+        /// Personal name
+        /// </param>
+        /// <param name="isBusinessAccount"></param>
+        /// <param name="company">
+        /// Company name
+        /// </param>
+        /// <param name="website">
+        /// Company website address
+        /// </param>
+        /// <param name="isTeamAccount">
+        /// Default Value: false
+        /// </param>
+        /// <param name="isTeamOwner">
+        /// Default Value: false
+        /// </param>
+        /// <param name="teamRole"></param>
+        /// <param name="teamDisplayName"></param>
+        /// <param name="isTeamUpgradeEnabled">
+        /// Default Value: false
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public Me(
+            string uid,
+            bool emailVerified,
+            string displayName,
+            string provider,
+            bool isAdmin,
+            string name,
+            bool isBusinessAccount,
+            string company,
+            string website,
+            string? email,
+            string? picture,
+            bool? isTeamAccount,
+            bool? isTeamOwner,
+            string? teamRole,
+            string? teamDisplayName,
+            bool? isTeamUpgradeEnabled)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
+            this.EmailVerified = emailVerified;
+            this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
+            this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
+            this.IsAdmin = isAdmin;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.IsBusinessAccount = isBusinessAccount;
+            this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
+            this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
+            this.Email = email;
+            this.Picture = picture;
+            this.IsTeamAccount = isTeamAccount;
+            this.IsTeamOwner = isTeamOwner;
+            this.TeamRole = teamRole;
+            this.TeamDisplayName = teamDisplayName;
+            this.IsTeamUpgradeEnabled = isTeamUpgradeEnabled;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="Me" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public Me()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.Me? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.Me),
-                jsonSerializerContext) as global::DeepInfra.Me;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.Me? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.Me>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.Me?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.Me),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.Me;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.Me?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.Me?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

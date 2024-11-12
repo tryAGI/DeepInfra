@@ -77,91 +77,64 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="LLMDeploymentStatsOut" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="requests">
+        /// number of inference requests in the provided interval
+        /// </param>
+        /// <param name="inputTokens">
+        /// number of input tokens generated
+        /// </param>
+        /// <param name="outputTokens">
+        /// number of output tokens generated
+        /// </param>
+        /// <param name="avgTtftMs">
+        /// average millisecond time to first token
+        /// </param>
+        /// <param name="avg95TtftMs">
+        /// 95th percentile time to first token (estimated)
+        /// </param>
+        /// <param name="avgTptMs">
+        /// average millisecond time per token
+        /// </param>
+        /// <param name="avg95TptMs">
+        /// 95th percentile time per token (estimated)
+        /// </param>
+        /// <param name="totalAmountCents">
+        /// total number of cents spent
+        /// </param>
+        /// <param name="errors">
+        /// number of errors
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public LLMDeploymentStatsOut(
+            int requests,
+            int inputTokens,
+            int outputTokens,
+            double avgTtftMs,
+            double avg95TtftMs,
+            double avgTptMs,
+            double avg95TptMs,
+            int totalAmountCents,
+            int errors)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Requests = requests;
+            this.InputTokens = inputTokens;
+            this.OutputTokens = outputTokens;
+            this.AvgTtftMs = avgTtftMs;
+            this.Avg95TtftMs = avg95TtftMs;
+            this.AvgTptMs = avgTptMs;
+            this.Avg95TptMs = avg95TptMs;
+            this.TotalAmountCents = totalAmountCents;
+            this.Errors = errors;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="LLMDeploymentStatsOut" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public LLMDeploymentStatsOut()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.LLMDeploymentStatsOut? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.LLMDeploymentStatsOut),
-                jsonSerializerContext) as global::DeepInfra.LLMDeploymentStatsOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.LLMDeploymentStatsOut? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.LLMDeploymentStatsOut>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.LLMDeploymentStatsOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.LLMDeploymentStatsOut),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.LLMDeploymentStatsOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.LLMDeploymentStatsOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.LLMDeploymentStatsOut?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

@@ -199,91 +199,105 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="ModelInfoOut" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="modelName"></param>
+        /// <param name="type"></param>
+        /// <param name="tags"></param>
+        /// <param name="reportedType"></param>
+        /// <param name="version"></param>
+        /// <param name="description"></param>
+        /// <param name="featured"></param>
+        /// <param name="owner">
+        /// Default Value: false
+        /// </param>
+        /// <param name="public"></param>
+        /// <param name="curlInv"></param>
+        /// <param name="cmdlineInv"></param>
+        /// <param name="txtDocs"></param>
+        /// <param name="outExample"></param>
+        /// <param name="outDocs"></param>
+        /// <param name="maskToken"></param>
+        /// <param name="inSchema"></param>
+        /// <param name="outSchema"></param>
+        /// <param name="inFields"></param>
+        /// <param name="pricing"></param>
+        /// <param name="docBlocks"></param>
+        /// <param name="schemas"></param>
+        /// <param name="meta"></param>
+        /// <param name="maxTokens"></param>
+        /// <param name="replacedBy"></param>
+        /// <param name="deprecated"></param>
+        /// <param name="quantization"></param>
+        /// <param name="mmlu"></param>
+        /// <param name="expected"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public ModelInfoOut(
+            string modelName,
+            string type,
+            global::System.Collections.Generic.IList<string> tags,
+            string reportedType,
+            string version,
+            bool featured,
+            bool @public,
+            string curlInv,
+            string cmdlineInv,
+            string txtDocs,
+            string outExample,
+            string outDocs,
+            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits> pricing,
+            global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> schemas,
+            string? description,
+            bool? owner,
+            string? maskToken,
+            object? inSchema,
+            object? outSchema,
+            global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? inFields,
+            global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>? docBlocks,
+            object? meta,
+            int? maxTokens,
+            string? replacedBy,
+            int? deprecated,
+            string? quantization,
+            double? mmlu,
+            global::System.DateTime? expected)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
+            this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
+            this.ReportedType = reportedType ?? throw new global::System.ArgumentNullException(nameof(reportedType));
+            this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
+            this.Featured = featured;
+            this.Public = @public;
+            this.CurlInv = curlInv ?? throw new global::System.ArgumentNullException(nameof(curlInv));
+            this.CmdlineInv = cmdlineInv ?? throw new global::System.ArgumentNullException(nameof(cmdlineInv));
+            this.TxtDocs = txtDocs ?? throw new global::System.ArgumentNullException(nameof(txtDocs));
+            this.OutExample = outExample ?? throw new global::System.ArgumentNullException(nameof(outExample));
+            this.OutDocs = outDocs ?? throw new global::System.ArgumentNullException(nameof(outDocs));
+            this.Pricing = pricing;
+            this.Schemas = schemas ?? throw new global::System.ArgumentNullException(nameof(schemas));
+            this.Description = description;
+            this.Owner = owner;
+            this.MaskToken = maskToken;
+            this.InSchema = inSchema;
+            this.OutSchema = outSchema;
+            this.InFields = inFields;
+            this.DocBlocks = docBlocks;
+            this.Meta = meta;
+            this.MaxTokens = maxTokens;
+            this.ReplacedBy = replacedBy;
+            this.Deprecated = deprecated;
+            this.Quantization = quantization;
+            this.Mmlu = mmlu;
+            this.Expected = expected;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="ModelInfoOut" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public ModelInfoOut()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.ModelInfoOut? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.ModelInfoOut),
-                jsonSerializerContext) as global::DeepInfra.ModelInfoOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.ModelInfoOut? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.ModelInfoOut>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelInfoOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.ModelInfoOut),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.ModelInfoOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelInfoOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.ModelInfoOut?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }
