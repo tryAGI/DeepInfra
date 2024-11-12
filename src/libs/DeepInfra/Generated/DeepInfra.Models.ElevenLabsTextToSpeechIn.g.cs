@@ -15,6 +15,12 @@ namespace DeepInfra
         /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
         /// They said I rap like a robot, so call me Rap-bot
         /// </summary>
+        /// <example>
+        /// I'm beginnin' to feel like a Rap God, Rap God<br/>
+        /// All my people from the front to the back nod, back nod<br/>
+        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
+        /// They said I rap like a robot, so call me Rap-bot
+        /// </example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Text { get; set; }
@@ -46,91 +52,45 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="ElevenLabsTextToSpeechIn" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="text">
+        /// Text to convert to speech<br/>
+        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
+        /// All my people from the front to the back nod, back nod<br/>
+        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
+        /// They said I rap like a robot, so call me Rap-bot
+        /// </param>
+        /// <param name="modelId">
+        /// Model ID to use for the conversion<br/>
+        /// Default Value: deepinfra/tts
+        /// </param>
+        /// <param name="outputFormat">
+        /// Output format for the speech<br/>
+        /// Default Value: wav
+        /// </param>
+        /// <param name="languageCode">
+        /// ISO 639-1, 2 letter language code
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public ElevenLabsTextToSpeechIn(
+            string text,
+            string? modelId,
+            global::DeepInfra.TtsResponseFormat? outputFormat,
+            string? languageCode)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.ModelId = modelId;
+            this.OutputFormat = outputFormat;
+            this.LanguageCode = languageCode;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="ElevenLabsTextToSpeechIn" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public ElevenLabsTextToSpeechIn()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.ElevenLabsTextToSpeechIn? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.ElevenLabsTextToSpeechIn),
-                jsonSerializerContext) as global::DeepInfra.ElevenLabsTextToSpeechIn;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.ElevenLabsTextToSpeechIn? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.ElevenLabsTextToSpeechIn>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.ElevenLabsTextToSpeechIn?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.ElevenLabsTextToSpeechIn),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.ElevenLabsTextToSpeechIn;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.ElevenLabsTextToSpeechIn?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.ElevenLabsTextToSpeechIn?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

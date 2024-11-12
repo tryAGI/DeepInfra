@@ -14,6 +14,7 @@ namespace DeepInfra
         /// model name<br/>
         /// Example: meta-llama/Llama-2-70b-chat-hf
         /// </summary>
+        /// <example>meta-llama/Llama-2-70b-chat-hf</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
@@ -138,91 +139,120 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="OpenAIChatCompletionsIn" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="model">
+        /// model name<br/>
+        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// </param>
+        /// <param name="messages">
+        /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
+        /// </param>
+        /// <param name="stream">
+        /// whether to stream the output via SSE or return the full response<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="temperature">
+        /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="topP">
+        /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="minP">
+        /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="topK">
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="maxTokens">
+        /// The maximum number of tokens to generate in the chat completion.<br/>
+        /// The total length of input tokens and generated tokens is limited by the model's context length.
+        /// </param>
+        /// <param name="stop">
+        /// up to 16 sequences where the API will stop generating further tokens
+        /// </param>
+        /// <param name="n">
+        /// number of sequences to return<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="presencePenalty">
+        /// Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="frequencyPenalty">
+        /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="tools">
+        /// A list of tools the model may call. Currently, only functions are supported as a tool.
+        /// </param>
+        /// <param name="toolChoice">
+        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
+        /// </param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
+        /// <param name="repetitionPenalty">
+        /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="user">
+        /// A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.
+        /// </param>
+        /// <param name="seed">
+        /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public OpenAIChatCompletionsIn(
+            string model,
+            global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
+            bool? stream,
+            double? temperature,
+            double? topP,
+            double? minP,
+            int? topK,
+            int? maxTokens,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
+            int? n,
+            double? presencePenalty,
+            double? frequencyPenalty,
+            global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
+            string? toolChoice,
+            global::DeepInfra.ResponseFormat? responseFormat,
+            double? repetitionPenalty,
+            string? user,
+            int? seed)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
+            this.Stream = stream;
+            this.Temperature = temperature;
+            this.TopP = topP;
+            this.MinP = minP;
+            this.TopK = topK;
+            this.MaxTokens = maxTokens;
+            this.Stop = stop;
+            this.N = n;
+            this.PresencePenalty = presencePenalty;
+            this.FrequencyPenalty = frequencyPenalty;
+            this.Tools = tools;
+            this.ToolChoice = toolChoice;
+            this.ResponseFormat = responseFormat;
+            this.RepetitionPenalty = repetitionPenalty;
+            this.User = user;
+            this.Seed = seed;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="OpenAIChatCompletionsIn" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public OpenAIChatCompletionsIn()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.OpenAIChatCompletionsIn? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.OpenAIChatCompletionsIn),
-                jsonSerializerContext) as global::DeepInfra.OpenAIChatCompletionsIn;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.OpenAIChatCompletionsIn? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.OpenAIChatCompletionsIn>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.OpenAIChatCompletionsIn?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.OpenAIChatCompletionsIn),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.OpenAIChatCompletionsIn;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.OpenAIChatCompletionsIn?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.OpenAIChatCompletionsIn?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

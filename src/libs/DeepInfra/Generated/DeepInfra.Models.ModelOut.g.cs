@@ -14,6 +14,7 @@ namespace DeepInfra
         /// Model Name<br/>
         /// Example: microsoft/resnet-50
         /// </summary>
+        /// <example>microsoft/resnet-50</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelName { get; set; }
@@ -22,6 +23,7 @@ namespace DeepInfra
         /// raw type of the model<br/>
         /// Example: image-classification
         /// </summary>
+        /// <example>image-classification</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Type { get; set; }
@@ -30,6 +32,7 @@ namespace DeepInfra
         /// reported type of the model<br/>
         /// Example: text-generation
         /// </summary>
+        /// <example>text-generation</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ReportedType { get; set; }
@@ -38,6 +41,7 @@ namespace DeepInfra
         /// description of the model<br/>
         /// Example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
         /// </summary>
+        /// <example>ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
@@ -103,91 +107,78 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="ModelOut" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="modelName">
+        /// Model Name<br/>
+        /// Example: microsoft/resnet-50
+        /// </param>
+        /// <param name="type">
+        /// raw type of the model<br/>
+        /// Example: image-classification
+        /// </param>
+        /// <param name="reportedType">
+        /// reported type of the model<br/>
+        /// Example: text-generation
+        /// </param>
+        /// <param name="description">
+        /// description of the model<br/>
+        /// Example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
+        /// </param>
+        /// <param name="coverImgUrl">
+        /// cover image link
+        /// </param>
+        /// <param name="tags">
+        /// list of tags
+        /// </param>
+        /// <param name="pricing">
+        /// The pricing type and cost for this model
+        /// </param>
+        /// <param name="maxTokens">
+        /// The maximum context size of this model, if applicable
+        /// </param>
+        /// <param name="replacedBy"></param>
+        /// <param name="deprecated"></param>
+        /// <param name="quantization"></param>
+        /// <param name="mmlu"></param>
+        /// <param name="expected"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public ModelOut(
+            string modelName,
+            string type,
+            string reportedType,
+            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits> pricing,
+            string? description,
+            string? coverImgUrl,
+            global::System.Collections.Generic.IList<string>? tags,
+            int? maxTokens,
+            string? replacedBy,
+            int? deprecated,
+            string? quantization,
+            double? mmlu,
+            global::System.DateTime? expected)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
+            this.ReportedType = reportedType ?? throw new global::System.ArgumentNullException(nameof(reportedType));
+            this.Pricing = pricing;
+            this.Description = description;
+            this.CoverImgUrl = coverImgUrl;
+            this.Tags = tags;
+            this.MaxTokens = maxTokens;
+            this.ReplacedBy = replacedBy;
+            this.Deprecated = deprecated;
+            this.Quantization = quantization;
+            this.Mmlu = mmlu;
+            this.Expected = expected;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="ModelOut" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public ModelOut()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.ModelOut? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.ModelOut),
-                jsonSerializerContext) as global::DeepInfra.ModelOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.ModelOut? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.ModelOut>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.ModelOut),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.ModelOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.ModelOut?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

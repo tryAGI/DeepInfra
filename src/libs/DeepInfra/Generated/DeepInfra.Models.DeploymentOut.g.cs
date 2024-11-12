@@ -19,6 +19,7 @@ namespace DeepInfra
         /// Deploy Id<br/>
         /// Example: fkj843kjh8
         /// </summary>
+        /// <example>fkj843kjh8</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("deploy_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DeployId { get; set; }
@@ -27,6 +28,7 @@ namespace DeepInfra
         /// Model Id from huggingface<br/>
         /// Example: google/vit-base-patch16-224
         /// </summary>
+        /// <example>google/vit-base-patch16-224</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelName { get; set; }
@@ -35,6 +37,7 @@ namespace DeepInfra
         /// Model version<br/>
         /// Example: d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b
         /// </summary>
+        /// <example>d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Version { get; set; }
@@ -43,6 +46,7 @@ namespace DeepInfra
         /// Task<br/>
         /// Example: image-classification
         /// </summary>
+        /// <example>image-classification</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("task")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Task { get; set; }
@@ -51,6 +55,7 @@ namespace DeepInfra
         /// Status<br/>
         /// Example: deployed
         /// </summary>
+        /// <example>deployed</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Status { get; set; }
@@ -59,6 +64,7 @@ namespace DeepInfra
         /// Failure reason<br/>
         /// Example: Initialization failed
         /// </summary>
+        /// <example>Initialization failed</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("fail_reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string FailReason { get; set; }
@@ -101,91 +107,83 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="DeploymentOut" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="type"></param>
+        /// <param name="deployId">
+        /// Deploy Id<br/>
+        /// Example: fkj843kjh8
+        /// </param>
+        /// <param name="modelName">
+        /// Model Id from huggingface<br/>
+        /// Example: google/vit-base-patch16-224
+        /// </param>
+        /// <param name="version">
+        /// Model version<br/>
+        /// Example: d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b
+        /// </param>
+        /// <param name="task">
+        /// Task<br/>
+        /// Example: image-classification
+        /// </param>
+        /// <param name="status">
+        /// Status<br/>
+        /// Example: deployed
+        /// </param>
+        /// <param name="failReason">
+        /// Failure reason<br/>
+        /// Example: Initialization failed
+        /// </param>
+        /// <param name="createdAt">
+        /// Created at
+        /// </param>
+        /// <param name="updatedAt">
+        /// Updated at
+        /// </param>
+        /// <param name="instances">
+        /// Details about number of instances running right now
+        /// </param>
+        /// <param name="config">
+        /// Immutable deploy configuration
+        /// </param>
+        /// <param name="settings">
+        /// Scale Settings
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public DeploymentOut(
+            string deployId,
+            string modelName,
+            string version,
+            string task,
+            string status,
+            string failReason,
+            global::System.DateTime createdAt,
+            global::System.DateTime updatedAt,
+            global::DeepInfra.DeployType? type,
+            global::DeepInfra.DeployInstances? instances,
+            global::DeepInfra.DeployLLMConfig? config,
+            global::DeepInfra.ScaleSettings? settings)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.DeployId = deployId ?? throw new global::System.ArgumentNullException(nameof(deployId));
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
+            this.Task = task ?? throw new global::System.ArgumentNullException(nameof(task));
+            this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
+            this.FailReason = failReason ?? throw new global::System.ArgumentNullException(nameof(failReason));
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
+            this.Type = type;
+            this.Instances = instances;
+            this.Config = config;
+            this.Settings = settings;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="DeploymentOut" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public DeploymentOut()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::DeepInfra.DeploymentOut? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::DeepInfra.DeploymentOut),
-                jsonSerializerContext) as global::DeepInfra.DeploymentOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::DeepInfra.DeploymentOut? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.DeploymentOut>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.DeploymentOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::DeepInfra.DeploymentOut),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.DeploymentOut;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.DeploymentOut?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.DeploymentOut?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }
