@@ -25,7 +25,7 @@ namespace DeepInfra
         /// </summary>
         /// <example>[I like chocolate]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
 
