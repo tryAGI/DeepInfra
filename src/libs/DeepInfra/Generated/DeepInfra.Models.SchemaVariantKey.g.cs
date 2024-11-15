@@ -27,6 +27,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiSpeechToText,
+        /// <summary>
+        /// 
+        /// </summary>
         CreateVoice,
         /// <summary>
         /// 
@@ -62,6 +66,7 @@ namespace DeepInfra
                 SchemaVariantKey.OpenaiCompletions => "openai-completions",
                 SchemaVariantKey.OpenaiChatCompletions => "openai-chat-completions",
                 SchemaVariantKey.OpenaiEmbeddings => "openai-embeddings",
+                SchemaVariantKey.OpenaiSpeechToText => "openai-speech-to-text",
                 SchemaVariantKey.CreateVoice => "create-voice",
                 SchemaVariantKey.ReadVoice => "read-voice",
                 SchemaVariantKey.UpdateVoice => "update-voice",
@@ -81,6 +86,7 @@ namespace DeepInfra
                 "openai-completions" => SchemaVariantKey.OpenaiCompletions,
                 "openai-chat-completions" => SchemaVariantKey.OpenaiChatCompletions,
                 "openai-embeddings" => SchemaVariantKey.OpenaiEmbeddings,
+                "openai-speech-to-text" => SchemaVariantKey.OpenaiSpeechToText,
                 "create-voice" => SchemaVariantKey.CreateVoice,
                 "read-voice" => SchemaVariantKey.ReadVoice,
                 "update-voice" => SchemaVariantKey.UpdateVoice,
