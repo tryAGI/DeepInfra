@@ -1464,6 +1464,76 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/openai/audio/transcriptions:
+    post:
+      summary: Openai Audio Transcriptions
+      operationId: openai_audio_transcriptions_v1_openai_audio_transcriptions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/audio/translations:
+    post:
+      summary: Openai Audio Translations
+      operationId: openai_audio_translations_v1_openai_audio_translations_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_audio_translations_v1_openai_audio_translations_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/logs/query:
     get:
       summary: Logs Query
@@ -2620,6 +2690,79 @@ components:
           items:
             type: string
             format: binary
+    Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post:
+      title: Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post
+      required:
+        - file
+        - model
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
+        model:
+          title: Model
+          type: string
+        language:
+          title: Language
+          type: string
+        prompt:
+          title: Prompt
+          type: string
+        response_format:
+          title: Response Format
+          enum:
+            - json
+            - verbose_json
+            - text
+            - srt
+            - vtt
+          type: string
+          default: json
+        temperature:
+          title: Temperature
+          type: number
+          default: 0
+        'timestamp_granularities[]':
+          title: 'Timestamp Granularities[]'
+          type: array
+          items:
+            enum:
+              - segment
+              - word
+            type: string
+    Body_openai_audio_translations_v1_openai_audio_translations_post:
+      title: Body_openai_audio_translations_v1_openai_audio_translations_post
+      required:
+        - file
+        - model
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
+        model:
+          title: Model
+          type: string
+        prompt:
+          title: Prompt
+          type: string
+        response_format:
+          title: Response Format
+          enum:
+            - json
+            - verbose_json
+            - text
+            - srt
+            - vtt
+          type: string
+          default: json
+        temperature:
+          title: Temperature
+          type: number
+          default: 0
     Body_openai_files_v1_openai_files_post:
       title: Body_openai_files_v1_openai_files_post
       required:
@@ -3575,6 +3718,9 @@ components:
         - openai-python
         - openai-http
         - openai-js
+        - openai-speech-http
+        - openai-speech-python
+        - openai-speech-js
         - openai-comp-python
         - openai-comp-http
         - openai-comp-js
@@ -4496,6 +4642,7 @@ components:
         - openai-completions
         - openai-chat-completions
         - openai-embeddings
+        - openai-speech-to-text
         - create-voice
         - read-voice
         - update-voice

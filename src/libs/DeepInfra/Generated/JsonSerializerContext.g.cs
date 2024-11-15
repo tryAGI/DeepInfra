@@ -15,6 +15,12 @@ namespace DeepInfra
         { 
             typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter),
             typeof(global::DeepInfra.JsonConverters.SuspendReasonNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormatJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormatNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitieJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitieNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormatJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatCompletionAssistantMessageRoleJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatCompletionAssistantMessageRoleNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatCompletionContentPartImageTypeJsonConverter),
