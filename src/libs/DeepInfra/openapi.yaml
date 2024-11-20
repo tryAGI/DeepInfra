@@ -792,6 +792,79 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /lora-model:
+    post:
+      summary: Upload Lora Model
+      operationId: upload_lora_model_lora_model_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoraModelUploadIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/lora-model/{lora_model_name}':
+    delete:
+      summary: Delete Lora Model
+      operationId: delete_lora_model_lora_model__lora_model_name__delete
+      parameters:
+        - name: lora_model_name
+          in: path
+          required: true
+          schema:
+            title: Lora Model Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /models/list:
     get:
       summary: Models List
@@ -3578,6 +3651,22 @@ components:
             items:
               title: type
           description: list of log lines ordered by increasing timestamp
+    LoraModelUploadIn:
+      title: LoraModelUploadIn
+      required:
+        - hf_model_name
+        - lora_model_name
+      type: object
+      properties:
+        hf_model_name:
+          title: Hf Model Name
+          type: string
+        hf_token:
+          title: Hf Token
+          type: string
+        lora_model_name:
+          title: Lora Model Name
+          type: string
     Me:
       title: Me
       required:
