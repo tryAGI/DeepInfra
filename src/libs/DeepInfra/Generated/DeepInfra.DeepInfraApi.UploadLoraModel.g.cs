@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelOut> UploadLoraModelAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> UploadLoraModelAsync(
             global::DeepInfra.LoraModelUploadIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -190,7 +190,7 @@ namespace DeepInfra
                 }
 
                 return
-                    global::DeepInfra.ModelOut.FromJson(__content, JsonSerializerContext) ??
+                    global::DeepInfra.DeploymentOut.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -216,7 +216,7 @@ namespace DeepInfra
                 using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
                 return
-                    await global::DeepInfra.ModelOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::DeepInfra.DeploymentOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -230,7 +230,7 @@ namespace DeepInfra
         /// <param name="loraModelName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.ModelOut> UploadLoraModelAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> UploadLoraModelAsync(
             string hfModelName,
             string loraModelName,
             string? xiApiKey = default,

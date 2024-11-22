@@ -11,7 +11,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.ModelOut> UploadLoraModelAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> UploadLoraModelAsync(
             global::DeepInfra.LoraModelUploadIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -25,7 +25,7 @@ namespace DeepInfra
         /// <param name="loraModelName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.ModelOut> UploadLoraModelAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> UploadLoraModelAsync(
             string hfModelName,
             string loraModelName,
             string? xiApiKey = default,

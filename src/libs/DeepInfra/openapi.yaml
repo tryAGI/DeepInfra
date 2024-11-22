@@ -814,7 +814,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelOut'
+                $ref: '#/components/schemas/DeploymentOut'
         '400':
           description: Bad Request
           content:
