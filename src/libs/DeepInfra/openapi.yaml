@@ -1989,6 +1989,190 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/lora/create:
+    post:
+      summary: Create Lora
+      operationId: create_lora_v1_lora_create_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLoraApiRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/lora/{lora_name}/status':
+    get:
+      summary: Get Lora Status
+      operationId: get_lora_status_v1_lora__lora_name__status_get
+      parameters:
+        - name: lora_name
+          in: path
+          required: true
+          schema:
+            title: Lora Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/lora/{lora_name}':
+    get:
+      summary: Get Lora
+      operationId: get_lora_v1_lora__lora_name__get
+      parameters:
+        - name: lora_name
+          in: path
+          required: true
+          schema:
+            title: Lora Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Delete Lora
+      operationId: delete_lora_v1_lora__lora_name__delete
+      parameters:
+        - name: lora_name
+          in: path
+          required: true
+          schema:
+            title: Lora Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    patch:
+      summary: Update Lora
+      operationId: update_lora_v1_lora__lora_name__patch
+      parameters:
+        - name: lora_name
+          in: path
+          required: true
+          schema:
+            title: Lora Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLoraApiRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/model/{model_name}/loras':
+    get:
+      summary: Get Model Loras
+      operationId: get_model_loras_v1_model__model_name__loras_get
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            title: Model Name
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
@@ -2014,6 +2198,39 @@ paths:
           in: query
           schema:
             title: Ti Token
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /okta/login:
+    get:
+      summary: Okta Login
+      operationId: okta_login_okta_login_get
+      parameters:
+        - name: team_id
+          in: query
+          required: true
+          schema:
+            title: Team Id
+            type: string
+        - name: origin
+          in: query
+          schema:
+            title: Origin
+            type: string
+        - name: login_id
+          in: query
+          schema:
+            title: Login Id
             type: string
       responses:
         '200':
@@ -3018,6 +3235,30 @@ components:
           default: function
         function:
           $ref: '#/components/schemas/FunctionDefinition'
+    CreateLoraApiRequest:
+      title: CreateLoraApiRequest
+      required:
+        - base_model
+        - lora_name
+        - source
+        - private
+      type: object
+      properties:
+        base_model:
+          title: Base Model
+          type: string
+        lora_name:
+          title: Lora Name
+          type: string
+        source:
+          $ref: '#/components/schemas/SourceModel'
+        private:
+          title: Private
+          type: boolean
+        description:
+          title: Description
+          type: string
+          default: ''
     DeepError:
       title: DeepError
       required:
@@ -4739,6 +4980,23 @@ components:
         - list-voices
       type: string
       description: An enumeration.
+    SourceModel:
+      title: SourceModel
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SourceTypeEnum'
+        civit_url:
+          title: Civit Url
+          type: string
+    SourceTypeEnum:
+      title: SourceTypeEnum
+      enum:
+        - civitai
+      type: string
+      description: An enumeration.
     TimeDeploymentStatsOut:
       title: TimeDeploymentStatsOut
       required:
@@ -4788,6 +5046,16 @@ components:
         - quartz
       type: string
       description: An enumeration.
+    UpdateLoraApiRequest:
+      title: UpdateLoraApiRequest
+      type: object
+      properties:
+        private:
+          title: Private
+          type: boolean
+        description:
+          title: Description
+          type: string
     Voice:
       title: Voice
       required:
