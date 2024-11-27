@@ -2173,6 +2173,30 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/user/loras:
+    get:
+      summary: Get User Loras
+      operationId: get_user_loras_v1_user_loras_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
