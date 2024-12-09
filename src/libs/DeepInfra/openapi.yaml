@@ -4001,7 +4001,7 @@ components:
         is_team_upgrade_enabled:
           title: Is Team Upgrade Enabled
           type: boolean
-          default: false
+          default: true
     MeIn:
       title: MeIn
       type: object
