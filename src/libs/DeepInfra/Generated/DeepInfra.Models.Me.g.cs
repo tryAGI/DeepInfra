@@ -108,7 +108,7 @@ namespace DeepInfra
         public string? TeamDisplayName { get; set; }
 
         /// <summary>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_team_upgrade_enabled")]
         public bool? IsTeamUpgradeEnabled { get; set; }
@@ -152,7 +152,7 @@ namespace DeepInfra
         /// <param name="teamRole"></param>
         /// <param name="teamDisplayName"></param>
         /// <param name="isTeamUpgradeEnabled">
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public Me(
