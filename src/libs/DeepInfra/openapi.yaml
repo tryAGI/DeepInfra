@@ -1331,6 +1331,50 @@ paths:
       security:
         - HTTPBearer: [ ]
   /v1/openai/files:
+    get:
+      summary: List Files
+      operationId: list_files_v1_openai_files_get
+      parameters:
+        - name: after
+          in: query
+          schema:
+            title: After
+            type: string
+        - name: purpose
+          in: query
+          schema:
+            title: Purpose
+            type: string
+        - name: order
+          in: query
+          schema:
+            title: Order
+            type: string
+        - name: limit
+          in: query
+          schema:
+            title: Limit
+            type: integer
+            default: 100
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
     post:
       summary: Openai Files
       operationId: openai_files_v1_openai_files_post
@@ -1346,6 +1390,102 @@ paths:
             schema:
               $ref: '#/components/schemas/Body_openai_files_v1_openai_files_post'
         required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/batches:
+    get:
+      summary: Retrieve Openai Batches
+      operationId: retrieve_openai_batches_v1_openai_batches_get
+      parameters:
+        - name: after
+          in: query
+          required: true
+          schema:
+            title: After
+            type: string
+        - name: limit
+          in: query
+          schema:
+            title: Limit
+            type: integer
+            default: 20
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Create Openai Batch
+      operationId: create_openai_batch_v1_openai_batches_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIBatchesIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIBatch'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/openai/batches/{batch_id}':
+    get:
+      summary: Retrieve Openai Batch
+      operationId: retrieve_openai_batch_v1_openai_batches__batch_id__get
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -4511,6 +4651,108 @@ components:
           description: Upload time
           format: date-time
           example: '2023-01-19T21:52:03.6262410+00:00'
+    OpenAIBatch:
+      title: OpenAIBatch
+      required:
+        - id
+        - object
+        - endpoint
+        - input_file_id
+        - completion_window
+        - status
+        - created_at
+        - expires_at
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        object:
+          title: Object
+          type: string
+        endpoint:
+          title: Endpoint
+          type: string
+        errors:
+          title: Errors
+          type: object
+        input_file_id:
+          title: Input File Id
+          type: string
+        completion_window:
+          title: Completion Window
+          type: string
+        status:
+          title: Status
+          type: string
+        output_file_id:
+          title: Output File Id
+          type: string
+        error_file_id:
+          title: Error File Id
+          type: string
+        created_at:
+          title: Created At
+          type: integer
+        in_progress_at:
+          title: In Progress At
+          type: integer
+        completed_at:
+          title: Completed At
+          type: integer
+        failed_at:
+          title: Failed At
+          type: integer
+        finalizing_at:
+          title: Finalizing At
+          type: integer
+        expires_at:
+          title: Expires At
+          type: integer
+        expired_at:
+          title: Expired At
+          type: integer
+        cancelled_at:
+          title: Cancelled At
+          type: integer
+        cancelling_at:
+          title: Cancelling At
+          type: integer
+        request_counts:
+          title: Request Counts
+          type: object
+        metadata:
+          title: Metadata
+          type: object
+    OpenAIBatchesIn:
+      title: OpenAIBatchesIn
+      required:
+        - input_file_id
+        - endpoint
+        - completion_window
+      type: object
+      properties:
+        input_file_id:
+          title: Input File Id
+          type: string
+          description: The ID of an uploaded file that contains requests for the new batch.
+        endpoint:
+          title: Endpoint
+          enum:
+            - /v1/chat/completions
+            - /v1/completions
+          type: string
+          description: 'The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.'
+        completion_window:
+          title: Completion Window
+          enum:
+            - 24h
+          type: string
+          description: The time frame within which the batch should be processed. Currently only 24h is supported.
+        metadata:
+          title: Metadata
+          type: object
+          description: Optional metadata to be stored with the batch.
     OpenAIChatCompletionsIn:
       title: OpenAIChatCompletionsIn
       required:
