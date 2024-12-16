@@ -116,6 +116,34 @@ namespace DeepInfra
             ProcessInferenceDeployResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Forbidden
+            if ((int)__response.StatusCode == 403)
+            {
+                string? __content_403 = null;
+                global::DeepInfra.DeepError? __value_403 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_403 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    __value_403 = global::DeepInfra.DeepError.FromJson(__content_403, JsonSerializerContext);
+                }
+                else
+                {
+                    var __contentStream_403 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                    __value_403 = await global::DeepInfra.DeepError.FromJsonStreamAsync(__contentStream_403, JsonSerializerContext).ConfigureAwait(false);
+                }
+
+                throw new global::DeepInfra.ApiException<global::DeepInfra.DeepError>(
+                    message: __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_403,
+                    ResponseObject = __value_403,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Not Found
             if ((int)__response.StatusCode == 404)
             {
