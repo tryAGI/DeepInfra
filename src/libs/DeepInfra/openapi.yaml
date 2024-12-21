@@ -3875,7 +3875,6 @@ components:
       title: FunctionDefinition
       required:
         - name
-        - description
       type: object
       properties:
         name:
