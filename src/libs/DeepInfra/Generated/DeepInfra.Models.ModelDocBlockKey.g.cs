@@ -140,6 +140,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         ListVoicesJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        AiSdkJs,
     }
 
     /// <summary>
@@ -187,6 +191,7 @@ namespace DeepInfra
                 ModelDocBlockKey.ListVoicesHttp => "list-voices-http",
                 ModelDocBlockKey.ListVoicesPython => "list-voices-python",
                 ModelDocBlockKey.ListVoicesJs => "list-voices-js",
+                ModelDocBlockKey.AiSdkJs => "ai-sdk-js",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -230,6 +235,7 @@ namespace DeepInfra
                 "list-voices-http" => ModelDocBlockKey.ListVoicesHttp,
                 "list-voices-python" => ModelDocBlockKey.ListVoicesPython,
                 "list-voices-js" => ModelDocBlockKey.ListVoicesJs,
+                "ai-sdk-js" => ModelDocBlockKey.AiSdkJs,
                 _ => null,
             };
         }
