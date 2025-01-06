@@ -4241,6 +4241,7 @@ components:
         - list-voices-http
         - list-voices-python
         - list-voices-js
+        - ai-sdk-js
       type: string
       description: An enumeration.
     ModelFieldInfo:
@@ -5249,6 +5250,7 @@ components:
         - update-voice
         - delete-voice
         - list-voices
+        - ai-sdk
       type: string
       description: An enumeration.
     SourceModel:

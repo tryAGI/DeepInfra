@@ -48,6 +48,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         ListVoices,
+        /// <summary>
+        /// 
+        /// </summary>
+        AiSdk,
     }
 
     /// <summary>
@@ -72,6 +76,7 @@ namespace DeepInfra
                 SchemaVariantKey.UpdateVoice => "update-voice",
                 SchemaVariantKey.DeleteVoice => "delete-voice",
                 SchemaVariantKey.ListVoices => "list-voices",
+                SchemaVariantKey.AiSdk => "ai-sdk",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -92,6 +97,7 @@ namespace DeepInfra
                 "update-voice" => SchemaVariantKey.UpdateVoice,
                 "delete-voice" => SchemaVariantKey.DeleteVoice,
                 "list-voices" => SchemaVariantKey.ListVoices,
+                "ai-sdk" => SchemaVariantKey.AiSdk,
                 _ => null,
             };
         }
