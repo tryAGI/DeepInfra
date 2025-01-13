@@ -3596,6 +3596,7 @@ components:
       enum:
         - legacy
         - llm
+        - lora
       type: string
       description: An enumeration.
     DeploymentLogEntry:

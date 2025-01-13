@@ -16,6 +16,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         Llm,
+        /// <summary>
+        /// 
+        /// </summary>
+        Lora,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace DeepInfra
             {
                 DeployType.Legacy => "legacy",
                 DeployType.Llm => "llm",
+                DeployType.Lora => "lora",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace DeepInfra
             {
                 "legacy" => DeployType.Legacy,
                 "llm" => DeployType.Llm,
+                "lora" => DeployType.Lora,
                 _ => null,
             };
         }
