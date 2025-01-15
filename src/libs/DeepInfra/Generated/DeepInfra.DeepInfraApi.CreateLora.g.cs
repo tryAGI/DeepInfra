@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateLoraAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> CreateLoraAsync(
             global::DeepInfra.CreateLoraApiRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -165,7 +165,9 @@ namespace DeepInfra
                     };
                 }
 
-                return __content;
+                return
+                    global::DeepInfra.DeploymentOut.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
             {
@@ -187,9 +189,11 @@ namespace DeepInfra
                     };
                 }
 
-                var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
-                return __content;
+                return
+                    await global::DeepInfra.DeploymentOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
@@ -204,7 +208,7 @@ namespace DeepInfra
         /// <param name="description"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> CreateLoraAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> CreateLoraAsync(
             string baseModel,
             string loraName,
             global::DeepInfra.SourceModel source,
