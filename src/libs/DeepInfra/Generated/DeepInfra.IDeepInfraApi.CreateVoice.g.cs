@@ -12,7 +12,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.Voice> CreateVoiceAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> CreateVoiceAsync(
             global::DeepInfra.BodyCreateVoiceV1VoicesAddPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="files"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.Voice> CreateVoiceAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> CreateVoiceAsync(
             string name,
             string description,
             global::System.Collections.Generic.IList<byte[]> files,

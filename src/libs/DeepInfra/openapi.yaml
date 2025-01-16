@@ -3986,6 +3986,22 @@ components:
             - high
           type: string
           default: auto
+    KokoroTtsVoice:
+      title: KokoroTtsVoice
+      enum:
+        - af
+        - af_bella
+        - af_sarah
+        - am_adam
+        - am_michael
+        - bf_emma
+        - bf_isabella
+        - bm_george
+        - bm_lewis
+        - af_nicole
+        - af_sky
+      type: string
+      description: An enumeration.
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
       required:
@@ -5094,8 +5110,10 @@ components:
           description: Text to convert to speech
           example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         voice:
-          allOf:
+          title: Voice
+          anyOf:
             - $ref: '#/components/schemas/TtsVoice'
+            - $ref: '#/components/schemas/KokoroTtsVoice'
           description: Preset voices to use for the speech.
         response_format:
           allOf:

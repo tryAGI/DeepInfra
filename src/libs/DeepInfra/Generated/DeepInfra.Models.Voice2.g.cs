@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class Voice
+    public sealed partial class Voice2
     {
         /// <summary>
         /// 
@@ -54,7 +54,7 @@ namespace DeepInfra
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Voice" /> class.
+        /// Initializes a new instance of the <see cref="Voice2" /> class.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="voiceId"></param>
@@ -63,7 +63,7 @@ namespace DeepInfra
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
-        public Voice(
+        public Voice2(
             string userId,
             string voiceId,
             string name,
@@ -80,9 +80,9 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Voice" /> class.
+        /// Initializes a new instance of the <see cref="Voice2" /> class.
         /// </summary>
-        public Voice()
+        public Voice2()
         {
         }
     }

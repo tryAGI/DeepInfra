@@ -47,6 +47,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.TtsResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.HFTasksEJsonConverter),
             typeof(global::DeepInfra.JsonConverters.HFTasksENullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.KokoroTtsVoiceJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.KokoroTtsVoiceNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter),
@@ -70,6 +72,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>),
             typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter),
         })]
 
