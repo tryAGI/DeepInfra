@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace DeepInfra
@@ -38,8 +40,8 @@ namespace DeepInfra
         /// Preset voices to use for the speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsVoiceJsonConverter))]
-        public global::DeepInfra.TtsVoice? Voice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? Voice { get; set; }
 
         /// <summary>
         /// response format for the speech
@@ -89,7 +91,7 @@ namespace DeepInfra
         public OpenAITextToSpeechIn(
             string model,
             string input,
-            global::DeepInfra.TtsVoice? voice,
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? voice,
             global::DeepInfra.TtsResponseFormat? responseFormat,
             double? speed)
         {
