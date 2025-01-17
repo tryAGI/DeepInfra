@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// An enumeration.
+    /// Select the desired voice for the speech output.
     /// </summary>
     public enum KokoroTtsVoice
     {
