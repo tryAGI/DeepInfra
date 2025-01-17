@@ -3987,7 +3987,7 @@ components:
           type: string
           default: auto
     KokoroTtsVoice:
-      title: KokoroTtsVoice
+      title: Voice
       enum:
         - af
         - af_bella
@@ -4001,7 +4001,7 @@ components:
         - af_nicole
         - af_sky
       type: string
-      description: An enumeration.
+      description: Select the desired voice for the speech output.
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
       required:
