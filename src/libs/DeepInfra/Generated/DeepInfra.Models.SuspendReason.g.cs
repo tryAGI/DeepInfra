@@ -24,6 +24,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         Admin,
+        /// <summary>
+        /// 
+        /// </summary>
+        BadCc,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace DeepInfra
                 SuspendReason.OverdueInvoices => "overdue-invoices",
                 SuspendReason.LimitReached => "limit-reached",
                 SuspendReason.Admin => "admin",
+                SuspendReason.BadCc => "bad-cc",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace DeepInfra
                 "overdue-invoices" => SuspendReason.OverdueInvoices,
                 "limit-reached" => SuspendReason.LimitReached,
                 "admin" => SuspendReason.Admin,
+                "bad-cc" => SuspendReason.BadCc,
                 _ => null,
             };
         }
