@@ -2985,6 +2985,7 @@ components:
         - overdue-invoices
         - limit-reached
         - admin
+        - bad-cc
       type: string
       description: An enumeration.
     TimeInterval:
