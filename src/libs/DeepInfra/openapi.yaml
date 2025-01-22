@@ -1928,6 +1928,47 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  '/v1/text-to-speech/{voice_id}/stream':
+    post:
+      summary: Text To Speech Stream
+      operationId: text_to_speech_stream_v1_text_to_speech__voice_id__stream_post
+      parameters:
+        - name: voice_id
+          in: path
+          required: true
+          schema:
+            title: Voice Id
+            type: string
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ElevenLabsTextToSpeechIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   '/v1/text-to-speech/{voice_id}':
     post:
       summary: Text To Speech
@@ -3789,8 +3830,10 @@ components:
           description: Model ID to use for the conversion
           default: deepinfra/tts
         output_format:
-          allOf:
+          title: Output Format
+          anyOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
+            - $ref: '#/components/schemas/KokoroTtsResponseFormat'
           description: Output format for the speech
           default: wav
         language_code:
@@ -3987,6 +4030,16 @@ components:
             - high
           type: string
           default: auto
+    KokoroTtsResponseFormat:
+      title: Output Format
+      enum:
+        - mp3
+        - opus
+        - flac
+        - wav
+        - pcm
+      type: string
+      description: 'Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.'
     KokoroTtsVoice:
       title: Voice
       enum:
@@ -5117,8 +5170,10 @@ components:
             - $ref: '#/components/schemas/KokoroTtsVoice'
           description: Preset voices to use for the speech.
         response_format:
-          allOf:
+          title: Response Format
+          anyOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
+            - $ref: '#/components/schemas/KokoroTtsResponseFormat'
           description: response format for the speech
         speed:
           title: Speed

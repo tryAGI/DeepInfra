@@ -47,8 +47,8 @@ namespace DeepInfra
         /// response format for the speech
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
-        public global::DeepInfra.TtsResponseFormat? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? ResponseFormat { get; set; }
 
         /// <summary>
         /// speed of the speech<br/>
@@ -92,7 +92,7 @@ namespace DeepInfra
             string model,
             string input,
             global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? voice,
-            global::DeepInfra.TtsResponseFormat? responseFormat,
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? responseFormat,
             double? speed)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));

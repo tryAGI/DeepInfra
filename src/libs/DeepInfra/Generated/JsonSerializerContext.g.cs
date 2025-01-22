@@ -45,6 +45,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.DeployTypeNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter),
             typeof(global::DeepInfra.JsonConverters.TtsResponseFormatNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.KokoroTtsResponseFormatJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.KokoroTtsResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.HFTasksEJsonConverter),
             typeof(global::DeepInfra.JsonConverters.HFTasksENullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.KokoroTtsVoiceJsonConverter),
@@ -66,6 +68,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>),
@@ -73,6 +76,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>),
             typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter),
         })]
 

@@ -5,7 +5,7 @@ namespace DeepInfra
     public partial interface IDeepInfraApi
     {
         /// <summary>
-        /// Text To Speech
+        /// Text To Speech Stream
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
@@ -13,7 +13,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
+        global::System.Threading.Tasks.Task<string> TextToSpeechStreamAsync(
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? xDeepinfraSource = default,
@@ -21,7 +21,7 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Text To Speech
+        /// Text To Speech Stream
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
@@ -46,7 +46,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
+        global::System.Threading.Tasks.Task<string> TextToSpeechStreamAsync(
             string voiceId,
             string text,
             string? xDeepinfraSource = default,
