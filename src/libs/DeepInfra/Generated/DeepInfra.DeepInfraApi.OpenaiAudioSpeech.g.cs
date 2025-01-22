@@ -237,7 +237,7 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? voice = default,
-            global::DeepInfra.TtsResponseFormat? responseFormat = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? responseFormat = default,
             double? speed = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

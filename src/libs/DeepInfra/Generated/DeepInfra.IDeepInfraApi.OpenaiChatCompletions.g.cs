@@ -111,7 +111,7 @@ namespace DeepInfra
             double? frequencyPenalty = default,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
             string? toolChoice = default,
-            global::DeepInfra.ResponseFormat? responseFormat = default,
+            global::DeepInfra.ResponseFormat2? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,

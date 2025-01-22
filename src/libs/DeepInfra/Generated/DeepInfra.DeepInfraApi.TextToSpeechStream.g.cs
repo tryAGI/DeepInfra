@@ -5,41 +5,41 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareOpenaiCompletionsArguments(
+        partial void PrepareTextToSpeechStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string voiceId,
             ref string? xDeepinfraSource,
-            ref string? userAgent,
             ref string? xiApiKey,
-            global::DeepInfra.OpenAICompletionsIn request);
-        partial void PrepareOpenaiCompletionsRequest(
+            global::DeepInfra.ElevenLabsTextToSpeechIn request);
+        partial void PrepareTextToSpeechStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string voiceId,
             string? xDeepinfraSource,
-            string? userAgent,
             string? xiApiKey,
-            global::DeepInfra.OpenAICompletionsIn request);
-        partial void ProcessOpenaiCompletionsResponse(
+            global::DeepInfra.ElevenLabsTextToSpeechIn request);
+        partial void ProcessTextToSpeechStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessOpenaiCompletionsResponseContent(
+        partial void ProcessTextToSpeechStreamResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Openai Completions
+        /// Text To Speech Stream
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
-            global::DeepInfra.OpenAICompletionsIn request,
+        public async global::System.Threading.Tasks.Task<string> TextToSpeechStreamAsync(
+            string voiceId,
+            global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -47,15 +47,15 @@ namespace DeepInfra
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareOpenaiCompletionsArguments(
+            PrepareTextToSpeechStreamArguments(
                 httpClient: HttpClient,
+                voiceId: ref voiceId,
                 xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/openai/completions",
+                path: $"/v1/text-to-speech/{voiceId}/stream",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,10 +86,6 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
             }
-            if (userAgent != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
-            }
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -105,11 +101,11 @@ namespace DeepInfra
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareOpenaiCompletionsRequest(
+            PrepareTextToSpeechStreamRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -121,7 +117,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessOpenaiCompletionsResponse(
+            ProcessTextToSpeechStreamResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -161,7 +157,7 @@ namespace DeepInfra
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessOpenaiCompletionsResponseContent(
+                ProcessTextToSpeechStreamResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -214,128 +210,52 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Openai Completions
+        /// Text To Speech Stream
         /// </summary>
+        /// <param name="voiceId"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
-        /// <param name="model">
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// <param name="text">
+        /// Text to convert to speech<br/>
+        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
+        /// All my people from the front to the back nod, back nod<br/>
+        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
+        /// They said I rap like a robot, so call me Rap-bot
         /// </param>
-        /// <param name="prompt">
-        /// input prompt - a single string is currently supported
+        /// <param name="modelId">
+        /// Model ID to use for the conversion<br/>
+        /// Default Value: deepinfra/tts
         /// </param>
-        /// <param name="maxTokens">
-        /// The maximum number of tokens to generate in the completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
-        /// Default Value: 512
+        /// <param name="outputFormat">
+        /// Output format for the speech<br/>
+        /// Default Value: wav
         /// </param>
-        /// <param name="temperature">
-        /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="topP">
-        /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="minP">
-        /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="topK">
-        /// Sample from the best k (number of) tokens. 0 means off<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="n">
-        /// number of sequences to return<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="stream">
-        /// whether to stream the output via SSE or return the full response<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="logprobs">
-        /// return top tokens and their log-probabilities
-        /// </param>
-        /// <param name="echo">
-        /// return prompt as part of the respons
-        /// </param>
-        /// <param name="stop">
-        /// up to 16 sequences where the API will stop generating further tokens
-        /// </param>
-        /// <param name="presencePenalty">
-        /// Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="frequencyPenalty">
-        /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="responseFormat">
-        /// The format of the response. Currently, only json is supported.
-        /// </param>
-        /// <param name="repetitionPenalty">
-        /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="user">
-        /// A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.
-        /// </param>
-        /// <param name="seed">
-        /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
+        /// <param name="languageCode">
+        /// ISO 639-1, 2 letter language code
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
-            string model,
-            string prompt,
+        public async global::System.Threading.Tasks.Task<string> TextToSpeechStreamAsync(
+            string voiceId,
+            string text,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
-            int? maxTokens = default,
-            double? temperature = default,
-            double? topP = default,
-            double? minP = default,
-            int? topK = default,
-            int? n = default,
-            bool? stream = default,
-            int? logprobs = default,
-            bool? echo = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
-            double? presencePenalty = default,
-            double? frequencyPenalty = default,
-            global::DeepInfra.ResponseFormat2? responseFormat = default,
-            double? repetitionPenalty = default,
-            string? user = default,
-            int? seed = default,
+            string? modelId = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? outputFormat = default,
+            string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.OpenAICompletionsIn
+            var __request = new global::DeepInfra.ElevenLabsTextToSpeechIn
             {
-                Model = model,
-                Prompt = prompt,
-                MaxTokens = maxTokens,
-                Temperature = temperature,
-                TopP = topP,
-                MinP = minP,
-                TopK = topK,
-                N = n,
-                Stream = stream,
-                Logprobs = logprobs,
-                Echo = echo,
-                Stop = stop,
-                PresencePenalty = presencePenalty,
-                FrequencyPenalty = frequencyPenalty,
-                ResponseFormat = responseFormat,
-                RepetitionPenalty = repetitionPenalty,
-                User = user,
-                Seed = seed,
+                Text = text,
+                ModelId = modelId,
+                OutputFormat = outputFormat,
+                LanguageCode = languageCode,
             };
 
-            return await OpenaiCompletionsAsync(
+            return await TextToSpeechStreamAsync(
+                voiceId: voiceId,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

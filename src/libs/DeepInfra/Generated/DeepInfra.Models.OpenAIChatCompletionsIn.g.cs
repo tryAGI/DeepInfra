@@ -112,7 +112,7 @@ namespace DeepInfra
         /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::DeepInfra.ResponseFormat? ResponseFormat { get; set; }
+        public global::DeepInfra.ResponseFormat2? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -223,7 +223,7 @@ namespace DeepInfra
             double? frequencyPenalty,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
             string? toolChoice,
-            global::DeepInfra.ResponseFormat? responseFormat,
+            global::DeepInfra.ResponseFormat2? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed)

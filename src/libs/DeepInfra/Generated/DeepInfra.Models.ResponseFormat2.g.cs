@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ResponseFormat
+    public sealed partial class ResponseFormat2
     {
         /// <summary>
         /// Response type, such as JSON mode<br/>
@@ -25,7 +25,7 @@ namespace DeepInfra
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
+        /// Initializes a new instance of the <see cref="ResponseFormat2" /> class.
         /// </summary>
         /// <param name="type">
         /// Response type, such as JSON mode<br/>
@@ -33,16 +33,16 @@ namespace DeepInfra
         /// Example: json_object
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
-        public ResponseFormat(
+        public ResponseFormat2(
             global::DeepInfra.ResponseFormatType? type)
         {
             this.Type = type;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
+        /// Initializes a new instance of the <see cref="ResponseFormat2" /> class.
         /// </summary>
-        public ResponseFormat()
+        public ResponseFormat2()
         {
         }
     }
