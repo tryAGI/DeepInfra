@@ -622,66 +622,86 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIModelOut? Type149 { get; set; }
+        public global::DeepInfra.OpenAIImageData? Type149 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAIModelsOut? Type150 { get; set; }
+        public global::DeepInfra.OpenAIImagesGenerationsIn? Type150 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? Type151 { get; set; }
+        public global::DeepInfra.OpenAIImagesResponseFormat? Type151 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.OpenAITextToSpeechIn? Type152 { get; set; }
+        public global::DeepInfra.OpenAIImagesGenerationsOut? Type152 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? Type153 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIImageData>? Type153 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.TtsVoice? Type154 { get; set; }
+        public global::DeepInfra.OpenAIModelOut? Type154 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitOut? Type155 { get; set; }
+        public global::DeepInfra.OpenAIModelsOut? Type155 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitRequestIn? Type156 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? Type156 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaFieldOut? Type157 { get; set; }
+        public global::DeepInfra.OpenAITextToSpeechIn? Type157 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOut? Type158 { get; set; }
+        public global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? Type158 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut>? Type159 { get; set; }
+        public global::DeepInfra.TtsVoice? Type159 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.UpdateLoraApiRequest? Type160 { get; set; }
+        public global::DeepInfra.RateLimitOut? Type160 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type161 { get; set; }
+        public global::DeepInfra.RateLimitRequestIn? Type161 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type162 { get; set; }
+        public global::DeepInfra.SchemaFieldOut? Type162 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type163 { get; set; }
+        public global::DeepInfra.SchemaOut? Type163 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type164 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut>? Type164 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::DeepInfra.UpdateLoraApiRequest? Type165 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type166 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type167 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type168 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type169 { get; set; }
     }
 }
