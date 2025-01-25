@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Select the desired voice for the speech output.
+    /// Select the desired voice for the speech output. You can select multiple to combine and mix voices.
     /// </summary>
     public enum KokoroTtsVoice
     {
