@@ -1,4 +1,4 @@
-using OpenAI;
+using tryAGI.OpenAI;
 
 namespace DeepInfra.IntegrationTests;
 
@@ -14,7 +14,7 @@ public partial class Tests
         return new DeepInfraApi(apiKey);
     }
     
-    private static OpenAiApi GetAuthenticatedOpenAiClient()
+    private static OpenAiClient GetAuthenticatedOpenAiClient()
     {
         var apiKey =
             Environment.GetEnvironmentVariable("DEEPINFRA_API_KEY") ??
