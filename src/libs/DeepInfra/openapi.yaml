@@ -4993,9 +4993,9 @@ components:
           description: 'A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
         seed:
           title: Seed
-          maximum: 9223372036854776000
+          maximum: 18446744073709552000
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: -9223372036854776000
           type: integer
           description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
     OpenAICompletionsIn:
@@ -5112,9 +5112,9 @@ components:
           description: 'A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
         seed:
           title: Seed
-          maximum: 9223372036854776000
+          maximum: 18446744073709552000
           exclusiveMaximum: true
-          minimum: 0.0
+          minimum: -9223372036854776000
           type: integer
           description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
     OpenAIEmbeddingsIn:
