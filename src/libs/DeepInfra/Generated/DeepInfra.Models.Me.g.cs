@@ -29,6 +29,12 @@ namespace DeepInfra
         public required bool EmailVerified { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("require_email_verified")]
+        public bool? RequireEmailVerified { get; set; }
+
+        /// <summary>
         /// Name that is used to identifythe account on the website
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
@@ -125,6 +131,9 @@ namespace DeepInfra
         /// <param name="uid"></param>
         /// <param name="email"></param>
         /// <param name="emailVerified"></param>
+        /// <param name="requireEmailVerified">
+        /// Default Value: false
+        /// </param>
         /// <param name="displayName">
         /// Name that is used to identifythe account on the website
         /// </param>
@@ -166,6 +175,7 @@ namespace DeepInfra
             string company,
             string website,
             string? email,
+            bool? requireEmailVerified,
             string? picture,
             bool? isTeamAccount,
             bool? isTeamOwner,
@@ -183,6 +193,7 @@ namespace DeepInfra
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
             this.Email = email;
+            this.RequireEmailVerified = requireEmailVerified;
             this.Picture = picture;
             this.IsTeamAccount = isTeamAccount;
             this.IsTeamOwner = isTeamOwner;
