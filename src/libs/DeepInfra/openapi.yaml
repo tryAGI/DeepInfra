@@ -4214,6 +4214,10 @@ components:
         email_verified:
           title: Email Verified
           type: boolean
+        require_email_verified:
+          title: Require Email Verified
+          type: boolean
+          default: false
         display_name:
           title: Display Name
           type: string
