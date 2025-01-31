@@ -31,6 +31,12 @@ namespace DeepInfra
         public required string Name { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
+        public string? TokenId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,15 +50,18 @@ namespace DeepInfra
         /// creation unix timestamp
         /// </param>
         /// <param name="name"></param>
+        /// <param name="tokenId"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ApiToken(
             string token,
             global::System.DateTimeOffset createdAt,
-            string name)
+            string name,
+            string? tokenId)
         {
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.TokenId = tokenId;
         }
 
         /// <summary>

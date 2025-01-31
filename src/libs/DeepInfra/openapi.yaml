@@ -3206,6 +3206,9 @@ components:
         name:
           title: Name
           type: string
+        token_id:
+          title: Token Id
+          type: string
     ApiTokenIn:
       title: ApiTokenIn
       required:
