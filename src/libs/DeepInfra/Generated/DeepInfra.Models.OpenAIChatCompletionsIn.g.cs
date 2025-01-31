@@ -134,6 +134,12 @@ namespace DeepInfra
         public int? Seed { get; set; }
 
         /// <summary>
+        /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
+        public bool? Logprobs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -207,6 +213,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
+        /// <param name="logprobs">
+        /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public OpenAIChatCompletionsIn(
             string model,
@@ -226,7 +235,8 @@ namespace DeepInfra
             global::DeepInfra.ResponseFormat2? responseFormat,
             double? repetitionPenalty,
             string? user,
-            int? seed)
+            int? seed,
+            bool? logprobs)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -246,6 +256,7 @@ namespace DeepInfra
             this.RepetitionPenalty = repetitionPenalty;
             this.User = user;
             this.Seed = seed;
+            this.Logprobs = logprobs;
         }
 
         /// <summary>

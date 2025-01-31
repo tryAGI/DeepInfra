@@ -284,6 +284,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
+        /// <param name="logprobs">
+        /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
@@ -308,6 +311,7 @@ namespace DeepInfra
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
+            bool? logprobs = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAIChatCompletionsIn
@@ -330,6 +334,7 @@ namespace DeepInfra
                 RepetitionPenalty = repetitionPenalty,
                 User = user,
                 Seed = seed,
+                Logprobs = logprobs,
             };
 
             return await OpenaiChatCompletionsAsync(
