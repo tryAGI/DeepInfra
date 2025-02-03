@@ -13,7 +13,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
     <PackageReference Include="FluentAssertions" Version="8.0.1" />
-    <PackageReference Include="tryAGI.OpenAI" Version="4.0.0" />
+    <PackageReference Include="tryAGI.OpenAI" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup Label="GlobalUsings">
