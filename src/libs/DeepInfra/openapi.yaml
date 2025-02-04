@@ -4384,6 +4384,9 @@ components:
         - openai-speech-http
         - openai-speech-python
         - openai-speech-js
+        - openai-images-http
+        - openai-images-python
+        - openai-images-js
         - openai-comp-python
         - openai-comp-http
         - openai-comp-js
@@ -5075,7 +5078,6 @@ components:
           exclusiveMinimum: true
           type: integer
           description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length."
-          default: 512
         temperature:
           title: Temperature
           maximum: 2.0
@@ -5500,6 +5502,7 @@ components:
         - openai-chat-completions
         - openai-embeddings
         - openai-speech-to-text
+        - openai-images
         - create-voice
         - read-voice
         - update-voice

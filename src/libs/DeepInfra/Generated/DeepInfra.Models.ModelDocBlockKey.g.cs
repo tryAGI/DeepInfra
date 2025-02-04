@@ -59,6 +59,18 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiImagesHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesJs,
+        /// <summary>
+        /// 
+        /// </summary>
         OpenaiCompPython,
         /// <summary>
         /// 
@@ -170,6 +182,9 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiSpeechHttp => "openai-speech-http",
                 ModelDocBlockKey.OpenaiSpeechPython => "openai-speech-python",
                 ModelDocBlockKey.OpenaiSpeechJs => "openai-speech-js",
+                ModelDocBlockKey.OpenaiImagesHttp => "openai-images-http",
+                ModelDocBlockKey.OpenaiImagesPython => "openai-images-python",
+                ModelDocBlockKey.OpenaiImagesJs => "openai-images-js",
                 ModelDocBlockKey.OpenaiCompPython => "openai-comp-python",
                 ModelDocBlockKey.OpenaiCompHttp => "openai-comp-http",
                 ModelDocBlockKey.OpenaiCompJs => "openai-comp-js",
@@ -214,6 +229,9 @@ namespace DeepInfra
                 "openai-speech-http" => ModelDocBlockKey.OpenaiSpeechHttp,
                 "openai-speech-python" => ModelDocBlockKey.OpenaiSpeechPython,
                 "openai-speech-js" => ModelDocBlockKey.OpenaiSpeechJs,
+                "openai-images-http" => ModelDocBlockKey.OpenaiImagesHttp,
+                "openai-images-python" => ModelDocBlockKey.OpenaiImagesPython,
+                "openai-images-js" => ModelDocBlockKey.OpenaiImagesJs,
                 "openai-comp-python" => ModelDocBlockKey.OpenaiCompPython,
                 "openai-comp-http" => ModelDocBlockKey.OpenaiCompHttp,
                 "openai-comp-js" => ModelDocBlockKey.OpenaiCompJs,
