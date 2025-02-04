@@ -28,8 +28,7 @@ namespace DeepInfra
 
         /// <summary>
         /// The maximum number of tokens to generate in the completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
-        /// Default Value: 512
+        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -152,8 +151,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate in the completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.<br/>
-        /// Default Value: 512
+        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length.
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
