@@ -2658,6 +2658,67 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/scoped-jwt:
+    get:
+      summary: Inspect Scoped Jwt
+      operationId: inspect_scoped_jwt_v1_scoped_jwt_get
+      parameters:
+        - name: jwtoken
+          in: query
+          required: true
+          schema:
+            title: Jwtoken
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectScopedJWTOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: ' Create Scoped Jwt'
+      operationId: _create_scoped_jwt_v1_scoped_jwt_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScopedJWTIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScopedJWTOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /payment/checklist:
     get:
       summary: Get Checklist
@@ -4076,6 +4137,26 @@ components:
             - high
           type: string
           default: auto
+    InspectScopedJWTOut:
+      title: InspectScopedJWTOut
+      required:
+        - expires_at
+      type: object
+      properties:
+        expires_at:
+          title: Expires At
+          type: integer
+          description: unix timestamp of when the token expires
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+          description: which models is the token limited to
+        spending_limit:
+          title: Spending Limit
+          type: number
+          description: how much is the total spending limit set at creation
     KokoroTtsResponseFormat:
       title: Output Format
       enum:
@@ -5512,6 +5593,43 @@ components:
         - ai-sdk
       type: string
       description: An enumeration.
+    ScopedJWTIn:
+      title: ScopedJWTIn
+      required:
+        - api_token_name
+      type: object
+      properties:
+        api_token_name:
+          title: Api Token Name
+          type: string
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+          description: allow inference only to the specified model names
+        expires_delta:
+          title: Expires Delta
+          type: integer
+          description: how many seconds in the future should the token be valid for
+        expires_at:
+          title: Expires At
+          type: integer
+          description: unix timestamp when the token should expire
+        spending_limit:
+          title: Spending Limit
+          type: number
+          description: only allow spending that much USD until the token becomes invalid
+    ScopedJWTOut:
+      title: ScopedJWTOut
+      required:
+        - token
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+          description: The newly minted scoped JWT ready for use
     SourceModel:
       title: SourceModel
       required:
