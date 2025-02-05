@@ -3557,6 +3557,7 @@ components:
         - A100-80GB
         - H100-80GB
         - H200-141GB
+        - B200-180GB
       type: string
       description: An enumeration.
     DeployInstances:
