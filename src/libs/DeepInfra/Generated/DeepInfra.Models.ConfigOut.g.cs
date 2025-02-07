@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="limit">
         /// Spending limit (in USD). Negative means no limit
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConfigOut(
             double limit)
         {

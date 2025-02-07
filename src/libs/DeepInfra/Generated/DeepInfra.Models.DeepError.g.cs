@@ -30,7 +30,9 @@ namespace DeepInfra
         /// Error<br/>
         /// Example: Model not found
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeepError(
             string error)
         {

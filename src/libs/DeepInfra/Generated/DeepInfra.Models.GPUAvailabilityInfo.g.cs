@@ -41,7 +41,9 @@ namespace DeepInfra
         /// <param name="gpuConfig"></param>
         /// <param name="usdPerHour"></param>
         /// <param name="available"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GPUAvailabilityInfo(
             string gpuConfig,
             double usdPerHour,

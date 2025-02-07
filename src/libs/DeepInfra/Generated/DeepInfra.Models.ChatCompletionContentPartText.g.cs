@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="type"></param>
         /// <param name="text"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionContentPartText(
             string text,
             global::DeepInfra.ChatCompletionContentPartTextType type)

@@ -101,7 +101,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="deal"></param>
         /// <param name="email"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeepStartApplicationOut(
             string company,
             string ceo,

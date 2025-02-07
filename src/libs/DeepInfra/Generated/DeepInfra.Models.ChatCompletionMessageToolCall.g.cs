@@ -47,7 +47,9 @@ namespace DeepInfra
         /// <param name="function">
         /// the function that the model called
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionMessageToolCall(
             string id,
             string type,

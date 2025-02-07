@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="running"></param>
         /// <param name="pending"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployInstances(
             int running,
             int pending)

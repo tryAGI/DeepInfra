@@ -58,7 +58,9 @@ namespace DeepInfra
         /// format used when encoding<br/>
         /// Default Value: float
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIEmbeddingsIn(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,

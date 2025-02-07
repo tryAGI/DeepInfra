@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="gpus">
         /// A list of all provided GPUs configurations, including their price and wether they are available
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployGPUAvailability(
             global::System.Collections.Generic.IList<global::DeepInfra.GPUAvailabilityInfo> gpus)
         {

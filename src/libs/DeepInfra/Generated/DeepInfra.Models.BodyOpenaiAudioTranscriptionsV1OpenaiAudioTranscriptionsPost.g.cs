@@ -81,7 +81,9 @@ namespace DeepInfra
         /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPost(
             byte[] file,
             string filename,

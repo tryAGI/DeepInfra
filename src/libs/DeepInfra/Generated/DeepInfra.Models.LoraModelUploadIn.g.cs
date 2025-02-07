@@ -40,7 +40,9 @@ namespace DeepInfra
         /// <param name="hfModelName"></param>
         /// <param name="hfToken"></param>
         /// <param name="loraModelName"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LoraModelUploadIn(
             string hfModelName,
             string loraModelName,

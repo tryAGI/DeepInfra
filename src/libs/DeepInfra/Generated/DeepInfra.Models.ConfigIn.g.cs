@@ -26,7 +26,9 @@ namespace DeepInfra
         /// <param name="limit">
         /// Set usage limit (in USD). Negative means no limit.null/not-set means don't change it
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConfigIn(
             double? limit)
         {

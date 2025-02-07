@@ -35,7 +35,9 @@ namespace DeepInfra
         /// <param name="initialMonth">
         /// The first month for this account
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UsageOut(
             global::System.Collections.Generic.IList<global::DeepInfra.UsageMonth> months,
             string initialMonth)

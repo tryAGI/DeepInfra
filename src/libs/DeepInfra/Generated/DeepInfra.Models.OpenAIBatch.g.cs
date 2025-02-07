@@ -165,7 +165,9 @@ namespace DeepInfra
         /// <param name="cancellingAt"></param>
         /// <param name="requestCounts"></param>
         /// <param name="metadata"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIBatch(
             string id,
             string @object,

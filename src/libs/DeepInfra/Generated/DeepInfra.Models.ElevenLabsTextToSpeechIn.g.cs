@@ -75,7 +75,9 @@ namespace DeepInfra
         /// <param name="languageCode">
         /// ISO 639-1, 2 letter language code
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ElevenLabsTextToSpeechIn(
             string text,
             string? modelId,

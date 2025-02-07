@@ -96,7 +96,9 @@ namespace DeepInfra
         /// <param name="exclusiveMinimum"></param>
         /// <param name="maximum"></param>
         /// <param name="exclusiveMaximum"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelFieldInfo(
             string name,
             string ftype,

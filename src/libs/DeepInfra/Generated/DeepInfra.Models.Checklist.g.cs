@@ -98,7 +98,9 @@ namespace DeepInfra
         /// <param name="suspendReason">
         /// An enumeration.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Checklist(
             double stripeBalance,
             bool? email,

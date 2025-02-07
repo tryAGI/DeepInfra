@@ -150,7 +150,9 @@ namespace DeepInfra
         /// <param name="settings">
         /// Scale Settings
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeploymentOut(
             string deployId,
             string modelName,

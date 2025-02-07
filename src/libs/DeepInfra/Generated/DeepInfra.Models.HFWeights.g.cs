@@ -45,7 +45,9 @@ namespace DeepInfra
         /// <param name="token">
         /// huggingface access token with read access to the repo
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public HFWeights(
             string repo,
             string? revision,

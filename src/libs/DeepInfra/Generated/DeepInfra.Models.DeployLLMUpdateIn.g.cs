@@ -25,7 +25,9 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="DeployLLMUpdateIn" /> class.
         /// </summary>
         /// <param name="settings"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployLLMUpdateIn(
             global::DeepInfra.ScaleSettings settings)
         {

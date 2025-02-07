@@ -37,7 +37,9 @@ namespace DeepInfra
         /// <param name="data">
         /// List of generated images
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIImagesGenerationsOut(
             global::System.Collections.Generic.IList<global::DeepInfra.OpenAIImageData> data,
             global::System.DateTimeOffset? created)

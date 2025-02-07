@@ -36,7 +36,9 @@ namespace DeepInfra
         /// An enumeration.
         /// </param>
         /// <param name="url"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SchemaVariant(
             global::DeepInfra.SchemaVariantKey key,
             string url)

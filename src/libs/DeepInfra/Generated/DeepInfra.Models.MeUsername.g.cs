@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="username">
         /// String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public MeUsername(
             string username)
         {

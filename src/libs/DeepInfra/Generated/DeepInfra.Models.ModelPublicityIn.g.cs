@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="public">
         /// whether to make the model public of private
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelPublicityIn(
             bool @public)
         {

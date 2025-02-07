@@ -42,7 +42,9 @@ namespace DeepInfra
         /// Task<br/>
         /// Example: image-classification
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public HFModel(
             string modelName,
             string? task)

@@ -34,7 +34,9 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: input_tokens
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelPricingInputTokens(
             double centsPerInputToken,
             string? type)

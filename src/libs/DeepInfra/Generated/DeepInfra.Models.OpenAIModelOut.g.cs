@@ -65,7 +65,9 @@ namespace DeepInfra
         /// <param name="ownedBy"></param>
         /// <param name="root"></param>
         /// <param name="parent"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIModelOut(
             string id,
             int created,

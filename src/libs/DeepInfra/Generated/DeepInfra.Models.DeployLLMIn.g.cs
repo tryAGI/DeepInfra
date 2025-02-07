@@ -74,7 +74,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="hf"></param>
         /// <param name="settings"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployLLMIn(
             string modelName,
             global::DeepInfra.DeployGPUs gpu,

@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="rateLimit"></param>
         /// <param name="reason"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public RateLimitRequestIn(
             int rateLimit,
             string reason)

@@ -66,7 +66,9 @@ namespace DeepInfra
         /// Stripe Invoice ID, or EMPTY|NOT_FINAL<br/>
         /// Default Value: NOT_FINAL
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UsageMonth(
             string period,
             global::DeepInfra.TimeInterval interval,

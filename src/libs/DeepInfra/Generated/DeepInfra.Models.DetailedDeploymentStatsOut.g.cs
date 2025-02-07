@@ -44,7 +44,9 @@ namespace DeepInfra
         /// <param name="time">
         /// Time based Deployment Stats
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DetailedDeploymentStatsOut(
             global::DeepInfra.LLMDeploymentStatsOut? llm,
             global::DeepInfra.EmbeddingsDeploymentStatsOut? embeddings,

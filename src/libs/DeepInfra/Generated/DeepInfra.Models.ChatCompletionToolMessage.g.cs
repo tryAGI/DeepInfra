@@ -47,7 +47,9 @@ namespace DeepInfra
         /// the message content
         /// </param>
         /// <param name="toolCallId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionToolMessage(
             string content,
             string toolCallId,

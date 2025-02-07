@@ -81,7 +81,9 @@ namespace DeepInfra
         /// <param name="reportedType">
         /// model type
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelMetaIn(
             string? description,
             string? githubUrl,

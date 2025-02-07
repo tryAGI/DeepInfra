@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="emails">
         /// List of emails verified by theauthenticaiton provider
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public EmailsOut(
             global::System.Collections.Generic.IList<string> emails)
         {

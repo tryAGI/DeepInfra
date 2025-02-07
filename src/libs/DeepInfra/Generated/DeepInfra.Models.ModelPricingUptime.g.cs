@@ -34,7 +34,9 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: uptime
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelPricingUptime(
             double centsPerSec,
             string? type)

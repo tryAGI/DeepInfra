@@ -24,7 +24,9 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="GetVoicesOut" /> class.
         /// </summary>
         /// <param name="voices"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GetVoicesOut(
             global::System.Collections.Generic.IList<global::DeepInfra.Voice2>? voices)
         {

@@ -34,7 +34,9 @@ namespace DeepInfra
         /// An enumeration.
         /// </param>
         /// <param name="civitUrl"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SourceModel(
             global::DeepInfra.SourceTypeEnum type,
             string? civitUrl)

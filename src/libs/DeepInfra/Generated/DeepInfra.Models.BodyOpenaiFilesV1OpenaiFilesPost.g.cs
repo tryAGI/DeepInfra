@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="purpose"></param>
         /// <param name="file"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public BodyOpenaiFilesV1OpenaiFilesPost(
             string purpose,
             global::System.Collections.Generic.IList<byte[]> file)
