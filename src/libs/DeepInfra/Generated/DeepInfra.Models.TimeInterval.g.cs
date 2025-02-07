@@ -35,7 +35,9 @@ namespace DeepInfra
         /// <param name="to">
         /// Default Value: 4000000000000L
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public TimeInterval(
             int? fr,
             long? to)

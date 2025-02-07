@@ -33,7 +33,9 @@ namespace DeepInfra
         /// Default Value: list
         /// </param>
         /// <param name="data"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIModelsOut(
             string? @object,
             global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? data)

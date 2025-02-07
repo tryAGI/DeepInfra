@@ -163,7 +163,9 @@ namespace DeepInfra
         /// <param name="isTeamUpgradeEnabled">
         /// Default Value: true
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Me(
             string uid,
             bool emailVerified,

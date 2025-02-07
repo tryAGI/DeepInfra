@@ -30,7 +30,9 @@ namespace DeepInfra
         /// Deploy Id<br/>
         /// Example: fkj843kjh8
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployStatusOut(
             string deployId)
         {

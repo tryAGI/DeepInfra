@@ -107,7 +107,9 @@ namespace DeepInfra
         /// <param name="errors">
         /// number of errors
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LLMDeploymentStatsOut(
             int requests,
             int inputTokens,

@@ -87,7 +87,9 @@ namespace DeepInfra
         /// speed of the speech<br/>
         /// Default Value: 1
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAITextToSpeechIn(
             string model,
             string input,

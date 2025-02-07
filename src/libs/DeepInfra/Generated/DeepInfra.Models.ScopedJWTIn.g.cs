@@ -62,7 +62,9 @@ namespace DeepInfra
         /// <param name="spendingLimit">
         /// only allow spending that much USD until the token becomes invalid
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ScopedJWTIn(
             string apiTokenName,
             global::System.Collections.Generic.IList<string>? models,

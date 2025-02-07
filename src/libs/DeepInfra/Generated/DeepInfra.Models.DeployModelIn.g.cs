@@ -46,7 +46,9 @@ namespace DeepInfra
         /// <param name="version">
         /// A specific revision, if left empty uses the last one
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployModelIn(
             string modelName,
             global::DeepInfra.ModelProvider? provider,

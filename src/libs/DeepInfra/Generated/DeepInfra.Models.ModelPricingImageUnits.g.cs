@@ -58,7 +58,9 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: image_units
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelPricingImageUnits(
             double centsPerImageUnit,
             int defaultWidth,

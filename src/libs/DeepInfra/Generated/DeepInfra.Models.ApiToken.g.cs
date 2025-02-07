@@ -51,7 +51,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="name"></param>
         /// <param name="tokenId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ApiToken(
             string token,
             global::System.DateTimeOffset createdAt,

@@ -27,7 +27,9 @@ namespace DeepInfra
         /// <param name="token">
         /// The newly minted scoped JWT ready for use
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ScopedJWTOut(
             string token)
         {

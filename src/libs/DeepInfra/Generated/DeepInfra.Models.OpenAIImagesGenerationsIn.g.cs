@@ -105,7 +105,9 @@ namespace DeepInfra
         /// <param name="user">
         /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIImagesGenerationsIn(
             string prompt,
             string? model,

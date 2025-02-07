@@ -48,7 +48,9 @@ namespace DeepInfra
         /// <param name="modelName"></param>
         /// <param name="task"></param>
         /// <param name="planId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelMeta(
             string provider,
             string modelName,

@@ -26,7 +26,9 @@ namespace DeepInfra
         /// <param name="entries">
         /// list of log lines ordered by increasing timestamp
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LogQueryOut(
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<object>>? entries)
         {

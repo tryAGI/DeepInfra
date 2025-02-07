@@ -57,7 +57,9 @@ namespace DeepInfra
         /// <param name="metadata">
         /// Optional metadata to be stored with the batch.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIBatchesIn(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,

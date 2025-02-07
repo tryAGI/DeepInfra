@@ -54,7 +54,9 @@ namespace DeepInfra
         /// <param name="schemaOut1"></param>
         /// <param name="schemaStream"></param>
         /// <param name="fieldsIn"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SchemaOut(
             global::DeepInfra.SchemaVariant variant,
             global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut> fieldsIn,

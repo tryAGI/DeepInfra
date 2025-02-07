@@ -34,7 +34,9 @@ namespace DeepInfra
         /// Default Value: function
         /// </param>
         /// <param name="function"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatTools(
             global::DeepInfra.FunctionDefinition function,
             string? type)

@@ -32,7 +32,9 @@ namespace DeepInfra
         /// Default Value: text<br/>
         /// Example: json_object
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ResponseFormat2(
             global::DeepInfra.ResponseFormatType? type)
         {

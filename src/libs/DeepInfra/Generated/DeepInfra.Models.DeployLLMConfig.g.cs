@@ -58,7 +58,9 @@ namespace DeepInfra
         /// <param name="weights">
         /// Model weights information
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeployLLMConfig(
             global::DeepInfra.DeployGPUs gpu,
             int numGpus,

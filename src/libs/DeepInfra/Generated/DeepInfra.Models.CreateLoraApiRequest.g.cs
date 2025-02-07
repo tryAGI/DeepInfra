@@ -56,7 +56,9 @@ namespace DeepInfra
         /// <param name="source"></param>
         /// <param name="private"></param>
         /// <param name="description"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CreateLoraApiRequest(
             string baseModel,
             string loraName,

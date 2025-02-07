@@ -36,7 +36,9 @@ namespace DeepInfra
         /// <param name="contactEmail">
         /// Optional contact email to reach you back
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public FeedbackIn(
             string message,
             string? contactEmail)

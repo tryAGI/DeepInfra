@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="type"></param>
         /// <param name="imageUrl"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionContentPartImage(
             global::DeepInfra.ImageURL imageUrl,
             global::DeepInfra.ChatCompletionContentPartImageType type)

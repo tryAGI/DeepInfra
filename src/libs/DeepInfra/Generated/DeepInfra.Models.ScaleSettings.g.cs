@@ -39,7 +39,9 @@ namespace DeepInfra
         /// Maximum number of model instances to run<br/>
         /// Default Value: 1
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ScaleSettings(
             int? minInstances,
             int? maxInstances)

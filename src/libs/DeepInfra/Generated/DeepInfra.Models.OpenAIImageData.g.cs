@@ -37,7 +37,9 @@ namespace DeepInfra
         /// <param name="b64Json">
         /// The base64-encoded image data
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OpenAIImageData(
             string revisedPrompt,
             string b64Json)

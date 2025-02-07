@@ -46,7 +46,9 @@ namespace DeepInfra
         /// <param name="spendingLimit">
         /// how much is the total spending limit set at creation
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public InspectScopedJWTOut(
             global::System.DateTimeOffset expiresAt,
             global::System.Collections.Generic.IList<string>? models,

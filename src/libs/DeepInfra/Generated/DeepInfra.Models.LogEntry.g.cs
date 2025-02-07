@@ -33,7 +33,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="ts"></param>
         /// <param name="line"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LogEntry(
             string ts,
             string line)

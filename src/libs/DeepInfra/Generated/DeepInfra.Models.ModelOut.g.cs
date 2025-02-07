@@ -143,7 +143,9 @@ namespace DeepInfra
         /// <param name="quantization"></param>
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ModelOut(
             string modelName,
             string type,

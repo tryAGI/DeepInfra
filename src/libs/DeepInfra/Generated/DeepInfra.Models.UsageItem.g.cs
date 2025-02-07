@@ -75,7 +75,9 @@ namespace DeepInfra
         /// <param name="interval">
         /// time interval with this particular pricing
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UsageItem(
             global::DeepInfra.ModelMeta model,
             int units,
