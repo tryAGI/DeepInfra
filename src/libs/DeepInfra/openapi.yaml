@@ -2799,7 +2799,6 @@ paths:
   /payment/billing-portal:
     get:
       summary: Billing Portal
-      description: "Redirect to the stripe billing portal page, where the user can manage\ntheir email and payment methods"
       operationId: billing_portal_payment_billing_portal_get
       parameters:
         - name: return_url
