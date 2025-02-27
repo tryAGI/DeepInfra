@@ -71,6 +71,18 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiImagesVariationsHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesVariationsPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesVariationsJs,
+        /// <summary>
+        /// 
+        /// </summary>
         OpenaiCompPython,
         /// <summary>
         /// 
@@ -185,6 +197,9 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiImagesHttp => "openai-images-http",
                 ModelDocBlockKey.OpenaiImagesPython => "openai-images-python",
                 ModelDocBlockKey.OpenaiImagesJs => "openai-images-js",
+                ModelDocBlockKey.OpenaiImagesVariationsHttp => "openai-images-variations-http",
+                ModelDocBlockKey.OpenaiImagesVariationsPython => "openai-images-variations-python",
+                ModelDocBlockKey.OpenaiImagesVariationsJs => "openai-images-variations-js",
                 ModelDocBlockKey.OpenaiCompPython => "openai-comp-python",
                 ModelDocBlockKey.OpenaiCompHttp => "openai-comp-http",
                 ModelDocBlockKey.OpenaiCompJs => "openai-comp-js",
@@ -232,6 +247,9 @@ namespace DeepInfra
                 "openai-images-http" => ModelDocBlockKey.OpenaiImagesHttp,
                 "openai-images-python" => ModelDocBlockKey.OpenaiImagesPython,
                 "openai-images-js" => ModelDocBlockKey.OpenaiImagesJs,
+                "openai-images-variations-http" => ModelDocBlockKey.OpenaiImagesVariationsHttp,
+                "openai-images-variations-python" => ModelDocBlockKey.OpenaiImagesVariationsPython,
+                "openai-images-variations-js" => ModelDocBlockKey.OpenaiImagesVariationsJs,
                 "openai-comp-python" => ModelDocBlockKey.OpenaiCompPython,
                 "openai-comp-http" => ModelDocBlockKey.OpenaiCompHttp,
                 "openai-comp-js" => ModelDocBlockKey.OpenaiCompJs,

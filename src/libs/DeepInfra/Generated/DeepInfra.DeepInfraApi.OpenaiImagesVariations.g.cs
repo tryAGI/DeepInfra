@@ -5,36 +5,36 @@ namespace DeepInfra
 {
     public partial class DeepInfraApi
     {
-        partial void PrepareOpenaiImagesGenerationsArguments(
+        partial void PrepareOpenaiImagesVariationsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xDeepinfraSource,
             ref string? userAgent,
             ref string? xiApiKey);
-        partial void PrepareOpenaiImagesGenerationsRequest(
+        partial void PrepareOpenaiImagesVariationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xDeepinfraSource,
             string? userAgent,
             string? xiApiKey);
-        partial void ProcessOpenaiImagesGenerationsResponse(
+        partial void ProcessOpenaiImagesVariationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessOpenaiImagesGenerationsResponseContent(
+        partial void ProcessOpenaiImagesVariationsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Openai Images Generations<br/>
-        /// Generate image using OpenAI Images API
+        /// Openai Images Variations<br/>
+        /// Generate a similar image using OpenAI Images Variations API
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesGenerationsAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesVariationsAsync(
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
@@ -42,14 +42,14 @@ namespace DeepInfra
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareOpenaiImagesGenerationsArguments(
+            PrepareOpenaiImagesVariationsArguments(
                 httpClient: HttpClient,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/openai/images/generations",
+                path: "/v1/openai/images/variations",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -93,7 +93,7 @@ namespace DeepInfra
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareOpenaiImagesGenerationsRequest(
+            PrepareOpenaiImagesVariationsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 xDeepinfraSource: xDeepinfraSource,
@@ -108,7 +108,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessOpenaiImagesGenerationsResponse(
+            ProcessOpenaiImagesVariationsResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -152,7 +152,7 @@ namespace DeepInfra
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessOpenaiImagesGenerationsResponseContent(
+                ProcessOpenaiImagesVariationsResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
