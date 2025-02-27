@@ -63,8 +63,6 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.ResponseFormatTypeNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter),
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
-            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter),
-            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.TtsVoiceJsonConverter),
             typeof(global::DeepInfra.JsonConverters.TtsVoiceNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),

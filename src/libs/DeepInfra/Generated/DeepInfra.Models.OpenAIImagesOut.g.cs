@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class OpenAIImagesGenerationsOut
+    public sealed partial class OpenAIImagesOut
     {
         /// <summary>
         /// Unix timestamp of when the images were created
@@ -29,7 +29,7 @@ namespace DeepInfra
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenAIImagesGenerationsOut" /> class.
+        /// Initializes a new instance of the <see cref="OpenAIImagesOut" /> class.
         /// </summary>
         /// <param name="created">
         /// Unix timestamp of when the images were created
@@ -40,7 +40,7 @@ namespace DeepInfra
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public OpenAIImagesGenerationsOut(
+        public OpenAIImagesOut(
             global::System.Collections.Generic.IList<global::DeepInfra.OpenAIImageData> data,
             global::System.DateTimeOffset? created)
         {
@@ -49,9 +49,9 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenAIImagesGenerationsOut" /> class.
+        /// Initializes a new instance of the <see cref="OpenAIImagesOut" /> class.
         /// </summary>
-        public OpenAIImagesGenerationsOut()
+        public OpenAIImagesOut()
         {
         }
     }

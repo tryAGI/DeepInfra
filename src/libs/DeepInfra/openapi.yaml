@@ -1632,19 +1632,49 @@ paths:
           schema:
             title: Xi-Api-Key
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
-        required: true
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenAIImagesGenerationsOut'
+                $ref: '#/components/schemas/OpenAIImagesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/images/variations:
+    post:
+      summary: Openai Images Variations
+      description: Generate a similar image using OpenAI Images Variations API
+      operationId: openai_images_variations_v1_openai_images_variations_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIImagesOut'
         '422':
           description: Validation Error
           content:
@@ -4468,6 +4498,9 @@ components:
         - openai-images-http
         - openai-images-python
         - openai-images-js
+        - openai-images-variations-http
+        - openai-images-variations-python
+        - openai-images-variations-js
         - openai-comp-python
         - openai-comp-http
         - openai-comp-js
@@ -5287,66 +5320,19 @@ components:
     OpenAIImageData:
       title: OpenAIImageData
       required:
-        - revised_prompt
         - b64_json
       type: object
       properties:
-        revised_prompt:
-          title: Revised Prompt
-          type: string
-          description: The prompt used to generate this image
         b64_json:
           title: B64 Json
           type: string
           description: The base64-encoded image data
-    OpenAIImagesGenerationsIn:
-      title: OpenAIImagesGenerationsIn
-      required:
-        - prompt
-      type: object
-      properties:
-        prompt:
-          title: Prompt
+        revised_prompt:
+          title: Revised Prompt
           type: string
-          description: A text description of desired image(s).
-          example: A photo of an astronaut riding a horse on Mars.
-        model:
-          title: Model
-          type: string
-          description: The model to use for image generation.
-          default: black-forest-labs/FLUX-1-schnell
-          example: black-forest-labs/FLUX-1-schnell
-        n:
-          title: N
-          maximum: 4.0
-          minimum: 1.0
-          type: integer
-          description: The number of images to generate.
-          default: 1
-        quality:
-          title: Quality
-          type: string
-          description: The quality of the image that will be generated.
-        response_format:
-          allOf:
-            - $ref: '#/components/schemas/OpenAIImagesResponseFormat'
-          description: The format in which the generated images are returned. Currently only b64_json is supported.
-          default: b64_json
-        size:
-          title: Size
-          type: string
-          description: The size of the generated images. Available sizes depend on the model.
-          default: 1024x1024
-        style:
-          title: Style
-          type: string
-          description: 'The style of the generated images.''   '
-        user:
-          title: User
-          type: string
-          description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
-    OpenAIImagesGenerationsOut:
-      title: OpenAIImagesGenerationsOut
+          description: The prompt used to generate this image
+    OpenAIImagesOut:
+      title: OpenAIImagesOut
       required:
         - data
       type: object
@@ -5361,12 +5347,6 @@ components:
           items:
             $ref: '#/components/schemas/OpenAIImageData'
           description: List of generated images
-    OpenAIImagesResponseFormat:
-      title: OpenAIImagesResponseFormat
-      enum:
-        - b64_json
-      type: string
-      description: An enumeration.
     OpenAIModelOut:
       title: OpenAIModelOut
       required:
@@ -5584,6 +5564,7 @@ components:
         - openai-embeddings
         - openai-speech-to-text
         - openai-images
+        - openai-images-variations
         - create-voice
         - read-voice
         - update-voice
