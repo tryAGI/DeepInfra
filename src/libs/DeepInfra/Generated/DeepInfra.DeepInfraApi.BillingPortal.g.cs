@@ -24,9 +24,7 @@ namespace DeepInfra
             ref string content);
 
         /// <summary>
-        /// Billing Portal<br/>
-        /// Redirect to the stripe billing portal page, where the user can manage<br/>
-        /// their email and payment methods
+        /// Billing Portal
         /// </summary>
         /// <param name="returnUrl"></param>
         /// <param name="session"></param>
