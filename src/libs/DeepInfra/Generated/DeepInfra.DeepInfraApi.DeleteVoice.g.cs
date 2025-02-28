@@ -113,7 +113,7 @@ namespace DeepInfra
                 }
 
                 throw new global::DeepInfra.ApiException<global::DeepInfra.DeepError>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_400,
@@ -141,7 +141,7 @@ namespace DeepInfra
                 }
 
                 throw new global::DeepInfra.ApiException<global::DeepInfra.DeepError>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_404,
@@ -169,7 +169,7 @@ namespace DeepInfra
                 }
 
                 throw new global::DeepInfra.ApiException<global::DeepInfra.HTTPValidationError>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_422,
