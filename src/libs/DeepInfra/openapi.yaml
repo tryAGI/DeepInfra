@@ -4484,6 +4484,7 @@ components:
       title: ModelDocBlockKey
       enum:
         - http
+        - http-bge-m3-multimodal
         - deepctl
         - js-text-gen
         - js-emb

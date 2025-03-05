@@ -15,6 +15,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        HttpBgeM3Multimodal,
+        /// <summary>
+        /// 
+        /// </summary>
         Deepctl,
         /// <summary>
         /// 
@@ -183,6 +187,7 @@ namespace DeepInfra
             return value switch
             {
                 ModelDocBlockKey.Http => "http",
+                ModelDocBlockKey.HttpBgeM3Multimodal => "http-bge-m3-multimodal",
                 ModelDocBlockKey.Deepctl => "deepctl",
                 ModelDocBlockKey.JsTextGen => "js-text-gen",
                 ModelDocBlockKey.JsEmb => "js-emb",
@@ -233,6 +238,7 @@ namespace DeepInfra
             return value switch
             {
                 "http" => ModelDocBlockKey.Http,
+                "http-bge-m3-multimodal" => ModelDocBlockKey.HttpBgeM3Multimodal,
                 "deepctl" => ModelDocBlockKey.Deepctl,
                 "js-text-gen" => ModelDocBlockKey.JsTextGen,
                 "js-emb" => ModelDocBlockKey.JsEmb,
