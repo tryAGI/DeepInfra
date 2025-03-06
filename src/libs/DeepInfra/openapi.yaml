@@ -4422,6 +4422,8 @@ components:
           title: Is Team Upgrade Enabled
           type: boolean
           default: true
+        vercel_connection:
+          $ref: '#/components/schemas/MeVercelConnection'
     MeIn:
       title: MeIn
       type: object
@@ -4468,6 +4470,22 @@ components:
           pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
           type: string
           description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
+    MeVercelConnection:
+      title: MeVercelConnection
+      required:
+        - user_id
+        - installation_id
+      type: object
+      properties:
+        user_id:
+          title: User Id
+          type: string
+        team_id:
+          title: Team Id
+          type: string
+        installation_id:
+          title: Installation Id
+          type: string
     ModelDocBlock:
       title: ModelDocBlock
       required:

@@ -120,6 +120,12 @@ namespace DeepInfra
         public bool? IsTeamUpgradeEnabled { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vercel_connection")]
+        public global::DeepInfra.MeVercelConnection? VercelConnection { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -163,6 +169,7 @@ namespace DeepInfra
         /// <param name="isTeamUpgradeEnabled">
         /// Default Value: true
         /// </param>
+        /// <param name="vercelConnection"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -183,7 +190,8 @@ namespace DeepInfra
             bool? isTeamOwner,
             string? teamRole,
             string? teamDisplayName,
-            bool? isTeamUpgradeEnabled)
+            bool? isTeamUpgradeEnabled,
+            global::DeepInfra.MeVercelConnection? vercelConnection)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
             this.EmailVerified = emailVerified;
@@ -202,6 +210,7 @@ namespace DeepInfra
             this.TeamRole = teamRole;
             this.TeamDisplayName = teamDisplayName;
             this.IsTeamUpgradeEnabled = isTeamUpgradeEnabled;
+            this.VercelConnection = vercelConnection;
         }
 
         /// <summary>
