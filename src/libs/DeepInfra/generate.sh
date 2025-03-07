@@ -8,7 +8,7 @@ fi
 rm -rf Generated
 autosdk generate openapi.yaml \
   --namespace DeepInfra \
-  --clientClassName DeepInfraApi \
+  --clientClassName DeepInfraClient \
   --targetFramework net8.0 \
   --output Generated \
   --exclude-deprecated-operations \

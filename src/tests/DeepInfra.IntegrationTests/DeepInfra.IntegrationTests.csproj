@@ -4,15 +4,13 @@
     <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup Label="Base packages">
+  <ItemGroup>
     <PackageReference Include="GitHubActionsTestLogger" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.8.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.8.2" />
-    <PackageReference Include="FluentAssertions" Version="8.1.1" />
+    <PackageReference Include="MSTest" Version="3.8.2" />
+    <PackageReference Include="AwesomeAssertions" Version="8.0.1" />
     <PackageReference Include="tryAGI.OpenAI" Version="4.2.0" />
   </ItemGroup>
 

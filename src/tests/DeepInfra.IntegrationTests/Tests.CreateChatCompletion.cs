@@ -6,8 +6,8 @@ public partial class Tests
     public async Task CreateChatCompletion()
     {
         // Use the OpenAI SDK to interact with the OpenAI like API
-        var api = GetAuthenticatedOpenAiClient();
-        var enumerable = api.Chat.CreateChatCompletionAsStreamAsync(
+        var client = GetAuthenticatedOpenAiClient();
+        var enumerable = client.Chat.CreateChatCompletionAsStreamAsync(
             model: "meta-llama/Meta-Llama-3-8B-Instruct",
             messages: ["What is the capital of the United States?"]);
         

@@ -5,8 +5,8 @@ public partial class Tests
     [TestMethod]
     public async Task ListModels()
     {
-        var api = GetAuthenticatedClient();
-        var models = await api.ModelsListAsync();
+        var client = GetAuthenticatedClient();
+        var models = await client.ModelsListAsync();
         models.Should().NotBeNull();
         foreach (var model in models)
         {
