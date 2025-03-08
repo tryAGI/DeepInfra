@@ -4839,6 +4839,10 @@ components:
           title: Expected
           type: string
           format: date
+        private:
+          title: Private
+          type: integer
+          default: 0
     ModelPricingImageUnits:
       title: ModelPricingImageUnits
       required:
