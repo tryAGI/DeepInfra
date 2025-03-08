@@ -102,6 +102,12 @@ namespace DeepInfra
         public global::System.DateTime? Expected { get; set; }
 
         /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("private")]
+        public int? Private { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -143,6 +149,9 @@ namespace DeepInfra
         /// <param name="quantization"></param>
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
+        /// <param name="private">
+        /// Default Value: 0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -159,7 +168,8 @@ namespace DeepInfra
             int? deprecated,
             string? quantization,
             double? mmlu,
-            global::System.DateTime? expected)
+            global::System.DateTime? expected,
+            int? @private)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -174,6 +184,7 @@ namespace DeepInfra
             this.Quantization = quantization;
             this.Mmlu = mmlu;
             this.Expected = expected;
+            this.Private = @private;
         }
 
         /// <summary>
