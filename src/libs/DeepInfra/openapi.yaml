@@ -2688,6 +2688,48 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  '/v1/api-tokens/{api_token}/vercel_export':
+    post:
+      summary: Export Api Token To Vercel
+      operationId: export_api_token_to_vercel_v1_api_tokens__api_token__vercel_export_post
+      parameters:
+        - name: api_token
+          in: path
+          required: true
+          schema:
+            title: Api Token
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiTokenVercelExportIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/scoped-jwt:
     get:
       summary: Inspect Scoped Jwt
@@ -3308,6 +3350,31 @@ components:
         name:
           title: Name
           type: string
+    ApiTokenVercelExportIn:
+      title: ApiTokenVercelExportIn
+      required:
+        - project_id_or_name
+        - is_sensitive
+        - env_development
+        - env_preview
+        - env_production
+      type: object
+      properties:
+        project_id_or_name:
+          title: Project Id Or Name
+          type: string
+        is_sensitive:
+          title: Is Sensitive
+          type: boolean
+        env_development:
+          title: Env Development
+          type: boolean
+        env_preview:
+          title: Env Preview
+          type: boolean
+        env_production:
+          title: Env Production
+          type: boolean
     Body_create_voice_v1_voices_add_post:
       title: Body_create_voice_v1_voices_add_post
       required:
