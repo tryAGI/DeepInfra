@@ -5588,15 +5588,11 @@ components:
       properties:
         min_instances:
           title: Min Instances
-          maximum: 16.0
-          minimum: 1.0
           type: integer
           description: Minimum number of model instances to run
           default: 1
         max_instances:
           title: Max Instances
-          maximum: 16.0
-          minimum: 1.0
           type: integer
           description: Maximum number of model instances to run
           default: 1
