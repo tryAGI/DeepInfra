@@ -94,6 +94,9 @@ namespace DeepInfra
         /// <param name="logprobs">
         /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
         /// </param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
@@ -119,6 +122,7 @@ namespace DeepInfra
             string? user = default,
             int? seed = default,
             bool? logprobs = default,
+            global::DeepInfra.StreamOptions? streamOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
