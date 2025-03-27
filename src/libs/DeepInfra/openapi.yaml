@@ -5290,6 +5290,11 @@ components:
           title: Logprobs
           type: boolean
           description: 'Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.'
+        stream_options:
+          title: Stream Options
+          allOf:
+            - $ref: '#/components/schemas/StreamOptions'
+          description: streaming options
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
       required:
@@ -5408,6 +5413,11 @@ components:
           minimum: -9223372036854776000
           type: integer
           description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
+        stream_options:
+          title: Stream Options
+          allOf:
+            - $ref: '#/components/schemas/StreamOptions'
+          description: streaming options
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:
@@ -5744,6 +5754,20 @@ components:
         - civitai
       type: string
       description: An enumeration.
+    StreamOptions:
+      title: StreamOptions
+      type: object
+      properties:
+        include_usage:
+          title: Include Usage
+          type: boolean
+          description: whether to include usage data
+          default: true
+        continuous_usage_stats:
+          title: Continuous Usage Stats
+          type: boolean
+          description: whether to include usage stats continuously with each streaming event
+          default: false
     TimeDeploymentStatsOut:
       title: TimeDeploymentStatsOut
       required:

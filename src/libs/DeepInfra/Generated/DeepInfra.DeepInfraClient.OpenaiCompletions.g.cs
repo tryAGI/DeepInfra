@@ -292,6 +292,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
@@ -316,6 +319,7 @@ namespace DeepInfra
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
+            global::DeepInfra.StreamOptions? streamOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAICompletionsIn
@@ -338,6 +342,7 @@ namespace DeepInfra
                 RepetitionPenalty = repetitionPenalty,
                 User = user,
                 Seed = seed,
+                StreamOptions = streamOptions,
             };
 
             return await OpenaiCompletionsAsync(

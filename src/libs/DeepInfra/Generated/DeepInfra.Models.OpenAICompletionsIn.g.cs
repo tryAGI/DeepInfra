@@ -134,6 +134,12 @@ namespace DeepInfra
         public int? Seed { get; set; }
 
         /// <summary>
+        /// streaming options
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
+        public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -207,6 +213,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -228,7 +237,8 @@ namespace DeepInfra
             global::DeepInfra.ResponseFormat2? responseFormat,
             double? repetitionPenalty,
             string? user,
-            int? seed)
+            int? seed,
+            global::DeepInfra.StreamOptions? streamOptions)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
@@ -248,6 +258,7 @@ namespace DeepInfra
             this.RepetitionPenalty = repetitionPenalty;
             this.User = user;
             this.Seed = seed;
+            this.StreamOptions = streamOptions;
         }
 
         /// <summary>

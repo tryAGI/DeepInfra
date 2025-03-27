@@ -140,6 +140,12 @@ namespace DeepInfra
         public bool? Logprobs { get; set; }
 
         /// <summary>
+        /// streaming options
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
+        public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -216,6 +222,9 @@ namespace DeepInfra
         /// <param name="logprobs">
         /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
         /// </param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -238,7 +247,8 @@ namespace DeepInfra
             double? repetitionPenalty,
             string? user,
             int? seed,
-            bool? logprobs)
+            bool? logprobs,
+            global::DeepInfra.StreamOptions? streamOptions)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -259,6 +269,7 @@ namespace DeepInfra
             this.User = user;
             this.Seed = seed;
             this.Logprobs = logprobs;
+            this.StreamOptions = streamOptions;
         }
 
         /// <summary>
