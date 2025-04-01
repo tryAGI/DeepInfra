@@ -70,6 +70,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.TtsVoiceJsonConverter),
             typeof(global::DeepInfra.JsonConverters.TtsVoiceNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>),
