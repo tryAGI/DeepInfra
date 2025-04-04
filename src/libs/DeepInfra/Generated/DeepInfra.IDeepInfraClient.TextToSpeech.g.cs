@@ -8,6 +8,7 @@ namespace DeepInfra
         /// Text To Speech
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="outputFormat"></param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
@@ -16,6 +17,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
+            string? outputFormat = default,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -24,6 +26,7 @@ namespace DeepInfra
         /// Text To Speech
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="outputFormat"></param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="text">
@@ -37,7 +40,7 @@ namespace DeepInfra
         /// Model ID to use for the conversion<br/>
         /// Default Value: deepinfra/tts
         /// </param>
-        /// <param name="outputFormat">
+        /// <param name="requestOutputFormat">
         /// Output format for the speech<br/>
         /// Default Value: wav
         /// </param>
@@ -49,10 +52,11 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             string text,
+            string? outputFormat = default,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? modelId = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? outputFormat = default,
+            global::DeepInfra.TtsResponseFormat? requestOutputFormat = default,
             string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

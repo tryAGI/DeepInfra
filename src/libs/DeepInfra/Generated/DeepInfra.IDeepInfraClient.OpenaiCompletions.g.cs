@@ -114,7 +114,7 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
             double? presencePenalty = default,
             double? frequencyPenalty = default,
-            global::DeepInfra.ResponseFormat2? responseFormat = default,
+            global::DeepInfra.ResponseFormat? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
