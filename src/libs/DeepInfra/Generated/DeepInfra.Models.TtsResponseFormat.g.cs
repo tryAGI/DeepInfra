@@ -4,14 +4,30 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// An enumeration.
+    /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.
     /// </summary>
     public enum TtsResponseFormat
     {
         /// <summary>
         /// 
         /// </summary>
+        Mp3,
+        /// <summary>
+        /// 
+        /// </summary>
+        Opus,
+        /// <summary>
+        /// 
+        /// </summary>
+        Flac,
+        /// <summary>
+        /// 
+        /// </summary>
         Wav,
+        /// <summary>
+        /// 
+        /// </summary>
+        Pcm,
     }
 
     /// <summary>
@@ -26,7 +42,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                TtsResponseFormat.Mp3 => "mp3",
+                TtsResponseFormat.Opus => "opus",
+                TtsResponseFormat.Flac => "flac",
                 TtsResponseFormat.Wav => "wav",
+                TtsResponseFormat.Pcm => "pcm",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +57,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                "mp3" => TtsResponseFormat.Mp3,
+                "opus" => TtsResponseFormat.Opus,
+                "flac" => TtsResponseFormat.Flac,
                 "wav" => TtsResponseFormat.Wav,
+                "pcm" => TtsResponseFormat.Pcm,
                 _ => null,
             };
         }

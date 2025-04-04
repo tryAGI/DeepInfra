@@ -2011,6 +2011,12 @@ paths:
           schema:
             title: Voice Id
             type: string
+        - name: output_format
+          in: query
+          schema:
+            title: Output Format
+            type: string
+          example: wav
         - name: x-deepinfra-source
           in: header
           schema:
@@ -2052,6 +2058,12 @@ paths:
           schema:
             title: Voice Id
             type: string
+        - name: output_format
+          in: query
+          schema:
+            title: Output Format
+            type: string
+          example: wav
         - name: x-deepinfra-source
           in: header
           schema:
@@ -4052,10 +4064,8 @@ components:
           description: Model ID to use for the conversion
           default: deepinfra/tts
         output_format:
-          title: Output Format
-          anyOf:
+          allOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
-            - $ref: '#/components/schemas/KokoroTtsResponseFormat'
           description: Output format for the speech
           default: wav
         language_code:
@@ -4288,16 +4298,6 @@ components:
           title: Spending Limit
           type: number
           description: how much is the total spending limit set at creation
-    KokoroTtsResponseFormat:
-      title: Output Format
-      enum:
-        - mp3
-        - opus
-        - flac
-        - wav
-        - pcm
-      type: string
-      description: 'Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.'
     KokoroTtsVoice:
       title: Voice
       enum:
@@ -5545,12 +5545,12 @@ components:
           anyOf:
             - $ref: '#/components/schemas/TtsVoice'
             - $ref: '#/components/schemas/KokoroTtsVoice'
+            - $ref: '#/components/schemas/OrpheusTtsVoice'
+            - $ref: '#/components/schemas/SesameTtsVoice'
           description: Preset voices to use for the speech.
         response_format:
-          title: Response Format
-          anyOf:
+          allOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
-            - $ref: '#/components/schemas/KokoroTtsResponseFormat'
           description: response format for the speech
         speed:
           title: Speed
@@ -5559,6 +5559,22 @@ components:
           type: number
           description: speed of the speech
           default: 1
+        extra_body:
+          title: Extra Body
+          type: object
+          description: Extra body parameters for the model.
+    OrpheusTtsVoice:
+      title: Voice
+      enum:
+        - tara
+        - leah
+        - jess
+        - leo
+        - dan
+        - mia
+        - zac
+      type: string
+      description: Select the desired voice for the speech output.
     RateLimitOut:
       title: RateLimitOut
       required:
@@ -5694,6 +5710,7 @@ components:
         - openai-chat-completions
         - openai-embeddings
         - openai-speech-to-text
+        - openai-text-to-speech
         - openai-images
         - openai-images-variations
         - create-voice
@@ -5741,6 +5758,18 @@ components:
           title: Token
           type: string
           description: The newly minted scoped JWT ready for use
+    SesameTtsVoice:
+      title: Voice
+      enum:
+        - conversational_a
+        - conversational_b
+        - read_speech_a
+        - read_speech_b
+        - read_speech_c
+        - read_speech_d
+        - none
+      type: string
+      description: Select the desired voice for the speech output.
     SourceModel:
       title: SourceModel
       required:
@@ -5808,11 +5837,15 @@ components:
           type: integer
           description: number of errors
     TtsResponseFormat:
-      title: TtsResponseFormat
+      title: Output Format
       enum:
+        - mp3
+        - opus
+        - flac
         - wav
+        - pcm
       type: string
-      description: An enumeration.
+      description: 'Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.'
     TtsVoice:
       title: TtsVoice
       enum:

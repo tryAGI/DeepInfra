@@ -40,15 +40,15 @@ namespace DeepInfra
         /// Preset voices to use for the speech.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? Voice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?, global::DeepInfra.OrpheusTtsVoice?, global::DeepInfra.SesameTtsVoice?>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?, global::DeepInfra.OrpheusTtsVoice?, global::DeepInfra.SesameTtsVoice?>? Voice { get; set; }
 
         /// <summary>
         /// response format for the speech
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
+        public global::DeepInfra.TtsResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// speed of the speech<br/>
@@ -56,6 +56,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         public double? Speed { get; set; }
+
+        /// <summary>
+        /// Extra body parameters for the model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_body")]
+        public object? ExtraBody { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,21 +93,26 @@ namespace DeepInfra
         /// speed of the speech<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="extraBody">
+        /// Extra body parameters for the model.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenAITextToSpeechIn(
             string model,
             string input,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? voice,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? responseFormat,
-            double? speed)
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?, global::DeepInfra.OrpheusTtsVoice?, global::DeepInfra.SesameTtsVoice?>? voice,
+            global::DeepInfra.TtsResponseFormat? responseFormat,
+            double? speed,
+            object? extraBody)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
             this.Voice = voice;
             this.ResponseFormat = responseFormat;
             this.Speed = speed;
+            this.ExtraBody = extraBody;
         }
 
         /// <summary>

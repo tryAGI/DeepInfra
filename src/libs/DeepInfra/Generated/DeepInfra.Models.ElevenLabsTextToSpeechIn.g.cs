@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -39,8 +37,8 @@ namespace DeepInfra
         /// Default Value: wav
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? OutputFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
+        public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; }
 
         /// <summary>
         /// ISO 639-1, 2 letter language code
@@ -81,7 +79,7 @@ namespace DeepInfra
         public ElevenLabsTextToSpeechIn(
             string text,
             string? modelId,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? outputFormat,
+            global::DeepInfra.TtsResponseFormat? outputFormat,
             string? languageCode)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));

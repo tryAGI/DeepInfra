@@ -44,6 +44,9 @@ namespace DeepInfra
         /// speed of the speech<br/>
         /// Default Value: 1
         /// </param>
+        /// <param name="extraBody">
+        /// Extra body parameters for the model.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
@@ -51,9 +54,10 @@ namespace DeepInfra
             string input,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?>? voice = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? responseFormat = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?, global::DeepInfra.OrpheusTtsVoice?, global::DeepInfra.SesameTtsVoice?>? voice = default,
+            global::DeepInfra.TtsResponseFormat? responseFormat = default,
             double? speed = default,
+            object? extraBody = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

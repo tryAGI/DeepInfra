@@ -8,6 +8,7 @@ namespace DeepInfra
         partial void PrepareTextToSpeechArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string voiceId,
+            ref string? outputFormat,
             ref string? xDeepinfraSource,
             ref string? xiApiKey,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
@@ -15,6 +16,7 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string voiceId,
+            string? outputFormat,
             string? xDeepinfraSource,
             string? xiApiKey,
             global::DeepInfra.ElevenLabsTextToSpeechIn request);
@@ -31,6 +33,7 @@ namespace DeepInfra
         /// Text To Speech
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="outputFormat"></param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
@@ -39,6 +42,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
+            string? outputFormat = default,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -50,6 +54,7 @@ namespace DeepInfra
             PrepareTextToSpeechArguments(
                 httpClient: HttpClient,
                 voiceId: ref voiceId,
+                outputFormat: ref outputFormat,
                 xDeepinfraSource: ref xDeepinfraSource,
                 xiApiKey: ref xiApiKey,
                 request: request);
@@ -57,6 +62,9 @@ namespace DeepInfra
             var __pathBuilder = new PathBuilder(
                 path: $"/v1/text-to-speech/{voiceId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("output_format", outputFormat) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -105,6 +113,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 voiceId: voiceId,
+                outputFormat: outputFormat,
                 xDeepinfraSource: xDeepinfraSource,
                 xiApiKey: xiApiKey,
                 request: request);
@@ -221,6 +230,7 @@ namespace DeepInfra
         /// Text To Speech
         /// </summary>
         /// <param name="voiceId"></param>
+        /// <param name="outputFormat"></param>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="text">
@@ -234,7 +244,7 @@ namespace DeepInfra
         /// Model ID to use for the conversion<br/>
         /// Default Value: deepinfra/tts
         /// </param>
-        /// <param name="outputFormat">
+        /// <param name="requestOutputFormat">
         /// Output format for the speech<br/>
         /// Default Value: wav
         /// </param>
@@ -246,10 +256,11 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> TextToSpeechAsync(
             string voiceId,
             string text,
+            string? outputFormat = default,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? modelId = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsResponseFormat?, global::DeepInfra.KokoroTtsResponseFormat?>? outputFormat = default,
+            global::DeepInfra.TtsResponseFormat? requestOutputFormat = default,
             string? languageCode = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -257,12 +268,13 @@ namespace DeepInfra
             {
                 Text = text,
                 ModelId = modelId,
-                OutputFormat = outputFormat,
+                OutputFormat = requestOutputFormat,
                 LanguageCode = languageCode,
             };
 
             return await TextToSpeechAsync(
                 voiceId: voiceId,
+                outputFormat: outputFormat,
                 xDeepinfraSource: xDeepinfraSource,
                 xiApiKey: xiApiKey,
                 request: __request,
