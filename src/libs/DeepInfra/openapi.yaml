@@ -4298,65 +4298,6 @@ components:
           title: Spending Limit
           type: number
           description: how much is the total spending limit set at creation
-    KokoroTtsVoice:
-      title: Voice
-      enum:
-        - af_alloy
-        - af_aoede
-        - af_bella
-        - af_heart
-        - af_jessica
-        - af_kore
-        - af_nicole
-        - af_nova
-        - af_river
-        - af_sarah
-        - af_sky
-        - am_adam
-        - am_echo
-        - am_eric
-        - am_fenrir
-        - am_liam
-        - am_michael
-        - am_onyx
-        - am_puck
-        - am_santa
-        - bf_alice
-        - bf_emma
-        - bf_isabella
-        - bf_lily
-        - bm_daniel
-        - bm_fable
-        - bm_george
-        - bm_lewis
-        - ef_dora
-        - em_alex
-        - em_santa
-        - ff_siwis
-        - hf_alpha
-        - hf_beta
-        - hm_omega
-        - hm_psi
-        - if_sara
-        - im_nicola
-        - jf_alpha
-        - jf_gongitsune
-        - jf_nezumi
-        - jf_tebukuro
-        - jm_kumo
-        - pf_dora
-        - pm_alex
-        - pm_santa
-        - zf_xiaobei
-        - zf_xiaoni
-        - zf_xiaoxiao
-        - zf_xiaoyi
-        - zm_yunjian
-        - zm_yunxi
-        - zm_yunxia
-        - zm_yunyang
-      type: string
-      description: Select the desired voice for the speech output. You can select multiple to combine and mix voices.
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
       required:
@@ -4628,6 +4569,12 @@ components:
         - openai-emb-py
         - openai-emb-http
         - openai-emb-js
+        - openai-tts-http
+        - openai-tts-python
+        - openai-tts-js
+        - elevenlabs-tts-http
+        - elevenlabs-tts-python
+        - elevenlabs-tts-js
         - create-voice-http
         - create-voice-python
         - create-voice-js
@@ -5542,11 +5489,7 @@ components:
           example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         voice:
           title: Voice
-          anyOf:
-            - $ref: '#/components/schemas/TtsVoice'
-            - $ref: '#/components/schemas/KokoroTtsVoice'
-            - $ref: '#/components/schemas/OrpheusTtsVoice'
-            - $ref: '#/components/schemas/SesameTtsVoice'
+          type: string
           description: Preset voices to use for the speech.
         response_format:
           allOf:
@@ -5563,18 +5506,6 @@ components:
           title: Extra Body
           type: object
           description: Extra body parameters for the model.
-    OrpheusTtsVoice:
-      title: Voice
-      enum:
-        - tara
-        - leah
-        - jess
-        - leo
-        - dan
-        - mia
-        - zac
-      type: string
-      description: Select the desired voice for the speech output.
     RateLimitOut:
       title: RateLimitOut
       required:
@@ -5710,9 +5641,10 @@ components:
         - openai-chat-completions
         - openai-embeddings
         - openai-speech-to-text
-        - openai-text-to-speech
+        - openai-tts
         - openai-images
         - openai-images-variations
+        - elevenlabs-tts
         - create-voice
         - read-voice
         - update-voice
@@ -5758,18 +5690,6 @@ components:
           title: Token
           type: string
           description: The newly minted scoped JWT ready for use
-    SesameTtsVoice:
-      title: Voice
-      enum:
-        - conversational_a
-        - conversational_b
-        - read_speech_a
-        - read_speech_b
-        - read_speech_c
-        - read_speech_d
-        - none
-      type: string
-      description: Select the desired voice for the speech output.
     SourceModel:
       title: SourceModel
       required:
@@ -5846,14 +5766,6 @@ components:
         - pcm
       type: string
       description: 'Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.'
-    TtsVoice:
-      title: TtsVoice
-      enum:
-        - luna
-        - aura
-        - quartz
-      type: string
-      description: An enumeration.
     UpdateLoraApiRequest:
       title: UpdateLoraApiRequest
       type: object

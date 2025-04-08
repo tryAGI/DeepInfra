@@ -12,7 +12,7 @@ namespace DeepInfra
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceAsync(
             string voiceId,
             global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <param name="description"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> UpdateVoiceAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceAsync(
             string voiceId,
             string name,
             string description,

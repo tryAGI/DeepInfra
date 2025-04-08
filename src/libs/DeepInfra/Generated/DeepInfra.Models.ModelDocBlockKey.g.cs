@@ -111,6 +111,30 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiTtsHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiTtsPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiTtsJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenlabsTtsHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenlabsTtsPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenlabsTtsJs,
+        /// <summary>
+        /// 
+        /// </summary>
         CreateVoiceHttp,
         /// <summary>
         /// 
@@ -211,6 +235,12 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiEmbPy => "openai-emb-py",
                 ModelDocBlockKey.OpenaiEmbHttp => "openai-emb-http",
                 ModelDocBlockKey.OpenaiEmbJs => "openai-emb-js",
+                ModelDocBlockKey.OpenaiTtsHttp => "openai-tts-http",
+                ModelDocBlockKey.OpenaiTtsPython => "openai-tts-python",
+                ModelDocBlockKey.OpenaiTtsJs => "openai-tts-js",
+                ModelDocBlockKey.ElevenlabsTtsHttp => "elevenlabs-tts-http",
+                ModelDocBlockKey.ElevenlabsTtsPython => "elevenlabs-tts-python",
+                ModelDocBlockKey.ElevenlabsTtsJs => "elevenlabs-tts-js",
                 ModelDocBlockKey.CreateVoiceHttp => "create-voice-http",
                 ModelDocBlockKey.CreateVoicePython => "create-voice-python",
                 ModelDocBlockKey.CreateVoiceJs => "create-voice-js",
@@ -262,6 +292,12 @@ namespace DeepInfra
                 "openai-emb-py" => ModelDocBlockKey.OpenaiEmbPy,
                 "openai-emb-http" => ModelDocBlockKey.OpenaiEmbHttp,
                 "openai-emb-js" => ModelDocBlockKey.OpenaiEmbJs,
+                "openai-tts-http" => ModelDocBlockKey.OpenaiTtsHttp,
+                "openai-tts-python" => ModelDocBlockKey.OpenaiTtsPython,
+                "openai-tts-js" => ModelDocBlockKey.OpenaiTtsJs,
+                "elevenlabs-tts-http" => ModelDocBlockKey.ElevenlabsTtsHttp,
+                "elevenlabs-tts-python" => ModelDocBlockKey.ElevenlabsTtsPython,
+                "elevenlabs-tts-js" => ModelDocBlockKey.ElevenlabsTtsJs,
                 "create-voice-http" => ModelDocBlockKey.CreateVoiceHttp,
                 "create-voice-python" => ModelDocBlockKey.CreateVoicePython,
                 "create-voice-js" => ModelDocBlockKey.CreateVoiceJs,

@@ -12,7 +12,7 @@ namespace DeepInfra
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::DeepInfra.Voice2> GetVoiceAsync(
+        global::System.Threading.Tasks.Task<global::DeepInfra.Voice> GetVoiceAsync(
             string voiceId,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

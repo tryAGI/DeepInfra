@@ -247,7 +247,7 @@ namespace DeepInfra
             string input,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TtsVoice?, global::DeepInfra.KokoroTtsVoice?, global::DeepInfra.OrpheusTtsVoice?, global::DeepInfra.SesameTtsVoice?>? voice = default,
+            string? voice = default,
             global::DeepInfra.TtsResponseFormat? responseFormat = default,
             double? speed = default,
             object? extraBody = default,
