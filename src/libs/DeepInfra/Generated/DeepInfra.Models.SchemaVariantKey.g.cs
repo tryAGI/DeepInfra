@@ -31,7 +31,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        OpenaiTextToSpeech,
+        OpenaiTts,
         /// <summary>
         /// 
         /// </summary>
@@ -40,6 +40,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         OpenaiImagesVariations,
+        /// <summary>
+        /// 
+        /// </summary>
+        ElevenlabsTts,
         /// <summary>
         /// 
         /// </summary>
@@ -83,9 +87,10 @@ namespace DeepInfra
                 SchemaVariantKey.OpenaiChatCompletions => "openai-chat-completions",
                 SchemaVariantKey.OpenaiEmbeddings => "openai-embeddings",
                 SchemaVariantKey.OpenaiSpeechToText => "openai-speech-to-text",
-                SchemaVariantKey.OpenaiTextToSpeech => "openai-text-to-speech",
+                SchemaVariantKey.OpenaiTts => "openai-tts",
                 SchemaVariantKey.OpenaiImages => "openai-images",
                 SchemaVariantKey.OpenaiImagesVariations => "openai-images-variations",
+                SchemaVariantKey.ElevenlabsTts => "elevenlabs-tts",
                 SchemaVariantKey.CreateVoice => "create-voice",
                 SchemaVariantKey.ReadVoice => "read-voice",
                 SchemaVariantKey.UpdateVoice => "update-voice",
@@ -107,9 +112,10 @@ namespace DeepInfra
                 "openai-chat-completions" => SchemaVariantKey.OpenaiChatCompletions,
                 "openai-embeddings" => SchemaVariantKey.OpenaiEmbeddings,
                 "openai-speech-to-text" => SchemaVariantKey.OpenaiSpeechToText,
-                "openai-text-to-speech" => SchemaVariantKey.OpenaiTextToSpeech,
+                "openai-tts" => SchemaVariantKey.OpenaiTts,
                 "openai-images" => SchemaVariantKey.OpenaiImages,
                 "openai-images-variations" => SchemaVariantKey.OpenaiImagesVariations,
+                "elevenlabs-tts" => SchemaVariantKey.ElevenlabsTts,
                 "create-voice" => SchemaVariantKey.CreateVoice,
                 "read-voice" => SchemaVariantKey.ReadVoice,
                 "update-voice" => SchemaVariantKey.UpdateVoice,

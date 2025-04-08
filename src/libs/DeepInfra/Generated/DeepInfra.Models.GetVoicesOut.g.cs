@@ -12,7 +12,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
-        public global::System.Collections.Generic.IList<global::DeepInfra.Voice2>? Voices { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.Voice>? Voices { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -28,7 +28,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetVoicesOut(
-            global::System.Collections.Generic.IList<global::DeepInfra.Voice2>? voices)
+            global::System.Collections.Generic.IList<global::DeepInfra.Voice>? voices)
         {
             this.Voices = voices;
         }
