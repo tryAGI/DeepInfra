@@ -242,7 +242,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="modelId">
         /// Model ID to use for the conversion<br/>
-        /// Default Value: deepinfra/tts
+        /// Default Value: hexgrad/Kokoro-82M
         /// </param>
         /// <param name="requestOutputFormat">
         /// Output format for the speech<br/>
