@@ -27,7 +27,7 @@ namespace DeepInfra
 
         /// <summary>
         /// Model ID to use for the conversion<br/>
-        /// Default Value: deepinfra/tts
+        /// Default Value: hexgrad/Kokoro-82M
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         public string? ModelId { get; set; }
@@ -64,7 +64,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="modelId">
         /// Model ID to use for the conversion<br/>
-        /// Default Value: deepinfra/tts
+        /// Default Value: hexgrad/Kokoro-82M
         /// </param>
         /// <param name="outputFormat">
         /// Output format for the speech<br/>

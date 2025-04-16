@@ -4062,7 +4062,7 @@ components:
           title: Model Id
           type: string
           description: Model ID to use for the conversion
-          default: deepinfra/tts
+          default: hexgrad/Kokoro-82M
         output_format:
           allOf:
             - $ref: '#/components/schemas/TtsResponseFormat'
