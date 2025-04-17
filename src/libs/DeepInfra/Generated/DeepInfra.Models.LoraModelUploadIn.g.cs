@@ -29,6 +29,12 @@ namespace DeepInfra
         public required string LoraModelName { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_model_name")]
+        public string? BaseModelName { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,17 +46,20 @@ namespace DeepInfra
         /// <param name="hfModelName"></param>
         /// <param name="hfToken"></param>
         /// <param name="loraModelName"></param>
+        /// <param name="baseModelName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LoraModelUploadIn(
             string hfModelName,
             string loraModelName,
-            string? hfToken)
+            string? hfToken,
+            string? baseModelName)
         {
             this.HfModelName = hfModelName ?? throw new global::System.ArgumentNullException(nameof(hfModelName));
             this.LoraModelName = loraModelName ?? throw new global::System.ArgumentNullException(nameof(loraModelName));
             this.HfToken = hfToken;
+            this.BaseModelName = baseModelName;
         }
 
         /// <summary>
