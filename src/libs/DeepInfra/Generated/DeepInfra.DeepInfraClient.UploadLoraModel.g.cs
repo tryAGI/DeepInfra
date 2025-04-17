@@ -240,6 +240,7 @@ namespace DeepInfra
         /// <param name="hfModelName"></param>
         /// <param name="hfToken"></param>
         /// <param name="loraModelName"></param>
+        /// <param name="baseModelName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> UploadLoraModelAsync(
@@ -247,6 +248,7 @@ namespace DeepInfra
             string loraModelName,
             string? xiApiKey = default,
             string? hfToken = default,
+            string? baseModelName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.LoraModelUploadIn
@@ -254,6 +256,7 @@ namespace DeepInfra
                 HfModelName = hfModelName,
                 HfToken = hfToken,
                 LoraModelName = loraModelName,
+                BaseModelName = baseModelName,
             };
 
             return await UploadLoraModelAsync(

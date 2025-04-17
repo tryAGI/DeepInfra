@@ -4391,6 +4391,9 @@ components:
         lora_model_name:
           title: Lora Model Name
           type: string
+        base_model_name:
+          title: Base Model Name
+          type: string
     Me:
       title: Me
       required:
