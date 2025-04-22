@@ -5177,7 +5177,7 @@ components:
           maximum: 1000000.0
           minimum: 0.0
           type: integer
-          description: "The maximum number of tokens to generate in the chat completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 8192, whichever is smaller."
+          description: "The maximum number of tokens to generate in the chat completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller."
         stop:
           title: Stop
           anyOf:
@@ -5271,7 +5271,7 @@ components:
           minimum: 0.0
           exclusiveMinimum: true
           type: integer
-          description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 8192, whichever is smaller."
+          description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller."
         temperature:
           title: Temperature
           maximum: 2.0
