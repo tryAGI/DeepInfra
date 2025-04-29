@@ -118,48 +118,6 @@ paths:
                 $ref: '#/components/schemas/DeepError'
       security:
         - HTTPBearer: [ ]
-  /v1/me/username:
-    patch:
-      summary: Account Set Username
-      operationId: account_set_username_v1_me_username_patch
-      parameters:
-        - name: xi-api-key
-          in: header
-          schema:
-            title: Xi-Api-Key
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MeUsername'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeepError'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeepError'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
   /v1/me/emails:
     get:
       summary: Account Email Values
@@ -179,6 +137,48 @@ paths:
                 $ref: '#/components/schemas/EmailsOut'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/team_display_name:
+    post:
+      summary: Team Set Display Name
+      operationId: team_set_display_name_v1_me_team_display_name_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisplayNameIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
@@ -4047,6 +4047,19 @@ components:
           allOf:
             - $ref: '#/components/schemas/TimeDeploymentStatsOut'
           description: Time based Deployment Stats
+    DisplayNameIn:
+      title: DisplayNameIn
+      required:
+        - display_name
+      type: object
+      properties:
+        display_name:
+          title: Display Name
+          maxLength: 39
+          minLength: 1
+          pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
+          type: string
+          description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
     ElevenLabsTextToSpeechIn:
       title: ElevenLabsTextToSpeechIn
       required:
@@ -4498,19 +4511,6 @@ components:
           description: Company website address
         display_name:
           title: Display Name
-          maxLength: 39
-          minLength: 1
-          pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
-          type: string
-          description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
-    MeUsername:
-      title: MeUsername
-      required:
-        - username
-      type: object
-      properties:
-        username:
-          title: Username
           maxLength: 39
           minLength: 1
           pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'

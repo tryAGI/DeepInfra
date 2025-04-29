@@ -5,33 +5,33 @@ namespace DeepInfra
 {
     public partial class DeepInfraClient
     {
-        partial void PrepareAccountSetUsernameArguments(
+        partial void PrepareTeamSetDisplayNameArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::DeepInfra.MeUsername request);
-        partial void PrepareAccountSetUsernameRequest(
+            global::DeepInfra.DisplayNameIn request);
+        partial void PrepareTeamSetDisplayNameRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::DeepInfra.MeUsername request);
-        partial void ProcessAccountSetUsernameResponse(
+            global::DeepInfra.DisplayNameIn request);
+        partial void ProcessTeamSetDisplayNameResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessAccountSetUsernameResponseContent(
+        partial void ProcessTeamSetDisplayNameResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Account Set Username
+        /// Team Set Display Name
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
-            global::DeepInfra.MeUsername request,
+        public async global::System.Threading.Tasks.Task<string> TeamSetDisplayNameAsync(
+            global::DeepInfra.DisplayNameIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -39,17 +39,17 @@ namespace DeepInfra
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareAccountSetUsernameArguments(
+            PrepareTeamSetDisplayNameArguments(
                 httpClient: HttpClient,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/v1/me/username",
+                path: "/v1/me/team_display_name",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -87,7 +87,7 @@ namespace DeepInfra
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareAccountSetUsernameRequest(
+            PrepareTeamSetDisplayNameRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 xiApiKey: xiApiKey,
@@ -101,7 +101,7 @@ namespace DeepInfra
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessAccountSetUsernameResponse(
+            ProcessTeamSetDisplayNameResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Not Found
@@ -201,7 +201,7 @@ namespace DeepInfra
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessAccountSetUsernameResponseContent(
+                ProcessTeamSetDisplayNameResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -258,25 +258,25 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Account Set Username
+        /// Team Set Display Name
         /// </summary>
         /// <param name="xiApiKey"></param>
-        /// <param name="username">
+        /// <param name="displayName">
         /// String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> AccountSetUsernameAsync(
-            string username,
+        public async global::System.Threading.Tasks.Task<string> TeamSetDisplayNameAsync(
+            string displayName,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.MeUsername
+            var __request = new global::DeepInfra.DisplayNameIn
             {
-                Username = username,
+                DisplayName = displayName,
             };
 
-            return await AccountSetUsernameAsync(
+            return await TeamSetDisplayNameAsync(
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
