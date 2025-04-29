@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AccountSetUsernameV1MeUsernamePatchResponse
+    public sealed partial class TeamSetDisplayNameV1MeTeamDisplayNamePostResponse
     {
 
         /// <summary>
