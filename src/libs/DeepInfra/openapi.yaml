@@ -3767,7 +3767,6 @@ components:
         - gpu
         - num_gpus
         - max_batch_size
-        - weights
       type: object
       properties:
         gpu:
