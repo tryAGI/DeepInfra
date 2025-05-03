@@ -34,8 +34,7 @@ namespace DeepInfra
         /// Model weights information
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weights")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.HFWeights Weights { get; set; }
+        public global::DeepInfra.HFWeights? Weights { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -65,12 +64,12 @@ namespace DeepInfra
             global::DeepInfra.DeployGPUs gpu,
             int numGpus,
             int maxBatchSize,
-            global::DeepInfra.HFWeights weights)
+            global::DeepInfra.HFWeights? weights)
         {
             this.Gpu = gpu;
             this.NumGpus = numGpus;
             this.MaxBatchSize = maxBatchSize;
-            this.Weights = weights ?? throw new global::System.ArgumentNullException(nameof(weights));
+            this.Weights = weights;
         }
 
         /// <summary>
