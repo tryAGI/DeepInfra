@@ -30,6 +30,12 @@ namespace DeepInfra
         public required bool Available { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recommended")]
+        public bool? Recommended { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,17 +47,22 @@ namespace DeepInfra
         /// <param name="gpuConfig"></param>
         /// <param name="usdPerHour"></param>
         /// <param name="available"></param>
+        /// <param name="recommended">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GPUAvailabilityInfo(
             string gpuConfig,
             double usdPerHour,
-            bool available)
+            bool available,
+            bool? recommended)
         {
             this.GpuConfig = gpuConfig ?? throw new global::System.ArgumentNullException(nameof(gpuConfig));
             this.UsdPerHour = usdPerHour;
             this.Available = available;
+            this.Recommended = recommended;
         }
 
         /// <summary>

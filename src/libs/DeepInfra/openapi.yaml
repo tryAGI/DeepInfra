@@ -373,6 +373,12 @@ paths:
             title: Source
             type: string
             default: ''
+        - name: base_model
+          in: query
+          schema:
+            title: Base Model
+            type: string
+            default: ''
         - name: xi-api-key
           in: header
           schema:
@@ -4193,6 +4199,10 @@ components:
         available:
           title: Available
           type: boolean
+        recommended:
+          title: Recommended
+          type: boolean
+          default: false
     GetVoicesOut:
       title: GetVoicesOut
       type: object
