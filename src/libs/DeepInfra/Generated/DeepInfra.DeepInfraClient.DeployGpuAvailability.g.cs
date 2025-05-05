@@ -8,11 +8,13 @@ namespace DeepInfra
         partial void PrepareDeployGpuAvailabilityArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? source,
+            ref string? baseModel,
             ref string? xiApiKey);
         partial void PrepareDeployGpuAvailabilityRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? source,
+            string? baseModel,
             string? xiApiKey);
         partial void ProcessDeployGpuAvailabilityResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,11 +29,13 @@ namespace DeepInfra
         /// Deploy Gpu Availability
         /// </summary>
         /// <param name="source"></param>
+        /// <param name="baseModel"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeployGPUAvailability> DeployGpuAvailabilityAsync(
             string? source = default,
+            string? baseModel = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -40,6 +44,7 @@ namespace DeepInfra
             PrepareDeployGpuAvailabilityArguments(
                 httpClient: HttpClient,
                 source: ref source,
+                baseModel: ref baseModel,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new PathBuilder(
@@ -47,6 +52,7 @@ namespace DeepInfra
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("source", source) 
+                .AddOptionalParameter("base_model", baseModel) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,6 +92,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 source: source,
+                baseModel: baseModel,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
