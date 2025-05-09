@@ -3068,8 +3068,8 @@ components:
       properties:
         amount:
           title: Amount
-          type: integer
-          description: Amount to add in cents
+          type: number
+          description: Amount to add in USD
     BillingPortalOut:
       title: BillingPortalOut
       required:
