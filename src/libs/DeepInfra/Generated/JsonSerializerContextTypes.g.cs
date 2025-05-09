@@ -30,7 +30,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public double? Type1 { get; set; }
+        public int? Type1 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -50,7 +50,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public int? Type6 { get; set; }
+        public double? Type6 { get; set; }
         /// <summary>
         /// 
         /// </summary>
