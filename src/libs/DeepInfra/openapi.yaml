@@ -3029,8 +3029,47 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /payment/funds:
+    post:
+      summary: Add Funds
+      operationId: add_funds_payment_funds_post
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddFundsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
 components:
   schemas:
+    AddFundsIn:
+      title: AddFundsIn
+      required:
+        - amount
+      type: object
+      properties:
+        amount:
+          title: Amount
+          type: number
+          description: Amount to add in USD
     BillingPortalOut:
       title: BillingPortalOut
       required:
