@@ -146,6 +146,13 @@ namespace DeepInfra
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
 
         /// <summary>
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIChatCompletionsInReasoningEffortJsonConverter))]
+        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? ReasoningEffort { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -225,6 +232,9 @@ namespace DeepInfra
         /// <param name="streamOptions">
         /// streaming options
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -248,7 +258,8 @@ namespace DeepInfra
             string? user,
             int? seed,
             bool? logprobs,
-            global::DeepInfra.StreamOptions? streamOptions)
+            global::DeepInfra.StreamOptions? streamOptions,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -270,6 +281,7 @@ namespace DeepInfra
             this.Seed = seed;
             this.Logprobs = logprobs;
             this.StreamOptions = streamOptions;
+            this.ReasoningEffort = reasoningEffort;
         }
 
         /// <summary>

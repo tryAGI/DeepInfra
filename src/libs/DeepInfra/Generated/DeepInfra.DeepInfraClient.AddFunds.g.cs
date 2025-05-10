@@ -200,12 +200,12 @@ namespace DeepInfra
         /// </summary>
         /// <param name="session"></param>
         /// <param name="amount">
-        /// Amount to add in USD
+        /// Amount to add in cents
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> AddFundsAsync(
-            double amount,
+            int amount,
             string? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

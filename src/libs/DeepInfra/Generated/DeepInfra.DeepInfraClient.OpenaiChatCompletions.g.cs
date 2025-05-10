@@ -298,6 +298,9 @@ namespace DeepInfra
         /// <param name="streamOptions">
         /// streaming options
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
@@ -324,6 +327,7 @@ namespace DeepInfra
             int? seed = default,
             bool? logprobs = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAIChatCompletionsIn
@@ -348,6 +352,7 @@ namespace DeepInfra
                 Seed = seed,
                 Logprobs = logprobs,
                 StreamOptions = streamOptions,
+                ReasoningEffort = reasoningEffort,
             };
 
             return await OpenaiChatCompletionsAsync(
