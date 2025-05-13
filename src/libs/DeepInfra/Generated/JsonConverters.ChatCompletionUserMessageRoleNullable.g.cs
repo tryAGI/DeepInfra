@@ -28,6 +28,10 @@ namespace DeepInfra.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::DeepInfra.ChatCompletionUserMessageRole)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::DeepInfra.ChatCompletionUserMessageRole?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }

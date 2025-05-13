@@ -28,6 +28,10 @@ namespace DeepInfra.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::DeepInfra.ModelDocBlockKey)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::DeepInfra.ModelDocBlockKey?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }
