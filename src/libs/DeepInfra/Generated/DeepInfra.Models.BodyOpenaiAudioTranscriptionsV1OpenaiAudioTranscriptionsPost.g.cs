@@ -57,7 +57,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_granularities[]")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_granularities")]
         public global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitie>? TimestampGranularities { get; set; }
 
         /// <summary>

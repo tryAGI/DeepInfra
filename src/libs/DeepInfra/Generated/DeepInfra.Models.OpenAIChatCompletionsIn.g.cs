@@ -109,7 +109,7 @@ namespace DeepInfra
         public string? ToolChoice { get; set; }
 
         /// <summary>
-        /// The format of the response. Currently, only json is supported.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         public global::DeepInfra.ResponseFormat? ResponseFormat { get; set; }
@@ -140,7 +140,7 @@ namespace DeepInfra
         public bool? Logprobs { get; set; }
 
         /// <summary>
-        /// streaming options
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
@@ -213,9 +213,7 @@ namespace DeepInfra
         /// <param name="toolChoice">
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
         /// </param>
-        /// <param name="responseFormat">
-        /// The format of the response. Currently, only json is supported.
-        /// </param>
+        /// <param name="responseFormat"></param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -229,9 +227,7 @@ namespace DeepInfra
         /// <param name="logprobs">
         /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
         /// </param>
-        /// <param name="streamOptions">
-        /// streaming options
-        /// </param>
+        /// <param name="streamOptions"></param>
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>

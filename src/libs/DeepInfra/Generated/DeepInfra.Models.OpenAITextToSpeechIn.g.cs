@@ -41,8 +41,10 @@ namespace DeepInfra
         public string? Voice { get; set; }
 
         /// <summary>
-        /// response format for the speech
+        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
+        /// Example: mp3
         /// </summary>
+        /// <example>mp3</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
         public global::DeepInfra.TtsResponseFormat? ResponseFormat { get; set; }
@@ -84,7 +86,8 @@ namespace DeepInfra
         /// Preset voices to use for the speech.
         /// </param>
         /// <param name="responseFormat">
-        /// response format for the speech
+        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
+        /// Example: mp3
         /// </param>
         /// <param name="speed">
         /// speed of the speech<br/>

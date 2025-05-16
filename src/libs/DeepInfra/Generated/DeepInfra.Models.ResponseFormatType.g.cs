@@ -4,9 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Response type, such as JSON mode<br/>
-    /// Default Value: text<br/>
-    /// Example: json_object
+    /// Default Value: text
     /// </summary>
     public enum ResponseFormatType
     {

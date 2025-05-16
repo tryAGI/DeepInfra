@@ -38,7 +38,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields_in")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut> FieldsIn { get; set; }
+        public required global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo> FieldsIn { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -59,7 +59,7 @@ namespace DeepInfra
 #endif
         public SchemaOut(
             global::DeepInfra.SchemaVariant variant,
-            global::System.Collections.Generic.IList<global::DeepInfra.SchemaFieldOut> fieldsIn,
+            global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo> fieldsIn,
             object? schemaIn,
             object? schemaOut1,
             object? schemaStream)

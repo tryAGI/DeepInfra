@@ -191,7 +191,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected")]
-        public global::System.DateTime? Expected { get; set; }
+        public string? Expected { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -263,7 +263,7 @@ namespace DeepInfra
             int? deprecated,
             string? quantization,
             double? mmlu,
-            global::System.DateTime? expected)
+            string? expected)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));

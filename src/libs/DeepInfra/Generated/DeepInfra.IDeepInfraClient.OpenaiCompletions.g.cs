@@ -78,9 +78,7 @@ namespace DeepInfra
         /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="responseFormat">
-        /// The format of the response. Currently, only json is supported.
-        /// </param>
+        /// <param name="responseFormat"></param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -91,9 +89,7 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
-        /// <param name="streamOptions">
-        /// streaming options
-        /// </param>
+        /// <param name="streamOptions"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(

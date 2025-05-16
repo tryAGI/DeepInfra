@@ -37,9 +37,9 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIBatch> CreateOpenaiBatchAsync(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
+            object? metadata,
             string? xiApiKey = default,
             global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow = default,
-            object? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

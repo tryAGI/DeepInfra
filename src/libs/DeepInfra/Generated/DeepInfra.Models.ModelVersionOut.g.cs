@@ -27,11 +27,13 @@ namespace DeepInfra
         public required string Version { get; set; }
 
         /// <summary>
-        /// Upload time
+        /// Upload time<br/>
+        /// Example: 2023-01-19T21:52:03.626241+00:00
         /// </summary>
+        /// <example>2023-01-19T21:52:03.626241+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("uploaded_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime UploadedAt { get; set; }
+        public required string UploadedAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -51,7 +53,8 @@ namespace DeepInfra
         /// Example: 06dbf5f73be4b5eca79e137e00c4825f467cd5b172c64b6c9255dc4b5a25a03a
         /// </param>
         /// <param name="uploadedAt">
-        /// Upload time
+        /// Upload time<br/>
+        /// Example: 2023-01-19T21:52:03.626241+00:00
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -59,11 +62,11 @@ namespace DeepInfra
         public ModelVersionOut(
             string modelName,
             string version,
-            global::System.DateTime uploadedAt)
+            string uploadedAt)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
-            this.UploadedAt = uploadedAt;
+            this.UploadedAt = uploadedAt ?? throw new global::System.ArgumentNullException(nameof(uploadedAt));
         }
 
         /// <summary>

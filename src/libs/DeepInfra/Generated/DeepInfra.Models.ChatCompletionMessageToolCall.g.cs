@@ -23,7 +23,7 @@ namespace DeepInfra
         public required string Type { get; set; }
 
         /// <summary>
-        /// the function that the model called
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -44,9 +44,7 @@ namespace DeepInfra
         /// <param name="type">
         /// the type of the tool call. only function is supported currently
         /// </param>
-        /// <param name="function">
-        /// the function that the model called
-        /// </param>
+        /// <param name="function"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

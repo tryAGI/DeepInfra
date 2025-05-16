@@ -109,7 +109,7 @@ namespace DeepInfra
         public double? FrequencyPenalty { get; set; }
 
         /// <summary>
-        /// The format of the response. Currently, only json is supported.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         public global::DeepInfra.ResponseFormat? ResponseFormat { get; set; }
@@ -134,7 +134,7 @@ namespace DeepInfra
         public int? Seed { get; set; }
 
         /// <summary>
-        /// streaming options
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
@@ -200,9 +200,7 @@ namespace DeepInfra
         /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="responseFormat">
-        /// The format of the response. Currently, only json is supported.
-        /// </param>
+        /// <param name="responseFormat"></param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -213,9 +211,7 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
-        /// <param name="streamOptions">
-        /// streaming options
-        /// </param>
+        /// <param name="streamOptions"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

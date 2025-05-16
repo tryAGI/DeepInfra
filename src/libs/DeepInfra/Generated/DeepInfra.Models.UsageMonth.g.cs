@@ -16,7 +16,7 @@ namespace DeepInfra
         public required string Period { get; set; }
 
         /// <summary>
-        /// time interval in this period
+        /// Inclusive, in ms
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -56,7 +56,7 @@ namespace DeepInfra
         /// YYYY.MM formatted period
         /// </param>
         /// <param name="interval">
-        /// time interval in this period
+        /// Inclusive, in ms
         /// </param>
         /// <param name="items"></param>
         /// <param name="totalCost">

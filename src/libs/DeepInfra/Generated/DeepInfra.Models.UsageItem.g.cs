@@ -44,7 +44,7 @@ namespace DeepInfra
         public required string PricingType { get; set; }
 
         /// <summary>
-        /// time interval with this particular pricing
+        /// Inclusive, in ms
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -73,7 +73,7 @@ namespace DeepInfra
         /// pricing type
         /// </param>
         /// <param name="interval">
-        /// time interval with this particular pricing
+        /// Inclusive, in ms
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

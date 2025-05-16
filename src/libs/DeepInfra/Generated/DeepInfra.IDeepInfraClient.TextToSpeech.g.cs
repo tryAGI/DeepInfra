@@ -41,8 +41,8 @@ namespace DeepInfra
         /// Default Value: hexgrad/Kokoro-82M
         /// </param>
         /// <param name="requestOutputFormat">
-        /// Output format for the speech<br/>
-        /// Default Value: wav
+        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
+        /// Example: mp3
         /// </param>
         /// <param name="languageCode">
         /// ISO 639-1, 2 letter language code

@@ -226,9 +226,9 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIBatch> CreateOpenaiBatchAsync(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
+            object? metadata,
             string? xiApiKey = default,
             global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow = default,
-            object? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAIBatchesIn

@@ -45,7 +45,7 @@ namespace DeepInfra
         public string? CoverImgUrl { get; set; }
 
         /// <summary>
-        /// model type
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.HFTasksEJsonConverter))]
@@ -78,9 +78,7 @@ namespace DeepInfra
         /// <param name="coverImgUrl">
         /// dataurl or regular url to cover image (empty to delete)
         /// </param>
-        /// <param name="reportedType">
-        /// model type
-        /// </param>
+        /// <param name="reportedType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

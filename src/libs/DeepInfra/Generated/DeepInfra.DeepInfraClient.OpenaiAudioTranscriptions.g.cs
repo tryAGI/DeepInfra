@@ -134,7 +134,7 @@ namespace DeepInfra
             {
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.TimestampGranularities, x => x.ToValueString()))}]"),
-                    name: "timestamp_granularities[]");
+                    name: "timestamp_granularities");
             }
             __httpRequest.Content = __httpRequestContent;
 

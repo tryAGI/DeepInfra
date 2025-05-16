@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// An enumeration.
+    /// 
     /// </summary>
     public enum SourceTypeEnum
     {

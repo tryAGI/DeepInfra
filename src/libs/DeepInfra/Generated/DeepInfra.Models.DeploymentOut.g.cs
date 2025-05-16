@@ -70,33 +70,37 @@ namespace DeepInfra
         public required string FailReason { get; set; }
 
         /// <summary>
-        /// Created at
+        /// Created at<br/>
+        /// Example: 2021-08-27T17:19:21+00:00
         /// </summary>
+        /// <example>2021-08-27T17:19:21+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public required string CreatedAt { get; set; }
 
         /// <summary>
-        /// Updated at
+        /// Updated at<br/>
+        /// Example: 2021-08-27T17:19:21+00:00
         /// </summary>
+        /// <example>2021-08-27T17:19:21+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime UpdatedAt { get; set; }
+        public required string UpdatedAt { get; set; }
 
         /// <summary>
-        /// Details about number of instances running right now
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instances")]
         public global::DeepInfra.DeployInstances? Instances { get; set; }
 
         /// <summary>
-        /// Immutable deploy configuration
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::DeepInfra.DeployLLMConfig? Config { get; set; }
 
         /// <summary>
-        /// Scale Settings
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::DeepInfra.ScaleSettings? Settings { get; set; }
@@ -136,20 +140,16 @@ namespace DeepInfra
         /// Example: Initialization failed
         /// </param>
         /// <param name="createdAt">
-        /// Created at
+        /// Created at<br/>
+        /// Example: 2021-08-27T17:19:21+00:00
         /// </param>
         /// <param name="updatedAt">
-        /// Updated at
+        /// Updated at<br/>
+        /// Example: 2021-08-27T17:19:21+00:00
         /// </param>
-        /// <param name="instances">
-        /// Details about number of instances running right now
-        /// </param>
-        /// <param name="config">
-        /// Immutable deploy configuration
-        /// </param>
-        /// <param name="settings">
-        /// Scale Settings
-        /// </param>
+        /// <param name="instances"></param>
+        /// <param name="config"></param>
+        /// <param name="settings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -160,8 +160,8 @@ namespace DeepInfra
             string task,
             string status,
             string failReason,
-            global::System.DateTime createdAt,
-            global::System.DateTime updatedAt,
+            string createdAt,
+            string updatedAt,
             global::DeepInfra.DeployType? type,
             global::DeepInfra.DeployInstances? instances,
             global::DeepInfra.DeployLLMConfig? config,
@@ -173,8 +173,8 @@ namespace DeepInfra
             this.Task = task ?? throw new global::System.ArgumentNullException(nameof(task));
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.FailReason = failReason ?? throw new global::System.ArgumentNullException(nameof(failReason));
-            this.CreatedAt = createdAt;
-            this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
+            this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.Type = type;
             this.Instances = instances;
             this.Config = config;

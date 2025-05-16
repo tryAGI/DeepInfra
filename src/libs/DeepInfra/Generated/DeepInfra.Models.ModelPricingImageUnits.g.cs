@@ -9,6 +9,12 @@ namespace DeepInfra
     public sealed partial class ModelPricingImageUnits
     {
         /// <summary>
+        /// Default Value: image_units
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_image_unit")]
@@ -37,12 +43,6 @@ namespace DeepInfra
         public required int DefaultIterations { get; set; }
 
         /// <summary>
-        /// Default Value: image_units
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,13 +51,13 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelPricingImageUnits" /> class.
         /// </summary>
+        /// <param name="type">
+        /// Default Value: image_units
+        /// </param>
         /// <param name="centsPerImageUnit"></param>
         /// <param name="defaultWidth"></param>
         /// <param name="defaultHeight"></param>
         /// <param name="defaultIterations"></param>
-        /// <param name="type">
-        /// Default Value: image_units
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

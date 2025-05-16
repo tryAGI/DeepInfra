@@ -55,14 +55,16 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
-        public double? Limit { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double? Limit { get; set; }
 
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspend_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter))]
-        public global::DeepInfra.SuspendReason? SuspendReason { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::DeepInfra.SuspendReason SuspendReason { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -95,32 +97,30 @@ namespace DeepInfra
         /// Negative value indicates funds ready-to-spend. Positive value indicates money owed
         /// </param>
         /// <param name="limit"></param>
-        /// <param name="suspendReason">
-        /// An enumeration.
-        /// </param>
+        /// <param name="suspendReason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Checklist(
             double stripeBalance,
+            double? limit,
+            global::DeepInfra.SuspendReason suspendReason,
             bool? email,
             bool? billingAddress,
             bool? paymentMethod,
             bool? suspended,
             double? overdueInvoices,
-            int? lastChecked,
-            double? limit,
-            global::DeepInfra.SuspendReason? suspendReason)
+            int? lastChecked)
         {
             this.StripeBalance = stripeBalance;
+            this.Limit = limit;
+            this.SuspendReason = suspendReason;
             this.Email = email;
             this.BillingAddress = billingAddress;
             this.PaymentMethod = paymentMethod;
             this.Suspended = suspended;
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
-            this.Limit = limit;
-            this.SuspendReason = suspendReason;
         }
 
         /// <summary>

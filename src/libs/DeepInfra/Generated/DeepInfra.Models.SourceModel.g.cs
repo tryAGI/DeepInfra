@@ -9,7 +9,7 @@ namespace DeepInfra
     public sealed partial class SourceModel
     {
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter))]
@@ -30,9 +30,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceModel" /> class.
         /// </summary>
-        /// <param name="type">
-        /// An enumeration.
-        /// </param>
+        /// <param name="type"></param>
         /// <param name="civitUrl"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

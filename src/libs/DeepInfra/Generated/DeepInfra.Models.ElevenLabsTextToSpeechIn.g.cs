@@ -33,9 +33,10 @@ namespace DeepInfra
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Output format for the speech<br/>
-        /// Default Value: wav
+        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
+        /// Example: mp3
         /// </summary>
+        /// <example>mp3</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
         public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; }
@@ -67,8 +68,8 @@ namespace DeepInfra
         /// Default Value: hexgrad/Kokoro-82M
         /// </param>
         /// <param name="outputFormat">
-        /// Output format for the speech<br/>
-        /// Default Value: wav
+        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
+        /// Example: mp3
         /// </param>
         /// <param name="languageCode">
         /// ISO 639-1, 2 letter language code

@@ -9,17 +9,17 @@ namespace DeepInfra
     public sealed partial class ModelPricingInputLength
     {
         /// <summary>
+        /// Default Value: input_length
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_input_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CentsPerInputSec { get; set; }
-
-        /// <summary>
-        /// Default Value: input_length
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,10 +30,10 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelPricingInputLength" /> class.
         /// </summary>
-        /// <param name="centsPerInputSec"></param>
         /// <param name="type">
         /// Default Value: input_length
         /// </param>
+        /// <param name="centsPerInputSec"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

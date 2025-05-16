@@ -16,7 +16,7 @@ namespace DeepInfra
         public required string ModelName { get; set; }
 
         /// <summary>
-        /// The GPU you want to run on
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
@@ -61,9 +61,7 @@ namespace DeepInfra
         /// <param name="modelName">
         /// model name for deepinfra (username/mode-name format)
         /// </param>
-        /// <param name="gpu">
-        /// The GPU you want to run on
-        /// </param>
+        /// <param name="gpu"></param>
         /// <param name="numGpus">
         /// Number of GPUs you want for this model<br/>
         /// Default Value: 1

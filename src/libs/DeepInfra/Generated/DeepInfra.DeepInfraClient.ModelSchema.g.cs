@@ -31,9 +31,7 @@ namespace DeepInfra
         /// Model Schema
         /// </summary>
         /// <param name="modelName"></param>
-        /// <param name="variantKey">
-        /// An enumeration.
-        /// </param>
+        /// <param name="variantKey"></param>
         /// <param name="version"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

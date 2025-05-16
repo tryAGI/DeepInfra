@@ -293,9 +293,7 @@ namespace DeepInfra
         /// Deploy Create
         /// </summary>
         /// <param name="xiApiKey"></param>
-        /// <param name="provider">
-        /// namespace for the model name
-        /// </param>
+        /// <param name="provider"></param>
         /// <param name="modelName">
         /// model name in specified provider
         /// </param>

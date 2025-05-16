@@ -9,11 +9,8 @@ namespace DeepInfra
     public sealed partial class ResponseFormat
     {
         /// <summary>
-        /// Response type, such as JSON mode<br/>
-        /// Default Value: text<br/>
-        /// Example: json_object
+        /// Default Value: text
         /// </summary>
-        /// <example>json_object</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ResponseFormatTypeJsonConverter))]
         public global::DeepInfra.ResponseFormatType? Type { get; set; }
@@ -28,9 +25,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
         /// </summary>
         /// <param name="type">
-        /// Response type, such as JSON mode<br/>
-        /// Default Value: text<br/>
-        /// Example: json_object
+        /// Default Value: text
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -9,7 +9,7 @@ namespace DeepInfra
     public sealed partial class SchemaVariant
     {
         /// <summary>
-        /// An enumeration.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter))]
@@ -32,9 +32,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="SchemaVariant" /> class.
         /// </summary>
-        /// <param name="key">
-        /// An enumeration.
-        /// </param>
+        /// <param name="key"></param>
         /// <param name="url"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

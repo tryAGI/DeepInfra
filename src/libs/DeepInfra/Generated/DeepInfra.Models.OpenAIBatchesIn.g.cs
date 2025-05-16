@@ -34,7 +34,8 @@ namespace DeepInfra
         /// Optional metadata to be stored with the batch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required object? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -63,13 +64,13 @@ namespace DeepInfra
         public OpenAIBatchesIn(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
-            global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow,
-            object? metadata)
+            object? metadata,
+            global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow)
         {
             this.InputFileId = inputFileId ?? throw new global::System.ArgumentNullException(nameof(inputFileId));
             this.Endpoint = endpoint;
+            this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.CompletionWindow = completionWindow;
-            this.Metadata = metadata;
         }
 
         /// <summary>

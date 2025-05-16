@@ -9,19 +9,19 @@ namespace DeepInfra
     public sealed partial class DetailedDeploymentStatsOut
     {
         /// <summary>
-        /// LLM Deployment Stats
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         public global::DeepInfra.LLMDeploymentStatsOut? Llm { get; set; }
 
         /// <summary>
-        /// Embeddings Deployment Stats
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embeddings")]
         public global::DeepInfra.EmbeddingsDeploymentStatsOut? Embeddings { get; set; }
 
         /// <summary>
-        /// Time based Deployment Stats
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time")]
         public global::DeepInfra.TimeDeploymentStatsOut? Time { get; set; }
@@ -35,15 +35,9 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="DetailedDeploymentStatsOut" /> class.
         /// </summary>
-        /// <param name="llm">
-        /// LLM Deployment Stats
-        /// </param>
-        /// <param name="embeddings">
-        /// Embeddings Deployment Stats
-        /// </param>
-        /// <param name="time">
-        /// Time based Deployment Stats
-        /// </param>
+        /// <param name="llm"></param>
+        /// <param name="embeddings"></param>
+        /// <param name="time"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

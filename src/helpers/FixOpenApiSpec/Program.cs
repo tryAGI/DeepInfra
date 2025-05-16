@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+using AutoSDK.Helpers;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
@@ -6,19 +6,14 @@ using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 
 var path = args[0];
-var text = await File.ReadAllTextAsync(path);
+var jsonOrYaml = await File.ReadAllTextAsync(path);
 
-text = text.Replace("\"type\":\"String\"", "\"type\":\"string\"");
+if (OpenApi31Support.IsOpenApi31(jsonOrYaml))
+{
+    jsonOrYaml = OpenApi31Support.ConvertToOpenApi30(jsonOrYaml);
+}
 
-// Replace string like this `,"exclusiveMaximum":9.223372036854776e+18` to `,"maximum":9.223372036854776e+18, "exclusiveMaximum":true`
-// and this `,"exclusiveMaximum":1000.0` to `,"maximum":1000.0, "exclusiveMaximum":true`
-// only maximum
-Regex exclusiveMaximumRegex = new(@",\s*""exclusiveMaximum"":(?<value>\d+(\.\d+)?(e\+\d+)?)", RegexOptions.Compiled);
-text = exclusiveMaximumRegex.Replace(text, @", ""maximum"":${value}, ""exclusiveMaximum"":true");
-Regex exclusiveMinimumRegex = new(@",\s*""exclusiveMinimum"":(?<value>\d+(\.\d+)?(e\+\d+)?)", RegexOptions.Compiled);
-text = exclusiveMinimumRegex.Replace(text, @", ""minimum"":${value}, ""exclusiveMinimum"":true");
-
-var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
+var openApiDocument = new OpenApiStringReader().Read(jsonOrYaml, out var diagnostics);
 
 openApiDocument.Servers.Add(new OpenApiServer
 {
@@ -54,8 +49,8 @@ openApiDocument.Components.Schemas["DeployModelIn"]!.Properties["provider"].Defa
 openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["voice"].Default = null;
 openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["response_format"].Default = null;
 
-text = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
-_ = new OpenApiStringReader().Read(text, out diagnostics);
+jsonOrYaml = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
+_ = new OpenApiStringReader().Read(jsonOrYaml, out diagnostics);
 
 if (diagnostics.Errors.Count > 0)
 {
@@ -67,4 +62,4 @@ if (diagnostics.Errors.Count > 0)
     Environment.Exit(1);
 }
 
-await File.WriteAllTextAsync(path, text);
+await File.WriteAllTextAsync(path, jsonOrYaml);
