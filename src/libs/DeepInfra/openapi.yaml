@@ -5571,10 +5571,12 @@ components:
           example: thenlper/gte-large
         input:
           title: Input
-          maxItems: 1024
-          type: array
-          items:
-            type: string
+          maxLength: 1024
+          anyOf:
+            - type: array
+              items:
+                type: string
+            - type: string
           description: sequences to embed
           example:
             - I like chocolate

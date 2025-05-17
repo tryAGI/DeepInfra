@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace DeepInfra
@@ -23,8 +25,9 @@ namespace DeepInfra
         /// </summary>
         /// <example>[I like chocolate]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Input { get; set; }
+        public required global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>
@@ -60,11 +63,11 @@ namespace DeepInfra
 #endif
         public OpenAIEmbeddingsIn(
             string model,
-            global::System.Collections.Generic.IList<string> input,
+            global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
+            this.Input = input;
             this.EncodingFormat = encodingFormat;
         }
 
