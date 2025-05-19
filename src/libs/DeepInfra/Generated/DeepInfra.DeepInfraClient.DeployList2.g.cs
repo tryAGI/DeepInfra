@@ -27,7 +27,7 @@ namespace DeepInfra
         /// Deploy List
         /// </summary>
         /// <param name="status">
-        /// A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted
+        /// A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted
         /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

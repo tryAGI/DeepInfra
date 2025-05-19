@@ -460,11 +460,11 @@ paths:
       parameters:
         - name: status
           in: query
-          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
           schema:
             title: Status
             type: string
-            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
             nullable: true
         - name: xi-api-key
           in: header
@@ -504,11 +504,11 @@ paths:
       parameters:
         - name: status
           in: query
-          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
           schema:
             title: Status
             type: string
-            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,deploying,running,failed,deleted'
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
             nullable: true
         - name: xi-api-key
           in: header
