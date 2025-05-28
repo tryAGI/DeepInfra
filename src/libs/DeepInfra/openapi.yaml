@@ -3916,6 +3916,7 @@ components:
         - H100-80GB
         - H200-141GB
         - B200-180GB
+        - other
       type: string
     DeployInstances:
       title: DeployInstances
