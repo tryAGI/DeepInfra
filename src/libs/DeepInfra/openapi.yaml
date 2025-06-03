@@ -2569,6 +2569,275 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/containers/params:
+    get:
+      summary: Container Rentals Get Params
+      operationId: container_rentals_get_params_v1_containers_params_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/containers:
+    post:
+      summary: Container Rentals Start
+      operationId: container_rentals_start_v1_containers_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainerRentalStartIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerRentalStartOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+    get:
+      summary: Container Rentals List
+      operationId: container_rentals_list_v1_containers_get
+      parameters:
+        - name: state
+          in: query
+          description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
+          schema:
+            title: State
+            type: string
+            description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Container Rentals List V1 Containers Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContainerRentalOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/containers/{container_id}':
+    get:
+      summary: Container Rentals Get
+      operationId: container_rentals_get_v1_containers__container_id__get
+      parameters:
+        - name: container_id
+          in: path
+          required: true
+          schema:
+            title: Container Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainerRentalOut'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    patch:
+      summary: Container Rentals Update
+      operationId: container_rentals_update_v1_containers__container_id__patch
+      parameters:
+        - name: container_id
+          in: path
+          required: true
+          schema:
+            title: Container Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainerRentalUpdateIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+      security:
+        - HTTPBearer: [ ]
+    delete:
+      summary: Container Rentals Delete
+      operationId: container_rentals_delete_v1_containers__container_id__delete
+      parameters:
+        - name: container_id
+          in: path
+          required: true
+          schema:
+            title: Container Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
@@ -3850,6 +4119,115 @@ components:
           default: function
         function:
           $ref: '#/components/schemas/FunctionDefinition'
+    ContainerRentalOut:
+      title: ContainerRentalOut
+      required:
+        - id
+        - name
+        - state
+        - start_ts
+        - state_ts
+        - stop_ts
+        - ip
+        - gpu_config
+        - price_per_hour
+        - container_image
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        state:
+          $ref: '#/components/schemas/ContainerRentalStateOut'
+        start_ts:
+          title: Start Ts
+          type: integer
+        state_ts:
+          title: State Ts
+          type: integer
+        stop_ts:
+          title: Stop Ts
+          type: integer
+          nullable: true
+        ip:
+          title: Ip
+          type: string
+          nullable: true
+        gpu_config:
+          title: Gpu Config
+          type: string
+        price_per_hour:
+          title: Price Per Hour
+          type: number
+        container_image:
+          title: Container Image
+          type: string
+    ContainerRentalStartIn:
+      title: ContainerRentalStartIn
+      required:
+        - name
+        - gpu_config
+        - container_image
+        - cloud_init_user_data
+      type: object
+      properties:
+        name:
+          title: Name
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: Container Name
+        gpu_config:
+          title: Gpu Config
+          minLength: 1
+          type: string
+          description: GPU config
+        container_image:
+          title: Container Image
+          minLength: 1
+          type: string
+          description: Container Image
+        cloud_init_user_data:
+          title: Cloud Init User Data
+          minLength: 1
+          type: string
+          description: Cloud Init User Data
+    ContainerRentalStartOut:
+      title: ContainerRentalStartOut
+      required:
+        - container_id
+      type: object
+      properties:
+        container_id:
+          title: Container Id
+          type: string
+          description: Container Id
+    ContainerRentalStateOut:
+      title: ContainerRentalStateOut
+      enum:
+        - creating
+        - starting
+        - running
+        - shutting_down
+        - failed
+        - deleted
+      type: string
+    ContainerRentalUpdateIn:
+      title: ContainerRentalUpdateIn
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: Container Name
+      additionalProperties: false
     CreateLoraApiRequest:
       title: CreateLoraApiRequest
       required:
