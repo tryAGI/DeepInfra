@@ -3332,6 +3332,46 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /payment/usage/rent:
+    get:
+      summary: Usage Rent
+      operationId: usage_rent_payment_usage_rent_get
+      parameters:
+        - name: from
+          in: query
+          description: 'start of period, in seconds since unix epoch'
+          required: true
+          schema:
+            title: From
+            type: integer
+            description: 'start of period, in seconds since unix epoch'
+        - name: to
+          in: query
+          description: 'end of period, in seconds since unix epoch'
+          schema:
+            title: To
+            type: integer
+            description: 'end of period, in seconds since unix epoch'
+            nullable: true
+        - name: session
+          in: cookie
+          schema:
+            type: String
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageRentOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   '/payment/usage/{api_token}':
     get:
       summary: Usage Api Token
@@ -3738,6 +3778,18 @@ components:
           title: Initial Month
           type: string
           description: The first month for this account
+    UsageRentOut:
+      title: UsageRentOut
+      required:
+        - id_to_duration
+      type: object
+      properties:
+        id_to_duration:
+          title: Id To Duration
+          type: object
+          additionalProperties:
+            type: integer
+          description: container id to duration in seconds
     ValidationError:
       title: ValidationError
       required:
