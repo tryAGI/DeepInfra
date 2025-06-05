@@ -59,7 +59,7 @@ namespace DeepInfra
                 userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/v1/inference/{modelName}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

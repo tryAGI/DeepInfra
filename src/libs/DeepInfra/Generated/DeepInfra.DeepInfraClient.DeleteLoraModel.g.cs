@@ -42,7 +42,7 @@ namespace DeepInfra
                 loraModelName: ref loraModelName,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/lora-model/{loraModelName}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

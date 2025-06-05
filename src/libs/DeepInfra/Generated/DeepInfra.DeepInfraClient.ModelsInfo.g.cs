@@ -47,7 +47,7 @@ namespace DeepInfra
                 version: ref version,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/models/{modelName}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

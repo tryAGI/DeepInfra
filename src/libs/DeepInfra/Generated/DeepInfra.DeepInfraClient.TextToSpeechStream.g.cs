@@ -59,7 +59,7 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/v1/text-to-speech/{voiceId}/stream",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

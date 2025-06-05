@@ -44,7 +44,7 @@ namespace DeepInfra
                 status: ref status,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/deploy/list",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
