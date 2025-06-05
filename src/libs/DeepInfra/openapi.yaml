@@ -4804,6 +4804,7 @@ components:
         - custom
         - text-to-speech
         - text-to-video
+        - rent-container
       type: string
     HFWeights:
       title: HFWeights
