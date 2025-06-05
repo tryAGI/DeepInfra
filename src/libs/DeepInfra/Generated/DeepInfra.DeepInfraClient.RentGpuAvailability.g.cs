@@ -47,7 +47,7 @@ namespace DeepInfra
                 baseModel: ref baseModel,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/containers/gpu_availability",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

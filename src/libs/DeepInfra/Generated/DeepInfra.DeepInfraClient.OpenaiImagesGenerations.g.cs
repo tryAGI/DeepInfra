@@ -48,7 +48,7 @@ namespace DeepInfra
                 userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/openai/images/generations",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

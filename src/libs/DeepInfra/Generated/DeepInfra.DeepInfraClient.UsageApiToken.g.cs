@@ -56,7 +56,7 @@ namespace DeepInfra
                 to: ref to,
                 session: ref session);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/payment/usage/{apiToken}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

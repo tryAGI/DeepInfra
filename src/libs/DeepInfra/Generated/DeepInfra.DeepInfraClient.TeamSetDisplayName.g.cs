@@ -44,7 +44,7 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/me/team_display_name",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

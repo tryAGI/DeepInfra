@@ -44,7 +44,7 @@ namespace DeepInfra
                 session: ref session,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/funds",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

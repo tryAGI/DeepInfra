@@ -42,7 +42,7 @@ namespace DeepInfra
                 returnUrl: ref returnUrl,
                 session: ref session);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/billing-portal",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

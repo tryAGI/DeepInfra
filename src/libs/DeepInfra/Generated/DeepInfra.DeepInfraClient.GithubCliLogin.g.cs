@@ -39,7 +39,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 loginId: ref loginId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/github/cli/login",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

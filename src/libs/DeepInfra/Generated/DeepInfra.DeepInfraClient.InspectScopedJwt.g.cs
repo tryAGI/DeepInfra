@@ -42,7 +42,7 @@ namespace DeepInfra
                 jwtoken: ref jwtoken,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/scoped-jwt",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

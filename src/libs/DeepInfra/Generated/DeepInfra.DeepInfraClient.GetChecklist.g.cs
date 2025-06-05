@@ -37,7 +37,7 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 session: ref session);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/checklist",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

@@ -43,7 +43,7 @@ namespace DeepInfra
                 voiceId: ref voiceId,
                 xiApiKey: ref xiApiKey);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/v1/voices/{voiceId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

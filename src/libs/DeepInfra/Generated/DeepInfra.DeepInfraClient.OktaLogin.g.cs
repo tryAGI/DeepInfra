@@ -47,7 +47,7 @@ namespace DeepInfra
                 origin: ref origin,
                 loginId: ref loginId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/okta/login",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

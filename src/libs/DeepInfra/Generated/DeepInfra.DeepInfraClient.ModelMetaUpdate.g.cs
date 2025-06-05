@@ -49,7 +49,7 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/models/{modelName}/meta",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
