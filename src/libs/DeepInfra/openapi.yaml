@@ -2600,6 +2600,44 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/containers/gpu_availability:
+    get:
+      summary: Rent Gpu Availability
+      operationId: rent_gpu_availability_v1_containers_gpu_availability_get
+      parameters:
+        - name: source
+          in: query
+          schema:
+            title: Source
+            type: string
+            default: ''
+        - name: base_model
+          in: query
+          schema:
+            title: Base Model
+            type: string
+            default: ''
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployGPUAvailability'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/containers:
     post:
       summary: Container Rentals Start
