@@ -67,6 +67,30 @@ namespace DeepInfra
         public required global::DeepInfra.SuspendReason SuspendReason { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("topup")]
+        public bool? Topup { get; set; }
+
+        /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("topup_amount")]
+        public int? TopupAmount { get; set; }
+
+        /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("topup_threshold")]
+        public int? TopupThreshold { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("topup_failed")]
+        public bool? TopupFailed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -98,6 +122,18 @@ namespace DeepInfra
         /// </param>
         /// <param name="limit"></param>
         /// <param name="suspendReason"></param>
+        /// <param name="topup">
+        /// Default Value: false
+        /// </param>
+        /// <param name="topupAmount">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="topupThreshold">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="topupFailed">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -110,7 +146,11 @@ namespace DeepInfra
             bool? paymentMethod,
             bool? suspended,
             double? overdueInvoices,
-            int? lastChecked)
+            int? lastChecked,
+            bool? topup,
+            int? topupAmount,
+            int? topupThreshold,
+            bool? topupFailed)
         {
             this.StripeBalance = stripeBalance;
             this.Limit = limit;
@@ -121,6 +161,10 @@ namespace DeepInfra
             this.Suspended = suspended;
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
+            this.Topup = topup;
+            this.TopupAmount = topupAmount;
+            this.TopupThreshold = topupThreshold;
+            this.TopupFailed = topupFailed;
         }
 
         /// <summary>
