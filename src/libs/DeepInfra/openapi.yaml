@@ -3515,6 +3515,35 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /payment/topup:
+    post:
+      summary: Setup Topup
+      operationId: setup_topup_payment_topup_post
+      parameters:
+        - name: session
+          in: cookie
+          schema:
+            type: String
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopUpIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
 components:
   schemas:
     AddFundsIn:
@@ -3578,6 +3607,22 @@ components:
           nullable: true
         suspend_reason:
           $ref: '#/components/schemas/SuspendReason'
+        topup:
+          title: Topup
+          type: boolean
+          default: false
+        topup_amount:
+          title: Topup Amount
+          type: integer
+          default: 0
+        topup_threshold:
+          title: Topup Threshold
+          type: integer
+          default: 0
+        topup_failed:
+          title: Topup Failed
+          type: boolean
+          default: false
     ConfigIn:
       title: ConfigIn
       type: object
@@ -3740,6 +3785,25 @@ components:
           format: int64
           default: 4000000000000
       description: 'Inclusive, in ms'
+    TopUpIn:
+      title: TopUpIn
+      type: object
+      properties:
+        amount:
+          title: Amount
+          type: integer
+          description: Amount to top up in cents
+          default: 0
+        threshold:
+          title: Threshold
+          type: integer
+          description: 'Top up threshold in cents, if balance goes below this value, top up will be triggered'
+          default: 0
+        enabled:
+          title: Enabled
+          type: boolean
+          description: 'If true, top up will be triggered when balance goes below threshold'
+          default: true
     UsageItem:
       title: UsageItem
       required:
