@@ -80,6 +80,13 @@ namespace DeepInfra
         public required string ContainerImage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fail_reason")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string? FailReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -98,6 +105,7 @@ namespace DeepInfra
         /// <param name="gpuConfig"></param>
         /// <param name="pricePerHour"></param>
         /// <param name="containerImage"></param>
+        /// <param name="failReason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -111,7 +119,8 @@ namespace DeepInfra
             string? ip,
             string gpuConfig,
             double pricePerHour,
-            string containerImage)
+            string containerImage,
+            string? failReason)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -123,6 +132,7 @@ namespace DeepInfra
             this.GpuConfig = gpuConfig ?? throw new global::System.ArgumentNullException(nameof(gpuConfig));
             this.PricePerHour = pricePerHour;
             this.ContainerImage = containerImage ?? throw new global::System.ArgumentNullException(nameof(containerImage));
+            this.FailReason = failReason ?? throw new global::System.ArgumentNullException(nameof(failReason));
         }
 
         /// <summary>

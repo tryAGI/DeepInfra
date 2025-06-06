@@ -4222,6 +4222,7 @@ components:
         - gpu_config
         - price_per_hour
         - container_image
+        - fail_reason
       type: object
       properties:
         id:
@@ -4255,6 +4256,10 @@ components:
         container_image:
           title: Container Image
           type: string
+        fail_reason:
+          title: Fail Reason
+          type: string
+          nullable: true
     ContainerRentalStartIn:
       title: ContainerRentalStartIn
       required:
@@ -4282,6 +4287,7 @@ components:
           description: Container Image
         cloud_init_user_data:
           title: Cloud Init User Data
+          maxLength: 32000
           minLength: 1
           type: string
           description: Cloud Init User Data
