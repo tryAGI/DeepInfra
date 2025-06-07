@@ -19,6 +19,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        HttpBagelMultimodal,
+        /// <summary>
+        /// 
+        /// </summary>
         Deepctl,
         /// <summary>
         /// 
@@ -212,6 +216,7 @@ namespace DeepInfra
             {
                 ModelDocBlockKey.Http => "http",
                 ModelDocBlockKey.HttpBgeM3Multimodal => "http-bge-m3-multimodal",
+                ModelDocBlockKey.HttpBagelMultimodal => "http-bagel-multimodal",
                 ModelDocBlockKey.Deepctl => "deepctl",
                 ModelDocBlockKey.JsTextGen => "js-text-gen",
                 ModelDocBlockKey.JsEmb => "js-emb",
@@ -269,6 +274,7 @@ namespace DeepInfra
             {
                 "http" => ModelDocBlockKey.Http,
                 "http-bge-m3-multimodal" => ModelDocBlockKey.HttpBgeM3Multimodal,
+                "http-bagel-multimodal" => ModelDocBlockKey.HttpBagelMultimodal,
                 "deepctl" => ModelDocBlockKey.Deepctl,
                 "js-text-gen" => ModelDocBlockKey.JsTextGen,
                 "js-emb" => ModelDocBlockKey.JsEmb,

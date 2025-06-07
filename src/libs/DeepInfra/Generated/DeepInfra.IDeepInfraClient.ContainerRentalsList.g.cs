@@ -8,13 +8,14 @@ namespace DeepInfra
         /// Container Rentals List
         /// </summary>
         /// <param name="state">
-        /// A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted
+        /// whether to return active or inactive containers<br/>
+        /// Default Value: active
         /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.ContainerRentalOut>> ContainerRentalsListAsync(
-            string? state = default,
+            global::DeepInfra.ContainerRentalsListV1ContainersGetState? state = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
