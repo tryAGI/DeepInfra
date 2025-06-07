@@ -2694,12 +2694,15 @@ paths:
       parameters:
         - name: state
           in: query
-          description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
+          description: whether to return active or inactive containers
           schema:
             title: State
+            enum:
+              - active
+              - inactive
             type: string
-            description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
-            nullable: true
+            description: whether to return active or inactive containers
+            default: active
         - name: xi-api-key
           in: header
           schema:
@@ -2858,12 +2861,6 @@ paths:
                 $ref: '#/components/schemas/DeepError'
         '404':
           description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeepError'
-        '409':
-          description: Conflict
           content:
             application/json:
               schema:
@@ -5233,6 +5230,7 @@ components:
       enum:
         - http
         - http-bge-m3-multimodal
+        - http-bagel-multimodal
         - deepctl
         - js-text-gen
         - js-emb
