@@ -152,6 +152,34 @@ namespace DeepInfra
                         h => h.Value),
                 };
             }
+            // Conflict
+            if ((int)__response.StatusCode == 409)
+            {
+                string? __content_409 = null;
+                global::DeepInfra.DeepError? __value_409 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_409 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    __value_409 = global::DeepInfra.DeepError.FromJson(__content_409, JsonSerializerContext);
+                }
+                else
+                {
+                    var __contentStream_409 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                    __value_409 = await global::DeepInfra.DeepError.FromJsonStreamAsync(__contentStream_409, JsonSerializerContext).ConfigureAwait(false);
+                }
+
+                throw new global::DeepInfra.ApiException<global::DeepInfra.DeepError>(
+                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_409,
+                    ResponseObject = __value_409,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Validation Error
             if ((int)__response.StatusCode == 422)
             {
