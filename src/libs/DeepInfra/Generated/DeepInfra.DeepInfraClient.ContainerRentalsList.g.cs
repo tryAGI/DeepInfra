@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareContainerRentalsListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::DeepInfra.ContainerRentalsListV1ContainersGetState? state,
+            ref string? state,
             ref string? xiApiKey);
         partial void PrepareContainerRentalsListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::DeepInfra.ContainerRentalsListV1ContainersGetState? state,
+            string? state,
             string? xiApiKey);
         partial void ProcessContainerRentalsListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,14 +27,13 @@ namespace DeepInfra
         /// Container Rentals List
         /// </summary>
         /// <param name="state">
-        /// whether to return active or inactive containers<br/>
-        /// Default Value: active
+        /// A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted
         /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.ContainerRentalOut>> ContainerRentalsListAsync(
-            global::DeepInfra.ContainerRentalsListV1ContainersGetState? state = default,
+            string? state = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -49,7 +48,7 @@ namespace DeepInfra
                 path: "/v1/containers",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
-                .AddOptionalParameter("state", state?.ToValueString()) 
+                .AddOptionalParameter("state", state) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

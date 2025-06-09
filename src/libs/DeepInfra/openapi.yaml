@@ -2694,15 +2694,12 @@ paths:
       parameters:
         - name: state
           in: query
-          description: whether to return active or inactive containers
+          description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
           schema:
             title: State
-            enum:
-              - active
-              - inactive
             type: string
-            description: whether to return active or inactive containers
-            default: active
+            description: 'A list of states that should be returned, separated by comma. Allowed values in the list are: creating,starting,running,shutting_down,failed,deleted'
+            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2861,6 +2858,12 @@ paths:
                 $ref: '#/components/schemas/DeepError'
         '404':
           description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
