@@ -3220,6 +3220,109 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/ssh_keys:
+    get:
+      summary: Get Ssh Keys
+      operationId: get_ssh_keys_v1_ssh_keys_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Ssh Keys V1 Ssh Keys Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/SshKeyOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Create Ssh Key
+      operationId: create_ssh_key_v1_ssh_keys_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SshKeyIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SshKeyOut'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/v1/ssh_keys/{ssh_key_id}':
+    delete:
+      summary: Delete Ssh Key
+      operationId: delete_ssh_key_v1_ssh_keys__ssh_key_id__delete
+      parameters:
+        - name: ssh_key_id
+          in: path
+          required: true
+          schema:
+            title: Ssh Key Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /payment/checklist:
     get:
       summary: Get Checklist
@@ -6404,6 +6507,50 @@ components:
       enum:
         - civitai
       type: string
+    SshKeyIn:
+      title: SshKeyIn
+      required:
+        - name
+        - key
+      type: object
+      properties:
+        name:
+          title: Name
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: SSH Key name
+        key:
+          title: Key
+          maxLength: 32000
+          minLength: 1
+          type: string
+          description: SSH Key content
+    SshKeyOut:
+      title: SshKeyOut
+      required:
+        - id
+        - name
+        - key
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: SSH Key ID
+        name:
+          title: Name
+          minLength: 1
+          type: string
+          description: SSH Key name
+        key:
+          title: Key
+          minLength: 1
+          type: string
+          description: SSH Key content
+        created_at:
+          title: Created At
+          type: integer
     StreamOptions:
       title: StreamOptions
       type: object
