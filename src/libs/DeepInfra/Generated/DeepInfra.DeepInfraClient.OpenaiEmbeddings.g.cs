@@ -239,6 +239,10 @@ namespace DeepInfra
         /// format used when encoding<br/>
         /// Default Value: float
         /// </param>
+        /// <param name="dimensions">
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
+        /// Example: 1536
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
@@ -248,6 +252,7 @@ namespace DeepInfra
             string? userAgent = default,
             string? xiApiKey = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
+            int? dimensions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAIEmbeddingsIn
@@ -255,6 +260,7 @@ namespace DeepInfra
                 Model = model,
                 Input = input,
                 EncodingFormat = encodingFormat,
+                Dimensions = dimensions,
             };
 
             return await OpenaiEmbeddingsAsync(

@@ -38,6 +38,14 @@ namespace DeepInfra
         public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? EncodingFormat { get; set; }
 
         /// <summary>
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
+        /// Example: 1536
+        /// </summary>
+        /// <example>1536</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dimensions")]
+        public int? Dimensions { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,17 +66,23 @@ namespace DeepInfra
         /// format used when encoding<br/>
         /// Default Value: float
         /// </param>
+        /// <param name="dimensions">
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
+        /// Example: 1536
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenAIEmbeddingsIn(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
-            global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat)
+            global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
+            int? dimensions)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;
             this.EncodingFormat = encodingFormat;
+            this.Dimensions = dimensions;
         }
 
         /// <summary>
