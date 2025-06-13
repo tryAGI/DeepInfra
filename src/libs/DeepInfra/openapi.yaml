@@ -6125,6 +6125,13 @@ components:
           type: string
           description: format used when encoding
           default: float
+        dimensions:
+          title: Dimensions
+          minimum: 32.0
+          type: integer
+          description: 'The number of dimensions in the embedding. If not provided, the model''s default will be used.If provided bigger than model''s default, the embedding will be padded with zeros.'
+          nullable: true
+          example: 1536
     OpenAIImageData:
       title: OpenAIImageData
       required:
