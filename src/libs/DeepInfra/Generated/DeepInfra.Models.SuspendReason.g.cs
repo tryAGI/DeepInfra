@@ -11,6 +11,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        Balance,
+        /// <summary>
+        /// 
+        /// </summary>
         PaymentMethod,
         /// <summary>
         /// 
@@ -42,6 +46,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                SuspendReason.Balance => "balance",
                 SuspendReason.PaymentMethod => "payment-method",
                 SuspendReason.OverdueInvoices => "overdue-invoices",
                 SuspendReason.LimitReached => "limit-reached",
@@ -57,6 +62,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                "balance" => SuspendReason.Balance,
                 "payment-method" => SuspendReason.PaymentMethod,
                 "overdue-invoices" => SuspendReason.OverdueInvoices,
                 "limit-reached" => SuspendReason.LimitReached,

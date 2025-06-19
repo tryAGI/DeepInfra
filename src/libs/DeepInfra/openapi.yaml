@@ -3865,6 +3865,7 @@ components:
     SuspendReason:
       title: SuspendReason
       enum:
+        - balance
         - payment-method
         - overdue-invoices
         - limit-reached
