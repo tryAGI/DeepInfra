@@ -128,6 +128,12 @@ namespace DeepInfra
         public global::DeepInfra.MeVercelConnection? VercelConnection { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("checklist")]
+        public global::DeepInfra.Checklist? Checklist { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -172,6 +178,7 @@ namespace DeepInfra
         /// Default Value: true
         /// </param>
         /// <param name="vercelConnection"></param>
+        /// <param name="checklist"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -193,7 +200,8 @@ namespace DeepInfra
             string? teamRole,
             string? teamDisplayName,
             bool? isTeamUpgradeEnabled,
-            global::DeepInfra.MeVercelConnection? vercelConnection)
+            global::DeepInfra.MeVercelConnection? vercelConnection,
+            global::DeepInfra.Checklist? checklist)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
@@ -213,6 +221,7 @@ namespace DeepInfra
             this.TeamDisplayName = teamDisplayName;
             this.IsTeamUpgradeEnabled = isTeamUpgradeEnabled;
             this.VercelConnection = vercelConnection;
+            this.Checklist = checklist;
         }
 
         /// <summary>

@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareMeArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? checklist,
             ref string? xiApiKey);
         partial void PrepareMeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? checklist,
             string? xiApiKey);
         partial void ProcessMeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,10 +26,14 @@ namespace DeepInfra
         /// <summary>
         /// Me
         /// </summary>
+        /// <param name="checklist">
+        /// Default Value: false
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Me> MeAsync(
+            bool? checklist = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -35,11 +41,15 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareMeArguments(
                 httpClient: HttpClient,
+                checklist: ref checklist,
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/me",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("checklist", checklist?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -77,6 +87,7 @@ namespace DeepInfra
             PrepareMeRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                checklist: checklist,
                 xiApiKey: xiApiKey);
 
             using var __response = await HttpClient.SendAsync(
