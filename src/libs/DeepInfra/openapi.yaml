@@ -33,6 +33,12 @@ paths:
       summary: Me
       operationId: me_v1_me_get
       parameters:
+        - name: checklist
+          in: query
+          schema:
+            title: Checklist
+            type: boolean
+            default: false
         - name: xi-api-key
           in: header
           schema:
@@ -5261,6 +5267,8 @@ components:
           default: true
         vercel_connection:
           $ref: '#/components/schemas/MeVercelConnection'
+        checklist:
+          $ref: '#/components/schemas/Checklist'
     MeIn:
       title: MeIn
       type: object
