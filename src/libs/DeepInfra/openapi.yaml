@@ -900,6 +900,50 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /model-families/names:
+    get:
+      summary: Model Families Names
+      operationId: model_families_names_model_families_names_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Model Families Names Model Families Names Get
+                type: array
+                items:
+                  type: string
+  '/model-families/{family_name}':
+    get:
+      summary: Model Family
+      operationId: model_family_model_families__family_name__get
+      parameters:
+        - name: family_name
+          in: path
+          required: true
+          schema:
+            title: Family Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelFamilyOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /models/list:
     get:
       summary: Models List
@@ -5389,6 +5433,39 @@ components:
         - list-voices-js
         - ai-sdk-js
       type: string
+    ModelFamilyOut:
+      title: ModelFamilyOut
+      required:
+        - name
+        - title
+        - description
+        - featured_models
+        - pp_sections_out
+      type: object
+      properties:
+        name:
+          title: Name
+          minLength: 1
+          type: string
+          description: Model family name
+        title:
+          title: Title
+          type: string
+          description: Model family title
+        description:
+          title: Description
+          type: string
+          description: Model family description
+        featured_models:
+          title: Featured Models
+          type: array
+          items:
+            type: string
+        pp_sections_out:
+          title: Pp Sections Out
+          type: array
+          items:
+            $ref: '#/components/schemas/PricingPageSectionOut'
     ModelFieldInfo:
       title: ModelFieldInfo
       required:
@@ -6352,6 +6429,72 @@ components:
           type: object
           description: Extra body parameters for the model.
           nullable: true
+    PricingPageEntryOut:
+      title: PricingPageEntryOut
+      required:
+        - model_name
+        - short_name
+        - pricing
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+        short_name:
+          title: Short Name
+          type: string
+        max_tokens:
+          title: Max Tokens
+          type: integer
+          description: 'The maximum context size of this model, if applicable'
+          nullable: true
+        pricing:
+          title: Pricing
+          anyOf:
+            - $ref: '#/components/schemas/ModelPricingTime'
+            - $ref: '#/components/schemas/ModelPricingTokens'
+            - $ref: '#/components/schemas/ModelPricingInputLength'
+            - $ref: '#/components/schemas/ModelPricingInputTokens'
+            - $ref: '#/components/schemas/ModelPricingUptime'
+            - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
+            - $ref: '#/components/schemas/ModelPricingImageUnits'
+    PricingPageSectionOut:
+      title: PricingPageSectionOut
+      required:
+        - section_id
+        - ptype
+        - title
+        - description
+        - entries
+      type: object
+      properties:
+        section_id:
+          title: Section Id
+          type: string
+        ptype:
+          $ref: '#/components/schemas/PricingType'
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        entries:
+          title: Entries
+          type: array
+          items:
+            $ref: '#/components/schemas/PricingPageEntryOut'
+    PricingType:
+      title: PricingType
+      enum:
+        - tokens
+        - time
+        - uptime
+        - input_length
+        - input_tokens
+        - input_character_length
+        - image_units
+      type: string
     RateLimitOut:
       title: RateLimitOut
       required:
