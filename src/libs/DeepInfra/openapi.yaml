@@ -3378,6 +3378,12 @@ paths:
       summary: Get Checklist
       operationId: get_checklist_payment_checklist_get
       parameters:
+        - name: compute_owed
+          in: query
+          schema:
+            title: Compute Owed
+            type: boolean
+            default: false
         - name: session
           in: cookie
           schema:

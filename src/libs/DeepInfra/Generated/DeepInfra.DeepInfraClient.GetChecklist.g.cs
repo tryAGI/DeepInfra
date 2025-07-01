@@ -7,10 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareGetChecklistArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? computeOwed,
             ref string? session);
         partial void PrepareGetChecklistRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? computeOwed,
             string? session);
         partial void ProcessGetChecklistResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,10 +26,14 @@ namespace DeepInfra
         /// <summary>
         /// Get Checklist
         /// </summary>
+        /// <param name="computeOwed">
+        /// Default Value: false
+        /// </param>
         /// <param name="session"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Checklist> GetChecklistAsync(
+            bool? computeOwed = default,
             string? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -35,11 +41,15 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareGetChecklistArguments(
                 httpClient: HttpClient,
+                computeOwed: ref computeOwed,
                 session: ref session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/checklist",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("compute_owed", computeOwed?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -71,6 +81,7 @@ namespace DeepInfra
             PrepareGetChecklistRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                computeOwed: computeOwed,
                 session: session);
 
             using var __response = await HttpClient.SendAsync(
