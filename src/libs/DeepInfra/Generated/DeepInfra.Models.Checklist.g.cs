@@ -52,6 +52,13 @@ namespace DeepInfra
         public required double StripeBalance { get; set; }
 
         /// <summary>
+        /// usage since most recent invoice
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("recent")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double Recent { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
@@ -120,6 +127,9 @@ namespace DeepInfra
         /// <param name="stripeBalance">
         /// Negative value indicates funds ready-to-spend. Positive value indicates money owed
         /// </param>
+        /// <param name="recent">
+        /// usage since most recent invoice
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="suspendReason"></param>
         /// <param name="topup">
@@ -139,6 +149,7 @@ namespace DeepInfra
 #endif
         public Checklist(
             double stripeBalance,
+            double recent,
             double? limit,
             global::DeepInfra.SuspendReason suspendReason,
             bool? email,
@@ -153,6 +164,7 @@ namespace DeepInfra
             bool? topupFailed)
         {
             this.StripeBalance = stripeBalance;
+            this.Recent = recent;
             this.Limit = limit;
             this.SuspendReason = suspendReason;
             this.Email = email;

@@ -3725,6 +3725,7 @@ components:
       title: Checklist
       required:
         - stripe_balance
+        - recent
         - limit
         - suspend_reason
       type: object
@@ -3757,6 +3758,10 @@ components:
           title: Stripe Balance
           type: number
           description: Negative value indicates funds ready-to-spend. Positive value indicates money owed
+        recent:
+          title: Recent
+          type: number
+          description: usage since most recent invoice
         limit:
           title: Limit
           type: number
