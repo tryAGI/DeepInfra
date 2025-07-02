@@ -5417,6 +5417,7 @@ components:
         - openai-python
         - openai-http
         - openai-js
+        - openai-js-short
         - openai-speech-http
         - openai-speech-python
         - openai-speech-js
@@ -5429,6 +5430,7 @@ components:
         - openai-comp-python
         - openai-comp-http
         - openai-comp-js
+        - openai-comp-js-short
         - openai-emb-py
         - openai-emb-http
         - openai-emb-js
@@ -5454,6 +5456,7 @@ components:
         - list-voices-python
         - list-voices-js
         - ai-sdk-js
+        - ai-sdk-js-short
       type: string
     ModelFamilyOut:
       title: ModelFamilyOut
@@ -5625,6 +5628,8 @@ components:
           items:
             $ref: '#/components/schemas/ModelDocBlock'
           nullable: true
+        short_doc_block:
+          $ref: '#/components/schemas/ModelDocBlock'
         schemas:
           title: Schemas
           type: array
@@ -5655,6 +5660,10 @@ components:
           nullable: true
         expected:
           title: Expected
+          type: string
+          nullable: true
+        import_time:
+          title: Import Time
           type: string
           nullable: true
     ModelMetaIn:
