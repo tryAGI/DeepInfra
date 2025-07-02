@@ -76,6 +76,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         RentContainer,
+        /// <summary>
+        /// 
+        /// </summary>
+        Reranker,
     }
 
     /// <summary>
@@ -107,6 +111,7 @@ namespace DeepInfra
                 HFTasksE.TextToSpeech => "text-to-speech",
                 HFTasksE.TextToVideo => "text-to-video",
                 HFTasksE.RentContainer => "rent-container",
+                HFTasksE.Reranker => "reranker",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -134,6 +139,7 @@ namespace DeepInfra
                 "text-to-speech" => HFTasksE.TextToSpeech,
                 "text-to-video" => HFTasksE.TextToVideo,
                 "rent-container" => HFTasksE.RentContainer,
+                "reranker" => HFTasksE.Reranker,
                 _ => null,
             };
         }
