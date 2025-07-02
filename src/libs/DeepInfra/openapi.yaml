@@ -958,6 +958,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ModelOut'
+  /openrouter/models:
+    get:
+      summary: Openrouter Models
+      operationId: openrouter_models_openrouter_models_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenRouterModelsOut'
   '/models/{model_name}/versions':
     get:
       summary: Model Versions
@@ -6440,6 +6451,123 @@ components:
           type: object
           description: Extra body parameters for the model.
           nullable: true
+    OpenRouterDatacenter:
+      title: OpenRouterDatacenter
+      required:
+        - country_code
+      type: object
+      properties:
+        country_code:
+          title: Country Code
+          type: string
+          description: ISO 3166 Alpha-2 country code
+    OpenRouterModelData:
+      title: OpenRouterModelData
+      required:
+        - id
+        - name
+        - input_modalities
+        - output_modalities
+        - quantization
+        - context_length
+        - max_output_length
+        - pricing
+        - supported_sampling_parameters
+        - supported_features
+        - datacenters
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: Model identifier
+        name:
+          title: Name
+          type: string
+          description: Human-readable model name
+        input_modalities:
+          title: Input Modalities
+          type: array
+          items:
+            type: string
+          description: Supported input modalities
+        output_modalities:
+          title: Output Modalities
+          type: array
+          items:
+            type: string
+          description: Supported output modalities
+        quantization:
+          title: Quantization
+          type: string
+          description: Model quantization type
+        context_length:
+          title: Context Length
+          type: integer
+          description: Maximum context length
+        max_output_length:
+          title: Max Output Length
+          type: integer
+          description: Maximum output length
+        pricing:
+          $ref: '#/components/schemas/OpenRouterPricing'
+        supported_sampling_parameters:
+          title: Supported Sampling Parameters
+          type: array
+          items:
+            type: string
+          description: Supported sampling parameters
+        supported_features:
+          title: Supported Features
+          type: array
+          items:
+            type: string
+          description: Supported features
+        description:
+          title: Description
+          type: string
+          description: Model description
+          nullable: true
+        openrouter:
+          title: Openrouter
+          type: object
+          additionalProperties:
+            type: string
+          description: OpenRouter specific data
+          nullable: true
+        datacenters:
+          title: Datacenters
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenRouterDatacenter'
+          description: Available datacenters
+    OpenRouterModelsOut:
+      title: OpenRouterModelsOut
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          title: Data
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenRouterModelData'
+          description: List of available models
+    OpenRouterPricing:
+      title: OpenRouterPricing
+      required:
+        - prompt
+        - completion
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: string
+          description: Pricing per 1 token for input
+        completion:
+          title: Completion
+          type: string
+          description: Pricing per 1 token for output
     PricingPageEntryOut:
       title: PricingPageEntryOut
       required:

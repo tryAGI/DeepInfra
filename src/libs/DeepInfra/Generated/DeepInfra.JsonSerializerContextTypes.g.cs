@@ -730,62 +730,90 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitOut? Type176 { get; set; }
+        public global::DeepInfra.OpenRouterDatacenter? Type176 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.RateLimitRequestIn? Type177 { get; set; }
+        public global::DeepInfra.OpenRouterModelData? Type177 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SchemaOut? Type178 { get; set; }
+        public global::DeepInfra.OpenRouterPricing? Type178 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ScopedJWTIn? Type179 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string>? Type179 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ScopedJWTOut? Type180 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterDatacenter>? Type180 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SshKeyIn? Type181 { get; set; }
+        public global::DeepInfra.OpenRouterModelsOut? Type181 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.SshKeyOut? Type182 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterModelData>? Type182 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.UpdateLoraApiRequest? Type183 { get; set; }
+        public global::DeepInfra.RateLimitOut? Type183 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ContainerRentalsListV1ContainersGetState? Type184 { get; set; }
+        public global::DeepInfra.RateLimitRequestIn? Type184 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type185 { get; set; }
+        public global::DeepInfra.SchemaOut? Type185 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type186 { get; set; }
+        public global::DeepInfra.ScopedJWTIn? Type186 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type187 { get; set; }
+        public global::DeepInfra.ScopedJWTOut? Type187 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ContainerRentalOut>? Type188 { get; set; }
+        public global::DeepInfra.SshKeyIn? Type188 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type189 { get; set; }
+        public global::DeepInfra.SshKeyOut? Type189 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.SshKeyOut>? Type190 { get; set; }
+        public global::DeepInfra.UpdateLoraApiRequest? Type190 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::DeepInfra.ContainerRentalsListV1ContainersGetState? Type191 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.DeploymentOut>? Type192 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>? Type193 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>? Type194 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ContainerRentalOut>? Type195 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>? Type196 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.SshKeyOut>? Type197 { get; set; }
     }
 }
