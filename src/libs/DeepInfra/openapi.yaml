@@ -5086,6 +5086,7 @@ components:
         - text-to-speech
         - text-to-video
         - rent-container
+        - reranker
       type: string
     HFWeights:
       title: HFWeights
