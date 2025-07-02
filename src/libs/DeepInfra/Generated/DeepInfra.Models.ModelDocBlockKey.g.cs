@@ -55,6 +55,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiJsShort,
+        /// <summary>
+        /// 
+        /// </summary>
         OpenaiSpeechHttp,
         /// <summary>
         /// 
@@ -100,6 +104,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         OpenaiCompJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiCompJsShort,
         /// <summary>
         /// 
         /// </summary>
@@ -200,6 +208,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         AiSdkJs,
+        /// <summary>
+        /// 
+        /// </summary>
+        AiSdkJsShort,
     }
 
     /// <summary>
@@ -225,6 +237,7 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiPython => "openai-python",
                 ModelDocBlockKey.OpenaiHttp => "openai-http",
                 ModelDocBlockKey.OpenaiJs => "openai-js",
+                ModelDocBlockKey.OpenaiJsShort => "openai-js-short",
                 ModelDocBlockKey.OpenaiSpeechHttp => "openai-speech-http",
                 ModelDocBlockKey.OpenaiSpeechPython => "openai-speech-python",
                 ModelDocBlockKey.OpenaiSpeechJs => "openai-speech-js",
@@ -237,6 +250,7 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiCompPython => "openai-comp-python",
                 ModelDocBlockKey.OpenaiCompHttp => "openai-comp-http",
                 ModelDocBlockKey.OpenaiCompJs => "openai-comp-js",
+                ModelDocBlockKey.OpenaiCompJsShort => "openai-comp-js-short",
                 ModelDocBlockKey.OpenaiEmbPy => "openai-emb-py",
                 ModelDocBlockKey.OpenaiEmbHttp => "openai-emb-http",
                 ModelDocBlockKey.OpenaiEmbJs => "openai-emb-js",
@@ -262,6 +276,7 @@ namespace DeepInfra
                 ModelDocBlockKey.ListVoicesPython => "list-voices-python",
                 ModelDocBlockKey.ListVoicesJs => "list-voices-js",
                 ModelDocBlockKey.AiSdkJs => "ai-sdk-js",
+                ModelDocBlockKey.AiSdkJsShort => "ai-sdk-js-short",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -283,6 +298,7 @@ namespace DeepInfra
                 "openai-python" => ModelDocBlockKey.OpenaiPython,
                 "openai-http" => ModelDocBlockKey.OpenaiHttp,
                 "openai-js" => ModelDocBlockKey.OpenaiJs,
+                "openai-js-short" => ModelDocBlockKey.OpenaiJsShort,
                 "openai-speech-http" => ModelDocBlockKey.OpenaiSpeechHttp,
                 "openai-speech-python" => ModelDocBlockKey.OpenaiSpeechPython,
                 "openai-speech-js" => ModelDocBlockKey.OpenaiSpeechJs,
@@ -295,6 +311,7 @@ namespace DeepInfra
                 "openai-comp-python" => ModelDocBlockKey.OpenaiCompPython,
                 "openai-comp-http" => ModelDocBlockKey.OpenaiCompHttp,
                 "openai-comp-js" => ModelDocBlockKey.OpenaiCompJs,
+                "openai-comp-js-short" => ModelDocBlockKey.OpenaiCompJsShort,
                 "openai-emb-py" => ModelDocBlockKey.OpenaiEmbPy,
                 "openai-emb-http" => ModelDocBlockKey.OpenaiEmbHttp,
                 "openai-emb-js" => ModelDocBlockKey.OpenaiEmbJs,
@@ -320,6 +337,7 @@ namespace DeepInfra
                 "list-voices-python" => ModelDocBlockKey.ListVoicesPython,
                 "list-voices-js" => ModelDocBlockKey.ListVoicesJs,
                 "ai-sdk-js" => ModelDocBlockKey.AiSdkJs,
+                "ai-sdk-js-short" => ModelDocBlockKey.AiSdkJsShort,
                 _ => null,
             };
         }

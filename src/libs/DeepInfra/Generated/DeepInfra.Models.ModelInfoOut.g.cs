@@ -147,6 +147,12 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("short_doc_block")]
+        public global::DeepInfra.ModelDocBlock? ShortDocBlock { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schemas")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> Schemas { get; set; }
@@ -194,6 +200,12 @@ namespace DeepInfra
         public string? Expected { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("import_time")]
+        public string? ImportTime { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -224,6 +236,7 @@ namespace DeepInfra
         /// <param name="inFields"></param>
         /// <param name="pricing"></param>
         /// <param name="docBlocks"></param>
+        /// <param name="shortDocBlock"></param>
         /// <param name="schemas"></param>
         /// <param name="meta"></param>
         /// <param name="maxTokens"></param>
@@ -232,6 +245,7 @@ namespace DeepInfra
         /// <param name="quantization"></param>
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
+        /// <param name="importTime"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -257,13 +271,15 @@ namespace DeepInfra
             object? outSchema,
             global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? inFields,
             global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>? docBlocks,
+            global::DeepInfra.ModelDocBlock? shortDocBlock,
             object? meta,
             int? maxTokens,
             string? replacedBy,
             int? deprecated,
             string? quantization,
             double? mmlu,
-            string? expected)
+            string? expected,
+            string? importTime)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -286,6 +302,7 @@ namespace DeepInfra
             this.OutSchema = outSchema;
             this.InFields = inFields;
             this.DocBlocks = docBlocks;
+            this.ShortDocBlock = shortDocBlock;
             this.Meta = meta;
             this.MaxTokens = maxTokens;
             this.ReplacedBy = replacedBy;
@@ -293,6 +310,7 @@ namespace DeepInfra
             this.Quantization = quantization;
             this.Mmlu = mmlu;
             this.Expected = expected;
+            this.ImportTime = importTime;
         }
 
         /// <summary>
