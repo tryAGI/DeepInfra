@@ -958,6 +958,35 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ModelOut'
+  /models/deployment/list:
+    get:
+      summary: Models Deployment List
+      operationId: models_deployment_list_models_deployment_list_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Models Deployment List Models Deployment List Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /openrouter/models:
     get:
       summary: Openrouter Models
@@ -5667,6 +5696,14 @@ components:
           title: Import Time
           type: string
           nullable: true
+        is_partner:
+          title: Is Partner
+          type: boolean
+          default: false
+        is_custom_deployable:
+          title: Is Custom Deployable
+          type: boolean
+          default: false
     ModelMetaIn:
       title: ModelMetaIn
       type: object
