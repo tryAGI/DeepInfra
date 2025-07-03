@@ -206,6 +206,18 @@ namespace DeepInfra
         public string? ImportTime { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_partner")]
+        public bool? IsPartner { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_custom_deployable")]
+        public bool? IsCustomDeployable { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -246,6 +258,12 @@ namespace DeepInfra
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
         /// <param name="importTime"></param>
+        /// <param name="isPartner">
+        /// Default Value: false
+        /// </param>
+        /// <param name="isCustomDeployable">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -279,7 +297,9 @@ namespace DeepInfra
             string? quantization,
             double? mmlu,
             string? expected,
-            string? importTime)
+            string? importTime,
+            bool? isPartner,
+            bool? isCustomDeployable)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -311,6 +331,8 @@ namespace DeepInfra
             this.Mmlu = mmlu;
             this.Expected = expected;
             this.ImportTime = importTime;
+            this.IsPartner = isPartner;
+            this.IsCustomDeployable = isCustomDeployable;
         }
 
         /// <summary>
