@@ -38,6 +38,12 @@ namespace DeepInfra
         public required string Description { get; set; }
 
         /// <summary>
+        /// Model family description for this section, if applicable. Will use description from the section if not set
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mf_description")]
+        public string? MfDescription { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entries")]
@@ -57,6 +63,9 @@ namespace DeepInfra
         /// <param name="ptype"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
+        /// <param name="mfDescription">
+        /// Model family description for this section, if applicable. Will use description from the section if not set
+        /// </param>
         /// <param name="entries"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -66,13 +75,15 @@ namespace DeepInfra
             global::DeepInfra.PricingType ptype,
             string title,
             string description,
-            global::System.Collections.Generic.IList<global::DeepInfra.PricingPageEntryOut> entries)
+            global::System.Collections.Generic.IList<global::DeepInfra.PricingPageEntryOut> entries,
+            string? mfDescription)
         {
             this.SectionId = sectionId ?? throw new global::System.ArgumentNullException(nameof(sectionId));
             this.Ptype = ptype;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Entries = entries ?? throw new global::System.ArgumentNullException(nameof(entries));
+            this.MfDescription = mfDescription;
         }
 
         /// <summary>

@@ -5445,6 +5445,7 @@ components:
         - js-text-to-img
         - js-speech-to-text
         - openai-python
+        - openai-python-short
         - openai-http
         - openai-js
         - openai-js-short
@@ -5458,6 +5459,7 @@ components:
         - openai-images-variations-python
         - openai-images-variations-js
         - openai-comp-python
+        - openai-comp-python-short
         - openai-comp-http
         - openai-comp-js
         - openai-comp-js-short
@@ -5601,6 +5603,10 @@ components:
           type: string
         description:
           title: Description
+          type: string
+          nullable: true
+        mf_description:
+          title: Mf Description
           type: string
           nullable: true
         featured:
@@ -6665,6 +6671,11 @@ components:
         description:
           title: Description
           type: string
+        mf_description:
+          title: Mf Description
+          type: string
+          description: 'Model family description for this section, if applicable. Will use description from the section if not set'
+          default: ''
         entries:
           title: Entries
           type: array
