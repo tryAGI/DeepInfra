@@ -54,6 +54,12 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mf_description")]
+        public string? MfDescription { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Featured { get; set; }
@@ -232,6 +238,7 @@ namespace DeepInfra
         /// <param name="reportedType"></param>
         /// <param name="version"></param>
         /// <param name="description"></param>
+        /// <param name="mfDescription"></param>
         /// <param name="featured"></param>
         /// <param name="owner">
         /// Default Value: false
@@ -283,6 +290,7 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits> pricing,
             global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> schemas,
             string? description,
+            string? mfDescription,
             bool? owner,
             string? maskToken,
             object? inSchema,
@@ -316,6 +324,7 @@ namespace DeepInfra
             this.Pricing = pricing;
             this.Schemas = schemas ?? throw new global::System.ArgumentNullException(nameof(schemas));
             this.Description = description;
+            this.MfDescription = mfDescription;
             this.Owner = owner;
             this.MaskToken = maskToken;
             this.InSchema = inSchema;

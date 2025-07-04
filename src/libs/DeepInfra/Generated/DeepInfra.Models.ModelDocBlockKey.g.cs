@@ -47,6 +47,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiPythonShort,
+        /// <summary>
+        /// 
+        /// </summary>
         OpenaiHttp,
         /// <summary>
         /// 
@@ -96,6 +100,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         OpenaiCompPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiCompPythonShort,
         /// <summary>
         /// 
         /// </summary>
@@ -235,6 +243,7 @@ namespace DeepInfra
                 ModelDocBlockKey.JsTextToImg => "js-text-to-img",
                 ModelDocBlockKey.JsSpeechToText => "js-speech-to-text",
                 ModelDocBlockKey.OpenaiPython => "openai-python",
+                ModelDocBlockKey.OpenaiPythonShort => "openai-python-short",
                 ModelDocBlockKey.OpenaiHttp => "openai-http",
                 ModelDocBlockKey.OpenaiJs => "openai-js",
                 ModelDocBlockKey.OpenaiJsShort => "openai-js-short",
@@ -248,6 +257,7 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiImagesVariationsPython => "openai-images-variations-python",
                 ModelDocBlockKey.OpenaiImagesVariationsJs => "openai-images-variations-js",
                 ModelDocBlockKey.OpenaiCompPython => "openai-comp-python",
+                ModelDocBlockKey.OpenaiCompPythonShort => "openai-comp-python-short",
                 ModelDocBlockKey.OpenaiCompHttp => "openai-comp-http",
                 ModelDocBlockKey.OpenaiCompJs => "openai-comp-js",
                 ModelDocBlockKey.OpenaiCompJsShort => "openai-comp-js-short",
@@ -296,6 +306,7 @@ namespace DeepInfra
                 "js-text-to-img" => ModelDocBlockKey.JsTextToImg,
                 "js-speech-to-text" => ModelDocBlockKey.JsSpeechToText,
                 "openai-python" => ModelDocBlockKey.OpenaiPython,
+                "openai-python-short" => ModelDocBlockKey.OpenaiPythonShort,
                 "openai-http" => ModelDocBlockKey.OpenaiHttp,
                 "openai-js" => ModelDocBlockKey.OpenaiJs,
                 "openai-js-short" => ModelDocBlockKey.OpenaiJsShort,
@@ -309,6 +320,7 @@ namespace DeepInfra
                 "openai-images-variations-python" => ModelDocBlockKey.OpenaiImagesVariationsPython,
                 "openai-images-variations-js" => ModelDocBlockKey.OpenaiImagesVariationsJs,
                 "openai-comp-python" => ModelDocBlockKey.OpenaiCompPython,
+                "openai-comp-python-short" => ModelDocBlockKey.OpenaiCompPythonShort,
                 "openai-comp-http" => ModelDocBlockKey.OpenaiCompHttp,
                 "openai-comp-js" => ModelDocBlockKey.OpenaiCompJs,
                 "openai-comp-js-short" => ModelDocBlockKey.OpenaiCompJsShort,
