@@ -5000,6 +5000,31 @@ components:
           title: Errors
           type: integer
           description: number of errors
+    FAQEntryOut:
+      title: FAQEntryOut
+      required:
+        - faq_id
+        - question
+        - answer
+      type: object
+      properties:
+        faq_id:
+          title: Faq Id
+          type: string
+          description: 'FAQ entry ID, usually the question'
+        question:
+          title: Question
+          type: string
+          description: FAQ question
+        answer:
+          title: Answer
+          type: string
+          description: FAQ answer in markdown format
+        order:
+          title: Order
+          type: integer
+          description: 'order of the FAQ entry in the list, lower numbers come first'
+          default: 0
     FeedbackIn:
       title: FeedbackIn
       required:
@@ -5523,6 +5548,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PricingPageSectionOut'
+        faq_entries:
+          title: Faq Entries
+          type: array
+          items:
+            $ref: '#/components/schemas/FAQEntryOut'
+          description: 'List of FAQ entries for this model family, ordered by their order field'
     ModelFieldInfo:
       title: ModelFieldInfo
       required:

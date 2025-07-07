@@ -44,6 +44,12 @@ namespace DeepInfra
         public required global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> PpSectionsOut { get; set; }
 
         /// <summary>
+        /// List of FAQ entries for this model family, ordered by their order field
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("faq_entries")]
+        public global::System.Collections.Generic.IList<global::DeepInfra.FAQEntryOut>? FaqEntries { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -63,6 +69,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="featuredModels"></param>
         /// <param name="ppSectionsOut"></param>
+        /// <param name="faqEntries">
+        /// List of FAQ entries for this model family, ordered by their order field
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,13 +80,15 @@ namespace DeepInfra
             string title,
             string description,
             global::System.Collections.Generic.IList<string> featuredModels,
-            global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> ppSectionsOut)
+            global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> ppSectionsOut,
+            global::System.Collections.Generic.IList<global::DeepInfra.FAQEntryOut>? faqEntries)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.FeaturedModels = featuredModels ?? throw new global::System.ArgumentNullException(nameof(featuredModels));
             this.PpSectionsOut = ppSectionsOut ?? throw new global::System.ArgumentNullException(nameof(ppSectionsOut));
+            this.FaqEntries = faqEntries;
         }
 
         /// <summary>
