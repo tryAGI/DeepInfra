@@ -44,6 +44,12 @@ namespace DeepInfra
         public global::DeepInfra.HFWeights? Hf { get; set; }
 
         /// <summary>
+        /// Base public model
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
+        public string? BaseModel { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
@@ -71,6 +77,9 @@ namespace DeepInfra
         /// Default Value: 96
         /// </param>
         /// <param name="hf"></param>
+        /// <param name="baseModel">
+        /// Base public model
+        /// </param>
         /// <param name="settings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -81,6 +90,7 @@ namespace DeepInfra
             int? numGpus,
             int? maxBatchSize,
             global::DeepInfra.HFWeights? hf,
+            string? baseModel,
             global::DeepInfra.ScaleSettings? settings)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
@@ -88,6 +98,7 @@ namespace DeepInfra
             this.NumGpus = numGpus;
             this.MaxBatchSize = maxBatchSize;
             this.Hf = hf;
+            this.BaseModel = baseModel;
             this.Settings = settings;
         }
 

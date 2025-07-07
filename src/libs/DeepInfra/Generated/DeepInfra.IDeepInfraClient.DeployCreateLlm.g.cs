@@ -33,6 +33,9 @@ namespace DeepInfra
         /// Default Value: 96
         /// </param>
         /// <param name="hf"></param>
+        /// <param name="baseModel">
+        /// Base public model
+        /// </param>
         /// <param name="settings"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -43,6 +46,7 @@ namespace DeepInfra
             int? numGpus = default,
             int? maxBatchSize = default,
             global::DeepInfra.HFWeights? hf = default,
+            string? baseModel = default,
             global::DeepInfra.ScaleSettings? settings = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

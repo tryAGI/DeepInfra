@@ -224,6 +224,18 @@ namespace DeepInfra
         public bool? IsCustomDeployable { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mf_name")]
+        public string? MfName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mf_title")]
+        public string? MfTitle { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -271,6 +283,8 @@ namespace DeepInfra
         /// <param name="isCustomDeployable">
         /// Default Value: false
         /// </param>
+        /// <param name="mfName"></param>
+        /// <param name="mfTitle"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -307,7 +321,9 @@ namespace DeepInfra
             string? expected,
             string? importTime,
             bool? isPartner,
-            bool? isCustomDeployable)
+            bool? isCustomDeployable,
+            string? mfName,
+            string? mfTitle)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -342,6 +358,8 @@ namespace DeepInfra
             this.ImportTime = importTime;
             this.IsPartner = isPartner;
             this.IsCustomDeployable = isCustomDeployable;
+            this.MfName = mfName;
+            this.MfTitle = mfTitle;
         }
 
         /// <summary>

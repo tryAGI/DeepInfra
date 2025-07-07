@@ -4720,6 +4720,11 @@ components:
           default: 96
         hf:
           $ref: '#/components/schemas/HFWeights'
+        base_model:
+          title: Base Model
+          type: string
+          description: Base public model
+          nullable: true
         settings:
           $ref: '#/components/schemas/ScaleSettings'
     DeployLLMUpdateIn:
@@ -5741,6 +5746,14 @@ components:
           title: Is Custom Deployable
           type: boolean
           default: false
+        mf_name:
+          title: Mf Name
+          type: string
+          nullable: true
+        mf_title:
+          title: Mf Title
+          type: string
+          nullable: true
     ModelMetaIn:
       title: ModelMetaIn
       type: object
