@@ -5317,6 +5317,7 @@ components:
         - uid
         - email
         - email_verified
+        - account_setup
         - display_name
         - provider
         - picture
@@ -5336,6 +5337,9 @@ components:
           nullable: true
         email_verified:
           title: Email Verified
+          type: boolean
+        account_setup:
+          title: Account Setup
           type: boolean
         require_email_verified:
           title: Require Email Verified
