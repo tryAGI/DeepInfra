@@ -30,6 +30,13 @@ namespace DeepInfra
         public required bool EmailVerified { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_setup")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool AccountSetup { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("require_email_verified")]
@@ -145,6 +152,7 @@ namespace DeepInfra
         /// <param name="uid"></param>
         /// <param name="email"></param>
         /// <param name="emailVerified"></param>
+        /// <param name="accountSetup"></param>
         /// <param name="requireEmailVerified">
         /// Default Value: false
         /// </param>
@@ -186,6 +194,7 @@ namespace DeepInfra
             string uid,
             string? email,
             bool emailVerified,
+            bool accountSetup,
             string displayName,
             string provider,
             string? picture,
@@ -206,6 +215,7 @@ namespace DeepInfra
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.EmailVerified = emailVerified;
+            this.AccountSetup = accountSetup;
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.Picture = picture ?? throw new global::System.ArgumentNullException(nameof(picture));
