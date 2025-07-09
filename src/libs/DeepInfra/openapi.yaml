@@ -987,6 +987,20 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /models/lora/list:
+    get:
+      summary: Models Lora List
+      operationId: models_lora_list_models_lora_list_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Models Lora List Models Lora List Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelOut'
   /openrouter/models:
     get:
       summary: Openrouter Models
