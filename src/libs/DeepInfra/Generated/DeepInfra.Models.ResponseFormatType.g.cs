@@ -16,6 +16,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         JsonObject,
+        /// <summary>
+        /// 
+        /// </summary>
+        JsonSchema,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace DeepInfra
             {
                 ResponseFormatType.Text => "text",
                 ResponseFormatType.JsonObject => "json_object",
+                ResponseFormatType.JsonSchema => "json_schema",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace DeepInfra
             {
                 "text" => ResponseFormatType.Text,
                 "json_object" => ResponseFormatType.JsonObject,
+                "json_schema" => ResponseFormatType.JsonSchema,
                 _ => null,
             };
         }

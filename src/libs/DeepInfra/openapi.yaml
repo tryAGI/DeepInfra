@@ -5236,6 +5236,21 @@ components:
           type: number
           description: how much is the total spending limit set at creation
           nullable: true
+    JsonSchema:
+      title: JsonSchema
+      required:
+        - name
+        - schema
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Name identifier for the JSON schema
+        schema:
+          title: Schema
+          type: object
+          description: The actual JSON schema definition
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
       required:
@@ -6787,8 +6802,11 @@ components:
           enum:
             - text
             - json_object
+            - json_schema
           type: string
           default: text
+        json_schema:
+          $ref: '#/components/schemas/JsonSchema'
     ScaleSettings:
       title: ScaleSettings
       type: object
