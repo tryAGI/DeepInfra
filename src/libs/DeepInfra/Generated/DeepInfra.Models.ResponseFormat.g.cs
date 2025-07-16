@@ -16,6 +16,12 @@ namespace DeepInfra
         public global::DeepInfra.ResponseFormatType? Type { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
+        public global::DeepInfra.JsonSchema? JsonSchema { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +33,16 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: text
         /// </param>
+        /// <param name="jsonSchema"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResponseFormat(
-            global::DeepInfra.ResponseFormatType? type)
+            global::DeepInfra.ResponseFormatType? type,
+            global::DeepInfra.JsonSchema? jsonSchema)
         {
             this.Type = type;
+            this.JsonSchema = jsonSchema;
         }
 
         /// <summary>
