@@ -69,6 +69,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.OpenAIChatCompletionsInReasoningEffortNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter),
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
