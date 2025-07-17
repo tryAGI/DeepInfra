@@ -1801,6 +1801,12 @@ paths:
             title: Xi-Api-Key
             type: string
             nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -1840,6 +1846,12 @@ paths:
             title: Xi-Api-Key
             type: string
             nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -6488,6 +6500,52 @@ components:
           type: string
           description: The prompt used to generate this image
           nullable: true
+    OpenAIImagesGenerationsIn:
+      title: OpenAIImagesGenerationsIn
+      required:
+        - model
+        - prompt
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: The model to use for image generation.
+          example: black-forest-labs/FLUX-1-schnell
+        n:
+          title: N
+          maximum: 4.0
+          minimum: 1.0
+          type: integer
+          description: The number of images to generate.
+          default: 1
+        response_format:
+          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+        size:
+          title: Size
+          type: string
+          description: The size of the generated images. Available sizes depend on the model.
+          default: 1024x1024
+        user:
+          title: User
+          type: string
+          description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
+          nullable: true
+        prompt:
+          title: Prompt
+          type: string
+          description: A text description of desired image(s).
+          example: A photo of an astronaut riding a horse on Mars.
+        quality:
+          title: Quality
+          type: string
+          description: The quality of the image that will be generated.
+          nullable: true
+        style:
+          title: Style
+          type: string
+          description: The style of the generated images.
+          nullable: true
     OpenAIImagesOut:
       title: OpenAIImagesOut
       required:
@@ -6504,6 +6562,46 @@ components:
           items:
             $ref: '#/components/schemas/OpenAIImageData'
           description: List of generated images
+    OpenAIImagesResponseFormat:
+      title: OpenAIImagesResponseFormat
+      enum:
+        - b64_json
+      type: string
+    OpenAIImagesVariationsIn:
+      title: OpenAIImagesVariationsIn
+      required:
+        - model
+        - image
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: The model to use.
+        n:
+          title: N
+          maximum: 4.0
+          minimum: 1.0
+          type: integer
+          description: The number of images to generate.
+          default: 1
+        response_format:
+          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+        size:
+          title: Size
+          type: string
+          description: The size of the generated images. Available sizes depend on the model.
+          default: 1024x1024
+        user:
+          title: User
+          type: string
+          description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
+          nullable: true
+        image:
+          title: Image
+          type: string
+          description: Input image bytes for variation task
+          format: binary
     OpenAIModelOut:
       title: OpenAIModelOut
       required:

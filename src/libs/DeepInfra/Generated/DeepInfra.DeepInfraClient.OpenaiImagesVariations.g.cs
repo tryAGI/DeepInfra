@@ -9,13 +9,15 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string? xDeepinfraSource,
             ref string? userAgent,
-            ref string? xiApiKey);
+            ref string? xiApiKey,
+            global::DeepInfra.OpenAIImagesVariationsIn request);
         partial void PrepareOpenaiImagesVariationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xDeepinfraSource,
             string? userAgent,
-            string? xiApiKey);
+            string? xiApiKey,
+            global::DeepInfra.OpenAIImagesVariationsIn request);
         partial void ProcessOpenaiImagesVariationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -32,21 +34,26 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
+        /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesVariationsAsync(
+            global::DeepInfra.OpenAIImagesVariationsIn request,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareOpenaiImagesVariationsArguments(
                 httpClient: HttpClient,
                 xDeepinfraSource: ref xDeepinfraSource,
                 userAgent: ref userAgent,
-                xiApiKey: ref xiApiKey);
+                xiApiKey: ref xiApiKey,
+                request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/openai/images/variations",
@@ -89,6 +96,12 @@ namespace DeepInfra
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
+            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
@@ -98,7 +111,8 @@ namespace DeepInfra
                 httpRequestMessage: __httpRequest,
                 xDeepinfraSource: xDeepinfraSource,
                 userAgent: userAgent,
-                xiApiKey: xiApiKey);
+                xiApiKey: xiApiKey,
+                request: request);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -219,6 +233,68 @@ namespace DeepInfra
                     };
                 }
             }
+        }
+
+        /// <summary>
+        /// Openai Images Variations<br/>
+        /// Generate a similar image using OpenAI Images Variations API
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="userAgent"></param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="model">
+        /// The model to use.
+        /// </param>
+        /// <param name="n">
+        /// The number of images to generate.<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="responseFormat"></param>
+        /// <param name="size">
+        /// The size of the generated images. Available sizes depend on the model.<br/>
+        /// Default Value: 1024x1024
+        /// </param>
+        /// <param name="user">
+        /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
+        /// </param>
+        /// <param name="image">
+        /// Input image bytes for variation task
+        /// </param>
+        /// <param name="imagename">
+        /// Input image bytes for variation task
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesVariationsAsync(
+            string model,
+            byte[] image,
+            string imagename,
+            string? xDeepinfraSource = default,
+            string? userAgent = default,
+            string? xiApiKey = default,
+            int? n = default,
+            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
+            string? size = default,
+            string? user = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::DeepInfra.OpenAIImagesVariationsIn
+            {
+                Model = model,
+                N = n,
+                ResponseFormat = responseFormat,
+                Size = size,
+                User = user,
+                Image = image,
+                Imagename = imagename,
+            };
+
+            return await OpenaiImagesVariationsAsync(
+                xDeepinfraSource: xDeepinfraSource,
+                userAgent: userAgent,
+                xiApiKey: xiApiKey,
+                request: __request,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
