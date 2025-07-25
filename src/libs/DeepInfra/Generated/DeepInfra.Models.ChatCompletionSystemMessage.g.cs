@@ -11,6 +11,12 @@ namespace DeepInfra
     public sealed partial class ChatCompletionSystemMessage
     {
         /// <summary>
+        /// Cache control for prompt caching
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cache_control")]
+        public object? CacheControl { get; set; }
+
+        /// <summary>
         /// the role of the author of this message<br/>
         /// Default Value: system
         /// </summary>
@@ -41,6 +47,9 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionSystemMessage" /> class.
         /// </summary>
+        /// <param name="cacheControl">
+        /// Cache control for prompt caching
+        /// </param>
         /// <param name="role">
         /// the role of the author of this message<br/>
         /// Default Value: system
@@ -54,10 +63,12 @@ namespace DeepInfra
 #endif
         public ChatCompletionSystemMessage(
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> content,
+            object? cacheControl,
             global::DeepInfra.ChatCompletionSystemMessageRole? role,
             string? name)
         {
             this.Content = content;
+            this.CacheControl = cacheControl;
             this.Role = role;
             this.Name = name;
         }

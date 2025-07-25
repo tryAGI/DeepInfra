@@ -4331,6 +4331,11 @@ components:
       title: ChatCompletionAssistantMessage
       type: object
       properties:
+        cache_control:
+          title: Cache Control
+          type: object
+          description: Cache control for prompt caching
+          nullable: true
         role:
           title: Role
           enum:
@@ -4421,6 +4426,11 @@ components:
         - content
       type: object
       properties:
+        cache_control:
+          title: Cache Control
+          type: object
+          description: Cache control for prompt caching
+          nullable: true
         role:
           title: Role
           enum:
@@ -4447,6 +4457,11 @@ components:
         - tool_call_id
       type: object
       properties:
+        cache_control:
+          title: Cache Control
+          type: object
+          description: Cache control for prompt caching
+          nullable: true
         role:
           title: Role
           enum:
@@ -4467,6 +4482,11 @@ components:
         - content
       type: object
       properties:
+        cache_control:
+          title: Cache Control
+          type: object
+          description: Cache control for prompt caching
+          nullable: true
         role:
           title: Role
           enum:
@@ -4495,6 +4515,11 @@ components:
         - function
       type: object
       properties:
+        cache_control:
+          title: Cache Control
+          type: object
+          description: Cache control for prompt caching
+          nullable: true
         type:
           title: Type
           type: string
@@ -6325,11 +6350,6 @@ components:
           type: string
           description: 'Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.'
           nullable: true
-        prompt_cache:
-          title: Prompt Cache
-          type: boolean
-          description: 'Whether to enable prompt caching for this request. When enabled, the model will cache the prompt for faster processing in subsequent requests. Extra rate applies for this feature.'
-          default: false
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
       required:

@@ -153,13 +153,6 @@ namespace DeepInfra
         public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? ReasoningEffort { get; set; }
 
         /// <summary>
-        /// Whether to enable prompt caching for this request. When enabled, the model will cache the prompt for faster processing in subsequent requests. Extra rate applies for this feature.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache")]
-        public bool? PromptCache { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -238,10 +231,6 @@ namespace DeepInfra
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
-        /// <param name="promptCache">
-        /// Whether to enable prompt caching for this request. When enabled, the model will cache the prompt for faster processing in subsequent requests. Extra rate applies for this feature.<br/>
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -266,8 +255,7 @@ namespace DeepInfra
             int? seed,
             bool? logprobs,
             global::DeepInfra.StreamOptions? streamOptions,
-            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort,
-            bool? promptCache)
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -290,7 +278,6 @@ namespace DeepInfra
             this.Logprobs = logprobs;
             this.StreamOptions = streamOptions;
             this.ReasoningEffort = reasoningEffort;
-            this.PromptCache = promptCache;
         }
 
         /// <summary>

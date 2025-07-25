@@ -9,6 +9,12 @@ namespace DeepInfra
     public sealed partial class ChatTools
     {
         /// <summary>
+        /// Cache control for prompt caching
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cache_control")]
+        public object? CacheControl { get; set; }
+
+        /// <summary>
         /// Default Value: function
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -30,6 +36,9 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatTools" /> class.
         /// </summary>
+        /// <param name="cacheControl">
+        /// Cache control for prompt caching
+        /// </param>
         /// <param name="type">
         /// Default Value: function
         /// </param>
@@ -39,9 +48,11 @@ namespace DeepInfra
 #endif
         public ChatTools(
             global::DeepInfra.FunctionDefinition function,
+            object? cacheControl,
             string? type)
         {
             this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
+            this.CacheControl = cacheControl;
             this.Type = type;
         }
 
