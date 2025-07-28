@@ -78,6 +78,27 @@ namespace DeepInfra
         public required string Name { get; set; }
 
         /// <summary>
+        /// First name of the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("first_name")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string FirstName { get; set; }
+
+        /// <summary>
+        /// Last name of the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_name")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string LastName { get; set; }
+
+        /// <summary>
+        /// Country of the user
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("country")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Country { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_business_account")]
@@ -97,6 +118,13 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("website")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Website { get; set; }
+
+        /// <summary>
+        /// Job title of the user, e.g. 'Software Engineer'
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Title { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -167,12 +195,24 @@ namespace DeepInfra
         /// <param name="name">
         /// Personal name
         /// </param>
+        /// <param name="firstName">
+        /// First name of the user
+        /// </param>
+        /// <param name="lastName">
+        /// Last name of the user
+        /// </param>
+        /// <param name="country">
+        /// Country of the user
+        /// </param>
         /// <param name="isBusinessAccount"></param>
         /// <param name="company">
         /// Company name
         /// </param>
         /// <param name="website">
         /// Company website address
+        /// </param>
+        /// <param name="title">
+        /// Job title of the user, e.g. 'Software Engineer'
         /// </param>
         /// <param name="isTeamAccount">
         /// Default Value: false
@@ -200,9 +240,13 @@ namespace DeepInfra
             string? picture,
             bool isAdmin,
             string name,
+            string firstName,
+            string lastName,
+            string country,
             bool isBusinessAccount,
             string company,
             string website,
+            string title,
             bool? requireEmailVerified,
             bool? isTeamAccount,
             bool? isTeamOwner,
@@ -221,9 +265,13 @@ namespace DeepInfra
             this.Picture = picture ?? throw new global::System.ArgumentNullException(nameof(picture));
             this.IsAdmin = isAdmin;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.FirstName = firstName ?? throw new global::System.ArgumentNullException(nameof(firstName));
+            this.LastName = lastName ?? throw new global::System.ArgumentNullException(nameof(lastName));
+            this.Country = country ?? throw new global::System.ArgumentNullException(nameof(country));
             this.IsBusinessAccount = isBusinessAccount;
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.RequireEmailVerified = requireEmailVerified;
             this.IsTeamAccount = isTeamAccount;
             this.IsTeamOwner = isTeamOwner;
