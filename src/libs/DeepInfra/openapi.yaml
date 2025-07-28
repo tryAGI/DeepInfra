@@ -5389,9 +5389,13 @@ components:
         - picture
         - is_admin
         - name
+        - first_name
+        - last_name
+        - country
         - is_business_account
         - company
         - website
+        - title
       type: object
       properties:
         uid:
@@ -5430,6 +5434,18 @@ components:
           title: Name
           type: string
           description: Personal name
+        first_name:
+          title: First Name
+          type: string
+          description: First name of the user
+        last_name:
+          title: Last Name
+          type: string
+          description: Last name of the user
+        country:
+          title: Country
+          type: string
+          description: Country of the user
         is_business_account:
           title: Is Business Account
           type: boolean
@@ -5441,6 +5457,10 @@ components:
           title: Website
           type: string
           description: Company website address
+        title:
+          title: Title
+          type: string
+          description: 'Job title of the user, e.g. ''Software Engineer'''
         is_team_account:
           title: Is Team Account
           type: boolean
@@ -5471,12 +5491,35 @@ components:
       properties:
         name:
           title: Name
+          maxLength: 256
           minLength: 1
           type: string
           description: Personal name
           nullable: true
+        first_name:
+          title: First Name
+          maxLength: 128
+          minLength: 1
+          type: string
+          description: First name of the user
+          nullable: true
+        last_name:
+          title: Last Name
+          maxLength: 128
+          minLength: 1
+          type: string
+          description: Last name of the user
+          nullable: true
+        country:
+          title: Country
+          maxLength: 128
+          minLength: 1
+          type: string
+          description: Country of the user
+          nullable: true
         email:
           title: Email
+          maxLength: 320
           minLength: 1
           type: string
           nullable: true
@@ -5486,15 +5529,24 @@ components:
           nullable: true
         company:
           title: Company
+          maxLength: 128
           minLength: 1
           type: string
           description: Company name
           nullable: true
         website:
           title: Website
+          maxLength: 128
           minLength: 1
           type: string
           description: Company website address
+          nullable: true
+        title:
+          title: Title
+          maxLength: 128
+          minLength: 1
+          type: string
+          description: 'Job title of the user, e.g. ''Software Engineer'''
           nullable: true
         display_name:
           title: Display Name
@@ -5503,6 +5555,20 @@ components:
           pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
           type: string
           description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
+          nullable: true
+        use_case:
+          title: Use Case
+          maxLength: 512
+          minLength: 1
+          type: string
+          description: Short description of the use case for the account
+          nullable: true
+        attribution:
+          title: Attribution
+          maxLength: 512
+          minLength: 1
+          type: string
+          description: Short description of how the user found out about DeepInfra
           nullable: true
     MeVercelConnection:
       title: MeVercelConnection
