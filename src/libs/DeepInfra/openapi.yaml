@@ -5537,7 +5537,7 @@ components:
         website:
           title: Website
           maxLength: 128
-          minLength: 1
+          minLength: 0
           type: string
           description: Company website address
           nullable: true
