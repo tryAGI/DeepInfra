@@ -210,71 +210,71 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionMessageToolCall>? Type46 { get; set; }
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>? Type46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionMessageToolCall? Type47 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>? Type47 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.Function? Type48 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartText? Type48 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartAudio? Type49 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartTextType? Type49 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartAudioType? Type50 { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionMessageToolCall>? Type50 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.InputAudio? Type51 { get; set; }
+        public global::DeepInfra.ChatCompletionMessageToolCall? Type51 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.InputAudioFormat? Type52 { get; set; }
+        public global::DeepInfra.Function? Type52 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartImage? Type53 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartAudio? Type53 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartImageType? Type54 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartAudioType? Type54 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ImageURL? Type55 { get; set; }
+        public global::DeepInfra.InputAudio? Type55 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ImageURLDetail? Type56 { get; set; }
+        public global::DeepInfra.InputAudioFormat? Type56 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartText? Type57 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartImage? Type57 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartTextType? Type58 { get; set; }
+        public global::DeepInfra.ChatCompletionContentPartImageType? Type58 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionSystemMessage? Type59 { get; set; }
+        public global::DeepInfra.ImageURL? Type59 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.ChatCompletionSystemMessageRole? Type60 { get; set; }
+        public global::DeepInfra.ImageURLDetail? Type60 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>? Type61 { get; set; }
+        public global::DeepInfra.ChatCompletionSystemMessage? Type61 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>? Type62 { get; set; }
+        public global::DeepInfra.ChatCompletionSystemMessageRole? Type62 { get; set; }
         /// <summary>
         /// 
         /// </summary>
