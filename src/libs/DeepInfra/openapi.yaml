@@ -4345,7 +4345,11 @@ components:
           default: assistant
         content:
           title: Content
-          type: string
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                $ref: '#/components/schemas/ChatCompletionContentPartText'
           description: the message content
           nullable: true
         name:

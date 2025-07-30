@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace DeepInfra
@@ -26,7 +28,8 @@ namespace DeepInfra
         /// the message content
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        public string? Content { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>))]
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>? Content { get; set; }
 
         /// <summary>
         /// 
@@ -69,7 +72,7 @@ namespace DeepInfra
         public ChatCompletionAssistantMessage(
             object? cacheControl,
             global::DeepInfra.ChatCompletionAssistantMessageRole? role,
-            string? content,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>? content,
             string? name,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionMessageToolCall>? toolCalls)
         {
