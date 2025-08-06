@@ -4352,6 +4352,11 @@ components:
                 $ref: '#/components/schemas/ChatCompletionContentPartText'
           description: the message content
           nullable: true
+        reasoning_content:
+          title: Reasoning Content
+          type: string
+          description: the reasoning content
+          nullable: true
         name:
           title: Name
           type: string
