@@ -6555,6 +6555,8 @@ components:
         - input
       type: object
       properties:
+        service_tier:
+          $ref: '#/components/schemas/ServiceTier'
         model:
           title: Model
           type: string
@@ -7117,6 +7119,12 @@ components:
           title: Token
           type: string
           description: The newly minted scoped JWT ready for use
+    ServiceTier:
+      title: ServiceTier
+      enum:
+        - default
+        - priority
+      type: string
     SourceModel:
       title: SourceModel
       required:

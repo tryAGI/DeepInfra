@@ -11,6 +11,13 @@ namespace DeepInfra
     public sealed partial class OpenAIEmbeddingsIn
     {
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ServiceTierJsonConverter))]
+        public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
         /// model name<br/>
         /// Example: thenlper/gte-large
         /// </summary>
@@ -54,6 +61,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenAIEmbeddingsIn" /> class.
         /// </summary>
+        /// <param name="serviceTier"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: thenlper/gte-large
@@ -76,11 +84,13 @@ namespace DeepInfra
         public OpenAIEmbeddingsIn(
             string model,
             global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
+            global::DeepInfra.ServiceTier? serviceTier,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
             int? dimensions)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;
+            this.ServiceTier = serviceTier;
             this.EncodingFormat = encodingFormat;
             this.Dimensions = dimensions;
         }

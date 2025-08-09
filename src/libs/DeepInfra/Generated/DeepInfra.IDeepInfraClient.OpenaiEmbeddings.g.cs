@@ -26,6 +26,7 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
+        /// <param name="serviceTier"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: thenlper/gte-large
@@ -50,6 +51,7 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
+            global::DeepInfra.ServiceTier? serviceTier = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
             int? dimensions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
