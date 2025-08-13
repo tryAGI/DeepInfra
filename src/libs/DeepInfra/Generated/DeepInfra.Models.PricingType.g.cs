@@ -36,6 +36,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         ImageUnits,
+        /// <summary>
+        /// 
+        /// </summary>
+        OutputLength,
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ namespace DeepInfra
                 PricingType.InputTokens => "input_tokens",
                 PricingType.InputCharacterLength => "input_character_length",
                 PricingType.ImageUnits => "image_units",
+                PricingType.OutputLength => "output_length",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -74,6 +79,7 @@ namespace DeepInfra
                 "input_tokens" => PricingType.InputTokens,
                 "input_character_length" => PricingType.InputCharacterLength,
                 "image_units" => PricingType.ImageUnits,
+                "output_length" => PricingType.OutputLength,
                 _ => null,
             };
         }
