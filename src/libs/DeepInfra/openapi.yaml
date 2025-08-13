@@ -5839,6 +5839,7 @@ components:
             - $ref: '#/components/schemas/ModelPricingInputTokens'
             - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
             - $ref: '#/components/schemas/ModelPricingImageUnits'
+            - $ref: '#/components/schemas/ModelPricingOutputLength'
         doc_blocks:
           title: Doc Blocks
           type: array
@@ -5987,6 +5988,7 @@ components:
             - $ref: '#/components/schemas/ModelPricingUptime'
             - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
             - $ref: '#/components/schemas/ModelPricingImageUnits'
+            - $ref: '#/components/schemas/ModelPricingOutputLength'
           description: The pricing type and cost for this model
         max_tokens:
           title: Max Tokens
@@ -6080,6 +6082,19 @@ components:
           default: input_tokens
         cents_per_input_token:
           title: Cents Per Input Token
+          type: number
+    ModelPricingOutputLength:
+      title: ModelPricingOutputLength
+      required:
+        - cents_per_output_sec
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+          default: output_length
+        cents_per_output_sec:
+          title: Cents Per Output Sec
           type: number
     ModelPricingTime:
       title: ModelPricingTime
@@ -6927,6 +6942,7 @@ components:
             - $ref: '#/components/schemas/ModelPricingUptime'
             - $ref: '#/components/schemas/ModelPricingInputCharacterLength'
             - $ref: '#/components/schemas/ModelPricingImageUnits'
+            - $ref: '#/components/schemas/ModelPricingOutputLength'
     PricingPageSectionOut:
       title: PricingPageSectionOut
       required:
@@ -6968,6 +6984,7 @@ components:
         - input_tokens
         - input_character_length
         - image_units
+        - output_length
       type: string
     RateLimitOut:
       title: RateLimitOut

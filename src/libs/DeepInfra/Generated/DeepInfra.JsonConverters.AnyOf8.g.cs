@@ -3,10 +3,10 @@
 namespace DeepInfra.JsonConverters
 {
     /// <inheritdoc />
-    public class AnyOfJsonConverter<T1, T2, T3, T4, T5, T6, T7> : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7>>
+    public class AnyOfJsonConverter<T1, T2, T3, T4, T5, T6, T7, T8> : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7, T8>>
     {
         /// <inheritdoc />
-        public override global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7> Read(
+        public override global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7, T8> Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -99,14 +99,27 @@ namespace DeepInfra.JsonConverters
             {
             }
 
-            var result = new global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7>(
+            readerCopy = reader;
+            T8? value8 = default;
+            try
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T8), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T8> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T8).Name}");
+                value8 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+            }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            var result = new global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7, T8>(
                 value1,
                 value2,
                 value3,
                 value4,
                 value5,
                 value6,
-                value7
+                value7,
+                value8
                 );
 
             if (value1 != null)
@@ -151,6 +164,12 @@ namespace DeepInfra.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            else if (value8 != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T8), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T8> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T8).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             return result;
         }
@@ -158,7 +177,7 @@ namespace DeepInfra.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7> value,
+            global::DeepInfra.AnyOf<T1, T2, T3, T4, T5, T6, T7, T8> value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
@@ -205,6 +224,12 @@ namespace DeepInfra.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value7, typeInfo);
+            }
+            else if (value.IsValue8)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T8), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T8?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T8).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value8, typeInfo);
             }
         }
     }
