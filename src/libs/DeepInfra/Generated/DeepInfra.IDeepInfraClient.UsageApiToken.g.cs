@@ -9,7 +9,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="apiToken"></param>
         /// <param name="from">
-        /// start of period, YYYY.MM or current(-N) format
+        /// start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format
         /// </param>
         /// <param name="to">
         /// end of period (if missing a single month marked by from is return), same format as from

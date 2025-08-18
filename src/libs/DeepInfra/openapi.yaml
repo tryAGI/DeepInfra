@@ -3559,12 +3559,12 @@ paths:
       parameters:
         - name: from
           in: query
-          description: 'start of period, YYYY.MM or current(-N) format'
+          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
           required: true
           schema:
             title: From
             type: string
-            description: 'start of period, YYYY.MM or current(-N) format'
+            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
         - name: to
           in: query
           description: 'end of period (if missing a single month marked by from is return), same format as from'
@@ -3645,12 +3645,12 @@ paths:
             type: string
         - name: from
           in: query
-          description: 'start of period, YYYY.MM or current(-N) format'
+          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
           required: true
           schema:
             title: From
             type: string
-            description: 'start of period, YYYY.MM or current(-N) format'
+            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
         - name: to
           in: query
           description: 'end of period (if missing a single month marked by from is return), same format as from'
