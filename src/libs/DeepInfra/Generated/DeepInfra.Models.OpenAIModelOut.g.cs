@@ -49,6 +49,12 @@ namespace DeepInfra
         public object? Parent { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::DeepInfra.ModelMetadata? Metadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,7 @@ namespace DeepInfra
         /// <param name="ownedBy"></param>
         /// <param name="root"></param>
         /// <param name="parent"></param>
+        /// <param name="metadata"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -74,7 +81,8 @@ namespace DeepInfra
             string ownedBy,
             string root,
             string? @object,
-            object? parent)
+            object? parent,
+            global::DeepInfra.ModelMetadata? metadata)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Created = created;
@@ -82,6 +90,7 @@ namespace DeepInfra
             this.Root = root ?? throw new global::System.ArgumentNullException(nameof(root));
             this.Object = @object;
             this.Parent = parent;
+            this.Metadata = metadata;
         }
 
         /// <summary>

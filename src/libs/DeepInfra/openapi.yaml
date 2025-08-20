@@ -5937,6 +5937,35 @@ components:
         reported_type:
           $ref: '#/components/schemas/HFTasksE'
       additionalProperties: false
+    ModelMetadata:
+      title: ModelMetadata
+      required:
+        - description
+        - context_length
+        - max_tokens
+        - pricing
+        - tags
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+        context_length:
+          title: Context Length
+          type: integer
+        max_tokens:
+          title: Max Tokens
+          type: integer
+        pricing:
+          title: Pricing
+          type: object
+          additionalProperties:
+            type: number
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
     ModelOut:
       title: ModelOut
       required:
@@ -6747,6 +6776,8 @@ components:
         parent:
           title: Parent
           type: 'null'
+        metadata:
+          $ref: '#/components/schemas/ModelMetadata'
     OpenAIModelsOut:
       title: OpenAIModelsOut
       type: object
