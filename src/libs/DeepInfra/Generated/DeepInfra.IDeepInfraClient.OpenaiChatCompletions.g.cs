@@ -76,7 +76,7 @@ namespace DeepInfra
         /// A list of tools the model may call. Currently, only functions are supported as a tool.
         /// </param>
         /// <param name="toolChoice">
-        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
+        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </param>
         /// <param name="responseFormat"></param>
         /// <param name="repetitionPenalty">
@@ -115,7 +115,7 @@ namespace DeepInfra
             double? presencePenalty = default,
             double? frequencyPenalty = default,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
-            string? toolChoice = default,
+            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice = default,
             global::DeepInfra.ResponseFormat? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
