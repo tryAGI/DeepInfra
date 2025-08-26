@@ -103,10 +103,11 @@ namespace DeepInfra
         public global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? Tools { get; set; }
 
         /// <summary>
-        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
+        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_choice")]
-        public string? ToolChoice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::DeepInfra.ChatTools>))]
+        public global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? ToolChoice { get; set; }
 
         /// <summary>
         /// 
@@ -211,7 +212,7 @@ namespace DeepInfra
         /// A list of tools the model may call. Currently, only functions are supported as a tool.
         /// </param>
         /// <param name="toolChoice">
-        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. specifying a particular function choice is not supported currently.none is the default when no functions are present. auto is the default if functions are present.
+        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </param>
         /// <param name="responseFormat"></param>
         /// <param name="repetitionPenalty">
@@ -248,7 +249,7 @@ namespace DeepInfra
             double? presencePenalty,
             double? frequencyPenalty,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
-            string? toolChoice,
+            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice,
             global::DeepInfra.ResponseFormat? responseFormat,
             double? repetitionPenalty,
             string? user,
