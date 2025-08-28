@@ -1444,6 +1444,49 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/completions:
+    post:
+      summary: Openai Completions
+      operationId: openai_completions_v1_completions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAICompletionsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/completions:
     post:
       summary: Openai Completions
@@ -1472,6 +1515,85 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/OpenAICompletionsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/files:
+    get:
+      summary: List Files
+      operationId: list_files_v1_files_get
+      parameters:
+        - name: after
+          in: query
+          schema:
+            title: After
+            type: string
+            nullable: true
+        - name: purpose
+          in: query
+          schema:
+            title: Purpose
+            type: string
+            nullable: true
+        - name: order
+          in: query
+          schema:
+            title: Order
+            type: string
+            nullable: true
+        - name: limit
+          in: query
+          schema:
+            title: Limit
+            type: integer
+            default: 100
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Openai Files
+      operationId: openai_files_v1_files_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_files_v1_files_post'
         required: true
       responses:
         '200':
@@ -1566,6 +1688,74 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/batches:
+    get:
+      summary: Retrieve Openai Batches
+      operationId: retrieve_openai_batches_v1_batches_get
+      parameters:
+        - name: after
+          in: query
+          required: true
+          schema:
+            title: After
+            type: string
+        - name: limit
+          in: query
+          schema:
+            title: Limit
+            type: integer
+            default: 20
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+    post:
+      summary: Create Openai Batch
+      operationId: create_openai_batch_v1_batches_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIBatchesIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIBatch'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/batches:
     get:
       summary: Retrieve Openai Batches
@@ -1634,6 +1824,37 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  '/v1/batches/{batch_id}':
+    get:
+      summary: Retrieve Openai Batch
+      operationId: retrieve_openai_batch_v1_batches__batch_id__get
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   '/v1/openai/batches/{batch_id}':
     get:
       summary: Retrieve Openai Batch
@@ -1651,6 +1872,49 @@ paths:
             title: Xi-Api-Key
             type: string
             nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/chat/completions:
+    post:
+      summary: Openai Chat Completions
+      operationId: openai_chat_completions_v1_chat_completions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIChatCompletionsIn'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -1693,6 +1957,49 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/OpenAIChatCompletionsIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/embeddings:
+    post:
+      summary: Openai Embeddings
+      operationId: openai_embeddings_v1_embeddings_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAIEmbeddingsIn'
         required: true
       responses:
         '200':
@@ -1751,6 +2058,32 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/models:
+    get:
+      summary: Openai Models
+      operationId: openai_models_v1_models_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIModelsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/models:
     get:
       summary: Openai Models
@@ -1769,6 +2102,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OpenAIModelsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/images/generations:
+    post:
+      summary: Openai Images Generations
+      description: Generate image using OpenAI Images API
+      operationId: openai_images_generations_v1_images_generations_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body_openai_images_generations_v1_images_generations_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIImagesOut'
         '422':
           description: Validation Error
           content:
@@ -1803,9 +2181,54 @@ paths:
             nullable: true
       requestBody:
         content:
-          application/json:
+          application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
+              $ref: '#/components/schemas/Body_openai_images_generations_v1_openai_images_generations_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIImagesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/images/variations:
+    post:
+      summary: Openai Images Variations
+      description: Generate a similar image using OpenAI Images Variations API
+      operationId: openai_images_variations_v1_images_variations_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_images_variations_v1_images_variations_post'
         required: true
       responses:
         '200':
@@ -1848,9 +2271,99 @@ paths:
             nullable: true
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+              $ref: '#/components/schemas/Body_openai_images_variations_v1_openai_images_variations_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIImagesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/images/edits:
+    post:
+      summary: Openai Images Edits
+      description: Edit image using OpenAI Images Edits API
+      operationId: openai_images_edits_v1_images_edits_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_images_edits_v1_images_edits_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAIImagesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/openai/images/edits:
+    post:
+      summary: Openai Images Edits
+      description: Edit image using OpenAI Images Edits API
+      operationId: openai_images_edits_v1_openai_images_edits_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: user-agent
+          in: header
+          schema:
+            title: User-Agent
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_images_edits_v1_openai_images_edits_post'
         required: true
       responses:
         '200':
@@ -1905,6 +2418,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/audio/speech:
+    post:
+      summary: Openai Audio Speech
+      operationId: openai_audio_speech_v1_audio_speech_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAITextToSpeechIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/audio/speech:
     post:
       summary: Openai Audio Speech
@@ -1942,6 +2492,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/audio/transcriptions:
+    post:
+      summary: Openai Audio Transcriptions
+      operationId: openai_audio_transcriptions_v1_audio_transcriptions_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_audio_transcriptions_v1_audio_transcriptions_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /v1/openai/audio/transcriptions:
     post:
       summary: Openai Audio Transcriptions
@@ -1964,6 +2551,43 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/audio/translations:
+    post:
+      summary: Openai Audio Translations
+      operationId: openai_audio_translations_v1_audio_translations_post
+      parameters:
+        - name: x-deepinfra-source
+          in: header
+          schema:
+            title: X-Deepinfra-Source
+            type: string
+            nullable: true
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_openai_audio_translations_v1_audio_translations_post'
         required: true
       responses:
         '200':
@@ -4217,6 +4841,53 @@ components:
           items:
             type: string
             format: binary
+    Body_openai_audio_transcriptions_v1_audio_transcriptions_post:
+      title: Body_openai_audio_transcriptions_v1_audio_transcriptions_post
+      required:
+        - file
+        - model
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
+        model:
+          title: Model
+          type: string
+        language:
+          title: Language
+          type: string
+          nullable: true
+        prompt:
+          title: Prompt
+          type: string
+          nullable: true
+        response_format:
+          title: Response Format
+          enum:
+            - json
+            - verbose_json
+            - text
+            - srt
+            - vtt
+          type: string
+          default: json
+          nullable: true
+        temperature:
+          title: Temperature
+          type: number
+          default: 0
+          nullable: true
+        timestamp_granularities:
+          title: Timestamp Granularities
+          type: array
+          items:
+            enum:
+              - segment
+              - word
+            type: string
+          nullable: true
     Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post:
       title: Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post
       required:
@@ -4264,6 +4935,40 @@ components:
               - word
             type: string
           nullable: true
+    Body_openai_audio_translations_v1_audio_translations_post:
+      title: Body_openai_audio_translations_v1_audio_translations_post
+      required:
+        - file
+        - model
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
+        model:
+          title: Model
+          type: string
+        prompt:
+          title: Prompt
+          type: string
+          nullable: true
+        response_format:
+          title: Response Format
+          enum:
+            - json
+            - verbose_json
+            - text
+            - srt
+            - vtt
+          type: string
+          default: json
+          nullable: true
+        temperature:
+          title: Temperature
+          type: number
+          default: 0
+          nullable: true
     Body_openai_audio_translations_v1_openai_audio_translations_post:
       title: Body_openai_audio_translations_v1_openai_audio_translations_post
       required:
@@ -4298,6 +5003,22 @@ components:
           type: number
           default: 0
           nullable: true
+    Body_openai_files_v1_files_post:
+      title: Body_openai_files_v1_files_post
+      required:
+        - purpose
+        - file
+      type: object
+      properties:
+        purpose:
+          title: Purpose
+          type: string
+        file:
+          title: File
+          type: array
+          items:
+            type: string
+            format: binary
     Body_openai_files_v1_openai_files_post:
       title: Body_openai_files_v1_openai_files_post
       required:
@@ -4314,6 +5035,108 @@ components:
           items:
             type: string
             format: binary
+    Body_openai_images_edits_v1_images_edits_post:
+      title: Body_openai_images_edits_v1_images_edits_post
+      required:
+        - image
+        - prompt
+        - model
+      type: object
+      properties:
+        image:
+          title: Image
+          type: string
+          format: binary
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesEditsIn'
+        prompt:
+          title: Prompt
+          type: string
+        model:
+          title: Model
+          type: string
+    Body_openai_images_edits_v1_openai_images_edits_post:
+      title: Body_openai_images_edits_v1_openai_images_edits_post
+      required:
+        - image
+        - prompt
+        - model
+      type: object
+      properties:
+        image:
+          title: Image
+          type: string
+          format: binary
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesEditsIn'
+        prompt:
+          title: Prompt
+          type: string
+        model:
+          title: Model
+          type: string
+    Body_openai_images_generations_v1_images_generations_post:
+      title: Body_openai_images_generations_v1_images_generations_post
+      required:
+        - prompt
+        - model
+      type: object
+      properties:
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
+        prompt:
+          title: Prompt
+          type: string
+        model:
+          title: Model
+          type: string
+    Body_openai_images_generations_v1_openai_images_generations_post:
+      title: Body_openai_images_generations_v1_openai_images_generations_post
+      required:
+        - prompt
+        - model
+      type: object
+      properties:
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
+        prompt:
+          title: Prompt
+          type: string
+        model:
+          title: Model
+          type: string
+    Body_openai_images_variations_v1_images_variations_post:
+      title: Body_openai_images_variations_v1_images_variations_post
+      required:
+        - image
+        - model
+      type: object
+      properties:
+        image:
+          title: Image
+          type: string
+          format: binary
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+        model:
+          title: Model
+          type: string
+    Body_openai_images_variations_v1_openai_images_variations_post:
+      title: Body_openai_images_variations_v1_openai_images_variations_post
+      required:
+        - image
+        - model
+      type: object
+      properties:
+        image:
+          title: Image
+          type: string
+          format: binary
+        inp:
+          $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+        model:
+          title: Model
+          type: string
     Body_update_voice_v1_voices__voice_id__edit_post:
       title: Body_update_voice_v1_voices__voice_id__edit_post
       required:
@@ -5633,6 +6456,9 @@ components:
         - openai-images-variations-http
         - openai-images-variations-python
         - openai-images-variations-js
+        - openai-images-edits-http
+        - openai-images-edits-python
+        - openai-images-edits-js
         - openai-comp-python
         - openai-comp-python-short
         - openai-comp-http
@@ -6126,6 +6952,14 @@ components:
         cents_per_output_token:
           title: Cents Per Output Token
           type: number
+        rate_per_input_token_cached:
+          title: Rate Per Input Token Cached
+          type: number
+          nullable: true
+        rate_per_input_token_cache_write:
+          title: Rate Per Input Token Cache Write
+          type: number
+          nullable: true
     ModelPricingUptime:
       title: ModelPricingUptime
       required:
@@ -6619,6 +7453,53 @@ components:
           type: string
           description: The prompt used to generate this image
           nullable: true
+    OpenAIImagesEditsIn:
+      title: OpenAIImagesEditsIn
+      required:
+        - model
+        - image
+        - prompt
+      type: object
+      properties:
+        model:
+          title: Model
+          type: string
+          description: The model to use.
+        n:
+          title: N
+          maximum: 4.0
+          minimum: 1.0
+          type: integer
+          description: The number of images to generate.
+          default: 1
+        response_format:
+          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+        size:
+          title: Size
+          type: string
+          description: The size of the generated images. Available sizes depend on the model.
+          default: 1024x1024
+        user:
+          title: User
+          type: string
+          description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
+          nullable: true
+        image:
+          title: Image
+          type: string
+          description: Input image bytes for editing task
+          format: binary
+        prompt:
+          title: Prompt
+          type: string
+          description: A text description of the desired image edits.
+          example: Add a hat to the cat
+        mask:
+          title: Mask
+          type: string
+          description: 'An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where image should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as image.'
+          format: binary
+          nullable: true
     OpenAIImagesGenerationsIn:
       title: OpenAIImagesGenerationsIn
       required:
@@ -7089,6 +7970,7 @@ components:
         - openai-tts
         - openai-images
         - openai-images-variations
+        - openai-images-edits
         - elevenlabs-tts
         - create-voice
         - read-voice

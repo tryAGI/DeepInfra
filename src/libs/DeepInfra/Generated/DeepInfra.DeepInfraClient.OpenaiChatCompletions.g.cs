@@ -55,7 +55,7 @@ namespace DeepInfra
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/chat/completions",
+                path: "/v1/chat/completions",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

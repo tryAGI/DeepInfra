@@ -45,7 +45,7 @@ namespace DeepInfra
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/batches",
+                path: "/v1/batches",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

@@ -43,6 +43,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiImagesEdits,
+        /// <summary>
+        /// 
+        /// </summary>
         ElevenlabsTts,
         /// <summary>
         /// 
@@ -90,6 +94,7 @@ namespace DeepInfra
                 SchemaVariantKey.OpenaiTts => "openai-tts",
                 SchemaVariantKey.OpenaiImages => "openai-images",
                 SchemaVariantKey.OpenaiImagesVariations => "openai-images-variations",
+                SchemaVariantKey.OpenaiImagesEdits => "openai-images-edits",
                 SchemaVariantKey.ElevenlabsTts => "elevenlabs-tts",
                 SchemaVariantKey.CreateVoice => "create-voice",
                 SchemaVariantKey.ReadVoice => "read-voice",
@@ -115,6 +120,7 @@ namespace DeepInfra
                 "openai-tts" => SchemaVariantKey.OpenaiTts,
                 "openai-images" => SchemaVariantKey.OpenaiImages,
                 "openai-images-variations" => SchemaVariantKey.OpenaiImagesVariations,
+                "openai-images-edits" => SchemaVariantKey.OpenaiImagesEdits,
                 "elevenlabs-tts" => SchemaVariantKey.ElevenlabsTts,
                 "create-voice" => SchemaVariantKey.CreateVoice,
                 "read-voice" => SchemaVariantKey.ReadVoice,

@@ -60,7 +60,7 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/files",
+                path: "/v1/files",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("after", after) 
