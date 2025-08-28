@@ -10,14 +10,14 @@ namespace DeepInfra
             ref string? xDeepinfraSource,
             ref string? userAgent,
             ref string? xiApiKey,
-            global::DeepInfra.OpenAIImagesVariationsIn request);
+            global::DeepInfra.BodyOpenaiImagesVariationsV1ImagesVariationsPost request);
         partial void PrepareOpenaiImagesVariationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xDeepinfraSource,
             string? userAgent,
             string? xiApiKey,
-            global::DeepInfra.OpenAIImagesVariationsIn request);
+            global::DeepInfra.BodyOpenaiImagesVariationsV1ImagesVariationsPost request);
         partial void ProcessOpenaiImagesVariationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -38,7 +38,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesVariationsAsync(
-            global::DeepInfra.OpenAIImagesVariationsIn request,
+            global::DeepInfra.BodyOpenaiImagesVariationsV1ImagesVariationsPost request,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
@@ -56,7 +56,7 @@ namespace DeepInfra
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/images/variations",
+                path: "/v1/images/variations",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -96,11 +96,38 @@ namespace DeepInfra
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
+            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            if (xDeepinfraSource != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{xDeepinfraSource}"),
+                    name: "x-deepinfra-source");
+            } 
+            if (userAgent != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{userAgent}"),
+                    name: "user-agent");
+            } 
+            if (xiApiKey != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
+                    name: "xi-api-key");
+            } 
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.ByteArrayContent(request.Image ?? global::System.Array.Empty<byte>()),
+                name: "image",
+                fileName: request.Imagename ?? string.Empty);
+            if (request.Inp != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Inp}"),
+                    name: "inp");
+            } 
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.StringContent($"{request.Model}"),
+                name: "model");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -242,51 +269,28 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
-        /// <param name="model">
-        /// The model to use.
-        /// </param>
-        /// <param name="n">
-        /// The number of images to generate.<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="responseFormat"></param>
-        /// <param name="size">
-        /// The size of the generated images. Available sizes depend on the model.<br/>
-        /// Default Value: 1024x1024
-        /// </param>
-        /// <param name="user">
-        /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
-        /// </param>
-        /// <param name="image">
-        /// Input image bytes for variation task
-        /// </param>
-        /// <param name="imagename">
-        /// Input image bytes for variation task
-        /// </param>
+        /// <param name="image"></param>
+        /// <param name="imagename"></param>
+        /// <param name="inp"></param>
+        /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesVariationsAsync(
-            string model,
             byte[] image,
             string imagename,
+            string model,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
-            int? n = default,
-            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
-            string? size = default,
-            string? user = default,
+            global::DeepInfra.OpenAIImagesVariationsIn? inp = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.OpenAIImagesVariationsIn
+            var __request = new global::DeepInfra.BodyOpenaiImagesVariationsV1ImagesVariationsPost
             {
-                Model = model,
-                N = n,
-                ResponseFormat = responseFormat,
-                Size = size,
-                User = user,
                 Image = image,
                 Imagename = imagename,
+                Inp = inp,
+                Model = model,
             };
 
             return await OpenaiImagesVariationsAsync(

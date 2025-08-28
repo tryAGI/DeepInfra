@@ -13,7 +13,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioTranscriptionsAsync(
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPost request,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPost request,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -45,9 +45,9 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? language = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? responseFormat = default,
             double? temperature = default,
-            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitie>? timestampGranularities = default,
+            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitie>? timestampGranularities = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

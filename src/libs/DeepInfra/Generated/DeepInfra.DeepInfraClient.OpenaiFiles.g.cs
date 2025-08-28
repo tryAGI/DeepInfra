@@ -8,12 +8,12 @@ namespace DeepInfra
         partial void PrepareOpenaiFilesArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
-            global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request);
+            global::DeepInfra.BodyOpenaiFilesV1FilesPost request);
         partial void PrepareOpenaiFilesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
-            global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request);
+            global::DeepInfra.BodyOpenaiFilesV1FilesPost request);
         partial void ProcessOpenaiFilesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -31,7 +31,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
-            global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost request,
+            global::DeepInfra.BodyOpenaiFilesV1FilesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,7 +45,7 @@ namespace DeepInfra
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/files",
+                path: "/v1/files",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -232,7 +232,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost
+            var __request = new global::DeepInfra.BodyOpenaiFilesV1FilesPost
             {
                 Purpose = purpose,
                 File = file,

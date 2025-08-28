@@ -99,6 +99,18 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        OpenaiImagesEditsHttp,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesEditsPython,
+        /// <summary>
+        /// 
+        /// </summary>
+        OpenaiImagesEditsJs,
+        /// <summary>
+        /// 
+        /// </summary>
         OpenaiCompPython,
         /// <summary>
         /// 
@@ -256,6 +268,9 @@ namespace DeepInfra
                 ModelDocBlockKey.OpenaiImagesVariationsHttp => "openai-images-variations-http",
                 ModelDocBlockKey.OpenaiImagesVariationsPython => "openai-images-variations-python",
                 ModelDocBlockKey.OpenaiImagesVariationsJs => "openai-images-variations-js",
+                ModelDocBlockKey.OpenaiImagesEditsHttp => "openai-images-edits-http",
+                ModelDocBlockKey.OpenaiImagesEditsPython => "openai-images-edits-python",
+                ModelDocBlockKey.OpenaiImagesEditsJs => "openai-images-edits-js",
                 ModelDocBlockKey.OpenaiCompPython => "openai-comp-python",
                 ModelDocBlockKey.OpenaiCompPythonShort => "openai-comp-python-short",
                 ModelDocBlockKey.OpenaiCompHttp => "openai-comp-http",
@@ -319,6 +334,9 @@ namespace DeepInfra
                 "openai-images-variations-http" => ModelDocBlockKey.OpenaiImagesVariationsHttp,
                 "openai-images-variations-python" => ModelDocBlockKey.OpenaiImagesVariationsPython,
                 "openai-images-variations-js" => ModelDocBlockKey.OpenaiImagesVariationsJs,
+                "openai-images-edits-http" => ModelDocBlockKey.OpenaiImagesEditsHttp,
+                "openai-images-edits-python" => ModelDocBlockKey.OpenaiImagesEditsPython,
+                "openai-images-edits-js" => ModelDocBlockKey.OpenaiImagesEditsJs,
                 "openai-comp-python" => ModelDocBlockKey.OpenaiCompPython,
                 "openai-comp-python-short" => ModelDocBlockKey.OpenaiCompPythonShort,
                 "openai-comp-http" => ModelDocBlockKey.OpenaiCompHttp,

@@ -43,7 +43,7 @@ namespace DeepInfra
                 xiApiKey: ref xiApiKey);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: $"/v1/openai/batches/{batchId}",
+                path: $"/v1/batches/{batchId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

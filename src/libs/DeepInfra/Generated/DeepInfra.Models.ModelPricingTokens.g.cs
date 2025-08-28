@@ -29,6 +29,18 @@ namespace DeepInfra
         public required double CentsPerOutputToken { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rate_per_input_token_cached")]
+        public double? RatePerInputTokenCached { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rate_per_input_token_cache_write")]
+        public double? RatePerInputTokenCacheWrite { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -42,17 +54,23 @@ namespace DeepInfra
         /// </param>
         /// <param name="centsPerInputToken"></param>
         /// <param name="centsPerOutputToken"></param>
+        /// <param name="ratePerInputTokenCached"></param>
+        /// <param name="ratePerInputTokenCacheWrite"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ModelPricingTokens(
             double centsPerInputToken,
             double centsPerOutputToken,
-            string? type)
+            string? type,
+            double? ratePerInputTokenCached,
+            double? ratePerInputTokenCacheWrite)
         {
             this.CentsPerInputToken = centsPerInputToken;
             this.CentsPerOutputToken = centsPerOutputToken;
             this.Type = type;
+            this.RatePerInputTokenCached = ratePerInputTokenCached;
+            this.RatePerInputTokenCacheWrite = ratePerInputTokenCacheWrite;
         }
 
         /// <summary>

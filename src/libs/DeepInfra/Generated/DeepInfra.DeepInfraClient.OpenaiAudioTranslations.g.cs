@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string? xDeepinfraSource,
             ref string? xiApiKey,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPost request);
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPost request);
         partial void PrepareOpenaiAudioTranslationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xDeepinfraSource,
             string? xiApiKey,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPost request);
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPost request);
         partial void ProcessOpenaiAudioTranslationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,7 +34,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiAudioTranslationsAsync(
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPost request,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPost request,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -50,7 +50,7 @@ namespace DeepInfra
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                path: "/v1/openai/audio/translations",
+                path: "/v1/audio/translations",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -277,11 +277,11 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? responseFormat = default,
             double? temperature = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPost
+            var __request = new global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPost
             {
                 File = file,
                 Filename = filename,
