@@ -2136,9 +2136,9 @@ paths:
             nullable: true
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/Body_openai_images_generations_v1_images_generations_post'
+              $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
         required: true
       responses:
         '200':
@@ -2181,9 +2181,9 @@ paths:
             nullable: true
       requestBody:
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
-              $ref: '#/components/schemas/Body_openai_images_generations_v1_openai_images_generations_post'
+              $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
         required: true
       responses:
         '200':
@@ -5069,36 +5069,6 @@ components:
           format: binary
         inp:
           $ref: '#/components/schemas/OpenAIImagesEditsIn'
-        prompt:
-          title: Prompt
-          type: string
-        model:
-          title: Model
-          type: string
-    Body_openai_images_generations_v1_images_generations_post:
-      title: Body_openai_images_generations_v1_images_generations_post
-      required:
-        - prompt
-        - model
-      type: object
-      properties:
-        inp:
-          $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
-        prompt:
-          title: Prompt
-          type: string
-        model:
-          title: Model
-          type: string
-    Body_openai_images_generations_v1_openai_images_generations_post:
-      title: Body_openai_images_generations_v1_openai_images_generations_post
-      required:
-        - prompt
-        - model
-      type: object
-      properties:
-        inp:
-          $ref: '#/components/schemas/OpenAIImagesGenerationsIn'
         prompt:
           title: Prompt
           type: string
