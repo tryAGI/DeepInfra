@@ -6763,6 +6763,35 @@ components:
         reported_type:
           $ref: '#/components/schemas/HFTasksE'
       additionalProperties: false
+    ModelMetadata:
+      title: ModelMetadata
+      required:
+        - description
+        - context_length
+        - max_tokens
+        - pricing
+        - tags
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+        context_length:
+          title: Context Length
+          type: integer
+        max_tokens:
+          title: Max Tokens
+          type: integer
+        pricing:
+          title: Pricing
+          type: object
+          additionalProperties:
+            type: number
+        tags:
+          title: Tags
+          type: array
+          items:
+            type: string
     ModelOut:
       title: ModelOut
       required:
@@ -7290,7 +7319,11 @@ components:
           example: meta-llama/Llama-2-70b-chat-hf
         prompt:
           title: Prompt
-          type: string
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                type: integer
           description: input prompt - a single string is currently supported
         max_tokens:
           title: Max Tokens
@@ -7399,6 +7432,18 @@ components:
           nullable: true
         stream_options:
           $ref: '#/components/schemas/StreamOptions'
+        stop_token_ids:
+          title: Stop Token Ids
+          type: array
+          items:
+            type: integer
+          description: List of token IDs that will stop generation when encountered
+          nullable: true
+        return_tokens_as_token_ids:
+          title: Return Tokens As Token Ids
+          type: boolean
+          description: return tokens as token ids
+          nullable: true
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:
@@ -7630,6 +7675,8 @@ components:
         parent:
           title: Parent
           type: 'null'
+        metadata:
+          $ref: '#/components/schemas/ModelMetadata'
     OpenAIModelsOut:
       title: OpenAIModelsOut
       type: object
