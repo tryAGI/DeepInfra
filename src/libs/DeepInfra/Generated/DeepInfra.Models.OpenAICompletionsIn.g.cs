@@ -23,8 +23,9 @@ namespace DeepInfra
         /// input prompt - a single string is currently supported
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> Prompt { get; set; }
 
         /// <summary>
         /// The maximum number of tokens to generate in the completion.<br/>
@@ -140,6 +141,18 @@ namespace DeepInfra
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
 
         /// <summary>
+        /// List of token IDs that will stop generation when encountered
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stop_token_ids")]
+        public global::System.Collections.Generic.IList<int>? StopTokenIds { get; set; }
+
+        /// <summary>
+        /// return tokens as token ids
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("return_tokens_as_token_ids")]
+        public bool? ReturnTokensAsTokenIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -212,12 +225,18 @@ namespace DeepInfra
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
         /// <param name="streamOptions"></param>
+        /// <param name="stopTokenIds">
+        /// List of token IDs that will stop generation when encountered
+        /// </param>
+        /// <param name="returnTokensAsTokenIds">
+        /// return tokens as token ids
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenAICompletionsIn(
             string model,
-            string prompt,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> prompt,
             int? maxTokens,
             double? temperature,
             double? topP,
@@ -234,10 +253,12 @@ namespace DeepInfra
             double? repetitionPenalty,
             string? user,
             int? seed,
-            global::DeepInfra.StreamOptions? streamOptions)
+            global::DeepInfra.StreamOptions? streamOptions,
+            global::System.Collections.Generic.IList<int>? stopTokenIds,
+            bool? returnTokensAsTokenIds)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Prompt = prompt;
             this.MaxTokens = maxTokens;
             this.Temperature = temperature;
             this.TopP = topP;
@@ -255,6 +276,8 @@ namespace DeepInfra
             this.User = user;
             this.Seed = seed;
             this.StreamOptions = streamOptions;
+            this.StopTokenIds = stopTokenIds;
+            this.ReturnTokensAsTokenIds = returnTokensAsTokenIds;
         }
 
         /// <summary>

@@ -92,6 +92,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::DeepInfra.ChatTools>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>),
             typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter),

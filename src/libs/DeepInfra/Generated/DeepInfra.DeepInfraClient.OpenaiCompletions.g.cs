@@ -300,11 +300,17 @@ namespace DeepInfra
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
         /// <param name="streamOptions"></param>
+        /// <param name="stopTokenIds">
+        /// List of token IDs that will stop generation when encountered
+        /// </param>
+        /// <param name="returnTokensAsTokenIds">
+        /// return tokens as token ids
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             string model,
-            string prompt,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> prompt,
             string? xDeepinfraSource = default,
             string? userAgent = default,
             string? xiApiKey = default,
@@ -325,6 +331,8 @@ namespace DeepInfra
             string? user = default,
             int? seed = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
+            global::System.Collections.Generic.IList<int>? stopTokenIds = default,
+            bool? returnTokensAsTokenIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.OpenAICompletionsIn
@@ -348,6 +356,8 @@ namespace DeepInfra
                 User = user,
                 Seed = seed,
                 StreamOptions = streamOptions,
+                StopTokenIds = stopTokenIds,
+                ReturnTokensAsTokenIds = returnTokensAsTokenIds,
             };
 
             return await OpenaiCompletionsAsync(
