@@ -6484,6 +6484,16 @@ components:
           title: Description
           type: string
           description: Model family description
+        meta_title:
+          title: Meta Title
+          type: string
+          description: Meta title for SEO
+          nullable: true
+        meta_description:
+          title: Meta Description
+          type: string
+          description: Meta description for SEO
+          nullable: true
         featured_models:
           title: Featured Models
           type: array

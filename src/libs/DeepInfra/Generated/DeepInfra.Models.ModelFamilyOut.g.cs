@@ -30,6 +30,18 @@ namespace DeepInfra
         public required string Description { get; set; }
 
         /// <summary>
+        /// Meta title for SEO
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("meta_title")]
+        public string? MetaTitle { get; set; }
+
+        /// <summary>
+        /// Meta description for SEO
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("meta_description")]
+        public string? MetaDescription { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured_models")]
@@ -67,6 +79,12 @@ namespace DeepInfra
         /// <param name="description">
         /// Model family description
         /// </param>
+        /// <param name="metaTitle">
+        /// Meta title for SEO
+        /// </param>
+        /// <param name="metaDescription">
+        /// Meta description for SEO
+        /// </param>
         /// <param name="featuredModels"></param>
         /// <param name="ppSectionsOut"></param>
         /// <param name="faqEntries">
@@ -81,6 +99,8 @@ namespace DeepInfra
             string description,
             global::System.Collections.Generic.IList<string> featuredModels,
             global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> ppSectionsOut,
+            string? metaTitle,
+            string? metaDescription,
             global::System.Collections.Generic.IList<global::DeepInfra.FAQEntryOut>? faqEntries)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -88,6 +108,8 @@ namespace DeepInfra
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.FeaturedModels = featuredModels ?? throw new global::System.ArgumentNullException(nameof(featuredModels));
             this.PpSectionsOut = ppSectionsOut ?? throw new global::System.ArgumentNullException(nameof(ppSectionsOut));
+            this.MetaTitle = metaTitle;
+            this.MetaDescription = metaDescription;
             this.FaqEntries = faqEntries;
         }
 
