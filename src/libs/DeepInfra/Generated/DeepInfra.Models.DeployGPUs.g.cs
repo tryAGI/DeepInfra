@@ -11,6 +11,14 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        L424GB,
+        /// <summary>
+        /// 
+        /// </summary>
+        L40S48GB,
+        /// <summary>
+        /// 
+        /// </summary>
         A10080GB,
         /// <summary>
         /// 
@@ -42,6 +50,8 @@ namespace DeepInfra
         {
             return value switch
             {
+                DeployGPUs.L424GB => "L4-24GB",
+                DeployGPUs.L40S48GB => "L40S-48GB",
                 DeployGPUs.A10080GB => "A100-80GB",
                 DeployGPUs.H10080GB => "H100-80GB",
                 DeployGPUs.H200141GB => "H200-141GB",
@@ -57,6 +67,8 @@ namespace DeepInfra
         {
             return value switch
             {
+                "L4-24GB" => DeployGPUs.L424GB,
+                "L40S-48GB" => DeployGPUs.L40S48GB,
                 "A100-80GB" => DeployGPUs.A10080GB,
                 "H100-80GB" => DeployGPUs.H10080GB,
                 "H200-141GB" => DeployGPUs.H200141GB,

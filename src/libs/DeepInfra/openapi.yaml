@@ -5505,6 +5505,8 @@ components:
     DeployGPUs:
       title: DeployGPUs
       enum:
+        - L4-24GB
+        - L40S-48GB
         - A100-80GB
         - H100-80GB
         - H200-141GB
