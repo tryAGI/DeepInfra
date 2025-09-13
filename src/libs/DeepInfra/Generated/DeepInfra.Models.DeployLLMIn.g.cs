@@ -24,7 +24,7 @@ namespace DeepInfra
         public required global::DeepInfra.DeployGPUs Gpu { get; set; }
 
         /// <summary>
-        /// Number of GPUs you want for this model<br/>
+        /// Number of GPUs used by one instance<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
@@ -69,7 +69,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="gpu"></param>
         /// <param name="numGpus">
-        /// Number of GPUs you want for this model<br/>
+        /// Number of GPUs used by one instance<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="maxBatchSize">

@@ -5564,7 +5564,7 @@ components:
           maximum: 8.0
           minimum: 1.0
           type: integer
-          description: Number of GPUs you want for this model
+          description: Number of GPUs used by one instance
           default: 1
         max_batch_size:
           title: Max Batch Size
