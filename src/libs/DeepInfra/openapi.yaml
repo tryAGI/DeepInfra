@@ -4613,6 +4613,10 @@ components:
           title: Plan Id
           type: string
           nullable: true
+        private:
+          title: Private
+          type: boolean
+          default: false
     SuspendReason:
       title: SuspendReason
       enum:

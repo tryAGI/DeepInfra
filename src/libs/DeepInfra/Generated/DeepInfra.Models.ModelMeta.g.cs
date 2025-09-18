@@ -36,6 +36,12 @@ namespace DeepInfra
         public string? PlanId { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("private")]
+        public bool? Private { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,6 +54,9 @@ namespace DeepInfra
         /// <param name="modelName"></param>
         /// <param name="task"></param>
         /// <param name="planId"></param>
+        /// <param name="private">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +64,14 @@ namespace DeepInfra
             string provider,
             string modelName,
             string task,
-            string? planId)
+            string? planId,
+            bool? @private)
         {
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Task = task ?? throw new global::System.ArgumentNullException(nameof(task));
             this.PlanId = planId;
+            this.Private = @private;
         }
 
         /// <summary>
