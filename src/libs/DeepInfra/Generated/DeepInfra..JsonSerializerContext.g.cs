@@ -15,6 +15,8 @@ namespace DeepInfra
         { 
             typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter),
             typeof(global::DeepInfra.JsonConverters.SuspendReasonNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.AnthropicSystemContentTypeJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.AnthropicSystemContentTypeNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormatJsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitieJsonConverter),
@@ -82,6 +84,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>>),
