@@ -49,6 +49,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.ChatCompletionToolMessageRoleNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatCompletionUserMessageRoleJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatCompletionUserMessageRoleNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffortJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffortNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter),
