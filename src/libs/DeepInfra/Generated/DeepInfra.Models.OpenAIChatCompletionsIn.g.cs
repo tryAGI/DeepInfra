@@ -154,6 +154,12 @@ namespace DeepInfra
         public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? ReasoningEffort { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public global::DeepInfra.ChatReasoningSettings? Reasoning { get; set; }
+
+        /// <summary>
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_key")]
@@ -238,6 +244,7 @@ namespace DeepInfra
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
+        /// <param name="reasoning"></param>
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
@@ -266,6 +273,7 @@ namespace DeepInfra
             bool? logprobs,
             global::DeepInfra.StreamOptions? streamOptions,
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort,
+            global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
@@ -289,6 +297,7 @@ namespace DeepInfra
             this.Logprobs = logprobs;
             this.StreamOptions = streamOptions;
             this.ReasoningEffort = reasoningEffort;
+            this.Reasoning = reasoning;
             this.PromptCacheKey = promptCacheKey;
         }
 

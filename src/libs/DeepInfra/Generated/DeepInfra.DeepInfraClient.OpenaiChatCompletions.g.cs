@@ -306,6 +306,7 @@ namespace DeepInfra
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
+        /// <param name="reasoning"></param>
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
@@ -336,6 +337,7 @@ namespace DeepInfra
             bool? logprobs = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort = default,
+            global::DeepInfra.ChatReasoningSettings? reasoning = default,
             string? promptCacheKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -362,6 +364,7 @@ namespace DeepInfra
                 Logprobs = logprobs,
                 StreamOptions = streamOptions,
                 ReasoningEffort = reasoningEffort,
+                Reasoning = reasoning,
                 PromptCacheKey = promptCacheKey,
             };
 
