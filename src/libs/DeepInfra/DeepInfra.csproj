@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net4.6.2;net8.0;net9.0</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
     <NoWarn>$(NoWarn);CA1724;CA2227</NoWarn>
   </PropertyGroup>
 
@@ -11,19 +11,5 @@
       Includes C# Source Generator which allows you to define functions natively through a C# interface, and also provides extensions that make it easier to call this interface later</Description>
     <PackageTags>api;client;sdk;dotnet;swagger;openapi;specification;openai;generated;nswag;functions;gpt-3.5;gpt-4;chatgpt;generator;source generator;constants;prices;pricing;vision;audio;embedding;moderation;image;chat</PackageTags>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="PolySharp" Version="1.15.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json" Version="10.0.2" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net4.6.2'">
-    <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="9.0.8" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-
 
 </Project>
