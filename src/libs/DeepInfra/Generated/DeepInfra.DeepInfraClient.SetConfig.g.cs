@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareSetConfigArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? session,
+            object? session,
             global::DeepInfra.ConfigIn request);
         partial void PrepareSetConfigRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? session,
+            object? session,
             global::DeepInfra.ConfigIn request);
         partial void ProcessSetConfigResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,8 +31,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ConfigOut> SetConfigAsync(
+
             global::DeepInfra.ConfigIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -41,7 +42,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareSetConfigArguments(
                 httpClient: HttpClient,
-                session: ref session,
+                session: session,
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
@@ -218,7 +219,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ConfigOut> SetConfigAsync(
-            string? session = default,
+            object? session = default,
             double? limit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

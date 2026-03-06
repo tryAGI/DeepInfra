@@ -11,27 +11,35 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        L424GB,
+        L424gb,
         /// <summary>
         /// 
         /// </summary>
-        L40S48GB,
+        L40s48gb,
         /// <summary>
         /// 
         /// </summary>
-        A10080GB,
+        A10080gb,
         /// <summary>
         /// 
         /// </summary>
-        H10080GB,
+        H10080gb,
         /// <summary>
         /// 
         /// </summary>
-        H200141GB,
+        H200141gb,
         /// <summary>
         /// 
         /// </summary>
-        B200180GB,
+        B200180gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        B300270gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        Rtxpro600096gb,
         /// <summary>
         /// 
         /// </summary>
@@ -50,12 +58,14 @@ namespace DeepInfra
         {
             return value switch
             {
-                DeployGPUs.L424GB => "L4-24GB",
-                DeployGPUs.L40S48GB => "L40S-48GB",
-                DeployGPUs.A10080GB => "A100-80GB",
-                DeployGPUs.H10080GB => "H100-80GB",
-                DeployGPUs.H200141GB => "H200-141GB",
-                DeployGPUs.B200180GB => "B200-180GB",
+                DeployGPUs.L424gb => "L4-24GB",
+                DeployGPUs.L40s48gb => "L40S-48GB",
+                DeployGPUs.A10080gb => "A100-80GB",
+                DeployGPUs.H10080gb => "H100-80GB",
+                DeployGPUs.H200141gb => "H200-141GB",
+                DeployGPUs.B200180gb => "B200-180GB",
+                DeployGPUs.B300270gb => "B300-270GB",
+                DeployGPUs.Rtxpro600096gb => "RTXPRO6000-96GB",
                 DeployGPUs.Other => "other",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -67,12 +77,14 @@ namespace DeepInfra
         {
             return value switch
             {
-                "L4-24GB" => DeployGPUs.L424GB,
-                "L40S-48GB" => DeployGPUs.L40S48GB,
-                "A100-80GB" => DeployGPUs.A10080GB,
-                "H100-80GB" => DeployGPUs.H10080GB,
-                "H200-141GB" => DeployGPUs.H200141GB,
-                "B200-180GB" => DeployGPUs.B200180GB,
+                "L4-24GB" => DeployGPUs.L424gb,
+                "L40S-48GB" => DeployGPUs.L40s48gb,
+                "A100-80GB" => DeployGPUs.A10080gb,
+                "H100-80GB" => DeployGPUs.H10080gb,
+                "H200-141GB" => DeployGPUs.H200141gb,
+                "B200-180GB" => DeployGPUs.B200180gb,
+                "B300-270GB" => DeployGPUs.B300270gb,
+                "RTXPRO6000-96GB" => DeployGPUs.Rtxpro600096gb,
                 "other" => DeployGPUs.Other,
                 _ => null,
             };

@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref int from,
             ref int? to,
-            ref string? session);
+            object? session);
         partial void PrepareUsageRentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int from,
             int? to,
-            string? session);
+            object? session);
         partial void ProcessUsageRentResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,7 +40,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.UsageRentOut> UsageRentAsync(
             int from,
             int? to = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -49,13 +49,13 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 from: ref from,
                 to: ref to,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/usage/rent",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("from", from.ToString()) 
+            __pathBuilder
+                .AddRequiredParameter("from", from.ToString())
                 .AddOptionalParameter("to", to?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

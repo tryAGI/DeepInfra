@@ -30,6 +30,13 @@ namespace DeepInfra
         public required string Description { get; set; }
 
         /// <summary>
+        /// Model family developer organization
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("developer")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Developer { get; set; }
+
+        /// <summary>
         /// Meta title for SEO
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta_title")]
@@ -79,6 +86,9 @@ namespace DeepInfra
         /// <param name="description">
         /// Model family description
         /// </param>
+        /// <param name="developer">
+        /// Model family developer organization
+        /// </param>
         /// <param name="metaTitle">
         /// Meta title for SEO
         /// </param>
@@ -97,6 +107,7 @@ namespace DeepInfra
             string name,
             string title,
             string description,
+            string developer,
             global::System.Collections.Generic.IList<string> featuredModels,
             global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> ppSectionsOut,
             string? metaTitle,
@@ -106,6 +117,7 @@ namespace DeepInfra
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Developer = developer ?? throw new global::System.ArgumentNullException(nameof(developer));
             this.FeaturedModels = featuredModels ?? throw new global::System.ArgumentNullException(nameof(featuredModels));
             this.PpSectionsOut = ppSectionsOut ?? throw new global::System.ArgumentNullException(nameof(ppSectionsOut));
             this.MetaTitle = metaTitle;

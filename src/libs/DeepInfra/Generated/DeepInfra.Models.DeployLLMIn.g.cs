@@ -56,6 +56,12 @@ namespace DeepInfra
         public global::DeepInfra.ScaleSettings? Settings { get; set; }
 
         /// <summary>
+        /// Extra command line arguments for custom deployments
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
+        public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +87,9 @@ namespace DeepInfra
         /// Base public model
         /// </param>
         /// <param name="settings"></param>
+        /// <param name="extraArgs">
+        /// Extra command line arguments for custom deployments
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -91,7 +100,8 @@ namespace DeepInfra
             int? maxBatchSize,
             global::DeepInfra.HFWeights? hf,
             string? baseModel,
-            global::DeepInfra.ScaleSettings? settings)
+            global::DeepInfra.ScaleSettings? settings,
+            global::System.Collections.Generic.IList<string>? extraArgs)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Gpu = gpu;
@@ -100,6 +110,7 @@ namespace DeepInfra
             this.Hf = hf;
             this.BaseModel = baseModel;
             this.Settings = settings;
+            this.ExtraArgs = extraArgs;
         }
 
         /// <summary>

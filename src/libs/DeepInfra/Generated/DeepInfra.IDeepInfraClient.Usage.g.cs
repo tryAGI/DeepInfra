@@ -19,7 +19,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.UsageOut> UsageAsync(
             string from,
             string? to = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

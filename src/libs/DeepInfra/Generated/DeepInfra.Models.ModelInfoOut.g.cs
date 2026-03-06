@@ -178,6 +178,12 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_output_tokens")]
+        public int? MaxOutputTokens { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("replaced_by")]
         public string? ReplacedBy { get; set; }
 
@@ -271,6 +277,7 @@ namespace DeepInfra
         /// <param name="schemas"></param>
         /// <param name="meta"></param>
         /// <param name="maxTokens"></param>
+        /// <param name="maxOutputTokens"></param>
         /// <param name="replacedBy"></param>
         /// <param name="deprecated"></param>
         /// <param name="quantization"></param>
@@ -314,6 +321,7 @@ namespace DeepInfra
             global::DeepInfra.ModelDocBlock? shortDocBlock,
             object? meta,
             int? maxTokens,
+            int? maxOutputTokens,
             string? replacedBy,
             int? deprecated,
             string? quantization,
@@ -350,6 +358,7 @@ namespace DeepInfra
             this.ShortDocBlock = shortDocBlock;
             this.Meta = meta;
             this.MaxTokens = maxTokens;
+            this.MaxOutputTokens = maxOutputTokens;
             this.ReplacedBy = replacedBy;
             this.Deprecated = deprecated;
             this.Quantization = quantization;

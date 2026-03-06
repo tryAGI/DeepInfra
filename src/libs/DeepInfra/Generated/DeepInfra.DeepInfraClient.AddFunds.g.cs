@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareAddFundsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? session,
+            object? session,
             global::DeepInfra.AddFundsIn request);
         partial void PrepareAddFundsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? session,
+            object? session,
             global::DeepInfra.AddFundsIn request);
         partial void ProcessAddFundsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,8 +31,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> AddFundsAsync(
+
             global::DeepInfra.AddFundsIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -41,7 +42,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareAddFundsArguments(
                 httpClient: HttpClient,
-                session: ref session,
+                session: session,
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
@@ -215,7 +216,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> AddFundsAsync(
             int amount,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.AddFundsIn

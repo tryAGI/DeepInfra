@@ -12,6 +12,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployCreateLlmAsync(
+
             global::DeepInfra.DeployLLMIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -37,6 +38,9 @@ namespace DeepInfra
         /// Base public model
         /// </param>
         /// <param name="settings"></param>
+        /// <param name="extraArgs">
+        /// Extra command line arguments for custom deployments
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.DeploymentOut> DeployCreateLlmAsync(
@@ -48,6 +52,7 @@ namespace DeepInfra
             global::DeepInfra.HFWeights? hf = default,
             string? baseModel = default,
             global::DeepInfra.ScaleSettings? settings = default,
+            global::System.Collections.Generic.IList<string>? extraArgs = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

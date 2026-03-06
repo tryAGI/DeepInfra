@@ -48,7 +48,7 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/containers",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("state", state?.ToValueString()) 
                 ; 
             var __path = __pathBuilder.ToString();

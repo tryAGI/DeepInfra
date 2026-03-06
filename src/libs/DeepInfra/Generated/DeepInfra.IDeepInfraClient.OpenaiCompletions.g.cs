@@ -8,15 +8,14 @@ namespace DeepInfra
         /// Openai Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
+
             global::DeepInfra.OpenAICompletionsIn request,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -24,7 +23,6 @@ namespace DeepInfra
         /// Openai Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
@@ -78,7 +76,9 @@ namespace DeepInfra
         /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -96,13 +96,16 @@ namespace DeepInfra
         /// <param name="returnTokensAsTokenIds">
         /// return tokens as token ids
         /// </param>
+        /// <param name="promptCacheKey">
+        /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
+        /// </param>
+        /// <param name="data"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiCompletionsAsync(
             string model,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> prompt,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             int? maxTokens = default,
             double? temperature = default,
@@ -116,13 +119,15 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
             double? presencePenalty = default,
             double? frequencyPenalty = default,
-            global::DeepInfra.ResponseFormat? responseFormat = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
             global::System.Collections.Generic.IList<int>? stopTokenIds = default,
             bool? returnTokensAsTokenIds = default,
+            string? promptCacheKey = default,
+            global::DeepInfra.CompletionMultiModalData? data = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -31,6 +31,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> RequestRateLimitIncreaseAsync(
+
             global::DeepInfra.RateLimitRequestIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -289,6 +290,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="rateLimit"></param>
+        /// <param name="tpmRateLimit"></param>
         /// <param name="reason"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -296,11 +298,13 @@ namespace DeepInfra
             int rateLimit,
             string reason,
             string? xiApiKey = default,
+            int? tpmRateLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.RateLimitRequestIn
             {
                 RateLimit = rateLimit,
+                TpmRateLimit = tpmRateLimit,
                 Reason = reason,
             };
 

@@ -13,6 +13,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioSpeechAsync(
+
             global::DeepInfra.OpenAITextToSpeechIn request,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
@@ -23,6 +24,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
+        /// <param name="serviceTier"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: deepinfra/tts
@@ -55,6 +57,7 @@ namespace DeepInfra
             string input,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
+            global::DeepInfra.ServiceTier? serviceTier = default,
             string? voice = default,
             global::DeepInfra.TtsResponseFormat? responseFormat = default,
             double? speed = default,

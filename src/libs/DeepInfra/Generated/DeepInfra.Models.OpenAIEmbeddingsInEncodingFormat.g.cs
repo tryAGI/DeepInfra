@@ -13,6 +13,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         Float,
+        /// <summary>
+        /// 
+        /// </summary>
+        Base64,
     }
 
     /// <summary>
@@ -28,6 +32,7 @@ namespace DeepInfra
             return value switch
             {
                 OpenAIEmbeddingsInEncodingFormat.Float => "float",
+                OpenAIEmbeddingsInEncodingFormat.Base64 => "base64",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -39,6 +44,7 @@ namespace DeepInfra
             return value switch
             {
                 "float" => OpenAIEmbeddingsInEncodingFormat.Float,
+                "base64" => OpenAIEmbeddingsInEncodingFormat.Base64,
                 _ => null,
             };
         }

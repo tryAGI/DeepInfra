@@ -12,8 +12,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> SetupTopupAsync(
+
             global::DeepInfra.TopUpIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> SetupTopupAsync(
-            string? session = default,
+            object? session = default,
             int? amount = default,
             int? threshold = default,
             bool? enabled = default,

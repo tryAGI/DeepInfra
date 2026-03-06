@@ -35,6 +35,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Voice> UpdateVoiceAsync(
             string voiceId,
+
             global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

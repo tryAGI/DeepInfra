@@ -8,12 +8,12 @@ namespace DeepInfra
         partial void PrepareBillingPortalArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? returnUrl,
-            ref string? session);
+            object? session);
         partial void PrepareBillingPortalRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? returnUrl,
-            string? session);
+            object? session);
         partial void ProcessBillingPortalResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -32,7 +32,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.BillingPortalOut> BillingPortalAsync(
             string? returnUrl = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -40,12 +40,12 @@ namespace DeepInfra
             PrepareBillingPortalArguments(
                 httpClient: HttpClient,
                 returnUrl: ref returnUrl,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/billing-portal",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("return_url", returnUrl) 
                 ; 
             var __path = __pathBuilder.ToString();

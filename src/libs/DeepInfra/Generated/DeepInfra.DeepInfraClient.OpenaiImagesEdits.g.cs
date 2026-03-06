@@ -7,15 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiImagesEditsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xDeepinfraSource,
-            ref string? userAgent,
             ref string? xiApiKey,
             global::DeepInfra.BodyOpenaiImagesEditsV1ImagesEditsPost request);
         partial void PrepareOpenaiImagesEditsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xDeepinfraSource,
-            string? userAgent,
             string? xiApiKey,
             global::DeepInfra.BodyOpenaiImagesEditsV1ImagesEditsPost request);
         partial void ProcessOpenaiImagesEditsResponse(
@@ -31,16 +27,13 @@ namespace DeepInfra
         /// Openai Images Edits<br/>
         /// Edit image using OpenAI Images Edits API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesEditsAsync(
+
             global::DeepInfra.BodyOpenaiImagesEditsV1ImagesEditsPost request,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -50,8 +43,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiImagesEditsArguments(
                 httpClient: HttpClient,
-                xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
@@ -83,54 +74,41 @@ namespace DeepInfra
                 }
             }
 
-            if (xDeepinfraSource != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
-            }
-            if (userAgent != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
-            }
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
             }
 
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            if (xDeepinfraSource != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{xDeepinfraSource}"),
-                    name: "x-deepinfra-source");
-            } 
-            if (userAgent != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{userAgent}"),
-                    name: "user-agent");
-            } 
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
+                    name: "\"xi-api-key\"");
+            }
+            var __contentImage = new global::System.Net.Http.ByteArrayContent(request.Image ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.Image ?? global::System.Array.Empty<byte>()),
-                name: "image",
-                fileName: request.Imagename ?? string.Empty);
+                content: __contentImage,
+                name: "\"image\"",
+                fileName: request.Imagename != null ? $"\"{request.Imagename}\"" : string.Empty);
+            if (__contentImage.Headers.ContentDisposition != null)
+            {
+                __contentImage.Headers.ContentDisposition.FileNameStar = null;
+            }
             if (request.Inp != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Inp}"),
-                    name: "inp");
-            } 
+                    name: "\"inp\"");
+            }
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Prompt}"),
-                name: "prompt");
+                name: "\"prompt\"");
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Model}"),
-                name: "model");
+                name: "\"model\"");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -139,8 +117,6 @@ namespace DeepInfra
             PrepareOpenaiImagesEditsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -269,8 +245,6 @@ namespace DeepInfra
         /// Openai Images Edits<br/>
         /// Edit image using OpenAI Images Edits API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="image"></param>
         /// <param name="imagename"></param>
@@ -284,8 +258,6 @@ namespace DeepInfra
             string imagename,
             string prompt,
             string model,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::DeepInfra.OpenAIImagesEditsIn? inp = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -300,8 +272,6 @@ namespace DeepInfra
             };
 
             return await OpenaiImagesEditsAsync(
-                xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

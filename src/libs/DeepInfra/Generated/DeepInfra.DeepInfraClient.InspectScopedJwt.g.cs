@@ -45,7 +45,7 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/scoped-jwt",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("jwtoken", jwtoken) 
                 ; 
             var __path = __pathBuilder.ToString();

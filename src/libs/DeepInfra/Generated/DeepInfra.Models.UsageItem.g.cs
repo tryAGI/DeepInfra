@@ -51,6 +51,12 @@ namespace DeepInfra
         public required global::DeepInfra.TimeInterval Interval { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
+        public global::DeepInfra.DiscountMeta? Discount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,6 +81,7 @@ namespace DeepInfra
         /// <param name="interval">
         /// Inclusive, in ms
         /// </param>
+        /// <param name="discount"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,7 +91,8 @@ namespace DeepInfra
             double rate,
             int cost,
             string pricingType,
-            global::DeepInfra.TimeInterval interval)
+            global::DeepInfra.TimeInterval interval,
+            global::DeepInfra.DiscountMeta? discount)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Units = units;
@@ -92,6 +100,7 @@ namespace DeepInfra
             this.Cost = cost;
             this.PricingType = pricingType ?? throw new global::System.ArgumentNullException(nameof(pricingType));
             this.Interval = interval ?? throw new global::System.ArgumentNullException(nameof(interval));
+            this.Discount = discount;
         }
 
         /// <summary>

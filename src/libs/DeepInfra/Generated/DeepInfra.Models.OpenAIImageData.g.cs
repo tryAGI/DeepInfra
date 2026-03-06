@@ -12,14 +12,19 @@ namespace DeepInfra
         /// The base64-encoded image data
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string B64Json { get; set; }
+        public string? B64Json { get; set; }
 
         /// <summary>
         /// The prompt used to generate this image
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("revised_prompt")]
         public string? RevisedPrompt { get; set; }
+
+        /// <summary>
+        /// The URL of the generated image
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        public string? Url { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,15 +41,20 @@ namespace DeepInfra
         /// <param name="revisedPrompt">
         /// The prompt used to generate this image
         /// </param>
+        /// <param name="url">
+        /// The URL of the generated image
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenAIImageData(
-            string b64Json,
-            string? revisedPrompt)
+            string? b64Json,
+            string? revisedPrompt,
+            string? url)
         {
-            this.B64Json = b64Json ?? throw new global::System.ArgumentNullException(nameof(b64Json));
+            this.B64Json = b64Json;
             this.RevisedPrompt = revisedPrompt;
+            this.Url = url;
         }
 
         /// <summary>

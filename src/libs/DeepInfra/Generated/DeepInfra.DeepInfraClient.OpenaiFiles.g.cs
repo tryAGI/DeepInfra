@@ -31,6 +31,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiFilesAsync(
+
             global::DeepInfra.BodyOpenaiFilesV1FilesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -80,16 +81,17 @@ namespace DeepInfra
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             if (xiApiKey != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{xiApiKey}"),
-                    name: "xi-api-key");
-            } 
+                    name: "\"xi-api-key\"");
+            }
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.Purpose}"),
-                name: "purpose");
+                name: "\"purpose\"");
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.File, x => x))}]"),
-                name: "file");
+                name: "\"file\"");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(

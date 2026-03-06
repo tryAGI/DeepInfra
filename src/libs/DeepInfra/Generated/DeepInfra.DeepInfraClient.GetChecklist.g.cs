@@ -8,12 +8,12 @@ namespace DeepInfra
         partial void PrepareGetChecklistArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? computeOwed,
-            ref string? session);
+            object? session);
         partial void PrepareGetChecklistRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? computeOwed,
-            string? session);
+            object? session);
         partial void ProcessGetChecklistResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -34,7 +34,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Checklist> GetChecklistAsync(
             bool? computeOwed = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -42,12 +42,12 @@ namespace DeepInfra
             PrepareGetChecklistArguments(
                 httpClient: HttpClient,
                 computeOwed: ref computeOwed,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/checklist",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("compute_owed", computeOwed?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
