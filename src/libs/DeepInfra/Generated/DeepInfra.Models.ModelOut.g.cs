@@ -108,6 +108,12 @@ namespace DeepInfra
         public int? Private { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_partner")]
+        public bool? IsPartner { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -152,6 +158,9 @@ namespace DeepInfra
         /// <param name="private">
         /// Default Value: 0
         /// </param>
+        /// <param name="isPartner">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -169,7 +178,8 @@ namespace DeepInfra
             string? quantization,
             double? mmlu,
             string? expected,
-            int? @private)
+            int? @private,
+            bool? isPartner)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -185,6 +195,7 @@ namespace DeepInfra
             this.Mmlu = mmlu;
             this.Expected = expected;
             this.Private = @private;
+            this.IsPartner = isPartner;
         }
 
         /// <summary>
