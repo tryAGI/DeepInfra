@@ -7284,6 +7284,10 @@ components:
           title: Private
           type: integer
           default: 0
+        is_partner:
+          title: Is Partner
+          type: boolean
+          default: false
     ModelPricingImageUnits:
       title: ModelPricingImageUnits
       required:
