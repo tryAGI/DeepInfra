@@ -7,15 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareOpenaiImagesGenerationsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xDeepinfraSource,
-            ref string? userAgent,
             ref string? xiApiKey,
             global::DeepInfra.OpenAIImagesGenerationsIn request);
         partial void PrepareOpenaiImagesGenerationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xDeepinfraSource,
-            string? userAgent,
             string? xiApiKey,
             global::DeepInfra.OpenAIImagesGenerationsIn request);
         partial void ProcessOpenaiImagesGenerationsResponse(
@@ -31,16 +27,13 @@ namespace DeepInfra
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesGenerationsAsync(
+
             global::DeepInfra.OpenAIImagesGenerationsIn request,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -50,8 +43,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareOpenaiImagesGenerationsArguments(
                 httpClient: HttpClient,
-                xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent,
                 xiApiKey: ref xiApiKey,
                 request: request);
 
@@ -83,14 +74,6 @@ namespace DeepInfra
                 }
             }
 
-            if (xDeepinfraSource != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
-            }
-            if (userAgent != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
-            }
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -109,8 +92,6 @@ namespace DeepInfra
             PrepareOpenaiImagesGenerationsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: request);
 
@@ -239,8 +220,6 @@ namespace DeepInfra
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// The model to use for image generation.<br/>
@@ -273,8 +252,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesGenerationsAsync(
             string model,
             string prompt,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             int? n = default,
             global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
@@ -297,8 +274,6 @@ namespace DeepInfra
             };
 
             return await OpenaiImagesGenerationsAsync(
-                xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 xiApiKey: xiApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

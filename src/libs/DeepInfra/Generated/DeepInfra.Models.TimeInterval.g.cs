@@ -15,7 +15,7 @@ namespace DeepInfra
         public int? Fr { get; set; }
 
         /// <summary>
-        /// Default Value: 4000000000000L
+        /// Default Value: 4000000000000
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to")]
         public long? To { get; set; }
@@ -33,7 +33,7 @@ namespace DeepInfra
         /// Default Value: 0
         /// </param>
         /// <param name="to">
-        /// Default Value: 4000000000000L
+        /// Default Value: 4000000000000
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

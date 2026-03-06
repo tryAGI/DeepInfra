@@ -7,11 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareGetConfigArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? session);
+            object? session);
         partial void PrepareGetConfigRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? session);
+            object? session);
         partial void ProcessGetConfigResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,14 +28,14 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.ConfigOut> GetConfigAsync(
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetConfigArguments(
                 httpClient: HttpClient,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/config",

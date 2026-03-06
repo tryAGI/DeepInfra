@@ -18,6 +18,12 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tpm_rate_limit")]
+        public int? TpmRateLimit { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Reason { get; set; }
@@ -32,16 +38,19 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="RateLimitRequestIn" /> class.
         /// </summary>
         /// <param name="rateLimit"></param>
+        /// <param name="tpmRateLimit"></param>
         /// <param name="reason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RateLimitRequestIn(
             int rateLimit,
-            string reason)
+            string reason,
+            int? tpmRateLimit)
         {
             this.RateLimit = rateLimit;
             this.Reason = reason ?? throw new global::System.ArgumentNullException(nameof(reason));
+            this.TpmRateLimit = tpmRateLimit;
         }
 
         /// <summary>

@@ -9,13 +9,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string from,
             ref string? to,
-            ref string? session);
+            object? session);
         partial void PrepareUsageRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string from,
             string? to,
-            string? session);
+            object? session);
         partial void ProcessUsageResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -40,7 +40,7 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.UsageOut> UsageAsync(
             string from,
             string? to = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -49,13 +49,13 @@ namespace DeepInfra
                 httpClient: HttpClient,
                 from: ref from,
                 to: ref to,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/payment/usage",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("from", from) 
+            __pathBuilder
+                .AddRequiredParameter("from", from)
                 .AddOptionalParameter("to", to) 
                 ; 
             var __path = __pathBuilder.ToString();

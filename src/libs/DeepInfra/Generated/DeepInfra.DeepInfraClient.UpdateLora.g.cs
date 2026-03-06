@@ -35,6 +35,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> UpdateLoraAsync(
             string loraName,
+
             global::DeepInfra.UpdateLoraApiRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)

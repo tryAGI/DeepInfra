@@ -13,6 +13,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiAudioTranslations2Async(
+
             global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPost request,
             string? xDeepinfraSource = default,
             string? xiApiKey = default,

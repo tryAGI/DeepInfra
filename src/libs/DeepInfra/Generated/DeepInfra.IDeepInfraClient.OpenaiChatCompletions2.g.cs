@@ -8,15 +8,14 @@ namespace DeepInfra
         /// Openai Chat Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiChatCompletions2Async(
+
             global::DeepInfra.OpenAIChatCompletionsIn request,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -24,7 +23,6 @@ namespace DeepInfra
         /// Openai Chat Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// model name<br/>
@@ -78,7 +76,9 @@ namespace DeepInfra
         /// <param name="toolChoice">
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -100,13 +100,15 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
+        /// <param name="chatTemplateKwargs">
+        /// Chat template kwargs.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiChatCompletions2Async(
             string model,
             global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             bool? stream = default,
             double? temperature = default,
@@ -120,7 +122,7 @@ namespace DeepInfra
             double? frequencyPenalty = default,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
             global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice = default,
-            global::DeepInfra.ResponseFormat? responseFormat = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
@@ -129,6 +131,7 @@ namespace DeepInfra
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort = default,
             global::DeepInfra.ChatReasoningSettings? reasoning = default,
             string? promptCacheKey = default,
+            object? chatTemplateKwargs = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

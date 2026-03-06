@@ -50,9 +50,9 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/okta/login",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("team_id", teamId) 
-                .AddOptionalParameter("origin", origin) 
+            __pathBuilder
+                .AddRequiredParameter("team_id", teamId)
+                .AddOptionalParameter("origin", origin)
                 .AddOptionalParameter("login_id", loginId) 
                 ; 
             var __path = __pathBuilder.ToString();

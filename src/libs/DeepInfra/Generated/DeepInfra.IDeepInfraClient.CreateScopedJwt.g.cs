@@ -12,6 +12,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.ScopedJWTOut> CreateScopedJwtAsync(
+
             global::DeepInfra.ScopedJWTIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -20,7 +21,7 @@ namespace DeepInfra
         ///  Create Scoped Jwt
         /// </summary>
         /// <param name="xiApiKey"></param>
-        /// <param name="apiTokenName"></param>
+        /// <param name="apiKeyName"></param>
         /// <param name="models">
         /// allow inference only to the specified model names
         /// </param>
@@ -36,7 +37,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.ScopedJWTOut> CreateScopedJwtAsync(
-            string apiTokenName,
+            string apiKeyName,
             string? xiApiKey = default,
             global::System.Collections.Generic.IList<string>? models = default,
             int? expiresDelta = default,

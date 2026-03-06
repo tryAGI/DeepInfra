@@ -20,6 +20,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         Lora,
+        /// <summary>
+        /// 
+        /// </summary>
+        Tts,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace DeepInfra
                 DeployType.Legacy => "legacy",
                 DeployType.Llm => "llm",
                 DeployType.Lora => "lora",
+                DeployType.Tts => "tts",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace DeepInfra
                 "legacy" => DeployType.Legacy,
                 "llm" => DeployType.Llm,
                 "lora" => DeployType.Lora,
+                "tts" => DeployType.Tts,
                 _ => null,
             };
         }

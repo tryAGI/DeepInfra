@@ -52,7 +52,7 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/models/{modelName}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("version", version) 
                 ; 
             var __path = __pathBuilder.ToString();

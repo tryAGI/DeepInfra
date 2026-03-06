@@ -10,14 +10,14 @@ namespace DeepInfra
             ref string apiToken,
             ref string from,
             ref string? to,
-            ref string? session);
+            object? session);
         partial void PrepareUsageApiTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string apiToken,
             string from,
             string? to,
-            string? session);
+            object? session);
         partial void ProcessUsageApiTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,7 +44,7 @@ namespace DeepInfra
             string apiToken,
             string from,
             string? to = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -54,13 +54,13 @@ namespace DeepInfra
                 apiToken: ref apiToken,
                 from: ref from,
                 to: ref to,
-                session: ref session);
+                session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/payment/usage/{apiToken}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("from", from) 
+            __pathBuilder
+                .AddRequiredParameter("from", from)
                 .AddOptionalParameter("to", to) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -47,7 +47,7 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/me",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("checklist", checklist?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

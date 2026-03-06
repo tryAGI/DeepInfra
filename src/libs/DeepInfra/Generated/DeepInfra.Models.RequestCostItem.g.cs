@@ -1,0 +1,54 @@
+
+#nullable enable
+
+namespace DeepInfra
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class RequestCostItem
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requestId")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string RequestId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("costNanoUsd")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int CostNanoUsd { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequestCostItem" /> class.
+        /// </summary>
+        /// <param name="requestId"></param>
+        /// <param name="costNanoUsd"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public RequestCostItem(
+            string requestId,
+            int costNanoUsd)
+        {
+            this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
+            this.CostNanoUsd = costNanoUsd;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequestCostItem" /> class.
+        /// </summary>
+        public RequestCostItem()
+        {
+        }
+    }
+}

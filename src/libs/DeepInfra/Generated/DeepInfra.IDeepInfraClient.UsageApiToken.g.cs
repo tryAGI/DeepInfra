@@ -21,7 +21,7 @@ namespace DeepInfra
             string apiToken,
             string from,
             string? to = default,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

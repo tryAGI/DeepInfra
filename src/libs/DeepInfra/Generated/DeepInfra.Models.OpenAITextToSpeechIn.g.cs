@@ -9,6 +9,13 @@ namespace DeepInfra
     public sealed partial class OpenAITextToSpeechIn
     {
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ServiceTierJsonConverter))]
+        public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
         /// model name<br/>
         /// Example: deepinfra/tts
         /// </summary>
@@ -71,6 +78,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenAITextToSpeechIn" /> class.
         /// </summary>
+        /// <param name="serviceTier"></param>
         /// <param name="model">
         /// model name<br/>
         /// Example: deepinfra/tts
@@ -102,6 +110,7 @@ namespace DeepInfra
         public OpenAITextToSpeechIn(
             string model,
             string input,
+            global::DeepInfra.ServiceTier? serviceTier,
             string? voice,
             global::DeepInfra.TtsResponseFormat? responseFormat,
             double? speed,
@@ -109,6 +118,7 @@ namespace DeepInfra
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
+            this.ServiceTier = serviceTier;
             this.Voice = voice;
             this.ResponseFormat = responseFormat;
             this.Speed = speed;

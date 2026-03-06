@@ -82,11 +82,11 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/deployment_logs/query",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("deploy_id", deployId) 
-                .AddOptionalParameter("pod_name", podName) 
-                .AddOptionalParameter("from", from) 
-                .AddOptionalParameter("to", to) 
+            __pathBuilder
+                .AddRequiredParameter("deploy_id", deployId)
+                .AddOptionalParameter("pod_name", podName)
+                .AddOptionalParameter("from", from)
+                .AddOptionalParameter("to", to)
                 .AddOptionalParameter("limit", limit?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

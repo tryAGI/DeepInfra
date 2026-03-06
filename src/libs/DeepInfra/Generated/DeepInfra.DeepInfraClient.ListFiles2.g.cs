@@ -62,10 +62,10 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/openai/files",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("after", after) 
-                .AddOptionalParameter("purpose", purpose) 
-                .AddOptionalParameter("order", order) 
+            __pathBuilder
+                .AddOptionalParameter("after", after)
+                .AddOptionalParameter("purpose", purpose)
+                .AddOptionalParameter("order", order)
                 .AddOptionalParameter("limit", limit?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

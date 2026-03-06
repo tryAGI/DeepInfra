@@ -14,6 +14,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> ExportApiTokenToVercelAsync(
             string apiToken,
+
             global::DeepInfra.ApiTokenVercelExportIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);

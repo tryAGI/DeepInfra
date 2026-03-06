@@ -12,18 +12,17 @@ namespace DeepInfra
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
+
             global::DeepInfra.AnthropicMessagesIn request,
             string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -34,7 +33,6 @@ namespace DeepInfra
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="model"></param>
         /// <param name="maxTokens"></param>
         /// <param name="messages"></param>
@@ -62,7 +60,6 @@ namespace DeepInfra
             string? anthropicVersion = default,
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             int? maxTokens = default,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,

@@ -12,7 +12,6 @@ namespace DeepInfra
             ref string? anthropicVersion,
             ref string? anthropicBeta,
             ref string? xDeepinfraSource,
-            ref string? userAgent,
             global::DeepInfra.AnthropicMessagesIn request);
         partial void PrepareAnthropicMessagesRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -22,7 +21,6 @@ namespace DeepInfra
             string? anthropicVersion,
             string? anthropicBeta,
             string? xDeepinfraSource,
-            string? userAgent,
             global::DeepInfra.AnthropicMessagesIn request);
         partial void ProcessAnthropicMessagesResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -41,18 +39,17 @@ namespace DeepInfra
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
+
             global::DeepInfra.AnthropicMessagesIn request,
             string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -66,7 +63,6 @@ namespace DeepInfra
                 anthropicVersion: ref anthropicVersion,
                 anthropicBeta: ref anthropicBeta,
                 xDeepinfraSource: ref xDeepinfraSource,
-                userAgent: ref userAgent,
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
@@ -117,10 +113,6 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
             }
-            if (userAgent != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("user-agent", userAgent.ToString());
-            }
 
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -140,7 +132,6 @@ namespace DeepInfra
                 anthropicVersion: anthropicVersion,
                 anthropicBeta: anthropicBeta,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -268,7 +259,6 @@ namespace DeepInfra
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
         /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="model"></param>
         /// <param name="maxTokens"></param>
         /// <param name="messages"></param>
@@ -296,7 +286,6 @@ namespace DeepInfra
             string? anthropicVersion = default,
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
-            string? userAgent = default,
             int? maxTokens = default,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
@@ -333,7 +322,6 @@ namespace DeepInfra
                 anthropicVersion: anthropicVersion,
                 anthropicBeta: anthropicBeta,
                 xDeepinfraSource: xDeepinfraSource,
-                userAgent: userAgent,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

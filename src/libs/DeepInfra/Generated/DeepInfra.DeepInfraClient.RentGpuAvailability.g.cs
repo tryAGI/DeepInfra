@@ -50,8 +50,8 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: "/v1/containers/gpu_availability",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("source", source) 
+            __pathBuilder
+                .AddOptionalParameter("source", source)
                 .AddOptionalParameter("base_model", baseModel) 
                 ; 
             var __path = __pathBuilder.ToString();

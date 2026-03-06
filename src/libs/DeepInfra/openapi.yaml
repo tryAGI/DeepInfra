@@ -5,6 +5,18 @@ info:
 servers:
   - url: https://api.deepinfra.com/
 paths:
+  /v1/metrics/live:
+    get:
+      summary: Get Live Metrics
+      description: Get the latest values for the Live metrics section on the web front page.
+      operationId: get_live_metrics_v1_metrics_live_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebLiveMetricsOut'
   /cli/version:
     get:
       summary: Cli Version
@@ -466,11 +478,11 @@ paths:
       parameters:
         - name: status
           in: query
-          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
           schema:
             title: Status
             type: string
-            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
             nullable: true
         - name: xi-api-key
           in: header
@@ -510,11 +522,11 @@ paths:
       parameters:
         - name: status
           in: query
-          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
+          description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
           schema:
             title: Status
             type: string
-            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,failed,deleted'
+            description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
             nullable: true
         - name: xi-api-key
           in: header
@@ -538,6 +550,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /deploy/stats:
+    get:
+      summary: Deployment Stats
+      operationId: deployment_stats_deploy_stats_get
+      parameters:
+        - name: from
+          in: query
+          description: 'start of period, unix ts or ''now-5h'', supported units s(ec), m(min), h(our), d(ay), w(eek), M(onth)'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period, unix ts or ''now-5h'', supported units s(ec), m(min), h(our), d(ay), w(eek), M(onth)'
+        - name: to
+          in: query
+          description: 'end of period, unix ts or now-relative, check from, defaults to now'
+          schema:
+            title: To
+            type: string
+            description: 'end of period, unix ts or now-relative, check from, defaults to now'
+            default: now
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Deployment Stats Deploy Stats Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeploymentMainStatsOut'
         '422':
           description: Validation Error
           content:
@@ -784,6 +841,96 @@ paths:
                 $ref: '#/components/schemas/DeepError'
         '410':
           description: Gone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/deploy/{deploy_id}/stop':
+    post:
+      summary: Deploy Stop
+      description: Stop a running deployment. Terminates pods. Can be restarted later.
+      operationId: deploy_stop_deploy__deploy_id__stop_post
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployStatusOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  '/deploy/{deploy_id}/start':
+    post:
+      summary: Deploy Start
+      description: Start a stopped deployment. Re-creates pods via auto-scaling.
+      operationId: deploy_start_deploy__deploy_id__start_post
+      parameters:
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            title: Deploy Id
+            type: string
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployStatusOut'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
@@ -1331,18 +1478,6 @@ paths:
           schema:
             title: Deploy Id
             type: string
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -1394,18 +1529,6 @@ paths:
             type: string
             description: model version to run inference against
             nullable: true
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -1455,12 +1578,6 @@ paths:
             title: X-Deepinfra-Source
             type: string
             nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -1496,12 +1613,6 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
             type: string
             nullable: true
         - name: xi-api-key
@@ -1897,12 +2008,6 @@ paths:
             title: X-Deepinfra-Source
             type: string
             nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -1938,12 +2043,6 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
             type: string
             nullable: true
         - name: xi-api-key
@@ -2005,12 +2104,6 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
             type: string
             nullable: true
       requestBody:
@@ -2210,18 +2303,6 @@ paths:
       description: Generate image using OpenAI Images API
       operationId: openai_images_generations_v1_images_generations_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2255,18 +2336,6 @@ paths:
       description: Generate image using OpenAI Images API
       operationId: openai_images_generations_v1_openai_images_generations_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2300,18 +2369,6 @@ paths:
       description: Generate a similar image using OpenAI Images Variations API
       operationId: openai_images_variations_v1_images_variations_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2345,18 +2402,6 @@ paths:
       description: Generate a similar image using OpenAI Images Variations API
       operationId: openai_images_variations_v1_openai_images_variations_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2390,18 +2435,6 @@ paths:
       description: Edit image using OpenAI Images Edits API
       operationId: openai_images_edits_v1_images_edits_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2435,18 +2468,6 @@ paths:
       description: Edit image using OpenAI Images Edits API
       operationId: openai_images_edits_v1_openai_images_edits_post
       parameters:
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
-        - name: user-agent
-          in: header
-          schema:
-            title: User-Agent
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2935,12 +2956,6 @@ paths:
             type: string
             nullable: true
           example: wav
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -2985,12 +3000,6 @@ paths:
             type: string
             nullable: true
           example: wav
-        - name: x-deepinfra-source
-          in: header
-          schema:
-            title: X-Deepinfra-Source
-            type: string
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
@@ -3707,6 +3716,38 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/request-costs:
+    post:
+      summary: Get Request Costs
+      operationId: get_request_costs_v1_request_costs_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            type: string
+            nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCostQuery'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestCostResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
@@ -4310,6 +4351,46 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /payment/usage/tokens:
+    get:
+      summary: Usage Tokens
+      operationId: usage_tokens_payment_usage_tokens_get
+      parameters:
+        - name: from
+          in: query
+          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
+          required: true
+          schema:
+            title: From
+            type: string
+            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
+        - name: to
+          in: query
+          description: 'end of period (if missing a single month marked by from is return), same format as from'
+          schema:
+            title: To
+            type: string
+            description: 'end of period (if missing a single month marked by from is return), same format as from'
+            nullable: true
+        - name: session
+          in: cookie
+          schema:
+            type: String
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /payment/usage/rent:
     get:
       summary: Usage Rent
@@ -4677,6 +4758,20 @@ components:
           title: Email
           type: string
           nullable: true
+    DiscountMeta:
+      title: DiscountMeta
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+          description: 'description of the discount, only for display purposes'
+          nullable: true
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -4785,6 +4880,8 @@ components:
           description: pricing type
         interval:
           $ref: '#/components/schemas/TimeInterval'
+        discount:
+          $ref: '#/components/schemas/DiscountMeta'
     UsageMonth:
       title: UsageMonth
       required:
@@ -5513,7 +5610,11 @@ components:
           default: tool
         content:
           title: Content
-          type: string
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                $ref: '#/components/schemas/ChatCompletionContentPartText'
           description: the message content
         tool_call_id:
           title: Tool Call Id
@@ -5586,6 +5687,16 @@ components:
           default: function
         function:
           $ref: '#/components/schemas/FunctionDefinition'
+    CompletionMultiModalData:
+      title: CompletionMultiModalData
+      type: object
+      properties:
+        image:
+          title: Image
+          type: array
+          items:
+            type: string
+          description: 'List of images as base64 data URIs (e.g. ''data:image/png;base64,...''). Each image must correspond to a placeholder token in the prompt.'
     ContainerRentalOut:
       title: ContainerRentalOut
       required:
@@ -5769,6 +5880,8 @@ components:
         - H100-80GB
         - H200-141GB
         - B200-180GB
+        - B300-270GB
+        - RTXPRO6000-96GB
         - other
       type: string
     DeployInstances:
@@ -5840,6 +5953,13 @@ components:
           nullable: true
         settings:
           $ref: '#/components/schemas/ScaleSettings'
+        extra_args:
+          title: Extra Args
+          type: array
+          items:
+            type: string
+          description: Extra command line arguments for custom deployments
+          nullable: true
     DeployLLMUpdateIn:
       title: DeployLLMUpdateIn
       required:
@@ -5893,6 +6013,7 @@ components:
         - legacy
         - llm
         - lora
+        - tts
       type: string
     DeploymentLogEntry:
       maxItems: 2
@@ -5914,6 +6035,22 @@ components:
             items:
               $ref: '#/components/schemas/DeploymentLogEntry'
           description: mapping of pod names to log lines ordered by increasing timestamp
+    DeploymentMainStatsOut:
+      title: DeploymentMainStatsOut
+      required:
+        - model_name
+        - requests
+      type: object
+      properties:
+        model_name:
+          title: Model Name
+          type: string
+          description: Model name
+          example: google/vit-base-patch16-224
+        requests:
+          title: Requests
+          type: integer
+          description: number of inference requests in the provided interval
     DeploymentOut:
       title: DeploymentOut
       required:
@@ -6335,6 +6472,16 @@ components:
           type: number
           description: how much is the total spending limit set at creation
           nullable: true
+    JsonObjectResponseFormat:
+      title: JsonObjectResponseFormat
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - json_object
+          type: string
+          default: json_object
     JsonSchema:
       title: JsonSchema
       required:
@@ -6350,6 +6497,20 @@ components:
           title: Schema
           type: object
           description: The actual JSON schema definition
+    JsonSchemaResponseFormat:
+      title: JsonSchemaResponseFormat
+      required:
+        - json_schema
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - json_schema
+          type: string
+          default: json_schema
+        json_schema:
+          $ref: '#/components/schemas/JsonSchema'
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
       required:
@@ -6727,6 +6888,7 @@ components:
         - name
         - title
         - description
+        - developer
         - featured_models
         - pp_sections_out
       type: object
@@ -6744,6 +6906,10 @@ components:
           title: Description
           type: string
           description: Model family description
+        developer:
+          title: Developer
+          type: string
+          description: Model family developer organization
         meta_title:
           title: Meta Title
           type: string
@@ -6924,6 +7090,10 @@ components:
           type: object
         max_tokens:
           title: Max Tokens
+          type: integer
+          nullable: true
+        max_output_tokens:
+          title: Max Output Tokens
           type: integer
           nullable: true
         replaced_by:
@@ -7121,8 +7291,37 @@ components:
         - default_width
         - default_height
         - default_iterations
+        - usage_from_cost
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7139,12 +7338,47 @@ components:
         default_iterations:
           title: Default Iterations
           type: integer
+        default_price_cents:
+          title: Default Price Cents
+          type: number
+          nullable: true
+        usage_from_cost:
+          title: Usage From Cost
+          type: boolean
     ModelPricingInputCharacterLength:
       title: ModelPricingInputCharacterLength
       required:
         - cents_per_input_chars
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7158,6 +7392,34 @@ components:
         - cents_per_input_sec
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7171,6 +7433,34 @@ components:
         - cents_per_input_token
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7184,6 +7474,34 @@ components:
         - cents_per_output_sec
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7197,6 +7515,34 @@ components:
         - cents_per_sec
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7211,6 +7557,34 @@ components:
         - cents_per_output_token
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7235,6 +7609,34 @@ components:
         - cents_per_sec
       type: object
       properties:
+        short:
+          title: Short
+          type: string
+          description: 'Short description of the pricing, ideal for cards and headers'
+          nullable: true
+          example: $0.15 / second
+        full:
+          title: Full
+          type: string
+          description: 'Full description of the pricing, perfect for details'
+          nullable: true
+          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
+        table:
+          title: Table
+          type: object
+          description: Could be used to generate pricing tables
+          nullable: true
+          example:
+            columns:
+              - resolution
+              - $ cost per second
+            rows:
+              - 
+                - 780P
+                - $0.10
+              - 
+                - 1080P
+                - $0.15
         type:
           title: Type
           type: string
@@ -7507,7 +7909,14 @@ components:
           description: Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
           nullable: true
         response_format:
-          $ref: '#/components/schemas/ResponseFormat'
+          title: Response Format
+          anyOf:
+            - $ref: '#/components/schemas/TextResponseFormat'
+            - $ref: '#/components/schemas/JsonObjectResponseFormat'
+            - $ref: '#/components/schemas/JsonSchemaResponseFormat'
+            - $ref: '#/components/schemas/RegexResponseFormat'
+          description: 'The format of the response. Currently, only json is supported.'
+          nullable: true
         repetition_penalty:
           title: Repetition Penalty
           maximum: 5.0
@@ -7551,6 +7960,11 @@ components:
           title: Prompt Cache Key
           type: string
           description: 'A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.'
+          nullable: true
+        chat_template_kwargs:
+          title: Chat Template Kwargs
+          type: object
+          description: Chat template kwargs.
           nullable: true
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
@@ -7656,7 +8070,14 @@ components:
           description: 'Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model''s likelihood to talk about new topics.'
           default: 0
         response_format:
-          $ref: '#/components/schemas/ResponseFormat'
+          title: Response Format
+          anyOf:
+            - $ref: '#/components/schemas/TextResponseFormat'
+            - $ref: '#/components/schemas/JsonObjectResponseFormat'
+            - $ref: '#/components/schemas/JsonSchemaResponseFormat'
+            - $ref: '#/components/schemas/RegexResponseFormat'
+          description: 'The format of the response. Currently, only json is supported.'
+          nullable: true
         repetition_penalty:
           title: Repetition Penalty
           maximum: 5.0
@@ -7691,6 +8112,13 @@ components:
           type: boolean
           description: return tokens as token ids
           nullable: true
+        prompt_cache_key:
+          title: Prompt Cache Key
+          type: string
+          description: 'A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.'
+          nullable: true
+        data:
+          $ref: '#/components/schemas/CompletionMultiModalData'
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:
@@ -7720,6 +8148,7 @@ components:
           title: Encoding Format
           enum:
             - float
+            - base64
           type: string
           description: format used when encoding
           default: float
@@ -7732,18 +8161,22 @@ components:
           example: 1536
     OpenAIImageData:
       title: OpenAIImageData
-      required:
-        - b64_json
       type: object
       properties:
         b64_json:
           title: B64 Json
           type: string
           description: The base64-encoded image data
+          nullable: true
         revised_prompt:
           title: Revised Prompt
           type: string
           description: The prompt used to generate this image
+          nullable: true
+        url:
+          title: Url
+          type: string
+          description: The URL of the generated image
           nullable: true
     OpenAIImagesEditsIn:
       title: OpenAIImagesEditsIn
@@ -7944,6 +8377,8 @@ components:
         - input
       type: object
       properties:
+        service_tier:
+          $ref: '#/components/schemas/ServiceTier'
         model:
           title: Model
           type: string
@@ -8167,12 +8602,17 @@ components:
       title: RateLimitOut
       required:
         - rate_limit
+        - tpm_rate_limit
       type: object
       properties:
         rate_limit:
           title: Rate Limit
           type: integer
-          description: Per model rate limit
+          description: Per model outstanding request rate limit
+        tpm_rate_limit:
+          title: Tpm Rate Limit
+          type: integer
+          description: Per model token per minute rate limit
     RateLimitRequestIn:
       title: RateLimitRequestIn
       required:
@@ -8183,24 +8623,65 @@ components:
         rate_limit:
           title: Rate Limit
           type: integer
+        tpm_rate_limit:
+          title: Tpm Rate Limit
+          type: integer
+          nullable: true
         reason:
           title: Reason
           maxLength: 2048
           type: string
-    ResponseFormat:
-      title: ResponseFormat
+    RegexResponseFormat:
+      title: RegexResponseFormat
+      required:
+        - regex
       type: object
       properties:
         type:
           title: Type
           enum:
-            - text
-            - json_object
-            - json_schema
+            - regex
           type: string
-          default: text
-        json_schema:
-          $ref: '#/components/schemas/JsonSchema'
+          default: regex
+        regex:
+          title: Regex
+          type: string
+          description: Regex pattern for structured output when type is 'regex'
+    RequestCostItem:
+      title: RequestCostItem
+      required:
+        - requestId
+        - costNanoUsd
+      type: object
+      properties:
+        requestId:
+          title: Requestid
+          type: string
+        costNanoUsd:
+          title: Costnanousd
+          type: integer
+    RequestCostQuery:
+      title: RequestCostQuery
+      required:
+        - requestIds
+      type: object
+      properties:
+        requestIds:
+          title: Requestids
+          type: array
+          items:
+            type: string
+    RequestCostResponse:
+      title: RequestCostResponse
+      required:
+        - requests
+      type: object
+      properties:
+        requests:
+          title: Requests
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestCostItem'
     ScaleSettings:
       title: ScaleSettings
       type: object
@@ -8276,11 +8757,11 @@ components:
     ScopedJWTIn:
       title: ScopedJWTIn
       required:
-        - api_token_name
+        - api_key_name
       type: object
       properties:
-        api_token_name:
-          title: Api Token Name
+        api_key_name:
+          title: Api Key Name
           type: string
         models:
           title: Models
@@ -8395,6 +8876,16 @@ components:
           type: boolean
           description: whether to include usage stats continuously with each streaming event
           default: false
+    TextResponseFormat:
+      title: TextResponseFormat
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - text
+          type: string
+          default: text
     TimeDeploymentStatsOut:
       title: TimeDeploymentStatsOut
       required:
@@ -8480,6 +8971,35 @@ components:
         updated_at:
           title: Updated At
           type: integer
+    WebLiveMetricsOut:
+      title: WebLiveMetricsOut
+      required:
+        - tokens_per_second
+        - time_to_first_token
+        - requests_per_second
+        - total_tflops
+      type: object
+      properties:
+        tokens_per_second:
+          title: Tokens Per Second
+          type: number
+          description: Tokens per second
+          nullable: true
+        time_to_first_token:
+          title: Time To First Token
+          type: number
+          description: Time to first token in seconds
+          nullable: true
+        requests_per_second:
+          title: Requests Per Second
+          type: number
+          description: Requests per second
+          nullable: true
+        total_tflops:
+          title: Total Tflops
+          type: number
+          description: Total TFLOPS
+          nullable: true
   securitySchemes:
     HTTPBearer:
       type: http

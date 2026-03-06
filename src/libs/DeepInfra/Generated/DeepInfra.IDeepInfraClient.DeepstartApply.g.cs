@@ -12,8 +12,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
+
             global::DeepInfra.DeepStartApplicationIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace DeepInfra
             string funding,
             string foundedOn,
             string website,
-            string? session = default,
+            object? session = default,
             string? id = default,
             string? uid = default,
             int? createdAt = default,

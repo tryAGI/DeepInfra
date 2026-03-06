@@ -8,16 +8,13 @@ namespace DeepInfra
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesGenerationsAsync(
+
             global::DeepInfra.OpenAIImagesGenerationsIn request,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -25,8 +22,6 @@ namespace DeepInfra
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API
         /// </summary>
-        /// <param name="xDeepinfraSource"></param>
-        /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
         /// The model to use for image generation.<br/>
@@ -59,8 +54,6 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.OpenAIImagesOut> OpenaiImagesGenerationsAsync(
             string model,
             string prompt,
-            string? xDeepinfraSource = default,
-            string? userAgent = default,
             string? xiApiKey = default,
             int? n = default,
             global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,

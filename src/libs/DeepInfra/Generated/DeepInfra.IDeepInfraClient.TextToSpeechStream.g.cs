@@ -9,16 +9,15 @@ namespace DeepInfra
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="outputFormat"></param>
-        /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> TextToSpeechStreamAsync(
             string voiceId,
+
             global::DeepInfra.ElevenLabsTextToSpeechIn request,
             string? outputFormat = default,
-            string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -27,7 +26,6 @@ namespace DeepInfra
         /// </summary>
         /// <param name="voiceId"></param>
         /// <param name="outputFormat"></param>
-        /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="text">
         /// Text to convert to speech<br/>
@@ -53,7 +51,6 @@ namespace DeepInfra
             string voiceId,
             string text,
             string? outputFormat = default,
-            string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? modelId = default,
             global::DeepInfra.TtsResponseFormat? requestOutputFormat = default,

@@ -11,9 +11,9 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("api_token_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiTokenName { get; set; }
+        public required string ApiKeyName { get; set; }
 
         /// <summary>
         /// allow inference only to the specified model names
@@ -49,7 +49,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ScopedJWTIn" /> class.
         /// </summary>
-        /// <param name="apiTokenName"></param>
+        /// <param name="apiKeyName"></param>
         /// <param name="models">
         /// allow inference only to the specified model names
         /// </param>
@@ -66,13 +66,13 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ScopedJWTIn(
-            string apiTokenName,
+            string apiKeyName,
             global::System.Collections.Generic.IList<string>? models,
             int? expiresDelta,
             global::System.DateTimeOffset? expiresAt,
             double? spendingLimit)
         {
-            this.ApiTokenName = apiTokenName ?? throw new global::System.ArgumentNullException(nameof(apiTokenName));
+            this.ApiKeyName = apiKeyName ?? throw new global::System.ArgumentNullException(nameof(apiKeyName));
             this.Models = models;
             this.ExpiresDelta = expiresDelta;
             this.ExpiresAt = expiresAt;

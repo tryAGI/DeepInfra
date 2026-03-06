@@ -110,10 +110,11 @@ namespace DeepInfra
         public double? FrequencyPenalty { get; set; }
 
         /// <summary>
-        /// 
+        /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::DeepInfra.ResponseFormat? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -151,6 +152,18 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("return_tokens_as_token_ids")]
         public bool? ReturnTokensAsTokenIds { get; set; }
+
+        /// <summary>
+        /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_key")]
+        public string? PromptCacheKey { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
+        public global::DeepInfra.CompletionMultiModalData? Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -213,7 +226,9 @@ namespace DeepInfra
         /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -231,6 +246,10 @@ namespace DeepInfra
         /// <param name="returnTokensAsTokenIds">
         /// return tokens as token ids
         /// </param>
+        /// <param name="promptCacheKey">
+        /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
+        /// </param>
+        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -249,13 +268,15 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
             double? presencePenalty,
             double? frequencyPenalty,
-            global::DeepInfra.ResponseFormat? responseFormat,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed,
             global::DeepInfra.StreamOptions? streamOptions,
             global::System.Collections.Generic.IList<int>? stopTokenIds,
-            bool? returnTokensAsTokenIds)
+            bool? returnTokensAsTokenIds,
+            string? promptCacheKey,
+            global::DeepInfra.CompletionMultiModalData? data)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Prompt = prompt;
@@ -278,6 +299,8 @@ namespace DeepInfra
             this.StreamOptions = streamOptions;
             this.StopTokenIds = stopTokenIds;
             this.ReturnTokensAsTokenIds = returnTokensAsTokenIds;
+            this.PromptCacheKey = promptCacheKey;
+            this.Data = data;
         }
 
         /// <summary>

@@ -12,8 +12,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> AddFundsAsync(
+
             global::DeepInfra.AddFundsIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> AddFundsAsync(
             int amount,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

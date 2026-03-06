@@ -14,6 +14,7 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> OpenaiEmbeddingsAsync(
+
             global::DeepInfra.OpenAIEmbeddingsIn request,
             string? xDeepinfraSource = default,
             string? userAgent = default,

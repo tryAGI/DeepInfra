@@ -7,12 +7,12 @@ namespace DeepInfra
     {
         partial void PrepareDeepstartApplyArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? session,
+            object? session,
             global::DeepInfra.DeepStartApplicationIn request);
         partial void PrepareDeepstartApplyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? session,
+            object? session,
             global::DeepInfra.DeepStartApplicationIn request);
         partial void ProcessDeepstartApplyResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,8 +31,9 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
+
             global::DeepInfra.DeepStartApplicationIn request,
-            string? session = default,
+            object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -41,7 +42,7 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareDeepstartApplyArguments(
                 httpClient: HttpClient,
-                session: ref session,
+                session: session,
                 request: request);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(
@@ -232,7 +233,7 @@ namespace DeepInfra
             string funding,
             string foundedOn,
             string website,
-            string? session = default,
+            object? session = default,
             string? id = default,
             string? uid = default,
             int? createdAt = default,

@@ -55,7 +55,7 @@ namespace DeepInfra
             var __pathBuilder = new global::DeepInfra.PathBuilder(
                 path: $"/models/{modelName}/schema/{variantKey}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("version", version) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -3,10 +3,10 @@
 namespace DeepInfra.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ResponseFormatTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.ResponseFormatType?>
+    public sealed class TextResponseFormatTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::DeepInfra.TextResponseFormatType>
     {
         /// <inheritdoc />
-        public override global::DeepInfra.ResponseFormatType? Read(
+        public override global::DeepInfra.TextResponseFormatType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace DeepInfra.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::DeepInfra.ResponseFormatTypeExtensions.ToEnum(stringValue);
+                        return global::DeepInfra.TextResponseFormatTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace DeepInfra.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::DeepInfra.ResponseFormatType)numValue;
+                    return (global::DeepInfra.TextResponseFormatType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::DeepInfra.ResponseFormatType?);
+                    return default(global::DeepInfra.TextResponseFormatType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace DeepInfra.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::DeepInfra.ResponseFormatType? value,
+            global::DeepInfra.TextResponseFormatType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::DeepInfra.ResponseFormatTypeExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::DeepInfra.TextResponseFormatTypeExtensions.ToValueString(value));
         }
     }
 }

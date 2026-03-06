@@ -110,10 +110,11 @@ namespace DeepInfra
         public global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? ToolChoice { get; set; }
 
         /// <summary>
-        /// 
+        /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::DeepInfra.ResponseFormat? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -164,6 +165,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_key")]
         public string? PromptCacheKey { get; set; }
+
+        /// <summary>
+        /// Chat template kwargs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chat_template_kwargs")]
+        public object? ChatTemplateKwargs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -226,7 +233,9 @@ namespace DeepInfra
         /// <param name="toolChoice">
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
         /// <param name="repetitionPenalty">
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
         /// Default Value: 1
@@ -248,6 +257,9 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
+        /// <param name="chatTemplateKwargs">
+        /// Chat template kwargs.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -266,7 +278,7 @@ namespace DeepInfra
             double? frequencyPenalty,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
             global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice,
-            global::DeepInfra.ResponseFormat? responseFormat,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed,
@@ -274,7 +286,8 @@ namespace DeepInfra
             global::DeepInfra.StreamOptions? streamOptions,
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort,
             global::DeepInfra.ChatReasoningSettings? reasoning,
-            string? promptCacheKey)
+            string? promptCacheKey,
+            object? chatTemplateKwargs)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -299,6 +312,7 @@ namespace DeepInfra
             this.ReasoningEffort = reasoningEffort;
             this.Reasoning = reasoning;
             this.PromptCacheKey = promptCacheKey;
+            this.ChatTemplateKwargs = chatTemplateKwargs;
         }
 
         /// <summary>
