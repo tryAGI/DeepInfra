@@ -10,10 +10,10 @@ C# SDK for the [DeepInfra](https://deepinfra.com/) serverless AI inference platf
 
 ```bash
 # Build the solution
-dotnet build DeepInfra.sln
+dotnet build DeepInfra.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build DeepInfra.sln -c Release
+dotnet build DeepInfra.slnx -c Release
 
 # Run integration tests (requires DEEPINFRA_API_KEY env var)
 dotnet test src/tests/DeepInfra.IntegrationTests/DeepInfra.IntegrationTests.csproj
