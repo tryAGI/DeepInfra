@@ -19,8 +19,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Email { get; set; }
+        public string? Email { get; set; }
 
         /// <summary>
         /// 
@@ -60,8 +59,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("picture")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Picture { get; set; }
+        public string? Picture { get; set; }
 
         /// <summary>
         /// 
@@ -232,12 +230,10 @@ namespace DeepInfra
 #endif
         public Me(
             string uid,
-            string? email,
             bool emailVerified,
             bool accountSetup,
             string displayName,
             string provider,
-            string? picture,
             bool isAdmin,
             string name,
             string firstName,
@@ -247,7 +243,9 @@ namespace DeepInfra
             string company,
             string website,
             string title,
+            string? email,
             bool? requireEmailVerified,
+            string? picture,
             bool? isTeamAccount,
             bool? isTeamOwner,
             string? teamRole,
@@ -257,12 +255,10 @@ namespace DeepInfra
             global::DeepInfra.Checklist? checklist)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
-            this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.EmailVerified = emailVerified;
             this.AccountSetup = accountSetup;
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
-            this.Picture = picture ?? throw new global::System.ArgumentNullException(nameof(picture));
             this.IsAdmin = isAdmin;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FirstName = firstName ?? throw new global::System.ArgumentNullException(nameof(firstName));
@@ -272,7 +268,9 @@ namespace DeepInfra
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
+            this.Email = email;
             this.RequireEmailVerified = requireEmailVerified;
+            this.Picture = picture;
             this.IsTeamAccount = isTeamAccount;
             this.IsTeamOwner = isTeamOwner;
             this.TeamRole = teamRole;

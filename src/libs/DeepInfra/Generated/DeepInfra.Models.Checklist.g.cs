@@ -62,8 +62,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double? Limit { get; set; }
+        public double? Limit { get; set; }
 
         /// <summary>
         /// 
@@ -150,7 +149,6 @@ namespace DeepInfra
         public Checklist(
             double stripeBalance,
             double recent,
-            double? limit,
             global::DeepInfra.SuspendReason suspendReason,
             bool? email,
             bool? billingAddress,
@@ -158,6 +156,7 @@ namespace DeepInfra
             bool? suspended,
             double? overdueInvoices,
             int? lastChecked,
+            double? limit,
             bool? topup,
             int? topupAmount,
             int? topupThreshold,
@@ -165,7 +164,6 @@ namespace DeepInfra
         {
             this.StripeBalance = stripeBalance;
             this.Recent = recent;
-            this.Limit = limit;
             this.SuspendReason = suspendReason;
             this.Email = email;
             this.BillingAddress = billingAddress;
@@ -173,6 +171,7 @@ namespace DeepInfra
             this.Suspended = suspended;
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
+            this.Limit = limit;
             this.Topup = topup;
             this.TopupAmount = topupAmount;
             this.TopupThreshold = topupThreshold;

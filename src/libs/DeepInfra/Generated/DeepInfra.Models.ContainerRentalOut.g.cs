@@ -48,15 +48,13 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop_ts")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int? StopTs { get; set; }
+        public int? StopTs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ip")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? Ip { get; set; }
+        public string? Ip { get; set; }
 
         /// <summary>
         /// 
@@ -83,8 +81,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fail_reason")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string? FailReason { get; set; }
+        public string? FailReason { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -115,11 +112,11 @@ namespace DeepInfra
             global::DeepInfra.ContainerRentalStateOut state,
             int startTs,
             int stateTs,
-            int? stopTs,
-            string? ip,
             string gpuConfig,
             double pricePerHour,
             string containerImage,
+            int? stopTs,
+            string? ip,
             string? failReason)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -127,12 +124,12 @@ namespace DeepInfra
             this.State = state;
             this.StartTs = startTs;
             this.StateTs = stateTs;
-            this.StopTs = stopTs;
-            this.Ip = ip ?? throw new global::System.ArgumentNullException(nameof(ip));
             this.GpuConfig = gpuConfig ?? throw new global::System.ArgumentNullException(nameof(gpuConfig));
             this.PricePerHour = pricePerHour;
             this.ContainerImage = containerImage ?? throw new global::System.ArgumentNullException(nameof(containerImage));
-            this.FailReason = failReason ?? throw new global::System.ArgumentNullException(nameof(failReason));
+            this.StopTs = stopTs;
+            this.Ip = ip;
+            this.FailReason = failReason;
         }
 
         /// <summary>

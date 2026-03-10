@@ -12,29 +12,25 @@ namespace DeepInfra
         /// Tokens per second
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens_per_second")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double? TokensPerSecond { get; set; }
+        public double? TokensPerSecond { get; set; }
 
         /// <summary>
         /// Time to first token in seconds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time_to_first_token")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double? TimeToFirstToken { get; set; }
+        public double? TimeToFirstToken { get; set; }
 
         /// <summary>
         /// Requests per second
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests_per_second")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double? RequestsPerSecond { get; set; }
+        public double? RequestsPerSecond { get; set; }
 
         /// <summary>
         /// Total TFLOPS
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_tflops")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double? TotalTflops { get; set; }
+        public double? TotalTflops { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
