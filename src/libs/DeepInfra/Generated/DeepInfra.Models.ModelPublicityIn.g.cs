@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Public { get; set; }
+        public bool Public { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

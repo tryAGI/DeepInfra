@@ -9,26 +9,20 @@ namespace DeepInfra
     public sealed partial class ModelPricingImageUnits
     {
         /// <summary>
-        /// Short description of the pricing, ideal for cards and headers<br/>
-        /// Example: $0.15 / second
+        /// Short description of the pricing, ideal for cards and headers
         /// </summary>
-        /// <example>$0.15 / second</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("short")]
         public string? Short { get; set; }
 
         /// <summary>
-        /// Full description of the pricing, perfect for details<br/>
-        /// Example: $0.15 / second for 1080P, $0.10 / second for 720P
+        /// Full description of the pricing, perfect for details
         /// </summary>
-        /// <example>$0.15 / second for 1080P, $0.10 / second for 720P</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("full")]
         public string? Full { get; set; }
 
         /// <summary>
-        /// Could be used to generate pricing tables<br/>
-        /// Example: {"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}
+        /// Could be used to generate pricing tables
         /// </summary>
-        /// <example>{"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("table")]
         public object? Table { get; set; }
 
@@ -43,28 +37,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_image_unit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double CentsPerImageUnit { get; set; }
+        public double CentsPerImageUnit { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_width")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DefaultWidth { get; set; }
+        public int DefaultWidth { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_height")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DefaultHeight { get; set; }
+        public int DefaultHeight { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_iterations")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DefaultIterations { get; set; }
+        public int DefaultIterations { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -77,7 +71,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_from_cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool UsageFromCost { get; set; }
+        public bool UsageFromCost { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -89,16 +83,13 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ModelPricingImageUnits" /> class.
         /// </summary>
         /// <param name="short">
-        /// Short description of the pricing, ideal for cards and headers<br/>
-        /// Example: $0.15 / second
+        /// Short description of the pricing, ideal for cards and headers
         /// </param>
         /// <param name="full">
-        /// Full description of the pricing, perfect for details<br/>
-        /// Example: $0.15 / second for 1080P, $0.10 / second for 720P
+        /// Full description of the pricing, perfect for details
         /// </param>
         /// <param name="table">
-        /// Could be used to generate pricing tables<br/>
-        /// Example: {"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}
+        /// Could be used to generate pricing tables
         /// </param>
         /// <param name="type">
         /// Default Value: image_units

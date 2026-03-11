@@ -13,45 +13,45 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ModelMeta Model { get; set; }
+        public global::DeepInfra.ModelMeta Model { get; set; } = default!;
 
         /// <summary>
         /// billed seconds or tokens
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("units")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Units { get; set; }
+        public int Units { get; set; } = default!;
 
         /// <summary>
         /// rate in cents/sec or cents per token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Rate { get; set; }
+        public double Rate { get; set; } = default!;
 
         /// <summary>
         /// model cost in cents
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Cost { get; set; }
+        public int Cost { get; set; } = default!;
 
         /// <summary>
         /// pricing type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string PricingType { get; set; }
+        public string PricingType { get; set; } = default!;
 
         /// <summary>
-        /// Inclusive, in ms
+        /// time interval with this particular pricing
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.TimeInterval Interval { get; set; }
+        public global::DeepInfra.TimeInterval Interval { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// discount meta, only if pricing_type is discount
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
         public global::DeepInfra.DiscountMeta? Discount { get; set; }
@@ -79,9 +79,11 @@ namespace DeepInfra
         /// pricing type
         /// </param>
         /// <param name="interval">
-        /// Inclusive, in ms
+        /// time interval with this particular pricing
         /// </param>
-        /// <param name="discount"></param>
+        /// <param name="discount">
+        /// discount meta, only if pricing_type is discount
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

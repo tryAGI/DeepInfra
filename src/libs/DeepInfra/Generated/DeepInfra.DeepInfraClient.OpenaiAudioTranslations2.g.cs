@@ -125,7 +125,7 @@ namespace DeepInfra
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.ResponseFormat?.ToValueString()}"),
+                    content: new global::System.Net.Http.StringContent($"{request.ResponseFormat}"),
                     name: "\"response_format\"");
             } 
             if (request.Temperature != default)
@@ -288,7 +288,7 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat2? responseFormat = default,
             double? temperature = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

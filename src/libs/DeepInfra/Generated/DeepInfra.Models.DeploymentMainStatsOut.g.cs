@@ -9,20 +9,18 @@ namespace DeepInfra
     public sealed partial class DeploymentMainStatsOut
     {
         /// <summary>
-        /// Model name<br/>
-        /// Example: google/vit-base-patch16-224
+        /// Model name
         /// </summary>
-        /// <example>google/vit-base-patch16-224</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
         /// number of inference requests in the provided interval
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Requests { get; set; }
+        public int Requests { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,8 +32,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="DeploymentMainStatsOut" /> class.
         /// </summary>
         /// <param name="modelName">
-        /// Model name<br/>
-        /// Example: google/vit-base-patch16-224
+        /// Model name
         /// </param>
         /// <param name="requests">
         /// number of inference requests in the provided interval

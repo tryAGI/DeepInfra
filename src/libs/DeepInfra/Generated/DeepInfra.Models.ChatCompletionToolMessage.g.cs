@@ -21,8 +21,7 @@ namespace DeepInfra
         /// Default Value: tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionToolMessageRoleJsonConverter))]
-        public global::DeepInfra.ChatCompletionToolMessageRole? Role { get; set; }
+        public string? Role { get; set; }
 
         /// <summary>
         /// the message content
@@ -30,14 +29,14 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> Content { get; set; }
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> Content { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ToolCallId { get; set; }
+        public string ToolCallId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,7 +65,7 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> content,
             string toolCallId,
             object? cacheControl,
-            global::DeepInfra.ChatCompletionToolMessageRole? role)
+            string? role)
         {
             this.Content = content;
             this.ToolCallId = toolCallId ?? throw new global::System.ArgumentNullException(nameof(toolCallId));

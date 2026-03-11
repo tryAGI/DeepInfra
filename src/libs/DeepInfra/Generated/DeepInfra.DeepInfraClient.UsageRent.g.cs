@@ -8,7 +8,7 @@ namespace DeepInfra
         partial void PrepareUsageRentArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int from,
-            ref int? to,
+            int? to,
             object? session);
         partial void PrepareUsageRentRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -48,7 +48,7 @@ namespace DeepInfra
             PrepareUsageRentArguments(
                 httpClient: HttpClient,
                 from: ref from,
-                to: ref to,
+                to: to,
                 session: session);
 
             var __pathBuilder = new global::DeepInfra.PathBuilder(

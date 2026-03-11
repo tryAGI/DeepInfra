@@ -27,22 +27,21 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="userAgent"></param>
         /// <param name="xiApiKey"></param>
-        /// <param name="serviceTier"></param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// </param>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: thenlper/gte-large
+        /// model name
         /// </param>
         /// <param name="input">
-        /// sequences to embed<br/>
-        /// Example: [I like chocolate]
+        /// sequences to embed
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
         /// Default Value: float
         /// </param>
         /// <param name="dimensions">
-        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
-        /// Example: 1536
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

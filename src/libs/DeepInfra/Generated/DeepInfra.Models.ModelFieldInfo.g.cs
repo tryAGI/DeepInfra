@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ftype")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Ftype { get; set; }
+        public string Ftype { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace DeepInfra
         public object? Default { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("examples")]
         public global::System.Collections.Generic.IList<object>? Examples { get; set; }
@@ -61,8 +61,20 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("exclusiveMinimum")]
+        public double? ExclusiveMinimum { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maximum")]
         public double? Maximum { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("exclusiveMaximum")]
+        public double? ExclusiveMaximum { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -79,9 +91,13 @@ namespace DeepInfra
         /// <param name="description"></param>
         /// <param name="allowed"></param>
         /// <param name="default"></param>
-        /// <param name="examples"></param>
+        /// <param name="examples">
+        /// Default Value: []
+        /// </param>
         /// <param name="minimum"></param>
+        /// <param name="exclusiveMinimum"></param>
         /// <param name="maximum"></param>
+        /// <param name="exclusiveMaximum"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -94,7 +110,9 @@ namespace DeepInfra
             object? @default,
             global::System.Collections.Generic.IList<object>? examples,
             double? minimum,
-            double? maximum)
+            double? exclusiveMinimum,
+            double? maximum,
+            double? exclusiveMaximum)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Ftype = ftype ?? throw new global::System.ArgumentNullException(nameof(ftype));
@@ -104,7 +122,9 @@ namespace DeepInfra
             this.Default = @default;
             this.Examples = examples;
             this.Minimum = minimum;
+            this.ExclusiveMinimum = exclusiveMinimum;
             this.Maximum = maximum;
+            this.ExclusiveMaximum = exclusiveMaximum;
         }
 
         /// <summary>

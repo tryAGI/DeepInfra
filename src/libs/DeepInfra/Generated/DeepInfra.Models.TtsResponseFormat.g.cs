@@ -5,7 +5,7 @@ namespace DeepInfra
 {
     /// <summary>
     /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
-    /// Example: mp3
+    /// Default Value: wav
     /// </summary>
     public enum TtsResponseFormat
     {

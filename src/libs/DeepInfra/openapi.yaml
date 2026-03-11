@@ -1,4 +1,4 @@
-openapi: 3.0.4
+openapi: '3.2.0'
 info:
   title: DeepApi
   version: 0.1.0
@@ -53,8 +53,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -78,8 +79,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -103,8 +105,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -146,8 +149,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -178,8 +182,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -221,8 +226,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -253,8 +259,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -296,8 +303,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -346,8 +354,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -408,8 +417,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -434,8 +444,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -479,15 +490,17 @@ paths:
           description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
           schema:
             title: Status
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -523,15 +536,17 @@ paths:
           description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
           schema:
             title: Status
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'A list of statuses that should be returned, separated by comma. Allowed values in the list are: initializing,downloading,deploying,running,stopped,failed,deleted'
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -581,8 +596,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -616,8 +632,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -653,8 +670,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -708,8 +726,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -762,8 +781,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -822,8 +842,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -867,8 +888,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -912,8 +934,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -950,8 +973,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -979,8 +1003,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1023,8 +1048,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1112,8 +1138,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1172,8 +1199,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1213,8 +1241,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1262,8 +1291,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1319,8 +1349,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1361,14 +1392,16 @@ paths:
           in: query
           schema:
             title: Version
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1424,14 +1457,16 @@ paths:
           in: query
           schema:
             title: Version
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1480,8 +1515,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1524,15 +1560,17 @@ paths:
           description: model version to run inference against
           schema:
             title: Version
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: model version to run inference against
-            nullable: true
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1574,14 +1612,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1611,14 +1651,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1648,20 +1690,23 @@ paths:
           in: query
           schema:
             title: After
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: purpose
           in: query
           schema:
             title: Purpose
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: order
           in: query
           schema:
             title: Order
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: limit
           in: query
           schema:
@@ -1672,8 +1717,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1696,8 +1742,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -1727,20 +1774,23 @@ paths:
           in: query
           schema:
             title: After
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: purpose
           in: query
           schema:
             title: Purpose
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: order
           in: query
           schema:
             title: Order
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: limit
           in: query
           schema:
@@ -1751,8 +1801,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1775,8 +1826,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -1818,8 +1870,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1842,8 +1895,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1886,8 +1940,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1910,8 +1965,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -1948,8 +2004,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -1979,8 +2036,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2004,14 +2062,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2041,14 +2101,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2078,32 +2140,37 @@ paths:
           in: header
           schema:
             title: Authorization
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: x-api-key
           in: header
           schema:
             title: X-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: anthropic-version
           in: header
           schema:
             title: Anthropic-Version
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: anthropic-beta
           in: header
           schema:
             title: Anthropic-Beta
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: x-deepinfra-source
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2131,14 +2198,16 @@ paths:
           in: header
           schema:
             title: Authorization
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: x-api-key
           in: header
           schema:
             title: X-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2166,20 +2235,23 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: user-agent
           in: header
           schema:
             title: User-Agent
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2209,20 +2281,23 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: user-agent
           in: header
           schema:
             title: User-Agent
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2252,8 +2327,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2278,8 +2354,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2305,8 +2382,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2338,8 +2416,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2371,8 +2450,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2404,8 +2484,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2437,8 +2518,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2470,8 +2552,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2503,8 +2586,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2540,14 +2624,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2577,14 +2663,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2614,14 +2702,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2651,14 +2741,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2688,14 +2780,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2725,14 +2819,16 @@ paths:
           in: header
           schema:
             title: X-Deepinfra-Source
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -2772,17 +2868,19 @@ paths:
           description: 'start of period, in fractional seconds since unix epoch (inclusive)'
           schema:
             title: From
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'start of period, in fractional seconds since unix epoch (inclusive)'
-            nullable: true
         - name: to
           in: query
           description: 'end of period, in fractional seconds since unix epoch (exclusive)'
           schema:
             title: To
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'end of period, in fractional seconds since unix epoch (exclusive)'
-            nullable: true
         - name: limit
           in: query
           description: 'how many items to return at most (default 100, in [1, 1000])'
@@ -2795,8 +2893,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2843,25 +2942,28 @@ paths:
           description: the pod name to get the logs from
           schema:
             title: Pod Name
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: the pod name to get the logs from
-            nullable: true
         - name: from
           in: query
           description: 'start of period, in fractional seconds since unix epoch (inclusive)'
           schema:
             title: From
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'start of period, in fractional seconds since unix epoch (inclusive)'
-            nullable: true
         - name: to
           in: query
           description: 'end of period, in fractional seconds since unix epoch (exclusive)'
           schema:
             title: To
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'end of period, in fractional seconds since unix epoch (exclusive)'
-            nullable: true
         - name: limit
           in: query
           description: 'how many items to return at most (default 100, in [1, 1000])'
@@ -2874,8 +2976,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2913,8 +3016,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -2951,15 +3055,17 @@ paths:
           in: query
           schema:
             title: Output Format
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
           example: wav
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -2995,15 +3101,17 @@ paths:
           in: query
           schema:
             title: Output Format
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
           example: wav
         - name: xi-api-key
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3040,8 +3148,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3077,8 +3186,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3115,8 +3225,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           multipart/form-data:
@@ -3159,8 +3270,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -3203,8 +3315,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3241,8 +3354,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3272,8 +3386,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3302,8 +3417,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3338,8 +3454,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3369,8 +3486,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3394,8 +3512,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3419,8 +3538,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3462,8 +3582,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3488,8 +3609,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3548,8 +3670,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3595,8 +3718,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3638,8 +3762,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3686,8 +3811,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3723,8 +3849,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3756,26 +3883,30 @@ paths:
           in: query
           schema:
             title: Login Id
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: origin
           in: query
           schema:
             title: Origin
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: deal
           in: query
           schema:
             title: Deal
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: ti_token
           in: query
           schema:
             title: Ti Token
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3803,14 +3934,16 @@ paths:
           in: query
           schema:
             title: Origin
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: login_id
           in: query
           schema:
             title: Login Id
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3856,8 +3989,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3884,8 +4018,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -3928,8 +4063,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -3965,8 +4101,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -4002,8 +4139,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -4039,8 +4177,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -4076,8 +4215,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -4102,8 +4242,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -4130,8 +4271,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       requestBody:
         content:
           application/json:
@@ -4174,8 +4316,9 @@ paths:
           in: header
           schema:
             title: Xi-Api-Key
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
       responses:
         '200':
           description: Successful Response
@@ -4209,8 +4352,7 @@ paths:
             default: false
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4233,8 +4375,7 @@ paths:
       parameters:
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4256,8 +4397,7 @@ paths:
       parameters:
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       requestBody:
         content:
           application/json:
@@ -4288,12 +4428,12 @@ paths:
           in: query
           schema:
             title: Return Url
-            type: string
-            nullable: true
+            anyOf:
+              - type: string
+              - type: 'null'
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4327,13 +4467,13 @@ paths:
           description: 'end of period (if missing a single month marked by from is return), same format as from'
           schema:
             title: To
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'end of period (if missing a single month marked by from is return), same format as from'
-            nullable: true
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4367,13 +4507,13 @@ paths:
           description: 'end of period (if missing a single month marked by from is return), same format as from'
           schema:
             title: To
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'end of period (if missing a single month marked by from is return), same format as from'
-            nullable: true
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4407,13 +4547,13 @@ paths:
           description: 'end of period, in seconds since unix epoch'
           schema:
             title: To
-            type: integer
+            anyOf:
+              - type: integer
+              - type: 'null'
             description: 'end of period, in seconds since unix epoch'
-            nullable: true
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4453,13 +4593,13 @@ paths:
           description: 'end of period (if missing a single month marked by from is return), same format as from'
           schema:
             title: To
-            type: string
+            anyOf:
+              - type: string
+              - type: 'null'
             description: 'end of period (if missing a single month marked by from is return), same format as from'
-            nullable: true
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       responses:
         '200':
           description: Successful Response
@@ -4482,8 +4622,7 @@ paths:
       parameters:
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       requestBody:
         content:
           application/json:
@@ -4512,8 +4651,7 @@ paths:
       parameters:
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       requestBody:
         content:
           application/json:
@@ -4541,8 +4679,7 @@ paths:
       parameters:
         - name: session
           in: cookie
-          schema:
-            type: String
+          schema: { }
       requestBody:
         content:
           application/json:
@@ -4612,7 +4749,7 @@ components:
         overdue_invoices:
           title: Overdue Invoices
           type: number
-          default: 0
+          default: 0.0
         last_checked:
           title: Last Checked
           type: integer
@@ -4627,10 +4764,13 @@ components:
           description: usage since most recent invoice
         limit:
           title: Limit
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         suspend_reason:
-          $ref: '#/components/schemas/SuspendReason'
+          anyOf:
+            - $ref: '#/components/schemas/SuspendReason'
+            - type: 'null'
         topup:
           title: Topup
           type: boolean
@@ -4653,9 +4793,10 @@ components:
       properties:
         limit:
           title: Limit
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: Set usage limit (in USD). Negative means no limit.null/not-set means don't change it
-          nullable: true
     ConfigOut:
       title: ConfigOut
       required:
@@ -4681,8 +4822,9 @@ components:
           type: string
         uid:
           title: Uid
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         company:
           title: Company
           type: string
@@ -4707,8 +4849,9 @@ components:
           default: pending
         deal:
           title: Deal
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     DeepStartApplicationOut:
       title: DeepStartApplicationOut
       required:
@@ -4724,8 +4867,9 @@ components:
           type: string
         uid:
           title: Uid
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         company:
           title: Company
           type: string
@@ -4750,12 +4894,14 @@ components:
           default: pending
         deal:
           title: Deal
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         email:
           title: Email
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     DiscountMeta:
       title: DiscountMeta
       required:
@@ -4767,9 +4913,10 @@ components:
           type: string
         description:
           title: Description
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'description of the discount, only for display purposes'
-          nullable: true
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -4798,8 +4945,9 @@ components:
           type: string
         plan_id:
           title: Plan Id
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         private:
           title: Private
           type: boolean
@@ -4877,9 +5025,13 @@ components:
           type: string
           description: pricing type
         interval:
+          description: time interval with this particular pricing
           $ref: '#/components/schemas/TimeInterval'
         discount:
-          $ref: '#/components/schemas/DiscountMeta'
+          anyOf:
+            - $ref: '#/components/schemas/DiscountMeta'
+            - type: 'null'
+          description: 'discount meta, only if pricing_type is discount'
     UsageMonth:
       title: UsageMonth
       required:
@@ -4894,6 +5046,7 @@ components:
           type: string
           description: YYYY.MM formatted period
         interval:
+          description: time interval in this period
           $ref: '#/components/schemas/TimeInterval'
         items:
           title: Items
@@ -4970,8 +5123,9 @@ components:
           type: string
         max_tokens:
           title: Max Tokens
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         messages:
           title: Messages
           type: array
@@ -4984,47 +5138,57 @@ components:
             - type: array
               items:
                 $ref: '#/components/schemas/AnthropicSystemContent'
-          nullable: true
+            - type: 'null'
         stop_sequences:
           title: Stop Sequences
-          type: array
-          items:
-            type: string
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                type: string
+            - type: 'null'
         stream:
           title: Stream
-          type: boolean
+          anyOf:
+            - type: boolean
+            - type: 'null'
           default: false
-          nullable: true
         temperature:
           title: Temperature
-          type: number
-          default: 1
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
+          default: 1.0
         top_p:
           title: Top P
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         top_k:
           title: Top K
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         metadata:
           title: Metadata
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         tools:
           title: Tools
-          type: array
-          items:
-            $ref: '#/components/schemas/AnthropicTool'
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/AnthropicTool'
+            - type: 'null'
         tool_choice:
           title: Tool Choice
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         thinking:
-          $ref: '#/components/schemas/AnthropicThinkingConfig'
+          anyOf:
+            - $ref: '#/components/schemas/AnthropicThinkingConfig'
+            - type: 'null'
     AnthropicSystemContent:
       title: AnthropicSystemContent
       required:
@@ -5033,9 +5197,8 @@ components:
       type: object
       properties:
         type:
+          const: text
           title: Type
-          enum:
-            - text
           type: string
         text:
           title: Text
@@ -5070,19 +5233,23 @@ components:
             - type: array
               items:
                 $ref: '#/components/schemas/AnthropicSystemContent'
-          nullable: true
+            - type: 'null'
         tools:
           title: Tools
-          type: array
-          items:
-            $ref: '#/components/schemas/AnthropicTool'
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/AnthropicTool'
+            - type: 'null'
         thinking:
-          $ref: '#/components/schemas/AnthropicThinkingConfig'
+          anyOf:
+            - $ref: '#/components/schemas/AnthropicThinkingConfig'
+            - type: 'null'
         tool_choice:
           title: Tool Choice
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
     AnthropicTool:
       title: AnthropicTool
       required:
@@ -5095,8 +5262,9 @@ components:
           type: string
         description:
           title: Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         input_schema:
           title: Input Schema
           type: object
@@ -5120,8 +5288,9 @@ components:
           type: string
         token_id:
           title: Token Id
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     ApiTokenIn:
       title: ApiTokenIn
       required:
@@ -5192,37 +5361,42 @@ components:
           type: string
         language:
           title: Language
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         prompt:
           title: Prompt
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         response_format:
           title: Response Format
-          enum:
-            - json
-            - verbose_json
-            - text
-            - srt
-            - vtt
-          type: string
+          anyOf:
+            - enum:
+                - json
+                - verbose_json
+                - text
+                - srt
+                - vtt
+              type: string
+            - type: 'null'
           default: json
-          nullable: true
         temperature:
           title: Temperature
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           default: 0
-          nullable: true
         timestamp_granularities:
           title: Timestamp Granularities
-          type: array
-          items:
-            enum:
-              - segment
-              - word
-            type: string
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                enum:
+                  - segment
+                  - word
+                type: string
+            - type: 'null'
     Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post:
       title: Body_openai_audio_transcriptions_v1_openai_audio_transcriptions_post
       required:
@@ -5239,37 +5413,42 @@ components:
           type: string
         language:
           title: Language
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         prompt:
           title: Prompt
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         response_format:
           title: Response Format
-          enum:
-            - json
-            - verbose_json
-            - text
-            - srt
-            - vtt
-          type: string
+          anyOf:
+            - enum:
+                - json
+                - verbose_json
+                - text
+                - srt
+                - vtt
+              type: string
+            - type: 'null'
           default: json
-          nullable: true
         temperature:
           title: Temperature
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           default: 0
-          nullable: true
         timestamp_granularities:
           title: Timestamp Granularities
-          type: array
-          items:
-            enum:
-              - segment
-              - word
-            type: string
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                enum:
+                  - segment
+                  - word
+                type: string
+            - type: 'null'
     Body_openai_audio_translations_v1_audio_translations_post:
       title: Body_openai_audio_translations_v1_audio_translations_post
       required:
@@ -5286,24 +5465,27 @@ components:
           type: string
         prompt:
           title: Prompt
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         response_format:
           title: Response Format
-          enum:
-            - json
-            - verbose_json
-            - text
-            - srt
-            - vtt
-          type: string
+          anyOf:
+            - enum:
+                - json
+                - verbose_json
+                - text
+                - srt
+                - vtt
+              type: string
+            - type: 'null'
           default: json
-          nullable: true
         temperature:
           title: Temperature
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           default: 0
-          nullable: true
     Body_openai_audio_translations_v1_openai_audio_translations_post:
       title: Body_openai_audio_translations_v1_openai_audio_translations_post
       required:
@@ -5320,24 +5502,27 @@ components:
           type: string
         prompt:
           title: Prompt
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         response_format:
           title: Response Format
-          enum:
-            - json
-            - verbose_json
-            - text
-            - srt
-            - vtt
-          type: string
+          anyOf:
+            - enum:
+                - json
+                - verbose_json
+                - text
+                - srt
+                - vtt
+              type: string
+            - type: 'null'
           default: json
-          nullable: true
         temperature:
           title: Temperature
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           default: 0
-          nullable: true
     Body_openai_files_v1_files_post:
       title: Body_openai_files_v1_files_post
       required:
@@ -5383,7 +5568,9 @@ components:
           type: string
           format: binary
         inp:
-          $ref: '#/components/schemas/OpenAIImagesEditsIn'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesEditsIn'
+            - type: 'null'
         prompt:
           title: Prompt
           type: string
@@ -5403,7 +5590,9 @@ components:
           type: string
           format: binary
         inp:
-          $ref: '#/components/schemas/OpenAIImagesEditsIn'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesEditsIn'
+            - type: 'null'
         prompt:
           title: Prompt
           type: string
@@ -5422,7 +5611,9 @@ components:
           type: string
           format: binary
         inp:
-          $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+            - type: 'null'
         model:
           title: Model
           type: string
@@ -5438,7 +5629,9 @@ components:
           type: string
           format: binary
         inp:
-          $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesVariationsIn'
+            - type: 'null'
         model:
           title: Model
           type: string
@@ -5461,13 +5654,13 @@ components:
       properties:
         cache_control:
           title: Cache Control
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Cache control for prompt caching
-          nullable: true
         role:
+          const: assistant
           title: Role
-          enum:
-            - assistant
           type: string
           description: the role of the author of this message
           default: assistant
@@ -5478,24 +5671,27 @@ components:
             - type: array
               items:
                 $ref: '#/components/schemas/ChatCompletionContentPartText'
+            - type: 'null'
           description: the message content
-          nullable: true
         reasoning_content:
           title: Reasoning Content
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: the reasoning content
-          nullable: true
         name:
           title: Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         tool_calls:
           title: Tool Calls
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatCompletionMessageToolCall'
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/ChatCompletionMessageToolCall'
+            - type: 'null'
           description: the tool calls generated by the mode
-          nullable: true
     ChatCompletionContentPartAudio:
       title: ChatCompletionContentPartAudio
       required:
@@ -5504,9 +5700,8 @@ components:
       type: object
       properties:
         type:
+          const: input_audio
           title: Type
-          enum:
-            - input_audio
           type: string
         input_audio:
           $ref: '#/components/schemas/InputAudio'
@@ -5518,9 +5713,8 @@ components:
       type: object
       properties:
         type:
+          const: image_url
           title: Type
-          enum:
-            - image_url
           type: string
         image_url:
           $ref: '#/components/schemas/ImageURL'
@@ -5532,9 +5726,8 @@ components:
       type: object
       properties:
         type:
+          const: text
           title: Type
-          enum:
-            - text
           type: string
         text:
           title: Text
@@ -5556,6 +5749,7 @@ components:
           type: string
           description: the type of the tool call. only function is supported currently
         function:
+          description: the function that the model called
           $ref: '#/components/schemas/Function'
     ChatCompletionSystemMessage:
       title: ChatCompletionSystemMessage
@@ -5565,13 +5759,13 @@ components:
       properties:
         cache_control:
           title: Cache Control
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Cache control for prompt caching
-          nullable: true
         role:
+          const: system
           title: Role
-          enum:
-            - system
           type: string
           description: the role of the author of this message
           default: system
@@ -5585,8 +5779,9 @@ components:
           description: the message content
         name:
           title: Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     ChatCompletionToolMessage:
       title: ChatCompletionToolMessage
       required:
@@ -5596,13 +5791,13 @@ components:
       properties:
         cache_control:
           title: Cache Control
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Cache control for prompt caching
-          nullable: true
         role:
+          const: tool
           title: Role
-          enum:
-            - tool
           type: string
           description: the role of the author of this message
           default: tool
@@ -5625,13 +5820,13 @@ components:
       properties:
         cache_control:
           title: Cache Control
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Cache control for prompt caching
-          nullable: true
         role:
+          const: user
           title: Role
-          enum:
-            - user
           type: string
           description: the role of the author of this message
           default: user
@@ -5648,26 +5843,29 @@ components:
           description: the message content
         name:
           title: Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     ChatReasoningSettings:
       title: ChatReasoningSettings
       type: object
       properties:
         effort:
           title: Effort
-          enum:
-            - low
-            - medium
-            - high
-          type: string
+          anyOf:
+            - enum:
+                - low
+                - medium
+                - high
+              type: string
+            - type: 'null'
           description: Constrains effort on reasoning for reasoning models.
-          nullable: true
         enabled:
           title: Enabled
-          type: boolean
+          anyOf:
+            - type: boolean
+            - type: 'null'
           description: Enable or disable reasoning with default parameters.
-          nullable: true
     ChatTools:
       title: ChatTools
       required:
@@ -5676,9 +5874,10 @@ components:
       properties:
         cache_control:
           title: Cache Control
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Cache control for prompt caching
-          nullable: true
         type:
           title: Type
           type: string
@@ -5727,12 +5926,14 @@ components:
           type: integer
         stop_ts:
           title: Stop Ts
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         ip:
           title: Ip
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         gpu_config:
           title: Gpu Config
           type: string
@@ -5744,8 +5945,9 @@ components:
           type: string
         fail_reason:
           title: Fail Reason
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     ContainerRentalStartIn:
       title: ContainerRentalStartIn
       required:
@@ -5832,9 +6034,10 @@ components:
           type: boolean
         description:
           title: Description
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           default: ''
-          nullable: true
     DeepError:
       title: DeepError
       required:
@@ -5842,10 +6045,11 @@ components:
       type: object
       properties:
         error:
+          examples:
+            - Model not found
           title: Error
           type: string
           description: Error
-          example: Model not found
     DeployDelete:
       title: DeployDelete
       required:
@@ -5853,10 +6057,11 @@ components:
       type: object
       properties:
         deploy_id:
+          examples:
+            - fkj843kjh8
           title: Deploy Id
           type: string
           description: Deploy Id
-          example: fkj843kjh8
     DeployGPUAvailability:
       title: DeployGPUAvailability
       required:
@@ -5904,6 +6109,7 @@ components:
       type: object
       properties:
         gpu:
+          description: The type of GPU the deployment is running on
           $ref: '#/components/schemas/DeployGPUs'
         num_gpus:
           title: Num Gpus
@@ -5914,7 +6120,10 @@ components:
           type: integer
           description: Maximum number of concurrent requests
         weights:
-          $ref: '#/components/schemas/HFWeights'
+          anyOf:
+            - $ref: '#/components/schemas/HFWeights'
+            - type: 'null'
+          description: Model weights information
     DeployLLMIn:
       title: DeployLLMIn
       required:
@@ -5927,6 +6136,7 @@ components:
           type: string
           description: model name for deepinfra (username/mode-name format)
         gpu:
+          description: The type of GPU the deployment is running on
           $ref: '#/components/schemas/DeployGPUs'
         num_gpus:
           title: Num Gpus
@@ -5943,21 +6153,27 @@ components:
           description: Maximum number of concurrent requests
           default: 96
         hf:
-          $ref: '#/components/schemas/HFWeights'
+          anyOf:
+            - $ref: '#/components/schemas/HFWeights'
+            - type: 'null'
         base_model:
           title: Base Model
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Base public model
-          nullable: true
         settings:
-          $ref: '#/components/schemas/ScaleSettings'
+          anyOf:
+            - $ref: '#/components/schemas/ScaleSettings'
+            - type: 'null'
         extra_args:
           title: Extra Args
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+            - type: 'null'
           description: Extra command line arguments for custom deployments
-          nullable: true
     DeployLLMUpdateIn:
       title: DeployLLMUpdateIn
       required:
@@ -5973,6 +6189,8 @@ components:
       type: object
       properties:
         provider:
+          description: namespace for the model name
+          default: cnt
           $ref: '#/components/schemas/ModelProvider'
         model_name:
           title: Model Name
@@ -5980,9 +6198,10 @@ components:
           description: model name in specified provider
         version:
           title: Version
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A specific revision, if left empty uses the last one'
-          nullable: true
     DeployResult:
       title: DeployResult
       required:
@@ -5990,10 +6209,11 @@ components:
       type: object
       properties:
         deploy_id:
+          examples:
+            - fkj843kjh8
           title: Deploy Id
           type: string
           description: Deploy Id
-          example: fkj843kjh8
     DeployStatusOut:
       title: DeployStatusOut
       required:
@@ -6001,10 +6221,11 @@ components:
       type: object
       properties:
         deploy_id:
+          examples:
+            - fkj843kjh8
           title: Deploy Id
           type: string
           description: Deploy Id
-          example: fkj843kjh8
     DeployType:
       title: DeployType
       enum:
@@ -6017,10 +6238,14 @@ components:
       maxItems: 2
       minItems: 2
       type: array
-      items:
-        title: Ts
-        type: string
-        description: timestamp in fractional seconds since unix epoch (ns precision)
+      unrecognizedKeywords:
+        prefixItems:
+          - type: string
+            title: Ts
+            description: timestamp in fractional seconds since unix epoch (ns precision)
+          - type: string
+            title: Line
+            description: a single log line
     DeploymentLogQueryOut:
       title: DeploymentLogQueryOut
       type: object
@@ -6041,10 +6266,11 @@ components:
       type: object
       properties:
         model_name:
+          examples:
+            - google/vit-base-patch16-224
           title: Model Name
           type: string
           description: Model name
-          example: google/vit-base-patch16-224
         requests:
           title: Requests
           type: integer
@@ -6063,53 +6289,71 @@ components:
       type: object
       properties:
         type:
+          default: legacy
           $ref: '#/components/schemas/DeployType'
         deploy_id:
+          examples:
+            - fkj843kjh8
           title: Deploy Id
           type: string
           description: Deploy Id
-          example: fkj843kjh8
         model_name:
+          examples:
+            - google/vit-base-patch16-224
           title: Model Name
           type: string
           description: Model Id from huggingface
-          example: google/vit-base-patch16-224
         version:
+          examples:
+            - d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b
           title: Version
           type: string
           description: Model version
-          example: d8b79b422843bd59d628bf25b01aded94a9ec1a9b917e69fe460df9ff39ec42b
         task:
+          examples:
+            - image-classification
           title: Task
           type: string
           description: Task
-          example: image-classification
         status:
+          examples:
+            - deployed
           title: Status
           type: string
           description: Status
-          example: deployed
         fail_reason:
+          examples:
+            - Initialization failed
           title: Fail Reason
           type: string
           description: Failure reason
-          example: Initialization failed
         created_at:
+          examples:
+            - '2021-08-27T17:19:21+00:00'
           title: Created At
           type: string
           description: Created at
-          example: '2021-08-27T17:19:21+00:00'
         updated_at:
+          examples:
+            - '2021-08-27T17:19:21+00:00'
           title: Updated At
           type: string
           description: Updated at
-          example: '2021-08-27T17:19:21+00:00'
         instances:
-          $ref: '#/components/schemas/DeployInstances'
+          anyOf:
+            - $ref: '#/components/schemas/DeployInstances'
+            - type: 'null'
+          description: Details about number of instances running right now
         config:
-          $ref: '#/components/schemas/DeployLLMConfig'
+          anyOf:
+            - $ref: '#/components/schemas/DeployLLMConfig'
+            - type: 'null'
+          description: Immutable deploy configuration
         settings:
-          $ref: '#/components/schemas/ScaleSettings'
+          anyOf:
+            - $ref: '#/components/schemas/ScaleSettings'
+            - type: 'null'
+          description: Scale Settings
     DeploymentStatsOut:
       title: DeploymentStatsOut
       required:
@@ -6165,11 +6409,20 @@ components:
       type: object
       properties:
         llm:
-          $ref: '#/components/schemas/LLMDeploymentStatsOut'
+          anyOf:
+            - $ref: '#/components/schemas/LLMDeploymentStatsOut'
+            - type: 'null'
+          description: LLM Deployment Stats
         embeddings:
-          $ref: '#/components/schemas/EmbeddingsDeploymentStatsOut'
+          anyOf:
+            - $ref: '#/components/schemas/EmbeddingsDeploymentStatsOut'
+            - type: 'null'
+          description: Embeddings Deployment Stats
         time:
-          $ref: '#/components/schemas/TimeDeploymentStatsOut'
+          anyOf:
+            - $ref: '#/components/schemas/TimeDeploymentStatsOut'
+            - type: 'null'
+          description: Time based Deployment Stats
     DisplayNameIn:
       title: DisplayNameIn
       required:
@@ -6190,22 +6443,25 @@ components:
       type: object
       properties:
         text:
+          examples:
+            - "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
           title: Text
           type: string
           description: Text to convert to speech
-          example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         model_id:
           title: Model Id
           type: string
           description: Model ID to use for the conversion
           default: hexgrad/Kokoro-82M
         output_format:
+          description: Output format for the speech
           $ref: '#/components/schemas/TtsResponseFormat'
         language_code:
           title: Language Code
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'ISO 639-1, 2 letter language code'
-          nullable: true
     EmailsOut:
       title: EmailsOut
       required:
@@ -6290,10 +6546,11 @@ components:
           description: The message you'd like to send to deepinfra team
         contact_email:
           title: Contact Email
-          type: string
+          anyOf:
+            - type: string
+              format: email
+            - type: 'null'
           description: Optional contact email to reach you back
-          format: email
-          nullable: true
     Function:
       title: Function
       required:
@@ -6320,12 +6577,14 @@ components:
           type: string
         description:
           title: Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         parameters:
           title: Parameters
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
     GPUAvailabilityInfo:
       title: GPUAvailabilityInfo
       required:
@@ -6363,16 +6622,19 @@ components:
       type: object
       properties:
         model_name:
+          examples:
+            - google/vit-base-patch16-224
           title: Model Name
           type: string
           description: Model Id from huggingface
-          example: google/vit-base-patch16-224
         task:
+          examples:
+            - image-classification
           title: Task
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Task
-          nullable: true
-          example: image-classification
     HFTasksE:
       title: HFTasksE
       enum:
@@ -6407,14 +6669,16 @@ components:
           description: huggingface repository i.e username/reponame
         revision:
           title: Revision
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: commit sha or branch name
-          nullable: true
         token:
           title: Token
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: huggingface access token with read access to the repo
-          nullable: true
     ImageURL:
       title: ImageURL
       required:
@@ -6460,24 +6724,25 @@ components:
           description: unix timestamp of when the token expires
         models:
           title: Models
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+            - type: 'null'
           description: which models is the token limited to
-          nullable: true
         spending_limit:
           title: Spending Limit
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: how much is the total spending limit set at creation
-          nullable: true
     JsonObjectResponseFormat:
       title: JsonObjectResponseFormat
       type: object
       properties:
         type:
+          const: json_object
           title: Type
-          enum:
-            - json_object
           type: string
           default: json_object
     JsonSchema:
@@ -6502,12 +6767,12 @@ components:
       type: object
       properties:
         type:
+          const: json_schema
           title: Type
-          enum:
-            - json_schema
           type: string
           default: json_schema
         json_schema:
+          description: JSON schema for structured output when type is 'json_schema'
           $ref: '#/components/schemas/JsonSchema'
     LLMDeploymentStatsOut:
       title: LLMDeploymentStatsOut
@@ -6563,10 +6828,14 @@ components:
       maxItems: 2
       minItems: 2
       type: array
-      items:
-        title: Ts
-        type: string
-        description: timestamp in fractional seconds since unix epoch (ns precision)
+      unrecognizedKeywords:
+        prefixItems:
+          - type: string
+            title: Ts
+            description: timestamp in fractional seconds since unix epoch (ns precision)
+          - type: string
+            title: Line
+            description: a single log line
     LogQueryOut:
       title: LogQueryOut
       type: object
@@ -6589,15 +6858,17 @@ components:
           type: string
         hf_token:
           title: Hf Token
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         lora_model_name:
           title: Lora Model Name
           type: string
         base_model_name:
           title: Base Model Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     Me:
       title: Me
       required:
@@ -6624,8 +6895,9 @@ components:
           type: string
         email:
           title: Email
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         email_verified:
           title: Email Verified
           type: boolean
@@ -6646,8 +6918,9 @@ components:
           description: 'Authentication provider, e.g. ''github'''
         picture:
           title: Picture
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         is_admin:
           title: Is Admin
           type: boolean
@@ -6692,105 +6965,123 @@ components:
           default: false
         team_role:
           title: Team Role
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         team_display_name:
           title: Team Display Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         is_team_upgrade_enabled:
           title: Is Team Upgrade Enabled
           type: boolean
           default: true
         vercel_connection:
-          $ref: '#/components/schemas/MeVercelConnection'
+          anyOf:
+            - $ref: '#/components/schemas/MeVercelConnection'
+            - type: 'null'
         checklist:
-          $ref: '#/components/schemas/Checklist'
+          anyOf:
+            - $ref: '#/components/schemas/Checklist'
+            - type: 'null'
     MeIn:
       title: MeIn
       type: object
       properties:
         name:
           title: Name
-          maxLength: 256
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 256
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Personal name
-          nullable: true
         first_name:
           title: First Name
-          maxLength: 128
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 1
+              type: string
+            - type: 'null'
           description: First name of the user
-          nullable: true
         last_name:
           title: Last Name
-          maxLength: 128
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Last name of the user
-          nullable: true
         country:
           title: Country
-          maxLength: 128
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Country of the user
-          nullable: true
         email:
           title: Email
-          maxLength: 320
-          minLength: 1
-          type: string
-          nullable: true
+          anyOf:
+            - maxLength: 320
+              minLength: 1
+              type: string
+            - type: 'null'
         is_business_account:
           title: Is Business Account
-          type: boolean
-          nullable: true
+          anyOf:
+            - type: boolean
+            - type: 'null'
         company:
           title: Company
-          maxLength: 128
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Company name
-          nullable: true
         website:
           title: Website
-          maxLength: 128
-          minLength: 0
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 0
+              type: string
+            - type: 'null'
           description: Company website address
-          nullable: true
         title:
           title: Title
-          maxLength: 128
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 128
+              minLength: 1
+              type: string
+            - type: 'null'
           description: 'Job title of the user, e.g. ''Software Engineer'''
-          nullable: true
         display_name:
           title: Display Name
-          maxLength: 39
-          minLength: 1
-          pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
-          type: string
+          anyOf:
+            - maxLength: 39
+              minLength: 1
+              pattern: '^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$'
+              type: string
+            - type: 'null'
           description: 'String with length between 1 and 39 characters. Only alphanumeric characters and dashes allowed. Must contain no leading, trailing or consecutive dashes.'
-          nullable: true
         use_case:
           title: Use Case
-          maxLength: 512
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 512
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Short description of the use case for the account
-          nullable: true
         attribution:
           title: Attribution
-          maxLength: 512
-          minLength: 1
-          type: string
+          anyOf:
+            - maxLength: 512
+              minLength: 1
+              type: string
+            - type: 'null'
           description: Short description of how the user found out about DeepInfra
-          nullable: true
     MeVercelConnection:
       title: MeVercelConnection
       required:
@@ -6803,8 +7094,9 @@ components:
           type: string
         team_id:
           title: Team Id
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         installation_id:
           title: Installation Id
           type: string
@@ -6910,14 +7202,16 @@ components:
           description: Model family developer organization
         meta_title:
           title: Meta Title
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Meta title for SEO
-          nullable: true
         meta_description:
           title: Meta Description
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Meta description for SEO
-          nullable: true
         featured_models:
           title: Featured Models
           type: array
@@ -6946,36 +7240,50 @@ components:
           type: string
         parent:
           title: Parent
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         ftype:
           title: Ftype
           type: string
         description:
           title: Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         allowed:
           title: Allowed
-          type: array
-          items: { }
-          nullable: true
+          anyOf:
+            - type: array
+              items: { }
+            - type: 'null'
         default:
           title: Default
         examples:
           title: Examples
           type: array
           items: { }
+          default: [ ]
         minimum:
+          title: Minimum
+          anyOf:
+            - type: number
+            - type: 'null'
+        exclusiveMinimum:
           title: Exclusiveminimum
-          type: number
-          nullable: true
-        exclusiveMinimum: 
+          anyOf:
+            - type: number
+            - type: 'null'
         maximum:
+          title: Maximum
+          anyOf:
+            - type: number
+            - type: 'null'
+        exclusiveMaximum:
           title: Exclusivemaximum
-          type: number
-          nullable: true
-        exclusiveMaximum: 
+          anyOf:
+            - type: number
+            - type: 'null'
     ModelInfoOut:
       title: ModelInfoOut
       required:
@@ -7014,12 +7322,14 @@ components:
           type: string
         description:
           title: Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         mf_description:
           title: Mf Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         featured:
           title: Featured
           type: boolean
@@ -7047,18 +7357,20 @@ components:
           type: string
         mask_token:
           title: Mask Token
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         in_schema:
           title: In Schema
         out_schema:
           title: Out Schema
         in_fields:
           title: In Fields
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelFieldInfo'
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/ModelFieldInfo'
+            - type: 'null'
         pricing:
           title: Pricing
           anyOf:
@@ -7072,12 +7384,15 @@ components:
             - $ref: '#/components/schemas/ModelPricingOutputLength'
         doc_blocks:
           title: Doc Blocks
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelDocBlock'
-          nullable: true
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/ModelDocBlock'
+            - type: 'null'
         short_doc_block:
-          $ref: '#/components/schemas/ModelDocBlock'
+          anyOf:
+            - $ref: '#/components/schemas/ModelDocBlock'
+            - type: 'null'
         schemas:
           title: Schemas
           type: array
@@ -7088,36 +7403,44 @@ components:
           type: object
         max_tokens:
           title: Max Tokens
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         max_output_tokens:
           title: Max Output Tokens
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         replaced_by:
           title: Replaced By
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         deprecated:
           title: Deprecated
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         quantization:
           title: Quantization
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         mmlu:
           title: Mmlu
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         expected:
           title: Expected
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         import_time:
           title: Import Time
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         is_partner:
           title: Is Partner
           type: boolean
@@ -7128,48 +7451,59 @@ components:
           default: false
         mf_name:
           title: Mf Name
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         mf_title:
           title: Mf Title
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     ModelMetaIn:
       title: ModelMetaIn
       type: object
       properties:
         description:
           title: Description
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: short model description in plain text
-          nullable: true
         github_url:
           title: Github Url
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: source code project link (empty to delete)
-          nullable: true
         paper_url:
           title: Paper Url
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: paper/research link (empty to delete)
-          nullable: true
         license_url:
           title: License Url
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: usage license link (empty to delete)
-          nullable: true
         readme:
           title: Readme
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: markdown flavored model readme
-          nullable: true
         cover_img_url:
           title: Cover Img Url
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: dataurl or regular url to cover image (empty to delete)
-          nullable: true
         reported_type:
-          $ref: '#/components/schemas/HFTasksE'
+          anyOf:
+            - $ref: '#/components/schemas/HFTasksE'
+            - type: 'null'
+          description: model type
       additionalProperties: false
     ModelMetadata:
       title: ModelMetadata
@@ -7210,26 +7544,30 @@ components:
       type: object
       properties:
         model_name:
+          examples:
+            - microsoft/resnet-50
           title: Model Name
           type: string
           description: Model Name
-          example: microsoft/resnet-50
         type:
+          examples:
+            - image-classification
           title: Type
           type: string
           description: raw type of the model
-          example: image-classification
         reported_type:
+          examples:
+            - text-generation
           title: Reported Type
           type: string
           description: reported type of the model
-          example: text-generation
         description:
+          examples:
+            - ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
           title: Description
           type: string
           description: description of the model
           default: ''
-          example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
         cover_img_url:
           title: Cover Img Url
           type: string
@@ -7255,29 +7593,35 @@ components:
           description: The pricing type and cost for this model
         max_tokens:
           title: Max Tokens
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: 'The maximum context size of this model, if applicable'
-          nullable: true
         replaced_by:
           title: Replaced By
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         deprecated:
           title: Deprecated
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         quantization:
           title: Quantization
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         mmlu:
           title: Mmlu
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         expected:
           title: Expected
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         private:
           title: Private
           type: integer
@@ -7297,33 +7641,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7342,8 +7691,9 @@ components:
           type: integer
         default_price_cents:
           title: Default Price Cents
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         usage_from_cost:
           title: Usage From Cost
           type: boolean
@@ -7354,33 +7704,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7395,33 +7750,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7436,33 +7796,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7477,33 +7842,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7518,33 +7888,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7560,33 +7935,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7599,12 +7979,14 @@ components:
           type: number
         rate_per_input_token_cached:
           title: Rate Per Input Token Cached
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
         rate_per_input_token_cache_write:
           title: Rate Per Input Token Cache Write
-          type: number
-          nullable: true
+          anyOf:
+            - type: number
+            - type: 'null'
     ModelPricingUptime:
       title: ModelPricingUptime
       required:
@@ -7612,33 +7994,38 @@ components:
       type: object
       properties:
         short:
+          examples:
+            - $0.15 / second
           title: Short
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Short description of the pricing, ideal for cards and headers'
-          nullable: true
-          example: $0.15 / second
         full:
+          examples:
+            - '$0.15 / second for 1080P, $0.10 / second for 720P'
           title: Full
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'Full description of the pricing, perfect for details'
-          nullable: true
-          example: '$0.15 / second for 1080P, $0.10 / second for 720P'
         table:
+          examples:
+            - columns:
+                - resolution
+                - $ cost per second
+              rows:
+                - 
+                  - 780P
+                  - $0.10
+                - 
+                  - 1080P
+                  - $0.15
           title: Table
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Could be used to generate pricing tables
-          nullable: true
-          example:
-            columns:
-              - resolution
-              - $ cost per second
-            rows:
-              - 
-                - 780P
-                - $0.10
-              - 
-                - 1080P
-                - $0.15
         type:
           title: Type
           type: string
@@ -7672,20 +8059,23 @@ components:
       type: object
       properties:
         model_name:
+          examples:
+            - microsoft/resnet-50
           title: Model Name
           type: string
           description: Model Name
-          example: microsoft/resnet-50
         version:
+          examples:
+            - 06dbf5f73be4b5eca79e137e00c4825f467cd5b172c64b6c9255dc4b5a25a03a
           title: Version
           type: string
           description: Version identifier
-          example: 06dbf5f73be4b5eca79e137e00c4825f467cd5b172c64b6c9255dc4b5a25a03a
         uploaded_at:
+          examples:
+            - '2023-01-19T21:52:03.626241+00:00'
           title: Uploaded At
           type: string
           description: Upload time
-          example: '2023-01-19T21:52:03.626241+00:00'
     OpenAIBatch:
       title: OpenAIBatch
       required:
@@ -7710,8 +8100,9 @@ components:
           type: string
         errors:
           title: Errors
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         input_file_id:
           title: Input File Id
           type: string
@@ -7723,54 +8114,65 @@ components:
           type: string
         output_file_id:
           title: Output File Id
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         error_file_id:
           title: Error File Id
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
         created_at:
           title: Created At
           type: integer
         in_progress_at:
           title: In Progress At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         completed_at:
           title: Completed At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         failed_at:
           title: Failed At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         finalizing_at:
           title: Finalizing At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         expires_at:
           title: Expires At
           type: integer
         expired_at:
           title: Expired At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         cancelled_at:
           title: Cancelled At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         cancelling_at:
           title: Cancelling At
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         request_counts:
           title: Request Counts
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         metadata:
           title: Metadata
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
     OpenAIBatchesIn:
       title: OpenAIBatchesIn
       required:
@@ -7792,16 +8194,16 @@ components:
           type: string
           description: 'The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.'
         completion_window:
+          const: 24h
           title: Completion Window
-          enum:
-            - 24h
           type: string
           description: The time frame within which the batch should be processed. Currently only 24h is supported.
         metadata:
           title: Metadata
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Optional metadata to be stored with the batch.
-          nullable: true
     OpenAIChatCompletionsIn:
       title: OpenAIChatCompletionsIn
       required:
@@ -7810,10 +8212,11 @@ components:
       type: object
       properties:
         model:
+          examples:
+            - meta-llama/Llama-2-70b-chat-hf
           title: Model
           type: string
           description: model name
-          example: meta-llama/Llama-2-70b-chat-hf
         messages:
           title: Messages
           type: array
@@ -7835,37 +8238,36 @@ components:
           minimum: 0.0
           type: number
           description: 'What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic'
-          default: 1
+          default: 1.0
         top_p:
           title: Top P
           maximum: 1.0
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           type: number
           description: 'An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.'
-          default: 1
+          default: 1.0
         min_p:
           title: Min P
           maximum: 1.0
           minimum: 0.0
           type: number
           description: 'Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.'
-          default: 0
+          default: 0.0
         top_k:
           title: Top K
-          maximum: 1000.0
-          exclusiveMaximum: true
+          exclusiveMaximum: 1000.0
           minimum: 0.0
           type: integer
           description: Sample from the best k (number of) tokens. 0 means off
           default: 0
         max_tokens:
           title: Max Tokens
-          maximum: 1000000.0
-          minimum: 0.0
-          type: integer
+          anyOf:
+            - maximum: 1000000.0
+              minimum: 0.0
+              type: integer
+            - type: 'null'
           description: "The maximum number of tokens to generate in the chat completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller."
-          nullable: true
         stop:
           title: Stop
           anyOf:
@@ -7873,8 +8275,8 @@ components:
             - type: array
               items:
                 type: string
+            - type: 'null'
           description: up to 16 sequences where the API will stop generating further tokens
-          nullable: true
         n:
           title: N
           maximum: 4.0
@@ -7898,18 +8300,19 @@ components:
           default: 0
         tools:
           title: Tools
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatTools'
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/ChatTools'
+            - type: 'null'
           description: 'A list of tools the model may call. Currently, only functions are supported as a tool.'
-          nullable: true
         tool_choice:
           title: Tool Choice
           anyOf:
             - type: string
             - $ref: '#/components/schemas/ChatTools'
+            - type: 'null'
           description: Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
-          nullable: true
         response_format:
           title: Response Format
           anyOf:
@@ -7917,8 +8320,8 @@ components:
             - $ref: '#/components/schemas/JsonObjectResponseFormat'
             - $ref: '#/components/schemas/JsonSchemaResponseFormat'
             - $ref: '#/components/schemas/RegexResponseFormat'
+            - type: 'null'
           description: 'The format of the response. Currently, only json is supported.'
-          nullable: true
         repetition_penalty:
           title: Repetition Penalty
           maximum: 5.0
@@ -7928,46 +8331,55 @@ components:
           default: 1
         user:
           title: User
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
-          nullable: true
         seed:
           title: Seed
-          maximum: 18446744073709552000
-          exclusiveMaximum: true
-          minimum: -9223372036854776000
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
-          nullable: true
         logprobs:
           title: Logprobs
-          type: boolean
+          anyOf:
+            - type: boolean
+            - type: 'null'
           description: 'Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.'
-          nullable: true
         stream_options:
-          $ref: '#/components/schemas/StreamOptions'
+          anyOf:
+            - $ref: '#/components/schemas/StreamOptions'
+            - type: 'null'
+          description: streaming options
         reasoning_effort:
           title: Reasoning Effort
-          enum:
-            - low
-            - medium
-            - high
-            - none
-          type: string
+          anyOf:
+            - enum:
+                - low
+                - medium
+                - high
+                - none
+              type: string
+            - type: 'null'
           description: 'Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.'
-          nullable: true
         reasoning:
-          $ref: '#/components/schemas/ChatReasoningSettings'
+          anyOf:
+            - $ref: '#/components/schemas/ChatReasoningSettings'
+            - type: 'null'
+          description: Reasoning configuration.
         prompt_cache_key:
           title: Prompt Cache Key
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.'
-          nullable: true
         chat_template_kwargs:
           title: Chat Template Kwargs
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Chat template kwargs.
-          nullable: true
     OpenAICompletionsIn:
       title: OpenAICompletionsIn
       required:
@@ -7976,10 +8388,11 @@ components:
       type: object
       properties:
         model:
+          examples:
+            - meta-llama/Llama-2-70b-chat-hf
           title: Model
           type: string
           description: model name
-          example: meta-llama/Llama-2-70b-chat-hf
         prompt:
           title: Prompt
           anyOf:
@@ -7990,38 +8403,36 @@ components:
           description: input prompt - a single string is currently supported
         max_tokens:
           title: Max Tokens
-          maximum: 1000000.0
-          minimum: 0.0
-          exclusiveMinimum: true
-          type: integer
+          anyOf:
+            - maximum: 1000000.0
+              exclusiveMinimum: 0.0
+              type: integer
+            - type: 'null'
           description: "The maximum number of tokens to generate in the completion.\n\nThe total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller."
-          nullable: true
         temperature:
           title: Temperature
           maximum: 2.0
           minimum: 0.0
           type: number
           description: 'What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic'
-          default: 1
+          default: 1.0
         top_p:
           title: Top P
           maximum: 1.0
-          minimum: 0.0
-          exclusiveMinimum: true
+          exclusiveMinimum: 0.0
           type: number
           description: 'An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.'
-          default: 1
+          default: 1.0
         min_p:
           title: Min P
           maximum: 1.0
           minimum: 0.0
           type: number
           description: 'Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.'
-          default: 0
+          default: 0.0
         top_k:
           title: Top K
-          maximum: 1000.0
-          exclusiveMaximum: true
+          exclusiveMaximum: 1000.0
           minimum: 0.0
           type: integer
           description: Sample from the best k (number of) tokens. 0 means off
@@ -8040,14 +8451,16 @@ components:
           default: false
         logprobs:
           title: Logprobs
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: return top tokens and their log-probabilities
-          nullable: true
         echo:
           title: Echo
-          type: boolean
+          anyOf:
+            - type: boolean
+            - type: 'null'
           description: return prompt as part of the respons
-          nullable: true
         stop:
           title: Stop
           anyOf:
@@ -8055,8 +8468,8 @@ components:
             - type: array
               items:
                 type: string
+            - type: 'null'
           description: up to 16 sequences where the API will stop generating further tokens
-          nullable: true
         presence_penalty:
           title: Presence Penalty
           maximum: 2.0
@@ -8078,8 +8491,8 @@ components:
             - $ref: '#/components/schemas/JsonObjectResponseFormat'
             - $ref: '#/components/schemas/JsonSchemaResponseFormat'
             - $ref: '#/components/schemas/RegexResponseFormat'
+            - type: 'null'
           description: 'The format of the response. Currently, only json is supported.'
-          nullable: true
         repetition_penalty:
           title: Repetition Penalty
           maximum: 5.0
@@ -8089,38 +8502,46 @@ components:
           default: 1
         user:
           title: User
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A unique identifier representing your end-user, which can help  monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.'
-          nullable: true
         seed:
           title: Seed
-          maximum: 18446744073709552000
-          exclusiveMaximum: true
-          minimum: -9223372036854776000
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: 'Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.'
-          nullable: true
         stream_options:
-          $ref: '#/components/schemas/StreamOptions'
+          anyOf:
+            - $ref: '#/components/schemas/StreamOptions'
+            - type: 'null'
+          description: streaming options
         stop_token_ids:
           title: Stop Token Ids
-          type: array
-          items:
-            type: integer
+          anyOf:
+            - type: array
+              items:
+                type: integer
+            - type: 'null'
           description: List of token IDs that will stop generation when encountered
-          nullable: true
         return_tokens_as_token_ids:
           title: Return Tokens As Token Ids
-          type: boolean
+          anyOf:
+            - type: boolean
+            - type: 'null'
           description: return tokens as token ids
-          nullable: true
         prompt_cache_key:
           title: Prompt Cache Key
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.'
-          nullable: true
         data:
-          $ref: '#/components/schemas/CompletionMultiModalData'
+          anyOf:
+            - $ref: '#/components/schemas/CompletionMultiModalData'
+            - type: 'null'
+          description: 'Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. ''data:image/png;base64,...'').'
     OpenAIEmbeddingsIn:
       title: OpenAIEmbeddingsIn
       required:
@@ -8129,13 +8550,20 @@ components:
       type: object
       properties:
         service_tier:
-          $ref: '#/components/schemas/ServiceTier'
+          anyOf:
+            - $ref: '#/components/schemas/ServiceTier'
+            - type: 'null'
+          description: 'The service tier used for processing the request. When set to ''priority'', the request will be processed with higher priority (only applies to models that support it).'
         model:
+          examples:
+            - thenlper/gte-large
           title: Model
           type: string
           description: model name
-          example: thenlper/gte-large
         input:
+          examples:
+            - 
+              - I like chocolate
           title: Input
           maxLength: 1024
           anyOf:
@@ -8144,8 +8572,8 @@ components:
                 type: string
             - type: string
           description: sequences to embed
-          example:
-            - I like chocolate
+          unrecognizedKeywords:
+            soft_required: true
         encoding_format:
           title: Encoding Format
           enum:
@@ -8155,31 +8583,42 @@ components:
           description: format used when encoding
           default: float
         dimensions:
+          examples:
+            - 1536
+            - 1024
+            - 768
+            - 512
+            - 256
+            - 128
+            - 64
           title: Dimensions
-          minimum: 32.0
-          type: integer
+          anyOf:
+            - minimum: 32.0
+              type: integer
+            - type: 'null'
           description: 'The number of dimensions in the embedding. If not provided, the model''s default will be used.If provided bigger than model''s default, the embedding will be padded with zeros.'
-          nullable: true
-          example: 1536
     OpenAIImageData:
       title: OpenAIImageData
       type: object
       properties:
         b64_json:
           title: B64 Json
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: The base64-encoded image data
-          nullable: true
         revised_prompt:
           title: Revised Prompt
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: The prompt used to generate this image
-          nullable: true
         url:
           title: Url
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: The URL of the generated image
-          nullable: true
     OpenAIImagesEditsIn:
       title: OpenAIImagesEditsIn
       required:
@@ -8200,7 +8639,11 @@ components:
           description: The number of images to generate.
           default: 1
         response_format:
-          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+            - type: 'null'
+          description: The format in which the generated images are returned. Currently only b64_json is supported.
+          default: b64_json
         size:
           title: Size
           type: string
@@ -8208,25 +8651,32 @@ components:
           default: 1024x1024
         user:
           title: User
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
-          nullable: true
         image:
           title: Image
           type: string
           description: Input image bytes for editing task
           format: binary
+          unrecognizedKeywords:
+            is_image: true
         prompt:
+          examples:
+            - Add a hat to the cat
           title: Prompt
           type: string
           description: A text description of the desired image edits.
-          example: Add a hat to the cat
         mask:
           title: Mask
-          type: string
+          anyOf:
+            - type: string
+              format: binary
+            - type: 'null'
           description: 'An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where image should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as image.'
-          format: binary
-          nullable: true
+          unrecognizedKeywords:
+            is_image: true
     OpenAIImagesGenerationsIn:
       title: OpenAIImagesGenerationsIn
       required:
@@ -8235,10 +8685,11 @@ components:
       type: object
       properties:
         model:
+          examples:
+            - black-forest-labs/FLUX-1-schnell
           title: Model
           type: string
           description: The model to use for image generation.
-          example: black-forest-labs/FLUX-1-schnell
         n:
           title: N
           maximum: 4.0
@@ -8247,7 +8698,11 @@ components:
           description: The number of images to generate.
           default: 1
         response_format:
-          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+            - type: 'null'
+          description: The format in which the generated images are returned. Currently only b64_json is supported.
+          default: b64_json
         size:
           title: Size
           type: string
@@ -8255,24 +8710,28 @@ components:
           default: 1024x1024
         user:
           title: User
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
-          nullable: true
         prompt:
+          examples:
+            - A photo of an astronaut riding a horse on Mars.
           title: Prompt
           type: string
           description: A text description of desired image(s).
-          example: A photo of an astronaut riding a horse on Mars.
         quality:
           title: Quality
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: The quality of the image that will be generated.
-          nullable: true
         style:
           title: Style
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: The style of the generated images.
-          nullable: true
     OpenAIImagesOut:
       title: OpenAIImagesOut
       required:
@@ -8313,7 +8772,11 @@ components:
           description: The number of images to generate.
           default: 1
         response_format:
-          $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+          anyOf:
+            - $ref: '#/components/schemas/OpenAIImagesResponseFormat'
+            - type: 'null'
+          description: The format in which the generated images are returned. Currently only b64_json is supported.
+          default: b64_json
         size:
           title: Size
           type: string
@@ -8321,14 +8784,17 @@ components:
           default: 1024x1024
         user:
           title: User
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: 'A unique identifier representing your end-user, which can help to monitor and detect abuse.'
-          nullable: true
         image:
           title: Image
           type: string
           description: Input image bytes for variation task
           format: binary
+          unrecognizedKeywords:
+            is_image: true
     OpenAIModelOut:
       title: OpenAIModelOut
       required:
@@ -8358,7 +8824,9 @@ components:
           title: Parent
           type: 'null'
         metadata:
-          $ref: '#/components/schemas/ModelMetadata'
+          anyOf:
+            - $ref: '#/components/schemas/ModelMetadata'
+            - type: 'null'
     OpenAIModelsOut:
       title: OpenAIModelsOut
       type: object
@@ -8380,23 +8848,30 @@ components:
       type: object
       properties:
         service_tier:
-          $ref: '#/components/schemas/ServiceTier'
+          anyOf:
+            - $ref: '#/components/schemas/ServiceTier'
+            - type: 'null'
+          description: 'The service tier used for processing the request. When set to ''priority'', the request will be processed with higher priority (only applies to models that support it).'
         model:
+          examples:
+            - deepinfra/tts
           title: Model
           type: string
           description: model name
-          example: deepinfra/tts
         input:
+          examples:
+            - "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
           title: Input
           type: string
           description: Text to convert to speech
-          example: "I'm beginnin' to feel like a Rap God, Rap God\nAll my people from the front to the back nod, back nod\nNow, who thinks their arms are long enough to slap box, slap box?\nThey said I rap like a robot, so call me Rap-bot"
         voice:
           title: Voice
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Preset voices to use for the speech.
-          nullable: true
         response_format:
+          description: response format for the speech
           $ref: '#/components/schemas/TtsResponseFormat'
         speed:
           title: Speed
@@ -8404,12 +8879,13 @@ components:
           minimum: 0.25
           type: number
           description: speed of the speech
-          default: 1
+          default: 1.0
         extra_body:
           title: Extra Body
-          type: object
+          anyOf:
+            - type: object
+            - type: 'null'
           description: Extra body parameters for the model.
-          nullable: true
     OpenRouterDatacenter:
       title: OpenRouterDatacenter
       required:
@@ -8469,6 +8945,7 @@ components:
           type: integer
           description: Maximum output length
         pricing:
+          description: Pricing information
           $ref: '#/components/schemas/OpenRouterPricing'
         supported_sampling_parameters:
           title: Supported Sampling Parameters
@@ -8484,16 +8961,18 @@ components:
           description: Supported features
         description:
           title: Description
-          type: string
+          anyOf:
+            - type: string
+            - type: 'null'
           description: Model description
-          nullable: true
         openrouter:
           title: Openrouter
-          type: object
-          additionalProperties:
-            type: string
+          anyOf:
+            - type: object
+              additionalProperties:
+                type: string
+            - type: 'null'
           description: OpenRouter specific data
-          nullable: true
         datacenters:
           title: Datacenters
           type: array
@@ -8543,9 +9022,10 @@ components:
           type: string
         max_tokens:
           title: Max Tokens
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: 'The maximum context size of this model, if applicable'
-          nullable: true
         pricing:
           title: Pricing
           anyOf:
@@ -8627,8 +9107,9 @@ components:
           type: integer
         tpm_rate_limit:
           title: Tpm Rate Limit
-          type: integer
-          nullable: true
+          anyOf:
+            - type: integer
+            - type: 'null'
         reason:
           title: Reason
           maxLength: 2048
@@ -8640,9 +9121,8 @@ components:
       type: object
       properties:
         type:
+          const: regex
           title: Type
-          enum:
-            - regex
           type: string
           default: regex
         regex:
@@ -8709,16 +9189,19 @@ components:
           $ref: '#/components/schemas/SchemaVariant'
         schema_in:
           title: Schema In
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         schema_out:
           title: Schema Out
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         schema_stream:
           title: Schema Stream
-          type: object
-          nullable: true
+          anyOf:
+            - type: object
+            - type: 'null'
         fields_in:
           title: Fields In
           type: array
@@ -8767,26 +9250,30 @@ components:
           type: string
         models:
           title: Models
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+            - type: 'null'
           description: allow inference only to the specified model names
-          nullable: true
         expires_delta:
           title: Expires Delta
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: how many seconds in the future should the token be valid for
-          nullable: true
         expires_at:
           title: Expires At
-          type: integer
+          anyOf:
+            - type: integer
+            - type: 'null'
           description: unix timestamp when the token should expire
-          nullable: true
         spending_limit:
           title: Spending Limit
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: only allow spending that much USD until the token becomes invalid
-          nullable: true
     ScopedJWTOut:
       title: ScopedJWTOut
       required:
@@ -8813,8 +9300,9 @@ components:
           $ref: '#/components/schemas/SourceTypeEnum'
         civit_url:
           title: Civit Url
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     SourceTypeEnum:
       title: SourceTypeEnum
       enum:
@@ -8883,9 +9371,8 @@ components:
       type: object
       properties:
         type:
+          const: text
           title: Type
-          enum:
-            - text
           type: string
           default: text
     TimeDeploymentStatsOut:
@@ -8924,6 +9411,12 @@ components:
           type: integer
           description: number of errors
     TtsResponseFormat:
+      examples:
+        - mp3
+        - opus
+        - flac
+        - wav
+        - pcm
       title: TtsResponseFormat
       enum:
         - mp3
@@ -8933,19 +9426,21 @@ components:
         - pcm
       type: string
       description: 'Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.'
-      example: mp3
+      default: wav
     UpdateLoraApiRequest:
       title: UpdateLoraApiRequest
       type: object
       properties:
         private:
           title: Private
-          type: boolean
-          nullable: true
+          anyOf:
+            - type: boolean
+            - type: 'null'
         description:
           title: Description
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+            - type: 'null'
     Voice:
       title: Voice
       required:
@@ -8984,24 +9479,28 @@ components:
       properties:
         tokens_per_second:
           title: Tokens Per Second
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: Tokens per second
-          nullable: true
         time_to_first_token:
           title: Time To First Token
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: Time to first token in seconds
-          nullable: true
         requests_per_second:
           title: Requests Per Second
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: Requests per second
-          nullable: true
         total_tflops:
           title: Total Tflops
-          type: number
+          anyOf:
+            - type: number
+            - type: 'null'
           description: Total TFLOPS
-          nullable: true
   securitySchemes:
     HTTPBearer:
       type: http

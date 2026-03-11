@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputFileId { get; set; }
+        public string InputFileId { get; set; } = default!;
 
         /// <summary>
         /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.
@@ -21,14 +21,14 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIBatchesInEndpointJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.OpenAIBatchesInEndpoint Endpoint { get; set; }
+        public global::DeepInfra.OpenAIBatchesInEndpoint Endpoint { get; set; } = default!;
 
         /// <summary>
         /// The time frame within which the batch should be processed. Currently only 24h is supported.
         /// </summary>
+        /// <default>"24h"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion_window")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIBatchesInCompletionWindowJsonConverter))]
-        public global::DeepInfra.OpenAIBatchesInCompletionWindow CompletionWindow { get; set; }
+        public string CompletionWindow { get; set; } = "24h";
 
         /// <summary>
         /// Optional metadata to be stored with the batch.
@@ -63,8 +63,8 @@ namespace DeepInfra
         public OpenAIBatchesIn(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
-            global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow,
-            object? metadata)
+            object? metadata,
+            string completionWindow = "24h")
         {
             this.InputFileId = inputFileId ?? throw new global::System.ArgumentNullException(nameof(inputFileId));
             this.Endpoint = endpoint;

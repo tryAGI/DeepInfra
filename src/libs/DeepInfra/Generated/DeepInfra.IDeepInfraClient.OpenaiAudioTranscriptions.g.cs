@@ -46,9 +46,9 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? language = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2? responseFormat = default,
             double? temperature = default,
-            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitie>? timestampGranularities = default,
+            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

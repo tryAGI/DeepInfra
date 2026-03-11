@@ -132,7 +132,7 @@ namespace DeepInfra
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.ResponseFormat?.ToValueString()}"),
+                    content: new global::System.Net.Http.StringContent($"{request.ResponseFormat}"),
                     name: "\"response_format\"");
             } 
             if (request.Temperature != default)
@@ -146,7 +146,7 @@ namespace DeepInfra
             {
 
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.TimestampGranularities, x => x.ToValueString()))}]"),
+                    content: new global::System.Net.Http.StringContent($"{request.TimestampGranularities}"),
                     name: "\"timestamp_granularities\"");
             }
             __httpRequest.Content = __httpRequestContent;
@@ -305,9 +305,9 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? language = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat2? responseFormat = default,
             double? temperature = default,
-            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitie>? timestampGranularities = default,
+            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPost

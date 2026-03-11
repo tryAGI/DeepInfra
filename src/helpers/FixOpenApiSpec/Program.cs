@@ -1,43 +1,64 @@
-using AutoSDK.Helpers;
+using System.Text.Json.Nodes;
+using AutoSDK.Extensions;
+using AutoSDK.Models;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Extensions;
-using Microsoft.OpenApi.Models;
-using Microsoft.OpenApi.Readers;
 
 var path = args[0];
-var jsonOrYaml = await File.ReadAllTextAsync(path);
+var yamlOrJson = await File.ReadAllTextAsync(path);
 
-if (OpenApi31Support.IsOpenApi31(jsonOrYaml))
+var openApiDocument = yamlOrJson.GetOpenApiDocument(Settings.Default);
+
+if (openApiDocument.Components?.Schemas?.TryGetValue("TimeInterval", out var timeIntervalSchema) == true
+    && timeIntervalSchema is OpenApiSchema timeInterval)
 {
-    jsonOrYaml = OpenApi31Support.ConvertToOpenApi30(jsonOrYaml);
-}
-
-var openApiDocument = new OpenApiStringReader().Read(jsonOrYaml, out var diagnostics);
-
-openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Format = "int64";
-if (long.TryParse(
-    (openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Default as OpenApiString)?.Value ?? string.Empty,
-    out var to))
-{
-    openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Default = new OpenApiLong(to);
-}
-openApiDocument.Components.Schemas["DeploymentOut"]!.Properties["type"].Default = null;
-openApiDocument.Components.Schemas["DeployModelIn"]!.Properties["provider"].Default = null;
-openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["voice"].Default = null;
-openApiDocument.Components.Schemas["OpenAITextToSpeechIn"]!.Properties["response_format"].Default = null;
-
-jsonOrYaml = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
-_ = new OpenApiStringReader().Read(jsonOrYaml, out diagnostics);
-
-if (diagnostics.Errors.Count > 0)
-{
-    foreach (var error in diagnostics.Errors)
+    if (timeInterval.Properties?.TryGetValue("to", out var toProp) == true
+        && toProp is OpenApiSchema toSchema)
     {
-        Console.WriteLine(error.Message);
+        toSchema.Format = "int64";
+        if (toSchema.Default is JsonValue defaultValue
+            && defaultValue.ToString() is { } defaultStr
+            && long.TryParse(defaultStr, out var to))
+        {
+            toSchema.Default = JsonValue.Create(to);
+        }
     }
-    // Return Exit code 1
-    Environment.Exit(1);
 }
 
-await File.WriteAllTextAsync(path, jsonOrYaml);
+if (openApiDocument.Components?.Schemas?.TryGetValue("DeploymentOut", out var deploymentOutSchema) == true
+    && deploymentOutSchema is OpenApiSchema deploymentOut)
+{
+    if (deploymentOut.Properties?.TryGetValue("type", out var typeProp) == true
+        && typeProp is OpenApiSchema typeSchema)
+    {
+        typeSchema.Default = null;
+    }
+}
+
+if (openApiDocument.Components?.Schemas?.TryGetValue("DeployModelIn", out var deployModelInSchema) == true
+    && deployModelInSchema is OpenApiSchema deployModelIn)
+{
+    if (deployModelIn.Properties?.TryGetValue("provider", out var providerProp) == true
+        && providerProp is OpenApiSchema providerSchema)
+    {
+        providerSchema.Default = null;
+    }
+}
+
+if (openApiDocument.Components?.Schemas?.TryGetValue("OpenAITextToSpeechIn", out var ttsSchema) == true
+    && ttsSchema is OpenApiSchema tts)
+{
+    if (tts.Properties?.TryGetValue("voice", out var voiceProp) == true
+        && voiceProp is OpenApiSchema voiceSchema)
+    {
+        voiceSchema.Default = null;
+    }
+    if (tts.Properties?.TryGetValue("response_format", out var formatProp) == true
+        && formatProp is OpenApiSchema formatSchema)
+    {
+        formatSchema.Default = null;
+    }
+}
+
+yamlOrJson = await openApiDocument.SerializeAsYamlAsync(OpenApiSpecVersion.OpenApi3_2);
+
+await File.WriteAllTextAsync(path, yamlOrJson);

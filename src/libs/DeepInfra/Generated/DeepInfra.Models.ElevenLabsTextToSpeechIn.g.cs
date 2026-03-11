@@ -9,21 +9,11 @@ namespace DeepInfra
     public sealed partial class ElevenLabsTextToSpeechIn
     {
         /// <summary>
-        /// Text to convert to speech<br/>
-        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
-        /// All my people from the front to the back nod, back nod<br/>
-        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
-        /// They said I rap like a robot, so call me Rap-bot
+        /// Text to convert to speech
         /// </summary>
-        /// <example>
-        /// I'm beginnin' to feel like a Rap God, Rap God<br/>
-        /// All my people from the front to the back nod, back nod<br/>
-        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
-        /// They said I rap like a robot, so call me Rap-bot
-        /// </example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Model ID to use for the conversion<br/>
@@ -33,10 +23,9 @@ namespace DeepInfra
         public string? ModelId { get; set; }
 
         /// <summary>
-        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
-        /// Example: mp3
+        /// Output format for the speech<br/>
+        /// Default Value: wav
         /// </summary>
-        /// <example>mp3</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter))]
         public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; }
@@ -57,19 +46,15 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ElevenLabsTextToSpeechIn" /> class.
         /// </summary>
         /// <param name="text">
-        /// Text to convert to speech<br/>
-        /// Example: I'm beginnin' to feel like a Rap God, Rap God<br/>
-        /// All my people from the front to the back nod, back nod<br/>
-        /// Now, who thinks their arms are long enough to slap box, slap box?<br/>
-        /// They said I rap like a robot, so call me Rap-bot
+        /// Text to convert to speech
         /// </param>
         /// <param name="modelId">
         /// Model ID to use for the conversion<br/>
         /// Default Value: hexgrad/Kokoro-82M
         /// </param>
         /// <param name="outputFormat">
-        /// Select the desired format for the speech output. Supported formats include mp3, opus, flac, wav, and pcm.<br/>
-        /// Example: mp3
+        /// Output format for the speech<br/>
+        /// Default Value: wav
         /// </param>
         /// <param name="languageCode">
         /// ISO 639-1, 2 letter language code

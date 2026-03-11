@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] File { get; set; }
+        public byte[] File { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
+        public string Filename { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -45,8 +45,7 @@ namespace DeepInfra
         /// Default Value: json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormatJsonConverter))]
-        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat? ResponseFormat { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat2? ResponseFormat { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -58,7 +57,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_granularities")]
-        public global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitie>? TimestampGranularities { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitiesVariant1Item>? TimestampGranularities { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -90,9 +89,9 @@ namespace DeepInfra
             string model,
             string? language,
             string? prompt,
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat? responseFormat,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostResponseFormat2? responseFormat,
             double? temperature,
-            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitie>? timestampGranularities)
+            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1OpenaiAudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));

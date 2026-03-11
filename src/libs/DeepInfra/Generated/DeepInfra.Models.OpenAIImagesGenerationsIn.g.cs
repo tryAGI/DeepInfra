@@ -9,13 +9,11 @@ namespace DeepInfra
     public sealed partial class OpenAIImagesGenerationsIn
     {
         /// <summary>
-        /// The model to use for image generation.<br/>
-        /// Example: black-forest-labs/FLUX-1-schnell
+        /// The model to use for image generation.
         /// </summary>
-        /// <example>black-forest-labs/FLUX-1-schnell</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The number of images to generate.<br/>
@@ -25,10 +23,10 @@ namespace DeepInfra
         public int? N { get; set; }
 
         /// <summary>
-        /// 
+        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// Default Value: b64_json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter))]
         public global::DeepInfra.OpenAIImagesResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
@@ -45,13 +43,11 @@ namespace DeepInfra
         public string? User { get; set; }
 
         /// <summary>
-        /// A text description of desired image(s).<br/>
-        /// Example: A photo of an astronaut riding a horse on Mars.
+        /// A text description of desired image(s).
         /// </summary>
-        /// <example>A photo of an astronaut riding a horse on Mars.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string Prompt { get; set; } = default!;
 
         /// <summary>
         /// The quality of the image that will be generated.
@@ -75,14 +71,16 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="OpenAIImagesGenerationsIn" /> class.
         /// </summary>
         /// <param name="model">
-        /// The model to use for image generation.<br/>
-        /// Example: black-forest-labs/FLUX-1-schnell
+        /// The model to use for image generation.
         /// </param>
         /// <param name="n">
         /// The number of images to generate.<br/>
         /// Default Value: 1
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// Default Value: b64_json
+        /// </param>
         /// <param name="size">
         /// The size of the generated images. Available sizes depend on the model.<br/>
         /// Default Value: 1024x1024
@@ -91,8 +89,7 @@ namespace DeepInfra
         /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
         /// </param>
         /// <param name="prompt">
-        /// A text description of desired image(s).<br/>
-        /// Example: A photo of an astronaut riding a horse on Mars.
+        /// A text description of desired image(s).
         /// </param>
         /// <param name="quality">
         /// The quality of the image that will be generated.

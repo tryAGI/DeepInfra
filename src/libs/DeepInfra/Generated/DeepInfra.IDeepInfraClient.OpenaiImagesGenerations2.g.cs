@@ -24,14 +24,16 @@ namespace DeepInfra
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
-        /// The model to use for image generation.<br/>
-        /// Example: black-forest-labs/FLUX-1-schnell
+        /// The model to use for image generation.
         /// </param>
         /// <param name="n">
         /// The number of images to generate.<br/>
         /// Default Value: 1
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// Default Value: b64_json
+        /// </param>
         /// <param name="size">
         /// The size of the generated images. Available sizes depend on the model.<br/>
         /// Default Value: 1024x1024
@@ -40,8 +42,7 @@ namespace DeepInfra
         /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
         /// </param>
         /// <param name="prompt">
-        /// A text description of desired image(s).<br/>
-        /// Example: A photo of an astronaut riding a horse on Mars.
+        /// A text description of desired image(s).
         /// </param>
         /// <param name="quality">
         /// The quality of the image that will be generated.

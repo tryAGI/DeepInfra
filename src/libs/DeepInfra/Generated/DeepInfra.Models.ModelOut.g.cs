@@ -11,37 +11,29 @@ namespace DeepInfra
     public sealed partial class ModelOut
     {
         /// <summary>
-        /// Model Name<br/>
-        /// Example: microsoft/resnet-50
+        /// Model Name
         /// </summary>
-        /// <example>microsoft/resnet-50</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
-        /// raw type of the model<br/>
-        /// Example: image-classification
+        /// raw type of the model
         /// </summary>
-        /// <example>image-classification</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Type { get; set; }
+        public string Type { get; set; } = default!;
 
         /// <summary>
-        /// reported type of the model<br/>
-        /// Example: text-generation
+        /// reported type of the model
         /// </summary>
-        /// <example>text-generation</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ReportedType { get; set; }
+        public string ReportedType { get; set; } = default!;
 
         /// <summary>
-        /// description of the model<br/>
-        /// Example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
+        /// description of the model
         /// </summary>
-        /// <example>ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
@@ -63,7 +55,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; }
+        public global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; } = default!;
 
         /// <summary>
         /// The maximum context size of this model, if applicable
@@ -123,20 +115,16 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ModelOut" /> class.
         /// </summary>
         /// <param name="modelName">
-        /// Model Name<br/>
-        /// Example: microsoft/resnet-50
+        /// Model Name
         /// </param>
         /// <param name="type">
-        /// raw type of the model<br/>
-        /// Example: image-classification
+        /// raw type of the model
         /// </param>
         /// <param name="reportedType">
-        /// reported type of the model<br/>
-        /// Example: text-generation
+        /// reported type of the model
         /// </param>
         /// <param name="description">
-        /// description of the model<br/>
-        /// Example: ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database. It is a 50-layer deep neural network.
+        /// description of the model
         /// </param>
         /// <param name="coverImgUrl">
         /// cover image link

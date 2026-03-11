@@ -25,8 +25,7 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </param>
         /// <param name="messages">
         /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
@@ -37,15 +36,15 @@ namespace DeepInfra
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP">
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="minP">
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="topK">
         /// Sample from the best k (number of) tokens. 0 means off<br/>
@@ -92,11 +91,15 @@ namespace DeepInfra
         /// <param name="logprobs">
         /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
         /// </param>
-        /// <param name="streamOptions"></param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
-        /// <param name="reasoning"></param>
+        /// <param name="reasoning">
+        /// Reasoning configuration.
+        /// </param>
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
@@ -116,19 +119,19 @@ namespace DeepInfra
             double? minP = default,
             int? topK = default,
             int? maxTokens = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop = default,
             int? n = default,
             double? presencePenalty = default,
             double? frequencyPenalty = default,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
-            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat = default,
+            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? toolChoice = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,
             bool? logprobs = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
-            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort = default,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort = default,
             global::DeepInfra.ChatReasoningSettings? reasoning = default,
             string? promptCacheKey = default,
             object? chatTemplateKwargs = default,

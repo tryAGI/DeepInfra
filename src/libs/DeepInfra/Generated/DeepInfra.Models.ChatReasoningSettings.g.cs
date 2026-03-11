@@ -12,8 +12,7 @@ namespace DeepInfra
         /// Constrains effort on reasoning for reasoning models.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("effort")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffortJsonConverter))]
-        public global::DeepInfra.ChatReasoningSettingsEffort? Effort { get; set; }
+        public global::DeepInfra.ChatReasoningSettingsEffort2? Effort { get; set; }
 
         /// <summary>
         /// Enable or disable reasoning with default parameters.
@@ -40,7 +39,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatReasoningSettings(
-            global::DeepInfra.ChatReasoningSettingsEffort? effort,
+            global::DeepInfra.ChatReasoningSettingsEffort2? effort,
             bool? enabled)
         {
             this.Effort = effort;

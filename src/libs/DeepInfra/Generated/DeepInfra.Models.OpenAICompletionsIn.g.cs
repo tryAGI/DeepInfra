@@ -11,13 +11,11 @@ namespace DeepInfra
     public sealed partial class OpenAICompletionsIn
     {
         /// <summary>
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </summary>
-        /// <example>meta-llama/Llama-2-70b-chat-hf</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// input prompt - a single string is currently supported
@@ -25,7 +23,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> Prompt { get; set; }
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> Prompt { get; set; } = default!;
 
         /// <summary>
         /// The maximum number of tokens to generate in the completion.<br/>
@@ -36,21 +34,21 @@ namespace DeepInfra
 
         /// <summary>
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
 
         /// <summary>
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
         public double? TopP { get; set; }
 
         /// <summary>
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_p")]
         public double? MinP { get; set; }
@@ -92,8 +90,8 @@ namespace DeepInfra
         /// up to 16 sequences where the API will stop generating further tokens
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Stop { get; set; }
 
         /// <summary>
         /// Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
@@ -113,8 +111,8 @@ namespace DeepInfra
         /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -136,7 +134,7 @@ namespace DeepInfra
         public int? Seed { get; set; }
 
         /// <summary>
-        /// 
+        /// streaming options
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
@@ -160,7 +158,7 @@ namespace DeepInfra
         public string? PromptCacheKey { get; set; }
 
         /// <summary>
-        /// 
+        /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::DeepInfra.CompletionMultiModalData? Data { get; set; }
@@ -175,8 +173,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="OpenAICompletionsIn" /> class.
         /// </summary>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </param>
         /// <param name="prompt">
         /// input prompt - a single string is currently supported
@@ -187,15 +184,15 @@ namespace DeepInfra
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP">
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="minP">
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="topK">
         /// Sample from the best k (number of) tokens. 0 means off<br/>
@@ -239,7 +236,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
-        /// <param name="streamOptions"></param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="stopTokenIds">
         /// List of token IDs that will stop generation when encountered
         /// </param>
@@ -249,7 +248,9 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
-        /// <param name="data"></param>
+        /// <param name="data">
+        /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -265,10 +266,10 @@ namespace DeepInfra
             bool? stream,
             int? logprobs,
             bool? echo,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop,
             double? presencePenalty,
             double? frequencyPenalty,
-            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed,

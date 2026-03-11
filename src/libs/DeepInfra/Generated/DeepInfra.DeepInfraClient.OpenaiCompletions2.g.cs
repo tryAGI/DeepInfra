@@ -227,8 +227,7 @@ namespace DeepInfra
         /// <param name="xDeepinfraSource"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </param>
         /// <param name="prompt">
         /// input prompt - a single string is currently supported
@@ -239,15 +238,15 @@ namespace DeepInfra
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP">
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="minP">
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="topK">
         /// Sample from the best k (number of) tokens. 0 means off<br/>
@@ -291,7 +290,9 @@ namespace DeepInfra
         /// <param name="seed">
         /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
         /// </param>
-        /// <param name="streamOptions"></param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="stopTokenIds">
         /// List of token IDs that will stop generation when encountered
         /// </param>
@@ -301,7 +302,9 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
-        /// <param name="data"></param>
+        /// <param name="data">
+        /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiCompletions2Async(
@@ -318,10 +321,10 @@ namespace DeepInfra
             bool? stream = default,
             int? logprobs = default,
             bool? echo = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop = default,
             double? presencePenalty = default,
             double? frequencyPenalty = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat = default,
             double? repetitionPenalty = default,
             string? user = default,
             int? seed = default,

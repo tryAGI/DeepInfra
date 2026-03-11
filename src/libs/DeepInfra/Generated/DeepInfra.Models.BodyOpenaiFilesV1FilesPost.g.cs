@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Purpose { get; set; }
+        public string Purpose { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<byte[]> File { get; set; }
+        public global::System.Collections.Generic.IList<byte[]> File { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

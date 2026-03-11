@@ -13,35 +13,35 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id_or_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ProjectIdOrName { get; set; }
+        public string ProjectIdOrName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_sensitive")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsSensitive { get; set; }
+        public bool IsSensitive { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_development")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnvDevelopment { get; set; }
+        public bool EnvDevelopment { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_preview")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnvPreview { get; set; }
+        public bool EnvPreview { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_production")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnvProduction { get; set; }
+        public bool EnvProduction { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

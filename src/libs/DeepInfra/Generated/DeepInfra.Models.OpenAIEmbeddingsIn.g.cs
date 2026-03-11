@@ -11,30 +11,25 @@ namespace DeepInfra
     public sealed partial class OpenAIEmbeddingsIn
     {
         /// <summary>
-        /// 
+        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ServiceTierJsonConverter))]
         public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
 
         /// <summary>
-        /// model name<br/>
-        /// Example: thenlper/gte-large
+        /// model name
         /// </summary>
-        /// <example>thenlper/gte-large</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
-        /// sequences to embed<br/>
-        /// Example: [I like chocolate]
+        /// sequences to embed
         /// </summary>
-        /// <example>[I like chocolate]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
+        public global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; } = default!;
 
         /// <summary>
         /// format used when encoding<br/>
@@ -45,10 +40,8 @@ namespace DeepInfra
         public global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? EncodingFormat { get; set; }
 
         /// <summary>
-        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
-        /// Example: 1536
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.
         /// </summary>
-        /// <example>1536</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dimensions")]
         public int? Dimensions { get; set; }
 
@@ -61,22 +54,21 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenAIEmbeddingsIn" /> class.
         /// </summary>
-        /// <param name="serviceTier"></param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// </param>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: thenlper/gte-large
+        /// model name
         /// </param>
         /// <param name="input">
-        /// sequences to embed<br/>
-        /// Example: [I like chocolate]
+        /// sequences to embed
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
         /// Default Value: float
         /// </param>
         /// <param name="dimensions">
-        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.<br/>
-        /// Example: 1536
+        /// The number of dimensions in the embedding. If not provided, the model's default will be used.If provided bigger than model's default, the embedding will be padded with zeros.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

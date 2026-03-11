@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] File { get; set; }
+        public byte[] File { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
+        public string Filename { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -39,8 +39,7 @@ namespace DeepInfra
         /// Default Value: json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormatJsonConverter))]
-        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? ResponseFormat { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? ResponseFormat { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -75,7 +74,7 @@ namespace DeepInfra
             string filename,
             string model,
             string? prompt,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? responseFormat,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? responseFormat,
             double? temperature)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));

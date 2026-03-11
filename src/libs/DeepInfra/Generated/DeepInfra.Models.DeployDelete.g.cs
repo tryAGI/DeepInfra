@@ -9,13 +9,11 @@ namespace DeepInfra
     public sealed partial class DeployDelete
     {
         /// <summary>
-        /// Deploy Id<br/>
-        /// Example: fkj843kjh8
+        /// Deploy Id
         /// </summary>
-        /// <example>fkj843kjh8</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("deploy_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DeployId { get; set; }
+        public string DeployId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,8 +25,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="DeployDelete" /> class.
         /// </summary>
         /// <param name="deployId">
-        /// Deploy Id<br/>
-        /// Example: fkj843kjh8
+        /// Deploy Id
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

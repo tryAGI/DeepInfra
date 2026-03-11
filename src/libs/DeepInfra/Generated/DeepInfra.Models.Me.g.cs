@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uid")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Uid { get; set; }
+        public string Uid { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,14 +26,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email_verified")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EmailVerified { get; set; }
+        public bool EmailVerified { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("account_setup")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AccountSetup { get; set; }
+        public bool AccountSetup { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false
@@ -46,14 +46,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DisplayName { get; set; }
+        public string DisplayName { get; set; } = default!;
 
         /// <summary>
         /// Authentication provider, e.g. 'github'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Provider { get; set; }
+        public string Provider { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -66,63 +66,63 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_admin")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsAdmin { get; set; }
+        public bool IsAdmin { get; set; } = default!;
 
         /// <summary>
         /// Personal name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// First name of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FirstName { get; set; }
+        public string FirstName { get; set; } = default!;
 
         /// <summary>
         /// Last name of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LastName { get; set; }
+        public string LastName { get; set; } = default!;
 
         /// <summary>
         /// Country of the user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("country")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Country { get; set; }
+        public string Country { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_business_account")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsBusinessAccount { get; set; }
+        public bool IsBusinessAccount { get; set; } = default!;
 
         /// <summary>
         /// Company name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("company")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Company { get; set; }
+        public string Company { get; set; } = default!;
 
         /// <summary>
         /// Company website address
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("website")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Website { get; set; }
+        public string Website { get; set; } = default!;
 
         /// <summary>
         /// Job title of the user, e.g. 'Software Engineer'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Title { get; set; }
+        public string Title { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false
@@ -158,7 +158,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vercel_connection")]
-        public global::DeepInfra.MeVercelConnection? VercelConnection { get; set; }
+        public global::DeepInfra.MeVercelConnection2? VercelConnection { get; set; }
 
         /// <summary>
         /// 
@@ -251,7 +251,7 @@ namespace DeepInfra
             string? teamRole,
             string? teamDisplayName,
             bool? isTeamUpgradeEnabled,
-            global::DeepInfra.MeVercelConnection? vercelConnection,
+            global::DeepInfra.MeVercelConnection2? vercelConnection,
             global::DeepInfra.Checklist? checklist)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));

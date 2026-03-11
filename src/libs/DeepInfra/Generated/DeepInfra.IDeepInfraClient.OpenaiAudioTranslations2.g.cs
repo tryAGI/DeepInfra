@@ -43,7 +43,7 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             string? prompt = default,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat? responseFormat = default,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat2? responseFormat = default,
             double? temperature = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

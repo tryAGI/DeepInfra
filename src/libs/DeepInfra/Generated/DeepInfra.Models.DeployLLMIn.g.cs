@@ -13,15 +13,15 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// The type of GPU the deployment is running on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.DeployGPUs Gpu { get; set; }
+        public global::DeepInfra.DeployGPUs Gpu { get; set; } = default!;
 
         /// <summary>
         /// Number of GPUs used by one instance<br/>
@@ -73,7 +73,9 @@ namespace DeepInfra
         /// <param name="modelName">
         /// model name for deepinfra (username/mode-name format)
         /// </param>
-        /// <param name="gpu"></param>
+        /// <param name="gpu">
+        /// The type of GPU the deployment is running on
+        /// </param>
         /// <param name="numGpus">
         /// Number of GPUs used by one instance<br/>
         /// Default Value: 1

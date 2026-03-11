@@ -39,7 +39,7 @@ namespace DeepInfra
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
             string? xiApiKey = default,
-            global::DeepInfra.OpenAIBatchesInCompletionWindow completionWindow = default,
+            string completionWindow = "24h",
             object? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -13,63 +13,63 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Requests { get; set; }
+        public int Requests { get; set; } = default!;
 
         /// <summary>
         /// total number of seconds spend in inference
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalTime { get; set; }
+        public int TotalTime { get; set; } = default!;
 
         /// <summary>
         /// total number of tokens generated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalTokens { get; set; }
+        public int TotalTokens { get; set; } = default!;
 
         /// <summary>
         /// number of input tokens generated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int InputTokens { get; set; }
+        public int InputTokens { get; set; } = default!;
 
         /// <summary>
         /// number of output tokens generated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int OutputTokens { get; set; }
+        public int OutputTokens { get; set; } = default!;
 
         /// <summary>
         /// total number of cents spent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_amount")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalAmount { get; set; }
+        public int TotalAmount { get; set; } = default!;
 
         /// <summary>
         /// average millisecond inference time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double AvgTime { get; set; }
+        public double AvgTime { get; set; } = default!;
 
         /// <summary>
         /// 95th percentile inference time (estimated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg95_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Avg95Time { get; set; }
+        public double Avg95Time { get; set; } = default!;
 
         /// <summary>
         /// number of errors
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("errors")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Errors { get; set; }
+        public int Errors { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

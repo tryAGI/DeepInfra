@@ -12,8 +12,7 @@ namespace DeepInfra
         /// Default Value: json_object
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.JsonObjectResponseFormatTypeJsonConverter))]
-        public global::DeepInfra.JsonObjectResponseFormatType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +30,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public JsonObjectResponseFormat(
-            global::DeepInfra.JsonObjectResponseFormatType? type)
+            string? type)
         {
             this.Type = type;
         }

@@ -13,28 +13,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("period")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Period { get; set; }
+        public string Period { get; set; } = default!;
 
         /// <summary>
-        /// Inclusive, in ms
+        /// time interval in this period
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.TimeInterval Interval { get; set; }
+        public global::DeepInfra.TimeInterval Interval { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.UsageItem> Items { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.UsageItem> Items { get; set; } = default!;
 
         /// <summary>
         /// total cost for all items in cents
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalCost { get; set; }
+        public int TotalCost { get; set; } = default!;
 
         /// <summary>
         /// Stripe Invoice ID, or EMPTY|NOT_FINAL<br/>
@@ -56,7 +56,7 @@ namespace DeepInfra
         /// YYYY.MM formatted period
         /// </param>
         /// <param name="interval">
-        /// Inclusive, in ms
+        /// time interval in this period
         /// </param>
         /// <param name="items"></param>
         /// <param name="totalCost">

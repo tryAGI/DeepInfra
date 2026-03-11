@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// the type of the tool call. only function is supported currently
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Type { get; set; }
+        public string Type { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// the function that the model called
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.Function Function { get; set; }
+        public global::DeepInfra.Function Function { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -44,7 +44,9 @@ namespace DeepInfra
         /// <param name="type">
         /// the type of the tool call. only function is supported currently
         /// </param>
-        /// <param name="function"></param>
+        /// <param name="function">
+        /// the function that the model called
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

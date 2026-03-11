@@ -12,15 +12,14 @@ namespace DeepInfra
         /// Default Value: regex
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.RegexResponseFormatTypeJsonConverter))]
-        public global::DeepInfra.RegexResponseFormatType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Regex pattern for structured output when type is 'regex'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("regex")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Regex { get; set; }
+        public string Regex { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +41,7 @@ namespace DeepInfra
 #endif
         public RegexResponseFormat(
             string regex,
-            global::DeepInfra.RegexResponseFormatType? type)
+            string? type)
         {
             this.Regex = regex ?? throw new global::System.ArgumentNullException(nameof(regex));
             this.Type = type;

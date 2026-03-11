@@ -11,16 +11,16 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"input_audio"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionContentPartAudioTypeJsonConverter))]
-        public global::DeepInfra.ChatCompletionContentPartAudioType Type { get; set; }
+        public string Type { get; set; } = "input_audio";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.InputAudio InputAudio { get; set; }
+        public global::DeepInfra.InputAudio InputAudio { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace DeepInfra
 #endif
         public ChatCompletionContentPartAudio(
             global::DeepInfra.InputAudio inputAudio,
-            global::DeepInfra.ChatCompletionContentPartAudioType type)
+            string type = "input_audio")
         {
             this.InputAudio = inputAudio ?? throw new global::System.ArgumentNullException(nameof(inputAudio));
             this.Type = type;

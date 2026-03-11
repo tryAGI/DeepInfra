@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HfModelName { get; set; }
+        public string HfModelName { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LoraModelName { get; set; }
+        public string LoraModelName { get; set; } = default!;
 
         /// <summary>
         /// 

@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiKeyName { get; set; }
+        public string ApiKeyName { get; set; } = default!;
 
         /// <summary>
         /// allow inference only to the specified model names
@@ -31,8 +31,7 @@ namespace DeepInfra
         /// unix timestamp when the token should expire
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter))]
-        public global::System.DateTimeOffset? ExpiresAt { get; set; }
+        public int? ExpiresAt { get; set; }
 
         /// <summary>
         /// only allow spending that much USD until the token becomes invalid
@@ -69,7 +68,7 @@ namespace DeepInfra
             string apiKeyName,
             global::System.Collections.Generic.IList<string>? models,
             int? expiresDelta,
-            global::System.DateTimeOffset? expiresAt,
+            int? expiresAt,
             double? spendingLimit)
         {
             this.ApiKeyName = apiKeyName ?? throw new global::System.ArgumentNullException(nameof(apiKeyName));

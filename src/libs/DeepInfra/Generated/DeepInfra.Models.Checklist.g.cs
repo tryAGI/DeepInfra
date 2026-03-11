@@ -33,7 +33,7 @@ namespace DeepInfra
         public bool? Suspended { get; set; }
 
         /// <summary>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overdue_invoices")]
         public double? OverdueInvoices { get; set; }
@@ -49,14 +49,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stripe_balance")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double StripeBalance { get; set; }
+        public double StripeBalance { get; set; } = default!;
 
         /// <summary>
         /// usage since most recent invoice
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Recent { get; set; }
+        public double Recent { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -68,9 +68,7 @@ namespace DeepInfra
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspend_reason")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.SuspendReason SuspendReason { get; set; }
+        public global::DeepInfra.SuspendReason? SuspendReason { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -118,7 +116,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="overdueInvoices">
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="lastChecked">
         /// Default Value: 0
@@ -149,7 +147,6 @@ namespace DeepInfra
         public Checklist(
             double stripeBalance,
             double recent,
-            global::DeepInfra.SuspendReason suspendReason,
             bool? email,
             bool? billingAddress,
             bool? paymentMethod,
@@ -157,6 +154,7 @@ namespace DeepInfra
             double? overdueInvoices,
             int? lastChecked,
             double? limit,
+            global::DeepInfra.SuspendReason? suspendReason,
             bool? topup,
             int? topupAmount,
             int? topupThreshold,
@@ -164,7 +162,6 @@ namespace DeepInfra
         {
             this.StripeBalance = stripeBalance;
             this.Recent = recent;
-            this.SuspendReason = suspendReason;
             this.Email = email;
             this.BillingAddress = billingAddress;
             this.PaymentMethod = paymentMethod;
@@ -172,6 +169,7 @@ namespace DeepInfra
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
             this.Limit = limit;
+            this.SuspendReason = suspendReason;
             this.Topup = topup;
             this.TopupAmount = topupAmount;
             this.TopupThreshold = topupThreshold;

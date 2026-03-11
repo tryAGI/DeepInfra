@@ -15,7 +15,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -28,14 +28,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<object> Messages { get; set; }
+        public global::System.Collections.Generic.IList<object> Messages { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>))]
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? System { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>))]
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? System { get; set; }
 
         /// <summary>
         /// 
@@ -50,7 +50,7 @@ namespace DeepInfra
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
@@ -109,7 +109,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="temperature">
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP"></param>
         /// <param name="topK"></param>
@@ -124,7 +124,7 @@ namespace DeepInfra
             string model,
             global::System.Collections.Generic.IList<object> messages,
             int? maxTokens,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system,
             global::System.Collections.Generic.IList<string>? stopSequences,
             bool? stream,
             double? temperature,

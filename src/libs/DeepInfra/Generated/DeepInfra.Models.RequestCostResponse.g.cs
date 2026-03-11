@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.RequestCostItem> Requests { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.RequestCostItem> Requests { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

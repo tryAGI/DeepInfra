@@ -11,16 +11,16 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        /// <default>"text"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionContentPartTextTypeJsonConverter))]
-        public global::DeepInfra.ChatCompletionContentPartTextType Type { get; set; }
+        public string Type { get; set; } = "text";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace DeepInfra
 #endif
         public ChatCompletionContentPartText(
             string text,
-            global::DeepInfra.ChatCompletionContentPartTextType type)
+            string type = "text")
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Type = type;

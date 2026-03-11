@@ -12,15 +12,14 @@ namespace DeepInfra
         /// Default Value: json_schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.JsonSchemaResponseFormatTypeJsonConverter))]
-        public global::DeepInfra.JsonSchemaResponseFormatType? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        /// JSON schema for structured output when type is 'json_schema'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.JsonSchema JsonSchema { get; set; }
+        public global::DeepInfra.JsonSchema JsonSchema { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,13 +33,15 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: json_schema
         /// </param>
-        /// <param name="jsonSchema"></param>
+        /// <param name="jsonSchema">
+        /// JSON schema for structured output when type is 'json_schema'
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public JsonSchemaResponseFormat(
             global::DeepInfra.JsonSchema jsonSchema,
-            global::DeepInfra.JsonSchemaResponseFormatType? type)
+            string? type)
         {
             this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
             this.Type = type;

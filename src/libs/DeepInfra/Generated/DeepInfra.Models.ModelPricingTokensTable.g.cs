@@ -4,8 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Could be used to generate pricing tables<br/>
-    /// Example: {"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}
+    /// Could be used to generate pricing tables
     /// </summary>
     public sealed partial class ModelPricingTokensTable
     {

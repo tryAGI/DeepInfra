@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Default Value: model
@@ -26,21 +26,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Created { get; set; }
+        public int Created { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("owned_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string OwnedBy { get; set; }
+        public string OwnedBy { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("root")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Root { get; set; }
+        public string Root { get; set; } = default!;
 
         /// <summary>
         /// 

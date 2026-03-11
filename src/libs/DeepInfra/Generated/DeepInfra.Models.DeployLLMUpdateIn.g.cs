@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ScaleSettings Settings { get; set; }
+        public global::DeepInfra.ScaleSettings Settings { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

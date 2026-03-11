@@ -25,7 +25,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.FunctionDefinition Function { get; set; }
+        public global::DeepInfra.FunctionDefinition Function { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

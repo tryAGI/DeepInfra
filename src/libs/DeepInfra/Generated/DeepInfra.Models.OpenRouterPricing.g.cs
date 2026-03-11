@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string Prompt { get; set; } = default!;
 
         /// <summary>
         /// Pricing per 1 token for output
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Completion { get; set; }
+        public string Completion { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

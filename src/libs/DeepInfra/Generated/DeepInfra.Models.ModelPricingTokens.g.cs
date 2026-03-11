@@ -9,26 +9,20 @@ namespace DeepInfra
     public sealed partial class ModelPricingTokens
     {
         /// <summary>
-        /// Short description of the pricing, ideal for cards and headers<br/>
-        /// Example: $0.15 / second
+        /// Short description of the pricing, ideal for cards and headers
         /// </summary>
-        /// <example>$0.15 / second</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("short")]
         public string? Short { get; set; }
 
         /// <summary>
-        /// Full description of the pricing, perfect for details<br/>
-        /// Example: $0.15 / second for 1080P, $0.10 / second for 720P
+        /// Full description of the pricing, perfect for details
         /// </summary>
-        /// <example>$0.15 / second for 1080P, $0.10 / second for 720P</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("full")]
         public string? Full { get; set; }
 
         /// <summary>
-        /// Could be used to generate pricing tables<br/>
-        /// Example: {"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}
+        /// Could be used to generate pricing tables
         /// </summary>
-        /// <example>{"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("table")]
         public object? Table { get; set; }
 
@@ -43,14 +37,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_input_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double CentsPerInputToken { get; set; }
+        public double CentsPerInputToken { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_output_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double CentsPerOutputToken { get; set; }
+        public double CentsPerOutputToken { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -74,16 +68,13 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ModelPricingTokens" /> class.
         /// </summary>
         /// <param name="short">
-        /// Short description of the pricing, ideal for cards and headers<br/>
-        /// Example: $0.15 / second
+        /// Short description of the pricing, ideal for cards and headers
         /// </param>
         /// <param name="full">
-        /// Full description of the pricing, perfect for details<br/>
-        /// Example: $0.15 / second for 1080P, $0.10 / second for 720P
+        /// Full description of the pricing, perfect for details
         /// </param>
         /// <param name="table">
-        /// Could be used to generate pricing tables<br/>
-        /// Example: {"columns":["resolution","$ cost per second"],"rows":[["780P","$0.10"],["1080P","$0.15"]]}
+        /// Could be used to generate pricing tables
         /// </param>
         /// <param name="type">
         /// Default Value: tokens

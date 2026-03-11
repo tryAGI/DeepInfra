@@ -9,7 +9,7 @@ rm -rf Generated
 autosdk generate openapi.yaml \
   --namespace DeepInfra \
   --clientClassName DeepInfraClient \
-  --targetFramework net8.0 \
+  --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \
   --methodNamingConvention Summary \

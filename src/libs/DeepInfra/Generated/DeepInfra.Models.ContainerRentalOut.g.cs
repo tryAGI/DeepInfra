@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -28,21 +28,21 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ContainerRentalStateOut State { get; set; }
+        public global::DeepInfra.ContainerRentalStateOut State { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_ts")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartTs { get; set; }
+        public int StartTs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state_ts")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StateTs { get; set; }
+        public int StateTs { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -61,21 +61,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string GpuConfig { get; set; }
+        public string GpuConfig { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_hour")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double PricePerHour { get; set; }
+        public double PricePerHour { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ContainerImage { get; set; }
+        public string ContainerImage { get; set; } = default!;
 
         /// <summary>
         /// 

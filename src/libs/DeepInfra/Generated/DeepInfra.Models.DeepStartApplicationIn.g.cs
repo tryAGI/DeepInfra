@@ -25,35 +25,35 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("company")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Company { get; set; }
+        public string Company { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ceo")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Ceo { get; set; }
+        public string Ceo { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("funding")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Funding { get; set; }
+        public string Funding { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("founded_on")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FoundedOn { get; set; }
+        public string FoundedOn { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("website")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Website { get; set; }
+        public string Website { get; set; } = default!;
 
         /// <summary>
         /// 

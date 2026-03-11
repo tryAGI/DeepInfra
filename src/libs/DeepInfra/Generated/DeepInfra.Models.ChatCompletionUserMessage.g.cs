@@ -21,8 +21,7 @@ namespace DeepInfra
         /// Default Value: user
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionUserMessageRoleJsonConverter))]
-        public global::DeepInfra.ChatCompletionUserMessageRole? Role { get; set; }
+        public string? Role { get; set; }
 
         /// <summary>
         /// the message content
@@ -30,7 +29,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>> Content { get; set; }
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>> Content { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -64,7 +63,7 @@ namespace DeepInfra
         public ChatCompletionUserMessage(
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>> content,
             object? cacheControl,
-            global::DeepInfra.ChatCompletionUserMessageRole? role,
+            string? role,
             string? name)
         {
             this.Content = content;

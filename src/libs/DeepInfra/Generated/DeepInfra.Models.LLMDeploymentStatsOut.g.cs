@@ -13,63 +13,63 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Requests { get; set; }
+        public int Requests { get; set; } = default!;
 
         /// <summary>
         /// number of input tokens generated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int InputTokens { get; set; }
+        public int InputTokens { get; set; } = default!;
 
         /// <summary>
         /// number of output tokens generated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int OutputTokens { get; set; }
+        public int OutputTokens { get; set; } = default!;
 
         /// <summary>
         /// average millisecond time to first token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_ttft_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double AvgTtftMs { get; set; }
+        public double AvgTtftMs { get; set; } = default!;
 
         /// <summary>
         /// 95th percentile time to first token (estimated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg95_ttft_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Avg95TtftMs { get; set; }
+        public double Avg95TtftMs { get; set; } = default!;
 
         /// <summary>
         /// average millisecond time per token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_tpt_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double AvgTptMs { get; set; }
+        public double AvgTptMs { get; set; } = default!;
 
         /// <summary>
         /// 95th percentile time per token (estimated)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg95_tpt_ms")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Avg95TptMs { get; set; }
+        public double Avg95TptMs { get; set; } = default!;
 
         /// <summary>
         /// total number of cents spent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_amount_cents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalAmountCents { get; set; }
+        public int TotalAmountCents { get; set; } = default!;
 
         /// <summary>
         /// number of errors
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("errors")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Errors { get; set; }
+        public int Errors { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

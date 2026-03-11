@@ -268,7 +268,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="temperature">
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP"></param>
         /// <param name="topK"></param>
@@ -287,7 +287,7 @@ namespace DeepInfra
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
             int? maxTokens = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
             bool? stream = default,
             double? temperature = default,

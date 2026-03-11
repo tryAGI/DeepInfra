@@ -14,14 +14,14 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ModelDocBlockKey Key { get; set; }
+        public global::DeepInfra.ModelDocBlockKey Key { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Url { get; set; }
+        public string Url { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

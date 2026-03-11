@@ -13,28 +13,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// GPU config
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string GpuConfig { get; set; }
+        public string GpuConfig { get; set; } = default!;
 
         /// <summary>
         /// Container Image
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ContainerImage { get; set; }
+        public string ContainerImage { get; set; } = default!;
 
         /// <summary>
         /// Cloud Init User Data
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cloud_init_user_data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CloudInitUserData { get; set; }
+        public string CloudInitUserData { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

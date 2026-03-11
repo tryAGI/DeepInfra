@@ -13,70 +13,70 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Human-readable model name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Supported input modalities
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_modalities")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> InputModalities { get; set; }
+        public global::System.Collections.Generic.IList<string> InputModalities { get; set; } = default!;
 
         /// <summary>
         /// Supported output modalities
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_modalities")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> OutputModalities { get; set; }
+        public global::System.Collections.Generic.IList<string> OutputModalities { get; set; } = default!;
 
         /// <summary>
         /// Model quantization type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Quantization { get; set; }
+        public string Quantization { get; set; } = default!;
 
         /// <summary>
         /// Maximum context length
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ContextLength { get; set; }
+        public int ContextLength { get; set; } = default!;
 
         /// <summary>
         /// Maximum output length
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_output_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxOutputLength { get; set; }
+        public int MaxOutputLength { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Pricing information
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.OpenRouterPricing Pricing { get; set; }
+        public global::DeepInfra.OpenRouterPricing Pricing { get; set; } = default!;
 
         /// <summary>
         /// Supported sampling parameters
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_sampling_parameters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> SupportedSamplingParameters { get; set; }
+        public global::System.Collections.Generic.IList<string> SupportedSamplingParameters { get; set; } = default!;
 
         /// <summary>
         /// Supported features
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_features")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> SupportedFeatures { get; set; }
+        public global::System.Collections.Generic.IList<string> SupportedFeatures { get; set; } = default!;
 
         /// <summary>
         /// Model description
@@ -95,7 +95,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("datacenters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterDatacenter> Datacenters { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterDatacenter> Datacenters { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -127,7 +127,9 @@ namespace DeepInfra
         /// <param name="maxOutputLength">
         /// Maximum output length
         /// </param>
-        /// <param name="pricing"></param>
+        /// <param name="pricing">
+        /// Pricing information
+        /// </param>
         /// <param name="supportedSamplingParameters">
         /// Supported sampling parameters
         /// </param>

@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("variant")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.SchemaVariant Variant { get; set; }
+        public global::DeepInfra.SchemaVariant Variant { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -38,7 +38,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields_in")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo> FieldsIn { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo> FieldsIn { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

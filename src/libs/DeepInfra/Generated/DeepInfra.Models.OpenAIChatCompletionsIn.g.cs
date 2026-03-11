@@ -11,20 +11,18 @@ namespace DeepInfra
     public sealed partial class OpenAIChatCompletionsIn
     {
         /// <summary>
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </summary>
-        /// <example>meta-llama/Llama-2-70b-chat-hf</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> Messages { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> Messages { get; set; } = default!;
 
         /// <summary>
         /// whether to stream the output via SSE or return the full response<br/>
@@ -35,21 +33,21 @@ namespace DeepInfra
 
         /// <summary>
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
 
         /// <summary>
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
         public double? TopP { get; set; }
 
         /// <summary>
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_p")]
         public double? MinP { get; set; }
@@ -72,8 +70,8 @@ namespace DeepInfra
         /// up to 16 sequences where the API will stop generating further tokens
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Stop { get; set; }
 
         /// <summary>
         /// number of sequences to return<br/>
@@ -106,15 +104,15 @@ namespace DeepInfra
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_choice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::DeepInfra.ChatTools>))]
-        public global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? ToolChoice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::DeepInfra.ChatTools, object>))]
+        public global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? ToolChoice { get; set; }
 
         /// <summary>
         /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -142,7 +140,7 @@ namespace DeepInfra
         public bool? Logprobs { get; set; }
 
         /// <summary>
-        /// 
+        /// streaming options
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_options")]
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
@@ -151,11 +149,10 @@ namespace DeepInfra
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIChatCompletionsInReasoningEffortJsonConverter))]
-        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? ReasoningEffort { get; set; }
+        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? ReasoningEffort { get; set; }
 
         /// <summary>
-        /// 
+        /// Reasoning configuration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
         public global::DeepInfra.ChatReasoningSettings? Reasoning { get; set; }
@@ -182,8 +179,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="OpenAIChatCompletionsIn" /> class.
         /// </summary>
         /// <param name="model">
-        /// model name<br/>
-        /// Example: meta-llama/Llama-2-70b-chat-hf
+        /// model name
         /// </param>
         /// <param name="messages">
         /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
@@ -194,15 +190,15 @@ namespace DeepInfra
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="topP">
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="minP">
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="topK">
         /// Sample from the best k (number of) tokens. 0 means off<br/>
@@ -249,11 +245,15 @@ namespace DeepInfra
         /// <param name="logprobs">
         /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
         /// </param>
-        /// <param name="streamOptions"></param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
         /// <param name="reasoningEffort">
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
-        /// <param name="reasoning"></param>
+        /// <param name="reasoning">
+        /// Reasoning configuration.
+        /// </param>
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
@@ -272,19 +272,19 @@ namespace DeepInfra
             double? minP,
             int? topK,
             int? maxTokens,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop,
             int? n,
             double? presencePenalty,
             double? frequencyPenalty,
             global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
-            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools>? toolChoice,
-            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat,
+            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? toolChoice,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed,
             bool? logprobs,
             global::DeepInfra.StreamOptions? streamOptions,
-            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort,
             global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey,
             object? chatTemplateKwargs)

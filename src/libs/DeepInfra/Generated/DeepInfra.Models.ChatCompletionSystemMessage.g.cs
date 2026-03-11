@@ -21,8 +21,7 @@ namespace DeepInfra
         /// Default Value: system
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ChatCompletionSystemMessageRoleJsonConverter))]
-        public global::DeepInfra.ChatCompletionSystemMessageRole? Role { get; set; }
+        public string? Role { get; set; }
 
         /// <summary>
         /// the message content
@@ -30,7 +29,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> Content { get; set; }
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> Content { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -64,7 +63,7 @@ namespace DeepInfra
         public ChatCompletionSystemMessage(
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> content,
             object? cacheControl,
-            global::DeepInfra.ChatCompletionSystemMessageRole? role,
+            string? role,
             string? name)
         {
             this.Content = content;

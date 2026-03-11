@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The number of images to generate.<br/>
@@ -23,10 +23,10 @@ namespace DeepInfra
         public int? N { get; set; }
 
         /// <summary>
-        /// 
+        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// Default Value: b64_json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter))]
         public global::DeepInfra.OpenAIImagesResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
@@ -47,14 +47,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] Image { get; set; }
+        public byte[] Image { get; set; } = default!;
 
         /// <summary>
         /// Input image bytes for variation task
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("imagename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Imagename { get; set; }
+        public string Imagename { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -72,7 +72,10 @@ namespace DeepInfra
         /// The number of images to generate.<br/>
         /// Default Value: 1
         /// </param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// Default Value: b64_json
+        /// </param>
         /// <param name="size">
         /// The size of the generated images. Available sizes depend on the model.<br/>
         /// Default Value: 1024x1024

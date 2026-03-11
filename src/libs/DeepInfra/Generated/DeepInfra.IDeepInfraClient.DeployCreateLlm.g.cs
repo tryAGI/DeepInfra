@@ -24,7 +24,9 @@ namespace DeepInfra
         /// <param name="modelName">
         /// model name for deepinfra (username/mode-name format)
         /// </param>
-        /// <param name="gpu"></param>
+        /// <param name="gpu">
+        /// The type of GPU the deployment is running on
+        /// </param>
         /// <param name="numGpus">
         /// Number of GPUs used by one instance<br/>
         /// Default Value: 1

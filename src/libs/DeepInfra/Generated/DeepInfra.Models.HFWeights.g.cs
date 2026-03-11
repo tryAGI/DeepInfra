@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("repo")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Repo { get; set; }
+        public string Repo { get; set; } = default!;
 
         /// <summary>
         /// commit sha or branch name

@@ -13,35 +13,35 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ContextLength { get; set; }
+        public int ContextLength { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxTokens { get; set; }
+        public int MaxTokens { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, double> Pricing { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, double> Pricing { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Tags { get; set; }
+        public global::System.Collections.Generic.IList<string> Tags { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
