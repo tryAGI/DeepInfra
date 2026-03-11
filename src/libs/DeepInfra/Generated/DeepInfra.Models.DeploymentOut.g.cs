@@ -20,56 +20,56 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deploy_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string DeployId { get; set; } = default!;
+        public required string DeployId { get; set; }
 
         /// <summary>
         /// Model Id from huggingface
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// Model version
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Version { get; set; } = default!;
+        public required string Version { get; set; }
 
         /// <summary>
         /// Task
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("task")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Task { get; set; } = default!;
+        public required string Task { get; set; }
 
         /// <summary>
         /// Status
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Status { get; set; } = default!;
+        public required string Status { get; set; }
 
         /// <summary>
         /// Failure reason
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fail_reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FailReason { get; set; } = default!;
+        public required string FailReason { get; set; }
 
         /// <summary>
         /// Created at
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedAt { get; set; } = default!;
+        public required string CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UpdatedAt { get; set; } = default!;
+        public required string UpdatedAt { get; set; }
 
         /// <summary>
         /// Details about number of instances running right now

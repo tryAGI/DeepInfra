@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int RateLimit { get; set; } = default!;
+        public required int RateLimit { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Reason { get; set; } = default!;
+        public required string Reason { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

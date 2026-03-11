@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("amount")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Amount { get; set; } = default!;
+        public required int Amount { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

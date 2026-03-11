@@ -37,28 +37,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_image_unit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CentsPerImageUnit { get; set; } = default!;
+        public required double CentsPerImageUnit { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_width")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DefaultWidth { get; set; } = default!;
+        public required int DefaultWidth { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_height")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DefaultHeight { get; set; } = default!;
+        public required int DefaultHeight { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_iterations")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int DefaultIterations { get; set; } = default!;
+        public required int DefaultIterations { get; set; }
 
         /// <summary>
         /// 
@@ -71,7 +71,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_from_cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool UsageFromCost { get; set; } = default!;
+        public required bool UsageFromCost { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

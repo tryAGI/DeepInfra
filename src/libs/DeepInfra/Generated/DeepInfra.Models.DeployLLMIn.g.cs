@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// The type of GPU the deployment is running on
@@ -21,7 +21,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.DeployGPUs Gpu { get; set; } = default!;
+        public required global::DeepInfra.DeployGPUs Gpu { get; set; }
 
         /// <summary>
         /// Number of GPUs used by one instance<br/>

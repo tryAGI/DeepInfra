@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("months")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::DeepInfra.UsageMonth> Months { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::DeepInfra.UsageMonth> Months { get; set; }
 
         /// <summary>
         /// The first month for this account
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("initial_month")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string InitialMonth { get; set; } = default!;
+        public required string InitialMonth { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

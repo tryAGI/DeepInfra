@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Limit { get; set; } = default!;
+        public required double Limit { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

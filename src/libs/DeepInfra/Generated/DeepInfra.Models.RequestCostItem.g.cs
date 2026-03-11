@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requestId")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string RequestId { get; set; } = default!;
+        public required string RequestId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("costNanoUsd")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CostNanoUsd { get; set; } = default!;
+        public required int CostNanoUsd { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

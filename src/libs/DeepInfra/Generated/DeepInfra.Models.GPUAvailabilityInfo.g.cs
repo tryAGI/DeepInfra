@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string GpuConfig { get; set; } = default!;
+        public required string GpuConfig { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usd_per_hour")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double UsdPerHour { get; set; } = default!;
+        public required double UsdPerHour { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("available")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Available { get; set; } = default!;
+        public required bool Available { get; set; }
 
         /// <summary>
         /// Default Value: false

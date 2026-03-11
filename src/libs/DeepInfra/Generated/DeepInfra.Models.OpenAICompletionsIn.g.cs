@@ -15,7 +15,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
+        public required string Model { get; set; }
 
         /// <summary>
         /// input prompt - a single string is currently supported
@@ -23,7 +23,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> Prompt { get; set; } = default!;
+        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> Prompt { get; set; }
 
         /// <summary>
         /// The maximum number of tokens to generate in the completion.<br/>

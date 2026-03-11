@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ApiKeyName { get; set; } = default!;
+        public required string ApiKeyName { get; set; }
 
         /// <summary>
         /// allow inference only to the specified model names
