@@ -12,4 +12,6 @@ autosdk generate openapi.yaml \
   --targetFramework net8.0 \
   --output Generated \
   --exclude-deprecated-operations \
-  --methodNamingConvention Summary
+  --methodNamingConvention Summary \
+  --base-url https://api.deepinfra.com/ \
+  --security-scheme Http:Header:Bearer

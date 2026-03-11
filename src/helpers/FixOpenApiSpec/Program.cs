@@ -15,28 +15,6 @@ if (OpenApi31Support.IsOpenApi31(jsonOrYaml))
 
 var openApiDocument = new OpenApiStringReader().Read(jsonOrYaml, out var diagnostics);
 
-openApiDocument.Servers.Add(new OpenApiServer
-{
-    Url = "https://api.deepinfra.com/",
-});
-
-openApiDocument.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
-{
-    Type = SecuritySchemeType.Http,
-    Scheme = "bearer",
-});
-openApiDocument.SecurityRequirements.Add(new OpenApiSecurityRequirement
-{
-    [new OpenApiSecurityScheme
-    {
-        Reference = new OpenApiReference
-        {
-            Id = "Bearer",
-            Type = ReferenceType.SecurityScheme
-        }
-    }] = new List<string>(),
-});
-
 openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Format = "int64";
 if (long.TryParse(
     (openApiDocument.Components.Schemas["TimeInterval"]!.Properties["to"].Default as OpenApiString)?.Value ?? string.Empty,
