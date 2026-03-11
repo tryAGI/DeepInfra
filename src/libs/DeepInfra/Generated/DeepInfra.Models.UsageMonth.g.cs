@@ -13,28 +13,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("period")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Period { get; set; } = default!;
+        public required string Period { get; set; }
 
         /// <summary>
         /// time interval in this period
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.TimeInterval Interval { get; set; } = default!;
+        public required global::DeepInfra.TimeInterval Interval { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::DeepInfra.UsageItem> Items { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::DeepInfra.UsageItem> Items { get; set; }
 
         /// <summary>
         /// total cost for all items in cents
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalCost { get; set; } = default!;
+        public required int TotalCost { get; set; }
 
         /// <summary>
         /// Stripe Invoice ID, or EMPTY|NOT_FINAL<br/>

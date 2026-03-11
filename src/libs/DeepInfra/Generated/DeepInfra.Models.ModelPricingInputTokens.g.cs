@@ -37,7 +37,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_input_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CentsPerInputToken { get; set; } = default!;
+        public required double CentsPerInputToken { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

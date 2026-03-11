@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Object { get; set; } = default!;
+        public required string Object { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Endpoint { get; set; } = default!;
+        public required string Endpoint { get; set; }
 
         /// <summary>
         /// 
@@ -40,21 +40,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string InputFileId { get; set; } = default!;
+        public required string InputFileId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion_window")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CompletionWindow { get; set; } = default!;
+        public required string CompletionWindow { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Status { get; set; } = default!;
+        public required string Status { get; set; }
 
         /// <summary>
         /// 
@@ -73,7 +73,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAt { get; set; } = default!;
+        public required int CreatedAt { get; set; }
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ExpiresAt { get; set; } = default!;
+        public required int ExpiresAt { get; set; }
 
         /// <summary>
         /// 

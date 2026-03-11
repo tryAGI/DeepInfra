@@ -37,7 +37,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_output_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CentsPerOutputSec { get; set; } = default!;
+        public required double CentsPerOutputSec { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

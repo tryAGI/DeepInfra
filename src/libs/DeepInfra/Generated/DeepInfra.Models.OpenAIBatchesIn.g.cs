@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string InputFileId { get; set; } = default!;
+        public required string InputFileId { get; set; }
 
         /// <summary>
         /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.
@@ -21,7 +21,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIBatchesInEndpointJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.OpenAIBatchesInEndpoint Endpoint { get; set; } = default!;
+        public required global::DeepInfra.OpenAIBatchesInEndpoint Endpoint { get; set; }
 
         /// <summary>
         /// The time frame within which the batch should be processed. Currently only 24h is supported.

@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("emails")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Emails { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Emails { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

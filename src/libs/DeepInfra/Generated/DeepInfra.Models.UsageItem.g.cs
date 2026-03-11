@@ -13,42 +13,42 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.ModelMeta Model { get; set; } = default!;
+        public required global::DeepInfra.ModelMeta Model { get; set; }
 
         /// <summary>
         /// billed seconds or tokens
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("units")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Units { get; set; } = default!;
+        public required int Units { get; set; }
 
         /// <summary>
         /// rate in cents/sec or cents per token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Rate { get; set; } = default!;
+        public required double Rate { get; set; }
 
         /// <summary>
         /// model cost in cents
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Cost { get; set; } = default!;
+        public required int Cost { get; set; }
 
         /// <summary>
         /// pricing type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PricingType { get; set; } = default!;
+        public required string PricingType { get; set; }
 
         /// <summary>
         /// time interval with this particular pricing
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("interval")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.TimeInterval Interval { get; set; } = default!;
+        public required global::DeepInfra.TimeInterval Interval { get; set; }
 
         /// <summary>
         /// discount meta, only if pricing_type is discount

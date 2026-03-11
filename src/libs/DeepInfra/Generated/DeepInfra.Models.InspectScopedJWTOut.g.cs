@@ -14,7 +14,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTimeOffset ExpiresAt { get; set; } = default!;
+        public required global::System.DateTimeOffset ExpiresAt { get; set; }
 
         /// <summary>
         /// which models is the token limited to

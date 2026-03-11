@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("faq_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FaqId { get; set; } = default!;
+        public required string FaqId { get; set; }
 
         /// <summary>
         /// FAQ question
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("question")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Question { get; set; } = default!;
+        public required string Question { get; set; }
 
         /// <summary>
         /// FAQ answer in markdown format
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("answer")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Answer { get; set; } = default!;
+        public required string Answer { get; set; }
 
         /// <summary>
         /// order of the FAQ entry in the list, lower numbers come first<br/>

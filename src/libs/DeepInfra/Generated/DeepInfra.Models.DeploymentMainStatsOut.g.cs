@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// number of inference requests in the provided interval
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Requests { get; set; } = default!;
+        public required int Requests { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

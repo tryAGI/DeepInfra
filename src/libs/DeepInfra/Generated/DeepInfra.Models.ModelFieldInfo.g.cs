@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ftype")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Ftype { get; set; } = default!;
+        public required string Ftype { get; set; }
 
         /// <summary>
         /// 

@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int RateLimit { get; set; } = default!;
+        public required int RateLimit { get; set; }
 
         /// <summary>
         /// Per model token per minute rate limit
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tpm_rate_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TpmRateLimit { get; set; } = default!;
+        public required int TpmRateLimit { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

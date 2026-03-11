@@ -15,35 +15,35 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Type { get; set; } = default!;
+        public required string Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Tags { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Tags { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ReportedType { get; set; } = default!;
+        public required string ReportedType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Version { get; set; } = default!;
+        public required string Version { get; set; }
 
         /// <summary>
         /// 
@@ -62,7 +62,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Featured { get; set; } = default!;
+        public required bool Featured { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -75,42 +75,42 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Public { get; set; } = default!;
+        public required bool Public { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("curl_inv")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CurlInv { get; set; } = default!;
+        public required string CurlInv { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cmdline_inv")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CmdlineInv { get; set; } = default!;
+        public required string CmdlineInv { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("txt_docs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string TxtDocs { get; set; } = default!;
+        public required string TxtDocs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_example")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string OutExample { get; set; } = default!;
+        public required string OutExample { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_docs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string OutDocs { get; set; } = default!;
+        public required string OutDocs { get; set; }
 
         /// <summary>
         /// 
@@ -142,7 +142,7 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; } = default!;
+        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; }
 
         /// <summary>
         /// 
@@ -161,7 +161,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schemas")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> Schemas { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> Schemas { get; set; }
 
         /// <summary>
         /// 

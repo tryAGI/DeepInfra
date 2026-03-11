@@ -13,21 +13,21 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// Version identifier
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Version { get; set; } = default!;
+        public required string Version { get; set; }
 
         /// <summary>
         /// Upload time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uploaded_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UploadedAt { get; set; } = default!;
+        public required string UploadedAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

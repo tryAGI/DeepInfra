@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UserId { get; set; } = default!;
+        public required string UserId { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("installation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string InstallationId { get; set; } = default!;
+        public required string InstallationId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -20,7 +20,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.ImageURL ImageUrl { get; set; } = default!;
+        public required global::DeepInfra.ImageURL ImageUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

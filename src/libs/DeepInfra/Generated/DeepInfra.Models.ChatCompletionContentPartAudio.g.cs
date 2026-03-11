@@ -20,7 +20,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.InputAudio InputAudio { get; set; } = default!;
+        public required global::DeepInfra.InputAudio InputAudio { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

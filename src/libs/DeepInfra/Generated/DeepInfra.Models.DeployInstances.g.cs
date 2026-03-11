@@ -13,14 +13,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("running")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Running { get; set; } = default!;
+        public required int Running { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Pending { get; set; } = default!;
+        public required int Pending { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

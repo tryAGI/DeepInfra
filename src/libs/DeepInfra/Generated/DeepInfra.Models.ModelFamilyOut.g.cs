@@ -13,28 +13,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Model family title
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Title { get; set; } = default!;
+        public required string Title { get; set; }
 
         /// <summary>
         /// Model family description
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// Model family developer organization
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("developer")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Developer { get; set; } = default!;
+        public required string Developer { get; set; }
 
         /// <summary>
         /// Meta title for SEO
@@ -53,14 +53,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured_models")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> FeaturedModels { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> FeaturedModels { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pp_sections_out")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> PpSectionsOut { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut> PpSectionsOut { get; set; }
 
         /// <summary>
         /// List of FAQ entries for this model family, ordered by their order field

@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id_to_duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.Dictionary<string, int> IdToDuration { get; set; } = default!;
+        public required global::System.Collections.Generic.Dictionary<string, int> IdToDuration { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

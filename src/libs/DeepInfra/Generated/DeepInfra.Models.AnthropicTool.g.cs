@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
@@ -26,7 +26,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object InputSchema { get; set; } = default!;
+        public required object InputSchema { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

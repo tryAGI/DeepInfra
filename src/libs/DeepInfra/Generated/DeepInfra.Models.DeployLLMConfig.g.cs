@@ -14,21 +14,21 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.DeployGPUs Gpu { get; set; } = default!;
+        public required global::DeepInfra.DeployGPUs Gpu { get; set; }
 
         /// <summary>
         /// Number of GPUs used by one instance
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int NumGpus { get; set; } = default!;
+        public required int NumGpus { get; set; }
 
         /// <summary>
         /// Maximum number of concurrent requests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxBatchSize { get; set; } = default!;
+        public required int MaxBatchSize { get; set; }
 
         /// <summary>
         /// Model weights information

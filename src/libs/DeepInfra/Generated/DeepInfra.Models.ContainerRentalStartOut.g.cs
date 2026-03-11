@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ContainerId { get; set; } = default!;
+        public required string ContainerId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

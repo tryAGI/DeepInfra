@@ -13,28 +13,28 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BaseModel { get; set; } = default!;
+        public required string BaseModel { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string LoraName { get; set; } = default!;
+        public required string LoraName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::DeepInfra.SourceModel Source { get; set; } = default!;
+        public required global::DeepInfra.SourceModel Source { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("private")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Private { get; set; } = default!;
+        public required bool Private { get; set; }
 
         /// <summary>
         /// 

@@ -49,14 +49,14 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stripe_balance")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double StripeBalance { get; set; } = default!;
+        public required double StripeBalance { get; set; }
 
         /// <summary>
         /// usage since most recent invoice
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recent")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Recent { get; set; } = default!;
+        public required double Recent { get; set; }
 
         /// <summary>
         /// 
