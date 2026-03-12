@@ -13,6 +13,8 @@ namespace DeepInfra
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[] 
         { 
+            typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.SuspendReasonNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2JsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2NullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1ItemJsonConverter),
@@ -33,8 +35,6 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.ImageURLDetailNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffort2JsonConverter),
             typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffort2NullableJsonConverter),
-            typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter),
-            typeof(global::DeepInfra.JsonConverters.SuspendReasonNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter),
@@ -67,6 +67,7 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateJsonConverter),
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>, object>),
@@ -74,7 +75,6 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>>>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio>),
-            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.HardwarePricingServerless, global::DeepInfra.HardwarePricingDedicated>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
