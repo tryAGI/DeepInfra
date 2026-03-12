@@ -4374,778 +4374,8 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
-  /payment/checklist:
-    get:
-      summary: Get Checklist
-      operationId: get_checklist_payment_checklist_get
-      parameters:
-        - name: compute_owed
-          in: query
-          schema:
-            title: Compute Owed
-            type: boolean
-            default: false
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Checklist'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/config:
-    get:
-      summary: Get Config
-      operationId: get_config_payment_config_get
-      parameters:
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConfigOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-    post:
-      summary: Set Config
-      operationId: set_config_payment_config_post
-      parameters:
-        - name: session
-          in: cookie
-          schema: { }
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConfigIn'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConfigOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/billing-portal:
-    get:
-      summary: Billing Portal
-      operationId: billing_portal_payment_billing_portal_get
-      parameters:
-        - name: return_url
-          in: query
-          schema:
-            title: Return Url
-            anyOf:
-              - type: string
-              - type: 'null'
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BillingPortalOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/usage:
-    get:
-      summary: Usage
-      operationId: usage_payment_usage_get
-      parameters:
-        - name: from
-          in: query
-          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-          required: true
-          schema:
-            title: From
-            type: string
-            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-        - name: to
-          in: query
-          description: 'end of period (if missing a single month marked by from is return), same format as from'
-          schema:
-            title: To
-            anyOf:
-              - type: string
-              - type: 'null'
-            description: 'end of period (if missing a single month marked by from is return), same format as from'
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsageOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/usage/tokens:
-    get:
-      summary: Usage Tokens
-      operationId: usage_tokens_payment_usage_tokens_get
-      parameters:
-        - name: from
-          in: query
-          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-          required: true
-          schema:
-            title: From
-            type: string
-            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-        - name: to
-          in: query
-          description: 'end of period (if missing a single month marked by from is return), same format as from'
-          schema:
-            title: To
-            anyOf:
-              - type: string
-              - type: 'null'
-            description: 'end of period (if missing a single month marked by from is return), same format as from'
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsageOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/usage/rent:
-    get:
-      summary: Usage Rent
-      operationId: usage_rent_payment_usage_rent_get
-      parameters:
-        - name: from
-          in: query
-          description: 'start of period, in seconds since unix epoch'
-          required: true
-          schema:
-            title: From
-            type: integer
-            description: 'start of period, in seconds since unix epoch'
-        - name: to
-          in: query
-          description: 'end of period, in seconds since unix epoch'
-          schema:
-            title: To
-            anyOf:
-              - type: integer
-              - type: 'null'
-            description: 'end of period, in seconds since unix epoch'
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsageRentOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  '/payment/usage/{api_token}':
-    get:
-      summary: Usage Api Token
-      operationId: usage_api_token_payment_usage__api_token__get
-      parameters:
-        - name: api_token
-          in: path
-          required: true
-          schema:
-            title: Api Token
-            type: string
-        - name: from
-          in: query
-          description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-          required: true
-          schema:
-            title: From
-            type: string
-            description: 'start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format'
-        - name: to
-          in: query
-          description: 'end of period (if missing a single month marked by from is return), same format as from'
-          schema:
-            title: To
-            anyOf:
-              - type: string
-              - type: 'null'
-            description: 'end of period (if missing a single month marked by from is return), same format as from'
-        - name: session
-          in: cookie
-          schema: { }
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsageOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/deepstart/application:
-    post:
-      summary: Deepstart Apply
-      operationId: deepstart_apply_payment_deepstart_application_post
-      parameters:
-        - name: session
-          in: cookie
-          schema: { }
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DeepStartApplicationIn'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DeepStartApplicationOut'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/funds:
-    post:
-      summary: Add Funds
-      operationId: add_funds_payment_funds_post
-      parameters:
-        - name: session
-          in: cookie
-          schema: { }
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddFundsIn'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
-  /payment/topup:
-    post:
-      summary: Setup Topup
-      operationId: setup_topup_payment_topup_post
-      parameters:
-        - name: session
-          in: cookie
-          schema: { }
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TopUpIn'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - HTTPBearer: [ ]
 components:
   schemas:
-    AddFundsIn:
-      title: AddFundsIn
-      required:
-        - amount
-      type: object
-      properties:
-        amount:
-          title: Amount
-          type: integer
-          description: Amount to add in cents
-    BillingPortalOut:
-      title: BillingPortalOut
-      required:
-        - url
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-    Checklist:
-      title: Checklist
-      required:
-        - stripe_balance
-        - recent
-        - limit
-        - suspend_reason
-      type: object
-      properties:
-        email:
-          title: Email
-          type: boolean
-          default: false
-        billing_address:
-          title: Billing Address
-          type: boolean
-          default: false
-        payment_method:
-          title: Payment Method
-          type: boolean
-          default: false
-        suspended:
-          title: Suspended
-          type: boolean
-          default: false
-        overdue_invoices:
-          title: Overdue Invoices
-          type: number
-          default: 0.0
-        last_checked:
-          title: Last Checked
-          type: integer
-          default: 0
-        stripe_balance:
-          title: Stripe Balance
-          type: number
-          description: Negative value indicates funds ready-to-spend. Positive value indicates money owed
-        recent:
-          title: Recent
-          type: number
-          description: usage since most recent invoice
-        limit:
-          title: Limit
-          anyOf:
-            - type: number
-            - type: 'null'
-        suspend_reason:
-          anyOf:
-            - $ref: '#/components/schemas/SuspendReason'
-            - type: 'null'
-        topup:
-          title: Topup
-          type: boolean
-          default: false
-        topup_amount:
-          title: Topup Amount
-          type: integer
-          default: 0
-        topup_threshold:
-          title: Topup Threshold
-          type: integer
-          default: 0
-        topup_failed:
-          title: Topup Failed
-          type: boolean
-          default: false
-    ConfigIn:
-      title: ConfigIn
-      type: object
-      properties:
-        limit:
-          title: Limit
-          anyOf:
-            - type: number
-            - type: 'null'
-          description: Set usage limit (in USD). Negative means no limit.null/not-set means don't change it
-    ConfigOut:
-      title: ConfigOut
-      required:
-        - limit
-      type: object
-      properties:
-        limit:
-          title: Limit
-          type: number
-          description: Spending limit (in USD). Negative means no limit
-    DeepStartApplicationIn:
-      title: DeepStartApplicationIn
-      required:
-        - company
-        - ceo
-        - funding
-        - founded_on
-        - website
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-        uid:
-          title: Uid
-          anyOf:
-            - type: string
-            - type: 'null'
-        company:
-          title: Company
-          type: string
-        ceo:
-          title: Ceo
-          type: string
-        funding:
-          title: Funding
-          type: string
-        founded_on:
-          title: Founded On
-          type: string
-        website:
-          title: Website
-          type: string
-        created_at:
-          title: Created At
-          type: integer
-        status:
-          title: Status
-          type: string
-          default: pending
-        deal:
-          title: Deal
-          anyOf:
-            - type: string
-            - type: 'null'
-    DeepStartApplicationOut:
-      title: DeepStartApplicationOut
-      required:
-        - company
-        - ceo
-        - funding
-        - founded_on
-        - website
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-        uid:
-          title: Uid
-          anyOf:
-            - type: string
-            - type: 'null'
-        company:
-          title: Company
-          type: string
-        ceo:
-          title: Ceo
-          type: string
-        funding:
-          title: Funding
-          type: string
-        founded_on:
-          title: Founded On
-          type: string
-        website:
-          title: Website
-          type: string
-        created_at:
-          title: Created At
-          type: integer
-        status:
-          title: Status
-          type: string
-          default: pending
-        deal:
-          title: Deal
-          anyOf:
-            - type: string
-            - type: 'null'
-        email:
-          title: Email
-          anyOf:
-            - type: string
-            - type: 'null'
-    DiscountMeta:
-      title: DiscountMeta
-      required:
-        - name
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          anyOf:
-            - type: string
-            - type: 'null'
-          description: 'description of the discount, only for display purposes'
-    HTTPValidationError:
-      title: HTTPValidationError
-      type: object
-      properties:
-        detail:
-          title: Detail
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
-    ModelMeta:
-      title: ModelMeta
-      required:
-        - provider
-        - model_name
-        - task
-      type: object
-      properties:
-        provider:
-          title: Provider
-          type: string
-        model_name:
-          title: Model Name
-          type: string
-        task:
-          title: Task
-          type: string
-        plan_id:
-          title: Plan Id
-          anyOf:
-            - type: string
-            - type: 'null'
-        private:
-          title: Private
-          type: boolean
-          default: false
-    SuspendReason:
-      title: SuspendReason
-      enum:
-        - balance
-        - payment-method
-        - overdue-invoices
-        - limit-reached
-        - admin
-        - bad-cc
-      type: string
-    TimeInterval:
-      title: TimeInterval
-      type: object
-      properties:
-        fr:
-          title: Fr
-          type: integer
-          default: 0
-        to:
-          title: To
-          type: integer
-          format: int64
-          default: 4000000000000
-      description: 'Inclusive, in ms'
-    TopUpIn:
-      title: TopUpIn
-      type: object
-      properties:
-        amount:
-          title: Amount
-          type: integer
-          description: Amount to top up in cents
-          default: 0
-        threshold:
-          title: Threshold
-          type: integer
-          description: 'Top up threshold in cents, if balance goes below this value, top up will be triggered'
-          default: 0
-        enabled:
-          title: Enabled
-          type: boolean
-          description: 'If true, top up will be triggered when balance goes below threshold'
-          default: true
-    UsageItem:
-      title: UsageItem
-      required:
-        - model
-        - units
-        - rate
-        - cost
-        - pricing_type
-        - interval
-      type: object
-      properties:
-        model:
-          $ref: '#/components/schemas/ModelMeta'
-        units:
-          title: Units
-          type: integer
-          description: billed seconds or tokens
-        rate:
-          title: Rate
-          type: number
-          description: rate in cents/sec or cents per token
-        cost:
-          title: Cost
-          type: integer
-          description: model cost in cents
-        pricing_type:
-          title: Pricing Type
-          type: string
-          description: pricing type
-        interval:
-          description: time interval with this particular pricing
-          $ref: '#/components/schemas/TimeInterval'
-        discount:
-          anyOf:
-            - $ref: '#/components/schemas/DiscountMeta'
-            - type: 'null'
-          description: 'discount meta, only if pricing_type is discount'
-    UsageMonth:
-      title: UsageMonth
-      required:
-        - period
-        - interval
-        - items
-        - total_cost
-      type: object
-      properties:
-        period:
-          title: Period
-          type: string
-          description: YYYY.MM formatted period
-        interval:
-          description: time interval in this period
-          $ref: '#/components/schemas/TimeInterval'
-        items:
-          title: Items
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageItem'
-        total_cost:
-          title: Total Cost
-          type: integer
-          description: total cost for all items in cents
-        invoice_id:
-          title: Invoice Id
-          type: string
-          description: 'Stripe Invoice ID, or EMPTY|NOT_FINAL'
-          default: NOT_FINAL
-    UsageOut:
-      title: UsageOut
-      required:
-        - months
-        - initial_month
-      type: object
-      properties:
-        months:
-          title: Months
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageMonth'
-        initial_month:
-          title: Initial Month
-          type: string
-          description: The first month for this account
-    UsageRentOut:
-      title: UsageRentOut
-      required:
-        - id_to_duration
-      type: object
-      properties:
-        id_to_duration:
-          title: Id To Duration
-          type: object
-          additionalProperties:
-            type: integer
-          description: container id to duration in seconds
-    ValidationError:
-      title: ValidationError
-      required:
-        - loc
-        - msg
-        - type
-      type: object
-      properties:
-        loc:
-          title: Location
-          type: array
-          items:
-            anyOf:
-              - type: string
-              - type: integer
-        msg:
-          title: Message
-          type: string
-        type:
-          title: Error Type
-          type: string
     AnthropicMessagesIn:
       title: AnthropicMessagesIn
       required:
@@ -5919,6 +5149,72 @@ components:
           default: function
         function:
           $ref: '#/components/schemas/FunctionDefinition'
+    Checklist:
+      title: Checklist
+      required:
+        - stripe_balance
+        - recent
+        - limit
+        - suspend_reason
+      type: object
+      properties:
+        email:
+          title: Email
+          type: boolean
+          default: false
+        billing_address:
+          title: Billing Address
+          type: boolean
+          default: false
+        payment_method:
+          title: Payment Method
+          type: boolean
+          default: false
+        suspended:
+          title: Suspended
+          type: boolean
+          default: false
+        overdue_invoices:
+          title: Overdue Invoices
+          type: number
+          default: 0.0
+        last_checked:
+          title: Last Checked
+          type: integer
+          default: 0
+        stripe_balance:
+          title: Stripe Balance
+          type: number
+          description: Negative value indicates funds ready-to-spend. Positive value indicates money owed
+        recent:
+          title: Recent
+          type: number
+          description: usage since most recent invoice
+        limit:
+          title: Limit
+          anyOf:
+            - type: number
+            - type: 'null'
+        suspend_reason:
+          anyOf:
+            - $ref: '#/components/schemas/SuspendReason'
+            - type: 'null'
+        topup:
+          title: Topup
+          type: boolean
+          default: false
+        topup_amount:
+          title: Topup Amount
+          type: integer
+          default: 0
+        topup_threshold:
+          title: Topup Threshold
+          type: integer
+          default: 0
+        topup_failed:
+          title: Topup Failed
+          type: boolean
+          default: false
     CompletionMultiModalData:
       title: CompletionMultiModalData
       type: object
@@ -6714,6 +6010,15 @@ components:
             - type: string
             - type: 'null'
           description: huggingface access token with read access to the repo
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     HardwareOption:
       title: HardwareOption
       required:
@@ -9458,6 +8763,16 @@ components:
           type: boolean
           description: whether to include usage stats continuously with each streaming event
           default: false
+    SuspendReason:
+      title: SuspendReason
+      enum:
+        - balance
+        - payment-method
+        - overdue-invoices
+        - limit-reached
+        - admin
+        - bad-cc
+      type: string
     TextResponseFormat:
       title: TextResponseFormat
       type: object
@@ -9533,6 +8848,27 @@ components:
           anyOf:
             - type: string
             - type: 'null'
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
     Voice:
       title: Voice
       required:
