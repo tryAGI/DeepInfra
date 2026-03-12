@@ -3873,6 +3873,41 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v2/hardware:
+    get:
+      summary: Get Hardware
+      operationId: get_hardware_v2_hardware_get
+      parameters:
+        - name: model
+          in: query
+          description: Model name (NVIDIA NemoClaw format)
+          required: true
+          schema:
+            title: Model
+            type: string
+            description: Model name (NVIDIA NemoClaw format)
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            anyOf:
+              - type: string
+              - type: 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HardwareResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /github/login:
     get:
       summary: Github Login
@@ -6679,6 +6714,63 @@ components:
             - type: string
             - type: 'null'
           description: huggingface access token with read access to the repo
+    HardwareOption:
+      title: HardwareOption
+      required:
+        - id
+        - name
+        - type
+        - pricing
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          enum:
+            - serverless
+            - dedicated
+          type: string
+        pricing:
+          title: Pricing
+          anyOf:
+            - $ref: '#/components/schemas/HardwarePricingServerless'
+            - $ref: '#/components/schemas/HardwarePricingDedicated'
+    HardwarePricingDedicated:
+      title: HardwarePricingDedicated
+      required:
+        - cents_per_minute
+      type: object
+      properties:
+        cents_per_minute:
+          title: Cents Per Minute
+          type: number
+    HardwarePricingServerless:
+      title: HardwarePricingServerless
+      required:
+        - cents_per_million_input_tokens
+        - cents_per_million_output_tokens
+      type: object
+      properties:
+        cents_per_million_input_tokens:
+          title: Cents Per Million Input Tokens
+          type: number
+        cents_per_million_output_tokens:
+          title: Cents Per Million Output Tokens
+          type: number
+    HardwareResponse:
+      title: HardwareResponse
+      type: object
+      properties:
+        hardware:
+          title: Hardware
+          type: array
+          items:
+            $ref: '#/components/schemas/HardwareOption'
     ImageURL:
       title: ImageURL
       required:
