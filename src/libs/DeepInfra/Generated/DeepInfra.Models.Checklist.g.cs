@@ -33,7 +33,7 @@ namespace DeepInfra
         public bool? Suspended { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overdue_invoices")]
         public double? OverdueInvoices { get; set; }
@@ -116,7 +116,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="overdueInvoices">
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="lastChecked">
         /// Default Value: 0

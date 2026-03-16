@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Default Value: 1.0
+    /// Default Value: 1F
     /// </summary>
     public sealed partial class AnthropicMessagesInTemperature
     {

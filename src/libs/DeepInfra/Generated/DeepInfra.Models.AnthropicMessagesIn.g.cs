@@ -50,7 +50,7 @@ namespace DeepInfra
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
@@ -109,7 +109,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="temperature">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="topP"></param>
         /// <param name="topK"></param>

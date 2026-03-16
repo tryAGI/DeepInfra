@@ -9,7 +9,7 @@ namespace DeepInfra
     public sealed partial class DeploymentOut
     {
         /// <summary>
-        /// Default Value: legacy
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployTypeJsonConverter))]
@@ -98,9 +98,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="DeploymentOut" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: legacy
-        /// </param>
+        /// <param name="type"></param>
         /// <param name="deployId">
         /// Deploy Id
         /// </param>

@@ -268,7 +268,7 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="temperature">
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="topP"></param>
         /// <param name="topK"></param>

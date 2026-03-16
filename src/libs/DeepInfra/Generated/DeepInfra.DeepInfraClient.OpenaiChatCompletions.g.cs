@@ -238,15 +238,15 @@ namespace DeepInfra
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="topP">
         /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="minP">
         /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0F
         /// </param>
         /// <param name="topK">
         /// Sample from the best k (number of) tokens. 0 means off<br/>
