@@ -29,7 +29,8 @@ namespace DeepInfra
         public required string Input { get; set; }
 
         /// <summary>
-        /// Preset voices to use for the speech.
+        /// Preset voices to use for the speech.<br/>
+        /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
         public string? Voice { get; set; }
@@ -44,7 +45,7 @@ namespace DeepInfra
 
         /// <summary>
         /// speed of the speech<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speed")]
         public double? Speed { get; set; }
@@ -74,7 +75,8 @@ namespace DeepInfra
         /// Text to convert to speech
         /// </param>
         /// <param name="voice">
-        /// Preset voices to use for the speech.
+        /// Preset voices to use for the speech.<br/>
+        /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
         /// <param name="responseFormat">
         /// response format for the speech<br/>
@@ -82,7 +84,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="speed">
         /// speed of the speech<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1F
         /// </param>
         /// <param name="extraBody">
         /// Extra body parameters for the model.

@@ -22,8 +22,7 @@ namespace DeepInfra
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="provider">
-        /// namespace for the model name<br/>
-        /// Default Value: cnt
+        /// namespace for the model name
         /// </param>
         /// <param name="modelName">
         /// model name in specified provider

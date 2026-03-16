@@ -164,7 +164,7 @@ namespace DeepInfra
         public required global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> Schemas { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: {}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
         public object? Meta { get; set; }
@@ -275,7 +275,9 @@ namespace DeepInfra
         /// <param name="docBlocks"></param>
         /// <param name="shortDocBlock"></param>
         /// <param name="schemas"></param>
-        /// <param name="meta"></param>
+        /// <param name="meta">
+        /// Default Value: {}
+        /// </param>
         /// <param name="maxTokens"></param>
         /// <param name="maxOutputTokens"></param>
         /// <param name="replacedBy"></param>

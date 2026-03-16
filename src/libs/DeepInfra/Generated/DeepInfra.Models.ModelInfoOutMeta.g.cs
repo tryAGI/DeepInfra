@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    /// Default Value: {}
     /// </summary>
     public sealed partial class ModelInfoOutMeta
     {
