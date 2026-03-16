@@ -4,8 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Preset voices to use for the speech.<br/>
-    /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
+    /// Preset voices to use for the speech.
     /// </summary>
     public sealed partial class OpenAITextToSpeechInVoice
     {
