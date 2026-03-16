@@ -345,6 +345,83 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: [ ]
+  /v1/me/gpu_limit:
+    get:
+      summary: Account Gpu Limit
+      operationId: account_gpu_limit_v1_me_gpu_limit_get
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            anyOf:
+              - type: string
+              - type: 'null'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GpuLimitOut'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
+  /v1/me/gpu_limit/request:
+    post:
+      summary: Request Gpu Limit Increase
+      operationId: request_gpu_limit_increase_v1_me_gpu_limit_request_post
+      parameters:
+        - name: xi-api-key
+          in: header
+          schema:
+            title: Xi-Api-Key
+            anyOf:
+              - type: string
+              - type: 'null'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GpuLimitRequestIn'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeepError'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: [ ]
   /deploy/hf/:
     post:
       summary: Deploy Create Hf
@@ -6650,6 +6727,44 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Voice'
+    GpuLimitOut:
+      title: GpuLimitOut
+      required:
+        - limits
+      type: object
+      properties:
+        limits:
+          title: Limits
+          type: object
+          additionalProperties:
+            type: integer
+          description: Effective GPU limits per type (defaults merged with overrides)
+        pending_requests:
+          title: Pending Requests
+          anyOf:
+            - type: object
+              additionalProperties:
+                type: integer
+            - type: 'null'
+          description: Pending GPU limit increase requests per type
+    GpuLimitRequestIn:
+      title: GpuLimitRequestIn
+      required:
+        - gpu_type
+        - requested_limit
+        - reason
+      type: object
+      properties:
+        gpu_type:
+          title: Gpu Type
+          type: string
+        requested_limit:
+          title: Requested Limit
+          type: integer
+        reason:
+          title: Reason
+          maxLength: 2048
+          type: string
     HFModel:
       title: HFModel
       required:
