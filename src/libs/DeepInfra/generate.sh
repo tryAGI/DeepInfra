@@ -1,8 +1,9 @@
+set -e
 dotnet tool install --global autosdk.cli --prerelease
-curl -o openapi.yaml https://api.deepinfra.com/openapi.json
+curl --fail --silent --show-error -o openapi.json https://api.deepinfra.com/openapi.json
 
 rm -rf Generated
-autosdk generate openapi.yaml \
+autosdk generate openapi.json \
   --namespace DeepInfra \
   --clientClassName DeepInfraClient \
   --targetFramework net10.0 \
