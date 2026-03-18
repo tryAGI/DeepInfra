@@ -4,7 +4,7 @@ namespace DeepInfra.IntegrationTests;
 
 public partial class Tests
 {
-    private const string DeepInfraModel = "meta-llama/Meta-Llama-3.1-8B-Instruct";
+    private const string DeepInfraModel = "Qwen/Qwen2.5-72B-Instruct";
 
     [TestMethod]
     public async Task ChatClient_GetResponseAsync()
