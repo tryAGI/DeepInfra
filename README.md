@@ -12,6 +12,7 @@
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
 - Support all DeepInfra API endpoints including Object Detection, Token Classification, Image Classification, Fill Mask and more.
+- Microsoft.Extensions.AI `IChatClient` and `IEmbeddingGenerator` support via `tryAGI.OpenAI` CustomProviders
 
 ## Usage
 
