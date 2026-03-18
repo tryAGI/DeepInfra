@@ -41,7 +41,6 @@ The SDK code in `src/libs/DeepInfra/Generated/` is **entirely auto-generated** -
 | `src/tests/DeepInfra.IntegrationTests/` | Integration tests against real DeepInfra API |
 | `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
-| `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
 ### Hand-Written Extensions
 
