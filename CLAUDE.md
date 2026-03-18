@@ -29,7 +29,6 @@ cd src/libs/DeepInfra && ./generate.sh
 The SDK code in `src/libs/DeepInfra/Generated/` is **entirely auto-generated** -- do not manually edit files there.
 
 1. `src/libs/DeepInfra/openapi.yaml` -- the DeepInfra OpenAPI spec (fetched from `https://api.deepinfra.com/openapi.json`)
-2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
 3. `src/libs/DeepInfra/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI with `--methodNamingConvention Summary`, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected
 
@@ -39,8 +38,6 @@ The SDK code in `src/libs/DeepInfra/Generated/` is **entirely auto-generated** -
 |---------|---------|
 | `src/libs/DeepInfra/` | Main SDK library (`DeepInfraClient`) |
 | `src/tests/DeepInfra.IntegrationTests/` | Integration tests against real DeepInfra API |
-| `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
-| `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 
 ### Hand-Written Extensions
 
