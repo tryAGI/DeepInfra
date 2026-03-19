@@ -5,6 +5,9 @@ namespace DeepInfra.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
+    private const string DeepInfraModel = "Qwen/Qwen2.5-72B-Instruct";
+    private const string DeepInfraEmbeddingModel = "BAAI/bge-en-icl";
+
     private static DeepInfraClient GetAuthenticatedClient()
     {
         var apiKey =
