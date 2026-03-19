@@ -12,6 +12,7 @@
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
 - Support all DeepInfra API endpoints including Object Detection, Token Classification, Image Classification, Fill Mask and more.
+- Microsoft.Extensions.AI `IChatClient` and `IEmbeddingGenerator` support via `tryAGI.OpenAI` CustomProviders
 
 ## Usage
 
@@ -33,9 +34,34 @@ await foreach (var response in enumerable)
 }
 ```
 
+### Microsoft.Extensions.AI (MEAI) Support
+
+DeepInfra provides an OpenAI-compatible API. For `IChatClient` and `IEmbeddingGenerator` support via [Microsoft.Extensions.AI](https://www.nuget.org/packages/Microsoft.Extensions.AI.Abstractions), use the `tryAGI.OpenAI` package:
+```
+dotnet add package tryAGI.OpenAI
+```
+```csharp
+using OpenAI;
+using Microsoft.Extensions.AI;
+
+using var client = CustomProviders.DeepInfra(apiKey);
+
+// IChatClient
+IChatClient chatClient = client;
+var response = await chatClient.GetResponseAsync(
+    "Hello!",
+    new ChatOptions { ModelId = "Qwen/Qwen2.5-72B-Instruct" });
+
+// IEmbeddingGenerator
+IEmbeddingGenerator<string, Embedding<float>> generator = client;
+var embeddings = await generator.GenerateAsync(
+    ["Hello, world!"],
+    new EmbeddingGenerationOptions { ModelId = "BAAI/bge-en-icl" });
+```
+
 ## Support
 
-Priority place for bugs: https://github.com/tryAGI/DeepInfra/issues  
+Priority place for bugs: https://github.com/tryAGI/DeepInfra/issues
 Priority place for ideas and general questions: https://github.com/tryAGI/DeepInfra/discussions  
 Discord: https://discord.gg/Ca2xhfBf3v  
 

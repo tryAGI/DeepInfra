@@ -1,3 +1,9 @@
+/*
+order: 100
+title: List Models
+slug: list-models
+*/
+
 namespace DeepInfra.IntegrationTests;
 
 public partial class Tests

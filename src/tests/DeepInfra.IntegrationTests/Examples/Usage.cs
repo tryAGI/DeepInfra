@@ -1,3 +1,9 @@
+/*
+order: 110
+title: Usage
+slug: usage
+*/
+
 using System.Text.Json;
 
 namespace DeepInfra.IntegrationTests;

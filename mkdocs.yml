@@ -2,7 +2,18 @@ site_name: OpenAI .NET Documentation
 nav:
 - Overview: index.md
 # EXAMPLES:START
-
+- Examples:
+  - ChatClient.GetResponseAsync: examples/chatclient-getresponseasync.md
+  - ChatClient.GetStreamingResponseAsync: examples/chatclient-getstreamingresponseasync.md
+  - ChatClient.ReturnsUsage: examples/chatclient-returnsusage.md
+  - ChatClient.ToolCalling.MultiTurn: examples/chatclient-toolcalling-multiturn.md
+  - ChatClient.ToolCalling.SingleTurn: examples/chatclient-toolcalling-singleturn.md
+  - ChatClient.WithSystemMessage: examples/chatclient-withsystemmessage.md
+  - CreateChatCompletion: examples/createchatcompletion.md
+  - EmbeddingGenerator.BatchGenerate: examples/embeddinggenerator-batchgenerate.md
+  - EmbeddingGenerator.GenerateAsync: examples/embeddinggenerator-generateasync.md
+  - ListModels: examples/listmodels.md
+  - Usage: examples/usage.md
 # EXAMPLES:END
 
 #  - Quick Start: QuickStart.md

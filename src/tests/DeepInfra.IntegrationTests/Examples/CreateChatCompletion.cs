@@ -1,3 +1,9 @@
+/*
+order: 70
+title: Create Chat Completion
+slug: create-chat-completion
+*/
+
 using Meai = Microsoft.Extensions.AI;
 
 namespace DeepInfra.IntegrationTests;
