@@ -52,7 +52,7 @@ The SDK code in `src/libs/DeepInfra/Generated/` is **entirely auto-generated** -
 - **Signing:** Strong-named assemblies via `src/key.snk`
 - **Versioning:** Semantic versioning from git tags (`v` prefix) via MinVer
 - **Analysis:** All .NET analyzers enabled, AOT/trimming compatibility enforced
-- **Testing:** MSTest + FluentAssertions
+- **Testing:** MSTest + AwesomeAssertions
 
 ### Key Conventions
 
