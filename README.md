@@ -59,6 +59,9 @@ var embeddings = await generator.GenerateAsync(
     new EmbeddingGenerationOptions { ModelId = "BAAI/bge-en-icl" });
 ```
 
+<!-- EXAMPLES:START -->
+<!-- EXAMPLES:END -->
+
 ## Support
 
 Priority place for bugs: https://github.com/tryAGI/DeepInfra/issues
