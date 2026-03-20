@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.DeployModelIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Deploy Create
         /// </summary>

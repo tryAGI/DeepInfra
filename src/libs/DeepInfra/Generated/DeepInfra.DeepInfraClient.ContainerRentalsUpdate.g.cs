@@ -307,7 +307,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Container Rentals Update
         /// </summary>

@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.DisplayNameIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Team Set Display Name
         /// </summary>

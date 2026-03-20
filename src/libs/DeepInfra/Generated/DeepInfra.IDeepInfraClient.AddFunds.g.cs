@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.AddFundsIn request,
             object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Add Funds
         /// </summary>

@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.OpenAIBatchesIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Openai Batch
         /// </summary>

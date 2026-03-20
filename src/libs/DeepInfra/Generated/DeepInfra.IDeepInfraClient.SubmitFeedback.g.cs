@@ -17,7 +17,6 @@ namespace DeepInfra
             global::DeepInfra.FeedbackIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Submit Feedback<br/>
         /// Submit feedback

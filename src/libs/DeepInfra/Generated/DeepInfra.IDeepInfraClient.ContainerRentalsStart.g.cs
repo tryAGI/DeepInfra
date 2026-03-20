@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.ContainerRentalStartIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Container Rentals Start
         /// </summary>

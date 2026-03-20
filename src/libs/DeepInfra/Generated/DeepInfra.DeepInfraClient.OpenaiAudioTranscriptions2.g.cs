@@ -292,7 +292,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Audio Transcriptions
         /// </summary>

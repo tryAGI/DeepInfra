@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.SshKeyIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Ssh Key
         /// </summary>

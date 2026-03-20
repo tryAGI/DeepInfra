@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.ConfigIn request,
             object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Set Config
         /// </summary>

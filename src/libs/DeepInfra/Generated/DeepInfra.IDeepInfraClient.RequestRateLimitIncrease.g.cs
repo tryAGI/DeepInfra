@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.RateLimitRequestIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Request Rate Limit Increase
         /// </summary>

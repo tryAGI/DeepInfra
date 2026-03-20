@@ -18,7 +18,6 @@ namespace DeepInfra
             string? authorization = default,
             string? xApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>

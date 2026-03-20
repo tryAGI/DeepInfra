@@ -20,7 +20,6 @@ namespace DeepInfra
             string? userAgent = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Embeddings
         /// </summary>

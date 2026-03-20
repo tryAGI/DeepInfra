@@ -24,7 +24,6 @@ namespace DeepInfra
             string? anthropicBeta = default,
             string? xDeepinfraSource = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Anthropic Messages
         /// </summary>

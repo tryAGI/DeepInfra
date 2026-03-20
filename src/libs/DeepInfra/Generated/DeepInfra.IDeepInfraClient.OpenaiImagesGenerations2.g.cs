@@ -17,7 +17,6 @@ namespace DeepInfra
             global::DeepInfra.OpenAIImagesGenerationsIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API

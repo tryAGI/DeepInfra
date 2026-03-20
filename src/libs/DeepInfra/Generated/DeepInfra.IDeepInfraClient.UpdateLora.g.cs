@@ -18,7 +18,6 @@ namespace DeepInfra
             global::DeepInfra.UpdateLoraApiRequest request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Lora
         /// </summary>

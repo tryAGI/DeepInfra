@@ -17,7 +17,6 @@ namespace DeepInfra
             global::DeepInfra.BodyOpenaiImagesEditsV1OpenaiImagesEditsPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Images Edits<br/>
         /// Edit image using OpenAI Images Edits API

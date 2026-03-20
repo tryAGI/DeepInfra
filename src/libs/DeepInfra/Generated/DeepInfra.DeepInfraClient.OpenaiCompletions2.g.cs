@@ -235,7 +235,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Completions
         /// </summary>

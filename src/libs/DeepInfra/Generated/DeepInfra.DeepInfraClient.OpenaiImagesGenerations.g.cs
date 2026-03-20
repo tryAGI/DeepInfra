@@ -230,7 +230,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Images Generations<br/>
         /// Generate image using OpenAI Images API

@@ -17,7 +17,6 @@ namespace DeepInfra
             global::DeepInfra.BodyOpenaiImagesVariationsV1OpenaiImagesVariationsPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Images Variations<br/>
         /// Generate a similar image using OpenAI Images Variations API

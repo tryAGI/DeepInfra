@@ -245,7 +245,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Embeddings
         /// </summary>
