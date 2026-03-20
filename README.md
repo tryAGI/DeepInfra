@@ -60,6 +60,237 @@ var embeddings = await generator.GenerateAsync(
 ```
 
 <!-- EXAMPLES:START -->
+### Chat Client Get Response Async
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var response = await chatClient.GetResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "Say hello in exactly 3 words.")],
+    new Meai.ChatOptions { ModelId = DeepInfraModel });
+
+var text = response.Messages[0].Text;
+Console.WriteLine(text);
+```
+
+### Chat Client Get Streaming Response Async
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var updates = new List<Meai.ChatResponseUpdate>();
+await foreach (var update in chatClient.GetStreamingResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "Count from 1 to 5.")],
+    new Meai.ChatOptions { ModelId = DeepInfraModel }))
+{
+    updates.Add(update);
+    var text = string.Concat(update.Contents.OfType<Meai.TextContent>().Select(c => c.Text));
+    if (!string.IsNullOrEmpty(text))
+    {
+        Console.Write(text);
+    }
+}
+Console.WriteLine();
+```
+
+### Chat Client Returns Usage
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var response = await chatClient.GetResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "Say 'hi'.")],
+    new Meai.ChatOptions { ModelId = DeepInfraModel });
+
+Console.WriteLine($"Input: {response.Usage.InputTokenCount}, Output: {response.Usage.OutputTokenCount}, Total: {response.Usage.TotalTokenCount}");
+```
+
+### Chat Client Tool Calling Multi Turn
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var tool = Meai.AIFunctionFactory.Create(
+    (string city) => city switch
+    {
+        "Paris" => "22°C, sunny",
+        "London" => "15°C, cloudy",
+        _ => "Unknown",
+    },
+    name: "GetWeather",
+    description: "Gets the current weather for a city");
+
+var chatOptions = new Meai.ChatOptions
+{
+    ModelId = DeepInfraModel,
+    Tools = [tool],
+};
+
+var messages = new List<Meai.ChatMessage>
+{
+    new(Meai.ChatRole.User, "What's the weather in Paris? Respond with the temperature only."),
+};
+
+// First turn — get tool call
+var response = await chatClient.GetResponseAsync(
+    (IEnumerable<Meai.ChatMessage>)messages, chatOptions);
+
+var functionCall = response.Messages
+    .SelectMany(m => m.Contents)
+    .OfType<Meai.FunctionCallContent>()
+    .First();
+
+// Execute tool and add result
+var toolResult = await tool.InvokeAsync(
+    functionCall.Arguments is { } args
+        ? new Meai.AIFunctionArguments(args)
+        : null);
+messages.AddRange(response.Messages);
+messages.Add(new Meai.ChatMessage(Meai.ChatRole.Tool,
+    new Meai.AIContent[]
+    {
+        new Meai.FunctionResultContent(functionCall.CallId, toolResult),
+    }));
+
+// Second turn — get final response
+var finalResponse = await chatClient.GetResponseAsync(
+    (IEnumerable<Meai.ChatMessage>)messages, chatOptions);
+
+var text = finalResponse.Messages[0].Text;
+Console.WriteLine($"Final response: {text}");
+```
+
+### Chat Client Tool Calling Single Turn
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var tool = Meai.AIFunctionFactory.Create(
+    (string city) => city switch
+    {
+        "Paris" => "22°C, sunny",
+        "London" => "15°C, cloudy",
+        _ => "Unknown",
+    },
+    name: "GetWeather",
+    description: "Gets the current weather for a city");
+
+var response = await chatClient.GetResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "What's the weather in Paris?")],
+    new Meai.ChatOptions
+    {
+        ModelId = DeepInfraModel,
+        Tools = [tool],
+    });
+
+var functionCall = response.Messages
+    .SelectMany(m => m.Contents)
+    .OfType<Meai.FunctionCallContent>()
+    .FirstOrDefault();
+
+Console.WriteLine($"Tool call: {functionCall.Name}({string.Join(", ", functionCall.Arguments?.Select(kv => $"{kv.Key}={kv.Value}") ?? [])})");
+```
+
+### Chat Client With System Message
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+var response = await chatClient.GetResponseAsync(
+    [
+        new Meai.ChatMessage(Meai.ChatRole.System, "You always respond with exactly one word."),
+        new Meai.ChatMessage(Meai.ChatRole.User, "What color is the sky?"),
+    ],
+    new Meai.ChatOptions { ModelId = DeepInfraModel });
+
+var text = response.Messages[0].Text;
+Console.WriteLine(text);
+```
+
+### Create Chat Completion
+
+
+```csharp
+// Use the OpenAI SDK via CustomProviders.DeepInfra() with MEAI interface
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IChatClient chatClient = client;
+
+await foreach (var update in chatClient.GetStreamingResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "What is the capital of the United States?")],
+    new Meai.ChatOptions { ModelId = DeepInfraModel }))
+{
+    var text = string.Concat(update.Contents.OfType<Meai.TextContent>().Select(c => c.Text));
+    Console.Write(text);
+}
+```
+
+### Embedding Generator Batch Generate
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
+
+var embeddings = await generator.GenerateAsync(
+    ["First sentence.", "Second sentence.", "Third sentence."],
+    new Meai.EmbeddingGenerationOptions { ModelId = DeepInfraEmbeddingModel });
+
+foreach (var embedding in embeddings)
+{
+}
+Console.WriteLine($"Generated {embeddings.Count} embeddings with {embeddings[0].Vector.Length} dimensions each");
+```
+
+### Embedding Generator Generate Async
+
+
+```csharp
+using var client = GetAuthenticatedOpenAiClient();
+Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
+
+var embeddings = await generator.GenerateAsync(
+    ["Hello, world!"],
+    new Meai.EmbeddingGenerationOptions { ModelId = DeepInfraEmbeddingModel });
+
+Console.WriteLine($"Embedding dimensions: {embeddings[0].Vector.Length}");
+```
+
+### List Models
+
+
+```csharp
+var client = new DeepInfraClient(apiKey);
+var models = await client.ModelsListAsync();
+foreach (var model in models)
+{
+    Console.WriteLine(model.ModelName);
+}
+```
+
+### Usage
+
+
+```csharp
+var client = new DeepInfraClient(apiKey);
+
+Me me = await client.MeAsync();
+Console.WriteLine($"{me.ToJson(new JsonSerializerOptions
+{
+    WriteIndented = true,
+})}");
+```
 <!-- EXAMPLES:END -->
 
 ## Support

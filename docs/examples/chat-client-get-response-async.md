@@ -1,4 +1,4 @@
-# ChatClient.ReturnsUsage
+# Chat Client Get Response Async
 
 
 
@@ -9,8 +9,9 @@ using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
 
 var response = await chatClient.GetResponseAsync(
-    [new Meai.ChatMessage(Meai.ChatRole.User, "Say 'hi'.")],
+    [new Meai.ChatMessage(Meai.ChatRole.User, "Say hello in exactly 3 words.")],
     new Meai.ChatOptions { ModelId = DeepInfraModel });
 
-Console.WriteLine($"Input: {response.Usage.InputTokenCount}, Output: {response.Usage.OutputTokenCount}, Total: {response.Usage.TotalTokenCount}");
+var text = response.Messages[0].Text;
+Console.WriteLine(text);
 ```

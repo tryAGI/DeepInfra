@@ -3,16 +3,16 @@ nav:
 - Overview: index.md
 # EXAMPLES:START
 - Examples:
-  - ChatClient.GetResponseAsync: examples/chatclient-getresponseasync.md
-  - ChatClient.GetStreamingResponseAsync: examples/chatclient-getstreamingresponseasync.md
-  - ChatClient.ReturnsUsage: examples/chatclient-returnsusage.md
-  - ChatClient.ToolCalling.MultiTurn: examples/chatclient-toolcalling-multiturn.md
-  - ChatClient.ToolCalling.SingleTurn: examples/chatclient-toolcalling-singleturn.md
-  - ChatClient.WithSystemMessage: examples/chatclient-withsystemmessage.md
-  - CreateChatCompletion: examples/createchatcompletion.md
-  - EmbeddingGenerator.BatchGenerate: examples/embeddinggenerator-batchgenerate.md
-  - EmbeddingGenerator.GenerateAsync: examples/embeddinggenerator-generateasync.md
-  - ListModels: examples/listmodels.md
+  - Chat Client Get Response Async: examples/chat-client-get-response-async.md
+  - Chat Client Get Streaming Response Async: examples/chat-client-get-streaming-response-async.md
+  - Chat Client Returns Usage: examples/chat-client-returns-usage.md
+  - Chat Client Tool Calling Multi Turn: examples/chat-client-tool-calling-multi-turn.md
+  - Chat Client Tool Calling Single Turn: examples/chat-client-tool-calling-single-turn.md
+  - Chat Client With System Message: examples/chat-client-with-system-message.md
+  - Create Chat Completion: examples/create-chat-completion.md
+  - Embedding Generator Batch Generate: examples/embedding-generator-batch-generate.md
+  - Embedding Generator Generate Async: examples/embedding-generator-generate-async.md
+  - List Models: examples/list-models.md
   - Usage: examples/usage.md
 # EXAMPLES:END
 

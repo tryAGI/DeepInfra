@@ -1,4 +1,4 @@
-# EmbeddingGenerator.BatchGenerate
+# Embedding Generator Generate Async
 
 
 
@@ -9,11 +9,8 @@ using var client = GetAuthenticatedOpenAiClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
 
 var embeddings = await generator.GenerateAsync(
-    ["First sentence.", "Second sentence.", "Third sentence."],
+    ["Hello, world!"],
     new Meai.EmbeddingGenerationOptions { ModelId = DeepInfraEmbeddingModel });
 
-foreach (var embedding in embeddings)
-{
-}
-Console.WriteLine($"Generated {embeddings.Count} embeddings with {embeddings[0].Vector.Length} dimensions each");
+Console.WriteLine($"Embedding dimensions: {embeddings[0].Vector.Length}");
 ```
