@@ -41,18 +41,6 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.BodyOpenaiAudioTranslationsV1OpenaiAudioTranslationsPostResponseFormat2NullableJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatNullableJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.InputAudioFormatJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.InputAudioFormatNullableJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.ImageURLDetailJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.ImageURLDetailNullableJsonConverter),
-
             typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffort2JsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ChatReasoningSettingsEffort2NullableJsonConverter),
@@ -61,25 +49,13 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutNullableJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.SourceTypeEnumNullableJsonConverter),
-
             typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.DeployGPUsNullableJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.ModelProviderJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.ModelProviderNullableJsonConverter),
-
             typeof(global::DeepInfra.JsonConverters.DeployTypeJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.DeployTypeNullableJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.TtsResponseFormatNullableJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.HFTasksEJsonConverter),
 
@@ -89,17 +65,21 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.HardwareOptionTypeNullableJsonConverter),
 
+            typeof(global::DeepInfra.JsonConverters.ImageURLDetailJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.ImageURLDetailNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.InputAudioFormatJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.InputAudioFormatNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ModelDocBlockKeyNullableJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.PricingTypeJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.ModelProviderJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.PricingTypeNullableJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter),
-
-            typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.ModelProviderNullableJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.OpenAIBatchesInEndpointJsonConverter),
 
@@ -109,13 +89,33 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.OpenAIChatCompletionsInReasoningEffort2NullableJsonConverter),
 
+            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.OpenAIImagesResponseFormatNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.PricingTypeJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.PricingTypeNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.ServiceTierJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ServiceTierNullableJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter),
 
-            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
+            typeof(global::DeepInfra.JsonConverters.SourceTypeEnumNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.TtsResponseFormatJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.TtsResponseFormatNullableJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ContainerRentalsListV1ContainersGetStateJsonConverter),
 
@@ -139,8 +139,6 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.HardwarePricingServerless, global::DeepInfra.HardwarePricingDedicated>),
 
-            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
-
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
 
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
@@ -160,6 +158,8 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>),
 
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>),
+
+            typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>),
 
             typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter),
         })]
@@ -181,8 +181,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ValidationError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, int?>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelMeta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.TimeInterval))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
@@ -194,6 +192,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.UsageMonth>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.UsageRentOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, int>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, int?>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicMessagesIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>))]
@@ -227,7 +227,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BodyOpenaiImagesEditsV1ImagesEditsPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesEditsIn))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BodyOpenaiImagesEditsV1OpenaiImagesEditsPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BodyOpenaiImagesVariationsV1ImagesVariationsPost))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesVariationsIn))]
@@ -239,13 +238,11 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartText))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionMessageToolCall>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionMessageToolCall))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Function))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudio))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudioFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartImage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURL))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURLDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Function))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionSystemMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionToolMessage))]
@@ -265,7 +262,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ContainerRentalUpdateIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateLoraApiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceTypeEnum))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployDelete))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUAvailability))]
@@ -312,6 +308,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HardwarePricingDedicated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HardwareResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.HardwareOption>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURLDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudioFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InspectScopedJWTOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonObjectResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonSchema))]
@@ -326,31 +324,27 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelFamilyOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.PricingPageSectionOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PricingPageSectionOut))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PricingType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.PricingPageEntryOut>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PricingPageEntryOut))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingTokens))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputLength))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputTokens))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingUptime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputCharacterLength))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingImageUnits))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingOutputLength))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.FAQEntryOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelFieldInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelInfoOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingTime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingUptime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingTokens))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputLength))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputTokens))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingInputCharacterLength))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingImageUnits))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPricingOutputLength))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SchemaVariant))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SchemaVariantKey))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelMetaIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelPublicityIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelVersionOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIBatch))]
@@ -375,6 +369,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImageData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesGenerationsIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIImagesOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.OpenAIImageData>))]
@@ -389,6 +384,9 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterDatacenter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenRouterModelsOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterModelData>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PricingPageEntryOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PricingType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.PricingPageEntryOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RateLimitOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RateLimitRequestIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RequestCostItem))]
@@ -396,8 +394,10 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RequestCostResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.RequestCostItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SchemaOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SchemaVariantKey))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScopedJWTIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScopedJWTOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceTypeEnum))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SshKeyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SshKeyOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.UpdateLoraApiRequest))]
@@ -411,9 +411,9 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.SshKeyOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.UsageItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.UsageMonth>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.List<global::DeepInfra.AnthropicSystemContent>, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnthropicSystemContent>))]
@@ -433,7 +433,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.Voice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.HardwareOption>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.PricingPageSectionOut>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.PricingPageEntryOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.FAQEntryOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ModelFieldInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ModelDocBlock>))]
@@ -448,6 +447,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.OpenAIModelOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.OpenRouterDatacenter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.OpenRouterModelData>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.PricingPageEntryOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.RequestCostItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.DeploymentOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.DeploymentMainStatsOut>))]
