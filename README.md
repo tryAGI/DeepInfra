@@ -61,8 +61,6 @@ var embeddings = await generator.GenerateAsync(
 
 <!-- EXAMPLES:START -->
 ### Chat Client Get Response Async
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -76,8 +74,6 @@ Console.WriteLine(text);
 ```
 
 ### Chat Client Get Streaming Response Async
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -98,8 +94,6 @@ Console.WriteLine();
 ```
 
 ### Chat Client Returns Usage
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -112,8 +106,6 @@ Console.WriteLine($"Input: {response.Usage.InputTokenCount}, Output: {response.U
 ```
 
 ### Chat Client Tool Calling Multi Turn
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -169,8 +161,6 @@ Console.WriteLine($"Final response: {text}");
 ```
 
 ### Chat Client Tool Calling Single Turn
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -202,8 +192,6 @@ Console.WriteLine($"Tool call: {functionCall.Name}({string.Join(", ", functionCa
 ```
 
 ### Chat Client With System Message
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IChatClient chatClient = client;
@@ -220,8 +208,6 @@ Console.WriteLine(text);
 ```
 
 ### Create Chat Completion
-
-
 ```csharp
 // Use the OpenAI SDK via CustomProviders.DeepInfra() with MEAI interface
 using var client = GetAuthenticatedOpenAiClient();
@@ -237,8 +223,6 @@ await foreach (var update in chatClient.GetStreamingResponseAsync(
 ```
 
 ### Embedding Generator Batch Generate
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
@@ -254,8 +238,6 @@ Console.WriteLine($"Generated {embeddings.Count} embeddings with {embeddings[0].
 ```
 
 ### Embedding Generator Generate Async
-
-
 ```csharp
 using var client = GetAuthenticatedOpenAiClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
@@ -268,8 +250,6 @@ Console.WriteLine($"Embedding dimensions: {embeddings[0].Vector.Length}");
 ```
 
 ### List Models
-
-
 ```csharp
 var client = new DeepInfraClient(apiKey);
 var models = await client.ModelsListAsync();
@@ -280,8 +260,6 @@ foreach (var model in models)
 ```
 
 ### Usage
-
-
 ```csharp
 var client = new DeepInfraClient(apiKey);
 
@@ -304,7 +282,3 @@ Discord: https://discord.gg/Ca2xhfBf3v
 ![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png)
 
 This project is supported by JetBrains through the [Open Source Support Program](https://jb.gg/OpenSourceSupport).
-
-![CodeRabbit logo](https://opengraph.githubassets.com/1c51002d7d0bbe0c4fd72ff8f2e58192702f73a7037102f77e4dbb98ac00ea8f/marketplace/coderabbitai)
-
-This project is supported by CodeRabbit through the [Open Source Support Program](https://github.com/marketplace/coderabbitai).
