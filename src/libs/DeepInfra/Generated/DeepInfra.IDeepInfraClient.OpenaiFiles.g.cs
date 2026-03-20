@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.BodyOpenaiFilesV1FilesPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Files
         /// </summary>

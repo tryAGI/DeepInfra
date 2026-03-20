@@ -18,7 +18,6 @@ namespace DeepInfra
             global::DeepInfra.ModelMetaIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Model Meta Update
         /// </summary>

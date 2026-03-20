@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.MeIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Account Update Details
         /// </summary>

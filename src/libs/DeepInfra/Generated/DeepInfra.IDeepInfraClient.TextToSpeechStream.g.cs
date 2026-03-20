@@ -20,7 +20,6 @@ namespace DeepInfra
             string? outputFormat = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Text To Speech Stream
         /// </summary>

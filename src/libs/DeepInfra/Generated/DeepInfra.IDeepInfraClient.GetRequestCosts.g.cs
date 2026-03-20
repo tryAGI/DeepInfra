@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.RequestCostQuery request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Get Request Costs
         /// </summary>

@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.ScopedJWTIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         ///  Create Scoped Jwt
         /// </summary>

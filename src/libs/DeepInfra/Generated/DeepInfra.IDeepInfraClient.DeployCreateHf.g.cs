@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.HFModel request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Deploy Create Hf
         /// </summary>

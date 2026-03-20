@@ -18,7 +18,6 @@ namespace DeepInfra
             global::DeepInfra.ModelPublicityIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Model Publicity
         /// </summary>

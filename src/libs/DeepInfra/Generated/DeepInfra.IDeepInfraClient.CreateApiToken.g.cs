@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.ApiTokenIn request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Api Token
         /// </summary>

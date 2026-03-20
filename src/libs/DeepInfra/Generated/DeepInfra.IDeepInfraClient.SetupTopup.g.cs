@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.TopUpIn request,
             object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Setup Topup
         /// </summary>

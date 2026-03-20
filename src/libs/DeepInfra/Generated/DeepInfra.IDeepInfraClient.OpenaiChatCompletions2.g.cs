@@ -18,7 +18,6 @@ namespace DeepInfra
             string? xDeepinfraSource = default,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Openai Chat Completions
         /// </summary>

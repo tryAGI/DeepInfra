@@ -229,7 +229,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Get Request Costs
         /// </summary>

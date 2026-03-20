@@ -18,7 +18,6 @@ namespace DeepInfra
             global::DeepInfra.BodyUpdateVoiceV1VoicesVoiceIdEditPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update Voice
         /// </summary>

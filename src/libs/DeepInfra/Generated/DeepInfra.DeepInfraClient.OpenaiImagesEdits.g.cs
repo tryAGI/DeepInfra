@@ -255,7 +255,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Images Edits<br/>
         /// Edit image using OpenAI Images Edits API

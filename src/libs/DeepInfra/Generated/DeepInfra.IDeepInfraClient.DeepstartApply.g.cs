@@ -16,7 +16,6 @@ namespace DeepInfra
             global::DeepInfra.DeepStartApplicationIn request,
             object? session = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Deepstart Apply
         /// </summary>

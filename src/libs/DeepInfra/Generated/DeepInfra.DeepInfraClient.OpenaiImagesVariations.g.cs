@@ -252,7 +252,6 @@ namespace DeepInfra
                 }
             }
         }
-
         /// <summary>
         /// Openai Images Variations<br/>
         /// Generate a similar image using OpenAI Images Variations API

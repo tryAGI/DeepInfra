@@ -17,7 +17,6 @@ namespace DeepInfra
             global::DeepInfra.BodyCreateVoiceV1VoicesAddPost request,
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create Voice<br/>
         /// Create a new voice
