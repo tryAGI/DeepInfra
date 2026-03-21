@@ -48,7 +48,7 @@ namespace DeepInfra
                 path: "/payment/checklist",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("compute_owed", computeOwed?.ToString()) 
+                .AddOptionalParameter("compute_owed", computeOwed?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
