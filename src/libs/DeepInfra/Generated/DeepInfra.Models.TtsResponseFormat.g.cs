@@ -12,6 +12,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        Flac,
+        /// <summary>
+        /// 
+        /// </summary>
         Mp3,
         /// <summary>
         /// 
@@ -20,15 +24,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Flac,
+        Pcm,
         /// <summary>
         /// 
         /// </summary>
         Wav,
-        /// <summary>
-        /// 
-        /// </summary>
-        Pcm,
     }
 
     /// <summary>
@@ -43,11 +43,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                TtsResponseFormat.Flac => "flac",
                 TtsResponseFormat.Mp3 => "mp3",
                 TtsResponseFormat.Opus => "opus",
-                TtsResponseFormat.Flac => "flac",
-                TtsResponseFormat.Wav => "wav",
                 TtsResponseFormat.Pcm => "pcm",
+                TtsResponseFormat.Wav => "wav",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -58,11 +58,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                "flac" => TtsResponseFormat.Flac,
                 "mp3" => TtsResponseFormat.Mp3,
                 "opus" => TtsResponseFormat.Opus,
-                "flac" => TtsResponseFormat.Flac,
-                "wav" => TtsResponseFormat.Wav,
                 "pcm" => TtsResponseFormat.Pcm,
+                "wav" => TtsResponseFormat.Wav,
                 _ => null,
             };
         }

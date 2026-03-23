@@ -11,11 +11,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Wav,
+        Mp3,
         /// <summary>
         /// 
         /// </summary>
-        Mp3,
+        Wav,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                InputAudioFormat.Wav => "wav",
                 InputAudioFormat.Mp3 => "mp3",
+                InputAudioFormat.Wav => "wav",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                "wav" => InputAudioFormat.Wav,
                 "mp3" => InputAudioFormat.Mp3,
+                "wav" => InputAudioFormat.Wav,
                 _ => null,
             };
         }

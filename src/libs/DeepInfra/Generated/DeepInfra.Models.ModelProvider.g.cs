@@ -11,7 +11,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Huggingface,
+        Cnt,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Cnt,
+        Huggingface,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace DeepInfra
         {
             return value switch
             {
-                ModelProvider.Huggingface => "huggingface",
-                ModelProvider.Deepinfra => "deepinfra",
                 ModelProvider.Cnt => "cnt",
+                ModelProvider.Deepinfra => "deepinfra",
+                ModelProvider.Huggingface => "huggingface",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace DeepInfra
         {
             return value switch
             {
-                "huggingface" => ModelProvider.Huggingface,
-                "deepinfra" => ModelProvider.Deepinfra,
                 "cnt" => ModelProvider.Cnt,
+                "deepinfra" => ModelProvider.Deepinfra,
+                "huggingface" => ModelProvider.Huggingface,
                 _ => null,
             };
         }

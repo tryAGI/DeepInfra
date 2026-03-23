@@ -15,7 +15,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Starting,
+        Deleted,
+        /// <summary>
+        /// 
+        /// </summary>
+        Failed,
         /// <summary>
         /// 
         /// </summary>
@@ -27,11 +31,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Failed,
-        /// <summary>
-        /// 
-        /// </summary>
-        Deleted,
+        Starting,
     }
 
     /// <summary>
@@ -47,11 +47,11 @@ namespace DeepInfra
             return value switch
             {
                 ContainerRentalStateOut.Creating => "creating",
-                ContainerRentalStateOut.Starting => "starting",
+                ContainerRentalStateOut.Deleted => "deleted",
+                ContainerRentalStateOut.Failed => "failed",
                 ContainerRentalStateOut.Running => "running",
                 ContainerRentalStateOut.ShuttingDown => "shutting_down",
-                ContainerRentalStateOut.Failed => "failed",
-                ContainerRentalStateOut.Deleted => "deleted",
+                ContainerRentalStateOut.Starting => "starting",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -63,11 +63,11 @@ namespace DeepInfra
             return value switch
             {
                 "creating" => ContainerRentalStateOut.Creating,
-                "starting" => ContainerRentalStateOut.Starting,
+                "deleted" => ContainerRentalStateOut.Deleted,
+                "failed" => ContainerRentalStateOut.Failed,
                 "running" => ContainerRentalStateOut.Running,
                 "shutting_down" => ContainerRentalStateOut.ShuttingDown,
-                "failed" => ContainerRentalStateOut.Failed,
-                "deleted" => ContainerRentalStateOut.Deleted,
+                "starting" => ContainerRentalStateOut.Starting,
                 _ => null,
             };
         }

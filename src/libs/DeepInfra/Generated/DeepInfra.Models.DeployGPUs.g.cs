@@ -11,15 +11,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        L424gb,
-        /// <summary>
-        /// 
-        /// </summary>
-        L40s48gb,
-        /// <summary>
-        /// 
-        /// </summary>
         A10080gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        B200180gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        B300270gb,
         /// <summary>
         /// 
         /// </summary>
@@ -31,11 +31,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        B200180gb,
+        L424gb,
         /// <summary>
         /// 
         /// </summary>
-        B300270gb,
+        L40s48gb,
         /// <summary>
         /// 
         /// </summary>
@@ -58,13 +58,13 @@ namespace DeepInfra
         {
             return value switch
             {
-                DeployGPUs.L424gb => "L4-24GB",
-                DeployGPUs.L40s48gb => "L40S-48GB",
                 DeployGPUs.A10080gb => "A100-80GB",
-                DeployGPUs.H10080gb => "H100-80GB",
-                DeployGPUs.H200141gb => "H200-141GB",
                 DeployGPUs.B200180gb => "B200-180GB",
                 DeployGPUs.B300270gb => "B300-270GB",
+                DeployGPUs.H10080gb => "H100-80GB",
+                DeployGPUs.H200141gb => "H200-141GB",
+                DeployGPUs.L424gb => "L4-24GB",
+                DeployGPUs.L40s48gb => "L40S-48GB",
                 DeployGPUs.Rtxpro600096gb => "RTXPRO6000-96GB",
                 DeployGPUs.Other => "other",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -77,13 +77,13 @@ namespace DeepInfra
         {
             return value switch
             {
-                "L4-24GB" => DeployGPUs.L424gb,
-                "L40S-48GB" => DeployGPUs.L40s48gb,
                 "A100-80GB" => DeployGPUs.A10080gb,
-                "H100-80GB" => DeployGPUs.H10080gb,
-                "H200-141GB" => DeployGPUs.H200141gb,
                 "B200-180GB" => DeployGPUs.B200180gb,
                 "B300-270GB" => DeployGPUs.B300270gb,
+                "H100-80GB" => DeployGPUs.H10080gb,
+                "H200-141GB" => DeployGPUs.H200141gb,
+                "L4-24GB" => DeployGPUs.L424gb,
+                "L40S-48GB" => DeployGPUs.L40s48gb,
                 "RTXPRO6000-96GB" => DeployGPUs.Rtxpro600096gb,
                 "other" => DeployGPUs.Other,
                 _ => null,
