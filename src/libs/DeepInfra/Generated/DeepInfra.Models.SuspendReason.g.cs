@@ -11,15 +11,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        Admin,
+        /// <summary>
+        /// 
+        /// </summary>
+        BadCc,
+        /// <summary>
+        /// 
+        /// </summary>
         Balance,
-        /// <summary>
-        /// 
-        /// </summary>
-        PaymentMethod,
-        /// <summary>
-        /// 
-        /// </summary>
-        OverdueInvoices,
         /// <summary>
         /// 
         /// </summary>
@@ -27,11 +27,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Admin,
+        OverdueInvoices,
         /// <summary>
         /// 
         /// </summary>
-        BadCc,
+        PaymentMethod,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace DeepInfra
         {
             return value switch
             {
-                SuspendReason.Balance => "balance",
-                SuspendReason.PaymentMethod => "payment-method",
-                SuspendReason.OverdueInvoices => "overdue-invoices",
-                SuspendReason.LimitReached => "limit-reached",
                 SuspendReason.Admin => "admin",
                 SuspendReason.BadCc => "bad-cc",
+                SuspendReason.Balance => "balance",
+                SuspendReason.LimitReached => "limit-reached",
+                SuspendReason.OverdueInvoices => "overdue-invoices",
+                SuspendReason.PaymentMethod => "payment-method",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace DeepInfra
         {
             return value switch
             {
-                "balance" => SuspendReason.Balance,
-                "payment-method" => SuspendReason.PaymentMethod,
-                "overdue-invoices" => SuspendReason.OverdueInvoices,
-                "limit-reached" => SuspendReason.LimitReached,
                 "admin" => SuspendReason.Admin,
                 "bad-cc" => SuspendReason.BadCc,
+                "balance" => SuspendReason.Balance,
+                "limit-reached" => SuspendReason.LimitReached,
+                "overdue-invoices" => SuspendReason.OverdueInvoices,
+                "payment-method" => SuspendReason.PaymentMethod,
                 _ => null,
             };
         }

@@ -11,11 +11,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Serverless,
+        Dedicated,
         /// <summary>
         /// 
         /// </summary>
-        Dedicated,
+        Serverless,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                HardwareOptionType.Serverless => "serverless",
                 HardwareOptionType.Dedicated => "dedicated",
+                HardwareOptionType.Serverless => "serverless",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                "serverless" => HardwareOptionType.Serverless,
                 "dedicated" => HardwareOptionType.Dedicated,
+                "serverless" => HardwareOptionType.Serverless,
                 _ => null,
             };
         }

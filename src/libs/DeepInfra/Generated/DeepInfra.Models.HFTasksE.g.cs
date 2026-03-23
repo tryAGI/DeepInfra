@@ -15,47 +15,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        ImageClassification,
-        /// <summary>
-        /// 
-        /// </summary>
-        QuestionAnswering,
-        /// <summary>
-        /// 
-        /// </summary>
-        TokenClassification,
-        /// <summary>
-        /// 
-        /// </summary>
-        TextToImage,
-        /// <summary>
-        /// 
-        /// </summary>
-        FillMask,
-        /// <summary>
-        /// 
-        /// </summary>
-        ZeroShotImageClassification,
-        /// <summary>
-        /// 
-        /// </summary>
-        Text2textGeneration,
-        /// <summary>
-        /// 
-        /// </summary>
-        TextGeneration,
-        /// <summary>
-        /// 
-        /// </summary>
-        TextClassification,
-        /// <summary>
-        /// 
-        /// </summary>
-        ObjectDetection,
-        /// <summary>
-        /// 
-        /// </summary>
-        Embeddings,
+        Custom,
         /// <summary>
         /// 
         /// </summary>
@@ -63,7 +23,43 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Custom,
+        Embeddings,
+        /// <summary>
+        /// 
+        /// </summary>
+        FillMask,
+        /// <summary>
+        /// 
+        /// </summary>
+        ImageClassification,
+        /// <summary>
+        /// 
+        /// </summary>
+        ObjectDetection,
+        /// <summary>
+        /// 
+        /// </summary>
+        QuestionAnswering,
+        /// <summary>
+        /// 
+        /// </summary>
+        RentContainer,
+        /// <summary>
+        /// 
+        /// </summary>
+        Reranker,
+        /// <summary>
+        /// 
+        /// </summary>
+        TextClassification,
+        /// <summary>
+        /// 
+        /// </summary>
+        TextGeneration,
+        /// <summary>
+        /// 
+        /// </summary>
+        TextToImage,
         /// <summary>
         /// 
         /// </summary>
@@ -75,11 +71,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        RentContainer,
+        Text2textGeneration,
         /// <summary>
         /// 
         /// </summary>
-        Reranker,
+        TokenClassification,
+        /// <summary>
+        /// 
+        /// </summary>
+        ZeroShotImageClassification,
     }
 
     /// <summary>
@@ -95,23 +95,23 @@ namespace DeepInfra
             return value switch
             {
                 HFTasksE.AutomaticSpeechRecognition => "automatic-speech-recognition",
-                HFTasksE.ImageClassification => "image-classification",
-                HFTasksE.QuestionAnswering => "question-answering",
-                HFTasksE.TokenClassification => "token-classification",
-                HFTasksE.TextToImage => "text-to-image",
-                HFTasksE.FillMask => "fill-mask",
-                HFTasksE.ZeroShotImageClassification => "zero-shot-image-classification",
-                HFTasksE.Text2textGeneration => "text2text-generation",
-                HFTasksE.TextGeneration => "text-generation",
-                HFTasksE.TextClassification => "text-classification",
-                HFTasksE.ObjectDetection => "object-detection",
-                HFTasksE.Embeddings => "embeddings",
-                HFTasksE.Dreambooth => "dreambooth",
                 HFTasksE.Custom => "custom",
-                HFTasksE.TextToSpeech => "text-to-speech",
-                HFTasksE.TextToVideo => "text-to-video",
+                HFTasksE.Dreambooth => "dreambooth",
+                HFTasksE.Embeddings => "embeddings",
+                HFTasksE.FillMask => "fill-mask",
+                HFTasksE.ImageClassification => "image-classification",
+                HFTasksE.ObjectDetection => "object-detection",
+                HFTasksE.QuestionAnswering => "question-answering",
                 HFTasksE.RentContainer => "rent-container",
                 HFTasksE.Reranker => "reranker",
+                HFTasksE.TextClassification => "text-classification",
+                HFTasksE.TextGeneration => "text-generation",
+                HFTasksE.TextToImage => "text-to-image",
+                HFTasksE.TextToSpeech => "text-to-speech",
+                HFTasksE.TextToVideo => "text-to-video",
+                HFTasksE.Text2textGeneration => "text2text-generation",
+                HFTasksE.TokenClassification => "token-classification",
+                HFTasksE.ZeroShotImageClassification => "zero-shot-image-classification",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -123,23 +123,23 @@ namespace DeepInfra
             return value switch
             {
                 "automatic-speech-recognition" => HFTasksE.AutomaticSpeechRecognition,
-                "image-classification" => HFTasksE.ImageClassification,
-                "question-answering" => HFTasksE.QuestionAnswering,
-                "token-classification" => HFTasksE.TokenClassification,
-                "text-to-image" => HFTasksE.TextToImage,
-                "fill-mask" => HFTasksE.FillMask,
-                "zero-shot-image-classification" => HFTasksE.ZeroShotImageClassification,
-                "text2text-generation" => HFTasksE.Text2textGeneration,
-                "text-generation" => HFTasksE.TextGeneration,
-                "text-classification" => HFTasksE.TextClassification,
-                "object-detection" => HFTasksE.ObjectDetection,
-                "embeddings" => HFTasksE.Embeddings,
-                "dreambooth" => HFTasksE.Dreambooth,
                 "custom" => HFTasksE.Custom,
-                "text-to-speech" => HFTasksE.TextToSpeech,
-                "text-to-video" => HFTasksE.TextToVideo,
+                "dreambooth" => HFTasksE.Dreambooth,
+                "embeddings" => HFTasksE.Embeddings,
+                "fill-mask" => HFTasksE.FillMask,
+                "image-classification" => HFTasksE.ImageClassification,
+                "object-detection" => HFTasksE.ObjectDetection,
+                "question-answering" => HFTasksE.QuestionAnswering,
                 "rent-container" => HFTasksE.RentContainer,
                 "reranker" => HFTasksE.Reranker,
+                "text-classification" => HFTasksE.TextClassification,
+                "text-generation" => HFTasksE.TextGeneration,
+                "text-to-image" => HFTasksE.TextToImage,
+                "text-to-speech" => HFTasksE.TextToSpeech,
+                "text-to-video" => HFTasksE.TextToVideo,
+                "text2text-generation" => HFTasksE.Text2textGeneration,
+                "token-classification" => HFTasksE.TokenClassification,
+                "zero-shot-image-classification" => HFTasksE.ZeroShotImageClassification,
                 _ => null,
             };
         }

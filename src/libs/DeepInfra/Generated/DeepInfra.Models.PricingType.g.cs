@@ -11,15 +11,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Tokens,
+        ImageUnits,
         /// <summary>
         /// 
         /// </summary>
-        Time,
-        /// <summary>
-        /// 
-        /// </summary>
-        Uptime,
+        InputCharacterLength,
         /// <summary>
         /// 
         /// </summary>
@@ -31,15 +27,19 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        InputCharacterLength,
-        /// <summary>
-        /// 
-        /// </summary>
-        ImageUnits,
-        /// <summary>
-        /// 
-        /// </summary>
         OutputLength,
+        /// <summary>
+        /// 
+        /// </summary>
+        Time,
+        /// <summary>
+        /// 
+        /// </summary>
+        Tokens,
+        /// <summary>
+        /// 
+        /// </summary>
+        Uptime,
     }
 
     /// <summary>
@@ -54,14 +54,14 @@ namespace DeepInfra
         {
             return value switch
             {
-                PricingType.Tokens => "tokens",
-                PricingType.Time => "time",
-                PricingType.Uptime => "uptime",
+                PricingType.ImageUnits => "image_units",
+                PricingType.InputCharacterLength => "input_character_length",
                 PricingType.InputLength => "input_length",
                 PricingType.InputTokens => "input_tokens",
-                PricingType.InputCharacterLength => "input_character_length",
-                PricingType.ImageUnits => "image_units",
                 PricingType.OutputLength => "output_length",
+                PricingType.Time => "time",
+                PricingType.Tokens => "tokens",
+                PricingType.Uptime => "uptime",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -72,14 +72,14 @@ namespace DeepInfra
         {
             return value switch
             {
-                "tokens" => PricingType.Tokens,
-                "time" => PricingType.Time,
-                "uptime" => PricingType.Uptime,
+                "image_units" => PricingType.ImageUnits,
+                "input_character_length" => PricingType.InputCharacterLength,
                 "input_length" => PricingType.InputLength,
                 "input_tokens" => PricingType.InputTokens,
-                "input_character_length" => PricingType.InputCharacterLength,
-                "image_units" => PricingType.ImageUnits,
                 "output_length" => PricingType.OutputLength,
+                "time" => PricingType.Time,
+                "tokens" => PricingType.Tokens,
+                "uptime" => PricingType.Uptime,
                 _ => null,
             };
         }

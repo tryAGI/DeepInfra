@@ -11,15 +11,15 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        High,
+        /// <summary>
+        /// 
+        /// </summary>
         Low,
         /// <summary>
         /// 
         /// </summary>
         Medium,
-        /// <summary>
-        /// 
-        /// </summary>
-        High,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace DeepInfra
         {
             return value switch
             {
+                ChatReasoningSettingsEffort2.High => "high",
                 ChatReasoningSettingsEffort2.Low => "low",
                 ChatReasoningSettingsEffort2.Medium => "medium",
-                ChatReasoningSettingsEffort2.High => "high",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace DeepInfra
         {
             return value switch
             {
+                "high" => ChatReasoningSettingsEffort2.High,
                 "low" => ChatReasoningSettingsEffort2.Low,
                 "medium" => ChatReasoningSettingsEffort2.Medium,
-                "high" => ChatReasoningSettingsEffort2.High,
                 _ => null,
             };
         }

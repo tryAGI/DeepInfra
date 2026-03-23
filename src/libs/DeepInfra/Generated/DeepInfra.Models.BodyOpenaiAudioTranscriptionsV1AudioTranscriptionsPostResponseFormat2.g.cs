@@ -15,7 +15,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        VerboseJson,
+        Srt,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Srt,
+        VerboseJson,
         /// <summary>
         /// 
         /// </summary>
@@ -43,9 +43,9 @@ namespace DeepInfra
             return value switch
             {
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Json => "json",
-                BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.VerboseJson => "verbose_json",
-                BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Text => "text",
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Srt => "srt",
+                BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Text => "text",
+                BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.VerboseJson => "verbose_json",
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Vtt => "vtt",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -58,9 +58,9 @@ namespace DeepInfra
             return value switch
             {
                 "json" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Json,
-                "verbose_json" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.VerboseJson,
-                "text" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Text,
                 "srt" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Srt,
+                "text" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Text,
+                "verbose_json" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.VerboseJson,
                 "vtt" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2.Vtt,
                 _ => null,
             };
