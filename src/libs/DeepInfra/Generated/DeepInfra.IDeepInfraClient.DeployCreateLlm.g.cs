@@ -38,6 +38,9 @@ namespace DeepInfra
         /// <param name="baseModel">
         /// Base public model
         /// </param>
+        /// <param name="containerImage">
+        /// Docker image for the deployment (e.g. vllm/vllm-openai:v0.8.4)
+        /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
         /// Extra command line arguments for custom deployments
@@ -52,6 +55,7 @@ namespace DeepInfra
             int? maxBatchSize = default,
             global::DeepInfra.HFWeights? hf = default,
             string? baseModel = default,
+            string? containerImage = default,
             global::DeepInfra.ScaleSettings? settings = default,
             global::System.Collections.Generic.IList<string>? extraArgs = default,
             global::System.Threading.CancellationToken cancellationToken = default);

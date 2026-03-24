@@ -50,6 +50,12 @@ namespace DeepInfra
         public string? BaseModel { get; set; }
 
         /// <summary>
+        /// Docker image for the deployment (e.g. vllm/vllm-openai:v0.8.4)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("container_image")]
+        public string? ContainerImage { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
@@ -88,6 +94,9 @@ namespace DeepInfra
         /// <param name="baseModel">
         /// Base public model
         /// </param>
+        /// <param name="containerImage">
+        /// Docker image for the deployment (e.g. vllm/vllm-openai:v0.8.4)
+        /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
         /// Extra command line arguments for custom deployments
@@ -102,6 +111,7 @@ namespace DeepInfra
             int? maxBatchSize,
             global::DeepInfra.HFWeights? hf,
             string? baseModel,
+            string? containerImage,
             global::DeepInfra.ScaleSettings? settings,
             global::System.Collections.Generic.IList<string>? extraArgs)
         {
@@ -111,6 +121,7 @@ namespace DeepInfra
             this.MaxBatchSize = maxBatchSize;
             this.Hf = hf;
             this.BaseModel = baseModel;
+            this.ContainerImage = containerImage;
             this.Settings = settings;
             this.ExtraArgs = extraArgs;
         }
