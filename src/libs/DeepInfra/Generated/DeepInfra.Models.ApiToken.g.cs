@@ -37,6 +37,12 @@ namespace DeepInfra
         public string? TokenId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allowed_ips")]
+        public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,6 +57,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="name"></param>
         /// <param name="tokenId"></param>
+        /// <param name="allowedIps"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -58,12 +65,14 @@ namespace DeepInfra
             string token,
             global::System.DateTimeOffset createdAt,
             string name,
-            string? tokenId)
+            string? tokenId,
+            global::System.Collections.Generic.IList<string>? allowedIps)
         {
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.TokenId = tokenId;
+            this.AllowedIps = allowedIps;
         }
 
         /// <summary>
