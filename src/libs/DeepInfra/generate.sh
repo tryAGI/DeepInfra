@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+# OpenAPI spec: https://api.deepinfra.com/openapi.json
+
 dotnet tool install --global autosdk.cli --prerelease
 curl --fail --silent --show-error -L -o openapi.json https://api.deepinfra.com/openapi.json
 
