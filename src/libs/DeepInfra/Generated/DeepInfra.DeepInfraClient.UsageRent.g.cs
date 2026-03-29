@@ -55,7 +55,7 @@ namespace DeepInfra
                 path: "/payment/usage/rent",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddRequiredParameter("from", from.ToString())
+                .AddRequiredParameter("from", from.ToString()!)
                 .AddOptionalParameter("to", to?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
