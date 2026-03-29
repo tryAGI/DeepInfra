@@ -64,14 +64,14 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenAITextToSpeechIn" /> class.
         /// </summary>
-        /// <param name="serviceTier">
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
-        /// </param>
         /// <param name="model">
         /// model name
         /// </param>
         /// <param name="input">
         /// Text to convert to speech
+        /// </param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
         /// </param>
         /// <param name="voice">
         /// Preset voices to use for the speech.
@@ -99,9 +99,9 @@ namespace DeepInfra
             double? speed,
             object? extraBody)
         {
+            this.ServiceTier = serviceTier;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
-            this.ServiceTier = serviceTier;
             this.Voice = voice;
             this.ResponseFormat = responseFormat;
             this.Speed = speed;

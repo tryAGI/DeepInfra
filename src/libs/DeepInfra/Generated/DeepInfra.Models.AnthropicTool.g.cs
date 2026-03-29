@@ -38,8 +38,8 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="AnthropicTool" /> class.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="description"></param>
         /// <param name="inputSchema"></param>
+        /// <param name="description"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,8 +49,8 @@ namespace DeepInfra
             string? description)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.InputSchema = inputSchema ?? throw new global::System.ArgumentNullException(nameof(inputSchema));
             this.Description = description;
+            this.InputSchema = inputSchema ?? throw new global::System.ArgumentNullException(nameof(inputSchema));
         }
 
         /// <summary>

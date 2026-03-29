@@ -67,6 +67,8 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelPricingTokens" /> class.
         /// </summary>
+        /// <param name="centsPerInputToken"></param>
+        /// <param name="centsPerOutputToken"></param>
         /// <param name="short">
         /// Short description of the pricing, ideal for cards and headers
         /// </param>
@@ -79,8 +81,6 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: tokens
         /// </param>
-        /// <param name="centsPerInputToken"></param>
-        /// <param name="centsPerOutputToken"></param>
         /// <param name="ratePerInputTokenCached"></param>
         /// <param name="ratePerInputTokenCacheWrite"></param>
 #if NET7_0_OR_GREATER
@@ -96,12 +96,12 @@ namespace DeepInfra
             double? ratePerInputTokenCached,
             double? ratePerInputTokenCacheWrite)
         {
-            this.CentsPerInputToken = centsPerInputToken;
-            this.CentsPerOutputToken = centsPerOutputToken;
             this.Short = @short;
             this.Full = full;
             this.Table = table;
             this.Type = type;
+            this.CentsPerInputToken = centsPerInputToken;
+            this.CentsPerOutputToken = centsPerOutputToken;
             this.RatePerInputTokenCached = ratePerInputTokenCached;
             this.RatePerInputTokenCacheWrite = ratePerInputTokenCacheWrite;
         }

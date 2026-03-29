@@ -38,8 +38,8 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="RateLimitRequestIn" /> class.
         /// </summary>
         /// <param name="rateLimit"></param>
-        /// <param name="tpmRateLimit"></param>
         /// <param name="reason"></param>
+        /// <param name="tpmRateLimit"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,8 +49,8 @@ namespace DeepInfra
             int? tpmRateLimit)
         {
             this.RateLimit = rateLimit;
-            this.Reason = reason ?? throw new global::System.ArgumentNullException(nameof(reason));
             this.TpmRateLimit = tpmRateLimit;
+            this.Reason = reason ?? throw new global::System.ArgumentNullException(nameof(reason));
         }
 
         /// <summary>

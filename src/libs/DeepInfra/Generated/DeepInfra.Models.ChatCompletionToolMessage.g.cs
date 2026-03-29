@@ -45,6 +45,10 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionToolMessage" /> class.
         /// </summary>
+        /// <param name="content">
+        /// the message content
+        /// </param>
+        /// <param name="toolCallId"></param>
         /// <param name="cacheControl">
         /// Cache control for prompt caching
         /// </param>
@@ -52,10 +56,6 @@ namespace DeepInfra
         /// the role of the author of this message<br/>
         /// Default Value: tool
         /// </param>
-        /// <param name="content">
-        /// the message content
-        /// </param>
-        /// <param name="toolCallId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,10 +65,10 @@ namespace DeepInfra
             object? cacheControl,
             string? role)
         {
-            this.Content = content;
-            this.ToolCallId = toolCallId ?? throw new global::System.ArgumentNullException(nameof(toolCallId));
             this.CacheControl = cacheControl;
             this.Role = role;
+            this.Content = content;
+            this.ToolCallId = toolCallId ?? throw new global::System.ArgumentNullException(nameof(toolCallId));
         }
 
         /// <summary>

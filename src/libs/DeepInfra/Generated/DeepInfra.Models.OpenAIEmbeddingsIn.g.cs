@@ -52,14 +52,14 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenAIEmbeddingsIn" /> class.
         /// </summary>
-        /// <param name="serviceTier">
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
-        /// </param>
         /// <param name="model">
         /// model name
         /// </param>
         /// <param name="input">
         /// sequences to embed
+        /// </param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
@@ -78,9 +78,9 @@ namespace DeepInfra
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
             int? dimensions)
         {
+            this.ServiceTier = serviceTier;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;
-            this.ServiceTier = serviceTier;
             this.EncodingFormat = encodingFormat;
             this.Dimensions = dimensions;
         }

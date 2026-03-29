@@ -103,6 +103,12 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="Checklist" /> class.
         /// </summary>
+        /// <param name="stripeBalance">
+        /// Negative value indicates funds ready-to-spend. Positive value indicates money owed
+        /// </param>
+        /// <param name="recent">
+        /// usage since most recent invoice
+        /// </param>
         /// <param name="email">
         /// Default Value: false
         /// </param>
@@ -120,12 +126,6 @@ namespace DeepInfra
         /// </param>
         /// <param name="lastChecked">
         /// Default Value: 0
-        /// </param>
-        /// <param name="stripeBalance">
-        /// Negative value indicates funds ready-to-spend. Positive value indicates money owed
-        /// </param>
-        /// <param name="recent">
-        /// usage since most recent invoice
         /// </param>
         /// <param name="limit"></param>
         /// <param name="suspendReason"></param>
@@ -160,14 +160,14 @@ namespace DeepInfra
             int? topupThreshold,
             bool? topupFailed)
         {
-            this.StripeBalance = stripeBalance;
-            this.Recent = recent;
             this.Email = email;
             this.BillingAddress = billingAddress;
             this.PaymentMethod = paymentMethod;
             this.Suspended = suspended;
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
+            this.StripeBalance = stripeBalance;
+            this.Recent = recent;
             this.Limit = limit;
             this.SuspendReason = suspendReason;
             this.Topup = topup;

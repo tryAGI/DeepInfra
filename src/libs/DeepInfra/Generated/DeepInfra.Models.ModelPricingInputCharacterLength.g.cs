@@ -48,6 +48,7 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelPricingInputCharacterLength" /> class.
         /// </summary>
+        /// <param name="centsPerInputChars"></param>
         /// <param name="short">
         /// Short description of the pricing, ideal for cards and headers
         /// </param>
@@ -60,7 +61,6 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: input_character_length
         /// </param>
-        /// <param name="centsPerInputChars"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,11 +71,11 @@ namespace DeepInfra
             object? table,
             string? type)
         {
-            this.CentsPerInputChars = centsPerInputChars;
             this.Short = @short;
             this.Full = full;
             this.Table = table;
             this.Type = type;
+            this.CentsPerInputChars = centsPerInputChars;
         }
 
         /// <summary>

@@ -89,14 +89,14 @@ namespace DeepInfra
         /// <param name="developer">
         /// Model family developer organization
         /// </param>
+        /// <param name="featuredModels"></param>
+        /// <param name="ppSectionsOut"></param>
         /// <param name="metaTitle">
         /// Meta title for SEO
         /// </param>
         /// <param name="metaDescription">
         /// Meta description for SEO
         /// </param>
-        /// <param name="featuredModels"></param>
-        /// <param name="ppSectionsOut"></param>
         /// <param name="faqEntries">
         /// List of FAQ entries for this model family, ordered by their order field
         /// </param>
@@ -118,10 +118,10 @@ namespace DeepInfra
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Developer = developer ?? throw new global::System.ArgumentNullException(nameof(developer));
-            this.FeaturedModels = featuredModels ?? throw new global::System.ArgumentNullException(nameof(featuredModels));
-            this.PpSectionsOut = ppSectionsOut ?? throw new global::System.ArgumentNullException(nameof(ppSectionsOut));
             this.MetaTitle = metaTitle;
             this.MetaDescription = metaDescription;
+            this.FeaturedModels = featuredModels ?? throw new global::System.ArgumentNullException(nameof(featuredModels));
+            this.PpSectionsOut = ppSectionsOut ?? throw new global::System.ArgumentNullException(nameof(ppSectionsOut));
             this.FaqEntries = faqEntries;
         }
 

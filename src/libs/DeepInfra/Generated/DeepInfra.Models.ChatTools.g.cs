@@ -36,13 +36,13 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatTools" /> class.
         /// </summary>
+        /// <param name="function"></param>
         /// <param name="cacheControl">
         /// Cache control for prompt caching
         /// </param>
         /// <param name="type">
         /// Default Value: function
         /// </param>
-        /// <param name="function"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,9 +51,9 @@ namespace DeepInfra
             object? cacheControl,
             string? type)
         {
-            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
             this.CacheControl = cacheControl;
             this.Type = type;
+            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
         }
 
         /// <summary>

@@ -30,11 +30,11 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonSchemaResponseFormat" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: json_schema
-        /// </param>
         /// <param name="jsonSchema">
         /// JSON schema for structured output when type is 'json_schema'
+        /// </param>
+        /// <param name="type">
+        /// Default Value: json_schema
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace DeepInfra
             global::DeepInfra.JsonSchema jsonSchema,
             string? type)
         {
-            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
             this.Type = type;
+            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
         }
 
         /// <summary>
