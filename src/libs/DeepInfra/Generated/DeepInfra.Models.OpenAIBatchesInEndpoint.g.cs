@@ -11,11 +11,11 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        Dividev1DividechatDividecompletions,
+        V1ChatCompletions,
         /// <summary>
         /// 
         /// </summary>
-        Dividev1Dividecompletions,
+        V1Completions,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                OpenAIBatchesInEndpoint.Dividev1DividechatDividecompletions => "/v1/chat/completions",
-                OpenAIBatchesInEndpoint.Dividev1Dividecompletions => "/v1/completions",
+                OpenAIBatchesInEndpoint.V1ChatCompletions => "/v1/chat/completions",
+                OpenAIBatchesInEndpoint.V1Completions => "/v1/completions",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace DeepInfra
         {
             return value switch
             {
-                "/v1/chat/completions" => OpenAIBatchesInEndpoint.Dividev1DividechatDividecompletions,
-                "/v1/completions" => OpenAIBatchesInEndpoint.Dividev1Dividecompletions,
+                "/v1/chat/completions" => OpenAIBatchesInEndpoint.V1ChatCompletions,
+                "/v1/completions" => OpenAIBatchesInEndpoint.V1Completions,
                 _ => null,
             };
         }
