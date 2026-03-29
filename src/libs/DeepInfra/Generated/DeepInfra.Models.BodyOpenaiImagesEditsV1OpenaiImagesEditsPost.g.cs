@@ -53,9 +53,9 @@ namespace DeepInfra
         /// </summary>
         /// <param name="image"></param>
         /// <param name="imagename"></param>
-        /// <param name="inp"></param>
         /// <param name="prompt"></param>
         /// <param name="model"></param>
+        /// <param name="inp"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -68,9 +68,9 @@ namespace DeepInfra
         {
             this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
             this.Imagename = imagename ?? throw new global::System.ArgumentNullException(nameof(imagename));
+            this.Inp = inp;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Inp = inp;
         }
 
         /// <summary>

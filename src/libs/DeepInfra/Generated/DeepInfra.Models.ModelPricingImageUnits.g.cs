@@ -82,6 +82,11 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelPricingImageUnits" /> class.
         /// </summary>
+        /// <param name="centsPerImageUnit"></param>
+        /// <param name="defaultWidth"></param>
+        /// <param name="defaultHeight"></param>
+        /// <param name="defaultIterations"></param>
+        /// <param name="usageFromCost"></param>
         /// <param name="short">
         /// Short description of the pricing, ideal for cards and headers
         /// </param>
@@ -94,12 +99,7 @@ namespace DeepInfra
         /// <param name="type">
         /// Default Value: image_units
         /// </param>
-        /// <param name="centsPerImageUnit"></param>
-        /// <param name="defaultWidth"></param>
-        /// <param name="defaultHeight"></param>
-        /// <param name="defaultIterations"></param>
         /// <param name="defaultPriceCents"></param>
-        /// <param name="usageFromCost"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -115,16 +115,16 @@ namespace DeepInfra
             string? type,
             double? defaultPriceCents)
         {
-            this.CentsPerImageUnit = centsPerImageUnit;
-            this.DefaultWidth = defaultWidth;
-            this.DefaultHeight = defaultHeight;
-            this.DefaultIterations = defaultIterations;
-            this.UsageFromCost = usageFromCost;
             this.Short = @short;
             this.Full = full;
             this.Table = table;
             this.Type = type;
+            this.CentsPerImageUnit = centsPerImageUnit;
+            this.DefaultWidth = defaultWidth;
+            this.DefaultHeight = defaultHeight;
+            this.DefaultIterations = defaultIterations;
             this.DefaultPriceCents = defaultPriceCents;
+            this.UsageFromCost = usageFromCost;
         }
 
         /// <summary>

@@ -97,11 +97,11 @@ namespace DeepInfra
         /// <param name="state"></param>
         /// <param name="startTs"></param>
         /// <param name="stateTs"></param>
-        /// <param name="stopTs"></param>
-        /// <param name="ip"></param>
         /// <param name="gpuConfig"></param>
         /// <param name="pricePerHour"></param>
         /// <param name="containerImage"></param>
+        /// <param name="stopTs"></param>
+        /// <param name="ip"></param>
         /// <param name="failReason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -124,11 +124,11 @@ namespace DeepInfra
             this.State = state;
             this.StartTs = startTs;
             this.StateTs = stateTs;
+            this.StopTs = stopTs;
+            this.Ip = ip;
             this.GpuConfig = gpuConfig ?? throw new global::System.ArgumentNullException(nameof(gpuConfig));
             this.PricePerHour = pricePerHour;
             this.ContainerImage = containerImage ?? throw new global::System.ArgumentNullException(nameof(containerImage));
-            this.StopTs = stopTs;
-            this.Ip = ip;
             this.FailReason = failReason;
         }
 

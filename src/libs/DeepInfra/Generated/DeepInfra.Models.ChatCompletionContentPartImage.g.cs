@@ -31,8 +31,8 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionContentPartImage" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="imageUrl"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace DeepInfra
             global::DeepInfra.ImageURL imageUrl,
             string type = "image_url")
         {
-            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
             this.Type = type;
+            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
         }
 
         /// <summary>

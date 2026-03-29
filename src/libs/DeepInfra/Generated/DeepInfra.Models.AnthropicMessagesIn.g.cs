@@ -99,8 +99,8 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="AnthropicMessagesIn" /> class.
         /// </summary>
         /// <param name="model"></param>
-        /// <param name="maxTokens"></param>
         /// <param name="messages"></param>
+        /// <param name="maxTokens"></param>
         /// <param name="system"></param>
         /// <param name="stopSequences"></param>
         /// <param name="stream">
@@ -134,8 +134,8 @@ namespace DeepInfra
             global::DeepInfra.AnthropicThinkingConfig? thinking)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.MaxTokens = maxTokens;
+            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.System = system;
             this.StopSequences = stopSequences;
             this.Stream = stream;

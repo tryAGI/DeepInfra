@@ -136,14 +136,14 @@ namespace DeepInfra
         /// <param name="supportedFeatures">
         /// Supported features
         /// </param>
+        /// <param name="datacenters">
+        /// Available datacenters
+        /// </param>
         /// <param name="description">
         /// Model description
         /// </param>
         /// <param name="openrouter">
         /// OpenRouter specific data
-        /// </param>
-        /// <param name="datacenters">
-        /// Available datacenters
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -173,9 +173,9 @@ namespace DeepInfra
             this.Pricing = pricing ?? throw new global::System.ArgumentNullException(nameof(pricing));
             this.SupportedSamplingParameters = supportedSamplingParameters ?? throw new global::System.ArgumentNullException(nameof(supportedSamplingParameters));
             this.SupportedFeatures = supportedFeatures ?? throw new global::System.ArgumentNullException(nameof(supportedFeatures));
-            this.Datacenters = datacenters ?? throw new global::System.ArgumentNullException(nameof(datacenters));
             this.Description = description;
             this.Openrouter = openrouter;
+            this.Datacenters = datacenters ?? throw new global::System.ArgumentNullException(nameof(datacenters));
         }
 
         /// <summary>

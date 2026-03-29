@@ -121,6 +121,9 @@ namespace DeepInfra
         /// <param name="reportedType">
         /// reported type of the model
         /// </param>
+        /// <param name="pricing">
+        /// The pricing type and cost for this model
+        /// </param>
         /// <param name="description">
         /// description of the model
         /// </param>
@@ -129,9 +132,6 @@ namespace DeepInfra
         /// </param>
         /// <param name="tags">
         /// list of tags
-        /// </param>
-        /// <param name="pricing">
-        /// The pricing type and cost for this model
         /// </param>
         /// <param name="maxTokens">
         /// The maximum context size of this model, if applicable
@@ -170,10 +170,10 @@ namespace DeepInfra
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.ReportedType = reportedType ?? throw new global::System.ArgumentNullException(nameof(reportedType));
-            this.Pricing = pricing;
             this.Description = description;
             this.CoverImgUrl = coverImgUrl;
             this.Tags = tags;
+            this.Pricing = pricing;
             this.MaxTokens = maxTokens;
             this.ReplacedBy = replacedBy;
             this.Deprecated = deprecated;

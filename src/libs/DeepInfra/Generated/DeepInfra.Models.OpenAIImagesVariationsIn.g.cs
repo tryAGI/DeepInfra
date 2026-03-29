@@ -68,6 +68,12 @@ namespace DeepInfra
         /// <param name="model">
         /// The model to use.
         /// </param>
+        /// <param name="image">
+        /// Input image bytes for variation task
+        /// </param>
+        /// <param name="imagename">
+        /// Input image bytes for variation task
+        /// </param>
         /// <param name="n">
         /// The number of images to generate.<br/>
         /// Default Value: 1
@@ -83,12 +89,6 @@ namespace DeepInfra
         /// <param name="user">
         /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
         /// </param>
-        /// <param name="image">
-        /// Input image bytes for variation task
-        /// </param>
-        /// <param name="imagename">
-        /// Input image bytes for variation task
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -102,12 +102,12 @@ namespace DeepInfra
             string? user)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
-            this.Imagename = imagename ?? throw new global::System.ArgumentNullException(nameof(imagename));
             this.N = n;
             this.ResponseFormat = responseFormat;
             this.Size = size;
             this.User = user;
+            this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
+            this.Imagename = imagename ?? throw new global::System.ArgumentNullException(nameof(imagename));
         }
 
         /// <summary>

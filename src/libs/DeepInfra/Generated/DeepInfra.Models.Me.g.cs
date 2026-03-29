@@ -176,19 +176,14 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="Me" /> class.
         /// </summary>
         /// <param name="uid"></param>
-        /// <param name="email"></param>
         /// <param name="emailVerified"></param>
         /// <param name="accountSetup"></param>
-        /// <param name="requireEmailVerified">
-        /// Default Value: false
-        /// </param>
         /// <param name="displayName">
         /// Name that is used to identifythe account on the website
         /// </param>
         /// <param name="provider">
         /// Authentication provider, e.g. 'github'
         /// </param>
-        /// <param name="picture"></param>
         /// <param name="isAdmin"></param>
         /// <param name="name">
         /// Personal name
@@ -212,6 +207,11 @@ namespace DeepInfra
         /// <param name="title">
         /// Job title of the user, e.g. 'Software Engineer'
         /// </param>
+        /// <param name="email"></param>
+        /// <param name="requireEmailVerified">
+        /// Default Value: false
+        /// </param>
+        /// <param name="picture"></param>
         /// <param name="isTeamAccount">
         /// Default Value: false
         /// </param>
@@ -255,10 +255,13 @@ namespace DeepInfra
             global::DeepInfra.Checklist? checklist)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
+            this.Email = email;
             this.EmailVerified = emailVerified;
             this.AccountSetup = accountSetup;
+            this.RequireEmailVerified = requireEmailVerified;
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
+            this.Picture = picture;
             this.IsAdmin = isAdmin;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FirstName = firstName ?? throw new global::System.ArgumentNullException(nameof(firstName));
@@ -268,9 +271,6 @@ namespace DeepInfra
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
-            this.Email = email;
-            this.RequireEmailVerified = requireEmailVerified;
-            this.Picture = picture;
             this.IsTeamAccount = isTeamAccount;
             this.IsTeamOwner = isTeamOwner;
             this.TeamRole = teamRole;

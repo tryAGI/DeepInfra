@@ -47,10 +47,10 @@ namespace DeepInfra
         /// </summary>
         /// <param name="modelName"></param>
         /// <param name="shortName"></param>
+        /// <param name="pricing"></param>
         /// <param name="maxTokens">
         /// The maximum context size of this model, if applicable
         /// </param>
-        /// <param name="pricing"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,8 +62,8 @@ namespace DeepInfra
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.ShortName = shortName ?? throw new global::System.ArgumentNullException(nameof(shortName));
-            this.Pricing = pricing;
             this.MaxTokens = maxTokens;
+            this.Pricing = pricing;
         }
 
         /// <summary>

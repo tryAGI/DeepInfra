@@ -30,11 +30,11 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="RegexResponseFormat" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: regex
-        /// </param>
         /// <param name="regex">
         /// Regex pattern for structured output when type is 'regex'
+        /// </param>
+        /// <param name="type">
+        /// Default Value: regex
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace DeepInfra
             string regex,
             string? type)
         {
-            this.Regex = regex ?? throw new global::System.ArgumentNullException(nameof(regex));
             this.Type = type;
+            this.Regex = regex ?? throw new global::System.ArgumentNullException(nameof(regex));
         }
 
         /// <summary>

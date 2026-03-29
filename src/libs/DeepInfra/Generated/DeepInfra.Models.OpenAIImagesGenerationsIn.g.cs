@@ -73,6 +73,9 @@ namespace DeepInfra
         /// <param name="model">
         /// The model to use for image generation.
         /// </param>
+        /// <param name="prompt">
+        /// A text description of desired image(s).
+        /// </param>
         /// <param name="n">
         /// The number of images to generate.<br/>
         /// Default Value: 1
@@ -87,9 +90,6 @@ namespace DeepInfra
         /// </param>
         /// <param name="user">
         /// A unique identifier representing your end-user, which can help to monitor and detect abuse.
-        /// </param>
-        /// <param name="prompt">
-        /// A text description of desired image(s).
         /// </param>
         /// <param name="quality">
         /// The quality of the image that will be generated.
@@ -111,11 +111,11 @@ namespace DeepInfra
             string? style)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.N = n;
             this.ResponseFormat = responseFormat;
             this.Size = size;
             this.User = user;
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Quality = quality;
             this.Style = style;
         }

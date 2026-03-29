@@ -63,10 +63,10 @@ namespace DeepInfra
         /// <param name="ptype"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
+        /// <param name="entries"></param>
         /// <param name="mfDescription">
         /// Model family description for this section, if applicable. Will use description from the section if not set
         /// </param>
-        /// <param name="entries"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,8 +82,8 @@ namespace DeepInfra
             this.Ptype = ptype;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
-            this.Entries = entries ?? throw new global::System.ArgumentNullException(nameof(entries));
             this.MfDescription = mfDescription;
+            this.Entries = entries ?? throw new global::System.ArgumentNullException(nameof(entries));
         }
 
         /// <summary>
