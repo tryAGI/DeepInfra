@@ -237,7 +237,6 @@ namespace DeepInfra
             double? limit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.ConfigIn
             {
                 Limit = limit,

@@ -257,7 +257,6 @@ namespace DeepInfra
             double? spendingLimit = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.ScopedJWTIn
             {
                 ApiKeyName = apiKeyName,

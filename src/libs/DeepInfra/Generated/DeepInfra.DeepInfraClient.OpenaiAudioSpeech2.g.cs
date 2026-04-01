@@ -277,7 +277,6 @@ namespace DeepInfra
             object? extraBody = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.OpenAITextToSpeechIn
             {
                 ServiceTier = serviceTier,

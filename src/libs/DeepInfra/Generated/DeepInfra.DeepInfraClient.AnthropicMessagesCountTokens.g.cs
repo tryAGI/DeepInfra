@@ -259,7 +259,6 @@ namespace DeepInfra
             object? toolChoice = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.AnthropicTokenCountRequest
             {
                 Model = model,
