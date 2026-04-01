@@ -276,7 +276,6 @@ namespace DeepInfra
             string? style = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.OpenAIImagesGenerationsIn
             {
                 Model = model,

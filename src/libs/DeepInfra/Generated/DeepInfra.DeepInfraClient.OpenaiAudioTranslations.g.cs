@@ -306,7 +306,6 @@ namespace DeepInfra
             double? temperature = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPost
             {
                 File = file,

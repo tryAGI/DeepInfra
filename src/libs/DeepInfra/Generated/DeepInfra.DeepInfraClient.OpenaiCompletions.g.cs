@@ -349,7 +349,6 @@ namespace DeepInfra
             global::DeepInfra.CompletionMultiModalData? data = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.OpenAICompletionsIn
             {
                 Model = model,

@@ -313,7 +313,6 @@ namespace DeepInfra
             global::DeepInfra.AnthropicThinkingConfig? thinking = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::DeepInfra.AnthropicMessagesIn
             {
                 Model = model,
