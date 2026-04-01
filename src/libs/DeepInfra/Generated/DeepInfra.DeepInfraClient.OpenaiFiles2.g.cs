@@ -257,6 +257,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::DeepInfra.BodyOpenaiFilesV1OpenaiFilesPost
             {
                 Purpose = purpose,
