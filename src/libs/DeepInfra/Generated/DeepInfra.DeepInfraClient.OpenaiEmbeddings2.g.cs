@@ -280,6 +280,7 @@ namespace DeepInfra
             int? dimensions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::DeepInfra.OpenAIEmbeddingsIn
             {
                 ServiceTier = serviceTier,

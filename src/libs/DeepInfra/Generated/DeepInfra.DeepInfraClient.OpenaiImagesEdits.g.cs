@@ -276,6 +276,7 @@ namespace DeepInfra
             global::DeepInfra.OpenAIImagesEditsIn? inp = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::DeepInfra.BodyOpenaiImagesEditsV1ImagesEditsPost
             {
                 Image = image,
