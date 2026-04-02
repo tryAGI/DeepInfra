@@ -7,7 +7,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -15,13 +14,11 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
 
             global::DeepInfra.AnthropicTokenCountRequest request,
-            string? authorization = default,
             string? xApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="model"></param>
         /// <param name="messages"></param>
@@ -34,7 +31,6 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
             string model,
             global::System.Collections.Generic.IList<object> messages,
-            string? authorization = default,
             string? xApiKey = default,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
             global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>? tools = default,
