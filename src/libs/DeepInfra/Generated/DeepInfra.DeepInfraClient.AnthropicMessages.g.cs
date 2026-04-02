@@ -7,7 +7,6 @@ namespace DeepInfra
     {
         partial void PrepareAnthropicMessagesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? authorization,
             ref string? xApiKey,
             ref string? anthropicVersion,
             ref string? anthropicBeta,
@@ -16,7 +15,6 @@ namespace DeepInfra
         partial void PrepareAnthropicMessagesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? authorization,
             string? xApiKey,
             string? anthropicVersion,
             string? anthropicBeta,
@@ -34,7 +32,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
@@ -45,7 +42,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
 
             global::DeepInfra.AnthropicMessagesIn request,
-            string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
@@ -58,7 +54,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareAnthropicMessagesArguments(
                 httpClient: HttpClient,
-                authorization: ref authorization,
                 xApiKey: ref xApiKey,
                 anthropicVersion: ref anthropicVersion,
                 anthropicBeta: ref anthropicBeta,
@@ -93,10 +88,6 @@ namespace DeepInfra
                 }
             }
 
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("authorization", authorization.ToString());
-            }
             if (xApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -127,7 +118,6 @@ namespace DeepInfra
             PrepareAnthropicMessagesRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                authorization: authorization,
                 xApiKey: xApiKey,
                 anthropicVersion: anthropicVersion,
                 anthropicBeta: anthropicBeta,
@@ -268,7 +258,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
@@ -295,7 +284,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
             string model,
             global::System.Collections.Generic.IList<object> messages,
-            string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
@@ -331,7 +319,6 @@ namespace DeepInfra
             };
 
             return await AnthropicMessagesAsync(
-                authorization: authorization,
                 xApiKey: xApiKey,
                 anthropicVersion: anthropicVersion,
                 anthropicBeta: anthropicBeta,

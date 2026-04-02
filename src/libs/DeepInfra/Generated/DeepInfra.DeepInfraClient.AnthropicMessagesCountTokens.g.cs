@@ -7,13 +7,11 @@ namespace DeepInfra
     {
         partial void PrepareAnthropicMessagesCountTokensArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? authorization,
             ref string? xApiKey,
             global::DeepInfra.AnthropicTokenCountRequest request);
         partial void PrepareAnthropicMessagesCountTokensRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? authorization,
             string? xApiKey,
             global::DeepInfra.AnthropicTokenCountRequest request);
         partial void ProcessAnthropicMessagesCountTokensResponse(
@@ -28,7 +26,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -36,7 +33,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
 
             global::DeepInfra.AnthropicTokenCountRequest request,
-            string? authorization = default,
             string? xApiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -46,7 +42,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareAnthropicMessagesCountTokensArguments(
                 httpClient: HttpClient,
-                authorization: ref authorization,
                 xApiKey: ref xApiKey,
                 request: request);
 
@@ -78,10 +73,6 @@ namespace DeepInfra
                 }
             }
 
-            if (authorization != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("authorization", authorization.ToString());
-            }
             if (xApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -100,7 +91,6 @@ namespace DeepInfra
             PrepareAnthropicMessagesCountTokensRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                authorization: authorization,
                 xApiKey: xApiKey,
                 request: request);
 
@@ -238,7 +228,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="model"></param>
         /// <param name="messages"></param>
@@ -251,7 +240,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
             string model,
             global::System.Collections.Generic.IList<object> messages,
-            string? authorization = default,
             string? xApiKey = default,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
             global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>? tools = default,
@@ -270,7 +258,6 @@ namespace DeepInfra
             };
 
             return await AnthropicMessagesCountTokensAsync(
-                authorization: authorization,
                 xApiKey: xApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

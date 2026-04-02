@@ -7,7 +7,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
@@ -18,7 +17,6 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
 
             global::DeepInfra.AnthropicMessagesIn request,
-            string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
@@ -27,7 +25,6 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages
         /// </summary>
-        /// <param name="authorization"></param>
         /// <param name="xApiKey"></param>
         /// <param name="anthropicVersion"></param>
         /// <param name="anthropicBeta"></param>
@@ -54,7 +51,6 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesAsync(
             string model,
             global::System.Collections.Generic.IList<object> messages,
-            string? authorization = default,
             string? xApiKey = default,
             string? anthropicVersion = default,
             string? anthropicBeta = default,
