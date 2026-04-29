@@ -9,11 +9,17 @@ namespace DeepInfra
     public sealed partial class OpenRouterModelData
     {
         /// <summary>
-        /// Model identifier
+        /// Model identifier used when calling the provider API
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
+
+        /// <summary>
+        /// HuggingFace model ID if available
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hugging_face_id")]
+        public string? HuggingFaceId { get; set; }
 
         /// <summary>
         /// Human-readable model name
@@ -21,6 +27,14 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
+
+        /// <summary>
+        /// Unix timestamp of model creation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.UnixTimestampJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTimeOffset Created { get; set; }
 
         /// <summary>
         /// Supported input modalities
@@ -85,6 +99,12 @@ namespace DeepInfra
         public string? Description { get; set; }
 
         /// <summary>
+        /// ISO 8601 date YYYY-MM-DD for deprecation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("deprecation_date")]
+        public string? DeprecationDate { get; set; }
+
+        /// <summary>
         /// OpenRouter specific data
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("openrouter")]
@@ -107,10 +127,13 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="OpenRouterModelData" /> class.
         /// </summary>
         /// <param name="id">
-        /// Model identifier
+        /// Model identifier used when calling the provider API
         /// </param>
         /// <param name="name">
         /// Human-readable model name
+        /// </param>
+        /// <param name="created">
+        /// Unix timestamp of model creation
         /// </param>
         /// <param name="inputModalities">
         /// Supported input modalities
@@ -139,8 +162,14 @@ namespace DeepInfra
         /// <param name="datacenters">
         /// Available datacenters
         /// </param>
+        /// <param name="huggingFaceId">
+        /// HuggingFace model ID if available
+        /// </param>
         /// <param name="description">
         /// Model description
+        /// </param>
+        /// <param name="deprecationDate">
+        /// ISO 8601 date YYYY-MM-DD for deprecation
         /// </param>
         /// <param name="openrouter">
         /// OpenRouter specific data
@@ -151,6 +180,7 @@ namespace DeepInfra
         public OpenRouterModelData(
             string id,
             string name,
+            global::System.DateTimeOffset created,
             global::System.Collections.Generic.IList<string> inputModalities,
             global::System.Collections.Generic.IList<string> outputModalities,
             string quantization,
@@ -160,11 +190,15 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<string> supportedSamplingParameters,
             global::System.Collections.Generic.IList<string> supportedFeatures,
             global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterDatacenter> datacenters,
+            string? huggingFaceId,
             string? description,
+            string? deprecationDate,
             global::System.Collections.Generic.Dictionary<string, string>? openrouter)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.HuggingFaceId = huggingFaceId;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Created = created;
             this.InputModalities = inputModalities ?? throw new global::System.ArgumentNullException(nameof(inputModalities));
             this.OutputModalities = outputModalities ?? throw new global::System.ArgumentNullException(nameof(outputModalities));
             this.Quantization = quantization ?? throw new global::System.ArgumentNullException(nameof(quantization));
@@ -174,6 +208,7 @@ namespace DeepInfra
             this.SupportedSamplingParameters = supportedSamplingParameters ?? throw new global::System.ArgumentNullException(nameof(supportedSamplingParameters));
             this.SupportedFeatures = supportedFeatures ?? throw new global::System.ArgumentNullException(nameof(supportedFeatures));
             this.Description = description;
+            this.DeprecationDate = deprecationDate;
             this.Openrouter = openrouter;
             this.Datacenters = datacenters ?? throw new global::System.ArgumentNullException(nameof(datacenters));
         }
