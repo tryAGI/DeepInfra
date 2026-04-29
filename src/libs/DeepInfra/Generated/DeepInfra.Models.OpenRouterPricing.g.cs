@@ -23,6 +23,13 @@ namespace DeepInfra
         public required string Completion { get; set; }
 
         /// <summary>
+        /// Pricing per 1 token for cache reads<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_cache_read")]
+        public string? InputCacheRead { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +44,21 @@ namespace DeepInfra
         /// <param name="completion">
         /// Pricing per 1 token for output
         /// </param>
+        /// <param name="inputCacheRead">
+        /// Pricing per 1 token for cache reads<br/>
+        /// Default Value: 0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenRouterPricing(
             string prompt,
-            string completion)
+            string completion,
+            string? inputCacheRead)
         {
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Completion = completion ?? throw new global::System.ArgumentNullException(nameof(completion));
+            this.InputCacheRead = inputCacheRead;
         }
 
         /// <summary>

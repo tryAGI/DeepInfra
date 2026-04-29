@@ -113,12 +113,6 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("mask_token")]
-        public string? MaskToken { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in_schema")]
         public object? InSchema { get; set; }
 
@@ -267,7 +261,6 @@ namespace DeepInfra
         /// <param name="owner">
         /// Default Value: false
         /// </param>
-        /// <param name="maskToken"></param>
         /// <param name="inSchema"></param>
         /// <param name="outSchema"></param>
         /// <param name="inFields"></param>
@@ -313,7 +306,6 @@ namespace DeepInfra
             string? description,
             string? mfDescription,
             bool? owner,
-            string? maskToken,
             object? inSchema,
             object? outSchema,
             global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? inFields,
@@ -348,7 +340,6 @@ namespace DeepInfra
             this.TxtDocs = txtDocs ?? throw new global::System.ArgumentNullException(nameof(txtDocs));
             this.OutExample = outExample ?? throw new global::System.ArgumentNullException(nameof(outExample));
             this.OutDocs = outDocs ?? throw new global::System.ArgumentNullException(nameof(outDocs));
-            this.MaskToken = maskToken;
             this.InSchema = inSchema;
             this.OutSchema = outSchema;
             this.InFields = inFields;

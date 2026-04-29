@@ -1,0 +1,611 @@
+
+#nullable enable
+
+namespace DeepInfra
+{
+    public partial class ChatCompletionsClient
+    {
+
+
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_OpenaiChatCompletionsSecurityRequirement0 =
+            new global::DeepInfra.EndPointSecurityRequirement
+            {
+                Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
+                {                    new global::DeepInfra.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        SchemeId = "HttpBearer",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_OpenaiChatCompletionsSecurityRequirements =
+            new global::DeepInfra.EndPointSecurityRequirement[]
+            {                s_OpenaiChatCompletionsSecurityRequirement0,
+            };
+        partial void PrepareOpenaiChatCompletionsArguments(
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? xDeepinfraSource,
+            ref string? xiApiKey,
+            global::DeepInfra.OpenAIChatCompletionsIn request);
+        partial void PrepareOpenaiChatCompletionsRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xDeepinfraSource,
+            string? xiApiKey,
+            global::DeepInfra.OpenAIChatCompletionsIn request);
+        partial void ProcessOpenaiChatCompletionsResponse(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessOpenaiChatCompletionsResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
+        /// <summary>
+        /// Openai Chat Completions
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::DeepInfra.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
+
+            global::DeepInfra.OpenAIChatCompletionsIn request,
+            string? xDeepinfraSource = default,
+            string? xiApiKey = default,
+            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
+            PrepareArguments(
+                client: HttpClient);
+            PrepareOpenaiChatCompletionsArguments(
+                httpClient: HttpClient,
+                xDeepinfraSource: ref xDeepinfraSource,
+                xiApiKey: ref xiApiKey,
+                request: request);
+
+
+            var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_OpenaiChatCompletionsSecurityRequirements,
+                operationName: "OpenaiChatCompletionsAsync");
+
+            using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::DeepInfra.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::DeepInfra.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: true);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+                            var __pathBuilder = new global::DeepInfra.PathBuilder(
+                                path: "/v1/chat/completions",
+                                baseUri: HttpClient.BaseAddress);
+                            var __path = __pathBuilder.ToString();
+                __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Post,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in __authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                } 
+            }
+
+            if (xDeepinfraSource != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
+            }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
+                global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
+
+                PrepareRequest(
+                    client: HttpClient,
+                    request: __httpRequest);
+                PrepareOpenaiChatCompletionsRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    xDeepinfraSource: xDeepinfraSource,
+                    xiApiKey: xiApiKey,
+                    request: request);
+
+                return __httpRequest;
+            }
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
+            {
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
+                {
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "OpenaiChatCompletions",
+                                methodName: "OpenaiChatCompletionsAsync",
+                                pathTemplate: "\"/v1/chat/completions\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                    try
+                    {
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                    }
+                    catch (global::System.Net.Http.HttpRequestException __exception)
+                    {
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "OpenaiChatCompletions",
+                                methodName: "OpenaiChatCompletionsAsync",
+                                pathTemplate: "\"/v1/chat/completions\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::DeepInfra.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::DeepInfra.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
+                    {
+                        await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "OpenaiChatCompletions",
+                                methodName: "OpenaiChatCompletionsAsync",
+                                pathTemplate: "\"/v1/chat/completions\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::DeepInfra.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
+                }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                using (__response)
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessOpenaiChatCompletionsResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "OpenaiChatCompletions",
+                                methodName: "OpenaiChatCompletionsAsync",
+                                pathTemplate: "\"/v1/chat/completions\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "OpenaiChatCompletions",
+                                methodName: "OpenaiChatCompletionsAsync",
+                                pathTemplate: "\"/v1/chat/completions\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                            // Validation Error
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::DeepInfra.HTTPValidationError? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+                                throw new global::DeepInfra.ApiException<global::DeepInfra.HTTPValidationError>(
+                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_422,
+                                    ResponseObject = __value_422,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
+
+                            if (__effectiveReadResponseAsString)
+                            {
+                                var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                ProcessResponseContent(
+                                    client: HttpClient,
+                                    response: __response,
+                                    content: ref __content);
+                                ProcessOpenaiChatCompletionsResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
+
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+
+                                    return __content;
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    throw new global::DeepInfra.ApiException(
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        statusCode: __response.StatusCode)
+                                    {
+                                        ResponseBody = __content,
+                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value),
+                                    };
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+                                    var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    return __content;
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    string? __content = null;
+                                    try
+                                    {
+                                        __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                            __effectiveCancellationToken
+                #endif
+                                        ).ConfigureAwait(false);
+                                    }
+                                    catch (global::System.Exception)
+                                    {
+                                    }
+
+                                    throw new global::DeepInfra.ApiException(
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        statusCode: __response.StatusCode)
+                                    {
+                                        ResponseBody = __content,
+                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value),
+                                    };
+                                }
+                            }
+
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
+            }
+        }
+        /// <summary>
+        /// Openai Chat Completions
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="model">
+        /// model name
+        /// </param>
+        /// <param name="messages">
+        /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
+        /// </param>
+        /// <param name="stream">
+        /// whether to stream the output via SSE or return the full response<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="temperature">
+        /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
+        /// Default Value: 1F
+        /// </param>
+        /// <param name="topP">
+        /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br/>
+        /// Default Value: 1F
+        /// </param>
+        /// <param name="minP">
+        /// Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.<br/>
+        /// Default Value: 0F
+        /// </param>
+        /// <param name="topK">
+        /// Sample from the best k (number of) tokens. 0 means off<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="maxTokens">
+        /// The maximum number of tokens to generate in the chat completion.<br/>
+        /// The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller.
+        /// </param>
+        /// <param name="stop">
+        /// up to 16 sequences where the API will stop generating further tokens
+        /// </param>
+        /// <param name="stopTokenIds">
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
+        /// </param>
+        /// <param name="n">
+        /// number of sequences to return<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="presencePenalty">
+        /// Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="frequencyPenalty">
+        /// Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="tools">
+        /// A list of tools the model may call. Currently, only functions are supported as a tool.
+        /// </param>
+        /// <param name="toolChoice">
+        /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
+        /// </param>
+        /// <param name="responseFormat">
+        /// The format of the response. Currently, only json is supported.
+        /// </param>
+        /// <param name="repetitionPenalty">
+        /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="user">
+        /// A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.
+        /// </param>
+        /// <param name="seed">
+        /// Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.
+        /// </param>
+        /// <param name="logprobs">
+        /// Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.
+        /// </param>
+        /// <param name="streamOptions">
+        /// streaming options
+        /// </param>
+        /// <param name="reasoningEffort">
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, high, and xhigh. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// </param>
+        /// <param name="reasoning">
+        /// Reasoning configuration.
+        /// </param>
+        /// <param name="promptCacheKey">
+        /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
+        /// </param>
+        /// <param name="chatTemplateKwargs">
+        /// Chat template kwargs.
+        /// </param>
+        /// <param name="continueFinalMessage">
+        /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<string> OpenaiChatCompletionsAsync(
+            string model,
+            global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
+            string? xDeepinfraSource = default,
+            string? xiApiKey = default,
+            bool? stream = default,
+            double? temperature = default,
+            double? topP = default,
+            double? minP = default,
+            int? topK = default,
+            int? maxTokens = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop = default,
+            global::System.Collections.Generic.IList<int>? stopTokenIds = default,
+            int? n = default,
+            double? presencePenalty = default,
+            double? frequencyPenalty = default,
+            global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools = default,
+            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? toolChoice = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat = default,
+            double? repetitionPenalty = default,
+            string? user = default,
+            int? seed = default,
+            bool? logprobs = default,
+            global::DeepInfra.StreamOptions? streamOptions = default,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort = default,
+            global::DeepInfra.ChatReasoningSettings? reasoning = default,
+            string? promptCacheKey = default,
+            object? chatTemplateKwargs = default,
+            bool? continueFinalMessage = default,
+            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::DeepInfra.OpenAIChatCompletionsIn
+            {
+                Model = model,
+                Messages = messages,
+                Stream = stream,
+                Temperature = temperature,
+                TopP = topP,
+                MinP = minP,
+                TopK = topK,
+                MaxTokens = maxTokens,
+                Stop = stop,
+                StopTokenIds = stopTokenIds,
+                N = n,
+                PresencePenalty = presencePenalty,
+                FrequencyPenalty = frequencyPenalty,
+                Tools = tools,
+                ToolChoice = toolChoice,
+                ResponseFormat = responseFormat,
+                RepetitionPenalty = repetitionPenalty,
+                User = user,
+                Seed = seed,
+                Logprobs = logprobs,
+                StreamOptions = streamOptions,
+                ReasoningEffort = reasoningEffort,
+                Reasoning = reasoning,
+                PromptCacheKey = promptCacheKey,
+                ChatTemplateKwargs = chatTemplateKwargs,
+                ContinueFinalMessage = continueFinalMessage,
+            };
+
+            return await OpenaiChatCompletionsAsync(
+                xDeepinfraSource: xDeepinfraSource,
+                xiApiKey: xiApiKey,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
+    }
+}

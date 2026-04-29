@@ -1,0 +1,26 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Text To Speech",
+      "Slug": "text-to-speech-v1-text-to-speech-voice-id-post",
+      "Description": "Generated from OpenAPI examples.",
+      "Language": "http",
+      "Code": "### Text To Speech\n# @name text_to_speech_v1_text_to_speech__voice_id__post\nPOST {{host}}/v1/text-to-speech/{{voice_id}}?output_format=wav\nAuthorization: Bearer {{token}}\nxi-api-key: {{xi-api-key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022text\u0022: \u0022string\u0022,\n  \u0022model_id\u0022: \u0022hexgrad/Kokoro-82M\u0022,\n  \u0022output_format\u0022: \u0022wav\u0022,\n  \u0022language_code\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "text_to_speech_v1_text_to_speech__voice_id__post",
+      "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Text To Speech Stream",
+      "Slug": "text-to-speech-stream-v1-text-to-speech-voice-id-stream-post",
+      "Description": "Generated from OpenAPI examples.",
+      "Language": "http",
+      "Code": "### Text To Speech Stream\n# @name text_to_speech_stream_v1_text_to_speech__voice_id__stream_post\nPOST {{host}}/v1/text-to-speech/{{voice_id}}/stream?output_format=wav\nAuthorization: Bearer {{token}}\nxi-api-key: {{xi-api-key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022text\u0022: \u0022string\u0022,\n  \u0022model_id\u0022: \u0022hexgrad/Kokoro-82M\u0022,\n  \u0022output_format\u0022: \u0022wav\u0022,\n  \u0022language_code\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Successful Response\n# Content-Type: application/json\n# 422\n# Description: Validation Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "text_to_speech_stream_v1_text_to_speech__voice_id__stream_post",
+      "Setup": null
+    }
+  ]
+}

@@ -72,6 +72,12 @@ namespace DeepInfra
         public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Stop { get; set; }
 
         /// <summary>
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stop_token_ids")]
+        public global::System.Collections.Generic.IList<int>? StopTokenIds { get; set; }
+
+        /// <summary>
         /// number of sequences to return<br/>
         /// Default Value: 1
         /// </summary>
@@ -144,7 +150,7 @@ namespace DeepInfra
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
 
         /// <summary>
-        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, high, and xhigh. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
         public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? ReasoningEffort { get; set; }
@@ -166,6 +172,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_template_kwargs")]
         public object? ChatTemplateKwargs { get; set; }
+
+        /// <summary>
+        /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("continue_final_message")]
+        public bool? ContinueFinalMessage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -209,6 +221,9 @@ namespace DeepInfra
         /// <param name="stop">
         /// up to 16 sequences where the API will stop generating further tokens
         /// </param>
+        /// <param name="stopTokenIds">
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
+        /// </param>
         /// <param name="n">
         /// number of sequences to return<br/>
         /// Default Value: 1
@@ -247,7 +262,7 @@ namespace DeepInfra
         /// streaming options
         /// </param>
         /// <param name="reasoningEffort">
-        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, high, and xhigh. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
         /// <param name="reasoning">
         /// Reasoning configuration.
@@ -257,6 +272,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
+        /// </param>
+        /// <param name="continueFinalMessage">
+        /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -271,6 +289,7 @@ namespace DeepInfra
             int? topK,
             int? maxTokens,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop,
+            global::System.Collections.Generic.IList<int>? stopTokenIds,
             int? n,
             double? presencePenalty,
             double? frequencyPenalty,
@@ -285,7 +304,8 @@ namespace DeepInfra
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort,
             global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey,
-            object? chatTemplateKwargs)
+            object? chatTemplateKwargs,
+            bool? continueFinalMessage)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -296,6 +316,7 @@ namespace DeepInfra
             this.TopK = topK;
             this.MaxTokens = maxTokens;
             this.Stop = stop;
+            this.StopTokenIds = stopTokenIds;
             this.N = n;
             this.PresencePenalty = presencePenalty;
             this.FrequencyPenalty = frequencyPenalty;
@@ -311,6 +332,7 @@ namespace DeepInfra
             this.Reasoning = reasoning;
             this.PromptCacheKey = promptCacheKey;
             this.ChatTemplateKwargs = chatTemplateKwargs;
+            this.ContinueFinalMessage = continueFinalMessage;
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ namespace DeepInfra
     public sealed partial class DeepInfraClient
     {
         /// <inheritdoc cref="DeepInfraClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::DeepInfra.EndPointAuthorization}?, bool)"/>
+
         public DeepInfraClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
