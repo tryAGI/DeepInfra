@@ -66,5 +66,6 @@ namespace DeepInfra
         public ChatCompletionMessageToolCall()
         {
         }
+
     }
 }

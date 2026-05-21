@@ -50,5 +50,6 @@ namespace DeepInfra
         public RequestCostItem()
         {
         }
+
     }
 }

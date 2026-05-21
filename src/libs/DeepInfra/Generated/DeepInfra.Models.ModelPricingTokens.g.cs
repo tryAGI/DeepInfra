@@ -112,5 +112,6 @@ namespace DeepInfra
         public ModelPricingTokens()
         {
         }
+
     }
 }

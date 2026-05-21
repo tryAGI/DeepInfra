@@ -51,5 +51,6 @@ namespace DeepInfra
         public SchemaVariant()
         {
         }
+
     }
 }

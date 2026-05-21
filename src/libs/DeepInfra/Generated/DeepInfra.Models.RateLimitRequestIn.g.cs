@@ -59,5 +59,6 @@ namespace DeepInfra
         public RateLimitRequestIn()
         {
         }
+
     }
 }

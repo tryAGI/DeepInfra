@@ -95,6 +95,12 @@ namespace DeepInfra
         public bool? TopupFailed { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("billing_type")]
+        public string? BillingType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -141,6 +147,7 @@ namespace DeepInfra
         /// <param name="topupFailed">
         /// Default Value: false
         /// </param>
+        /// <param name="billingType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -158,7 +165,8 @@ namespace DeepInfra
             bool? topup,
             int? topupAmount,
             int? topupThreshold,
-            bool? topupFailed)
+            bool? topupFailed,
+            string? billingType)
         {
             this.Email = email;
             this.BillingAddress = billingAddress;
@@ -174,6 +182,7 @@ namespace DeepInfra
             this.TopupAmount = topupAmount;
             this.TopupThreshold = topupThreshold;
             this.TopupFailed = topupFailed;
+            this.BillingType = billingType;
         }
 
         /// <summary>
@@ -182,5 +191,6 @@ namespace DeepInfra
         public Checklist()
         {
         }
+
     }
 }

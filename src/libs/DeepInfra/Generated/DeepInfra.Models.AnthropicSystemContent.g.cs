@@ -50,5 +50,18 @@ namespace DeepInfra
         public AnthropicSystemContent()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="AnthropicSystemContent"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static AnthropicSystemContent FromText(string text)
+        {
+            return new AnthropicSystemContent
+            {
+                Text = text,
+            };
+        }
+
     }
 }

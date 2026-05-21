@@ -91,5 +91,6 @@ namespace DeepInfra
         public BodyOpenaiAudioTranslationsV1AudioTranslationsPost()
         {
         }
+
     }
 }

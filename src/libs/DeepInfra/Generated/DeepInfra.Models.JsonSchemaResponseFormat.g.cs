@@ -53,5 +53,6 @@ namespace DeepInfra
         public JsonSchemaResponseFormat()
         {
         }
+
     }
 }

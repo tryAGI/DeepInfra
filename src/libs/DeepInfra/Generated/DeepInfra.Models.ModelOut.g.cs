@@ -92,6 +92,12 @@ namespace DeepInfra
         public string? Expected { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("create_ts")]
+        public string? CreateTs { get; set; }
+
+        /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("private")]
@@ -141,6 +147,7 @@ namespace DeepInfra
         /// <param name="quantization"></param>
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
+        /// <param name="createTs"></param>
         /// <param name="private">
         /// Default Value: 0
         /// </param>
@@ -164,6 +171,7 @@ namespace DeepInfra
             string? quantization,
             double? mmlu,
             string? expected,
+            string? createTs,
             int? @private,
             bool? isPartner)
         {
@@ -180,6 +188,7 @@ namespace DeepInfra
             this.Quantization = quantization;
             this.Mmlu = mmlu;
             this.Expected = expected;
+            this.CreateTs = createTs;
             this.Private = @private;
             this.IsPartner = isPartner;
         }
@@ -190,5 +199,6 @@ namespace DeepInfra
         public ModelOut()
         {
         }
+
     }
 }

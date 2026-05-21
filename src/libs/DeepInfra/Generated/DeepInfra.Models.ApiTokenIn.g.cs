@@ -40,5 +40,6 @@ namespace DeepInfra
         public ApiTokenIn()
         {
         }
+
     }
 }

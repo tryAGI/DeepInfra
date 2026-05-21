@@ -79,5 +79,6 @@ namespace DeepInfra
         public CreateLoraApiRequest()
         {
         }
+
     }
 }

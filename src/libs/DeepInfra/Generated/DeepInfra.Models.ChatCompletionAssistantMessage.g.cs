@@ -97,5 +97,6 @@ namespace DeepInfra
         public ChatCompletionAssistantMessage()
         {
         }
+
     }
 }
