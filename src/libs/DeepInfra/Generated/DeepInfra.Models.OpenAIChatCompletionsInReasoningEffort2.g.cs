@@ -24,6 +24,10 @@ namespace DeepInfra
         /// 
         /// </summary>
         None,
+        /// <summary>
+        /// 
+        /// </summary>
+        Xhigh,
     }
 
     /// <summary>
@@ -42,6 +46,7 @@ namespace DeepInfra
                 OpenAIChatCompletionsInReasoningEffort2.Low => "low",
                 OpenAIChatCompletionsInReasoningEffort2.Medium => "medium",
                 OpenAIChatCompletionsInReasoningEffort2.None => "none",
+                OpenAIChatCompletionsInReasoningEffort2.Xhigh => "xhigh",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -56,6 +61,7 @@ namespace DeepInfra
                 "low" => OpenAIChatCompletionsInReasoningEffort2.Low,
                 "medium" => OpenAIChatCompletionsInReasoningEffort2.Medium,
                 "none" => OpenAIChatCompletionsInReasoningEffort2.None,
+                "xhigh" => OpenAIChatCompletionsInReasoningEffort2.Xhigh,
                 _ => null,
             };
         }

@@ -89,5 +89,6 @@ namespace DeepInfra
         public UsageMonth()
         {
         }
+
     }
 }

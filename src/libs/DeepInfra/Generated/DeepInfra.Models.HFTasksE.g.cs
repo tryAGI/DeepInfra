@@ -39,6 +39,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        Openclaw,
+        /// <summary>
+        /// 
+        /// </summary>
         QuestionAnswering,
         /// <summary>
         /// 
@@ -101,6 +105,7 @@ namespace DeepInfra
                 HFTasksE.FillMask => "fill-mask",
                 HFTasksE.ImageClassification => "image-classification",
                 HFTasksE.ObjectDetection => "object-detection",
+                HFTasksE.Openclaw => "openclaw",
                 HFTasksE.QuestionAnswering => "question-answering",
                 HFTasksE.RentContainer => "rent-container",
                 HFTasksE.Reranker => "reranker",
@@ -129,6 +134,7 @@ namespace DeepInfra
                 "fill-mask" => HFTasksE.FillMask,
                 "image-classification" => HFTasksE.ImageClassification,
                 "object-detection" => HFTasksE.ObjectDetection,
+                "openclaw" => HFTasksE.Openclaw,
                 "question-answering" => HFTasksE.QuestionAnswering,
                 "rent-container" => HFTasksE.RentContainer,
                 "reranker" => HFTasksE.Reranker,

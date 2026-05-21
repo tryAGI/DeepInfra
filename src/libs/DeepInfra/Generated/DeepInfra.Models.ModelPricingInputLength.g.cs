@@ -84,5 +84,6 @@ namespace DeepInfra
         public ModelPricingInputLength()
         {
         }
+
     }
 }

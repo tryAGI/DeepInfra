@@ -27,6 +27,10 @@ namespace DeepInfra
         /// <summary>
         /// 
         /// </summary>
+        MissingAddress,
+        /// <summary>
+        /// 
+        /// </summary>
         OverdueInvoices,
         /// <summary>
         /// 
@@ -50,6 +54,7 @@ namespace DeepInfra
                 SuspendReason.BadCc => "bad-cc",
                 SuspendReason.Balance => "balance",
                 SuspendReason.LimitReached => "limit-reached",
+                SuspendReason.MissingAddress => "missing-address",
                 SuspendReason.OverdueInvoices => "overdue-invoices",
                 SuspendReason.PaymentMethod => "payment-method",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -66,6 +71,7 @@ namespace DeepInfra
                 "bad-cc" => SuspendReason.BadCc,
                 "balance" => SuspendReason.Balance,
                 "limit-reached" => SuspendReason.LimitReached,
+                "missing-address" => SuspendReason.MissingAddress,
                 "overdue-invoices" => SuspendReason.OverdueInvoices,
                 "payment-method" => SuspendReason.PaymentMethod,
                 _ => null,

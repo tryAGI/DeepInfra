@@ -133,5 +133,6 @@ namespace DeepInfra
         public ModelPricingImageUnits()
         {
         }
+
     }
 }

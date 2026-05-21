@@ -72,5 +72,6 @@ namespace DeepInfra
         public PricingPageEntryOut()
         {
         }
+
     }
 }

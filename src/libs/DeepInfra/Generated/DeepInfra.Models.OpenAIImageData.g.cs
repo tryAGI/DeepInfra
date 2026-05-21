@@ -63,5 +63,6 @@ namespace DeepInfra
         public OpenAIImageData()
         {
         }
+
     }
 }

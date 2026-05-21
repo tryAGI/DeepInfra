@@ -116,5 +116,6 @@ namespace DeepInfra
         public OpenAIImagesVariationsIn()
         {
         }
+
     }
 }

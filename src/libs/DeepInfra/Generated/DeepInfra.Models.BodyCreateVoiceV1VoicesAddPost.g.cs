@@ -60,5 +60,6 @@ namespace DeepInfra
         public BodyCreateVoiceV1VoicesAddPost()
         {
         }
+
     }
 }

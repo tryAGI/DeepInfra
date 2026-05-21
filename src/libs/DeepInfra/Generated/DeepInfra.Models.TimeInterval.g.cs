@@ -52,5 +52,6 @@ namespace DeepInfra
         public TimeInterval()
         {
         }
+
     }
 }

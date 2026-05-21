@@ -102,5 +102,6 @@ namespace DeepInfra
         public TimeDeploymentStatsOut()
         {
         }
+
     }
 }

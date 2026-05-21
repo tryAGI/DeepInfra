@@ -50,5 +50,18 @@ namespace DeepInfra
         public ChatCompletionContentPartText()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ChatCompletionContentPartText"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ChatCompletionContentPartText FromText(string text)
+        {
+            return new ChatCompletionContentPartText
+            {
+                Text = text,
+            };
+        }
+
     }
 }

@@ -138,5 +138,6 @@ namespace DeepInfra
         public LLMDeploymentStatsOut()
         {
         }
+
     }
 }

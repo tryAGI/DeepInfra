@@ -76,5 +76,6 @@ namespace DeepInfra
         public ChatCompletionSystemMessage()
         {
         }
+
     }
 }

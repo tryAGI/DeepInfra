@@ -50,5 +50,18 @@ namespace DeepInfra
         public ChatCompletionContentPartAudio()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ChatCompletionContentPartAudio"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ChatCompletionContentPartAudio FromInputAudio(global::DeepInfra.InputAudio inputAudio)
+        {
+            return new ChatCompletionContentPartAudio
+            {
+                InputAudio = inputAudio,
+            };
+        }
+
     }
 }

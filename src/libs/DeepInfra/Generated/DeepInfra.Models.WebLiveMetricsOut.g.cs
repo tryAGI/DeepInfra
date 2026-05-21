@@ -74,5 +74,6 @@ namespace DeepInfra
         public WebLiveMetricsOut()
         {
         }
+
     }
 }

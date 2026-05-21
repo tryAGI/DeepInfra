@@ -42,5 +42,6 @@ namespace DeepInfra
         public DeployStatusOut()
         {
         }
+
     }
 }

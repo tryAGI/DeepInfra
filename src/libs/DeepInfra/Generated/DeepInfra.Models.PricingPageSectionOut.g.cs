@@ -92,5 +92,6 @@ namespace DeepInfra
         public PricingPageSectionOut()
         {
         }
+
     }
 }
