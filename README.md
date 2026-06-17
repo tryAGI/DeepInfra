@@ -59,6 +59,13 @@ var embeddings = await generator.GenerateAsync(
     new EmbeddingGenerationOptions { ModelId = "BAAI/bge-en-icl" });
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global DeepInfra.CLI --prerelease
+deep-infra api --help
+```
+
 <!-- EXAMPLES:START -->
 ### Chat Client Get Response Async
 ```csharp

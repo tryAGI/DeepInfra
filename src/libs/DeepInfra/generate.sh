@@ -27,3 +27,23 @@ autosdk generate openapi.json \
   --methodNamingConvention Summary \
   --base-url https://api.deepinfra.com/ \
   --security-scheme Http:Header:Bearer
+
+rm -rf ../../cli/DeepInfra.CLI
+
+autosdk cli-project openapi.json \
+  --output ../../cli/DeepInfra.CLI \
+  --sdk-project ../../libs/DeepInfra/DeepInfra.csproj \
+  --targetFramework net10.0 \
+  --namespace DeepInfra \
+  --clientClassName DeepInfraClient \
+  --package-id DeepInfra.CLI \
+  --tool-command-name deep-infra \
+  --user-secrets-id DeepInfra.CLI \
+  --api-key-env-var DEEPINFRA_API_KEY \
+  --base-url-env-var DEEPINFRA_BASE_URL \
+  --cli-credential-file \
+  --cli-keep-api-group \
+  --exclude-deprecated-operations \
+  --methodNamingConvention Summary \
+  --base-url https://api.deepinfra.com/ \
+  --security-scheme Http:Header:Bearer
