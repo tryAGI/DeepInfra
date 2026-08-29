@@ -15,7 +15,7 @@ public partial class Tests
     {
         var client = GetAuthenticatedClient();
         
-        Me me = await client.MeAsync();
+        Me me = await client.Account.MeAsync();
         Console.WriteLine($"{me.ToJson(new JsonSerializerOptions
         {
             WriteIndented = true,

@@ -12,7 +12,7 @@ public partial class Tests
     public async Task ListModels()
     {
         var client = GetAuthenticatedClient();
-        var models = await client.ModelsListAsync();
+        var models = await client.Models.ModelsListAsync();
         models.Should().NotBeNull();
         foreach (var model in models)
         {
