@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HardwareResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hardware")]
         public global::System.Collections.Generic.IList<global::DeepInfra.HardwareOption>? Hardware { get; set; }
@@ -39,5 +39,6 @@ namespace DeepInfra
         public HardwareResponse()
         {
         }
+
     }
 }

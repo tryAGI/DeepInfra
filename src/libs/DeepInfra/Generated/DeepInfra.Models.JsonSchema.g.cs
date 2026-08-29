@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class JsonSchema
     {
@@ -54,5 +54,6 @@ namespace DeepInfra
         public JsonSchema()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TopUpIn
     {
@@ -69,5 +69,6 @@ namespace DeepInfra
         public TopUpIn()
         {
         }
+
     }
 }

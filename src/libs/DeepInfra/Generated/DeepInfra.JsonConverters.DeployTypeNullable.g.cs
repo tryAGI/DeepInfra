@@ -20,7 +20,7 @@ namespace DeepInfra.JsonConverters
                     {
                         return global::DeepInfra.DeployTypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

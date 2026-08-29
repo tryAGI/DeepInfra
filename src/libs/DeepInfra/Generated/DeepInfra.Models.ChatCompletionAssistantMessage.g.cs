@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionAssistantMessage
     {
@@ -35,7 +35,7 @@ namespace DeepInfra
         public string? ReasoningContent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -97,5 +97,6 @@ namespace DeepInfra
         public ChatCompletionAssistantMessage()
         {
         }
+
     }
 }

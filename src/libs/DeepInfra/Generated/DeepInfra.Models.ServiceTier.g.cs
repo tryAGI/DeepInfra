@@ -4,16 +4,20 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ServiceTier
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Flex,
+        /// <summary>
+        ///
         /// </summary>
         Priority,
     }
@@ -31,6 +35,7 @@ namespace DeepInfra
             return value switch
             {
                 ServiceTier.Default => "default",
+                ServiceTier.Flex => "flex",
                 ServiceTier.Priority => "priority",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace DeepInfra
             return value switch
             {
                 "default" => ServiceTier.Default,
+                "flex" => ServiceTier.Flex,
                 "priority" => ServiceTier.Priority,
                 _ => null,
             };

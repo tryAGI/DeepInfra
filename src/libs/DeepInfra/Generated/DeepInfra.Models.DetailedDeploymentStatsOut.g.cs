@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DetailedDeploymentStatsOut
     {
@@ -63,5 +63,6 @@ namespace DeepInfra
         public DetailedDeploymentStatsOut()
         {
         }
+
     }
 }

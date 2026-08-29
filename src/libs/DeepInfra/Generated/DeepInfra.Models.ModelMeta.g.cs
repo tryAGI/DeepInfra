@@ -4,33 +4,33 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelMeta
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Provider { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("task")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Task { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("plan_id")]
         public string? PlanId { get; set; }
@@ -40,6 +40,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("private")]
         public bool? Private { get; set; }
+
+        /// <summary>
+        /// bare-metal contract description, shown like on invoices
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("contract")]
+        public string? Contract { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,6 +63,9 @@ namespace DeepInfra
         /// <param name="private">
         /// Default Value: false
         /// </param>
+        /// <param name="contract">
+        /// bare-metal contract description, shown like on invoices
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,13 +74,15 @@ namespace DeepInfra
             string modelName,
             string task,
             string? planId,
-            bool? @private)
+            bool? @private,
+            string? contract)
         {
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Task = task ?? throw new global::System.ArgumentNullException(nameof(task));
             this.PlanId = planId;
             this.Private = @private;
+            this.Contract = contract;
         }
 
         /// <summary>
@@ -80,5 +91,6 @@ namespace DeepInfra
         public ModelMeta()
         {
         }
+
     }
 }

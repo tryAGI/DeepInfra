@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SchemaVariant
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter))]
@@ -17,7 +17,7 @@ namespace DeepInfra
         public required global::DeepInfra.SchemaVariantKey Key { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -51,5 +51,6 @@ namespace DeepInfra
         public SchemaVariant()
         {
         }
+
     }
 }

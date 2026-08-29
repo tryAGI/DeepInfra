@@ -4,232 +4,232 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ModelDocBlockKey
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AiSdkJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AiSdkJsShort,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateVoiceHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateVoiceJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateVoicePython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deepctl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteVoiceHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteVoiceJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteVoicePython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenlabsTtsHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenlabsTtsJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenlabsTtsPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Http,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HttpBagelMultimodal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HttpBgeM3Multimodal,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsEmb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsSpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsTextGen,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsTextToImg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListVoicesHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListVoicesJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListVoicesPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompJsShort,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompPythonShort,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiEmbHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiEmbJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiEmbPy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesEditsHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesEditsJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesEditsPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesVariationsHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesVariationsJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesVariationsPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiJsShort,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiPythonShort,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiSpeechHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiSpeechJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiSpeechPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiTtsHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiTtsJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiTtsPython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReadVoiceHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReadVoiceJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReadVoicePython,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateVoiceHttp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateVoiceJs,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateVoicePython,
     }

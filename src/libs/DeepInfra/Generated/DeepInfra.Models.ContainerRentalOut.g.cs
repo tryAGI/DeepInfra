@@ -4,26 +4,26 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ContainerRentalOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ContainerRentalStateOutJsonConverter))]
@@ -31,54 +31,54 @@ namespace DeepInfra
         public required global::DeepInfra.ContainerRentalStateOut State { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_ts")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StartTs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state_ts")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StateTs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop_ts")]
         public int? StopTs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ip")]
         public string? Ip { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string GpuConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price_per_hour")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double PricePerHour { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_image")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ContainerImage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fail_reason")]
         public string? FailReason { get; set; }
@@ -138,5 +138,6 @@ namespace DeepInfra
         public ContainerRentalOut()
         {
         }
+
     }
 }

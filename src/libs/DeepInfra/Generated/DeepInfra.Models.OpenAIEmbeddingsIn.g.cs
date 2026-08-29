@@ -4,15 +4,22 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIEmbeddingsIn
     {
         /// <summary>
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
         public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fail_fast")]
+        public bool? FailFast { get; set; }
 
         /// <summary>
         /// model name
@@ -22,12 +29,18 @@ namespace DeepInfra
         public required string Model { get; set; }
 
         /// <summary>
-        /// sequences to embed
+        /// text or multimodal content to embed. Each item is either a string, or a list of content parts ({"type":"text"} / {"type":"image_url"}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<string>, string>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> Input { get; set; }
+        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>> Input { get; set; }
+
+        /// <summary>
+        /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_type")]
+        public global::DeepInfra.OpenAIEmbeddingsInInputType2? InputType { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>
@@ -56,10 +69,17 @@ namespace DeepInfra
         /// model name
         /// </param>
         /// <param name="input">
-        /// sequences to embed
+        /// text or multimodal content to embed. Each item is either a string, or a list of content parts ({"type":"text"} / {"type":"image_url"}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.
         /// </param>
         /// <param name="serviceTier">
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </param>
+        /// <param name="failFast">
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="inputType">
+        /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
@@ -73,14 +93,18 @@ namespace DeepInfra
 #endif
         public OpenAIEmbeddingsIn(
             string model,
-            global::DeepInfra.AnyOf<global::System.Collections.Generic.IList<string>, string> input,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>> input,
             global::DeepInfra.ServiceTier? serviceTier,
+            bool? failFast,
+            global::DeepInfra.OpenAIEmbeddingsInInputType2? inputType,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
             int? dimensions)
         {
             this.ServiceTier = serviceTier;
+            this.FailFast = failFast;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;
+            this.InputType = inputType;
             this.EncodingFormat = encodingFormat;
             this.Dimensions = dimensions;
         }
@@ -91,5 +115,6 @@ namespace DeepInfra
         public OpenAIEmbeddingsIn()
         {
         }
+
     }
 }

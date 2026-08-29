@@ -4,32 +4,32 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyOpenaiImagesVariationsV1ImagesVariationsPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] Image { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("imagename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Imagename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inp")]
         public global::DeepInfra.OpenAIImagesVariationsIn? Inp { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -69,5 +69,6 @@ namespace DeepInfra
         public BodyOpenaiImagesVariationsV1ImagesVariationsPost()
         {
         }
+
     }
 }

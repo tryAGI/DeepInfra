@@ -4,16 +4,16 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum HardwareOptionType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dedicated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Serverless,
     }

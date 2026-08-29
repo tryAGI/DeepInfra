@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetVoicesOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
         public global::System.Collections.Generic.IList<global::DeepInfra.Voice>? Voices { get; set; }
@@ -39,5 +39,6 @@ namespace DeepInfra
         public GetVoicesOut()
         {
         }
+
     }
 }

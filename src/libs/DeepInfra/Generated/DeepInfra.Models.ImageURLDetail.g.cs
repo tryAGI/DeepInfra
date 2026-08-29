@@ -9,15 +9,15 @@ namespace DeepInfra
     public enum ImageURLDetail
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
     }

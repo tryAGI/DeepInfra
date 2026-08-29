@@ -4,28 +4,28 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Srt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VerboseJson,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Vtt,
     }

@@ -10,11 +10,11 @@ namespace DeepInfra
     public enum OpenAIEmbeddingsInEncodingFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Float,
     }

@@ -4,40 +4,40 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiTokenVercelExportIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id_or_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectIdOrName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_sensitive")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsSensitive { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_development")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EnvDevelopment { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_preview")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EnvPreview { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("env_production")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -80,5 +80,6 @@ namespace DeepInfra
         public ApiTokenVercelExportIn()
         {
         }
+
     }
 }

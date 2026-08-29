@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIImagesEditsIn
     {
@@ -150,5 +150,6 @@ namespace DeepInfra
         public OpenAIImagesEditsIn()
         {
         }
+
     }
 }

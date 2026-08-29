@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeployLLMIn
     {
@@ -16,7 +16,7 @@ namespace DeepInfra
         public required string ModelName { get; set; }
 
         /// <summary>
-        /// The type of GPU the deployment is running on
+        /// The type of GPU the deployment is running on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.DeployGPUsJsonConverter))]
@@ -31,14 +31,7 @@ namespace DeepInfra
         public int? NumGpus { get; set; }
 
         /// <summary>
-        /// Maximum number of concurrent requests<br/>
-        /// Default Value: 96
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
-        public int? MaxBatchSize { get; set; }
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf")]
         public global::DeepInfra.HFWeights? Hf { get; set; }
@@ -56,7 +49,7 @@ namespace DeepInfra
         public string? ContainerImage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
         public global::DeepInfra.ScaleSettings? Settings { get; set; }
@@ -66,6 +59,18 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
         public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
+
+        /// <summary>
+        /// Engine tuning knobs. Values are validated on submission; unsupported or out-of-range values are rejected. Unset knobs use the model/engine defaults.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("standard_args")]
+        public global::DeepInfra.StandardArgs? StandardArgs { get; set; }
+
+        /// <summary>
+        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preset_id")]
+        public string? PresetId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -80,15 +85,11 @@ namespace DeepInfra
         /// model name for deepinfra (username/mode-name format)
         /// </param>
         /// <param name="gpu">
-        /// The type of GPU the deployment is running on
+        /// The type of GPU the deployment is running on.
         /// </param>
         /// <param name="numGpus">
         /// Number of GPUs used by one instance<br/>
         /// Default Value: 1
-        /// </param>
-        /// <param name="maxBatchSize">
-        /// Maximum number of concurrent requests<br/>
-        /// Default Value: 96
         /// </param>
         /// <param name="hf"></param>
         /// <param name="baseModel">
@@ -101,6 +102,12 @@ namespace DeepInfra
         /// <param name="extraArgs">
         /// Extra command line arguments for custom deployments
         /// </param>
+        /// <param name="standardArgs">
+        /// Engine tuning knobs. Values are validated on submission; unsupported or out-of-range values are rejected. Unset knobs use the model/engine defaults.
+        /// </param>
+        /// <param name="presetId">
+        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -108,22 +115,24 @@ namespace DeepInfra
             string modelName,
             global::DeepInfra.DeployGPUs gpu,
             int? numGpus,
-            int? maxBatchSize,
             global::DeepInfra.HFWeights? hf,
             string? baseModel,
             string? containerImage,
             global::DeepInfra.ScaleSettings? settings,
-            global::System.Collections.Generic.IList<string>? extraArgs)
+            global::System.Collections.Generic.IList<string>? extraArgs,
+            global::DeepInfra.StandardArgs? standardArgs,
+            string? presetId)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Gpu = gpu;
             this.NumGpus = numGpus;
-            this.MaxBatchSize = maxBatchSize;
             this.Hf = hf;
             this.BaseModel = baseModel;
             this.ContainerImage = containerImage;
             this.Settings = settings;
             this.ExtraArgs = extraArgs;
+            this.StandardArgs = standardArgs;
+            this.PresetId = presetId;
         }
 
         /// <summary>
@@ -132,5 +141,6 @@ namespace DeepInfra
         public DeployLLMIn()
         {
         }
+
     }
 }

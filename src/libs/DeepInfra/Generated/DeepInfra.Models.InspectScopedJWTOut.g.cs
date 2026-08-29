@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class InspectScopedJWTOut
     {
@@ -65,5 +65,6 @@ namespace DeepInfra
         public InspectScopedJWTOut()
         {
         }
+
     }
 }

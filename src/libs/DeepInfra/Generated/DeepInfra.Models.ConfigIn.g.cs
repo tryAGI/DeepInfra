@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ConfigIn
     {
@@ -41,5 +41,6 @@ namespace DeepInfra
         public ConfigIn()
         {
         }
+
     }
 }

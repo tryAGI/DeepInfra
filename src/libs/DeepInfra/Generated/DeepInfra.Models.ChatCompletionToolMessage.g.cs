@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionToolMessage
     {
@@ -30,7 +30,7 @@ namespace DeepInfra
         public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>> Content { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -77,5 +77,6 @@ namespace DeepInfra
         public ChatCompletionToolMessage()
         {
         }
+
     }
 }

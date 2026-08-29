@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiToken
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,20 +24,20 @@ namespace DeepInfra
         public required global::System.DateTimeOffset CreatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
         public string? TokenId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_ips")]
         public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
@@ -81,5 +81,6 @@ namespace DeepInfra
         public ApiToken()
         {
         }
+
     }
 }

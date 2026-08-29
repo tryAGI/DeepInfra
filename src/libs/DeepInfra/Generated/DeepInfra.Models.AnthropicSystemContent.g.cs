@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AnthropicSystemContent
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"text"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "text";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,18 @@ namespace DeepInfra
         public AnthropicSystemContent()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="AnthropicSystemContent"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static AnthropicSystemContent FromText(string text)
+        {
+            return new AnthropicSystemContent
+            {
+                Text = text,
+            };
+        }
+
     }
 }

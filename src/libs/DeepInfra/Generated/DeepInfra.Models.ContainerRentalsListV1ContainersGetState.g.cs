@@ -10,11 +10,11 @@ namespace DeepInfra
     public enum ContainerRentalsListV1ContainersGetState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inactive,
     }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeploymentOut
     {
@@ -90,6 +90,30 @@ namespace DeepInfra
         public global::DeepInfra.ScaleSettings? Settings { get; set; }
 
         /// <summary>
+        /// Current engine tuning knobs
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("standard_args")]
+        public global::DeepInfra.DeploymentOutStandardArgs? StandardArgs { get; set; }
+
+        /// <summary>
+        /// Current extra engine-specific command-line args (custom-weight deploys only)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
+        public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
+
+        /// <summary>
+        /// If the last config update was auto-reverted after an engine crash-loop, the error that caused it (status stays 'running')
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("update_error")]
+        public string? UpdateError { get; set; }
+
+        /// <summary>
+        /// Per-instance rollout progress of the current config
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rollout")]
+        public global::DeepInfra.DeployRollout? Rollout { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -134,6 +158,18 @@ namespace DeepInfra
         /// <param name="settings">
         /// Scale Settings
         /// </param>
+        /// <param name="standardArgs">
+        /// Current engine tuning knobs
+        /// </param>
+        /// <param name="extraArgs">
+        /// Current extra engine-specific command-line args (custom-weight deploys only)
+        /// </param>
+        /// <param name="updateError">
+        /// If the last config update was auto-reverted after an engine crash-loop, the error that caused it (status stays 'running')
+        /// </param>
+        /// <param name="rollout">
+        /// Per-instance rollout progress of the current config
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -149,7 +185,11 @@ namespace DeepInfra
             global::DeepInfra.DeployType? type,
             global::DeepInfra.DeployInstances? instances,
             global::DeepInfra.DeployLLMConfig? config,
-            global::DeepInfra.ScaleSettings? settings)
+            global::DeepInfra.ScaleSettings? settings,
+            global::DeepInfra.DeploymentOutStandardArgs? standardArgs,
+            global::System.Collections.Generic.IList<string>? extraArgs,
+            string? updateError,
+            global::DeepInfra.DeployRollout? rollout)
         {
             this.Type = type;
             this.DeployId = deployId ?? throw new global::System.ArgumentNullException(nameof(deployId));
@@ -163,6 +203,10 @@ namespace DeepInfra
             this.Instances = instances;
             this.Config = config;
             this.Settings = settings;
+            this.StandardArgs = standardArgs;
+            this.ExtraArgs = extraArgs;
+            this.UpdateError = updateError;
+            this.Rollout = rollout;
         }
 
         /// <summary>
@@ -171,5 +215,6 @@ namespace DeepInfra
         public DeploymentOut()
         {
         }
+
     }
 }

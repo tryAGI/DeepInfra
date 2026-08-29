@@ -4,18 +4,22 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.
+    /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions, /v1/embeddings are supported.
     /// </summary>
     public enum OpenAIBatchesInEndpoint
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1ChatCompletions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1Completions,
+        /// <summary>
+        ///
+        /// </summary>
+        V1Embeddings,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace DeepInfra
             {
                 OpenAIBatchesInEndpoint.V1ChatCompletions => "/v1/chat/completions",
                 OpenAIBatchesInEndpoint.V1Completions => "/v1/completions",
+                OpenAIBatchesInEndpoint.V1Embeddings => "/v1/embeddings",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace DeepInfra
             {
                 "/v1/chat/completions" => OpenAIBatchesInEndpoint.V1ChatCompletions,
                 "/v1/completions" => OpenAIBatchesInEndpoint.V1Completions,
+                "/v1/embeddings" => OpenAIBatchesInEndpoint.V1Embeddings,
                 _ => null,
             };
         }

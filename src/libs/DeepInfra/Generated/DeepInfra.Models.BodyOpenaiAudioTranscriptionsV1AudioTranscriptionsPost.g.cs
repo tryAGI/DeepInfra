@@ -4,39 +4,39 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] File { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Filename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
@@ -54,10 +54,16 @@ namespace DeepInfra
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_granularities")]
         public global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? TimestampGranularities { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        public string? ServiceTier { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -80,6 +86,7 @@ namespace DeepInfra
         /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities"></param>
+        /// <param name="serviceTier"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -91,7 +98,8 @@ namespace DeepInfra
             string? prompt,
             global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2? responseFormat,
             double? temperature,
-            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities)
+            global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities,
+            string? serviceTier)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -101,6 +109,7 @@ namespace DeepInfra
             this.ResponseFormat = responseFormat;
             this.Temperature = temperature;
             this.TimestampGranularities = timestampGranularities;
+            this.ServiceTier = serviceTier;
         }
 
         /// <summary>
@@ -109,5 +118,6 @@ namespace DeepInfra
         public BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPost()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WebLiveMetricsOut
     {
@@ -74,5 +74,6 @@ namespace DeepInfra
         public WebLiveMetricsOut()
         {
         }
+
     }
 }

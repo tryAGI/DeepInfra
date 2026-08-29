@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RequestCostResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requests")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -40,5 +40,6 @@ namespace DeepInfra
         public RequestCostResponse()
         {
         }
+
     }
 }

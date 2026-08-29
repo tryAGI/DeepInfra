@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FAQEntryOut
     {
@@ -79,5 +79,6 @@ namespace DeepInfra
         public FAQEntryOut()
         {
         }
+
     }
 }

@@ -4,20 +4,20 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ModelProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cnt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deepinfra,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Huggingface,
     }

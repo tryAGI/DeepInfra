@@ -4,72 +4,72 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SchemaVariantKey
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AiSdk,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreateVoice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteVoice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ElevenlabsTts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ListVoices,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiChatCompletions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiCompletions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiEmbeddings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImages,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesEdits,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiImagesVariations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiSpeechToText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiTts,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReadVoice,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdateVoice,
     }

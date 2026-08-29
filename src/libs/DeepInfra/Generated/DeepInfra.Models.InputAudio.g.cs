@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class InputAudio
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -52,5 +52,6 @@ namespace DeepInfra
         public InputAudio()
         {
         }
+
     }
 }

@@ -4,25 +4,25 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MeVercelConnection2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string UserId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("team_id")]
         public string? TeamId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("installation_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -59,5 +59,6 @@ namespace DeepInfra
         public MeVercelConnection2()
         {
         }
+
     }
 }

@@ -20,7 +20,7 @@ namespace DeepInfra.JsonConverters
                     {
                         return global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2Extensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

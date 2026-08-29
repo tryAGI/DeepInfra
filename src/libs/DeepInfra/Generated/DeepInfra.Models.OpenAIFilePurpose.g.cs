@@ -1,0 +1,57 @@
+
+#nullable enable
+
+namespace DeepInfra
+{
+    /// <summary>
+    ///
+    /// </summary>
+    public enum OpenAIFilePurpose
+    {
+        /// <summary>
+        ///
+        /// </summary>
+        Batch,
+        /// <summary>
+        ///
+        /// </summary>
+        BatchOutput,
+        /// <summary>
+        ///
+        /// </summary>
+        FineTune,
+    }
+
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class OpenAIFilePurposeExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this OpenAIFilePurpose value)
+        {
+            return value switch
+            {
+                OpenAIFilePurpose.Batch => "batch",
+                OpenAIFilePurpose.BatchOutput => "batch_output",
+                OpenAIFilePurpose.FineTune => "fine-tune",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static OpenAIFilePurpose? ToEnum(string value)
+        {
+            return value switch
+            {
+                "batch" => OpenAIFilePurpose.Batch,
+                "batch_output" => OpenAIFilePurpose.BatchOutput,
+                "fine-tune" => OpenAIFilePurpose.FineTune,
+                _ => null,
+            };
+        }
+    }
+}

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class StreamOptions
     {
@@ -56,5 +56,6 @@ namespace DeepInfra
         public StreamOptions()
         {
         }
+
     }
 }

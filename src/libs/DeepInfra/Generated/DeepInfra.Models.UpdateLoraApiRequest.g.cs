@@ -4,18 +4,18 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UpdateLoraApiRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("private")]
         public bool? Private { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -48,5 +48,6 @@ namespace DeepInfra
         public UpdateLoraApiRequest()
         {
         }
+
     }
 }

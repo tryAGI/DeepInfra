@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelFamilyOut
     {
@@ -49,14 +49,14 @@ namespace DeepInfra
         public string? MetaDescription { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured_models")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> FeaturedModels { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pp_sections_out")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -131,5 +131,6 @@ namespace DeepInfra
         public ModelFamilyOut()
         {
         }
+
     }
 }

@@ -4,40 +4,40 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateLoraApiRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BaseModel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string LoraName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::DeepInfra.SourceModel Source { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("private")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Private { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -79,5 +79,6 @@ namespace DeepInfra
         public CreateLoraApiRequest()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeployLLMConfig
     {
@@ -78,5 +78,6 @@ namespace DeepInfra
         public DeployLLMConfig()
         {
         }
+
     }
 }

@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UsageOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("months")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -52,5 +52,6 @@ namespace DeepInfra
         public UsageOut()
         {
         }
+
     }
 }

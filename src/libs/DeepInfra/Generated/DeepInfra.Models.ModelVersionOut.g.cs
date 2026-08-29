@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelVersionOut
     {
@@ -66,5 +66,6 @@ namespace DeepInfra
         public ModelVersionOut()
         {
         }
+
     }
 }

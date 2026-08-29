@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Checklist
     {
@@ -21,10 +21,22 @@ namespace DeepInfra
         public bool? BillingAddress { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("billing_address_info")]
+        public global::DeepInfra.BillingAddressOut? BillingAddressInfo { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payment_method")]
         public bool? PaymentMethod { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("payment_method_info")]
+        public global::DeepInfra.PaymentMethodOut? PaymentMethodInfo { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -59,13 +71,13 @@ namespace DeepInfra
         public required double Recent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
         public double? Limit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suspend_reason")]
         public global::DeepInfra.SuspendReason? SuspendReason { get; set; }
@@ -95,6 +107,18 @@ namespace DeepInfra
         public bool? TopupFailed { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("billing_type")]
+        public string? BillingType { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("intermediate_invoicing_threshold")]
+        public int? IntermediateInvoicingThreshold { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -115,9 +139,11 @@ namespace DeepInfra
         /// <param name="billingAddress">
         /// Default Value: false
         /// </param>
+        /// <param name="billingAddressInfo"></param>
         /// <param name="paymentMethod">
         /// Default Value: false
         /// </param>
+        /// <param name="paymentMethodInfo"></param>
         /// <param name="suspended">
         /// Default Value: false
         /// </param>
@@ -141,6 +167,8 @@ namespace DeepInfra
         /// <param name="topupFailed">
         /// Default Value: false
         /// </param>
+        /// <param name="billingType"></param>
+        /// <param name="intermediateInvoicingThreshold"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -149,7 +177,9 @@ namespace DeepInfra
             double recent,
             bool? email,
             bool? billingAddress,
+            global::DeepInfra.BillingAddressOut? billingAddressInfo,
             bool? paymentMethod,
+            global::DeepInfra.PaymentMethodOut? paymentMethodInfo,
             bool? suspended,
             double? overdueInvoices,
             int? lastChecked,
@@ -158,11 +188,15 @@ namespace DeepInfra
             bool? topup,
             int? topupAmount,
             int? topupThreshold,
-            bool? topupFailed)
+            bool? topupFailed,
+            string? billingType,
+            int? intermediateInvoicingThreshold)
         {
             this.Email = email;
             this.BillingAddress = billingAddress;
+            this.BillingAddressInfo = billingAddressInfo;
             this.PaymentMethod = paymentMethod;
+            this.PaymentMethodInfo = paymentMethodInfo;
             this.Suspended = suspended;
             this.OverdueInvoices = overdueInvoices;
             this.LastChecked = lastChecked;
@@ -174,6 +208,8 @@ namespace DeepInfra
             this.TopupAmount = topupAmount;
             this.TopupThreshold = topupThreshold;
             this.TopupFailed = topupFailed;
+            this.BillingType = billingType;
+            this.IntermediateInvoicingThreshold = intermediateInvoicingThreshold;
         }
 
         /// <summary>
@@ -182,5 +218,6 @@ namespace DeepInfra
         public Checklist()
         {
         }
+
     }
 }

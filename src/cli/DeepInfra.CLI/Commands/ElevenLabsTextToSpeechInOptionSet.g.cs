@@ -31,7 +31,7 @@ internal sealed record ElevenLabsTextToSpeechInOptionSet(
                 },
                 LanguageCode: new Option<string?>($"--{normalizedPrefix}language-code")
                 {
-                    Description = @"ISO 639-1, 2 letter language code",
+                    Description = @"ISO 639-1, 2-letter language code",
                 }
         );
     }

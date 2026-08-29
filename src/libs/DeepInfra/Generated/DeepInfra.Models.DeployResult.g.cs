@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeployResult
     {
@@ -42,5 +42,6 @@ namespace DeepInfra
         public DeployResult()
         {
         }
+
     }
 }

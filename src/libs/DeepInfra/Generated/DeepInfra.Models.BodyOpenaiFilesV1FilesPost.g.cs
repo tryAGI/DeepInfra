@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyOpenaiFilesV1FilesPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Purpose { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace DeepInfra
         public BodyOpenaiFilesV1FilesPost()
         {
         }
+
     }
 }

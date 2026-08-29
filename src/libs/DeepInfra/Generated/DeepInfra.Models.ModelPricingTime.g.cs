@@ -4,10 +4,22 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelPricingTime
     {
+        /// <summary>
+        /// Promotional discount; you are charged price * (1 - discount)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
+        public double? Discount { get; set; }
+
+        /// <summary>
+        /// Unix timestamp (seconds) when the discount ends, null when it has no scheduled end
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount_ends_at")]
+        public int? DiscountEndsAt { get; set; }
+
         /// <summary>
         /// Short description of the pricing, ideal for cards and headers
         /// </summary>
@@ -33,7 +45,7 @@ namespace DeepInfra
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -49,6 +61,12 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ModelPricingTime" /> class.
         /// </summary>
         /// <param name="centsPerSec"></param>
+        /// <param name="discount">
+        /// Promotional discount; you are charged price * (1 - discount)
+        /// </param>
+        /// <param name="discountEndsAt">
+        /// Unix timestamp (seconds) when the discount ends, null when it has no scheduled end
+        /// </param>
         /// <param name="short">
         /// Short description of the pricing, ideal for cards and headers
         /// </param>
@@ -66,11 +84,15 @@ namespace DeepInfra
 #endif
         public ModelPricingTime(
             double centsPerSec,
+            double? discount,
+            int? discountEndsAt,
             string? @short,
             string? full,
             object? table,
             string? type)
         {
+            this.Discount = discount;
+            this.DiscountEndsAt = discountEndsAt;
             this.Short = @short;
             this.Full = full;
             this.Table = table;
@@ -84,5 +106,6 @@ namespace DeepInfra
         public ModelPricingTime()
         {
         }
+
     }
 }

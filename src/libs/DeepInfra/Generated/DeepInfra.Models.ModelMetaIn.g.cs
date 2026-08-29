@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelMetaIn
     {
@@ -45,6 +45,12 @@ namespace DeepInfra
         public string? CoverImgUrl { get; set; }
 
         /// <summary>
+        /// dataurl or regular url to a sample of this model's output, shown on the model page before the first run (empty to delete)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sample_output_url")]
+        public string? SampleOutputUrl { get; set; }
+
+        /// <summary>
         /// model type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
@@ -77,6 +83,9 @@ namespace DeepInfra
         /// <param name="coverImgUrl">
         /// dataurl or regular url to cover image (empty to delete)
         /// </param>
+        /// <param name="sampleOutputUrl">
+        /// dataurl or regular url to a sample of this model's output, shown on the model page before the first run (empty to delete)
+        /// </param>
         /// <param name="reportedType">
         /// model type
         /// </param>
@@ -90,6 +99,7 @@ namespace DeepInfra
             string? licenseUrl,
             string? readme,
             string? coverImgUrl,
+            string? sampleOutputUrl,
             global::DeepInfra.HFTasksE? reportedType)
         {
             this.Description = description;
@@ -98,6 +108,7 @@ namespace DeepInfra
             this.LicenseUrl = licenseUrl;
             this.Readme = readme;
             this.CoverImgUrl = coverImgUrl;
+            this.SampleOutputUrl = sampleOutputUrl;
             this.ReportedType = reportedType;
         }
 
@@ -107,5 +118,6 @@ namespace DeepInfra
         public ModelMetaIn()
         {
         }
+
     }
 }

@@ -4,10 +4,29 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIChatCompletionsIn
     {
+        /// <summary>
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fail_fast")]
+        public bool? FailFast { get; set; }
+
+        /// <summary>
+        /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
+        public global::System.Collections.Generic.IList<string>? Models { get; set; }
+
         /// <summary>
         /// model name
         /// </summary>
@@ -20,7 +39,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> Messages { get; set; }
 
         /// <summary>
         /// whether to stream the output via SSE or return the full response<br/>
@@ -59,7 +78,7 @@ namespace DeepInfra
 
         /// <summary>
         /// The maximum number of tokens to generate in the chat completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller.
+        /// The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -70,6 +89,12 @@ namespace DeepInfra
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
         public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Stop { get; set; }
+
+        /// <summary>
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stop_token_ids")]
+        public global::System.Collections.Generic.IList<int>? StopTokenIds { get; set; }
 
         /// <summary>
         /// number of sequences to return<br/>
@@ -96,14 +121,14 @@ namespace DeepInfra
         /// A list of tools the model may call. Currently, only functions are supported as a tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::DeepInfra.FunctionTool>? Tools { get; set; }
 
         /// <summary>
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_choice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::DeepInfra.ChatTools, object>))]
-        public global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? ToolChoice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>? ToolChoice { get; set; }
 
         /// <summary>
         /// The format of the response. Currently, only json is supported.
@@ -144,7 +169,7 @@ namespace DeepInfra
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
 
         /// <summary>
-        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, minimal, low, medium, high, xhigh, and max. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
         public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? ReasoningEffort { get; set; }
@@ -162,10 +187,28 @@ namespace DeepInfra
         public string? PromptCacheKey { get; set; }
 
         /// <summary>
+        /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_options")]
+        public global::DeepInfra.PromptCacheOptions? PromptCacheOptions { get; set; }
+
+        /// <summary>
         /// Chat template kwargs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_template_kwargs")]
         public object? ChatTemplateKwargs { get; set; }
+
+        /// <summary>
+        /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("continue_final_message")]
+        public bool? ContinueFinalMessage { get; set; }
+
+        /// <summary>
+        /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ignore_eos")]
+        public bool? IgnoreEos { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -181,6 +224,16 @@ namespace DeepInfra
         /// </param>
         /// <param name="messages">
         /// conversation messages: (user,assistant,tool)*,user including one system message anywhere
+        /// </param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </param>
+        /// <param name="failFast">
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="models">
+        /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
         /// </param>
         /// <param name="stream">
         /// whether to stream the output via SSE or return the full response<br/>
@@ -204,10 +257,13 @@ namespace DeepInfra
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate in the chat completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller.
+        /// The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller.
         /// </param>
         /// <param name="stop">
         /// up to 16 sequences where the API will stop generating further tokens
+        /// </param>
+        /// <param name="stopTokenIds">
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
         /// </param>
         /// <param name="n">
         /// number of sequences to return<br/>
@@ -247,7 +303,7 @@ namespace DeepInfra
         /// streaming options
         /// </param>
         /// <param name="reasoningEffort">
-        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+        /// Constrains effort on reasoning for reasoning models. Currently supported values are none, minimal, low, medium, high, xhigh, and max. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </param>
         /// <param name="reasoning">
         /// Reasoning configuration.
@@ -255,15 +311,27 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
+        /// <param name="promptCacheOptions">
+        /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
+        /// </param>
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
+        /// </param>
+        /// <param name="continueFinalMessage">
+        /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
+        /// </param>
+        /// <param name="ignoreEos">
+        /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenAIChatCompletionsIn(
             string model,
-            global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
+            global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
+            global::DeepInfra.ServiceTier? serviceTier,
+            bool? failFast,
+            global::System.Collections.Generic.IList<string>? models,
             bool? stream,
             double? temperature,
             double? topP,
@@ -271,11 +339,12 @@ namespace DeepInfra
             int? topK,
             int? maxTokens,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop,
+            global::System.Collections.Generic.IList<int>? stopTokenIds,
             int? n,
             double? presencePenalty,
             double? frequencyPenalty,
-            global::System.Collections.Generic.IList<global::DeepInfra.ChatTools>? tools,
-            global::DeepInfra.AnyOf<string, global::DeepInfra.ChatTools, object>? toolChoice,
+            global::System.Collections.Generic.IList<global::DeepInfra.FunctionTool>? tools,
+            global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>? toolChoice,
             global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat,
             double? repetitionPenalty,
             string? user,
@@ -285,8 +354,14 @@ namespace DeepInfra
             global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort,
             global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey,
-            object? chatTemplateKwargs)
+            global::DeepInfra.PromptCacheOptions? promptCacheOptions,
+            object? chatTemplateKwargs,
+            bool? continueFinalMessage,
+            bool? ignoreEos)
         {
+            this.ServiceTier = serviceTier;
+            this.FailFast = failFast;
+            this.Models = models;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Stream = stream;
@@ -296,6 +371,7 @@ namespace DeepInfra
             this.TopK = topK;
             this.MaxTokens = maxTokens;
             this.Stop = stop;
+            this.StopTokenIds = stopTokenIds;
             this.N = n;
             this.PresencePenalty = presencePenalty;
             this.FrequencyPenalty = frequencyPenalty;
@@ -310,7 +386,10 @@ namespace DeepInfra
             this.ReasoningEffort = reasoningEffort;
             this.Reasoning = reasoning;
             this.PromptCacheKey = promptCacheKey;
+            this.PromptCacheOptions = promptCacheOptions;
             this.ChatTemplateKwargs = chatTemplateKwargs;
+            this.ContinueFinalMessage = continueFinalMessage;
+            this.IgnoreEos = ignoreEos;
         }
 
         /// <summary>
@@ -319,5 +398,6 @@ namespace DeepInfra
         public OpenAIChatCompletionsIn()
         {
         }
+
     }
 }

@@ -4,32 +4,32 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ContainerRentalStateOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Creating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Running,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShuttingDown,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Starting,
     }

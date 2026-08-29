@@ -4,15 +4,22 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAITextToSpeechIn
     {
         /// <summary>
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
         public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fail_fast")]
+        public bool? FailFast { get; set; }
 
         /// <summary>
         /// model name
@@ -71,7 +78,11 @@ namespace DeepInfra
         /// Text to convert to speech
         /// </param>
         /// <param name="serviceTier">
-        /// The service tier used for processing the request. When set to 'priority', the request will be processed with higher priority (only applies to models that support it).
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </param>
+        /// <param name="failFast">
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="voice">
         /// Preset voices to use for the speech.
@@ -94,12 +105,14 @@ namespace DeepInfra
             string model,
             string input,
             global::DeepInfra.ServiceTier? serviceTier,
+            bool? failFast,
             string? voice,
             global::DeepInfra.TtsResponseFormat? responseFormat,
             double? speed,
             object? extraBody)
         {
             this.ServiceTier = serviceTier;
+            this.FailFast = failFast;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
             this.Voice = voice;
@@ -114,5 +127,6 @@ namespace DeepInfra
         public OpenAITextToSpeechIn()
         {
         }
+
     }
 }

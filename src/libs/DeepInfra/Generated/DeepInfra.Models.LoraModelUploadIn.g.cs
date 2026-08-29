@@ -4,32 +4,32 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LoraModelUploadIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string HfModelName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf_token")]
         public string? HfToken { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string LoraModelName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model_name")]
         public string? BaseModelName { get; set; }
@@ -68,5 +68,6 @@ namespace DeepInfra
         public LoraModelUploadIn()
         {
         }
+
     }
 }

@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PricingPageSectionOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("section_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SectionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ptype")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.PricingTypeJsonConverter))]
@@ -24,14 +24,14 @@ namespace DeepInfra
         public required global::DeepInfra.PricingType Ptype { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Title { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -44,7 +44,7 @@ namespace DeepInfra
         public string? MfDescription { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entries")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -92,5 +92,6 @@ namespace DeepInfra
         public PricingPageSectionOut()
         {
         }
+
     }
 }

@@ -4,40 +4,44 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PricingType
     {
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        FrameUnits,
+        /// <summary>
+        ///
         /// </summary>
         ImageUnits,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InputCharacterLength,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InputLength,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InputTokens,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OutputLength,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Time,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tokens,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uptime,
     }
@@ -54,6 +58,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                PricingType.FrameUnits => "frame_units",
                 PricingType.ImageUnits => "image_units",
                 PricingType.InputCharacterLength => "input_character_length",
                 PricingType.InputLength => "input_length",
@@ -72,6 +77,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                "frame_units" => PricingType.FrameUnits,
                 "image_units" => PricingType.ImageUnits,
                 "input_character_length" => PricingType.InputCharacterLength,
                 "input_length" => PricingType.InputLength,

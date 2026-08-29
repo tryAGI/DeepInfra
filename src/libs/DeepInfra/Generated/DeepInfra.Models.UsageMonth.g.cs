@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UsageMonth
     {
@@ -23,7 +23,7 @@ namespace DeepInfra
         public required global::DeepInfra.TimeInterval Interval { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -89,5 +89,6 @@ namespace DeepInfra
         public UsageMonth()
         {
         }
+
     }
 }

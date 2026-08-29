@@ -4,26 +4,26 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyCreateVoiceV1VoicesAddPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -60,5 +60,6 @@ namespace DeepInfra
         public BodyCreateVoiceV1VoicesAddPost()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class JsonObjectResponseFormat
     {
@@ -41,5 +41,6 @@ namespace DeepInfra
         public JsonObjectResponseFormat()
         {
         }
+
     }
 }

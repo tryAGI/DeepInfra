@@ -4,80 +4,112 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum HFTasksE
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutomaticSpeechRecognition,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        BareMetal,
+        /// <summary>
+        ///
+        /// </summary>
+        Cluster,
+        /// <summary>
+        ///
+        /// </summary>
+        Commitment,
+        /// <summary>
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dreambooth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Embeddings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FillMask,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Hermes,
+        /// <summary>
+        ///
         /// </summary>
         ImageClassification,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ObjectDetection,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Openclaw,
+        /// <summary>
+        ///
         /// </summary>
         QuestionAnswering,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RentContainer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reranker,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Sandbox,
+        /// <summary>
+        ///
         /// </summary>
         TextClassification,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToImage,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        TextToMusic,
+        /// <summary>
+        ///
         /// </summary>
         TextToSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextToVideo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text2textGeneration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TokenClassification,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        WorldModel,
+        /// <summary>
+        ///
         /// </summary>
         ZeroShotImageClassification,
     }
@@ -95,22 +127,30 @@ namespace DeepInfra
             return value switch
             {
                 HFTasksE.AutomaticSpeechRecognition => "automatic-speech-recognition",
+                HFTasksE.BareMetal => "bare-metal",
+                HFTasksE.Cluster => "cluster",
+                HFTasksE.Commitment => "commitment",
                 HFTasksE.Custom => "custom",
                 HFTasksE.Dreambooth => "dreambooth",
                 HFTasksE.Embeddings => "embeddings",
                 HFTasksE.FillMask => "fill-mask",
+                HFTasksE.Hermes => "hermes",
                 HFTasksE.ImageClassification => "image-classification",
                 HFTasksE.ObjectDetection => "object-detection",
+                HFTasksE.Openclaw => "openclaw",
                 HFTasksE.QuestionAnswering => "question-answering",
                 HFTasksE.RentContainer => "rent-container",
                 HFTasksE.Reranker => "reranker",
+                HFTasksE.Sandbox => "sandbox",
                 HFTasksE.TextClassification => "text-classification",
                 HFTasksE.TextGeneration => "text-generation",
                 HFTasksE.TextToImage => "text-to-image",
+                HFTasksE.TextToMusic => "text-to-music",
                 HFTasksE.TextToSpeech => "text-to-speech",
                 HFTasksE.TextToVideo => "text-to-video",
                 HFTasksE.Text2textGeneration => "text2text-generation",
                 HFTasksE.TokenClassification => "token-classification",
+                HFTasksE.WorldModel => "world-model",
                 HFTasksE.ZeroShotImageClassification => "zero-shot-image-classification",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -123,22 +163,30 @@ namespace DeepInfra
             return value switch
             {
                 "automatic-speech-recognition" => HFTasksE.AutomaticSpeechRecognition,
+                "bare-metal" => HFTasksE.BareMetal,
+                "cluster" => HFTasksE.Cluster,
+                "commitment" => HFTasksE.Commitment,
                 "custom" => HFTasksE.Custom,
                 "dreambooth" => HFTasksE.Dreambooth,
                 "embeddings" => HFTasksE.Embeddings,
                 "fill-mask" => HFTasksE.FillMask,
+                "hermes" => HFTasksE.Hermes,
                 "image-classification" => HFTasksE.ImageClassification,
                 "object-detection" => HFTasksE.ObjectDetection,
+                "openclaw" => HFTasksE.Openclaw,
                 "question-answering" => HFTasksE.QuestionAnswering,
                 "rent-container" => HFTasksE.RentContainer,
                 "reranker" => HFTasksE.Reranker,
+                "sandbox" => HFTasksE.Sandbox,
                 "text-classification" => HFTasksE.TextClassification,
                 "text-generation" => HFTasksE.TextGeneration,
                 "text-to-image" => HFTasksE.TextToImage,
+                "text-to-music" => HFTasksE.TextToMusic,
                 "text-to-speech" => HFTasksE.TextToSpeech,
                 "text-to-video" => HFTasksE.TextToVideo,
                 "text2text-generation" => HFTasksE.Text2textGeneration,
                 "token-classification" => HFTasksE.TokenClassification,
+                "world-model" => HFTasksE.WorldModel,
                 "zero-shot-image-classification" => HFTasksE.ZeroShotImageClassification,
                 _ => null,
             };

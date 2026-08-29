@@ -4,16 +4,16 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Segment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

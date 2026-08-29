@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIBatchesIn
     {
@@ -16,7 +16,7 @@ namespace DeepInfra
         public required string InputFileId { get; set; }
 
         /// <summary>
-        /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.
+        /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions, /v1/embeddings are supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.OpenAIBatchesInEndpointJsonConverter))]
@@ -34,7 +34,13 @@ namespace DeepInfra
         /// Optional metadata to be stored with the batch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+
+        /// <summary>
+        /// The expiration policy for the output and/or error file generated for the batch.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_expires_after")]
+        public global::DeepInfra.BatchOutputExpiresAfter? OutputExpiresAfter { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -49,10 +55,13 @@ namespace DeepInfra
         /// The ID of an uploaded file that contains requests for the new batch.
         /// </param>
         /// <param name="endpoint">
-        /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions are supported.
+        /// The endpoint to be used for all requests in the batch. Currently /v1/chat/completions, /v1/completions, /v1/embeddings are supported.
         /// </param>
         /// <param name="metadata">
         /// Optional metadata to be stored with the batch.
+        /// </param>
+        /// <param name="outputExpiresAfter">
+        /// The expiration policy for the output and/or error file generated for the batch.
         /// </param>
         /// <param name="completionWindow">
         /// The time frame within which the batch should be processed. Currently only 24h is supported.
@@ -63,13 +72,15 @@ namespace DeepInfra
         public OpenAIBatchesIn(
             string inputFileId,
             global::DeepInfra.OpenAIBatchesInEndpoint endpoint,
-            object? metadata,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata,
+            global::DeepInfra.BatchOutputExpiresAfter? outputExpiresAfter,
             string completionWindow = "24h")
         {
             this.InputFileId = inputFileId ?? throw new global::System.ArgumentNullException(nameof(inputFileId));
             this.Endpoint = endpoint;
             this.CompletionWindow = completionWindow;
             this.Metadata = metadata;
+            this.OutputExpiresAfter = outputExpiresAfter;
         }
 
         /// <summary>
@@ -78,5 +89,6 @@ namespace DeepInfra
         public OpenAIBatchesIn()
         {
         }
+
     }
 }

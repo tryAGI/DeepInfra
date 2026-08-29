@@ -4,44 +4,44 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DeployGPUs
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         A10080gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B200180gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B300270gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H10080gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H200141gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         L424gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         L40s48gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rtxpro600096gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
     }

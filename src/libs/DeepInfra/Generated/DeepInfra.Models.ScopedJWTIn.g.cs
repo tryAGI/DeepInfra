@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ScopedJWTIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -84,5 +84,6 @@ namespace DeepInfra
         public ScopedJWTIn()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIModelsOut
     {
@@ -15,7 +15,7 @@ namespace DeepInfra
         public string? Object { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::System.Collections.Generic.IList<global::DeepInfra.OpenAIModelOut>? Data { get; set; }
@@ -50,5 +50,6 @@ namespace DeepInfra
         public OpenAIModelsOut()
         {
         }
+
     }
 }

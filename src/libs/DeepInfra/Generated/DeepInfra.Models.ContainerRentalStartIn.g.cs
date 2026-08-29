@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ContainerRentalStartIn
     {
@@ -78,5 +78,6 @@ namespace DeepInfra
         public ContainerRentalStartIn()
         {
         }
+
     }
 }

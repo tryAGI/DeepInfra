@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HTTPValidationError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("detail")]
         public global::System.Collections.Generic.IList<global::DeepInfra.ValidationError>? Detail { get; set; }
@@ -39,5 +39,6 @@ namespace DeepInfra
         public HTTPValidationError()
         {
         }
+
     }
 }

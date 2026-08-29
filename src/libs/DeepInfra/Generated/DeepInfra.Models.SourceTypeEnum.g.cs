@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SourceTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Civitai,
     }

@@ -4,10 +4,22 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelPricingImageUnits
     {
+        /// <summary>
+        /// Promotional discount; you are charged price * (1 - discount)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
+        public double? Discount { get; set; }
+
+        /// <summary>
+        /// Unix timestamp (seconds) when the discount ends, null when it has no scheduled end
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount_ends_at")]
+        public int? DiscountEndsAt { get; set; }
+
         /// <summary>
         /// Short description of the pricing, ideal for cards and headers
         /// </summary>
@@ -33,41 +45,41 @@ namespace DeepInfra
         public string? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_image_unit")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CentsPerImageUnit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_width")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int DefaultWidth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_height")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int DefaultHeight { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_iterations")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int DefaultIterations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_price_cents")]
         public double? DefaultPriceCents { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage_from_cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -87,6 +99,12 @@ namespace DeepInfra
         /// <param name="defaultHeight"></param>
         /// <param name="defaultIterations"></param>
         /// <param name="usageFromCost"></param>
+        /// <param name="discount">
+        /// Promotional discount; you are charged price * (1 - discount)
+        /// </param>
+        /// <param name="discountEndsAt">
+        /// Unix timestamp (seconds) when the discount ends, null when it has no scheduled end
+        /// </param>
         /// <param name="short">
         /// Short description of the pricing, ideal for cards and headers
         /// </param>
@@ -109,12 +127,16 @@ namespace DeepInfra
             int defaultHeight,
             int defaultIterations,
             bool usageFromCost,
+            double? discount,
+            int? discountEndsAt,
             string? @short,
             string? full,
             object? table,
             string? type,
             double? defaultPriceCents)
         {
+            this.Discount = discount;
+            this.DiscountEndsAt = discountEndsAt;
             this.Short = @short;
             this.Full = full;
             this.Table = table;
@@ -133,5 +155,6 @@ namespace DeepInfra
         public ModelPricingImageUnits()
         {
         }
+
     }
 }

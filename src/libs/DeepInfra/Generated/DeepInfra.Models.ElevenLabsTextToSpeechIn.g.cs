@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ElevenLabsTextToSpeechIn
     {
@@ -31,7 +31,7 @@ namespace DeepInfra
         public global::DeepInfra.TtsResponseFormat? OutputFormat { get; set; }
 
         /// <summary>
-        /// ISO 639-1, 2 letter language code
+        /// ISO 639-1, 2-letter language code
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_code")]
         public string? LanguageCode { get; set; }
@@ -57,7 +57,7 @@ namespace DeepInfra
         /// Default Value: wav
         /// </param>
         /// <param name="languageCode">
-        /// ISO 639-1, 2 letter language code
+        /// ISO 639-1, 2-letter language code
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -80,5 +80,6 @@ namespace DeepInfra
         public ElevenLabsTextToSpeechIn()
         {
         }
+
     }
 }

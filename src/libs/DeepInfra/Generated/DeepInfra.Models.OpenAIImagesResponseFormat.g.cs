@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OpenAIImagesResponseFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B64Json,
     }

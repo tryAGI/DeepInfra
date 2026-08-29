@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatReasoningSettings
     {
         /// <summary>
-        /// Constrains effort on reasoning for reasoning models.
+        /// Constrains effort on reasoning for reasoning models. Set to none to disable reasoning entirely if the model supports it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("effort")]
         public global::DeepInfra.ChatReasoningSettingsEffort2? Effort { get; set; }
@@ -30,7 +30,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ChatReasoningSettings" /> class.
         /// </summary>
         /// <param name="effort">
-        /// Constrains effort on reasoning for reasoning models.
+        /// Constrains effort on reasoning for reasoning models. Set to none to disable reasoning entirely if the model supports it.
         /// </param>
         /// <param name="enabled">
         /// Enable or disable reasoning with default parameters.
@@ -52,5 +52,6 @@ namespace DeepInfra
         public ChatReasoningSettings()
         {
         }
+
     }
 }

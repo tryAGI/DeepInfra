@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HFWeights
     {
@@ -64,5 +64,6 @@ namespace DeepInfra
         public HFWeights()
         {
         }
+
     }
 }

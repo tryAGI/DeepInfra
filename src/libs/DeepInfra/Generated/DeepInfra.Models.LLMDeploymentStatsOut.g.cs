@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LLMDeploymentStatsOut
     {
@@ -138,5 +138,6 @@ namespace DeepInfra
         public LLMDeploymentStatsOut()
         {
         }
+
     }
 }

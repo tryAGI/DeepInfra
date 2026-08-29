@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAIModelOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,34 +22,34 @@ namespace DeepInfra
         public string? Object { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Created { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("owned_by")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string OwnedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("root")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Root { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent")]
         public object? Parent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::DeepInfra.ModelMetadata? Metadata { get; set; }
@@ -99,5 +99,6 @@ namespace DeepInfra
         public OpenAIModelOut()
         {
         }
+
     }
 }

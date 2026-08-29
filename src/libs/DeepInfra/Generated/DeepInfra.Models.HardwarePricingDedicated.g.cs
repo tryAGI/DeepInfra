@@ -4,12 +4,12 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HardwarePricingDedicated
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -40,5 +40,6 @@ namespace DeepInfra
         public HardwarePricingDedicated()
         {
         }
+
     }
 }

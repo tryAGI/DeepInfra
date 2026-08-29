@@ -4,26 +4,38 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OpenAIChatCompletionsInReasoningEffort2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         High,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Low,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Max,
+        /// <summary>
+        ///
         /// </summary>
         Medium,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Minimal,
+        /// <summary>
+        ///
         /// </summary>
         None,
+        /// <summary>
+        ///
+        /// </summary>
+        Xhigh,
     }
 
     /// <summary>
@@ -40,8 +52,11 @@ namespace DeepInfra
             {
                 OpenAIChatCompletionsInReasoningEffort2.High => "high",
                 OpenAIChatCompletionsInReasoningEffort2.Low => "low",
+                OpenAIChatCompletionsInReasoningEffort2.Max => "max",
                 OpenAIChatCompletionsInReasoningEffort2.Medium => "medium",
+                OpenAIChatCompletionsInReasoningEffort2.Minimal => "minimal",
                 OpenAIChatCompletionsInReasoningEffort2.None => "none",
+                OpenAIChatCompletionsInReasoningEffort2.Xhigh => "xhigh",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -54,8 +69,11 @@ namespace DeepInfra
             {
                 "high" => OpenAIChatCompletionsInReasoningEffort2.High,
                 "low" => OpenAIChatCompletionsInReasoningEffort2.Low,
+                "max" => OpenAIChatCompletionsInReasoningEffort2.Max,
                 "medium" => OpenAIChatCompletionsInReasoningEffort2.Medium,
+                "minimal" => OpenAIChatCompletionsInReasoningEffort2.Minimal,
                 "none" => OpenAIChatCompletionsInReasoningEffort2.None,
+                "xhigh" => OpenAIChatCompletionsInReasoningEffort2.Xhigh,
                 _ => null,
             };
         }

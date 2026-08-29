@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionContentPartAudio
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <default>"input_audio"</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         public string Type { get; set; } = "input_audio";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,18 @@ namespace DeepInfra
         public ChatCompletionContentPartAudio()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ChatCompletionContentPartAudio"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ChatCompletionContentPartAudio FromInputAudio(global::DeepInfra.InputAudio inputAudio)
+        {
+            return new ChatCompletionContentPartAudio
+            {
+                InputAudio = inputAudio,
+            };
+        }
+
     }
 }

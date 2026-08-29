@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Constrains effort on reasoning for reasoning models.
+    /// Constrains effort on reasoning for reasoning models. Set to none to disable reasoning entirely if the model supports it.
     /// </summary>
     public sealed partial class ChatReasoningSettingsEffort
     {
@@ -14,5 +14,6 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
     }
 }

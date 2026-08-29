@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SshKeyOut
     {
@@ -30,7 +30,7 @@ namespace DeepInfra
         public required string Key { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public int? CreatedAt { get; set; }
@@ -75,5 +75,6 @@ namespace DeepInfra
         public SshKeyOut()
         {
         }
+
     }
 }

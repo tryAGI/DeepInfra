@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelOut
     {
@@ -51,9 +51,9 @@ namespace DeepInfra
         /// The pricing type and cost for this model
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; }
+        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits> Pricing { get; set; }
 
         /// <summary>
         /// The maximum context size of this model, if applicable
@@ -62,34 +62,40 @@ namespace DeepInfra
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("replaced_by")]
         public string? ReplacedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
         public int? Deprecated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
         public string? Quantization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mmlu")]
         public double? Mmlu { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected")]
         public string? Expected { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("create_ts")]
+        public string? CreateTs { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -141,6 +147,7 @@ namespace DeepInfra
         /// <param name="quantization"></param>
         /// <param name="mmlu"></param>
         /// <param name="expected"></param>
+        /// <param name="createTs"></param>
         /// <param name="private">
         /// Default Value: 0
         /// </param>
@@ -154,7 +161,7 @@ namespace DeepInfra
             string modelName,
             string type,
             string reportedType,
-            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> pricing,
+            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits> pricing,
             string? description,
             string? coverImgUrl,
             global::System.Collections.Generic.IList<string>? tags,
@@ -164,6 +171,7 @@ namespace DeepInfra
             string? quantization,
             double? mmlu,
             string? expected,
+            string? createTs,
             int? @private,
             bool? isPartner)
         {
@@ -180,6 +188,7 @@ namespace DeepInfra
             this.Quantization = quantization;
             this.Mmlu = mmlu;
             this.Expected = expected;
+            this.CreateTs = createTs;
             this.Private = @private;
             this.IsPartner = isPartner;
         }
@@ -190,5 +199,6 @@ namespace DeepInfra
         public ModelOut()
         {
         }
+
     }
 }

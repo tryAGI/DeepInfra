@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ScaleSettings
     {
@@ -56,5 +56,6 @@ namespace DeepInfra
         public ScaleSettings()
         {
         }
+
     }
 }

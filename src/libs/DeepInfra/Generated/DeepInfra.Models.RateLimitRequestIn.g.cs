@@ -4,25 +4,25 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RateLimitRequestIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate_limit")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RateLimit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tpm_rate_limit")]
         public int? TpmRateLimit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -59,5 +59,6 @@ namespace DeepInfra
         public RateLimitRequestIn()
         {
         }
+
     }
 }

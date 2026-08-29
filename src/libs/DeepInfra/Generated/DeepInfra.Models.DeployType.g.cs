@@ -4,24 +4,24 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DeployType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Legacy,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Llm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lora,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tts,
     }

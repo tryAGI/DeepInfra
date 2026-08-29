@@ -5,7 +5,8 @@ using System.CommandLine;
 namespace DeepInfra.CLI.Commands;
 
 internal sealed record AnthropicThinkingConfigOptionSet(
-    Option<bool?> Enabled)
+    Option<int?> BudgetTokens,
+                     Option<bool?> Enabled)
 {
     public static AnthropicThinkingConfigOptionSet Create(string? prefix = null)
     {
@@ -13,7 +14,11 @@ internal sealed record AnthropicThinkingConfigOptionSet(
             ? string.Empty
             : prefix.Trim().Trim('-') + "-";
         return new AnthropicThinkingConfigOptionSet(
-                        Enabled: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}enabled", description: @"")
+                        BudgetTokens: new Option<int?>($"--{normalizedPrefix}budget-tokens")
+                {
+                    Description = @"",
+                },
+                Enabled: CliRuntime.CreateNullableBoolOption(name: $"--{normalizedPrefix}enabled", description: @"")
         );
     }
 }

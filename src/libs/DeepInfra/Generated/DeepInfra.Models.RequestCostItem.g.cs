@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RequestCostItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requestId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string RequestId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("costNanoUsd")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace DeepInfra
         public RequestCostItem()
         {
         }
+
     }
 }

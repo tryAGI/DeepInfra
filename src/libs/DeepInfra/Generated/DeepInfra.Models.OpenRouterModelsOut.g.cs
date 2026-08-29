@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenRouterModelsOut
     {
@@ -13,7 +13,7 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterModelData> Data { get; set; }
+        public required global::System.Collections.Generic.IList<object> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +31,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OpenRouterModelsOut(
-            global::System.Collections.Generic.IList<global::DeepInfra.OpenRouterModelData> data)
+            global::System.Collections.Generic.IList<object> data)
         {
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
@@ -42,5 +42,6 @@ namespace DeepInfra
         public OpenRouterModelsOut()
         {
         }
+
     }
 }

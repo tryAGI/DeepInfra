@@ -4,39 +4,39 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyOpenaiImagesEditsV1ImagesEditsPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] Image { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("imagename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Imagename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inp")]
         public global::DeepInfra.OpenAIImagesEditsIn? Inp { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Prompt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -79,5 +79,6 @@ namespace DeepInfra
         public BodyOpenaiImagesEditsV1ImagesEditsPost()
         {
         }
+
     }
 }

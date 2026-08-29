@@ -4,32 +4,32 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Me
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("uid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Uid { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email_verified")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool EmailVerified { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("account_setup")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -56,17 +56,31 @@ namespace DeepInfra
         public required string Provider { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("picture")]
         public string? Picture { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_admin")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// Whether the user may use the hosted-agents feature (admins, plus the AGENTS_ACCESS_UIDS allowlist)<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_access_agents")]
+        public bool? CanAccessAgents { get; set; }
+
+        /// <summary>
+        /// Whether the user may use the sandboxes feature (available to all users)<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_access_sandboxes")]
+        public bool? CanAccessSandboxes { get; set; }
 
         /// <summary>
         /// Personal name
@@ -97,7 +111,7 @@ namespace DeepInfra
         public required string Country { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_business_account")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -137,13 +151,13 @@ namespace DeepInfra
         public bool? IsTeamOwner { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("team_role")]
         public string? TeamRole { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("team_display_name")]
         public string? TeamDisplayName { get; set; }
@@ -155,13 +169,27 @@ namespace DeepInfra
         public bool? IsTeamUpgradeEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vercel_connection")]
         public global::DeepInfra.MeVercelConnection2? VercelConnection { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether a Google account is linked<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("google_linked")]
+        public bool? GoogleLinked { get; set; }
+
+        /// <summary>
+        /// Frontend should route the user into the post-signup account-details form<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("show_signup_form")]
+        public bool? ShowSignupForm { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("checklist")]
         public global::DeepInfra.Checklist? Checklist { get; set; }
@@ -212,6 +240,14 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="picture"></param>
+        /// <param name="canAccessAgents">
+        /// Whether the user may use the hosted-agents feature (admins, plus the AGENTS_ACCESS_UIDS allowlist)<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="canAccessSandboxes">
+        /// Whether the user may use the sandboxes feature (available to all users)<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="isTeamAccount">
         /// Default Value: false
         /// </param>
@@ -224,6 +260,14 @@ namespace DeepInfra
         /// Default Value: true
         /// </param>
         /// <param name="vercelConnection"></param>
+        /// <param name="googleLinked">
+        /// Whether a Google account is linked<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="showSignupForm">
+        /// Frontend should route the user into the post-signup account-details form<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="checklist"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -246,12 +290,16 @@ namespace DeepInfra
             string? email,
             bool? requireEmailVerified,
             string? picture,
+            bool? canAccessAgents,
+            bool? canAccessSandboxes,
             bool? isTeamAccount,
             bool? isTeamOwner,
             string? teamRole,
             string? teamDisplayName,
             bool? isTeamUpgradeEnabled,
             global::DeepInfra.MeVercelConnection2? vercelConnection,
+            bool? googleLinked,
+            bool? showSignupForm,
             global::DeepInfra.Checklist? checklist)
         {
             this.Uid = uid ?? throw new global::System.ArgumentNullException(nameof(uid));
@@ -263,6 +311,8 @@ namespace DeepInfra
             this.Provider = provider ?? throw new global::System.ArgumentNullException(nameof(provider));
             this.Picture = picture;
             this.IsAdmin = isAdmin;
+            this.CanAccessAgents = canAccessAgents;
+            this.CanAccessSandboxes = canAccessSandboxes;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.FirstName = firstName ?? throw new global::System.ArgumentNullException(nameof(firstName));
             this.LastName = lastName ?? throw new global::System.ArgumentNullException(nameof(lastName));
@@ -277,6 +327,8 @@ namespace DeepInfra
             this.TeamDisplayName = teamDisplayName;
             this.IsTeamUpgradeEnabled = isTeamUpgradeEnabled;
             this.VercelConnection = vercelConnection;
+            this.GoogleLinked = googleLinked;
+            this.ShowSignupForm = showSignupForm;
             this.Checklist = checklist;
         }
 
@@ -286,5 +338,6 @@ namespace DeepInfra
         public Me()
         {
         }
+
     }
 }

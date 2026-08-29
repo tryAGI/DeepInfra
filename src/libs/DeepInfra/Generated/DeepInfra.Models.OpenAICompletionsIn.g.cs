@@ -4,10 +4,29 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OpenAICompletionsIn
     {
+        /// <summary>
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        public global::DeepInfra.ServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fail_fast")]
+        public bool? FailFast { get; set; }
+
+        /// <summary>
+        /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
+        public global::System.Collections.Generic.IList<string>? Models { get; set; }
+
         /// <summary>
         /// model name
         /// </summary>
@@ -25,7 +44,7 @@ namespace DeepInfra
 
         /// <summary>
         /// The maximum number of tokens to generate in the completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller.
+        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -138,7 +157,7 @@ namespace DeepInfra
         public global::DeepInfra.StreamOptions? StreamOptions { get; set; }
 
         /// <summary>
-        /// List of token IDs that will stop generation when encountered
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop_token_ids")]
         public global::System.Collections.Generic.IList<int>? StopTokenIds { get; set; }
@@ -156,10 +175,22 @@ namespace DeepInfra
         public string? PromptCacheKey { get; set; }
 
         /// <summary>
+        /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_options")]
+        public global::DeepInfra.PromptCacheOptions? PromptCacheOptions { get; set; }
+
+        /// <summary>
         /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::DeepInfra.CompletionMultiModalData? Data { get; set; }
+
+        /// <summary>
+        /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ignore_eos")]
+        public bool? IgnoreEos { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -176,9 +207,19 @@ namespace DeepInfra
         /// <param name="prompt">
         /// input prompt - a single string is currently supported
         /// </param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </param>
+        /// <param name="failFast">
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="models">
+        /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
+        /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate in the completion.<br/>
-        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 16384, whichever is smaller.
+        /// The total length of input tokens and generated tokens is limited by the model's context length.If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller.
         /// </param>
         /// <param name="temperature">
         /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic<br/>
@@ -238,7 +279,7 @@ namespace DeepInfra
         /// streaming options
         /// </param>
         /// <param name="stopTokenIds">
-        /// List of token IDs that will stop generation when encountered
+        /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
         /// </param>
         /// <param name="returnTokensAsTokenIds">
         /// return tokens as token ids
@@ -246,8 +287,14 @@ namespace DeepInfra
         /// <param name="promptCacheKey">
         /// A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.
         /// </param>
+        /// <param name="promptCacheOptions">
+        /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
+        /// </param>
         /// <param name="data">
         /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
+        /// </param>
+        /// <param name="ignoreEos">
+        /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -255,6 +302,9 @@ namespace DeepInfra
         public OpenAICompletionsIn(
             string model,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> prompt,
+            global::DeepInfra.ServiceTier? serviceTier,
+            bool? failFast,
+            global::System.Collections.Generic.IList<string>? models,
             int? maxTokens,
             double? temperature,
             double? topP,
@@ -275,8 +325,13 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<int>? stopTokenIds,
             bool? returnTokensAsTokenIds,
             string? promptCacheKey,
-            global::DeepInfra.CompletionMultiModalData? data)
+            global::DeepInfra.PromptCacheOptions? promptCacheOptions,
+            global::DeepInfra.CompletionMultiModalData? data,
+            bool? ignoreEos)
         {
+            this.ServiceTier = serviceTier;
+            this.FailFast = failFast;
+            this.Models = models;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Prompt = prompt;
             this.MaxTokens = maxTokens;
@@ -299,7 +354,9 @@ namespace DeepInfra
             this.StopTokenIds = stopTokenIds;
             this.ReturnTokensAsTokenIds = returnTokensAsTokenIds;
             this.PromptCacheKey = promptCacheKey;
+            this.PromptCacheOptions = promptCacheOptions;
             this.Data = data;
+            this.IgnoreEos = ignoreEos;
         }
 
         /// <summary>
@@ -308,5 +365,6 @@ namespace DeepInfra
         public OpenAICompletionsIn()
         {
         }
+
     }
 }

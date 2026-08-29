@@ -4,19 +4,19 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SourceModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.SourceTypeEnumJsonConverter))]
         public global::DeepInfra.SourceTypeEnum Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("civit_url")]
         public string? CivitUrl { get; set; }
@@ -49,5 +49,6 @@ namespace DeepInfra
         public SourceModel()
         {
         }
+
     }
 }

@@ -4,16 +4,27 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeployLLMUpdateIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("settings")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.ScaleSettings Settings { get; set; }
+        public global::DeepInfra.ScaleSettings? Settings { get; set; }
+
+        /// <summary>
+        /// Engine tuning knobs. Replaces the whole set; omitted knobs are cleared.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("standard_args")]
+        public global::DeepInfra.StandardArgs? StandardArgs { get; set; }
+
+        /// <summary>
+        /// Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
+        public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,13 +36,23 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="DeployLLMUpdateIn" /> class.
         /// </summary>
         /// <param name="settings"></param>
+        /// <param name="standardArgs">
+        /// Engine tuning knobs. Replaces the whole set; omitted knobs are cleared.
+        /// </param>
+        /// <param name="extraArgs">
+        /// Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DeployLLMUpdateIn(
-            global::DeepInfra.ScaleSettings settings)
+            global::DeepInfra.ScaleSettings? settings,
+            global::DeepInfra.StandardArgs? standardArgs,
+            global::System.Collections.Generic.IList<string>? extraArgs)
         {
-            this.Settings = settings ?? throw new global::System.ArgumentNullException(nameof(settings));
+            this.Settings = settings;
+            this.StandardArgs = standardArgs;
+            this.ExtraArgs = extraArgs;
         }
 
         /// <summary>
@@ -40,5 +61,6 @@ namespace DeepInfra
         public DeployLLMUpdateIn()
         {
         }
+
     }
 }

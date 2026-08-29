@@ -9,11 +9,11 @@ namespace DeepInfra
     public enum InputAudioFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
     }

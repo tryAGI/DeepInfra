@@ -4,33 +4,33 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyOpenaiAudioTranslationsV1AudioTranslationsPost
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] File { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Filename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
@@ -46,6 +46,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public double? Temperature { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        public string? ServiceTier { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,6 +72,7 @@ namespace DeepInfra
         /// <param name="temperature">
         /// Default Value: 0
         /// </param>
+        /// <param name="serviceTier"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,7 +82,8 @@ namespace DeepInfra
             string model,
             string? prompt,
             global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? responseFormat,
-            double? temperature)
+            double? temperature,
+            string? serviceTier)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -83,6 +91,7 @@ namespace DeepInfra
             this.Prompt = prompt;
             this.ResponseFormat = responseFormat;
             this.Temperature = temperature;
+            this.ServiceTier = serviceTier;
         }
 
         /// <summary>
@@ -91,5 +100,6 @@ namespace DeepInfra
         public BodyOpenaiAudioTranslationsV1AudioTranslationsPost()
         {
         }
+
     }
 }

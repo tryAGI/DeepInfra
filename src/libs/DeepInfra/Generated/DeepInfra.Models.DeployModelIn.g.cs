@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeployModelIn
     {
@@ -67,5 +67,6 @@ namespace DeepInfra
         public DeployModelIn()
         {
         }
+
     }
 }

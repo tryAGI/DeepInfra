@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HFModel
     {
@@ -53,5 +53,6 @@ namespace DeepInfra
         public HFModel()
         {
         }
+
     }
 }

@@ -4,59 +4,59 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelInfoOut
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ModelName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> Tags { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reported_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ReportedType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Version { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mf_description")]
         public string? MfDescription { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("featured")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -69,93 +69,87 @@ namespace DeepInfra
         public bool? Owner { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("public")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Public { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("curl_inv")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CurlInv { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cmdline_inv")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CmdlineInv { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("txt_docs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string TxtDocs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_example")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string OutExample { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_docs")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string OutDocs { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("mask_token")]
-        public string? MaskToken { get; set; }
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in_schema")]
         public object? InSchema { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("out_schema")]
         public object? OutSchema { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in_fields")]
         public global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? InFields { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> Pricing { get; set; }
+        public required global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits> Pricing { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("doc_blocks")]
         public global::System.Collections.Generic.IList<global::DeepInfra.ModelDocBlock>? DocBlocks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("short_doc_block")]
         public global::DeepInfra.ModelDocBlock? ShortDocBlock { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schemas")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -168,49 +162,49 @@ namespace DeepInfra
         public object? Meta { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_output_tokens")]
         public int? MaxOutputTokens { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("replaced_by")]
         public string? ReplacedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
         public int? Deprecated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
         public string? Quantization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mmlu")]
         public double? Mmlu { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected")]
         public string? Expected { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("import_time")]
         public string? ImportTime { get; set; }
@@ -228,13 +222,13 @@ namespace DeepInfra
         public bool? IsCustomDeployable { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mf_name")]
         public string? MfName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mf_title")]
         public string? MfTitle { get; set; }
@@ -267,7 +261,6 @@ namespace DeepInfra
         /// <param name="owner">
         /// Default Value: false
         /// </param>
-        /// <param name="maskToken"></param>
         /// <param name="inSchema"></param>
         /// <param name="outSchema"></param>
         /// <param name="inFields"></param>
@@ -308,12 +301,11 @@ namespace DeepInfra
             string txtDocs,
             string outExample,
             string outDocs,
-            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength> pricing,
+            global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits> pricing,
             global::System.Collections.Generic.IList<global::DeepInfra.SchemaVariant> schemas,
             string? description,
             string? mfDescription,
             bool? owner,
-            string? maskToken,
             object? inSchema,
             object? outSchema,
             global::System.Collections.Generic.IList<global::DeepInfra.ModelFieldInfo>? inFields,
@@ -348,7 +340,6 @@ namespace DeepInfra
             this.TxtDocs = txtDocs ?? throw new global::System.ArgumentNullException(nameof(txtDocs));
             this.OutExample = outExample ?? throw new global::System.ArgumentNullException(nameof(outExample));
             this.OutDocs = outDocs ?? throw new global::System.ArgumentNullException(nameof(outDocs));
-            this.MaskToken = maskToken;
             this.InSchema = inSchema;
             this.OutSchema = outSchema;
             this.InFields = inFields;
@@ -377,5 +368,6 @@ namespace DeepInfra
         public ModelInfoOut()
         {
         }
+
     }
 }

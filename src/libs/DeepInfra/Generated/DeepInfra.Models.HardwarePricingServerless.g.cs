@@ -4,23 +4,29 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HardwarePricingServerless
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_million_input_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CentsPerMillionInputTokens { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_million_output_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CentsPerMillionOutputTokens { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
+        public double? Discount { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,15 +39,18 @@ namespace DeepInfra
         /// </summary>
         /// <param name="centsPerMillionInputTokens"></param>
         /// <param name="centsPerMillionOutputTokens"></param>
+        /// <param name="discount"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public HardwarePricingServerless(
             double centsPerMillionInputTokens,
-            double centsPerMillionOutputTokens)
+            double centsPerMillionOutputTokens,
+            double? discount)
         {
             this.CentsPerMillionInputTokens = centsPerMillionInputTokens;
             this.CentsPerMillionOutputTokens = centsPerMillionOutputTokens;
+            this.Discount = discount;
         }
 
         /// <summary>
@@ -50,5 +59,6 @@ namespace DeepInfra
         public HardwarePricingServerless()
         {
         }
+
     }
 }

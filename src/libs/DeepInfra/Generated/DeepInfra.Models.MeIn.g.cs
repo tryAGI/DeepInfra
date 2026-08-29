@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MeIn
     {
@@ -33,13 +33,13 @@ namespace DeepInfra
         public string? Country { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_business_account")]
         public bool? IsBusinessAccount { get; set; }
@@ -79,6 +79,18 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("attribution")]
         public string? Attribution { get; set; }
+
+        /// <summary>
+        /// Set to false to opt out of marketing emails
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("marketing_emails")]
+        public bool? MarketingEmails { get; set; }
+
+        /// <summary>
+        /// ISO 3166-1 alpha-2 country code of the user selected country
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("country_code")]
+        public string? CountryCode { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -121,6 +133,12 @@ namespace DeepInfra
         /// <param name="attribution">
         /// Short description of how the user found out about DeepInfra
         /// </param>
+        /// <param name="marketingEmails">
+        /// Set to false to opt out of marketing emails
+        /// </param>
+        /// <param name="countryCode">
+        /// ISO 3166-1 alpha-2 country code of the user selected country
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -136,7 +154,9 @@ namespace DeepInfra
             string? title,
             string? displayName,
             string? useCase,
-            string? attribution)
+            string? attribution,
+            bool? marketingEmails,
+            string? countryCode)
         {
             this.Name = name;
             this.FirstName = firstName;
@@ -150,6 +170,8 @@ namespace DeepInfra
             this.DisplayName = displayName;
             this.UseCase = useCase;
             this.Attribution = attribution;
+            this.MarketingEmails = marketingEmails;
+            this.CountryCode = countryCode;
         }
 
         /// <summary>
@@ -158,5 +180,6 @@ namespace DeepInfra
         public MeIn()
         {
         }
+
     }
 }
