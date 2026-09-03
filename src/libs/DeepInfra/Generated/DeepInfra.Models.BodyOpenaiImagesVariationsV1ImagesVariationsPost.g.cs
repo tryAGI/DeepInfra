@@ -36,6 +36,12 @@ namespace DeepInfra
         public required string Model { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
+        public global::DeepInfra.OpenAIImagesResponseFormat? ResponseFormat { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,6 +54,7 @@ namespace DeepInfra
         /// <param name="imagename"></param>
         /// <param name="model"></param>
         /// <param name="inp"></param>
+        /// <param name="responseFormat"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,12 +62,14 @@ namespace DeepInfra
             byte[] image,
             string imagename,
             string model,
-            global::DeepInfra.OpenAIImagesVariationsIn? inp)
+            global::DeepInfra.OpenAIImagesVariationsIn? inp,
+            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat)
         {
             this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
             this.Imagename = imagename ?? throw new global::System.ArgumentNullException(nameof(imagename));
             this.Inp = inp;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.ResponseFormat = responseFormat;
         }
 
         /// <summary>

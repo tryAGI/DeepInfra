@@ -12,6 +12,10 @@ namespace DeepInfra
         ///
         /// </summary>
         B64Json,
+        /// <summary>
+        ///
+        /// </summary>
+        Url,
     }
 
     /// <summary>
@@ -27,6 +31,7 @@ namespace DeepInfra
             return value switch
             {
                 OpenAIImagesResponseFormat.B64Json => "b64_json",
+                OpenAIImagesResponseFormat.Url => "url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,6 +43,7 @@ namespace DeepInfra
             return value switch
             {
                 "b64_json" => OpenAIImagesResponseFormat.B64Json,
+                "url" => OpenAIImagesResponseFormat.Url,
                 _ => null,
             };
         }

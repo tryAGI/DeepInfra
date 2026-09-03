@@ -35,7 +35,7 @@ internal static partial class ImageGenerationOpenaiImagesGenerationsCommandApiCo
     private static Option<global::DeepInfra.OpenAIImagesResponseFormat?> ResponseFormat { get; } = new(
         name: @"--response-format")
     {
-        Description = @"The format in which the generated images are returned. Currently only b64_json is supported.",
+        Description = @"The format in which the generated images are returned: 'b64_json' (default) or 'url'. For most models 'url' points to a temporary copy we host that expires after about a day; for some provider-backed models it is the provider's own URL with the provider's own lifetime.",
     };
 
     private static Option<string?> Size { get; } = new(

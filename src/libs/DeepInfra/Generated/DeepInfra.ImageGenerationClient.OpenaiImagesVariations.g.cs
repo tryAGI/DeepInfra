@@ -219,6 +219,15 @@ namespace DeepInfra
                                 content: new global::System.Net.Http.StringContent(request.Model ?? string.Empty),
                                 name: "\"model\"");
 
+                            if (request.ResponseFormat != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.ResponseFormat.ToString() ?? string.Empty),
+                                    name: "\"response_format\"");
+
+                            }
+
                             __httpRequest.Content = __httpRequestContent;
 
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
@@ -556,6 +565,7 @@ namespace DeepInfra
         /// <param name="imagename"></param>
         /// <param name="inp"></param>
         /// <param name="model"></param>
+        /// <param name="responseFormat"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -566,6 +576,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.OpenAIImagesVariationsIn? inp = default,
+            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -575,6 +586,7 @@ namespace DeepInfra
                 Imagename = imagename,
                 Inp = inp,
                 Model = model,
+                ResponseFormat = responseFormat,
             };
 
             return await OpenaiImagesVariationsAsync(
@@ -597,6 +609,7 @@ namespace DeepInfra
         /// <param name="imagename"></param>
         /// <param name="inp"></param>
         /// <param name="model"></param>
+        /// <param name="responseFormat"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
@@ -607,6 +620,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.OpenAIImagesVariationsIn? inp = default,
+            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -618,6 +632,7 @@ namespace DeepInfra
                 Imagename = imagename,
                 Inp = inp,
                 Model = model,
+                ResponseFormat = responseFormat,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -743,6 +758,15 @@ namespace DeepInfra
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.Model ?? string.Empty),
                                 name: "\"model\"");
+
+                            if (request.ResponseFormat != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.ResponseFormat.ToString() ?? string.Empty),
+                                    name: "\"response_format\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -1075,6 +1099,7 @@ namespace DeepInfra
         /// <param name="imagename"></param>
         /// <param name="inp"></param>
         /// <param name="model"></param>
+        /// <param name="responseFormat"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
@@ -1085,6 +1110,7 @@ namespace DeepInfra
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.OpenAIImagesVariationsIn? inp = default,
+            global::DeepInfra.OpenAIImagesResponseFormat? responseFormat = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1096,6 +1122,7 @@ namespace DeepInfra
                 Imagename = imagename,
                 Inp = inp,
                 Model = model,
+                ResponseFormat = responseFormat,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -1221,6 +1248,15 @@ namespace DeepInfra
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.Model ?? string.Empty),
                                 name: "\"model\"");
+
+                            if (request.ResponseFormat != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.ResponseFormat.ToString() ?? string.Empty),
+                                    name: "\"response_format\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 

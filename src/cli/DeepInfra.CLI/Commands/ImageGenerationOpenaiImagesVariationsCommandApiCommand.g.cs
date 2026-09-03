@@ -45,6 +45,12 @@ internal static partial class ImageGenerationOpenaiImagesVariationsCommandApiCom
         Description = @"",
         Required = true,
     };
+
+    private static Option<global::DeepInfra.OpenAIImagesResponseFormat?> ResponseFormat { get; } = new(
+        name: @"--response-format")
+    {
+        Description = @"",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -92,6 +98,7 @@ Generate a similar image using OpenAI Images Variations API");
                         command.Options.Add(Imagename);
                         command.Options.Add(Inp);
                         command.Options.Add(Model);
+                        command.Options.Add(ResponseFormat);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -123,6 +130,7 @@ Generate a similar image using OpenAI Images Variations API");
                         var imagename = parseResult.GetRequiredValue(Imagename);
                         var inp = CliRuntime.WasSpecified(parseResult, Inp) ? parseResult.GetValue(Inp) : (__requestBase is { } __InpBaseValue ? __InpBaseValue.Inp : default);
                         var model = parseResult.GetRequiredValue(Model);
+                        var responseFormat = CliRuntime.WasSpecified(parseResult, ResponseFormat) ? parseResult.GetValue(ResponseFormat) : (__requestBase is { } __ResponseFormatBaseValue ? __ResponseFormatBaseValue.ResponseFormat : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -133,6 +141,7 @@ Generate a similar image using OpenAI Images Variations API");
                                     imagename: imagename,
                                     inp: inp,
                                     model: model,
+                                    responseFormat: responseFormat,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
