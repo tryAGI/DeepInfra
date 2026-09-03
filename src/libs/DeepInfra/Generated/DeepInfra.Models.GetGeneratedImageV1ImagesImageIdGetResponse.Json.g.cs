@@ -2,7 +2,7 @@
 
 namespace DeepInfra
 {
-    public sealed partial class ModelVersionOut
+    public sealed partial class GetGeneratedImageV1ImagesImageIdGetResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace DeepInfra
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::DeepInfra.ModelVersionOut? FromJson(
+        public static global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::DeepInfra.ModelVersionOut),
-                jsonSerializerContext) as global::DeepInfra.ModelVersionOut;
+                typeof(global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse),
+                jsonSerializerContext) as global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::DeepInfra.ModelVersionOut? FromJson(
+        public static global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::DeepInfra.ModelVersionOut? FromJson(
+        public static global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace DeepInfra
                     global::DeepInfra.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.ModelVersionOut>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace DeepInfra
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelVersionOut?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::DeepInfra.ModelVersionOut),
-                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.ModelVersionOut;
+                typeof(global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelVersionOut?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.ModelVersionOut?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace DeepInfra
                     global::DeepInfra.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.ModelVersionOut?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::DeepInfra.GetGeneratedImageV1ImagesImageIdGetResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

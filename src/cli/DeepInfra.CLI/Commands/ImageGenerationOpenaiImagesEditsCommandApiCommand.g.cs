@@ -52,6 +52,12 @@ internal static partial class ImageGenerationOpenaiImagesEditsCommandApiCommand
         Description = @"",
         Required = true,
     };
+
+    private static Option<global::DeepInfra.OpenAIImagesResponseFormat?> ResponseFormat { get; } = new(
+        name: @"--response-format")
+    {
+        Description = @"",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -100,6 +106,7 @@ Edit image using OpenAI Images Edits API");
                         command.Options.Add(Inp);
                         command.Options.Add(Prompt);
                         command.Options.Add(Model);
+                        command.Options.Add(ResponseFormat);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -132,6 +139,7 @@ Edit image using OpenAI Images Edits API");
                         var inp = CliRuntime.WasSpecified(parseResult, Inp) ? parseResult.GetValue(Inp) : (__requestBase is { } __InpBaseValue ? __InpBaseValue.Inp : default);
                         var prompt = parseResult.GetRequiredValue(Prompt);
                         var model = parseResult.GetRequiredValue(Model);
+                        var responseFormat = CliRuntime.WasSpecified(parseResult, ResponseFormat) ? parseResult.GetValue(ResponseFormat) : (__requestBase is { } __ResponseFormatBaseValue ? __ResponseFormatBaseValue.ResponseFormat : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -143,6 +151,7 @@ Edit image using OpenAI Images Edits API");
                                     inp: inp,
                                     prompt: prompt,
                                     model: model,
+                                    responseFormat: responseFormat,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

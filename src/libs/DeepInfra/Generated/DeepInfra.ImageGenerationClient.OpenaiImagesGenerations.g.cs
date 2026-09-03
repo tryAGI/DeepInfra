@@ -512,7 +512,7 @@ namespace DeepInfra
         /// Default Value: 1
         /// </param>
         /// <param name="responseFormat">
-        /// The format in which the generated images are returned. Currently only b64_json is supported.<br/>
+        /// The format in which the generated images are returned: 'b64_json' (default) or 'url'. For most models 'url' points to a temporary copy we host that expires after about a day; for some provider-backed models it is the provider's own URL with the provider's own lifetime.<br/>
         /// Default Value: b64_json
         /// </param>
         /// <param name="size">

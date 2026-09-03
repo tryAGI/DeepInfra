@@ -3,11 +3,11 @@
 
 namespace DeepInfra
 {
-    public partial class ModelsClient
+    public partial class ImageGenerationClient
     {
 
 
-        private static readonly global::DeepInfra.EndPointSecurityRequirement s_ModelVersionsSecurityRequirement0 =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_GetGeneratedImageSecurityRequirement0 =
             new global::DeepInfra.EndPointSecurityRequirement
             {
                 Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
@@ -21,50 +21,41 @@ namespace DeepInfra
                     },
                 },
             };
-        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_ModelVersionsSecurityRequirements =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_GetGeneratedImageSecurityRequirements =
             new global::DeepInfra.EndPointSecurityRequirement[]
-            {                s_ModelVersionsSecurityRequirement0,
+            {                s_GetGeneratedImageSecurityRequirement0,
             };
-        partial void PrepareModelVersionsArguments(
+        partial void PrepareGetGeneratedImageArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string modelName,
-            ref string? xiApiKey,
-            ref string? xApiKey);
-        partial void PrepareModelVersionsRequest(
+            ref string imageId);
+        partial void PrepareGetGeneratedImageRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string modelName,
-            string? xiApiKey,
-            string? xApiKey);
-        partial void ProcessModelVersionsResponse(
+            string imageId);
+        partial void ProcessGetGeneratedImageResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessModelVersionsResponseContent(
+        partial void ProcessGetGeneratedImageResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Model Versions
+        /// Get Generated Image<br/>
+        /// Serve a `response_format=url` image; unauthenticated, 404 once expired.
         /// </summary>
-        /// <param name="modelName"></param>
-        /// <param name="xiApiKey"></param>
-        /// <param name="xApiKey"></param>
+        /// <param name="imageId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>> ModelVersionsAsync(
-            string modelName,
-            string? xiApiKey = default,
-            string? xApiKey = default,
+        public async global::System.Threading.Tasks.Task<string> GetGeneratedImageAsync(
+            string imageId,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ModelVersionsAsResponseAsync(
-                modelName: modelName,
-                xiApiKey: xiApiKey,
-                xApiKey: xApiKey,
+            var __response = await GetGeneratedImageAsResponseAsync(
+                imageId: imageId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,34 +63,29 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Model Versions
+        /// Get Generated Image<br/>
+        /// Serve a `response_format=url` image; unauthenticated, 404 once expired.
         /// </summary>
-        /// <param name="modelName"></param>
-        /// <param name="xiApiKey"></param>
-        /// <param name="xApiKey"></param>
+        /// <param name="imageId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>>> ModelVersionsAsResponseAsync(
-            string modelName,
-            string? xiApiKey = default,
-            string? xApiKey = default,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> GetGeneratedImageAsResponseAsync(
+            string imageId,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareModelVersionsArguments(
+            PrepareGetGeneratedImageArguments(
                 httpClient: HttpClient,
-                modelName: ref modelName,
-                xiApiKey: ref xiApiKey,
-                xApiKey: ref xApiKey);
+                imageId: ref imageId);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ModelVersionsSecurityRequirements,
-                operationName: "ModelVersionsAsync");
+                securityRequirements: s_GetGeneratedImageSecurityRequirements,
+                operationName: "GetGeneratedImageAsync");
 
             using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -119,7 +105,7 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: $"/models/{modelName}/versions",
+                                path: $"/v1/images/{imageId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -150,16 +136,6 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            if (xiApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
-            }
-            if (xApiKey != default)
-            {
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-            }
-
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -168,12 +144,10 @@ namespace DeepInfra
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareModelVersionsRequest(
+                PrepareGetGeneratedImageRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    modelName: modelName!,
-                    xiApiKey: xiApiKey,
-                    xApiKey: xApiKey);
+                    imageId: imageId!);
 
                 return __httpRequest;
             }
@@ -190,9 +164,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ModelVersions",
-                                methodName: "ModelVersionsAsync",
-                                pathTemplate: "$\"/models/{modelName}/versions\"",
+                                operationId: "GetGeneratedImage",
+                                methodName: "GetGeneratedImageAsync",
+                                pathTemplate: "$\"/v1/images/{imageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -224,9 +198,9 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ModelVersions",
-                                methodName: "ModelVersionsAsync",
-                                pathTemplate: "$\"/models/{modelName}/versions\"",
+                                operationId: "GetGeneratedImage",
+                                methodName: "GetGeneratedImageAsync",
+                                pathTemplate: "$\"/v1/images/{imageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -265,9 +239,9 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ModelVersions",
-                                methodName: "ModelVersionsAsync",
-                                pathTemplate: "$\"/models/{modelName}/versions\"",
+                                operationId: "GetGeneratedImage",
+                                methodName: "GetGeneratedImageAsync",
+                                pathTemplate: "$\"/v1/images/{imageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -305,7 +279,7 @@ namespace DeepInfra
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessModelVersionsResponse(
+                ProcessGetGeneratedImageResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -313,9 +287,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ModelVersions",
-                                methodName: "ModelVersionsAsync",
-                                pathTemplate: "$\"/models/{modelName}/versions\"",
+                                operationId: "GetGeneratedImage",
+                                methodName: "GetGeneratedImageAsync",
+                                pathTemplate: "$\"/v1/images/{imageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -335,9 +309,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ModelVersions",
-                                methodName: "ModelVersionsAsync",
-                                pathTemplate: "$\"/models/{modelName}/versions\"",
+                                operationId: "GetGeneratedImage",
+                                methodName: "GetGeneratedImageAsync",
+                                pathTemplate: "$\"/v1/images/{imageId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,43 +326,6 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Not Found
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                global::DeepInfra.DeepError? __value_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::DeepInfra.DeepError.FromJson(__content_404, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_404 = global::DeepInfra.DeepError.FromJson(__content_404, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::DeepInfra.ApiException<global::DeepInfra.DeepError>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseObject: __value_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -439,7 +376,7 @@ namespace DeepInfra
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessModelVersionsResponseContent(
+                                ProcessGetGeneratedImageResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -448,13 +385,11 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>), JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -474,19 +409,17 @@ namespace DeepInfra
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>), JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.ModelVersionOut>>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

@@ -16,7 +16,6 @@ internal static class ModelsApiGroupCommand
                          command.Subcommands.Add(ModelsModelMetaUpdateCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelPublicityCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelSchemaCommandApiCommand.Create());
-                         command.Subcommands.Add(ModelsModelVersionsCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelsDeploymentListCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelsFeaturedCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelsInfoCommandApiCommand.Create());
