@@ -48,7 +48,7 @@ namespace DeepInfra
 
 
         /// <summary>
-        /// User profile, team management, and rate limits.
+        /// User profile, team management, rate limits, and GPU pool limits.
         /// </summary>
         public AccountClient Account => new AccountClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

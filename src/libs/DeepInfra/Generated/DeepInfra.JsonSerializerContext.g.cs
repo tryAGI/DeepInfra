@@ -389,6 +389,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.Voice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Voice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.GpuPoolOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.GpuPoolPendingRequestOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.GpuPoolRejectionOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.GpuPoolRequestIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.GpuTypesOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.DeployGPUs>))]

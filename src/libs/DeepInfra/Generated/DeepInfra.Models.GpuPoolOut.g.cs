@@ -21,16 +21,16 @@ namespace DeepInfra
         public global::System.Collections.Generic.Dictionary<string, int>? MinLimits { get; set; }
 
         /// <summary>
-        /// Pending requested max per type
+        /// Your open request, if any. At most one exists at a time.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pending_max_requests")]
-        public global::System.Collections.Generic.Dictionary<string, int>? PendingMaxRequests { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("pending_request")]
+        public global::DeepInfra.GpuPoolPendingRequestOut? PendingRequest { get; set; }
 
         /// <summary>
-        /// Pending requested min per type
+        /// Your most recent decision, present only when it was a rejection. A later approval retires it; cancelling a later request does not.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pending_min_requests")]
-        public global::System.Collections.Generic.Dictionary<string, int>? PendingMinRequests { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("last_rejection")]
+        public global::DeepInfra.GpuPoolRejectionOut? LastRejection { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,11 +47,11 @@ namespace DeepInfra
         /// <param name="minLimits">
         /// Effective GPU min per type (pool, 0 if unset)
         /// </param>
-        /// <param name="pendingMaxRequests">
-        /// Pending requested max per type
+        /// <param name="pendingRequest">
+        /// Your open request, if any. At most one exists at a time.
         /// </param>
-        /// <param name="pendingMinRequests">
-        /// Pending requested min per type
+        /// <param name="lastRejection">
+        /// Your most recent decision, present only when it was a rejection. A later approval retires it; cancelling a later request does not.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -59,13 +59,13 @@ namespace DeepInfra
         public GpuPoolOut(
             global::System.Collections.Generic.Dictionary<string, int>? maxLimits,
             global::System.Collections.Generic.Dictionary<string, int>? minLimits,
-            global::System.Collections.Generic.Dictionary<string, int>? pendingMaxRequests,
-            global::System.Collections.Generic.Dictionary<string, int>? pendingMinRequests)
+            global::DeepInfra.GpuPoolPendingRequestOut? pendingRequest,
+            global::DeepInfra.GpuPoolRejectionOut? lastRejection)
         {
             this.MaxLimits = maxLimits;
             this.MinLimits = minLimits;
-            this.PendingMaxRequests = pendingMaxRequests;
-            this.PendingMinRequests = pendingMinRequests;
+            this.PendingRequest = pendingRequest;
+            this.LastRejection = lastRejection;
         }
 
         /// <summary>

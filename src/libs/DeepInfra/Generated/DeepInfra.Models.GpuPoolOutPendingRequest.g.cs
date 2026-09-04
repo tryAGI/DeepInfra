@@ -4,9 +4,9 @@
 namespace DeepInfra
 {
     /// <summary>
-    ///
+    /// Your open request, if any. At most one exists at a time.
     /// </summary>
-    public sealed partial class GpuPoolOutPendingMaxRequests2
+    public sealed partial class GpuPoolOutPendingRequest
     {
 
         /// <summary>

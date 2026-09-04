@@ -22,20 +22,26 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
     private static Option<string> Reason { get; } = new(
         name: @"--reason")
     {
-        Description = @"",
+        Description = @"Why you need the change. Shown to the reviewer.",
         Required = true,
     };
 
     private static Option<global::System.Collections.Generic.Dictionary<string, int>?> RequestedMin { get; } = new(
         name: @"--requested-min")
     {
-        Description = @"",
+        Description = @"Guaranteed capacity.",
     };
 
     private static Option<global::System.Collections.Generic.Dictionary<string, int>?> RequestedMax { get; } = new(
         name: @"--requested-max")
     {
-        Description = @"",
+        Description = @"Desired max GPUs per type, e.g. {""H100-80GB"": 16}. REPLACES the contents of your pending request, so send every entry you still want changed.",
+    };
+
+    private static Option<string?> ExpectedRequestId { get; } = new(
+        name: @"--expected-request-id")
+    {
+        Description = @"Id of the pending request you are editing, from GET /v1/me/gpu_pool (pending_request.id), or null if you have none.",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {
@@ -54,7 +60,7 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
           Hidden = true,
       };
 
-                    private static string FormatResponse(ParseResult parseResult, string value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.GpuPoolPendingRequestOut value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -70,18 +76,20 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, string value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.GpuPoolPendingRequestOut value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
     public static Command Create()
     {
-        var command = new Command(@"request-gpu-pool-change", @"Request Gpu Pool Change");
+        var command = new Command(@"request-gpu-pool-change", @"Request Gpu Pool Change
+File or amend the caller's single open GPU limit request.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(Reason);
                         command.Options.Add(RequestedMin);
                         command.Options.Add(RequestedMax);
+                        command.Options.Add(ExpectedRequestId);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -112,6 +120,7 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
                         var reason = parseResult.GetRequiredValue(Reason);
                         var requestedMin = CliRuntime.WasSpecified(parseResult, RequestedMin) ? parseResult.GetValue(RequestedMin) : (__requestBase is { } __RequestedMinBaseValue ? __RequestedMinBaseValue.RequestedMin : default);
                         var requestedMax = CliRuntime.WasSpecified(parseResult, RequestedMax) ? parseResult.GetValue(RequestedMax) : (__requestBase is { } __RequestedMaxBaseValue ? __RequestedMaxBaseValue.RequestedMax : default);
+                        var expectedRequestId = CliRuntime.WasSpecified(parseResult, ExpectedRequestId) ? parseResult.GetValue(ExpectedRequestId) : (__requestBase is { } __ExpectedRequestIdBaseValue ? __ExpectedRequestIdBaseValue.ExpectedRequestId : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -121,6 +130,7 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
                                     reason: reason,
                                     requestedMin: requestedMin,
                                     requestedMax: requestedMax,
+                                    expectedRequestId: expectedRequestId,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
