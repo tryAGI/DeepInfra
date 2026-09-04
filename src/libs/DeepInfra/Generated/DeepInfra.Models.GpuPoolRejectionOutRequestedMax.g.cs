@@ -4,9 +4,9 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Pending requested min per type
+    ///
     /// </summary>
-    public sealed partial class GpuPoolOutPendingMinRequests
+    public sealed partial class GpuPoolRejectionOutRequestedMax
     {
 
         /// <summary>

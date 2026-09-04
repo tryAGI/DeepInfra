@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    ///
+    /// Guaranteed capacity.
     /// </summary>
     public sealed partial class GpuPoolRequestInRequestedMin
     {

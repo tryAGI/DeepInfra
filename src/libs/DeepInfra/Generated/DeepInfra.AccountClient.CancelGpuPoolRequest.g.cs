@@ -7,7 +7,7 @@ namespace DeepInfra
     {
 
 
-        private static readonly global::DeepInfra.EndPointSecurityRequirement s_RequestGpuPoolChangeSecurityRequirement0 =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_CancelGpuPoolRequestSecurityRequirement0 =
             new global::DeepInfra.EndPointSecurityRequirement
             {
                 Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
@@ -21,51 +21,49 @@ namespace DeepInfra
                     },
                 },
             };
-        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_RequestGpuPoolChangeSecurityRequirements =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_CancelGpuPoolRequestSecurityRequirements =
             new global::DeepInfra.EndPointSecurityRequirement[]
-            {                s_RequestGpuPoolChangeSecurityRequirement0,
+            {                s_CancelGpuPoolRequestSecurityRequirement0,
             };
-        partial void PrepareRequestGpuPoolChangeArguments(
+        partial void PrepareCancelGpuPoolRequestArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string requestId,
             ref string? xiApiKey,
-            ref string? xApiKey,
-            global::DeepInfra.GpuPoolRequestIn request);
-        partial void PrepareRequestGpuPoolChangeRequest(
+            ref string? xApiKey);
+        partial void PrepareCancelGpuPoolRequestRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string requestId,
             string? xiApiKey,
-            string? xApiKey,
-            global::DeepInfra.GpuPoolRequestIn request);
-        partial void ProcessRequestGpuPoolChangeResponse(
+            string? xApiKey);
+        partial void ProcessCancelGpuPoolRequestResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessRequestGpuPoolChangeResponseContent(
+        partial void ProcessCancelGpuPoolRequestResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Request Gpu Pool Change<br/>
-        /// File or amend the caller's single open GPU limit request.
+        /// Cancel Gpu Pool Request<br/>
+        /// Withdraw the caller's open request.
         /// </summary>
+        /// <param name="requestId"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.GpuPoolPendingRequestOut> RequestGpuPoolChangeAsync(
-
-            global::DeepInfra.GpuPoolRequestIn request,
+        public async global::System.Threading.Tasks.Task<string> CancelGpuPoolRequestAsync(
+            string requestId,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await RequestGpuPoolChangeAsResponseAsync(
-
-                request: request,
+            var __response = await CancelGpuPoolRequestAsResponseAsync(
+                requestId: requestId,
                 xiApiKey: xiApiKey,
                 xApiKey: xApiKey,
                 requestOptions: requestOptions,
@@ -75,38 +73,35 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Request Gpu Pool Change<br/>
-        /// File or amend the caller's single open GPU limit request.
+        /// Cancel Gpu Pool Request<br/>
+        /// Withdraw the caller's open request.
         /// </summary>
+        /// <param name="requestId"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.GpuPoolPendingRequestOut>> RequestGpuPoolChangeAsResponseAsync(
-
-            global::DeepInfra.GpuPoolRequestIn request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> CancelGpuPoolRequestAsResponseAsync(
+            string requestId,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareRequestGpuPoolChangeArguments(
+            PrepareCancelGpuPoolRequestArguments(
                 httpClient: HttpClient,
+                requestId: ref requestId,
                 xiApiKey: ref xiApiKey,
-                xApiKey: ref xApiKey,
-                request: request);
+                xApiKey: ref xApiKey);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_RequestGpuPoolChangeSecurityRequirements,
-                operationName: "RequestGpuPoolChangeAsync");
+                securityRequirements: s_CancelGpuPoolRequestSecurityRequirements,
+                operationName: "CancelGpuPoolRequestAsync");
 
             using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -126,7 +121,7 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: "/v1/me/gpu_pool/request",
+                                path: $"/v1/me/gpu_pool/request/{requestId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -134,7 +129,7 @@ namespace DeepInfra
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Delete,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -167,12 +162,6 @@ namespace DeepInfra
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
             }
 
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -181,12 +170,12 @@ namespace DeepInfra
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareRequestGpuPoolChangeRequest(
+                PrepareCancelGpuPoolRequestRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    requestId: requestId!,
                     xiApiKey: xiApiKey,
-                    xApiKey: xApiKey,
-                    request: request);
+                    xApiKey: xApiKey);
 
                 return __httpRequest;
             }
@@ -203,10 +192,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RequestGpuPoolChange",
-                                methodName: "RequestGpuPoolChangeAsync",
-                                pathTemplate: "\"/v1/me/gpu_pool/request\"",
-                                httpMethod: "POST",
+                                operationId: "CancelGpuPoolRequest",
+                                methodName: "CancelGpuPoolRequestAsync",
+                                pathTemplate: "$\"/v1/me/gpu_pool/request/{requestId}\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -237,10 +226,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RequestGpuPoolChange",
-                                methodName: "RequestGpuPoolChangeAsync",
-                                pathTemplate: "\"/v1/me/gpu_pool/request\"",
-                                httpMethod: "POST",
+                                operationId: "CancelGpuPoolRequest",
+                                methodName: "CancelGpuPoolRequestAsync",
+                                pathTemplate: "$\"/v1/me/gpu_pool/request/{requestId}\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -278,10 +267,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RequestGpuPoolChange",
-                                methodName: "RequestGpuPoolChangeAsync",
-                                pathTemplate: "\"/v1/me/gpu_pool/request\"",
-                                httpMethod: "POST",
+                                operationId: "CancelGpuPoolRequest",
+                                methodName: "CancelGpuPoolRequestAsync",
+                                pathTemplate: "$\"/v1/me/gpu_pool/request/{requestId}\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -318,7 +307,7 @@ namespace DeepInfra
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessRequestGpuPoolChangeResponse(
+                ProcessCancelGpuPoolRequestResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -326,10 +315,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RequestGpuPoolChange",
-                                methodName: "RequestGpuPoolChangeAsync",
-                                pathTemplate: "\"/v1/me/gpu_pool/request\"",
-                                httpMethod: "POST",
+                                operationId: "CancelGpuPoolRequest",
+                                methodName: "CancelGpuPoolRequestAsync",
+                                pathTemplate: "$\"/v1/me/gpu_pool/request/{requestId}\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -348,10 +337,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "RequestGpuPoolChange",
-                                methodName: "RequestGpuPoolChangeAsync",
-                                pathTemplate: "\"/v1/me/gpu_pool/request\"",
-                                httpMethod: "POST",
+                                operationId: "CancelGpuPoolRequest",
+                                methodName: "CancelGpuPoolRequestAsync",
+                                pathTemplate: "$\"/v1/me/gpu_pool/request/{requestId}\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -365,43 +354,6 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad Request
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                global::DeepInfra.DeepError? __value_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::DeepInfra.DeepError.FromJson(__content_400, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_400 = global::DeepInfra.DeepError.FromJson(__content_400, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::DeepInfra.ApiException<global::DeepInfra.DeepError>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseObject: __value_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Not Found
                             if ((int)__response.StatusCode == 404)
                             {
@@ -526,7 +478,7 @@ namespace DeepInfra
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessRequestGpuPoolChangeResponseContent(
+                                ProcessCancelGpuPoolRequestResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -535,13 +487,11 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::DeepInfra.GpuPoolPendingRequestOut.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.GpuPoolPendingRequestOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -561,19 +511,17 @@ namespace DeepInfra
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::DeepInfra.GpuPoolPendingRequestOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.GpuPoolPendingRequestOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -608,52 +556,6 @@ namespace DeepInfra
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Request Gpu Pool Change<br/>
-        /// File or amend the caller's single open GPU limit request.
-        /// </summary>
-        /// <param name="xiApiKey"></param>
-        /// <param name="xApiKey"></param>
-        /// <param name="reason">
-        /// Why you need the change. Shown to the reviewer.
-        /// </param>
-        /// <param name="requestedMin">
-        /// Guaranteed capacity.
-        /// </param>
-        /// <param name="requestedMax">
-        /// Desired max GPUs per type, e.g. {"H100-80GB": 16}. REPLACES the contents of your pending request, so send every entry you still want changed.
-        /// </param>
-        /// <param name="expectedRequestId">
-        /// Id of the pending request you are editing, from GET /v1/me/gpu_pool (pending_request.id), or null if you have none.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.GpuPoolPendingRequestOut> RequestGpuPoolChangeAsync(
-            string reason,
-            string? xiApiKey = default,
-            string? xApiKey = default,
-            global::System.Collections.Generic.Dictionary<string, int>? requestedMin = default,
-            global::System.Collections.Generic.Dictionary<string, int>? requestedMax = default,
-            string? expectedRequestId = default,
-            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::DeepInfra.GpuPoolRequestIn
-            {
-                Reason = reason,
-                RequestedMin = requestedMin,
-                RequestedMax = requestedMax,
-                ExpectedRequestId = expectedRequestId,
-            };
-
-            return await RequestGpuPoolChangeAsync(
-                xiApiKey: xiApiKey,
-                xApiKey: xApiKey,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

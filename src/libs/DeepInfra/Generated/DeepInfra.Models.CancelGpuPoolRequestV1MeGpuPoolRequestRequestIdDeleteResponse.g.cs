@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class RequestGpuPoolChangeV1MeGpuPoolRequestPostResponse
+    public sealed partial class CancelGpuPoolRequestV1MeGpuPoolRequestRequestIdDeleteResponse
     {
 
         /// <summary>

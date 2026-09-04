@@ -13,6 +13,7 @@ internal static class AccountApiGroupCommand
                          command.Subcommands.Add(AccountAccountGpuPoolCommandApiCommand.Create());
                          command.Subcommands.Add(AccountAccountRateLimitCommandApiCommand.Create());
                          command.Subcommands.Add(AccountAccountUpdateDetailsCommandApiCommand.Create());
+                         command.Subcommands.Add(AccountCancelGpuPoolRequestCommandApiCommand.Create());
                          command.Subcommands.Add(AccountDeleteAccountCommandApiCommand.Create());
                          command.Subcommands.Add(AccountGpuPoolGpuTypesCommandApiCommand.Create());
                          command.Subcommands.Add(AccountMeCommandApiCommand.Create());

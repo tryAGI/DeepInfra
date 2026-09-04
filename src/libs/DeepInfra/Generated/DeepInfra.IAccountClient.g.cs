@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// User profile, team management, and rate limits.<br/>
+    /// User profile, team management, rate limits, and GPU pool limits.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
