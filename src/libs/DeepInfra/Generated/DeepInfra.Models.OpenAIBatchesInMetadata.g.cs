@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Optional metadata to be stored with the batch.
+    ///
     /// </summary>
     public sealed partial class OpenAIBatchesInMetadata
     {

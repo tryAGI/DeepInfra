@@ -4,16 +4,78 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Constrains effort on reasoning for reasoning models. Currently supported values are none, minimal, low, medium, high, xhigh, and max. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
+    ///
     /// </summary>
-    public sealed partial class OpenAIChatCompletionsInReasoningEffort
+    public enum OpenAIChatCompletionsInReasoningEffort
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        High,
+        /// <summary>
+        ///
+        /// </summary>
+        Low,
+        /// <summary>
+        ///
+        /// </summary>
+        Max,
+        /// <summary>
+        ///
+        /// </summary>
+        Medium,
+        /// <summary>
+        ///
+        /// </summary>
+        Minimal,
+        /// <summary>
+        ///
+        /// </summary>
+        None,
+        /// <summary>
+        ///
+        /// </summary>
+        Xhigh,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class OpenAIChatCompletionsInReasoningEffortExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this OpenAIChatCompletionsInReasoningEffort value)
+        {
+            return value switch
+            {
+                OpenAIChatCompletionsInReasoningEffort.High => "high",
+                OpenAIChatCompletionsInReasoningEffort.Low => "low",
+                OpenAIChatCompletionsInReasoningEffort.Max => "max",
+                OpenAIChatCompletionsInReasoningEffort.Medium => "medium",
+                OpenAIChatCompletionsInReasoningEffort.Minimal => "minimal",
+                OpenAIChatCompletionsInReasoningEffort.None => "none",
+                OpenAIChatCompletionsInReasoningEffort.Xhigh => "xhigh",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static OpenAIChatCompletionsInReasoningEffort? ToEnum(string value)
+        {
+            return value switch
+            {
+                "high" => OpenAIChatCompletionsInReasoningEffort.High,
+                "low" => OpenAIChatCompletionsInReasoningEffort.Low,
+                "max" => OpenAIChatCompletionsInReasoningEffort.Max,
+                "medium" => OpenAIChatCompletionsInReasoningEffort.Medium,
+                "minimal" => OpenAIChatCompletionsInReasoningEffort.Minimal,
+                "none" => OpenAIChatCompletionsInReasoningEffort.None,
+                "xhigh" => OpenAIChatCompletionsInReasoningEffort.Xhigh,
+                _ => null,
+            };
+        }
     }
 }

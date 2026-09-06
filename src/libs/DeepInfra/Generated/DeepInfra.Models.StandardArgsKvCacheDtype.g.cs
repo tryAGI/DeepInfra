@@ -4,16 +4,48 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// KV cache precision. fp8 ~doubles KV capacity at &lt;1% accuracy loss.
+    ///
     /// </summary>
-    public sealed partial class StandardArgsKvCacheDtype
+    public enum StandardArgsKvCacheDtype
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        Auto,
+        /// <summary>
+        ///
+        /// </summary>
+        Fp8,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class StandardArgsKvCacheDtypeExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this StandardArgsKvCacheDtype value)
+        {
+            return value switch
+            {
+                StandardArgsKvCacheDtype.Auto => "auto",
+                StandardArgsKvCacheDtype.Fp8 => "fp8",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static StandardArgsKvCacheDtype? ToEnum(string value)
+        {
+            return value switch
+            {
+                "auto" => StandardArgsKvCacheDtype.Auto,
+                "fp8" => StandardArgsKvCacheDtype.Fp8,
+                _ => null,
+            };
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace DeepInfra
         /// Default Value: json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2? ResponseFormat { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -96,7 +96,7 @@ namespace DeepInfra
             string model,
             string? language,
             string? prompt,
-            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2? responseFormat,
+            global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? responseFormat,
             double? temperature,
             global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities,
             string? serviceTier)

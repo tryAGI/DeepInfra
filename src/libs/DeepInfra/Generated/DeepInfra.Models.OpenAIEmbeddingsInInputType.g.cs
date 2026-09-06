@@ -4,16 +4,54 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
+    ///
     /// </summary>
-    public sealed partial class OpenAIEmbeddingsInInputType
+    public enum OpenAIEmbeddingsInInputType
     {
-
         /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
+        ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        Document,
+        /// <summary>
+        ///
+        /// </summary>
+        Passage,
+        /// <summary>
+        ///
+        /// </summary>
+        Query,
+    }
 
+    /// <summary>
+    /// Enum extensions to do fast conversions without the reflection.
+    /// </summary>
+    public static class OpenAIEmbeddingsInInputTypeExtensions
+    {
+        /// <summary>
+        /// Converts an enum to a string.
+        /// </summary>
+        public static string ToValueString(this OpenAIEmbeddingsInInputType value)
+        {
+            return value switch
+            {
+                OpenAIEmbeddingsInInputType.Document => "document",
+                OpenAIEmbeddingsInInputType.Passage => "passage",
+                OpenAIEmbeddingsInInputType.Query => "query",
+                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
+            };
+        }
+        /// <summary>
+        /// Converts an string to a enum.
+        /// </summary>
+        public static OpenAIEmbeddingsInInputType? ToEnum(string value)
+        {
+            return value switch
+            {
+                "document" => OpenAIEmbeddingsInInputType.Document,
+                "passage" => OpenAIEmbeddingsInInputType.Passage,
+                "query" => OpenAIEmbeddingsInInputType.Query,
+                _ => null,
+            };
+        }
     }
 }

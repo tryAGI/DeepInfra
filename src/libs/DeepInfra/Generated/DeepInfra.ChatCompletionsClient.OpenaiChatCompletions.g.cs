@@ -646,7 +646,7 @@ namespace DeepInfra
             int? seed = default,
             bool? logprobs = default,
             global::DeepInfra.StreamOptions? streamOptions = default,
-            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort = default,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort = default,
             global::DeepInfra.ChatReasoningSettings? reasoning = default,
             string? promptCacheKey = default,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions = default,

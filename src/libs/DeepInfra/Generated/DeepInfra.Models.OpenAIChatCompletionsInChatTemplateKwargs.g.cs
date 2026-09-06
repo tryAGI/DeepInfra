@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Chat template kwargs.
+    ///
     /// </summary>
     public sealed partial class OpenAIChatCompletionsInChatTemplateKwargs
     {

@@ -12,13 +12,13 @@ namespace DeepInfra
         /// Prompt caching mode; 'explicit' requests explicit caching.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
-        public global::DeepInfra.PromptCacheOptionsMode2? Mode { get; set; }
+        public global::DeepInfra.PromptCacheOptionsMode? Mode { get; set; }
 
         /// <summary>
         /// Requested cache retention for this request's prefix.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ttl")]
-        public global::DeepInfra.PromptCacheOptionsTtl2? Ttl { get; set; }
+        public global::DeepInfra.PromptCacheOptionsTtl? Ttl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,8 +39,8 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PromptCacheOptions(
-            global::DeepInfra.PromptCacheOptionsMode2? mode,
-            global::DeepInfra.PromptCacheOptionsTtl2? ttl)
+            global::DeepInfra.PromptCacheOptionsMode? mode,
+            global::DeepInfra.PromptCacheOptionsTtl? ttl)
         {
             this.Mode = mode;
             this.Ttl = ttl;

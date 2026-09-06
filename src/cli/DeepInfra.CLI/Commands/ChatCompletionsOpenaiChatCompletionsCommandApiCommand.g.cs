@@ -161,7 +161,7 @@ The total length of input tokens and generated tokens is limited by the model's 
         name: @"--logprobs",
         description: @"Whether to return log probabilities of the output tokens or not.If true, returns the log probabilities of each output token returned in the `content` of `message`.");
 
-    private static Option<global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2?> ReasoningEffort { get; } = new(
+    private static Option<global::DeepInfra.OpenAIChatCompletionsInReasoningEffort?> ReasoningEffort { get; } = new(
         name: @"--reasoning-effort")
     {
         Description = @"Constrains effort on reasoning for reasoning models. Currently supported values are none, minimal, low, medium, high, xhigh, and max. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.",

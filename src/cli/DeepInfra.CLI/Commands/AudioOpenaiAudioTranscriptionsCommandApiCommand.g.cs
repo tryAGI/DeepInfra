@@ -58,7 +58,7 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
         Description = @"",
     };
 
-    private static Option<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2?> ResponseFormat { get; } = new(
+    private static Option<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat?> ResponseFormat { get; } = new(
         name: @"--response-format")
     {
         Description = @"",

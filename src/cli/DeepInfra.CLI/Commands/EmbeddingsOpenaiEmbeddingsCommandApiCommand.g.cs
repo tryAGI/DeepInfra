@@ -55,7 +55,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
         Required = true,
     };
 
-    private static Option<global::DeepInfra.OpenAIEmbeddingsInInputType2?> InputType { get; } = new(
+    private static Option<global::DeepInfra.OpenAIEmbeddingsInInputType?> InputType { get; } = new(
         name: @"--input-type")
     {
         Description = @"Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.",

@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Metadata associated with the batch.
+    ///
     /// </summary>
     public sealed partial class OpenAIBatchesOutMetadata
     {

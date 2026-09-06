@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Cache control for prompt caching
+    ///
     /// </summary>
     public sealed partial class FunctionToolCacheControl
     {

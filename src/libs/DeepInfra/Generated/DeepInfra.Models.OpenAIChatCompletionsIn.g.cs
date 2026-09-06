@@ -172,7 +172,7 @@ namespace DeepInfra
         /// Constrains effort on reasoning for reasoning models. Currently supported values are none, minimal, low, medium, high, xhigh, and max. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Setting to none disables reasoning entirely if the model supports.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
-        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? ReasoningEffort { get; set; }
+        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? ReasoningEffort { get; set; }
 
         /// <summary>
         /// Reasoning configuration.
@@ -351,7 +351,7 @@ namespace DeepInfra
             int? seed,
             bool? logprobs,
             global::DeepInfra.StreamOptions? streamOptions,
-            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? reasoningEffort,
+            global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? reasoningEffort,
             global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions,
