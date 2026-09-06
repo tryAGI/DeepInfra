@@ -37,7 +37,7 @@ namespace DeepInfra
         /// KV cache precision. fp8 ~doubles KV capacity at &lt;1% accuracy loss.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("kv_cache_dtype")]
-        public global::DeepInfra.StandardArgsKvCacheDtype2? KvCacheDtype { get; set; }
+        public global::DeepInfra.StandardArgsKvCacheDtype? KvCacheDtype { get; set; }
 
         /// <summary>
         /// Reuse KV cache for shared prompt prefixes.
@@ -49,7 +49,7 @@ namespace DeepInfra
         /// On-the-fly weight quantization method.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
-        public global::DeepInfra.StandardArgsQuantization2? Quantization { get; set; }
+        public global::DeepInfra.StandardArgsQuantization? Quantization { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -89,9 +89,9 @@ namespace DeepInfra
             int? maxConcurrentRequests,
             double? gpuMemoryFraction,
             int? maxPrefillTokens,
-            global::DeepInfra.StandardArgsKvCacheDtype2? kvCacheDtype,
+            global::DeepInfra.StandardArgsKvCacheDtype? kvCacheDtype,
             bool? enablePrefixCaching,
-            global::DeepInfra.StandardArgsQuantization2? quantization)
+            global::DeepInfra.StandardArgsQuantization? quantization)
         {
             this.MaxContextSize = maxContextSize;
             this.MaxConcurrentRequests = maxConcurrentRequests;

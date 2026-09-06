@@ -14,7 +14,7 @@ namespace DeepInfra
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public global::DeepInfra.AnthropicThinkingConfigType2? Type { get; set; }
+        public global::DeepInfra.AnthropicThinkingConfigType? Type { get; set; }
 
         /// <summary>
         ///
@@ -44,7 +44,7 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnthropicThinkingConfig(
-            global::DeepInfra.AnthropicThinkingConfigType2? type,
+            global::DeepInfra.AnthropicThinkingConfigType? type,
             int? budgetTokens,
             bool? enabled)
         {

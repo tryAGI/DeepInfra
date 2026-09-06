@@ -172,7 +172,7 @@ namespace DeepInfra
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("vercel_connection")]
-        public global::DeepInfra.MeVercelConnection2? VercelConnection { get; set; }
+        public global::DeepInfra.MeVercelConnection? VercelConnection { get; set; }
 
         /// <summary>
         /// Whether a Google account is linked<br/>
@@ -297,7 +297,7 @@ namespace DeepInfra
             string? teamRole,
             string? teamDisplayName,
             bool? isTeamUpgradeEnabled,
-            global::DeepInfra.MeVercelConnection2? vercelConnection,
+            global::DeepInfra.MeVercelConnection? vercelConnection,
             bool? googleLinked,
             bool? showSignupForm,
             global::DeepInfra.Checklist? checklist)

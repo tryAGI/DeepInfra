@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Could be used to generate pricing tables
+    ///
     /// </summary>
     public sealed partial class ModelPricingFrameUnitsTable
     {

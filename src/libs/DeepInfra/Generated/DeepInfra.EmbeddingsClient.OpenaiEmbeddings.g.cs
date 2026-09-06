@@ -560,7 +560,7 @@ namespace DeepInfra
             string? xApiKey = default,
             global::DeepInfra.ServiceTier? serviceTier = default,
             bool? failFast = default,
-            global::DeepInfra.OpenAIEmbeddingsInInputType2? inputType = default,
+            global::DeepInfra.OpenAIEmbeddingsInInputType? inputType = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
             int? dimensions = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,

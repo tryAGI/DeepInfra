@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// Extra body parameters for the model.
+    ///
     /// </summary>
     public sealed partial class OpenAITextToSpeechInExtraBody
     {

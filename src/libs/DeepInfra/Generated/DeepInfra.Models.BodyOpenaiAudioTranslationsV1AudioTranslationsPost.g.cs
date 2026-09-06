@@ -39,7 +39,7 @@ namespace DeepInfra
         /// Default Value: json
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? ResponseFormat { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -81,7 +81,7 @@ namespace DeepInfra
             string filename,
             string model,
             string? prompt,
-            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? responseFormat,
+            global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? responseFormat,
             double? temperature,
             string? serviceTier)
         {

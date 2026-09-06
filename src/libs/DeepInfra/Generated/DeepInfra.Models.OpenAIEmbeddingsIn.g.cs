@@ -40,7 +40,7 @@ namespace DeepInfra
         /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_type")]
-        public global::DeepInfra.OpenAIEmbeddingsInInputType2? InputType { get; set; }
+        public global::DeepInfra.OpenAIEmbeddingsInInputType? InputType { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>
@@ -96,7 +96,7 @@ namespace DeepInfra
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>> input,
             global::DeepInfra.ServiceTier? serviceTier,
             bool? failFast,
-            global::DeepInfra.OpenAIEmbeddingsInInputType2? inputType,
+            global::DeepInfra.OpenAIEmbeddingsInInputType? inputType,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
             int? dimensions)
         {

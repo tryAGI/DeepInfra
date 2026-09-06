@@ -269,7 +269,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.AnthropicThinkingConfigType2? Type59 { get; set; }
+        public global::DeepInfra.AnthropicThinkingConfigType? Type59 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -341,7 +341,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat2? Type77 { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? Type77 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -357,7 +357,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat2? Type81 { get; set; }
+        public global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat? Type81 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -465,7 +465,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ChatReasoningSettingsEffort2? Type108 { get; set; }
+        public global::DeepInfra.ChatReasoningSettingsEffort? Type108 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -605,11 +605,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.DeploymentOutStandardArgsKvCacheDtype2? Type143 { get; set; }
+        public global::DeepInfra.DeploymentOutStandardArgsKvCacheDtype? Type143 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.DeploymentOutStandardArgsQuantization2? Type144 { get; set; }
+        public global::DeepInfra.DeploymentOutStandardArgsQuantization? Type144 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -785,7 +785,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.MeVercelConnection2? Type188 { get; set; }
+        public global::DeepInfra.MeVercelConnection? Type188 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -957,7 +957,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort2? Type231 { get; set; }
+        public global::DeepInfra.OpenAIChatCompletionsInReasoningEffort? Type231 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1005,7 +1005,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.OpenAIEmbeddingsInInputType2? Type243 { get; set; }
+        public global::DeepInfra.OpenAIEmbeddingsInInputType? Type243 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1069,11 +1069,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.PresetConfigOutStandardArgsKvCacheDtype2? Type259 { get; set; }
+        public global::DeepInfra.PresetConfigOutStandardArgsKvCacheDtype? Type259 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.PresetConfigOutStandardArgsQuantization2? Type260 { get; set; }
+        public global::DeepInfra.PresetConfigOutStandardArgsQuantization? Type260 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1089,11 +1089,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.PromptCacheOptionsMode2? Type264 { get; set; }
+        public global::DeepInfra.PromptCacheOptionsMode? Type264 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.PromptCacheOptionsTtl2? Type265 { get; set; }
+        public global::DeepInfra.PromptCacheOptionsTtl? Type265 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -1201,11 +1201,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.StandardArgsKvCacheDtype2? Type292 { get; set; }
+        public global::DeepInfra.StandardArgsKvCacheDtype? Type292 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.StandardArgsQuantization2? Type293 { get; set; }
+        public global::DeepInfra.StandardArgsQuantization? Type293 { get; set; }
         /// <summary>
         ///
         /// </summary>
