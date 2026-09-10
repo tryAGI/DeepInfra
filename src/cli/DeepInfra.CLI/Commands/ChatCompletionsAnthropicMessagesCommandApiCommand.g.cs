@@ -28,7 +28,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
     private static Option<string?> XDeepinfraServiceTier { get; } = new(
         name: @"--x-deepinfra-service-tier")
     {
-        Description = @"",
+        Description = @"Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.",
     };
 
     private static Option<string?> XiApiKey { get; } = new(

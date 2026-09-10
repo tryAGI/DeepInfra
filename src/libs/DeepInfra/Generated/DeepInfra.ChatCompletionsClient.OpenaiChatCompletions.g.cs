@@ -28,6 +28,7 @@ namespace DeepInfra
         partial void PrepareOpenaiChatCompletionsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xDeepinfraSource,
+            ref string? xDeepinfraServiceTier,
             ref string? xiApiKey,
             ref string? xApiKey,
             global::DeepInfra.OpenAIChatCompletionsIn request);
@@ -35,6 +36,7 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xDeepinfraSource,
+            string? xDeepinfraServiceTier,
             string? xiApiKey,
             string? xApiKey,
             global::DeepInfra.OpenAIChatCompletionsIn request);
@@ -51,6 +53,9 @@ namespace DeepInfra
         /// Openai Chat Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -61,6 +66,7 @@ namespace DeepInfra
 
             global::DeepInfra.OpenAIChatCompletionsIn request,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -70,6 +76,7 @@ namespace DeepInfra
 
                 request: request,
                 xDeepinfraSource: xDeepinfraSource,
+                xDeepinfraServiceTier: xDeepinfraServiceTier,
                 xiApiKey: xiApiKey,
                 xApiKey: xApiKey,
                 requestOptions: requestOptions,
@@ -82,6 +89,9 @@ namespace DeepInfra
         /// Openai Chat Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -92,6 +102,7 @@ namespace DeepInfra
 
             global::DeepInfra.OpenAIChatCompletionsIn request,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -104,6 +115,7 @@ namespace DeepInfra
             PrepareOpenaiChatCompletionsArguments(
                 httpClient: HttpClient,
                 xDeepinfraSource: ref xDeepinfraSource,
+                xDeepinfraServiceTier: ref xDeepinfraServiceTier,
                 xiApiKey: ref xiApiKey,
                 xApiKey: ref xApiKey,
                 request: request);
@@ -168,6 +180,10 @@ namespace DeepInfra
             {
                 __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-source", xDeepinfraSource.ToString());
             }
+            if (xDeepinfraServiceTier != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-deepinfra-service-tier", xDeepinfraServiceTier.ToString());
+            }
             if (xiApiKey != default)
             {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
@@ -195,6 +211,7 @@ namespace DeepInfra
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     xDeepinfraSource: xDeepinfraSource,
+                    xDeepinfraServiceTier: xDeepinfraServiceTier,
                     xiApiKey: xiApiKey,
                     xApiKey: xApiKey,
                     request: request);
@@ -509,6 +526,9 @@ namespace DeepInfra
         /// Openai Chat Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="serviceTier">
@@ -622,6 +642,7 @@ namespace DeepInfra
             string model,
             global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>> messages,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.ServiceTier? serviceTier = default,
@@ -693,6 +714,7 @@ namespace DeepInfra
 
             return await OpenaiChatCompletionsAsync(
                 xDeepinfraSource: xDeepinfraSource,
+                xDeepinfraServiceTier: xDeepinfraServiceTier,
                 xiApiKey: xiApiKey,
                 xApiKey: xApiKey,
                 request: __request,

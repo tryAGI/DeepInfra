@@ -19,6 +19,12 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
         Description = @"",
     };
 
+    private static Option<string?> XDeepinfraServiceTier { get; } = new(
+        name: @"--x-deepinfra-service-tier")
+    {
+        Description = @"Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.",
+    };
+
     private static Option<string?> XiApiKey { get; } = new(
         name: @"--xi-api-key")
     {
@@ -114,6 +120,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
         var command = new Command(@"openai-embeddings", @"Openai Embeddings");
                         command.Options.Add(XDeepinfraSource);
                         command.Options.Add(UserAgent);
+                        command.Options.Add(XDeepinfraServiceTier);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ServiceTier);
@@ -150,6 +157,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
                             cancellationToken).ConfigureAwait(false);
                         var xDeepinfraSource = parseResult.GetValue(XDeepinfraSource);
                         var userAgent = parseResult.GetValue(UserAgent);
+                        var xDeepinfraServiceTier = parseResult.GetValue(XDeepinfraServiceTier);
                         var xiApiKey = parseResult.GetValue(XiApiKey);
                         var xApiKey = parseResult.GetValue(XApiKey);
                         var serviceTier = CliRuntime.WasSpecified(parseResult, ServiceTier) ? parseResult.GetValue(ServiceTier) : (__requestBase is { } __ServiceTierBaseValue ? __ServiceTierBaseValue.ServiceTier : default);
@@ -165,6 +173,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
                                 var response = await client.Embeddings.OpenaiEmbeddingsAsync(
                                     xDeepinfraSource: xDeepinfraSource,
                                     userAgent: userAgent,
+                                    xDeepinfraServiceTier: xDeepinfraServiceTier,
                                     xiApiKey: xiApiKey,
                                     xApiKey: xApiKey,
                                     serviceTier: serviceTier,

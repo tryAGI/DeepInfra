@@ -8,6 +8,9 @@ namespace DeepInfra
         /// Openai Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -18,6 +21,7 @@ namespace DeepInfra
 
             global::DeepInfra.OpenAICompletionsIn request,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -26,6 +30,9 @@ namespace DeepInfra
         /// Openai Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -36,6 +43,7 @@ namespace DeepInfra
 
             global::DeepInfra.OpenAICompletionsIn request,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -44,6 +52,9 @@ namespace DeepInfra
         /// Openai Completions
         /// </summary>
         /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="serviceTier">
@@ -148,6 +159,7 @@ namespace DeepInfra
             string model,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<int>> prompt,
             string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.ServiceTier? serviceTier = default,

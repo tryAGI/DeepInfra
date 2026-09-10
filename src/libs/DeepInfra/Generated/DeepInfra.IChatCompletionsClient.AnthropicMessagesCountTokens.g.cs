@@ -7,6 +7,9 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -16,6 +19,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
 
             global::DeepInfra.AnthropicTokenCountRequest request,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -23,6 +27,9 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -32,6 +39,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> AnthropicMessagesCountTokensAsResponseAsync(
 
             global::DeepInfra.AnthropicTokenCountRequest request,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -39,6 +47,9 @@ namespace DeepInfra
         /// <summary>
         /// Anthropic Messages Count Tokens
         /// </summary>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="model"></param>
@@ -53,6 +64,7 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<string> AnthropicMessagesCountTokensAsync(
             string model,
             global::System.Collections.Generic.IList<object> messages,
+            string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
