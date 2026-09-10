@@ -182,6 +182,18 @@ namespace DeepInfra
         public bool? GoogleLinked { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mfa_enabled")]
+        public bool? MfaEnabled { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mfa_available")]
+        public bool? MfaAvailable { get; set; }
+
+        /// <summary>
         /// Frontend should route the user into the post-signup account-details form<br/>
         /// Default Value: false
         /// </summary>
@@ -264,6 +276,12 @@ namespace DeepInfra
         /// Whether a Google account is linked<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="mfaEnabled">
+        /// Default Value: false
+        /// </param>
+        /// <param name="mfaAvailable">
+        /// Default Value: false
+        /// </param>
         /// <param name="showSignupForm">
         /// Frontend should route the user into the post-signup account-details form<br/>
         /// Default Value: false
@@ -299,6 +317,8 @@ namespace DeepInfra
             bool? isTeamUpgradeEnabled,
             global::DeepInfra.MeVercelConnection? vercelConnection,
             bool? googleLinked,
+            bool? mfaEnabled,
+            bool? mfaAvailable,
             bool? showSignupForm,
             global::DeepInfra.Checklist? checklist)
         {
@@ -328,6 +348,8 @@ namespace DeepInfra
             this.IsTeamUpgradeEnabled = isTeamUpgradeEnabled;
             this.VercelConnection = vercelConnection;
             this.GoogleLinked = googleLinked;
+            this.MfaEnabled = mfaEnabled;
+            this.MfaAvailable = mfaAvailable;
             this.ShowSignupForm = showSignupForm;
             this.Checklist = checklist;
         }
