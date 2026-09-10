@@ -113,12 +113,6 @@ namespace DeepInfra
         public string? BillingType { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("intermediate_invoicing_threshold")]
-        public int? IntermediateInvoicingThreshold { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -168,7 +162,6 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="billingType"></param>
-        /// <param name="intermediateInvoicingThreshold"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -189,8 +182,7 @@ namespace DeepInfra
             int? topupAmount,
             int? topupThreshold,
             bool? topupFailed,
-            string? billingType,
-            int? intermediateInvoicingThreshold)
+            string? billingType)
         {
             this.Email = email;
             this.BillingAddress = billingAddress;
@@ -209,7 +201,6 @@ namespace DeepInfra
             this.TopupThreshold = topupThreshold;
             this.TopupFailed = topupFailed;
             this.BillingType = billingType;
-            this.IntermediateInvoicingThreshold = intermediateInvoicingThreshold;
         }
 
         /// <summary>

@@ -7,6 +7,12 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class ChatCompletionsAnthropicMessagesCountTokensCommandApiCommand
 {
+    private static Option<string?> XDeepinfraServiceTier { get; } = new(
+        name: @"--x-deepinfra-service-tier")
+    {
+        Description = @"Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.",
+    };
+
     private static Option<string?> XiApiKey { get; } = new(
         name: @"--xi-api-key")
     {
@@ -91,6 +97,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCountTokensCommand
     public static Command Create()
     {
         var command = new Command(@"anthropic-messages-count-tokens", @"Anthropic Messages Count Tokens");
+                        command.Options.Add(XDeepinfraServiceTier);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(Model);
@@ -124,6 +131,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCountTokensCommand
                             RequestFile,
                             global::DeepInfra.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
+                        var xDeepinfraServiceTier = parseResult.GetValue(XDeepinfraServiceTier);
                         var xiApiKey = parseResult.GetValue(XiApiKey);
                         var xApiKey = parseResult.GetValue(XApiKey);
                         var model = parseResult.GetRequiredValue(Model);
@@ -148,6 +156,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCountTokensCommand
 
 
                                 var response = await client.ChatCompletions.AnthropicMessagesCountTokensAsync(
+                                    xDeepinfraServiceTier: xDeepinfraServiceTier,
                                     xiApiKey: xiApiKey,
                                     xApiKey: xApiKey,
                                     model: model,

@@ -13,6 +13,12 @@ internal static partial class ChatCompletionsOpenaiChatCompletionsCommandApiComm
         Description = @"",
     };
 
+    private static Option<string?> XDeepinfraServiceTier { get; } = new(
+        name: @"--x-deepinfra-service-tier")
+    {
+        Description = @"Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.",
+    };
+
     private static Option<string?> XiApiKey { get; } = new(
         name: @"--xi-api-key")
     {
@@ -240,6 +246,7 @@ The total length of input tokens and generated tokens is limited by the model's 
     {
         var command = new Command(@"openai-chat-completions", @"Openai Chat Completions");
                         command.Options.Add(XDeepinfraSource);
+                        command.Options.Add(XDeepinfraServiceTier);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ServiceTier);
@@ -299,6 +306,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                             global::DeepInfra.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var xDeepinfraSource = parseResult.GetValue(XDeepinfraSource);
+                        var xDeepinfraServiceTier = parseResult.GetValue(XDeepinfraServiceTier);
                         var xiApiKey = parseResult.GetValue(XiApiKey);
                         var xApiKey = parseResult.GetValue(XApiKey);
                         var serviceTier = CliRuntime.WasSpecified(parseResult, ServiceTier) ? parseResult.GetValue(ServiceTier) : (__requestBase is { } __ServiceTierBaseValue ? __ServiceTierBaseValue.ServiceTier : default);
@@ -349,6 +357,7 @@ The total length of input tokens and generated tokens is limited by the model's 
 
                                 var response = await client.ChatCompletions.OpenaiChatCompletionsAsync(
                                     xDeepinfraSource: xDeepinfraSource,
+                                    xDeepinfraServiceTier: xDeepinfraServiceTier,
                                     xiApiKey: xiApiKey,
                                     xApiKey: xApiKey,
                                     serviceTier: serviceTier,
