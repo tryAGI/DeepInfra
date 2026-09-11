@@ -151,7 +151,7 @@ namespace DeepInfra
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddRequiredParameter("hf_repo_id", hfRepoId)
-                                .AddOptionalParameter("gpu", gpu?.ToString())
+                                .AddOptionalParameter("gpu", gpu?.ToValueString())
                                 .AddOptionalParameter("engine", engine)
                                 .AddOptionalParameter("source", source)
                                 ;
