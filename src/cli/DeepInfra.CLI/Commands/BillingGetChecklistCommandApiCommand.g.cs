@@ -7,10 +7,6 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class BillingGetChecklistCommandApiCommand
 {
-    private static Option<bool?> ComputeOwed { get; } = CliRuntime.CreateNullableBoolOption(
-        name: @"--compute-owed",
-        description: @"");
-
     private static Option<object?> Session { get; } = new(
         name: @"--session")
     {
@@ -40,20 +36,17 @@ internal static partial class BillingGetChecklistCommandApiCommand
     public static Command Create()
     {
         var command = new Command(@"get-checklist", @"Get Checklist");
-                        command.Options.Add(ComputeOwed);
                         command.Options.Add(Session);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var computeOwed = parseResult.GetValue(ComputeOwed);
                         var session = parseResult.GetValue(Session);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Billing.GetChecklistAsync(
-                                    computeOwed: computeOwed,
                                     session: session,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
