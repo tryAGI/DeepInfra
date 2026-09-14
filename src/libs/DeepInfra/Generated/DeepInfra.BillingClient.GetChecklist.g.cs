@@ -27,12 +27,10 @@ namespace DeepInfra
             };
         partial void PrepareGetChecklistArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? computeOwed,
             object? session);
         partial void PrepareGetChecklistRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? computeOwed,
             object? session);
         partial void ProcessGetChecklistResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -46,21 +44,16 @@ namespace DeepInfra
         /// <summary>
         /// Get Checklist
         /// </summary>
-        /// <param name="computeOwed">
-        /// Default Value: false
-        /// </param>
         /// <param name="session"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.Checklist> GetChecklistAsync(
-            bool? computeOwed = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetChecklistAsResponseAsync(
-                computeOwed: computeOwed,
                 session: session,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -71,15 +64,11 @@ namespace DeepInfra
         /// <summary>
         /// Get Checklist
         /// </summary>
-        /// <param name="computeOwed">
-        /// Default Value: false
-        /// </param>
         /// <param name="session"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.Checklist>> GetChecklistAsResponseAsync(
-            bool? computeOwed = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -88,7 +77,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareGetChecklistArguments(
                 httpClient: HttpClient,
-                computeOwed: ref computeOwed,
                 session: session);
 
 
@@ -117,9 +105,6 @@ namespace DeepInfra
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
                                 path: "/payment/checklist",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("compute_owed", computeOwed?.ToString().ToLowerInvariant())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -172,7 +157,6 @@ namespace DeepInfra
                 PrepareGetChecklistRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    computeOwed: computeOwed,
                     session: session);
 
                 return __httpRequest;
