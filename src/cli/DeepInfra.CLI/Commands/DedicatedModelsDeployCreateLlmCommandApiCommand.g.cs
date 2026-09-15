@@ -123,6 +123,7 @@ internal static partial class DedicatedModelsDeployCreateLlmCommandApiCommand
                         command.Options.Add(PresetId);                        command.Options.Add(SettingsOptions.MinInstances);
                         command.Options.Add(SettingsOptions.MaxInstances);                        command.Options.Add(StandardArgsOptions.MaxContextSize);
                         command.Options.Add(StandardArgsOptions.MaxConcurrentRequests);
+                        command.Options.Add(StandardArgsOptions.MaxImagesPerPrompt);
                         command.Options.Add(StandardArgsOptions.GpuMemoryFraction);
                         command.Options.Add(StandardArgsOptions.MaxPrefillTokens);
                         command.Options.Add(StandardArgsOptions.EnablePrefixCaching);
@@ -177,16 +178,18 @@ internal static partial class DedicatedModelsDeployCreateLlmCommandApiCommand
 
                         var __StandardArgsBase = __requestBase is { } __StandardArgsBaseValue ? __StandardArgsBaseValue.StandardArgs : default;                        var standardArgsMaxContextSize = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxContextSize) ? parseResult.GetValue(StandardArgsOptions.MaxContextSize) : (__StandardArgsBase is { } __StandardArgsmaxContextSizeBaseValue ? __StandardArgsmaxContextSizeBaseValue.MaxContextSize : default);
                         var standardArgsMaxConcurrentRequests = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxConcurrentRequests) ? parseResult.GetValue(StandardArgsOptions.MaxConcurrentRequests) : (__StandardArgsBase is { } __StandardArgsmaxConcurrentRequestsBaseValue ? __StandardArgsmaxConcurrentRequestsBaseValue.MaxConcurrentRequests : default);
+                        var standardArgsMaxImagesPerPrompt = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxImagesPerPrompt) ? parseResult.GetValue(StandardArgsOptions.MaxImagesPerPrompt) : (__StandardArgsBase is { } __StandardArgsmaxImagesPerPromptBaseValue ? __StandardArgsmaxImagesPerPromptBaseValue.MaxImagesPerPrompt : default);
                         var standardArgsGpuMemoryFraction = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.GpuMemoryFraction) ? parseResult.GetValue(StandardArgsOptions.GpuMemoryFraction) : (__StandardArgsBase is { } __StandardArgsgpuMemoryFractionBaseValue ? __StandardArgsgpuMemoryFractionBaseValue.GpuMemoryFraction : default);
                         var standardArgsMaxPrefillTokens = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxPrefillTokens) ? parseResult.GetValue(StandardArgsOptions.MaxPrefillTokens) : (__StandardArgsBase is { } __StandardArgsmaxPrefillTokensBaseValue ? __StandardArgsmaxPrefillTokensBaseValue.MaxPrefillTokens : default);
                         var standardArgsEnablePrefixCaching = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.EnablePrefixCaching) ? parseResult.GetValue(StandardArgsOptions.EnablePrefixCaching) : (__StandardArgsBase is { } __StandardArgsenablePrefixCachingBaseValue ? __StandardArgsenablePrefixCachingBaseValue.EnablePrefixCaching : default);
-                        var __StandardArgsSpecified = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxContextSize) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxConcurrentRequests) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.GpuMemoryFraction) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxPrefillTokens) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.EnablePrefixCaching);
+                        var __StandardArgsSpecified = CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxContextSize) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxConcurrentRequests) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxImagesPerPrompt) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.GpuMemoryFraction) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.MaxPrefillTokens) || CliRuntime.WasSpecified(parseResult, StandardArgsOptions.EnablePrefixCaching);
                         var standardArgs =
                             __StandardArgsSpecified || __StandardArgsBase is not null
                                 ? new global::DeepInfra.StandardArgs
                                 {
 	                                MaxContextSize = standardArgsMaxContextSize,
                                 MaxConcurrentRequests = standardArgsMaxConcurrentRequests,
+                                MaxImagesPerPrompt = standardArgsMaxImagesPerPrompt,
                                 GpuMemoryFraction = standardArgsGpuMemoryFraction,
                                 MaxPrefillTokens = standardArgsMaxPrefillTokens,
                                 EnablePrefixCaching = standardArgsEnablePrefixCaching,

@@ -7,6 +7,7 @@ namespace DeepInfra.CLI.Commands;
 internal sealed record StandardArgsOptionSet(
     Option<int?> MaxContextSize,
                      Option<int?> MaxConcurrentRequests,
+                     Option<int?> MaxImagesPerPrompt,
                      Option<double?> GpuMemoryFraction,
                      Option<int?> MaxPrefillTokens,
                      Option<bool?> EnablePrefixCaching)
@@ -24,6 +25,10 @@ internal sealed record StandardArgsOptionSet(
                 MaxConcurrentRequests: new Option<int?>($"--{normalizedPrefix}max-concurrent-requests")
                 {
                     Description = @"Max number of requests served concurrently.",
+                },
+                MaxImagesPerPrompt: new Option<int?>($"--{normalizedPrefix}max-images-per-prompt")
+                {
+                    Description = @"Images the engine accepts in one request; deepapi refuses more before rendering. 0 disables image input entirely.",
                 },
                 GpuMemoryFraction: new Option<double?>($"--{normalizedPrefix}gpu-memory-fraction")
                 {
