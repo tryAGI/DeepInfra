@@ -21,6 +21,12 @@ namespace DeepInfra
         public int? MaxConcurrentRequests { get; set; }
 
         /// <summary>
+        /// Images the engine accepts in one request; deepapi refuses more before rendering. 0 disables image input entirely.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_images_per_prompt")]
+        public int? MaxImagesPerPrompt { get; set; }
+
+        /// <summary>
         /// Fraction of GPU memory the engine may use for weights + KV cache.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_memory_fraction")]
@@ -65,6 +71,9 @@ namespace DeepInfra
         /// <param name="maxConcurrentRequests">
         /// Max number of requests served concurrently.
         /// </param>
+        /// <param name="maxImagesPerPrompt">
+        /// Images the engine accepts in one request; deepapi refuses more before rendering. 0 disables image input entirely.
+        /// </param>
         /// <param name="gpuMemoryFraction">
         /// Fraction of GPU memory the engine may use for weights + KV cache.
         /// </param>
@@ -86,6 +95,7 @@ namespace DeepInfra
         public DeploymentOutStandardArgs(
             int? maxContextSize,
             int? maxConcurrentRequests,
+            int? maxImagesPerPrompt,
             double? gpuMemoryFraction,
             int? maxPrefillTokens,
             global::DeepInfra.DeploymentOutStandardArgsKvCacheDtype? kvCacheDtype,
@@ -94,6 +104,7 @@ namespace DeepInfra
         {
             this.MaxContextSize = maxContextSize;
             this.MaxConcurrentRequests = maxConcurrentRequests;
+            this.MaxImagesPerPrompt = maxImagesPerPrompt;
             this.GpuMemoryFraction = gpuMemoryFraction;
             this.MaxPrefillTokens = maxPrefillTokens;
             this.KvCacheDtype = kvCacheDtype;
