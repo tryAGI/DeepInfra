@@ -16,6 +16,12 @@ namespace DeepInfra
         public required int Amount { get; set; }
 
         /// <summary>
+        /// Stripe Radar Session id from stripe.createRadarSession() in the paying browser; attached to the charge so Radar sees the device
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("radar_session")]
+        public string? RadarSession { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +33,18 @@ namespace DeepInfra
         /// <param name="amount">
         /// Amount to add in cents
         /// </param>
+        /// <param name="radarSession">
+        /// Stripe Radar Session id from stripe.createRadarSession() in the paying browser; attached to the charge so Radar sees the device
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AddFundsIn(
-            int amount)
+            int amount,
+            string? radarSession)
         {
             this.Amount = amount;
+            this.RadarSession = radarSession;
         }
 
         /// <summary>

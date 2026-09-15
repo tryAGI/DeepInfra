@@ -515,6 +515,9 @@ namespace DeepInfra
         /// <param name="amount">
         /// Amount to add in cents
         /// </param>
+        /// <param name="radarSession">
+        /// Stripe Radar Session id from stripe.createRadarSession() in the paying browser; attached to the charge so Radar sees the device
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -522,12 +525,14 @@ namespace DeepInfra
             int amount,
             bool? useCheckout = default,
             object? session = default,
+            string? radarSession = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.AddFundsIn
             {
                 Amount = amount,
+                RadarSession = radarSession,
             };
 
             return await AddFundsAsync(

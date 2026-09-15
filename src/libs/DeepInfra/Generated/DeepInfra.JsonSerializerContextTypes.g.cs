@@ -41,15 +41,15 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.AddFundsOut? Type2 { get; set; }
+        public string? Type2 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public string? Type3 { get; set; }
+        public object? Type3 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public object? Type4 { get; set; }
+        public global::DeepInfra.AddFundsOut? Type4 { get; set; }
         /// <summary>
         ///
         /// </summary>
