@@ -27,13 +27,11 @@ namespace DeepInfra
             };
         partial void PrepareAddFundsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? useCheckout,
             object? session,
             global::DeepInfra.AddFundsIn request);
         partial void PrepareAddFundsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? useCheckout,
             object? session,
             global::DeepInfra.AddFundsIn request);
         partial void ProcessAddFundsResponse(
@@ -48,9 +46,6 @@ namespace DeepInfra
         /// <summary>
         /// Add Funds
         /// </summary>
-        /// <param name="useCheckout">
-        /// Default Value: false
-        /// </param>
         /// <param name="session"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -59,7 +54,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AddFundsOut> AddFundsAsync(
 
             global::DeepInfra.AddFundsIn request,
-            bool? useCheckout = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -67,7 +61,6 @@ namespace DeepInfra
             var __response = await AddFundsAsResponseAsync(
 
                 request: request,
-                useCheckout: useCheckout,
                 session: session,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -78,9 +71,6 @@ namespace DeepInfra
         /// <summary>
         /// Add Funds
         /// </summary>
-        /// <param name="useCheckout">
-        /// Default Value: false
-        /// </param>
         /// <param name="session"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -89,7 +79,6 @@ namespace DeepInfra
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.AddFundsOut>> AddFundsAsResponseAsync(
 
             global::DeepInfra.AddFundsIn request,
-            bool? useCheckout = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -100,7 +89,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareAddFundsArguments(
                 httpClient: HttpClient,
-                useCheckout: ref useCheckout,
                 session: session,
                 request: request);
 
@@ -130,9 +118,6 @@ namespace DeepInfra
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
                                 path: "/payment/funds",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("use_checkout", useCheckout?.ToString().ToLowerInvariant())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -191,7 +176,6 @@ namespace DeepInfra
                 PrepareAddFundsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    useCheckout: useCheckout,
                     session: session,
                     request: request);
 
@@ -508,9 +492,6 @@ namespace DeepInfra
         /// <summary>
         /// Add Funds
         /// </summary>
-        /// <param name="useCheckout">
-        /// Default Value: false
-        /// </param>
         /// <param name="session"></param>
         /// <param name="amount">
         /// Amount to add in cents
@@ -523,7 +504,6 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AddFundsOut> AddFundsAsync(
             int amount,
-            bool? useCheckout = default,
             object? session = default,
             string? radarSession = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -536,7 +516,6 @@ namespace DeepInfra
             };
 
             return await AddFundsAsync(
-                useCheckout: useCheckout,
                 session: session,
                 request: __request,
                 requestOptions: requestOptions,
