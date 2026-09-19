@@ -51,12 +51,20 @@ internal static partial class BillingGetChecklistCommandApiCommand
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
+                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
+                                        parseResult,
+                                        response,
+                                        global::DeepInfra.SourceGenerationContext.Default,
+                                        @"ScopedCredits",
+                                        cancellationToken).ConfigureAwait(false))
+                                {
                                 await CliRuntime.WriteResponseAsync(
                                     parseResult,
                                     response,
                                     global::DeepInfra.SourceGenerationContext.Default,
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
+                                }
             }, cancellationToken).ConfigureAwait(false));
         return command;
     }
