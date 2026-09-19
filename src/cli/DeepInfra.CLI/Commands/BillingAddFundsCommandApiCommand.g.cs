@@ -7,10 +7,6 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class BillingAddFundsCommandApiCommand
 {
-    private static Option<bool?> UseCheckout { get; } = CliRuntime.CreateNullableBoolOption(
-        name: @"--use-checkout",
-        description: @"");
-
     private static Option<object?> Session { get; } = new(
         name: @"--session")
     {
@@ -69,7 +65,6 @@ internal static partial class BillingAddFundsCommandApiCommand
     public static Command Create()
     {
         var command = new Command(@"add-funds", @"Add Funds");
-                        command.Options.Add(UseCheckout);
                         command.Options.Add(Session);
                         command.Options.Add(Amount);
                         command.Options.Add(RadarSession);
@@ -98,7 +93,6 @@ internal static partial class BillingAddFundsCommandApiCommand
                             RequestFile,
                             global::DeepInfra.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
-                        var useCheckout = parseResult.GetValue(UseCheckout);
                         var session = parseResult.GetValue(Session);
                         var amount = parseResult.GetRequiredValue(Amount);
                         var radarSession = CliRuntime.WasSpecified(parseResult, RadarSession) ? parseResult.GetValue(RadarSession) : (__requestBase is { } __RadarSessionBaseValue ? __RadarSessionBaseValue.RadarSession : default);
@@ -106,7 +100,6 @@ internal static partial class BillingAddFundsCommandApiCommand
 
 
                                 var response = await client.Billing.AddFundsAsync(
-                                    useCheckout: useCheckout,
                                     session: session,
                                     amount: amount,
                                     radarSession: radarSession,
