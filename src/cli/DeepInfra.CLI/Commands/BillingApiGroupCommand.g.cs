@@ -9,6 +9,7 @@ internal static class BillingApiGroupCommand
     public static Command Create()
     {
         var command = new Command(@"billing", @"Billing endpoint commands.");
+                         command.Subcommands.Add(BillingAddCardCheckoutCommandApiCommand.Create());
                          command.Subcommands.Add(BillingAddFundsCommandApiCommand.Create());
                          command.Subcommands.Add(BillingBillingPortalCommandApiCommand.Create());
                          command.Subcommands.Add(BillingDeepstartApplyCommandApiCommand.Create());
