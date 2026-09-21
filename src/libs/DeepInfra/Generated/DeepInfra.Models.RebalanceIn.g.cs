@@ -23,6 +23,13 @@ namespace DeepInfra
         public required int Count { get; set; }
 
         /// <summary>
+        /// How many target instances may start at once (default 1). Higher finishes sooner at a deeper dip in source capacity; clamped to count. How many source instances that takes down depends on their relative size: one target instance the size of 4 source instances stops 4 of them at once, while a source instance that yields 4 target instances is always drained in one go, starting all 4.<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("concurrency")]
+        public int? Concurrency { get; set; }
+
+        /// <summary>
         /// Validate and preview without moving anything.<br/>
         /// Default Value: false
         /// </summary>
@@ -44,6 +51,10 @@ namespace DeepInfra
         /// <param name="count">
         /// Number of target instances to create.
         /// </param>
+        /// <param name="concurrency">
+        /// How many target instances may start at once (default 1). Higher finishes sooner at a deeper dip in source capacity; clamped to count. How many source instances that takes down depends on their relative size: one target instance the size of 4 source instances stops 4 of them at once, while a source instance that yields 4 target instances is always drained in one go, starting all 4.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="dryRun">
         /// Validate and preview without moving anything.<br/>
         /// Default Value: false
@@ -54,10 +65,12 @@ namespace DeepInfra
         public RebalanceIn(
             string targetDeployId,
             int count,
+            int? concurrency,
             bool? dryRun)
         {
             this.TargetDeployId = targetDeployId ?? throw new global::System.ArgumentNullException(nameof(targetDeployId));
             this.Count = count;
+            this.Concurrency = concurrency;
             this.DryRun = dryRun;
         }
 

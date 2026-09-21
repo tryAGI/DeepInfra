@@ -39,6 +39,12 @@ internal static partial class DedicatedModelsDeployRebalanceCommandApiCommand
         Required = true,
     };
 
+    private static Option<int?> Concurrency { get; } = new(
+        name: @"--concurrency")
+    {
+        Description = @"How many target instances may start at once (default 1). Higher finishes sooner at a deeper dip in source capacity; clamped to count. How many source instances that takes down depends on their relative size: one target instance the size of 4 source instances stops 4 of them at once, while a source instance that yields 4 target instances is always drained in one go, starting all 4.",
+    };
+
     private static Option<bool?> DryRun { get; } = CliRuntime.CreateNullableBoolOption(
         name: @"--dry-run",
         description: @"Validate and preview without moving anything.");
@@ -83,13 +89,17 @@ internal static partial class DedicatedModelsDeployRebalanceCommandApiCommand
     {
         var command = new Command(@"deploy-rebalance", @"Deploy Rebalance
 Start a GPU pool rebalance: move GPUs from this deployment onto another
-deployment you own, one instance at a time and without downtime. Moving all
-instances stops this deployment; start it again later to resume it.");
+deployment you own, a target instance at a time unless concurrency raises it.
+A source instance is never left half-moved, so one larger target instance stops
+several of this deployment's at once, and one larger source instance is replaced
+by several target instances at once. Moving all instances stops this deployment;
+start it again later to resume it.");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(TargetDeployId);
                         command.Options.Add(Count);
+                        command.Options.Add(Concurrency);
                         command.Options.Add(DryRun);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -121,6 +131,7 @@ instances stops this deployment; start it again later to resume it.");
                         var xApiKey = parseResult.GetValue(XApiKey);
                         var targetDeployId = parseResult.GetRequiredValue(TargetDeployId);
                         var count = parseResult.GetRequiredValue(Count);
+                        var concurrency = CliRuntime.WasSpecified(parseResult, Concurrency) ? parseResult.GetValue(Concurrency) : (__requestBase is { } __ConcurrencyBaseValue ? __ConcurrencyBaseValue.Concurrency : default);
                         var dryRun = CliRuntime.WasSpecified(parseResult, DryRun) ? parseResult.GetValue(DryRun) : (__requestBase is { } __DryRunBaseValue ? __DryRunBaseValue.DryRun : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -131,6 +142,7 @@ instances stops this deployment; start it again later to resume it.");
                                     xApiKey: xApiKey,
                                     targetDeployId: targetDeployId,
                                     count: count,
+                                    concurrency: concurrency,
                                     dryRun: dryRun,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
