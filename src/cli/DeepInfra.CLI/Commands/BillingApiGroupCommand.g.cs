@@ -20,6 +20,7 @@ internal static class BillingApiGroupCommand
                          command.Subcommands.Add(BillingSetupTopupCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageApiTokenCommandApiCommand.Create());
+                         command.Subcommands.Add(BillingUsageApiTokenByIdCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageRentCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageTokensCommandApiCommand.Create());
         return command;
