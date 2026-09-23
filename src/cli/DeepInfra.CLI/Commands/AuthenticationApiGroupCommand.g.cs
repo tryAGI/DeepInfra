@@ -13,9 +13,12 @@ internal static class AuthenticationApiGroupCommand
                          command.Subcommands.Add(AuthenticationCreateScopedJwtCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationCreateSshKeyCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationDeleteApiTokenCommandApiCommand.Create());
+                         command.Subcommands.Add(AuthenticationDeleteApiTokenByIdCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationDeleteSshKeyCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationExportApiTokenToVercelCommandApiCommand.Create());
+                         command.Subcommands.Add(AuthenticationExportApiTokenToVercelByBodyCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetApiTokenCommandApiCommand.Create());
+                         command.Subcommands.Add(AuthenticationGetApiTokenByIdCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetApiTokensCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetSshKeysCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGithubCliLoginCommandApiCommand.Create());

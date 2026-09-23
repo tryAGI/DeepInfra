@@ -32,6 +32,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InspectScopedJWTOut))]
