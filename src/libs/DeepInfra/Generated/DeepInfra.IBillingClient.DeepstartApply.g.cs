@@ -43,6 +43,10 @@ namespace DeepInfra
         /// <param name="funding"></param>
         /// <param name="foundedOn"></param>
         /// <param name="website"></param>
+        /// <param name="countryCode"></param>
+        /// <param name="nvidiaConsent">
+        /// Default Value: false
+        /// </param>
         /// <param name="createdAt"></param>
         /// <param name="status">
         /// Default Value: pending
@@ -60,6 +64,8 @@ namespace DeepInfra
             object? session = default,
             string? id = default,
             string? uid = default,
+            string? countryCode = default,
+            bool? nvidiaConsent = default,
             int? createdAt = default,
             string? status = default,
             string? deal = default,
