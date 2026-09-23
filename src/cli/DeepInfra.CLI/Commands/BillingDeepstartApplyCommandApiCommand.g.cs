@@ -60,6 +60,16 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
         Required = true,
     };
 
+    private static Option<string?> CountryCode { get; } = new(
+        name: @"--country-code")
+    {
+        Description = @"",
+    };
+
+    private static Option<bool?> NvidiaConsent { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--nvidia-consent",
+        description: @"");
+
     private static Option<int?> CreatedAt { get; } = new(
         name: @"--created-at")
     {
@@ -125,6 +135,8 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         command.Options.Add(Funding);
                         command.Options.Add(FoundedOn);
                         command.Options.Add(Website);
+                        command.Options.Add(CountryCode);
+                        command.Options.Add(NvidiaConsent);
                         command.Options.Add(CreatedAt);
                         command.Options.Add(Status);
                         command.Options.Add(Deal);
@@ -161,6 +173,8 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         var funding = parseResult.GetRequiredValue(Funding);
                         var foundedOn = parseResult.GetRequiredValue(FoundedOn);
                         var website = parseResult.GetRequiredValue(Website);
+                        var countryCode = CliRuntime.WasSpecified(parseResult, CountryCode) ? parseResult.GetValue(CountryCode) : (__requestBase is { } __CountryCodeBaseValue ? __CountryCodeBaseValue.CountryCode : default);
+                        var nvidiaConsent = CliRuntime.WasSpecified(parseResult, NvidiaConsent) ? parseResult.GetValue(NvidiaConsent) : (__requestBase is { } __NvidiaConsentBaseValue ? __NvidiaConsentBaseValue.NvidiaConsent : default);
                         var createdAt = CliRuntime.WasSpecified(parseResult, CreatedAt) ? parseResult.GetValue(CreatedAt) : (__requestBase is { } __CreatedAtBaseValue ? __CreatedAtBaseValue.CreatedAt : default);
                         var status = CliRuntime.WasSpecified(parseResult, Status) ? parseResult.GetValue(Status) : (__requestBase is { } __StatusBaseValue ? __StatusBaseValue.Status : default);
                         var deal = CliRuntime.WasSpecified(parseResult, Deal) ? parseResult.GetValue(Deal) : (__requestBase is { } __DealBaseValue ? __DealBaseValue.Deal : default);
@@ -176,6 +190,8 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                                     funding: funding,
                                     foundedOn: foundedOn,
                                     website: website,
+                                    countryCode: countryCode,
+                                    nvidiaConsent: nvidiaConsent,
                                     createdAt: createdAt,
                                     status: status,
                                     deal: deal,
