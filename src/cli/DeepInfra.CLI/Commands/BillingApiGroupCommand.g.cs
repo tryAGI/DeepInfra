@@ -15,8 +15,10 @@ internal static class BillingApiGroupCommand
                          command.Subcommands.Add(BillingDeepstartApplyCommandApiCommand.Create());
                          command.Subcommands.Add(BillingGetChecklistCommandApiCommand.Create());
                          command.Subcommands.Add(BillingGetConfigCommandApiCommand.Create());
+                         command.Subcommands.Add(BillingGetKeyLimitsCommandApiCommand.Create());
                          command.Subcommands.Add(BillingListInvoicesCommandApiCommand.Create());
                          command.Subcommands.Add(BillingSetConfigCommandApiCommand.Create());
+                         command.Subcommands.Add(BillingSetKeyLimitCommandApiCommand.Create());
                          command.Subcommands.Add(BillingSetupTopupCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageApiTokenCommandApiCommand.Create());
