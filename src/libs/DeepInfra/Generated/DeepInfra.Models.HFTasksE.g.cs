@@ -19,6 +19,10 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        Capacity,
+        /// <summary>
+        ///
+        /// </summary>
         Cluster,
         /// <summary>
         ///
@@ -128,6 +132,7 @@ namespace DeepInfra
             {
                 HFTasksE.AutomaticSpeechRecognition => "automatic-speech-recognition",
                 HFTasksE.BareMetal => "bare-metal",
+                HFTasksE.Capacity => "capacity",
                 HFTasksE.Cluster => "cluster",
                 HFTasksE.Commitment => "commitment",
                 HFTasksE.Custom => "custom",
@@ -164,6 +169,7 @@ namespace DeepInfra
             {
                 "automatic-speech-recognition" => HFTasksE.AutomaticSpeechRecognition,
                 "bare-metal" => HFTasksE.BareMetal,
+                "capacity" => HFTasksE.Capacity,
                 "cluster" => HFTasksE.Cluster,
                 "commitment" => HFTasksE.Commitment,
                 "custom" => HFTasksE.Custom,

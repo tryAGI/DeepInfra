@@ -30,6 +30,12 @@ namespace DeepInfra
         public required global::DeepInfra.Function Function { get; set; }
 
         /// <summary>
+        /// provider metadata returned with this tool call; send it back unchanged in history
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_content")]
+        public object? ExtraContent { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,17 +53,22 @@ namespace DeepInfra
         /// <param name="function">
         /// the function that the model called
         /// </param>
+        /// <param name="extraContent">
+        /// provider metadata returned with this tool call; send it back unchanged in history
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionMessageToolCall(
             string id,
             string type,
-            global::DeepInfra.Function function)
+            global::DeepInfra.Function function,
+            object? extraContent)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
+            this.ExtraContent = extraContent;
         }
 
         /// <summary>
