@@ -58,6 +58,18 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("country_code")]
+        public string? CountryCode { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("nvidia_consent")]
+        public bool? NvidiaConsent { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public int? CreatedAt { get; set; }
 
@@ -89,6 +101,10 @@ namespace DeepInfra
         /// <param name="website"></param>
         /// <param name="id"></param>
         /// <param name="uid"></param>
+        /// <param name="countryCode"></param>
+        /// <param name="nvidiaConsent">
+        /// Default Value: false
+        /// </param>
         /// <param name="createdAt"></param>
         /// <param name="status">
         /// Default Value: pending
@@ -105,6 +121,8 @@ namespace DeepInfra
             string website,
             string? id,
             string? uid,
+            string? countryCode,
+            bool? nvidiaConsent,
             int? createdAt,
             string? status,
             string? deal)
@@ -116,6 +134,8 @@ namespace DeepInfra
             this.Funding = funding ?? throw new global::System.ArgumentNullException(nameof(funding));
             this.FoundedOn = foundedOn ?? throw new global::System.ArgumentNullException(nameof(foundedOn));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
+            this.CountryCode = countryCode;
+            this.NvidiaConsent = nvidiaConsent;
             this.CreatedAt = createdAt;
             this.Status = status;
             this.Deal = deal;

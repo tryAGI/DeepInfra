@@ -3,11 +3,11 @@
 
 namespace DeepInfra
 {
-    public partial class BillingClient
+    public partial class AuthenticationClient
     {
 
 
-        private static readonly global::DeepInfra.EndPointSecurityRequirement s_DeepstartApplySecurityRequirement0 =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_ExportApiTokenToVercelByBodySecurityRequirement0 =
             new global::DeepInfra.EndPointSecurityRequirement
             {
                 Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
@@ -21,47 +21,52 @@ namespace DeepInfra
                     },
                 },
             };
-        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_DeepstartApplySecurityRequirements =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_ExportApiTokenToVercelByBodySecurityRequirements =
             new global::DeepInfra.EndPointSecurityRequirement[]
-            {                s_DeepstartApplySecurityRequirement0,
+            {                s_ExportApiTokenToVercelByBodySecurityRequirement0,
             };
-        partial void PrepareDeepstartApplyArguments(
+        partial void PrepareExportApiTokenToVercelByBodyArguments(
             global::System.Net.Http.HttpClient httpClient,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void PrepareDeepstartApplyRequest(
+            ref string? xiApiKey,
+            ref string? xApiKey,
+            global::DeepInfra.ApiTokenVercelExportBodyIn request);
+        partial void PrepareExportApiTokenToVercelByBodyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void ProcessDeepstartApplyResponse(
+            string? xiApiKey,
+            string? xApiKey,
+            global::DeepInfra.ApiTokenVercelExportBodyIn request);
+        partial void ProcessExportApiTokenToVercelByBodyResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeepstartApplyResponseContent(
+        partial void ProcessExportApiTokenToVercelByBodyResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Deepstart Apply
+        /// Export Api Token To Vercel By Body
         /// </summary>
-        /// <param name="session"></param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
+        public async global::System.Threading.Tasks.Task<string> ExportApiTokenToVercelByBodyAsync(
 
-            global::DeepInfra.DeepStartApplicationIn request,
-            object? session = default,
+            global::DeepInfra.ApiTokenVercelExportBodyIn request,
+            string? xiApiKey = default,
+            string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DeepstartApplyAsResponseAsync(
+            var __response = await ExportApiTokenToVercelByBodyAsResponseAsync(
 
                 request: request,
-                session: session,
+                xiApiKey: xiApiKey,
+                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -69,17 +74,19 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Deepstart Apply
+        /// Export Api Token To Vercel By Body
         /// </summary>
-        /// <param name="session"></param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>> DeepstartApplyAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> ExportApiTokenToVercelByBodyAsResponseAsync(
 
-            global::DeepInfra.DeepStartApplicationIn request,
-            object? session = default,
+            global::DeepInfra.ApiTokenVercelExportBodyIn request,
+            string? xiApiKey = default,
+            string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -87,16 +94,17 @@ namespace DeepInfra
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeepstartApplyArguments(
+            PrepareExportApiTokenToVercelByBodyArguments(
                 httpClient: HttpClient,
-                session: session,
+                xiApiKey: ref xiApiKey,
+                xApiKey: ref xApiKey,
                 request: request);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeepstartApplySecurityRequirements,
-                operationName: "DeepstartApplyAsync");
+                securityRequirements: s_ExportApiTokenToVercelByBodySecurityRequirements,
+                operationName: "ExportApiTokenToVercelByBodyAsync");
 
             using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -116,7 +124,7 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: "/payment/deepstart/application",
+                                path: "/v1/api-tokens/vercel_export",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,8 +138,6 @@ namespace DeepInfra
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
                 __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-                var __cookies = new global::System.Collections.Generic.List<string>();
 
             foreach (var __authorization in __authorizations)
             {
@@ -149,16 +155,16 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __session = session;
-                            if (__session is not null)
-                            {
-                                __cookies.Add("session=" + (__session.ToString() ?? string.Empty));
-                            }
 
-                if (__cookies.Count > 0)
-                            {
-                                __httpRequest.Headers.TryAddWithoutValidation("Cookie", string.Join("; ", __cookies));
-                            }
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+            if (xApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
+            }
+
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -173,10 +179,11 @@ namespace DeepInfra
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeepstartApplyRequest(
+                PrepareExportApiTokenToVercelByBodyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    session: session,
+                    xiApiKey: xiApiKey,
+                    xApiKey: xApiKey,
                     request: request);
 
                 return __httpRequest;
@@ -194,9 +201,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
+                                operationId: "ExportApiTokenToVercelByBody",
+                                methodName: "ExportApiTokenToVercelByBodyAsync",
+                                pathTemplate: "\"/v1/api-tokens/vercel_export\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -228,9 +235,9 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
+                                operationId: "ExportApiTokenToVercelByBody",
+                                methodName: "ExportApiTokenToVercelByBodyAsync",
+                                pathTemplate: "\"/v1/api-tokens/vercel_export\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -269,9 +276,9 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
+                                operationId: "ExportApiTokenToVercelByBody",
+                                methodName: "ExportApiTokenToVercelByBodyAsync",
+                                pathTemplate: "\"/v1/api-tokens/vercel_export\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -309,7 +316,7 @@ namespace DeepInfra
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeepstartApplyResponse(
+                ProcessExportApiTokenToVercelByBodyResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -317,9 +324,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
+                                operationId: "ExportApiTokenToVercelByBody",
+                                methodName: "ExportApiTokenToVercelByBodyAsync",
+                                pathTemplate: "\"/v1/api-tokens/vercel_export\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -339,9 +346,9 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
+                                operationId: "ExportApiTokenToVercelByBody",
+                                methodName: "ExportApiTokenToVercelByBodyAsync",
+                                pathTemplate: "\"/v1/api-tokens/vercel_export\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -356,6 +363,43 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Not Found
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::DeepInfra.DeepError? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::DeepInfra.DeepError.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = global::DeepInfra.DeepError.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::DeepInfra.ApiException<global::DeepInfra.DeepError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -406,7 +450,7 @@ namespace DeepInfra
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDeepstartApplyResponseContent(
+                                ProcessExportApiTokenToVercelByBodyResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -415,13 +459,11 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::DeepInfra.DeepStartApplicationOut.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -441,19 +483,17 @@ namespace DeepInfra
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::DeepInfra.DeepStartApplicationOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -490,63 +530,46 @@ namespace DeepInfra
             }
         }
         /// <summary>
-        /// Deepstart Apply
+        /// Export Api Token To Vercel By Body
         /// </summary>
-        /// <param name="session"></param>
-        /// <param name="id"></param>
-        /// <param name="uid"></param>
-        /// <param name="company"></param>
-        /// <param name="ceo"></param>
-        /// <param name="funding"></param>
-        /// <param name="foundedOn"></param>
-        /// <param name="website"></param>
-        /// <param name="countryCode"></param>
-        /// <param name="nvidiaConsent">
-        /// Default Value: false
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="projectIdOrName"></param>
+        /// <param name="isSensitive"></param>
+        /// <param name="envDevelopment"></param>
+        /// <param name="envPreview"></param>
+        /// <param name="envProduction"></param>
+        /// <param name="apiToken">
+        /// Included only in requests
         /// </param>
-        /// <param name="createdAt"></param>
-        /// <param name="status">
-        /// Default Value: pending
-        /// </param>
-        /// <param name="deal"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
-            string company,
-            string ceo,
-            string funding,
-            string foundedOn,
-            string website,
-            object? session = default,
-            string? id = default,
-            string? uid = default,
-            string? countryCode = default,
-            bool? nvidiaConsent = default,
-            int? createdAt = default,
-            string? status = default,
-            string? deal = default,
+        public async global::System.Threading.Tasks.Task<string> ExportApiTokenToVercelByBodyAsync(
+            string projectIdOrName,
+            bool isSensitive,
+            bool envDevelopment,
+            bool envPreview,
+            bool envProduction,
+            string? xiApiKey = default,
+            string? xApiKey = default,
+            string? apiToken = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.DeepStartApplicationIn
+            var __request = new global::DeepInfra.ApiTokenVercelExportBodyIn
             {
-                Id = id,
-                Uid = uid,
-                Company = company,
-                Ceo = ceo,
-                Funding = funding,
-                FoundedOn = foundedOn,
-                Website = website,
-                CountryCode = countryCode,
-                NvidiaConsent = nvidiaConsent,
-                CreatedAt = createdAt,
-                Status = status,
-                Deal = deal,
+                ProjectIdOrName = projectIdOrName,
+                IsSensitive = isSensitive,
+                EnvDevelopment = envDevelopment,
+                EnvPreview = envPreview,
+                EnvProduction = envProduction,
+                ApiToken = apiToken,
             };
 
-            return await DeepstartApplyAsync(
-                session: session,
+            return await ExportApiTokenToVercelByBodyAsync(
+                xiApiKey: xiApiKey,
+                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

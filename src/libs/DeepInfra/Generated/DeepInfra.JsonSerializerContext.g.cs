@@ -238,6 +238,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScopedCredit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ConfigIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ConfigOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DiscountMeta))]
@@ -247,6 +248,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoiceListItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoicesOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.InvoiceListItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.KeyLimitIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.KeyLimitOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelMeta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PaymentMethodBank))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PaymentMethodCard))]
@@ -288,6 +291,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrors))]
@@ -346,7 +350,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ContainerRentalUpdateIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateLoraApiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployArgsHistoryOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployDelete))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUAvailability))]
@@ -547,6 +550,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AgentBackupOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.SandboxOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.SandboxPlanOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio, global::DeepInfra.ChatCompletionContentPartVideo, global::DeepInfra.ChatCompletionContentPartFile>>>?), TypeInfoPropertyName = "ChatCompletionContentPartFile_5ac12912a27a9066")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio, global::DeepInfra.ChatCompletionContentPartVideo, global::DeepInfra.ChatCompletionContentPartFile>?), TypeInfoPropertyName = "ChatCompletionContentPartFile_a6726946c8fa511e")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ModelPricingTime, global::DeepInfra.ModelPricingUptime, global::DeepInfra.ModelPricingTokens, global::DeepInfra.ModelPricingInputLength, global::DeepInfra.ModelPricingInputTokens, global::DeepInfra.ModelPricingInputCharacterLength, global::DeepInfra.ModelPricingImageUnits, global::DeepInfra.ModelPricingOutputLength, global::DeepInfra.ModelPricingFrameUnits>?), TypeInfoPropertyName = "ModelPricingFrameUnits_6ea86b27c5e04f0a")]
@@ -608,6 +612,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AgentBackupOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.SandboxOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.SandboxPlanOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.KeyLimitOut>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

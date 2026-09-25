@@ -7,7 +7,7 @@ namespace DeepInfra
     {
 
 
-        private static readonly global::DeepInfra.EndPointSecurityRequirement s_DeepstartApplySecurityRequirement0 =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_UsageApiTokenByIdSecurityRequirement0 =
             new global::DeepInfra.EndPointSecurityRequirement
             {
                 Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
@@ -21,46 +21,58 @@ namespace DeepInfra
                     },
                 },
             };
-        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_DeepstartApplySecurityRequirements =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_UsageApiTokenByIdSecurityRequirements =
             new global::DeepInfra.EndPointSecurityRequirement[]
-            {                s_DeepstartApplySecurityRequirement0,
+            {                s_UsageApiTokenByIdSecurityRequirement0,
             };
-        partial void PrepareDeepstartApplyArguments(
+        partial void PrepareUsageApiTokenByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void PrepareDeepstartApplyRequest(
+            ref string tokenId,
+            ref string from,
+            ref string? to,
+            object? session);
+        partial void PrepareUsageApiTokenByIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void ProcessDeepstartApplyResponse(
+            string tokenId,
+            string from,
+            string? to,
+            object? session);
+        partial void ProcessUsageApiTokenByIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeepstartApplyResponseContent(
+        partial void ProcessUsageApiTokenByIdResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Deepstart Apply
+        /// Usage Api Token By Id
         /// </summary>
+        /// <param name="tokenId"></param>
+        /// <param name="from">
+        /// start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format
+        /// </param>
+        /// <param name="to">
+        /// end of period (if missing a single month marked by from is return), same format as from
+        /// </param>
         /// <param name="session"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
-
-            global::DeepInfra.DeepStartApplicationIn request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.UsageOut> UsageApiTokenByIdAsync(
+            string tokenId,
+            string from,
+            string? to = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DeepstartApplyAsResponseAsync(
-
-                request: request,
+            var __response = await UsageApiTokenByIdAsResponseAsync(
+                tokenId: tokenId,
+                from: from,
+                to: to,
                 session: session,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -69,34 +81,41 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Deepstart Apply
+        /// Usage Api Token By Id
         /// </summary>
+        /// <param name="tokenId"></param>
+        /// <param name="from">
+        /// start of period in YYYY.MM, current(-N), unix_timestamp (in seconds, UTC) format
+        /// </param>
+        /// <param name="to">
+        /// end of period (if missing a single month marked by from is return), same format as from
+        /// </param>
         /// <param name="session"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>> DeepstartApplyAsResponseAsync(
-
-            global::DeepInfra.DeepStartApplicationIn request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.UsageOut>> UsageApiTokenByIdAsResponseAsync(
+            string tokenId,
+            string from,
+            string? to = default,
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeepstartApplyArguments(
+            PrepareUsageApiTokenByIdArguments(
                 httpClient: HttpClient,
-                session: session,
-                request: request);
+                tokenId: ref tokenId,
+                from: ref from,
+                to: ref to,
+                session: session);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeepstartApplySecurityRequirements,
-                operationName: "DeepstartApplyAsync");
+                securityRequirements: s_UsageApiTokenByIdSecurityRequirements,
+                operationName: "UsageApiTokenByIdAsync");
 
             using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -116,15 +135,19 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: "/payment/deepstart/application",
+                                path: $"/payment/usage/id/{tokenId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("from", from)
+                                .AddOptionalParameter("to", to)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -159,12 +182,6 @@ namespace DeepInfra
                             {
                                 __httpRequest.Headers.TryAddWithoutValidation("Cookie", string.Join("; ", __cookies));
                             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -173,11 +190,13 @@ namespace DeepInfra
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeepstartApplyRequest(
+                PrepareUsageApiTokenByIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    session: session,
-                    request: request);
+                    tokenId: tokenId!,
+                    from: from!,
+                    to: to,
+                    session: session);
 
                 return __httpRequest;
             }
@@ -194,10 +213,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "UsageApiTokenById",
+                                methodName: "UsageApiTokenByIdAsync",
+                                pathTemplate: "$\"/payment/usage/id/{tokenId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -228,10 +247,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "UsageApiTokenById",
+                                methodName: "UsageApiTokenByIdAsync",
+                                pathTemplate: "$\"/payment/usage/id/{tokenId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -269,10 +288,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "UsageApiTokenById",
+                                methodName: "UsageApiTokenByIdAsync",
+                                pathTemplate: "$\"/payment/usage/id/{tokenId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -309,7 +328,7 @@ namespace DeepInfra
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeepstartApplyResponse(
+                ProcessUsageApiTokenByIdResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -317,10 +336,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "UsageApiTokenById",
+                                methodName: "UsageApiTokenByIdAsync",
+                                pathTemplate: "$\"/payment/usage/id/{tokenId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -339,10 +358,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "UsageApiTokenById",
+                                methodName: "UsageApiTokenByIdAsync",
+                                pathTemplate: "$\"/payment/usage/id/{tokenId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -406,7 +425,7 @@ namespace DeepInfra
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDeepstartApplyResponseContent(
+                                ProcessUsageApiTokenByIdResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -415,9 +434,9 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::DeepInfra.DeepStartApplicationOut.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::DeepInfra.UsageOut.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.UsageOut>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -447,9 +466,9 @@ namespace DeepInfra
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::DeepInfra.DeepStartApplicationOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::DeepInfra.UsageOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.UsageOut>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -488,68 +507,6 @@ namespace DeepInfra
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Deepstart Apply
-        /// </summary>
-        /// <param name="session"></param>
-        /// <param name="id"></param>
-        /// <param name="uid"></param>
-        /// <param name="company"></param>
-        /// <param name="ceo"></param>
-        /// <param name="funding"></param>
-        /// <param name="foundedOn"></param>
-        /// <param name="website"></param>
-        /// <param name="countryCode"></param>
-        /// <param name="nvidiaConsent">
-        /// Default Value: false
-        /// </param>
-        /// <param name="createdAt"></param>
-        /// <param name="status">
-        /// Default Value: pending
-        /// </param>
-        /// <param name="deal"></param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
-            string company,
-            string ceo,
-            string funding,
-            string foundedOn,
-            string website,
-            object? session = default,
-            string? id = default,
-            string? uid = default,
-            string? countryCode = default,
-            bool? nvidiaConsent = default,
-            int? createdAt = default,
-            string? status = default,
-            string? deal = default,
-            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::DeepInfra.DeepStartApplicationIn
-            {
-                Id = id,
-                Uid = uid,
-                Company = company,
-                Ceo = ceo,
-                Funding = funding,
-                FoundedOn = foundedOn,
-                Website = website,
-                CountryCode = countryCode,
-                NvidiaConsent = nvidiaConsent,
-                CreatedAt = createdAt,
-                Status = status,
-                Deal = deal,
-            };
-
-            return await DeepstartApplyAsync(
-                session: session,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

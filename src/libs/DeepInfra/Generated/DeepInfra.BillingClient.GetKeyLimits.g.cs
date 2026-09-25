@@ -7,7 +7,7 @@ namespace DeepInfra
     {
 
 
-        private static readonly global::DeepInfra.EndPointSecurityRequirement s_DeepstartApplySecurityRequirement0 =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement s_GetKeyLimitsSecurityRequirement0 =
             new global::DeepInfra.EndPointSecurityRequirement
             {
                 Authorizations = new global::DeepInfra.EndPointAuthorizationRequirement[]
@@ -21,46 +21,39 @@ namespace DeepInfra
                     },
                 },
             };
-        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_DeepstartApplySecurityRequirements =
+        private static readonly global::DeepInfra.EndPointSecurityRequirement[] s_GetKeyLimitsSecurityRequirements =
             new global::DeepInfra.EndPointSecurityRequirement[]
-            {                s_DeepstartApplySecurityRequirement0,
+            {                s_GetKeyLimitsSecurityRequirement0,
             };
-        partial void PrepareDeepstartApplyArguments(
+        partial void PrepareGetKeyLimitsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void PrepareDeepstartApplyRequest(
+            object? session);
+        partial void PrepareGetKeyLimitsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            object? session,
-            global::DeepInfra.DeepStartApplicationIn request);
-        partial void ProcessDeepstartApplyResponse(
+            object? session);
+        partial void ProcessGetKeyLimitsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeepstartApplyResponseContent(
+        partial void ProcessGetKeyLimitsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Deepstart Apply
+        /// Get Key Limits
         /// </summary>
         /// <param name="session"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
-
-            global::DeepInfra.DeepStartApplicationIn request,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>> GetKeyLimitsAsync(
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DeepstartApplyAsResponseAsync(
-
-                request: request,
+            var __response = await GetKeyLimitsAsResponseAsync(
                 session: session,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -69,34 +62,28 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Deepstart Apply
+        /// Get Key Limits
         /// </summary>
         /// <param name="session"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>> DeepstartApplyAsResponseAsync(
-
-            global::DeepInfra.DeepStartApplicationIn request,
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>>> GetKeyLimitsAsResponseAsync(
             object? session = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeepstartApplyArguments(
+            PrepareGetKeyLimitsArguments(
                 httpClient: HttpClient,
-                session: session,
-                request: request);
+                session: session);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeepstartApplySecurityRequirements,
-                operationName: "DeepstartApplyAsync");
+                securityRequirements: s_GetKeyLimitsSecurityRequirements,
+                operationName: "GetKeyLimitsAsync");
 
             using var __timeoutCancellationTokenSource = global::DeepInfra.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -116,7 +103,7 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: "/payment/deepstart/application",
+                                path: "/payment/key-limits",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -124,7 +111,7 @@ namespace DeepInfra
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -159,12 +146,6 @@ namespace DeepInfra
                             {
                                 __httpRequest.Headers.TryAddWithoutValidation("Cookie", string.Join("; ", __cookies));
                             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -173,11 +154,10 @@ namespace DeepInfra
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeepstartApplyRequest(
+                PrepareGetKeyLimitsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    session: session,
-                    request: request);
+                    session: session);
 
                 return __httpRequest;
             }
@@ -194,10 +174,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "GetKeyLimits",
+                                methodName: "GetKeyLimitsAsync",
+                                pathTemplate: "\"/payment/key-limits\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -228,10 +208,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "GetKeyLimits",
+                                methodName: "GetKeyLimitsAsync",
+                                pathTemplate: "\"/payment/key-limits\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -269,10 +249,10 @@ namespace DeepInfra
                         await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "GetKeyLimits",
+                                methodName: "GetKeyLimitsAsync",
+                                pathTemplate: "\"/payment/key-limits\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -309,7 +289,7 @@ namespace DeepInfra
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeepstartApplyResponse(
+                ProcessGetKeyLimitsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -317,10 +297,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "GetKeyLimits",
+                                methodName: "GetKeyLimitsAsync",
+                                pathTemplate: "\"/payment/key-limits\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -339,10 +319,10 @@ namespace DeepInfra
                     await global::DeepInfra.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeepstartApply",
-                                methodName: "DeepstartApplyAsync",
-                                pathTemplate: "\"/payment/deepstart/application\"",
-                                httpMethod: "POST",
+                                operationId: "GetKeyLimits",
+                                methodName: "GetKeyLimitsAsync",
+                                pathTemplate: "\"/payment/key-limits\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -406,7 +386,7 @@ namespace DeepInfra
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDeepstartApplyResponseContent(
+                                ProcessGetKeyLimitsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -415,9 +395,9 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::DeepInfra.DeepStartApplicationOut.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -447,9 +427,9 @@ namespace DeepInfra
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::DeepInfra.DeepStartApplicationOut.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.DeepStartApplicationOut>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -488,68 +468,6 @@ namespace DeepInfra
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Deepstart Apply
-        /// </summary>
-        /// <param name="session"></param>
-        /// <param name="id"></param>
-        /// <param name="uid"></param>
-        /// <param name="company"></param>
-        /// <param name="ceo"></param>
-        /// <param name="funding"></param>
-        /// <param name="foundedOn"></param>
-        /// <param name="website"></param>
-        /// <param name="countryCode"></param>
-        /// <param name="nvidiaConsent">
-        /// Default Value: false
-        /// </param>
-        /// <param name="createdAt"></param>
-        /// <param name="status">
-        /// Default Value: pending
-        /// </param>
-        /// <param name="deal"></param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.DeepStartApplicationOut> DeepstartApplyAsync(
-            string company,
-            string ceo,
-            string funding,
-            string foundedOn,
-            string website,
-            object? session = default,
-            string? id = default,
-            string? uid = default,
-            string? countryCode = default,
-            bool? nvidiaConsent = default,
-            int? createdAt = default,
-            string? status = default,
-            string? deal = default,
-            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::DeepInfra.DeepStartApplicationIn
-            {
-                Id = id,
-                Uid = uid,
-                Company = company,
-                Ceo = ceo,
-                Funding = funding,
-                FoundedOn = foundedOn,
-                Website = website,
-                CountryCode = countryCode,
-                NvidiaConsent = nvidiaConsent,
-                CreatedAt = createdAt,
-                Status = status,
-                Deal = deal,
-            };
-
-            return await DeepstartApplyAsync(
-                session: session,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
