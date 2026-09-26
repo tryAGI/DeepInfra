@@ -192,6 +192,15 @@ namespace DeepInfra
         };
 
         /// <summary>
+        ///
+        /// </summary>
+        public SystemOneClient SystemOne => new SystemOneClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
         /// OpenAI-compatible text completion endpoints.
         /// </summary>
         public TextCompletionsClient TextCompletions => new TextCompletionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)

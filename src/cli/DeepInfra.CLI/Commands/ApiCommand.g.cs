@@ -26,6 +26,7 @@ internal static class ApiCommand
                          command.Subcommands.Add(LoRAAdaptersApiGroupCommand.Create());
                          command.Subcommands.Add(ModelsApiGroupCommand.Create());
                          command.Subcommands.Add(SandboxesApiGroupCommand.Create());
+                         command.Subcommands.Add(SystemOneApiGroupCommand.Create());
                          command.Subcommands.Add(TextCompletionsApiGroupCommand.Create());
                          command.Subcommands.Add(TextToSpeechApiGroupCommand.Create());
                          command.Subcommands.Add(TokenizerApiGroupCommand.Create());
