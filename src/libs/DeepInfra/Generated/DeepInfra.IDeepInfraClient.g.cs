@@ -126,6 +126,11 @@ namespace DeepInfra
         public SandboxesClient Sandboxes { get; }
 
         /// <summary>
+        ///
+        /// </summary>
+        public SystemOneClient SystemOne { get; }
+
+        /// <summary>
         /// OpenAI-compatible text completion endpoints.
         /// </summary>
         public TextCompletionsClient TextCompletions { get; }

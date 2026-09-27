@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class ModelMetadataPricing
+    public sealed partial class ChoiceQuestionInstruction
     {
 
         /// <summary>

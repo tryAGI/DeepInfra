@@ -16,7 +16,7 @@ namespace DeepInfra
     /// ``'image-gen'``) and, for chat models, any of ``'vision'``,<br/>
     /// ``'prompt_cache'``, ``'reasoning_effort'``, ``'reasoning'``.
     /// </summary>
-    public sealed partial class ModelMetadata
+    public sealed partial class DeepinfraDeepapiModelsModelMetadata
     {
         /// <summary>
         ///
@@ -82,7 +82,7 @@ namespace DeepInfra
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelMetadata" /> class.
+        /// Initializes a new instance of the <see cref="DeepinfraDeepapiModelsModelMetadata" /> class.
         /// </summary>
         /// <param name="description"></param>
         /// <param name="pricing"></param>
@@ -96,7 +96,7 @@ namespace DeepInfra
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ModelMetadata(
+        public DeepinfraDeepapiModelsModelMetadata(
             string description,
             global::System.Collections.Generic.Dictionary<string, double> pricing,
             global::System.Collections.Generic.IList<string> tags,
@@ -119,9 +119,9 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelMetadata" /> class.
+        /// Initializes a new instance of the <see cref="DeepinfraDeepapiModelsModelMetadata" /> class.
         /// </summary>
-        public ModelMetadata()
+        public DeepinfraDeepapiModelsModelMetadata()
         {
         }
 

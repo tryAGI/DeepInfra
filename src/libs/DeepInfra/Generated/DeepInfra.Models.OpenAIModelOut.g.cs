@@ -52,7 +52,7 @@ namespace DeepInfra
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::DeepInfra.ModelMetadata? Metadata { get; set; }
+        public global::DeepInfra.DeepinfraDeepapiModelsModelMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -82,7 +82,7 @@ namespace DeepInfra
             string root,
             string? @object,
             object? parent,
-            global::DeepInfra.ModelMetadata? metadata)
+            global::DeepInfra.DeepinfraDeepapiModelsModelMetadata? metadata)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Object = @object;
