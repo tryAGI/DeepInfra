@@ -68,6 +68,8 @@ internal static partial class TextToSpeechTextToSpeechCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"text-to-speech", @"Text To Speech");
@@ -132,6 +134,7 @@ internal static partial class TextToSpeechTextToSpeechCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

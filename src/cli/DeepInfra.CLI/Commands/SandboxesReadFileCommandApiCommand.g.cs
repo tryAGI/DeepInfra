@@ -52,6 +52,8 @@ internal static partial class SandboxesReadFileCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"read-file", @"Read File
@@ -87,6 +89,7 @@ Read a file from an absolute path inside the sandbox; returns raw bytes (applica
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

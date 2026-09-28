@@ -51,6 +51,8 @@ internal static partial class BillingListInvoicesCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-invoices", @"List Invoices");
@@ -93,6 +95,7 @@ internal static partial class BillingListInvoicesCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

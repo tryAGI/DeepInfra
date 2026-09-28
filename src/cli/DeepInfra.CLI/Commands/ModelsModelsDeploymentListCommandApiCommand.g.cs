@@ -39,6 +39,8 @@ internal static partial class ModelsModelsDeploymentListCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deployment-list", @"Models Deployment List");
@@ -75,6 +77,7 @@ internal static partial class ModelsModelsDeploymentListCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -80,6 +80,8 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"request-gpu-pool-change", @"Request Gpu Pool Change
@@ -141,6 +143,7 @@ File or amend the caller's single open GPU limit request.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

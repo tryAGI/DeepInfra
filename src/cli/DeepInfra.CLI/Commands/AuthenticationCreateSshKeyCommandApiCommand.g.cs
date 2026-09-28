@@ -53,6 +53,8 @@ internal static partial class AuthenticationCreateSshKeyCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-ssh-key", @"Create Ssh Key");
@@ -87,6 +89,7 @@ internal static partial class AuthenticationCreateSshKeyCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

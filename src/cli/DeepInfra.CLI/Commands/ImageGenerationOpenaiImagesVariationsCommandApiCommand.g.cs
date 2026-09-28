@@ -88,6 +88,8 @@ internal static partial class ImageGenerationOpenaiImagesVariationsCommandApiCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"openai-images-variations", @"Openai Images Variations
@@ -160,6 +162,7 @@ Generate a similar image using OpenAI Images Variations API");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

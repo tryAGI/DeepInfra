@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class DedicatedModelsApiGroupCommand
+internal static partial class DedicatedModelsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"dedicated-models", @"Dedicated Models endpoint commands.");
@@ -30,6 +32,7 @@ internal static class DedicatedModelsApiGroupCommand
                          command.Subcommands.Add(DedicatedModelsDeployStopCommandApiCommand.Create());
                          command.Subcommands.Add(DedicatedModelsDeployUpdateCommandApiCommand.Create());
                          command.Subcommands.Add(DedicatedModelsDeploymentStatsCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -39,6 +39,8 @@ internal static partial class SystemOneListModelsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-models", @"List Models");
@@ -75,6 +77,7 @@ internal static partial class SystemOneListModelsCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

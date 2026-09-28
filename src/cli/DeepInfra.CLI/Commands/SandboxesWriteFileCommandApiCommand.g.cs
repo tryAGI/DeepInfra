@@ -52,6 +52,8 @@ internal static partial class SandboxesWriteFileCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"write-file", @"Write File
@@ -87,6 +89,7 @@ Write the raw request body (application/octet-stream, max 100 MiB) to an absolut
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

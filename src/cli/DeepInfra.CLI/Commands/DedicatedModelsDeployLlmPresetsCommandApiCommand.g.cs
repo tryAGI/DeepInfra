@@ -64,6 +64,8 @@ internal static partial class DedicatedModelsDeployLlmPresetsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-llm-presets", @"Deploy Llm Presets
@@ -114,6 +116,7 @@ DeepInfra presets and mirrored vLLM recipes for ``hf_repo_id``, told apart by
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

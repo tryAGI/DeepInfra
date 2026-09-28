@@ -75,6 +75,8 @@ internal static partial class AccountRequestRateLimitIncreaseCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"request-rate-limit-increase", @"Request Rate Limit Increase");
@@ -132,6 +134,7 @@ internal static partial class AccountRequestRateLimitIncreaseCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

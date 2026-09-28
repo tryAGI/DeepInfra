@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class FilesBatchesApiGroupCommand
+internal static partial class FilesBatchesApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"files-batches", @"Files & Batches endpoint commands.");
@@ -18,6 +20,7 @@ internal static class FilesBatchesApiGroupCommand
                          command.Subcommands.Add(FilesBatchesOpenaiFilesCommandApiCommand.Create());
                          command.Subcommands.Add(FilesBatchesRetrieveOpenaiBatchCommandApiCommand.Create());
                          command.Subcommands.Add(FilesBatchesRetrieveOpenaiBatchesCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

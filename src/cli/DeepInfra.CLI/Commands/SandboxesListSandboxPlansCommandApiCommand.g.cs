@@ -39,6 +39,8 @@ internal static partial class SandboxesListSandboxPlansCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-sandbox-plans", @"List Sandbox Plans
@@ -76,6 +78,7 @@ Returns all available sandbox plans with their resource specs and pricing.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

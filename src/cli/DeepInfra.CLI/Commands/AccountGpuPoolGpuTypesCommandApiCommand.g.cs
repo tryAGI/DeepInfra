@@ -39,6 +39,8 @@ internal static partial class AccountGpuPoolGpuTypesCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"gpu-pool-gpu-types", @"Gpu Pool Gpu Types");
@@ -75,6 +77,7 @@ internal static partial class AccountGpuPoolGpuTypesCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -29,6 +29,8 @@ internal static partial class ModelsModelsFeaturedCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"featured", @"Models Featured");
@@ -62,6 +64,7 @@ internal static partial class ModelsModelsFeaturedCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -52,6 +52,8 @@ internal static partial class BillingUsageApiTokenByIdCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"usage-api-token-by-id", @"Usage Api Token By Id");
@@ -94,6 +96,7 @@ internal static partial class BillingUsageApiTokenByIdCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

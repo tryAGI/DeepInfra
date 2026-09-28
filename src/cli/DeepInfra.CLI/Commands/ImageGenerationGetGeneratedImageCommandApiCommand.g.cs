@@ -33,6 +33,8 @@ internal static partial class ImageGenerationGetGeneratedImageCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-generated-image", @"Get Generated Image
@@ -59,6 +61,7 @@ Serve a `response_format=url` image; unauthenticated, 404 once expired.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -39,6 +39,8 @@ internal static partial class ModelsPrivateModelsListCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"private-models-list", @"Private Models List");
@@ -75,6 +77,7 @@ internal static partial class ModelsPrivateModelsListCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

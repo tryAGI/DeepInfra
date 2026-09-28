@@ -45,6 +45,8 @@ internal static partial class DedicatedModelsDeployStopCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-stop", @"Deploy Stop
@@ -77,6 +79,7 @@ Stop a running deployment. Terminates pods. Can be restarted later.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

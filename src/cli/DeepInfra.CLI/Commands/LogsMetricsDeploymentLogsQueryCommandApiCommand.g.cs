@@ -70,6 +70,8 @@ internal static partial class LogsMetricsDeploymentLogsQueryCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deployment-logs-query", @"Deployment Logs Query
@@ -119,6 +121,7 @@ Query deployment logs.
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

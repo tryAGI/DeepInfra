@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class SandboxesApiGroupCommand
+internal static partial class SandboxesApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"sandboxes", @"Sandboxes endpoint commands.");
@@ -19,6 +21,7 @@ internal static class SandboxesApiGroupCommand
                          command.Subcommands.Add(SandboxesStartSandboxCommandApiCommand.Create());
                          command.Subcommands.Add(SandboxesStopSandboxCommandApiCommand.Create());
                          command.Subcommands.Add(SandboxesWriteFileCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -29,6 +29,8 @@ internal static partial class ModelsModelsLoraListCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"lora-list", @"Models Lora List");
@@ -62,6 +64,7 @@ internal static partial class ModelsModelsLoraListCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -45,6 +45,8 @@ internal static partial class FilesBatchesGetFileContentCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-file-content", @"Get File Content");
@@ -76,6 +78,7 @@ internal static partial class FilesBatchesGetFileContentCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
