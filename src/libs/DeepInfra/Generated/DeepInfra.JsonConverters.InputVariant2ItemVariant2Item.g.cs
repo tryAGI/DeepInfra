@@ -59,13 +59,13 @@ namespace DeepInfra.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartText), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartText?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChatCompletionContentPartText).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickText(), typeInfo);
             }
             else if (value.IsImageUrl)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartImage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartImage?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChatCompletionContentPartImage).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImageUrl(), typeInfo);
             }
         }
     }
