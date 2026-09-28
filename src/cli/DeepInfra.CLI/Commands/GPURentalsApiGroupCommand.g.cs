@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class GPURentalsApiGroupCommand
+internal static partial class GPURentalsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"gpu-rentals", @"GPU Rentals endpoint commands.");
@@ -16,6 +18,7 @@ internal static class GPURentalsApiGroupCommand
                          command.Subcommands.Add(GpuRentalsContainerRentalsStartCommandApiCommand.Create());
                          command.Subcommands.Add(GpuRentalsContainerRentalsUpdateCommandApiCommand.Create());
                          command.Subcommands.Add(GpuRentalsRentGpuAvailabilityCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

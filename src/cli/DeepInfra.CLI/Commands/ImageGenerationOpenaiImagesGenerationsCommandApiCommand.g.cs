@@ -105,6 +105,8 @@ internal static partial class ImageGenerationOpenaiImagesGenerationsCommandApiCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"openai-images-generations", @"Openai Images Generations
@@ -186,6 +188,7 @@ Generate image using OpenAI Images API");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

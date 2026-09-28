@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class VideosApiGroupCommand
+internal static partial class VideosApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"videos", @"Videos endpoint commands.");
@@ -15,6 +17,7 @@ internal static class VideosApiGroupCommand
                          command.Subcommands.Add(VideosGetVideoContent2CommandApiCommand.Create());
                          command.Subcommands.Add(VideosGetVideoGenerationCommandApiCommand.Create());
                          command.Subcommands.Add(VideosGetVideoGeneration2CommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

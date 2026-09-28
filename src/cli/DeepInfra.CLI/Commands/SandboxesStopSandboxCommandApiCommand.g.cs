@@ -45,6 +45,8 @@ internal static partial class SandboxesStopSandboxCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"stop-sandbox", @"Stop Sandbox");
@@ -76,6 +78,7 @@ internal static partial class SandboxesStopSandboxCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

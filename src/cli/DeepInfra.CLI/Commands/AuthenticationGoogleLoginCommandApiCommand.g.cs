@@ -51,6 +51,8 @@ internal static partial class AuthenticationGoogleLoginCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"google-login", @"Google Login
@@ -86,6 +88,7 @@ Initiate Google SSO login flow. Callback is /google/callback");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

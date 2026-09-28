@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class LoRAAdaptersApiGroupCommand
+internal static partial class LoRAAdaptersApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"lo-ra-adapters", @"LoRA Adapters endpoint commands.");
@@ -18,6 +20,7 @@ internal static class LoRAAdaptersApiGroupCommand
                          command.Subcommands.Add(LoRAAdaptersGetUserLorasCommandApiCommand.Create());
                          command.Subcommands.Add(LoRAAdaptersUpdateLoraCommandApiCommand.Create());
                          command.Subcommands.Add(LoRAAdaptersUploadLoraModelCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

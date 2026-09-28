@@ -51,6 +51,8 @@ internal static partial class DedicatedModelsDeployGpuAvailabilityCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-gpu-availability", @"Deploy Gpu Availability");
@@ -93,6 +95,7 @@ internal static partial class DedicatedModelsDeployGpuAvailabilityCommandApiComm
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

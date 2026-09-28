@@ -118,6 +118,8 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"openai-audio-transcriptions", @"Openai Audio Transcriptions");
@@ -196,6 +198,7 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

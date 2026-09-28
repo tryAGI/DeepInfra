@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class TextToSpeechApiGroupCommand
+internal static partial class TextToSpeechApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"text-to-speech", @"Text to Speech endpoint commands.");
@@ -16,6 +18,7 @@ internal static class TextToSpeechApiGroupCommand
                          command.Subcommands.Add(TextToSpeechTextToSpeechCommandApiCommand.Create());
                          command.Subcommands.Add(TextToSpeechTextToSpeechStreamCommandApiCommand.Create());
                          command.Subcommands.Add(TextToSpeechUpdateVoiceCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

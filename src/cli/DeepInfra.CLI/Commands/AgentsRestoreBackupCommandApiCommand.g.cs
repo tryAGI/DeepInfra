@@ -51,6 +51,8 @@ internal static partial class AgentsRestoreBackupCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"restore-backup", @"Restore Backup");
@@ -85,6 +87,7 @@ internal static partial class AgentsRestoreBackupCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

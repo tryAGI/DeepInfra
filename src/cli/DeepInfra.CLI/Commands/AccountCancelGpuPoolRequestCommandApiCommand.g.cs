@@ -45,6 +45,8 @@ internal static partial class AccountCancelGpuPoolRequestCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"cancel-gpu-pool-request", @"Cancel Gpu Pool Request
@@ -77,6 +79,7 @@ Withdraw the caller's open request.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

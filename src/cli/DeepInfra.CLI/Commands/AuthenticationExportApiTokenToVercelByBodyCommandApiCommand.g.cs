@@ -96,6 +96,8 @@ internal static partial class AuthenticationExportApiTokenToVercelByBodyCommandA
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"export-api-token-to-vercel-by-body", @"Export Api Token To Vercel By Body");
@@ -162,6 +164,7 @@ internal static partial class AuthenticationExportApiTokenToVercelByBodyCommandA
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -73,6 +73,8 @@ internal static partial class SandboxesCreateSandboxCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-sandbox", @"Create Sandbox
@@ -131,6 +133,7 @@ Create a new sandbox instance with the given plan and settings. The sandbox star
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

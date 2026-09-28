@@ -49,11 +49,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public object? Type4 { get; set; }
+        public global::DeepInfra.AddFundsOut? Type4 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.AddFundsOut? Type5 { get; set; }
+        public object? Type5 { get; set; }
         /// <summary>
         ///
         /// </summary>

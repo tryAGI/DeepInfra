@@ -51,6 +51,8 @@ internal static partial class GpuRentalsRentGpuAvailabilityCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"rent-gpu-availability", @"Rent Gpu Availability");
@@ -93,6 +95,7 @@ internal static partial class GpuRentalsRentGpuAvailabilityCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

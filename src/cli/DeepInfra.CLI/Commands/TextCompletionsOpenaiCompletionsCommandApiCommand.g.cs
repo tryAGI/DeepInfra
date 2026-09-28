@@ -224,6 +224,8 @@ The total length of input tokens and generated tokens is limited by the model's 
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"openai-completions", @"Openai Completions");
@@ -374,6 +376,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

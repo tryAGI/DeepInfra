@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class AuthenticationApiGroupCommand
+internal static partial class AuthenticationApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"authentication", @"Authentication endpoint commands.");
@@ -26,6 +28,7 @@ internal static class AuthenticationApiGroupCommand
                          command.Subcommands.Add(AuthenticationGoogleLoginCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationInspectScopedJwtCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationOktaLoginCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

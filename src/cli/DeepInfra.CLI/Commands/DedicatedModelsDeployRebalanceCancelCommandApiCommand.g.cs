@@ -61,6 +61,8 @@ internal static partial class DedicatedModelsDeployRebalanceCancelCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-rebalance-cancel", @"Deploy Rebalance Cancel
@@ -115,6 +117,7 @@ both deployments keep min/max instances fixed at their current counts.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class ModelsApiGroupCommand
+internal static partial class ModelsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"models", @"Models endpoint commands.");
@@ -24,6 +26,7 @@ internal static class ModelsApiGroupCommand
                          command.Subcommands.Add(ModelsOpenaiModelsCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsOpenrouterModelsCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsPrivateModelsListCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

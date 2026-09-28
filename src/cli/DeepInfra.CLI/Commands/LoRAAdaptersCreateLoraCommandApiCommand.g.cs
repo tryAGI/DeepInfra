@@ -89,6 +89,8 @@ internal static partial class LoRAAdaptersCreateLoraCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-lora", @"Create Lora");
@@ -152,6 +154,7 @@ internal static partial class LoRAAdaptersCreateLoraCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

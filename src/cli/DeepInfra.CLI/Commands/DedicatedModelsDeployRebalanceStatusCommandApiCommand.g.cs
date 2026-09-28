@@ -45,6 +45,8 @@ internal static partial class DedicatedModelsDeployRebalanceStatusCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-rebalance-status", @"Deploy Rebalance Status
@@ -88,6 +90,7 @@ them to resume autoscaling.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

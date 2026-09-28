@@ -39,6 +39,8 @@ internal static partial class SandboxesListSandboxesCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-sandboxes", @"List Sandboxes");
@@ -75,6 +77,7 @@ internal static partial class SandboxesListSandboxesCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

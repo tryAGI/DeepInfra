@@ -74,6 +74,8 @@ internal static partial class SandboxesExecCommandCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"exec-command", @"Exec Command
@@ -132,6 +134,7 @@ Run a command in the sandbox. Streams NDJSON lines (application/x-ndjson): {""st
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

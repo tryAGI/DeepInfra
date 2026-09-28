@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class BillingApiGroupCommand
+internal static partial class BillingApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"billing", @"Billing endpoint commands.");
@@ -25,6 +27,7 @@ internal static class BillingApiGroupCommand
                          command.Subcommands.Add(BillingUsageApiTokenByIdCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageRentCommandApiCommand.Create());
                          command.Subcommands.Add(BillingUsageTokensCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -45,6 +45,8 @@ internal static partial class DedicatedModelsDeployStartCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"deploy-start", @"Deploy Start
@@ -77,6 +79,7 @@ Start a stopped deployment. Re-creates pods via auto-scaling.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

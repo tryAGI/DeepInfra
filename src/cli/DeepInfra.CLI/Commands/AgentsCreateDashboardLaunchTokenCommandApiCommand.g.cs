@@ -45,6 +45,8 @@ internal static partial class AgentsCreateDashboardLaunchTokenCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-dashboard-launch-token", @"Create Dashboard Launch Token
@@ -88,6 +90,7 @@ Refuses instances whose agent_type has has_dashboard=False (e.g. hermes).");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

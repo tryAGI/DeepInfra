@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static class AccountApiGroupCommand
+internal static partial class AccountApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"account", @"Account endpoint commands.");
@@ -20,6 +22,7 @@ internal static class AccountApiGroupCommand
                          command.Subcommands.Add(AccountRequestGpuPoolChangeCommandApiCommand.Create());
                          command.Subcommands.Add(AccountRequestRateLimitIncreaseCommandApiCommand.Create());
                          command.Subcommands.Add(AccountTeamSetDisplayNameCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

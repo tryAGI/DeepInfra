@@ -39,6 +39,8 @@ internal static partial class AccountAccountRateLimitCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"rate-limit", @"Account Rate Limit");
@@ -67,6 +69,7 @@ internal static partial class AccountAccountRateLimitCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
