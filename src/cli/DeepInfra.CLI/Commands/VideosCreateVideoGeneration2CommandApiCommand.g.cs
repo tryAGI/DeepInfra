@@ -35,6 +35,22 @@ internal static partial class VideosCreateVideoGeneration2CommandApiCommand
           Description = "Path to a JSON request file, or '-' for stdin.",
           Hidden = true,
       };
+      private static Option<bool> Wait { get; } = new("--wait")
+      {
+          Description = "Poll the generated wait helper until the resource reaches a terminal state.",
+      };
+
+      private static Option<string> PollInterval { get; } = new("--poll-interval")
+      {
+          Description = "Polling interval, for example 250ms, 2s, 30m, or 01:00:00.",
+          DefaultValueFactory = _ => "2s",
+      };
+
+      private static Option<string> WaitTimeout { get; } = new("--wait-timeout")
+      {
+          Description = "Maximum time to wait before timing out, for example 30m or 00:30:00.",
+          DefaultValueFactory = _ => "30m",
+      };
 
                     private static string FormatResponse(ParseResult parseResult, global::DeepInfra.VideoGenerationOut value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
@@ -83,7 +99,9 @@ internal static partial class VideosCreateVideoGeneration2CommandApiCommand
                   result.AddError(@"Specify at most one of --input, --request-json, or --request-file.");
               }
           });
-
+          command.Options.Add(Wait);
+          command.Options.Add(PollInterval);
+          command.Options.Add(WaitTimeout);
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
@@ -103,9 +121,49 @@ internal static partial class VideosCreateVideoGeneration2CommandApiCommand
                         var seconds = CliRuntime.WasSpecified(parseResult, VideoGenerationInOptionSetOptions.Seconds) ? parseResult.GetValue(VideoGenerationInOptionSetOptions.Seconds) : (__requestBase is { } __SecondsBaseValue ? __SecondsBaseValue.Seconds : default);
                         var seed = CliRuntime.WasSpecified(parseResult, VideoGenerationInOptionSetOptions.Seed) ? parseResult.GetValue(VideoGenerationInOptionSetOptions.Seed) : (__requestBase is { } __SeedBaseValue ? __SeedBaseValue.Seed : default);
                         var style = CliRuntime.WasSpecified(parseResult, VideoGenerationInOptionSetOptions.Style) ? parseResult.GetValue(VideoGenerationInOptionSetOptions.Style) : (__requestBase is { } __StyleBaseValue ? __StyleBaseValue.Style : default);
-                        var imageUrl = CliRuntime.WasSpecified(parseResult, VideoGenerationInOptionSetOptions.ImageUrl) ? parseResult.GetValue(VideoGenerationInOptionSetOptions.ImageUrl) : (__requestBase is { } __ImageUrlBaseValue ? __ImageUrlBaseValue.ImageUrl : default);
+                        var imageUrl = CliRuntime.WasSpecified(parseResult, VideoGenerationInOptionSetOptions.ImageUrl) ? parseResult.GetValue(VideoGenerationInOptionSetOptions.ImageUrl) : (__requestBase is { } __ImageUrlBaseValue ? __ImageUrlBaseValue.ImageUrl : default);          var wait = parseResult.GetValue(Wait);
+          var pollInterval = wait ? CliRuntime.ParseDuration(parseResult.GetRequiredValue(PollInterval), PollInterval.Name) : default;
+          var waitTimeout = wait ? CliRuntime.ParseDuration(parseResult.GetRequiredValue(WaitTimeout), WaitTimeout.Name) : default;
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
+                                if (wait)
+                                {
+                                var createResponse = await client.Videos.CreateVideoGeneration2Async(
+                                    xiApiKey: xiApiKey,
+                                    xApiKey: xApiKey,
+                                    model: model,
+                                    prompt: prompt,
+                                    negativePrompt: negativePrompt,
+                                    aspectRatio: aspectRatio,
+                                    size: size,
+                                    seconds: seconds,
+                                    seed: seed,
+                                    style: style,
+                                    imageUrl: imageUrl,
+                                    cancellationToken: cancellationToken).ConfigureAwait(false);
+                                    var resourceId = global::System.Convert.ToString(
+                                        createResponse.Id,
+                                        global::System.Globalization.CultureInfo.InvariantCulture);
+                                    if (string.IsNullOrWhiteSpace(resourceId))
+                                    {
+                                        throw new CliException("The create response did not contain a job id.");
+                                    }
+
+                                    var waitResponse = await CliRuntime.PollUntilTerminalAsync(
+                                        fetchAsync: token => client.Videos.GetVideoGeneration2Async(
+                                            videoId: resourceId,
+                                            cancellationToken: token),
+                                        pollInterval: pollInterval,
+                                        waitTimeout: waitTimeout,
+                                        context: global::DeepInfra.SourceGenerationContext.Default,
+                                        cancellationToken: cancellationToken).ConfigureAwait(false);
+                                    await CliRuntime.WriteResponseAsync(
+                                        parseResult,
+                                        waitResponse,
+                                        global::DeepInfra.SourceGenerationContext.Default,
+                                        cancellationToken: cancellationToken).ConfigureAwait(false);
+                                    return;
+                                }
 
                                 var response = await client.Videos.CreateVideoGeneration2Async(
                                     xiApiKey: xiApiKey,
