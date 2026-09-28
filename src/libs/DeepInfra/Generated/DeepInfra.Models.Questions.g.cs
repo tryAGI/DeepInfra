@@ -47,8 +47,8 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.NoulQuestion PickNoul() => IsNoul
-            ? Noul!
+        public global::DeepInfra.NoulQuestion PickNoul() => Noul is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Noul' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ChoiceQuestion PickChoice() => IsChoice
-            ? Choice!
+        public global::DeepInfra.ChoiceQuestion PickChoice() => Choice is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Choice' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ScoreQuestion PickScore() => IsScore
-            ? Score!
+        public global::DeepInfra.ScoreQuestion PickScore() => Score is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Score' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace DeepInfra
                 Validate();
             }
 
-            if (IsNoul && noul != null)
+            if (Noul is { } __value0 && noul != null)
             {
-                return noul(Noul!);
+                return noul(__value0);
             }
-            else if (IsChoice && choice != null)
+            else if (Choice is { } __value1 && choice != null)
             {
-                return choice(Choice!);
+                return choice(__value1);
             }
-            else if (IsScore && score != null)
+            else if (Score is { } __value2 && score != null)
             {
-                return score(Score!);
+                return score(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace DeepInfra
                 Validate();
             }
 
-            if (IsNoul)
+            if (Noul is { } __value0)
             {
-                noul?.Invoke(Noul!);
+                noul?.Invoke(__value0);
             }
-            else if (IsChoice)
+            else if (Choice is { } __value1)
             {
-                choice?.Invoke(Choice!);
+                choice?.Invoke(__value1);
             }
-            else if (IsScore)
+            else if (Score is { } __value2)
             {
-                score?.Invoke(Score!);
+                score?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace DeepInfra
                 Validate();
             }
 
-            if (IsNoul)
+            if (Noul is { } __value0)
             {
-                noul?.Invoke(Noul!);
+                noul?.Invoke(__value0);
             }
-            else if (IsChoice)
+            else if (Choice is { } __value1)
             {
-                choice?.Invoke(Choice!);
+                choice?.Invoke(__value1);
             }
-            else if (IsScore)
+            else if (Score is { } __value2)
             {
-                score?.Invoke(Score!);
+                score?.Invoke(__value2);
             }
         }
 

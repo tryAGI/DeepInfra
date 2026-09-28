@@ -68,19 +68,19 @@ namespace DeepInfra.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.NoulQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.NoulQuestion?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.NoulQuestion).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Noul!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickNoul(), typeInfo);
             }
             else if (value.IsChoice)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChoiceQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChoiceQuestion?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChoiceQuestion).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Choice!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickChoice(), typeInfo);
             }
             else if (value.IsScore)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ScoreQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ScoreQuestion?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ScoreQuestion).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Score!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickScore(), typeInfo);
             }
         }
     }

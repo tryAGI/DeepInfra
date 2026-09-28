@@ -130,7 +130,7 @@ namespace DeepInfra
                                 path: "/payment/usage/rent",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("from", from.ToString()!)
+                                .AddRequiredParameter("from", from.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 .AddOptionalParameter("to", to?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -185,7 +185,7 @@ namespace DeepInfra
                 PrepareUsageRentRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    from: from!,
+                    from: from,
                     to: to,
                     session: session);
 
@@ -209,7 +209,7 @@ namespace DeepInfra
                                 pathTemplate: "\"/payment/usage/rent\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -243,7 +243,7 @@ namespace DeepInfra
                                 pathTemplate: "\"/payment/usage/rent\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -284,7 +284,7 @@ namespace DeepInfra
                                 pathTemplate: "\"/payment/usage/rent\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -332,7 +332,7 @@ namespace DeepInfra
                                 pathTemplate: "\"/payment/usage/rent\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -354,7 +354,7 @@ namespace DeepInfra
                                 pathTemplate: "\"/payment/usage/rent\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
