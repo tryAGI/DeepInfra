@@ -62,9 +62,9 @@ internal static partial class SystemOneSystemoneCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"systemone", @"Systemone");
+        var command = new Command(commandName ?? @"systemone", @"Systemone");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(State);

@@ -41,9 +41,9 @@ internal static partial class AgentsGetCatalogCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-catalog", @"Get Catalog");
+        var command = new Command(commandName ?? @"get-catalog", @"Get Catalog");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

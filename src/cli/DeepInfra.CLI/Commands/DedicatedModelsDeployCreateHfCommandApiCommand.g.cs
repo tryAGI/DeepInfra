@@ -70,9 +70,9 @@ internal static partial class DedicatedModelsDeployCreateHfCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-create-hf", @"Deploy Create Hf");
+        var command = new Command(commandName ?? @"deploy-create-hf", @"Deploy Create Hf");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ModelName);

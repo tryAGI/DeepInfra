@@ -48,9 +48,9 @@ internal static partial class ModelsGetHardwareCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-hardware", @"Get Hardware");
+        var command = new Command(commandName ?? @"get-hardware", @"Get Hardware");
                         command.Options.Add(Model);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

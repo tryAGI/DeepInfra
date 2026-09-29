@@ -41,9 +41,9 @@ internal static partial class AccountGpuPoolGpuTypesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"gpu-pool-gpu-types", @"Gpu Pool Gpu Types");
+        var command = new Command(commandName ?? @"gpu-pool-gpu-types", @"Gpu Pool Gpu Types");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

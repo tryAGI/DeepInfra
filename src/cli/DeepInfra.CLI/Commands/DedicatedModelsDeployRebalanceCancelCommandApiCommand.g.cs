@@ -63,9 +63,9 @@ internal static partial class DedicatedModelsDeployRebalanceCancelCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-rebalance-cancel", @"Deploy Rebalance Cancel
+        var command = new Command(commandName ?? @"deploy-rebalance-cancel", @"Deploy Rebalance Cancel
 Stop an in-flight GPU pool rebalance; instances already moved stay, and
 both deployments keep min/max instances fixed at their current counts.");
                         command.Arguments.Add(DeployId);

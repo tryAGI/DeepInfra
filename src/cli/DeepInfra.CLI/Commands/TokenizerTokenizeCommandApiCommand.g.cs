@@ -80,9 +80,9 @@ internal static partial class TokenizerTokenizeCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"tokenize", @"Tokenize");
+        var command = new Command(commandName ?? @"tokenize", @"Tokenize");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(Model);

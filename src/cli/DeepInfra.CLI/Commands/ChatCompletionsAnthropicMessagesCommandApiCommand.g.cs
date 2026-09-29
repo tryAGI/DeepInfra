@@ -176,9 +176,9 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"anthropic-messages", @"Anthropic Messages");
+        var command = new Command(commandName ?? @"anthropic-messages", @"Anthropic Messages");
                         command.Options.Add(AnthropicVersion);
                         command.Options.Add(AnthropicBeta);
                         command.Options.Add(XDeepinfraSource);

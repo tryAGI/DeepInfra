@@ -31,9 +31,9 @@ internal static partial class ModelsModelsLoraListCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"lora-list", @"Models Lora List");
+        var command = new Command(commandName ?? @"lora-list", @"Models Lora List");
 
 
 

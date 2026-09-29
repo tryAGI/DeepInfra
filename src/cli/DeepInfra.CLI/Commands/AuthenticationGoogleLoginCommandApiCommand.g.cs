@@ -53,9 +53,9 @@ internal static partial class AuthenticationGoogleLoginCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"google-login", @"Google Login
+        var command = new Command(commandName ?? @"google-login", @"Google Login
 Initiate Google SSO login flow. Callback is /google/callback");
                         command.Options.Add(LoginId);
                         command.Options.Add(Origin);

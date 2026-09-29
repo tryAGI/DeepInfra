@@ -98,9 +98,9 @@ internal static partial class AuthenticationExportApiTokenToVercelByBodyCommandA
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"export-api-token-to-vercel-by-body", @"Export Api Token To Vercel By Body");
+        var command = new Command(commandName ?? @"export-api-token-to-vercel-by-body", @"Export Api Token To Vercel By Body");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ProjectIdOrName);

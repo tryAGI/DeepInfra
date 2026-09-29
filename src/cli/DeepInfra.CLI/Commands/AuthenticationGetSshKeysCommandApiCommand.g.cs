@@ -41,9 +41,9 @@ internal static partial class AuthenticationGetSshKeysCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-ssh-keys", @"Get Ssh Keys");
+        var command = new Command(commandName ?? @"get-ssh-keys", @"Get Ssh Keys");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

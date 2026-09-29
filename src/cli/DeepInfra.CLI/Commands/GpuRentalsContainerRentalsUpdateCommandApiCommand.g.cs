@@ -54,9 +54,9 @@ internal static partial class GpuRentalsContainerRentalsUpdateCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"container-rentals-update", @"Container Rentals Update");
+        var command = new Command(commandName ?? @"container-rentals-update", @"Container Rentals Update");
                         command.Arguments.Add(ContainerId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

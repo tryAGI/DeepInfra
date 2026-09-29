@@ -47,9 +47,9 @@ internal static partial class AuthenticationDeleteSshKeyCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-ssh-key", @"Delete Ssh Key");
+        var command = new Command(commandName ?? @"delete-ssh-key", @"Delete Ssh Key");
                         command.Arguments.Add(SshKeyId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

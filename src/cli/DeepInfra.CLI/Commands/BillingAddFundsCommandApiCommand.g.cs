@@ -42,9 +42,9 @@ internal static partial class BillingAddFundsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"add-funds", @"Add Funds");
+        var command = new Command(commandName ?? @"add-funds", @"Add Funds");
                         command.Options.Add(Session);
                         command.Options.Add(Amount);
 

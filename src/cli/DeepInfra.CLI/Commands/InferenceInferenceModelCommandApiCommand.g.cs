@@ -53,9 +53,9 @@ internal static partial class InferenceInferenceModelCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"model", @"Inference Model");
+        var command = new Command(commandName ?? @"model", @"Inference Model");
                         command.Arguments.Add(ModelName);
                         command.Options.Add(Version);
                         command.Options.Add(XiApiKey);

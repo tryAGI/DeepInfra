@@ -41,9 +41,9 @@ internal static partial class AccountAccountRateLimitCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"rate-limit", @"Account Rate Limit");
+        var command = new Command(commandName ?? @"rate-limit", @"Account Rate Limit");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

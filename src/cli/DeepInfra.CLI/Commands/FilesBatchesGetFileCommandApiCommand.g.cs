@@ -47,9 +47,9 @@ internal static partial class FilesBatchesGetFileCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-file", @"Get File");
+        var command = new Command(commandName ?? @"get-file", @"Get File");
                         command.Arguments.Add(FileId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

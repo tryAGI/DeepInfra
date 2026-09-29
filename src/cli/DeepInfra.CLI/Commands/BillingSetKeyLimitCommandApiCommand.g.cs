@@ -64,9 +64,9 @@ internal static partial class BillingSetKeyLimitCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"set-key-limit", @"Set Key Limit");
+        var command = new Command(commandName ?? @"set-key-limit", @"Set Key Limit");
                         command.Options.Add(Session);
                         command.Options.Add(TokenId);
                         command.Options.Add(Limit);

@@ -27,6 +27,7 @@ internal static partial class ApiCommand
                          command.Subcommands.Add(LogsMetricsApiGroupCommand.Create());
                          command.Subcommands.Add(LoRAAdaptersApiGroupCommand.Create());
                          command.Subcommands.Add(ModelsApiGroupCommand.Create());
+                         command.Subcommands.Add(ResponsesApiGroupCommand.Create());
                          command.Subcommands.Add(SandboxesApiGroupCommand.Create());
                          command.Subcommands.Add(SystemOneApiGroupCommand.Create());
                          command.Subcommands.Add(TextCompletionsApiGroupCommand.Create());

@@ -41,9 +41,9 @@ internal static partial class SandboxesListSandboxesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-sandboxes", @"List Sandboxes");
+        var command = new Command(commandName ?? @"list-sandboxes", @"List Sandboxes");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

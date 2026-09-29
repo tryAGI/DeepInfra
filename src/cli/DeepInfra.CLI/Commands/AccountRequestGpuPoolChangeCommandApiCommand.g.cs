@@ -82,9 +82,9 @@ internal static partial class AccountRequestGpuPoolChangeCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"request-gpu-pool-change", @"Request Gpu Pool Change
+        var command = new Command(commandName ?? @"request-gpu-pool-change", @"Request Gpu Pool Change
 File or amend the caller's single open GPU limit request.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

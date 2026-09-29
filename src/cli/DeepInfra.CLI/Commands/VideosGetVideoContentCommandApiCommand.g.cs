@@ -53,9 +53,9 @@ internal static partial class VideosGetVideoContentCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-video-content", @"Get Video Content");
+        var command = new Command(commandName ?? @"get-video-content", @"Get Video Content");
                         command.Arguments.Add(VideoId);
                         command.Options.Add(Variant);
                         command.Options.Add(XiApiKey);

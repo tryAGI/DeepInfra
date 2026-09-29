@@ -47,9 +47,9 @@ internal static partial class AgentsDeleteInstanceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-instance", @"Delete Instance");
+        var command = new Command(commandName ?? @"delete-instance", @"Delete Instance");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

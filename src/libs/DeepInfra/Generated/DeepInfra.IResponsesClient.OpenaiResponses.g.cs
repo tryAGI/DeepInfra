@@ -1,0 +1,154 @@
+#nullable enable
+
+namespace DeepInfra
+{
+    public partial interface IResponsesClient
+    {
+        /// <summary>
+        /// Openai Responses
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::DeepInfra.ApiException"></exception>
+        global::System.Threading.Tasks.Task<string> OpenaiResponsesAsync(
+
+            global::DeepInfra.ResponsesIn request,
+            string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
+            string? xiApiKey = default,
+            string? xApiKey = default,
+            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Openai Responses
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::DeepInfra.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> OpenaiResponsesAsResponseAsync(
+
+            global::DeepInfra.ResponsesIn request,
+            string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
+            string? xiApiKey = default,
+            string? xApiKey = default,
+            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Openai Responses
+        /// </summary>
+        /// <param name="xDeepinfraSource"></param>
+        /// <param name="xDeepinfraServiceTier">
+        /// Per-request service tier (`priority` or `flex`) for clients that cannot set the `service_tier` body field. The body field wins when both are present; unrecognized values ride the default tier.
+        /// </param>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="serviceTier">
+        /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
+        /// </param>
+        /// <param name="failFast">
+        /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="models">
+        /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
+        /// </param>
+        /// <param name="model"></param>
+        /// <param name="input"></param>
+        /// <param name="instructions"></param>
+        /// <param name="tools"></param>
+        /// <param name="toolChoice"></param>
+        /// <param name="text"></param>
+        /// <param name="reasoning"></param>
+        /// <param name="maxOutputTokens"></param>
+        /// <param name="maxToolCalls"></param>
+        /// <param name="temperature"></param>
+        /// <param name="topP"></param>
+        /// <param name="topLogprobs"></param>
+        /// <param name="metadata"></param>
+        /// <param name="parallelToolCalls"></param>
+        /// <param name="stream">
+        /// Default Value: false
+        /// </param>
+        /// <param name="user"></param>
+        /// <param name="store">
+        /// Default Value: false
+        /// </param>
+        /// <param name="previousResponseId"></param>
+        /// <param name="background">
+        /// Default Value: false
+        /// </param>
+        /// <param name="include"></param>
+        /// <param name="truncation"></param>
+        /// <param name="prompt"></param>
+        /// <param name="conversation"></param>
+        /// <param name="minP"></param>
+        /// <param name="topK"></param>
+        /// <param name="repetitionPenalty"></param>
+        /// <param name="stopTokenIds"></param>
+        /// <param name="chatTemplateKwargs"></param>
+        /// <param name="continueFinalMessage"></param>
+        /// <param name="ignoreEos"></param>
+        /// <param name="promptCacheKey"></param>
+        /// <param name="promptCacheOptions"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<string> OpenaiResponsesAsync(
+            string model,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>> input,
+            string? xDeepinfraSource = default,
+            string? xDeepinfraServiceTier = default,
+            string? xiApiKey = default,
+            string? xApiKey = default,
+            global::DeepInfra.ServiceTier? serviceTier = default,
+            bool? failFast = default,
+            global::System.Collections.Generic.IList<string>? models = default,
+            string? instructions = default,
+            global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>>? tools = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>? toolChoice = default,
+            global::DeepInfra.ResponsesTextConfig? text = default,
+            global::DeepInfra.ResponsesReasoningConfig? reasoning = default,
+            int? maxOutputTokens = default,
+            int? maxToolCalls = default,
+            double? temperature = default,
+            double? topP = default,
+            int? topLogprobs = default,
+            object? metadata = default,
+            bool? parallelToolCalls = default,
+            bool? stream = default,
+            string? user = default,
+            bool? store = default,
+            string? previousResponseId = default,
+            bool? background = default,
+            global::System.Collections.Generic.IList<string>? include = default,
+            global::DeepInfra.ResponsesInTruncation? truncation = default,
+            object? prompt = default,
+            object? conversation = default,
+            double? minP = default,
+            int? topK = default,
+            double? repetitionPenalty = default,
+            global::System.Collections.Generic.IList<int>? stopTokenIds = default,
+            object? chatTemplateKwargs = default,
+            bool? continueFinalMessage = default,
+            bool? ignoreEos = default,
+            string? promptCacheKey = default,
+            global::DeepInfra.PromptCacheOptions? promptCacheOptions = default,
+            global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

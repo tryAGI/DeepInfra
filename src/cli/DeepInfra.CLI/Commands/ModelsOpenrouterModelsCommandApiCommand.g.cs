@@ -31,9 +31,9 @@ internal static partial class ModelsOpenrouterModelsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openrouter-models", @"Openrouter Models");
+        var command = new Command(commandName ?? @"openrouter-models", @"Openrouter Models");
 
 
 

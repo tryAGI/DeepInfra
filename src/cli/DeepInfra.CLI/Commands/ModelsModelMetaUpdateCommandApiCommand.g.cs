@@ -111,9 +111,9 @@ internal static partial class ModelsModelMetaUpdateCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"meta-update", @"Model Meta Update");
+        var command = new Command(commandName ?? @"meta-update", @"Model Meta Update");
                         command.Arguments.Add(ModelName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

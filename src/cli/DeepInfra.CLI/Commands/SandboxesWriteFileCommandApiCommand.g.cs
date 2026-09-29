@@ -54,9 +54,9 @@ internal static partial class SandboxesWriteFileCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"write-file", @"Write File
+        var command = new Command(commandName ?? @"write-file", @"Write File
 Write the raw request body (application/octet-stream, max 100 MiB) to an absolute path inside the sandbox.");
                         command.Arguments.Add(SandboxId);
                         command.Options.Add(Path);

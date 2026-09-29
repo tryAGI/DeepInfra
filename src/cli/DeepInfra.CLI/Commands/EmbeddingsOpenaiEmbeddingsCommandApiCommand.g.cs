@@ -117,9 +117,9 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-embeddings", @"Openai Embeddings");
+        var command = new Command(commandName ?? @"openai-embeddings", @"Openai Embeddings");
                         command.Options.Add(XDeepinfraSource);
                         command.Options.Add(UserAgent);
                         command.Options.Add(XDeepinfraServiceTier);

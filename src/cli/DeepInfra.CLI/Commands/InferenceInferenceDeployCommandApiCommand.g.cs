@@ -47,9 +47,9 @@ internal static partial class InferenceInferenceDeployCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy", @"Inference Deploy");
+        var command = new Command(commandName ?? @"deploy", @"Inference Deploy");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

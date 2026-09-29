@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployRebalanceStatusCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-rebalance-status", @"Deploy Rebalance Status
+        var command = new Command(commandName ?? @"deploy-rebalance-status", @"Deploy Rebalance Status
 Status of GPU pool rebalances touching this deployment. A just-started
 rebalance can take a moment to appear. A finished or cancelled rebalance
 leaves both deployments' min/max instances fixed at the final counts; edit

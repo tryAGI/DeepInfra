@@ -48,9 +48,9 @@ internal static partial class AuthenticationOktaLoginCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"okta-login", @"Okta Login");
+        var command = new Command(commandName ?? @"okta-login", @"Okta Login");
                         command.Options.Add(TeamId);
                         command.Options.Add(Origin);
                         command.Options.Add(LoginId);

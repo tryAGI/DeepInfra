@@ -61,9 +61,9 @@ internal static partial class TextToSpeechUpdateVoiceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-voice", @"Update Voice");
+        var command = new Command(commandName ?? @"update-voice", @"Update Voice");
                         command.Arguments.Add(VoiceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

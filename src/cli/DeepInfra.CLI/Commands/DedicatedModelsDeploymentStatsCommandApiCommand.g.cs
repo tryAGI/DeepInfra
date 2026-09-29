@@ -54,9 +54,9 @@ internal static partial class DedicatedModelsDeploymentStatsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deployment-stats", @"Deployment Stats");
+        var command = new Command(commandName ?? @"deployment-stats", @"Deployment Stats");
                         command.Options.Add(From);
                         command.Options.Add(To);
                         command.Options.Add(XiApiKey);

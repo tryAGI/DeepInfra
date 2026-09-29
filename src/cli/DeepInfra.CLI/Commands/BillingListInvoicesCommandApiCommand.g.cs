@@ -53,9 +53,9 @@ internal static partial class BillingListInvoicesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-invoices", @"List Invoices");
+        var command = new Command(commandName ?? @"list-invoices", @"List Invoices");
                         command.Options.Add(Limit);
                         command.Options.Add(StartingAfter);
                         command.Options.Add(InvoiceType);

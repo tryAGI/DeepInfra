@@ -47,9 +47,9 @@ internal static partial class TextToSpeechGetVoiceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-voice", @"Get Voice
+        var command = new Command(commandName ?? @"get-voice", @"Get Voice
 Get a voice by its id");
                         command.Arguments.Add(VoiceId);
                         command.Options.Add(XiApiKey);

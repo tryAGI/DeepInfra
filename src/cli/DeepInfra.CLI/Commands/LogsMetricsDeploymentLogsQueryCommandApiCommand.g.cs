@@ -72,9 +72,9 @@ internal static partial class LogsMetricsDeploymentLogsQueryCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deployment-logs-query", @"Deployment Logs Query
+        var command = new Command(commandName ?? @"deployment-logs-query", @"Deployment Logs Query
 Query deployment logs.
 * Without timestamps (from/to) returns last `limit` messages (in last month).
 * With `from` only, returns first `limit` messages after `from` (inclusive).

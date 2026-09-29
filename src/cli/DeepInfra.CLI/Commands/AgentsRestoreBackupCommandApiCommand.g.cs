@@ -53,9 +53,9 @@ internal static partial class AgentsRestoreBackupCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"restore-backup", @"Restore Backup");
+        var command = new Command(commandName ?? @"restore-backup", @"Restore Backup");
                         command.Arguments.Add(InstanceId);
                         command.Arguments.Add(BackupId);
                         command.Options.Add(XiApiKey);

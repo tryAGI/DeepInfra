@@ -60,9 +60,9 @@ internal static partial class DedicatedModelsDeployDetailedStatsCommandApiComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-detailed-stats", @"Deploy Detailed Stats");
+        var command = new Command(commandName ?? @"deploy-detailed-stats", @"Deploy Detailed Stats");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(From);
                         command.Options.Add(To);

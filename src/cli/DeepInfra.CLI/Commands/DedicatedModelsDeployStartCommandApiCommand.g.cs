@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployStartCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-start", @"Deploy Start
+        var command = new Command(commandName ?? @"deploy-start", @"Deploy Start
 Start a stopped deployment. Re-creates pods via auto-scaling.");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(XiApiKey);

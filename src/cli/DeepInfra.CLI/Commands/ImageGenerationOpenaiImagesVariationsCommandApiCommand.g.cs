@@ -90,9 +90,9 @@ internal static partial class ImageGenerationOpenaiImagesVariationsCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-images-variations", @"Openai Images Variations
+        var command = new Command(commandName ?? @"openai-images-variations", @"Openai Images Variations
 Generate a similar image using OpenAI Images Variations API");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

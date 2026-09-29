@@ -47,9 +47,9 @@ internal static partial class LoRAAdaptersDeleteLoraModelCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-lora-model", @"Delete Lora Model");
+        var command = new Command(commandName ?? @"delete-lora-model", @"Delete Lora Model");
                         command.Arguments.Add(LoraModelName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

@@ -47,9 +47,9 @@ internal static partial class AgentsGetInstanceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-instance", @"Get Instance");
+        var command = new Command(commandName ?? @"get-instance", @"Get Instance");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

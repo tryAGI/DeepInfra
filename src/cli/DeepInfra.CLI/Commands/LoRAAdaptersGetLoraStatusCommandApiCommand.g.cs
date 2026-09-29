@@ -47,9 +47,9 @@ internal static partial class LoRAAdaptersGetLoraStatusCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-lora-status", @"Get Lora Status");
+        var command = new Command(commandName ?? @"get-lora-status", @"Get Lora Status");
                         command.Arguments.Add(LoraName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

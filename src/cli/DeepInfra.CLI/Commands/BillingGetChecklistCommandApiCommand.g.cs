@@ -35,9 +35,9 @@ internal static partial class BillingGetChecklistCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-checklist", @"Get Checklist");
+        var command = new Command(commandName ?? @"get-checklist", @"Get Checklist");
                         command.Options.Add(Session);
 
 

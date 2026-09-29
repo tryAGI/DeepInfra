@@ -47,9 +47,9 @@ internal static partial class FilesBatchesDeleteFileCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-file", @"Delete File");
+        var command = new Command(commandName ?? @"delete-file", @"Delete File");
                         command.Arguments.Add(FileId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

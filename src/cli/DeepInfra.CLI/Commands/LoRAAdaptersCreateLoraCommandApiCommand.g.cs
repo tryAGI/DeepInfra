@@ -91,9 +91,9 @@ internal static partial class LoRAAdaptersCreateLoraCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-lora", @"Create Lora");
+        var command = new Command(commandName ?? @"create-lora", @"Create Lora");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(BaseModel);

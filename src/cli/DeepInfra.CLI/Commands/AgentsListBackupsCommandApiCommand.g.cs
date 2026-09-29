@@ -47,9 +47,9 @@ internal static partial class AgentsListBackupsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-backups", @"List Backups");
+        var command = new Command(commandName ?? @"list-backups", @"List Backups");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

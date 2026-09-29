@@ -47,9 +47,9 @@ internal static partial class LoRAAdaptersGetModelLorasCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-model-loras", @"Get Model Loras");
+        var command = new Command(commandName ?? @"get-model-loras", @"Get Model Loras");
                         command.Arguments.Add(ModelName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

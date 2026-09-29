@@ -41,9 +41,9 @@ internal static partial class LoRAAdaptersGetUserLorasCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-user-loras", @"Get User Loras");
+        var command = new Command(commandName ?? @"get-user-loras", @"Get User Loras");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

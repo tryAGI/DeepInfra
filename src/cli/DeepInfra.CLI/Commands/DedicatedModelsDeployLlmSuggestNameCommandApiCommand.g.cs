@@ -48,9 +48,9 @@ internal static partial class DedicatedModelsDeployLlmSuggestNameCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-llm-suggest-name", @"Deploy Llm Suggest Name");
+        var command = new Command(commandName ?? @"deploy-llm-suggest-name", @"Deploy Llm Suggest Name");
                         command.Options.Add(ModelName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
