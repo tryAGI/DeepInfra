@@ -45,9 +45,9 @@ internal static partial class AccountMeCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"me", @"Me");
+        var command = new Command(commandName ?? @"me", @"Me");
                         command.Options.Add(Checklist);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

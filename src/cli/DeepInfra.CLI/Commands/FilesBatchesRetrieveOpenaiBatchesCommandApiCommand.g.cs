@@ -53,9 +53,9 @@ internal static partial class FilesBatchesRetrieveOpenaiBatchesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"retrieve-openai-batches", @"Retrieve Openai Batches");
+        var command = new Command(commandName ?? @"retrieve-openai-batches", @"Retrieve Openai Batches");
                         command.Options.Add(After);
                         command.Options.Add(Limit);
                         command.Options.Add(XiApiKey);

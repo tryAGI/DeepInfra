@@ -35,9 +35,9 @@ internal static partial class BillingGetConfigCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-config", @"Get Config");
+        var command = new Command(commandName ?? @"get-config", @"Get Config");
                         command.Options.Add(Session);
 
 

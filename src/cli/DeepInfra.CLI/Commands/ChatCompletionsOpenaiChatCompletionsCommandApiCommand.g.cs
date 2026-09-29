@@ -244,9 +244,9 @@ The total length of input tokens and generated tokens is limited by the model's 
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-chat-completions", @"Openai Chat Completions");
+        var command = new Command(commandName ?? @"openai-chat-completions", @"Openai Chat Completions");
                         command.Options.Add(XDeepinfraSource);
                         command.Options.Add(XDeepinfraServiceTier);
                         command.Options.Add(XiApiKey);

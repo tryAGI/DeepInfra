@@ -41,9 +41,9 @@ internal static partial class ModelsPrivateModelsListCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"private-models-list", @"Private Models List");
+        var command = new Command(commandName ?? @"private-models-list", @"Private Models List");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

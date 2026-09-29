@@ -47,9 +47,9 @@ internal static partial class TextToSpeechDeleteVoiceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-voice", @"Delete Voice");
+        var command = new Command(commandName ?? @"delete-voice", @"Delete Voice");
                         command.Arguments.Add(VoiceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

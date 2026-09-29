@@ -47,9 +47,9 @@ internal static partial class AuthenticationCreateApiTokenCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-api-token", @"Create Api Token");
+        var command = new Command(commandName ?? @"create-api-token", @"Create Api Token");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

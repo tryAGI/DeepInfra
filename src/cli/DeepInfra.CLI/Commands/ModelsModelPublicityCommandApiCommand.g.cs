@@ -54,9 +54,9 @@ internal static partial class ModelsModelPublicityCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"publicity", @"Model Publicity");
+        var command = new Command(commandName ?? @"publicity", @"Model Publicity");
                         command.Arguments.Add(ModelName);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

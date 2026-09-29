@@ -47,9 +47,9 @@ internal static partial class AccountCancelGpuPoolRequestCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"cancel-gpu-pool-request", @"Cancel Gpu Pool Request
+        var command = new Command(commandName ?? @"cancel-gpu-pool-request", @"Cancel Gpu Pool Request
 Withdraw the caller's open request.");
                         command.Arguments.Add(RequestId);
                         command.Options.Add(XiApiKey);

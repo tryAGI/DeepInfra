@@ -31,9 +31,9 @@ internal static partial class LogsMetricsGetLiveMetricsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-live-metrics", @"Get Live Metrics
+        var command = new Command(commandName ?? @"get-live-metrics", @"Get Live Metrics
 Get the latest values for the Live metrics section on the web front page.");
 
 

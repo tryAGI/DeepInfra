@@ -47,9 +47,9 @@ internal static partial class AgentsCreateDashboardLaunchTokenCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-dashboard-launch-token", @"Create Dashboard Launch Token
+        var command = new Command(commandName ?? @"create-dashboard-launch-token", @"Create Dashboard Launch Token
 Mint a single-use launch URL for the dashboard.
 
 Called by the launcher page right when readyz flips ready. The launch URL

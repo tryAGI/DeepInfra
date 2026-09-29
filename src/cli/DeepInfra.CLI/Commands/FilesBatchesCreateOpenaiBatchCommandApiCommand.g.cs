@@ -106,9 +106,9 @@ internal static partial class FilesBatchesCreateOpenaiBatchCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-openai-batch", @"Create Openai Batch");
+        var command = new Command(commandName ?? @"create-openai-batch", @"Create Openai Batch");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(InputFileId);

@@ -35,9 +35,9 @@ internal static partial class BillingAddCardCheckoutCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"add-card-checkout", @"Add Card Checkout
+        var command = new Command(commandName ?? @"add-card-checkout", @"Add Card Checkout
 Checkout page that saves a card, billing address included, so Add Funds
 can show it later.");
                         command.Options.Add(Session);

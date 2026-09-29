@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployList2CommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-list2", @"Deploy List");
+        var command = new Command(commandName ?? @"deploy-list2", @"Deploy List");
                         command.Options.Add(Status);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

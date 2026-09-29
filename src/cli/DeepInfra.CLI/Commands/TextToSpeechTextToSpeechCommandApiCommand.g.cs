@@ -70,9 +70,9 @@ internal static partial class TextToSpeechTextToSpeechCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"text-to-speech", @"Text To Speech");
+        var command = new Command(commandName ?? @"text-to-speech", @"Text To Speech");
                         command.Arguments.Add(VoiceId);
                         command.Options.Add(OutputFormat);
                         command.Options.Add(XiApiKey);

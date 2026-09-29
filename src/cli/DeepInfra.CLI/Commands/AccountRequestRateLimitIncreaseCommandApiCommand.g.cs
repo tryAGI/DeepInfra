@@ -77,9 +77,9 @@ internal static partial class AccountRequestRateLimitIncreaseCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"request-rate-limit-increase", @"Request Rate Limit Increase");
+        var command = new Command(commandName ?? @"request-rate-limit-increase", @"Request Rate Limit Increase");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(RateLimit);

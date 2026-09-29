@@ -47,9 +47,9 @@ internal static partial class SandboxesDeleteSandboxCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-sandbox", @"Delete Sandbox");
+        var command = new Command(commandName ?? @"delete-sandbox", @"Delete Sandbox");
                         command.Arguments.Add(SandboxId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

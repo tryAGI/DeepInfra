@@ -121,6 +121,11 @@ namespace DeepInfra
         public ModelsClient Models { get; }
 
         /// <summary>
+        ///
+        /// </summary>
+        public ResponsesClient Responses { get; }
+
+        /// <summary>
         /// Create and manage isolated sandbox environments.
         /// </summary>
         public SandboxesClient Sandboxes { get; }

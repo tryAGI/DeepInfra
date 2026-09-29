@@ -66,9 +66,9 @@ internal static partial class DedicatedModelsDeployLlmPresetsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-llm-presets", @"Deploy Llm Presets
+        var command = new Command(commandName ?? @"deploy-llm-presets", @"Deploy Llm Presets
 DeepInfra presets and mirrored vLLM recipes for ``hf_repo_id``, told apart by
 ``source``; empty when none. Filter by ``gpu``/``engine``/``source``.");
                         command.Options.Add(HfRepoId);

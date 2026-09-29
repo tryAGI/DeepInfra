@@ -120,9 +120,9 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-audio-transcriptions", @"Openai Audio Transcriptions");
+        var command = new Command(commandName ?? @"openai-audio-transcriptions", @"Openai Audio Transcriptions");
                         command.Options.Add(XDeepinfraSource);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

@@ -88,9 +88,9 @@ internal static partial class AuthenticationCreateScopedJwtCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-scoped-jwt", @" Create Scoped Jwt");
+        var command = new Command(commandName ?? @"create-scoped-jwt", @" Create Scoped Jwt");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ApiKeyName);

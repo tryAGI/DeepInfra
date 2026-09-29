@@ -35,9 +35,9 @@ internal static partial class ModelsModelFamilyCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"family", @"Model Family");
+        var command = new Command(commandName ?? @"family", @"Model Family");
                         command.Arguments.Add(FamilyName);
 
 

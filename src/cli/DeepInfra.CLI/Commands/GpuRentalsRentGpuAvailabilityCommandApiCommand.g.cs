@@ -53,9 +53,9 @@ internal static partial class GpuRentalsRentGpuAvailabilityCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"rent-gpu-availability", @"Rent Gpu Availability");
+        var command = new Command(commandName ?? @"rent-gpu-availability", @"Rent Gpu Availability");
                         command.Options.Add(Source);
                         command.Options.Add(BaseModel);
                         command.Options.Add(XiApiKey);

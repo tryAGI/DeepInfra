@@ -107,9 +107,9 @@ internal static partial class ImageGenerationOpenaiImagesGenerationsCommandApiCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-images-generations", @"Openai Images Generations
+        var command = new Command(commandName ?? @"openai-images-generations", @"Openai Images Generations
 Generate image using OpenAI Images API");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

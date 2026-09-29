@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployArgsHistoryCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-args-history", @"Deploy Args History");
+        var command = new Command(commandName ?? @"deploy-args-history", @"Deploy Args History");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

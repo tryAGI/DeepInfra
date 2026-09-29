@@ -97,9 +97,9 @@ internal static partial class ImageGenerationOpenaiImagesEditsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-images-edits", @"Openai Images Edits
+        var command = new Command(commandName ?? @"openai-images-edits", @"Openai Images Edits
 Edit image using OpenAI Images Edits API");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

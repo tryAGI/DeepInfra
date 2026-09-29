@@ -83,9 +83,9 @@ internal static partial class LoRAAdaptersUploadLoraModelCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"upload-lora-model", @"Upload Lora Model");
+        var command = new Command(commandName ?? @"upload-lora-model", @"Upload Lora Model");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(HfModelName);

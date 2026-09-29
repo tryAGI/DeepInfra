@@ -41,9 +41,9 @@ internal static partial class SandboxesListSandboxPlansCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-sandbox-plans", @"List Sandbox Plans
+        var command = new Command(commandName ?? @"list-sandbox-plans", @"List Sandbox Plans
 Returns all available sandbox plans with their resource specs and pricing.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

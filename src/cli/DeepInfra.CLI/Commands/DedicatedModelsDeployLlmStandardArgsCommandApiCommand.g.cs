@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployLlmStandardArgsCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-llm-standard-args", @"Deploy Llm Standard Args");
+        var command = new Command(commandName ?? @"deploy-llm-standard-args", @"Deploy Llm Standard Args");
                         command.Options.Add(Engine);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

@@ -54,9 +54,9 @@ internal static partial class AgentsRenameInstanceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"rename-instance", @"Rename Instance");
+        var command = new Command(commandName ?? @"rename-instance", @"Rename Instance");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

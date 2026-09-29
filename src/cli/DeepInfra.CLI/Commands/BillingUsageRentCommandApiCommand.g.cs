@@ -48,9 +48,9 @@ internal static partial class BillingUsageRentCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"usage-rent", @"Usage Rent");
+        var command = new Command(commandName ?? @"usage-rent", @"Usage Rent");
                         command.Options.Add(From);
                         command.Options.Add(To);
                         command.Options.Add(Session);

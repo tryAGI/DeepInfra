@@ -54,9 +54,9 @@ internal static partial class BillingUsageApiTokenCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"usage-api-token", @"Usage Api Token");
+        var command = new Command(commandName ?? @"usage-api-token", @"Usage Api Token");
                         command.Arguments.Add(ApiToken);
                         command.Options.Add(From);
                         command.Options.Add(To);

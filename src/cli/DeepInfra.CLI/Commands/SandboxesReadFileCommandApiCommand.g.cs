@@ -54,9 +54,9 @@ internal static partial class SandboxesReadFileCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"read-file", @"Read File
+        var command = new Command(commandName ?? @"read-file", @"Read File
 Read a file from an absolute path inside the sandbox; returns raw bytes (application/octet-stream).");
                         command.Arguments.Add(SandboxId);
                         command.Options.Add(Path);

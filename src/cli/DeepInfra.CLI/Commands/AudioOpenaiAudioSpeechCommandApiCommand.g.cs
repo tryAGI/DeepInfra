@@ -111,9 +111,9 @@ internal static partial class AudioOpenaiAudioSpeechCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-audio-speech", @"Openai Audio Speech");
+        var command = new Command(commandName ?? @"openai-audio-speech", @"Openai Audio Speech");
                         command.Options.Add(XDeepinfraSource);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

@@ -82,9 +82,9 @@ internal static partial class AuthenticationExportApiTokenToVercelCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"export-api-token-to-vercel", @"Export Api Token To Vercel");
+        var command = new Command(commandName ?? @"export-api-token-to-vercel", @"Export Api Token To Vercel");
                         command.Arguments.Add(ApiToken);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

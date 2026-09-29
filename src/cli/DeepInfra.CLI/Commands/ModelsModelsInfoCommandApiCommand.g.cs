@@ -53,9 +53,9 @@ internal static partial class ModelsModelsInfoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"info", @"Models Info");
+        var command = new Command(commandName ?? @"info", @"Models Info");
                         command.Arguments.Add(ModelName);
                         command.Options.Add(Version);
                         command.Options.Add(XiApiKey);

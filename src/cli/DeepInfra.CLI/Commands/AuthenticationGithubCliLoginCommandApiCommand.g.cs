@@ -36,9 +36,9 @@ internal static partial class AuthenticationGithubCliLoginCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"github-cli-login", @"Github Cli Login
+        var command = new Command(commandName ?? @"github-cli-login", @"Github Cli Login
 deepctl is calling this request waiting for auth token during login.
 The token is stored in /github/callback");
                         command.Options.Add(LoginId);

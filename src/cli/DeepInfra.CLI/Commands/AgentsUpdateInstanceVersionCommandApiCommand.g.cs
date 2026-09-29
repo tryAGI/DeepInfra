@@ -47,9 +47,9 @@ internal static partial class AgentsUpdateInstanceVersionCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-instance-version", @"Update Instance Version");
+        var command = new Command(commandName ?? @"update-instance-version", @"Update Instance Version");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

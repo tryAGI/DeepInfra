@@ -47,9 +47,9 @@ internal static partial class GpuRentalsContainerRentalsDeleteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"container-rentals-delete", @"Container Rentals Delete");
+        var command = new Command(commandName ?? @"container-rentals-delete", @"Container Rentals Delete");
                         command.Arguments.Add(ContainerId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

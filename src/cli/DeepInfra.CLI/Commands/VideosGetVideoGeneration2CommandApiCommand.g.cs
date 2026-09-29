@@ -47,9 +47,9 @@ internal static partial class VideosGetVideoGeneration2CommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-video-generation2", @"Get Video Generation");
+        var command = new Command(commandName ?? @"get-video-generation2", @"Get Video Generation");
                         command.Arguments.Add(VideoId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

@@ -47,9 +47,9 @@ internal static partial class DedicatedModelsDeployStopCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-stop", @"Deploy Stop
+        var command = new Command(commandName ?? @"deploy-stop", @"Deploy Stop
 Stop a running deployment. Terminates pods. Can be restarted later.");
                         command.Arguments.Add(DeployId);
                         command.Options.Add(XiApiKey);

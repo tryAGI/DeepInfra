@@ -47,9 +47,9 @@ internal static partial class AuthenticationDeleteApiTokenCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-api-token", @"Delete Api Token");
+        var command = new Command(commandName ?? @"delete-api-token", @"Delete Api Token");
                         command.Arguments.Add(ApiToken);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

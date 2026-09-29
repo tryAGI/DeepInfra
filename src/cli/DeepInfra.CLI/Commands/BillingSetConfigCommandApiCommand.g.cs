@@ -57,9 +57,9 @@ internal static partial class BillingSetConfigCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"set-config", @"Set Config");
+        var command = new Command(commandName ?? @"set-config", @"Set Config");
                         command.Options.Add(Session);
                         command.Options.Add(Limit);
           command.Options.Add(Input);

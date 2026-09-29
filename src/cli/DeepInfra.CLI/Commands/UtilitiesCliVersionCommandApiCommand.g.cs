@@ -36,9 +36,9 @@ internal static partial class UtilitiesCliVersionCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"cli-version", @"Cli Version");
+        var command = new Command(commandName ?? @"cli-version", @"Cli Version");
                         command.Options.Add(Version);
 
 

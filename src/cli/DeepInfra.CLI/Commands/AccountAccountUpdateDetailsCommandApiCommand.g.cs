@@ -137,9 +137,9 @@ internal static partial class AccountAccountUpdateDetailsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-details", @"Account Update Details");
+        var command = new Command(commandName ?? @"update-details", @"Account Update Details");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(NameOption);

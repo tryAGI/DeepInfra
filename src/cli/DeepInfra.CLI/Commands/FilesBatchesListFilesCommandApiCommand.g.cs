@@ -65,9 +65,9 @@ internal static partial class FilesBatchesListFilesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-files", @"List Files");
+        var command = new Command(commandName ?? @"list-files", @"List Files");
                         command.Options.Add(After);
                         command.Options.Add(Purpose);
                         command.Options.Add(Order);

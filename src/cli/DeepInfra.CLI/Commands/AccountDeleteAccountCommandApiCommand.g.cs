@@ -41,9 +41,9 @@ internal static partial class AccountDeleteAccountCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-account", @"Delete Account");
+        var command = new Command(commandName ?? @"delete-account", @"Delete Account");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

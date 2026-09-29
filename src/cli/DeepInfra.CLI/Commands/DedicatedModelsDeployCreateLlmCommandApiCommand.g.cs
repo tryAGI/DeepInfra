@@ -110,9 +110,9 @@ internal static partial class DedicatedModelsDeployCreateLlmCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-create-llm", @"Deploy Create Llm");
+        var command = new Command(commandName ?? @"deploy-create-llm", @"Deploy Create Llm");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(ModelName);

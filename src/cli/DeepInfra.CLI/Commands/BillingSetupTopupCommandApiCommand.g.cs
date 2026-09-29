@@ -67,9 +67,9 @@ internal static partial class BillingSetupTopupCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"setup-topup", @"Setup Topup");
+        var command = new Command(commandName ?? @"setup-topup", @"Setup Topup");
                         command.Options.Add(Session);
                         command.Options.Add(Amount);
                         command.Options.Add(Threshold);

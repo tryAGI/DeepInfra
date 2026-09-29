@@ -53,9 +53,9 @@ internal static partial class DedicatedModelsDeployGpuAvailabilityCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-gpu-availability", @"Deploy Gpu Availability");
+        var command = new Command(commandName ?? @"deploy-gpu-availability", @"Deploy Gpu Availability");
                         command.Options.Add(Source);
                         command.Options.Add(BaseModel);
                         command.Options.Add(XiApiKey);

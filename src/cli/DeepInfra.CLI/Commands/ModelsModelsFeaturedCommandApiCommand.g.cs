@@ -31,9 +31,9 @@ internal static partial class ModelsModelsFeaturedCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"featured", @"Models Featured");
+        var command = new Command(commandName ?? @"featured", @"Models Featured");
 
 
 

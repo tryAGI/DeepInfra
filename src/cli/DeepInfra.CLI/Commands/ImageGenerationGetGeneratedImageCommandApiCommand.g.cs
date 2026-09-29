@@ -35,9 +35,9 @@ internal static partial class ImageGenerationGetGeneratedImageCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-generated-image", @"Get Generated Image
+        var command = new Command(commandName ?? @"get-generated-image", @"Get Generated Image
 Serve a `response_format=url` image; unauthenticated, 404 once expired.");
                         command.Arguments.Add(ImageId);
 

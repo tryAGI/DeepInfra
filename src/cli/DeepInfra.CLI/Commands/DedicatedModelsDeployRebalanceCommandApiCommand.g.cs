@@ -87,9 +87,9 @@ internal static partial class DedicatedModelsDeployRebalanceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-rebalance", @"Deploy Rebalance
+        var command = new Command(commandName ?? @"deploy-rebalance", @"Deploy Rebalance
 Start a GPU pool rebalance: move GPUs from this deployment onto another
 deployment you own, a target instance at a time unless concurrency raises it.
 A source instance is never left half-moved, so one larger target instance stops

@@ -53,9 +53,9 @@ internal static partial class ModelsOpenaiModelsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"openai-models", @"Openai Models");
+        var command = new Command(commandName ?? @"openai-models", @"Openai Models");
                         command.Options.Add(SortBy);
                         command.Options.Add(Filter);
                         command.Options.Add(XiApiKey);

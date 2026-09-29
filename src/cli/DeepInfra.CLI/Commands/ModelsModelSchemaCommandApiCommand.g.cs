@@ -59,9 +59,9 @@ internal static partial class ModelsModelSchemaCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"schema", @"Model Schema");
+        var command = new Command(commandName ?? @"schema", @"Model Schema");
                         command.Arguments.Add(ModelName);
                         command.Arguments.Add(VariantKey);
                         command.Options.Add(Version);

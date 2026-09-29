@@ -47,9 +47,9 @@ internal static partial class AgentsStopInstanceCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"stop-instance", @"Stop Instance");
+        var command = new Command(commandName ?? @"stop-instance", @"Stop Instance");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

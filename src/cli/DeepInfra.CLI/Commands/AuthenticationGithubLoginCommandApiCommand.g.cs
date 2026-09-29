@@ -53,9 +53,9 @@ internal static partial class AuthenticationGithubLoginCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"github-login", @"Github Login
+        var command = new Command(commandName ?? @"github-login", @"Github Login
 Initiate github SSO login flow. Callback is /github/callback");
                         command.Options.Add(LoginId);
                         command.Options.Add(Origin);

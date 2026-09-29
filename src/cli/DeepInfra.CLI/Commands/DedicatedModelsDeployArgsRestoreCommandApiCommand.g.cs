@@ -53,9 +53,9 @@ internal static partial class DedicatedModelsDeployArgsRestoreCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deploy-args-restore", @"Deploy Args Restore");
+        var command = new Command(commandName ?? @"deploy-args-restore", @"Deploy Args Restore");
                         command.Arguments.Add(DeployId);
                         command.Arguments.Add(EntryId);
                         command.Options.Add(XiApiKey);

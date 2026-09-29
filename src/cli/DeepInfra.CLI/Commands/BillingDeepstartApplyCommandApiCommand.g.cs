@@ -126,9 +126,9 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"deepstart-apply", @"Deepstart Apply");
+        var command = new Command(commandName ?? @"deepstart-apply", @"Deepstart Apply");
                         command.Options.Add(Session);
                         command.Options.Add(Id);
                         command.Options.Add(Uid);

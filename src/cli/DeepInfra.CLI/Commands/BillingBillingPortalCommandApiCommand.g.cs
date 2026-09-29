@@ -41,9 +41,9 @@ internal static partial class BillingBillingPortalCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"portal", @"Billing Portal");
+        var command = new Command(commandName ?? @"portal", @"Billing Portal");
                         command.Options.Add(ReturnUrl);
                         command.Options.Add(Session);
 

@@ -48,9 +48,9 @@ internal static partial class AccountTeamSetDisplayNameCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"team-set-display-name", @"Team Set Display Name");
+        var command = new Command(commandName ?? @"team-set-display-name", @"Team Set Display Name");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
                         command.Options.Add(DisplayName);

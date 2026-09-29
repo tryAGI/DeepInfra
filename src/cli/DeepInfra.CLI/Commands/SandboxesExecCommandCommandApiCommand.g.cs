@@ -76,9 +76,9 @@ internal static partial class SandboxesExecCommandCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"exec-command", @"Exec Command
+        var command = new Command(commandName ?? @"exec-command", @"Exec Command
 Run a command in the sandbox. Streams NDJSON lines (application/x-ndjson): {""stdout"": ...}/{""stderr"": ...} chunks followed by exactly one terminal {""returncode"": N} or {""error"": msg} line.");
                         command.Arguments.Add(SandboxId);
                         command.Options.Add(XiApiKey);

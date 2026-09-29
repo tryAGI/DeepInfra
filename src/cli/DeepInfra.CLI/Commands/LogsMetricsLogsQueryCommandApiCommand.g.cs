@@ -66,9 +66,9 @@ internal static partial class LogsMetricsLogsQueryCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"logs-query", @"Logs Query
+        var command = new Command(commandName ?? @"logs-query", @"Logs Query
 Query inference logs.
 * Without timestamps (from/to) returns last `limit` messages (in last month).
 * With `from` only, returns first `limit` messages after `from` (inclusive).
