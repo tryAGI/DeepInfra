@@ -43,6 +43,12 @@ namespace DeepInfra
         public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
 
         /// <summary>
+        /// display suffix; last 5 chars of the secret
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fragment")]
+        public string? Fragment { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -58,6 +64,9 @@ namespace DeepInfra
         /// <param name="name"></param>
         /// <param name="tokenId"></param>
         /// <param name="allowedIps"></param>
+        /// <param name="fragment">
+        /// display suffix; last 5 chars of the secret
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -66,13 +75,15 @@ namespace DeepInfra
             global::System.DateTimeOffset createdAt,
             string name,
             string? tokenId,
-            global::System.Collections.Generic.IList<string>? allowedIps)
+            global::System.Collections.Generic.IList<string>? allowedIps,
+            string? fragment)
         {
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.TokenId = tokenId;
             this.AllowedIps = allowedIps;
+            this.Fragment = fragment;
         }
 
         /// <summary>
