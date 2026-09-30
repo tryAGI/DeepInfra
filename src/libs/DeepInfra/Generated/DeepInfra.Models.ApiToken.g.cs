@@ -34,7 +34,8 @@ namespace DeepInfra
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
-        public string? TokenId { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string TokenId { get; set; }
 
         /// <summary>
         ///
@@ -74,14 +75,14 @@ namespace DeepInfra
             string token,
             global::System.DateTimeOffset createdAt,
             string name,
-            string? tokenId,
+            string tokenId,
             global::System.Collections.Generic.IList<string>? allowedIps,
             string? fragment)
         {
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.TokenId = tokenId;
+            this.TokenId = tokenId ?? throw new global::System.ArgumentNullException(nameof(tokenId));
             this.AllowedIps = allowedIps;
             this.Fragment = fragment;
         }
