@@ -111,6 +111,10 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        WebSearch,
+        /// <summary>
+        ///
+        /// </summary>
         WorldModel,
         /// <summary>
         ///
@@ -155,6 +159,7 @@ namespace DeepInfra
                 HFTasksE.TextToVideo => "text-to-video",
                 HFTasksE.Text2textGeneration => "text2text-generation",
                 HFTasksE.TokenClassification => "token-classification",
+                HFTasksE.WebSearch => "web-search",
                 HFTasksE.WorldModel => "world-model",
                 HFTasksE.ZeroShotImageClassification => "zero-shot-image-classification",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -192,6 +197,7 @@ namespace DeepInfra
                 "text-to-video" => HFTasksE.TextToVideo,
                 "text2text-generation" => HFTasksE.Text2textGeneration,
                 "token-classification" => HFTasksE.TokenClassification,
+                "web-search" => HFTasksE.WebSearch,
                 "world-model" => HFTasksE.WorldModel,
                 "zero-shot-image-classification" => HFTasksE.ZeroShotImageClassification,
                 _ => null,
