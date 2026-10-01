@@ -29,6 +29,12 @@ namespace DeepInfra
         public double? SpendingLimit { get; set; }
 
         /// <summary>
+        /// how much of the spending limit (if any) is used, in USD
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("spending_current")]
+        public double? SpendingCurrent { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -46,17 +52,22 @@ namespace DeepInfra
         /// <param name="spendingLimit">
         /// how much is the total spending limit set at creation
         /// </param>
+        /// <param name="spendingCurrent">
+        /// how much of the spending limit (if any) is used, in USD
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public InspectScopedJWTOut(
             global::System.DateTimeOffset expiresAt,
             global::System.Collections.Generic.IList<string>? models,
-            double? spendingLimit)
+            double? spendingLimit,
+            double? spendingCurrent)
         {
             this.ExpiresAt = expiresAt;
             this.Models = models;
             this.SpendingLimit = spendingLimit;
+            this.SpendingCurrent = spendingCurrent;
         }
 
         /// <summary>
