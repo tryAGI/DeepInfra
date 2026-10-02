@@ -139,6 +139,13 @@ namespace DeepInfra
         public required string Title { get; set; }
 
         /// <summary>
+        /// UID of the team root account, or the account's own uid outside a team
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("root_uid")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string RootUid { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_team_account")]
@@ -247,6 +254,9 @@ namespace DeepInfra
         /// <param name="title">
         /// Job title of the user, e.g. 'Software Engineer'
         /// </param>
+        /// <param name="rootUid">
+        /// UID of the team root account, or the account's own uid outside a team
+        /// </param>
         /// <param name="email"></param>
         /// <param name="requireEmailVerified">
         /// Default Value: false
@@ -305,6 +315,7 @@ namespace DeepInfra
             string company,
             string website,
             string title,
+            string rootUid,
             string? email,
             bool? requireEmailVerified,
             string? picture,
@@ -341,6 +352,7 @@ namespace DeepInfra
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
+            this.RootUid = rootUid ?? throw new global::System.ArgumentNullException(nameof(rootUid));
             this.IsTeamAccount = isTeamAccount;
             this.IsTeamOwner = isTeamOwner;
             this.TeamRole = teamRole;
