@@ -56,7 +56,10 @@ internal static partial class BillingUsageApiTokenByIdCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"usage-api-token-by-id", @"Usage Api Token By Id");
+        var command = new Command(commandName ?? @"usage-api-token-by-id", @"Usage Api Token By Id
+Usage for a single API token, by token_id.
+
+token_id comes from Get Api Tokens (`GET /v1/api-tokens`).");
                         command.Arguments.Add(TokenId);
                         command.Options.Add(From);
                         command.Options.Add(To);

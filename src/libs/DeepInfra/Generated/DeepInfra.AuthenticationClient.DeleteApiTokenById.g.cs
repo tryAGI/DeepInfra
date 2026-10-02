@@ -46,7 +46,9 @@ namespace DeepInfra
             ref string content);
 
         /// <summary>
-        /// Delete Api Token By Id
+        /// Delete Api Token By Id<br/>
+        /// Delete an API token, by token_id.<br/>
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
@@ -72,7 +74,9 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Delete Api Token By Id
+        /// Delete Api Token By Id<br/>
+        /// Delete an API token, by token_id.<br/>
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
