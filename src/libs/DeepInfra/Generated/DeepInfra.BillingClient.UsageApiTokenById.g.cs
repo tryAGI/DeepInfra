@@ -48,7 +48,9 @@ namespace DeepInfra
             ref string content);
 
         /// <summary>
-        /// Usage Api Token By Id
+        /// Usage Api Token By Id<br/>
+        /// Usage for a single API token, by token_id.<br/>
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="from">
@@ -81,7 +83,9 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Usage Api Token By Id
+        /// Usage Api Token By Id<br/>
+        /// Usage for a single API token, by token_id.<br/>
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="from">

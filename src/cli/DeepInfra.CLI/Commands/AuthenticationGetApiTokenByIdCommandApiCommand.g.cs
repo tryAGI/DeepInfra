@@ -49,7 +49,10 @@ internal static partial class AuthenticationGetApiTokenByIdCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"get-api-token-by-id", @"Get Api Token By Id");
+        var command = new Command(commandName ?? @"get-api-token-by-id", @"Get Api Token By Id
+One API token's metadata, by token_id.
+
+token_id comes from Get Api Tokens (`GET /v1/api-tokens`).");
                         command.Arguments.Add(TokenId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
