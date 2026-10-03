@@ -3,7 +3,7 @@
 
 namespace DeepInfra
 {
-    public partial class SystemOneClient
+    public partial class DecisionsClient
     {
 
 
@@ -124,7 +124,7 @@ namespace DeepInfra
             {
 
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
-                                path: "/typesafe/v1/systemone",
+                                path: "/v1/decisions",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -203,7 +203,7 @@ namespace DeepInfra
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Systemone",
                                 methodName: "SystemoneAsync",
-                                pathTemplate: "\"/typesafe/v1/systemone\"",
+                                pathTemplate: "\"/v1/decisions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -237,7 +237,7 @@ namespace DeepInfra
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Systemone",
                                 methodName: "SystemoneAsync",
-                                pathTemplate: "\"/typesafe/v1/systemone\"",
+                                pathTemplate: "\"/v1/decisions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -278,7 +278,7 @@ namespace DeepInfra
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Systemone",
                                 methodName: "SystemoneAsync",
-                                pathTemplate: "\"/typesafe/v1/systemone\"",
+                                pathTemplate: "\"/v1/decisions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -326,7 +326,7 @@ namespace DeepInfra
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Systemone",
                                 methodName: "SystemoneAsync",
-                                pathTemplate: "\"/typesafe/v1/systemone\"",
+                                pathTemplate: "\"/v1/decisions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -348,7 +348,7 @@ namespace DeepInfra
                             context: global::DeepInfra.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Systemone",
                                 methodName: "SystemoneAsync",
-                                pathTemplate: "\"/typesafe/v1/systemone\"",
+                                pathTemplate: "\"/v1/decisions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

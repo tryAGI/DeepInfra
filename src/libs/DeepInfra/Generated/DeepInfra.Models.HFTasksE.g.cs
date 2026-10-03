@@ -35,6 +35,10 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        Decision,
+        /// <summary>
+        ///
+        /// </summary>
         Dreambooth,
         /// <summary>
         ///
@@ -140,6 +144,7 @@ namespace DeepInfra
                 HFTasksE.Cluster => "cluster",
                 HFTasksE.Commitment => "commitment",
                 HFTasksE.Custom => "custom",
+                HFTasksE.Decision => "decision",
                 HFTasksE.Dreambooth => "dreambooth",
                 HFTasksE.Embeddings => "embeddings",
                 HFTasksE.FillMask => "fill-mask",
@@ -178,6 +183,7 @@ namespace DeepInfra
                 "cluster" => HFTasksE.Cluster,
                 "commitment" => HFTasksE.Commitment,
                 "custom" => HFTasksE.Custom,
+                "decision" => HFTasksE.Decision,
                 "dreambooth" => HFTasksE.Dreambooth,
                 "embeddings" => HFTasksE.Embeddings,
                 "fill-mask" => HFTasksE.FillMask,

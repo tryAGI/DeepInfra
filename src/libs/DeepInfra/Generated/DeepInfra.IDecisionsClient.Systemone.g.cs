@@ -2,7 +2,7 @@
 
 namespace DeepInfra
 {
-    public partial interface ISystemOneClient
+    public partial interface IDecisionsClient
     {
         /// <summary>
         /// Systemone

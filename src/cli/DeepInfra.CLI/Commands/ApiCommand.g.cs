@@ -18,6 +18,7 @@ internal static partial class ApiCommand
                          command.Subcommands.Add(AuthenticationApiGroupCommand.Create());
                          command.Subcommands.Add(BillingApiGroupCommand.Create());
                          command.Subcommands.Add(ChatCompletionsApiGroupCommand.Create());
+                         command.Subcommands.Add(DecisionsApiGroupCommand.Create());
                          command.Subcommands.Add(DedicatedModelsApiGroupCommand.Create());
                          command.Subcommands.Add(EmbeddingsApiGroupCommand.Create());
                          command.Subcommands.Add(FilesBatchesApiGroupCommand.Create());
@@ -29,7 +30,6 @@ internal static partial class ApiCommand
                          command.Subcommands.Add(ModelsApiGroupCommand.Create());
                          command.Subcommands.Add(ResponsesApiGroupCommand.Create());
                          command.Subcommands.Add(SandboxesApiGroupCommand.Create());
-                         command.Subcommands.Add(SystemOneApiGroupCommand.Create());
                          command.Subcommands.Add(TextCompletionsApiGroupCommand.Create());
                          command.Subcommands.Add(TextToSpeechApiGroupCommand.Create());
                          command.Subcommands.Add(TokenizerApiGroupCommand.Create());

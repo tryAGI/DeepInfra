@@ -58,13 +58,13 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.List<object>, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.List<object>>>))]
-    internal sealed partial class SystemOneSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    internal sealed partial class DecisionsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class SystemOneSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
+    public sealed partial class DecisionsSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
@@ -77,9 +77,9 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static SystemOneSourceGenerationContext Default { get; } = new(DefaultOptions);
+        public static DecisionsSourceGenerationContext Default { get; } = new(DefaultOptions);
 
-        private SystemOneSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+        private DecisionsSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
             : base(options)
         {
         }
@@ -202,7 +202,7 @@ namespace DeepInfra
             {
                 return index switch
                 {
-                    0 => new SystemOneSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => new DecisionsSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

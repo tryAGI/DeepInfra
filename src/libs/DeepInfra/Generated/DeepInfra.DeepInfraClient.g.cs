@@ -102,6 +102,15 @@ namespace DeepInfra
         };
 
         /// <summary>
+        ///
+        /// </summary>
+        public DecisionsClient Decisions => new DecisionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
         /// Deploy and manage private model instances with autoscaling.
         /// </summary>
         public DedicatedModelsClient DedicatedModels => new DedicatedModelsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
@@ -195,15 +204,6 @@ namespace DeepInfra
         /// Create and manage isolated sandbox environments.
         /// </summary>
         public SandboxesClient Sandboxes => new SandboxesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
-        ///
-        /// </summary>
-        public SystemOneClient SystemOne => new SystemOneClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContextProvider = JsonSerializerContextProvider,

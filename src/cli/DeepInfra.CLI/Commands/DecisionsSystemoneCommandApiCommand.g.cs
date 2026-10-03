@@ -5,7 +5,7 @@ using System.CommandLine;
 
 namespace DeepInfra.CLI.Commands;
 
-internal static partial class SystemOneListModelsCommandApiCommand
+internal static partial class DecisionsSystemoneCommandApiCommand
 {
     private static Option<string?> XiApiKey { get; } = new(
         name: @"--xi-api-key")
@@ -19,7 +19,28 @@ internal static partial class SystemOneListModelsCommandApiCommand
         Description = @"",
     };
 
-                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.ListModelsResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+    private static Option<global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>> State { get; } = new(
+        name: @"--state")
+    {
+        Description = @"",
+        Required = true,
+    };
+
+    private static Option<string> Model { get; } = new(
+        name: @"--model")
+    {
+        Description = @"",
+        Required = true,
+    };
+
+    private static Option<object> Questions { get; } = new(
+        name: @"--questions")
+    {
+        Description = @"",
+        Required = true,
+    };
+
+                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.SystemOneResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -35,7 +56,7 @@ internal static partial class SystemOneListModelsCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.ListModelsResponse value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.SystemOneResponse value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
@@ -43,9 +64,12 @@ internal static partial class SystemOneListModelsCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"list-models", @"List Models");
+        var command = new Command(commandName ?? @"systemone", @"Systemone");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
+                        command.Options.Add(State);
+                        command.Options.Add(Model);
+                        command.Options.Add(Questions);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
@@ -53,29 +77,27 @@ internal static partial class SystemOneListModelsCommandApiCommand
             {
                         var xiApiKey = parseResult.GetValue(XiApiKey);
                         var xApiKey = parseResult.GetValue(XApiKey);
+                        var state = parseResult.GetRequiredValue(State);
+                        var model = parseResult.GetRequiredValue(Model);
+                        var questions = parseResult.GetRequiredValue(Questions);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                var response = await client.SystemOne.ListModelsAsync(
+                                var response = await client.Decisions.SystemoneAsync(
                                     xiApiKey: xiApiKey,
                                     xApiKey: xApiKey,
+                                    state: state,
+                                    model: model,
+                                    questions: questions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
-                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
-                                        parseResult,
-                                        response,
-                                        global::DeepInfra.SourceGenerationContext.Default,
-                                        @"Models",
-                                        cancellationToken).ConfigureAwait(false))
-                                {
                                 await CliRuntime.WriteResponseAsync(
                                     parseResult,
                                     response,
                                     global::DeepInfra.SourceGenerationContext.Default,
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
-                                }
             }, cancellationToken).ConfigureAwait(false));
         CustomizeCommand(ref command);
         return command;
