@@ -3,11 +3,11 @@
 
 namespace DeepInfra
 {
-    public sealed partial class SystemOneClient
+    public sealed partial class DecisionsClient
     {
-        /// <inheritdoc cref="SystemOneClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::DeepInfra.EndPointAuthorization}?, bool)"/>
+        /// <inheritdoc cref="DecisionsClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::DeepInfra.EndPointAuthorization}?, bool)"/>
 
-        public SystemOneClient(
+        public DecisionsClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,

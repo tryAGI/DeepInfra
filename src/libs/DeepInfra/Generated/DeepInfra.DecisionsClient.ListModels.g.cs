@@ -3,7 +3,7 @@
 
 namespace DeepInfra
 {
-    public partial class SystemOneClient
+    public partial class DecisionsClient
     {
 
 

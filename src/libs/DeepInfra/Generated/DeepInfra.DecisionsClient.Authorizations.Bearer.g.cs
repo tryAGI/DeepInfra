@@ -3,7 +3,7 @@
 
 namespace DeepInfra
 {
-    public sealed partial class SystemOneClient
+    public sealed partial class DecisionsClient
     {
 
         /// <inheritdoc/>

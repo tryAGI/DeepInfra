@@ -7,7 +7,7 @@ namespace DeepInfra
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class SystemOneClient : global::DeepInfra.ISystemOneClient, global::System.IDisposable
+    public sealed partial class DecisionsClient : global::DeepInfra.IDecisionsClient, global::System.IDisposable
     {
         /// <summary>
         ///
@@ -34,7 +34,7 @@ namespace DeepInfra
         /// <inheritdoc/>
         public global::DeepInfra.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::DeepInfra.SystemOneSourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::DeepInfra.DecisionsSourceGenerationContext.Default);
 
         /// <summary>
         ///
@@ -47,7 +47,7 @@ namespace DeepInfra
 
 
         /// <summary>
-        /// Creates a new instance of the SystemOneClient.
+        /// Creates a new instance of the DecisionsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -55,7 +55,7 @@ namespace DeepInfra
         /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public SystemOneClient(
+        public DecisionsClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>? authorizations = null,
@@ -69,14 +69,14 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Creates a new instance of the SystemOneClient with explicit options but no base URL override.
+        /// Creates a new instance of the DecisionsClient with explicit options but no base URL override.
         /// Skips passing <c>baseUri</c> so the default base URL from the OpenAPI spec applies.
         /// </summary>
         /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public SystemOneClient(
+        public DecisionsClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>? authorizations,
             global::DeepInfra.AutoSDKClientOptions? options,
@@ -90,7 +90,7 @@ namespace DeepInfra
         }
 
         /// <summary>
-        /// Creates a new instance of the SystemOneClient.
+        /// Creates a new instance of the DecisionsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -99,7 +99,7 @@ namespace DeepInfra
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public SystemOneClient(
+        public DecisionsClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Uri? baseUri,
             global::System.Collections.Generic.List<global::DeepInfra.EndPointAuthorization>? authorizations,

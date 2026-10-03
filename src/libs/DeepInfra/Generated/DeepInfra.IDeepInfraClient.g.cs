@@ -76,6 +76,11 @@ namespace DeepInfra
         public ChatCompletionsClient ChatCompletions { get; }
 
         /// <summary>
+        ///
+        /// </summary>
+        public DecisionsClient Decisions { get; }
+
+        /// <summary>
         /// Deploy and manage private model instances with autoscaling.
         /// </summary>
         public DedicatedModelsClient DedicatedModels { get; }
@@ -129,11 +134,6 @@ namespace DeepInfra
         /// Create and manage isolated sandbox environments.
         /// </summary>
         public SandboxesClient Sandboxes { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public SystemOneClient SystemOne { get; }
 
         /// <summary>
         /// OpenAI-compatible text completion endpoints.
