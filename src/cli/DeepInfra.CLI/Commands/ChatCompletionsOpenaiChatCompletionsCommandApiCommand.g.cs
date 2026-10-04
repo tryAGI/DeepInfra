@@ -97,7 +97,7 @@ internal static partial class ChatCompletionsOpenaiChatCompletionsCommandApiComm
 The total length of input tokens and generated tokens is limited by the model's context length. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller.",
     };
 
-    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>?> Stop { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>?> Stop { get; } = new(
         name: @"--stop")
     {
         Description = @"up to 16 sequences where the API will stop generating further tokens",
@@ -133,13 +133,13 @@ The total length of input tokens and generated tokens is limited by the model's 
         Description = @"A list of tools the model may call. Currently, only functions are supported as a tool.",
     };
 
-    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>?> ToolChoice { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool>?> ToolChoice { get; } = new(
         name: @"--tool-choice")
     {
         Description = @"Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.",
     };
 
-    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>?> ResponseFormat { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>?> ResponseFormat { get; } = new(
         name: @"--response-format")
     {
         Description = @"The format of the response. Currently, only json is supported.",

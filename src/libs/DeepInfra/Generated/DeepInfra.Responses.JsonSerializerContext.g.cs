@@ -54,13 +54,13 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>), TypeInfoPropertyName = "AnyOfResponsesFunctionToolResponsesWebSearchToolObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesWebSearchTool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>), TypeInfoPropertyName = "AnyOfResponsesInToolChoiceEnumResponsesFunctionToolChoiceObjectObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object>), TypeInfoPropertyName = "AnyOfResponsesInToolChoiceEnumResponsesFunctionToolChoiceObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesInToolChoiceEnum), TypeInfoPropertyName = "ResponsesInToolChoiceEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesTextConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesReasoningConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesInTruncation), TypeInfoPropertyName = "ResponsesInTruncation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesReasoningConfigEffort), TypeInfoPropertyName = "ResponsesReasoningConfigEffort2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema, object>), TypeInfoPropertyName = "AnyOfResponsesTextFormatTextResponsesTextFormatJsonObjectResponsesTextFormatJsonSchemaObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema>), TypeInfoPropertyName = "AnyOfResponsesTextFormatTextResponsesTextFormatJsonObjectResponsesTextFormatJsonSchema2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesTextFormatText))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesTextFormatJsonObject))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesTextFormatJsonSchema))]
@@ -79,11 +79,11 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>>?), TypeInfoPropertyName = "NullableAnyOfStringIListAnyOfInputMessageItemInputFunctionCallItemInputFunctionCallOutputItemInputReasoningItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>?), TypeInfoPropertyName = "NullableAnyOfInputMessageItemInputFunctionCallItemInputFunctionCallOutputItemInputReasoningItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>?), TypeInfoPropertyName = "NullableAnyOfResponsesFunctionToolResponsesWebSearchToolObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>?), TypeInfoPropertyName = "NullableAnyOfResponsesInToolChoiceEnumResponsesFunctionToolChoiceObjectObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object>?), TypeInfoPropertyName = "NullableAnyOfResponsesInToolChoiceEnumResponsesFunctionToolChoiceObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesInToolChoiceEnum?), TypeInfoPropertyName = "NullableResponsesInToolChoiceEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesInTruncation?), TypeInfoPropertyName = "NullableResponsesInTruncation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ResponsesReasoningConfigEffort?), TypeInfoPropertyName = "NullableResponsesReasoningConfigEffort2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema, object>?), TypeInfoPropertyName = "NullableAnyOfResponsesTextFormatTextResponsesTextFormatJsonObjectResponsesTextFormatJsonSchemaObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema>?), TypeInfoPropertyName = "NullableAnyOfResponsesTextFormatTextResponsesTextFormatJsonObjectResponsesTextFormatJsonSchema2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -143,20 +143,20 @@ namespace DeepInfra
         {
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>, object>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputTextPart, global::DeepInfra.InputImagePart, global::DeepInfra.InputFilePart, global::DeepInfra.OutputTextPart>>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.InputTextPart, global::DeepInfra.InputImagePart, global::DeepInfra.InputFilePart, global::DeepInfra.OutputTextPart>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>, object>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>, object>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema, object>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.ResponsesTextFormatText, global::DeepInfra.ResponsesTextFormatJsonObject, global::DeepInfra.ResponsesTextFormatJsonSchema>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());

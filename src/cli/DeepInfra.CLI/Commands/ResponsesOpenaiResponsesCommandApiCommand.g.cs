@@ -73,7 +73,7 @@ internal static partial class ResponsesOpenaiResponsesCommandApiCommand
         Description = @"",
     };
 
-    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>?> ToolChoice { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object>?> ToolChoice { get; } = new(
         name: @"--tool-choice")
     {
         Description = @"",

@@ -120,7 +120,7 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<string>? models = default,
             string? instructions = default,
             global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>>? tools = default,
-            global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object, object>? toolChoice = default,
+            global::DeepInfra.AnyOf<global::DeepInfra.ResponsesInToolChoiceEnum?, global::DeepInfra.ResponsesFunctionToolChoice, object>? toolChoice = default,
             global::DeepInfra.ResponsesTextConfig? text = default,
             global::DeepInfra.ResponsesReasoningConfig? reasoning = default,
             int? maxOutputTokens = default,

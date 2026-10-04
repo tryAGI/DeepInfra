@@ -113,7 +113,7 @@ The total length of input tokens and generated tokens is limited by the model's 
         name: @"--echo",
         description: @"return prompt as part of the respons");
 
-    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>?> Stop { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>?> Stop { get; } = new(
         name: @"--stop")
     {
         Description = @"up to 16 sequences where the API will stop generating further tokens",
@@ -131,7 +131,7 @@ The total length of input tokens and generated tokens is limited by the model's 
         Description = @"Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.",
     };
 
-    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>?> ResponseFormat { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>?> ResponseFormat { get; } = new(
         name: @"--response-format")
     {
         Description = @"The format of the response. Currently, only json is supported.",
