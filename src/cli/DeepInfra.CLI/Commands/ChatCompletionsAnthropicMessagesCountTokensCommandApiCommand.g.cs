@@ -39,7 +39,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCountTokensCommand
         Required = true,
     };
 
-    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>?> System { get; } = new(
+    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>?> System { get; } = new(
         name: @"--system")
     {
         Description = @"",

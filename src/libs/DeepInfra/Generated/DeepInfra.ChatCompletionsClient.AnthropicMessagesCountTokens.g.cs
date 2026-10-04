@@ -532,7 +532,7 @@ namespace DeepInfra
             string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
             string? xApiKey = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system = default,
             global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>? tools = default,
             global::DeepInfra.AnthropicThinkingConfig? thinking = default,
             object? toolChoice = default,

@@ -111,7 +111,7 @@ namespace DeepInfra
             bool? failFast = default,
             global::System.Collections.Generic.IList<string>? models = default,
             int? maxTokens = default,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>, object>? system = default,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>? system = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
             bool? stream = default,
             double? temperature = default,

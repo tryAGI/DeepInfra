@@ -87,8 +87,8 @@ namespace DeepInfra
         /// up to 16 sequences where the API will stop generating further tokens
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
-        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Stop { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        public global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
 
         /// <summary>
         /// Up to 16 token IDs where the API will stop generating further tokens. Merged with the model's built-in stop tokens. Intended for private deployments.
@@ -127,15 +127,15 @@ namespace DeepInfra
         /// Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. required means the model must call a function. defined tool means the model must call that specific tool. none is the default when no functions are present. auto is the default if functions are present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_choice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>? ToolChoice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool>? ToolChoice { get; set; }
 
         /// <summary>
         /// The format of the response. Currently, only json is supported.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>))]
-        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>))]
+        public global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? ResponseFormat { get; set; }
 
         /// <summary>
         /// Alternative penalty for repetition, but multiplicative instead of additive (&gt; 1 penalize, &lt; 1 encourage)<br/>
@@ -338,14 +338,14 @@ namespace DeepInfra
             double? minP,
             int? topK,
             int? maxTokens,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? stop,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
             global::System.Collections.Generic.IList<int>? stopTokenIds,
             int? n,
             double? presencePenalty,
             double? frequencyPenalty,
             global::System.Collections.Generic.IList<global::DeepInfra.FunctionTool>? tools,
-            global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool, object>? toolChoice,
-            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat, object>? responseFormat,
+            global::DeepInfra.AnyOf<global::DeepInfra.OpenAIChatCompletionsInToolChoice?, global::DeepInfra.FunctionTool>? toolChoice,
+            global::DeepInfra.AnyOf<global::DeepInfra.TextResponseFormat, global::DeepInfra.JsonObjectResponseFormat, global::DeepInfra.JsonSchemaResponseFormat, global::DeepInfra.RegexResponseFormat>? responseFormat,
             double? repetitionPenalty,
             string? user,
             int? seed,
