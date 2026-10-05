@@ -40,6 +40,12 @@ namespace DeepInfra
         public string? SearchPrompt { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_web_access")]
+        public bool? ExternalWebAccess { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -52,6 +58,7 @@ namespace DeepInfra
         /// <param name="includeDomains"></param>
         /// <param name="excludeDomains"></param>
         /// <param name="searchPrompt"></param>
+        /// <param name="externalWebAccess"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -61,6 +68,7 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<string>? includeDomains,
             global::System.Collections.Generic.IList<string>? excludeDomains,
             string? searchPrompt,
+            bool? externalWebAccess,
             string type = "web_search")
         {
             this.Type = type;
@@ -68,6 +76,7 @@ namespace DeepInfra
             this.IncludeDomains = includeDomains;
             this.ExcludeDomains = excludeDomains;
             this.SearchPrompt = searchPrompt;
+            this.ExternalWebAccess = externalWebAccess;
         }
 
         /// <summary>
