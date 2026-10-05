@@ -67,7 +67,7 @@ internal static partial class ResponsesOpenaiResponsesCommandApiCommand
         Description = @"",
     };
 
-    private static Option<global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, object>>?> Tools { get; } = new(
+    private static Option<global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.ResponsesFunctionTool, global::DeepInfra.ResponsesWebSearchTool, global::DeepInfra.ResponsesNamespaceTool, object>>?> Tools { get; } = new(
         name: @"--tools")
     {
         Description = @"",
