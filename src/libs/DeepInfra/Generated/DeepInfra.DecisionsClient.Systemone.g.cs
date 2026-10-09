@@ -29,13 +29,13 @@ namespace DeepInfra
             global::System.Net.Http.HttpClient httpClient,
             ref string? xiApiKey,
             ref string? xApiKey,
-            global::DeepInfra.SystemOneRequest request);
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request);
         partial void PrepareSystemoneRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xiApiKey,
             string? xApiKey,
-            global::DeepInfra.SystemOneRequest request);
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request);
         partial void ProcessSystemoneResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -56,7 +56,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.SystemOneResponse> SystemoneAsync(
 
-            global::DeepInfra.SystemOneRequest request,
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -84,7 +84,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.SystemOneResponse>> SystemoneAsResponseAsync(
 
-            global::DeepInfra.SystemOneRequest request,
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -516,7 +516,7 @@ namespace DeepInfra
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::DeepInfra.SystemOneRequest
+            var __request = new global::DeepInfra.SystemoneV1DecisionsPostRequest
             {
                 State = state,
                 Model = model,

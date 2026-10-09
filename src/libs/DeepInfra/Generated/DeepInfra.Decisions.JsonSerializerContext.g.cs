@@ -25,35 +25,35 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChoiceAnswer))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChoiceQuestion))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>), TypeInfoPropertyName = "AnyOfStringObjectIListObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ListModelsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.NoulAnswer))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.NoulCriteria))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.NoulQuestion))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScoreAnswer))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScoreQuestion))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemOneRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Questions), TypeInfoPropertyName = "Questions2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType), TypeInfoPropertyName = "SystemOneRequestQuestionsDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemOneResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.NoulAnswer, global::DeepInfra.ChoiceAnswer, global::DeepInfra.ScoreAnswer>), TypeInfoPropertyName = "AnyOfNoulAnswerChoiceAnswerScoreAnswer2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Usage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>), TypeInfoPropertyName = "AnyOfStringObjectIListObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Questions), TypeInfoPropertyName = "Questions2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestionCriteria))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType), TypeInfoPropertyName = "SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.NoulAnswer, global::DeepInfra.ChoiceAnswer, global::DeepInfra.ScoreAnswer>?), TypeInfoPropertyName = "NullableAnyOfNoulAnswerChoiceAnswerScoreAnswer2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>?), TypeInfoPropertyName = "NullableAnyOfStringObjectIListObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Questions?), TypeInfoPropertyName = "NullableQuestions2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType?), TypeInfoPropertyName = "NullableSystemOneRequestQuestionsDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<global::DeepInfra.NoulAnswer, global::DeepInfra.ChoiceAnswer, global::DeepInfra.ScoreAnswer>?), TypeInfoPropertyName = "NullableAnyOfNoulAnswerChoiceAnswerScoreAnswer2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType?), TypeInfoPropertyName = "NullableSystemoneV1DecisionsPostRequestQuestionsDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.List<object>>>))]
     internal sealed partial class DecisionsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -104,18 +104,18 @@ namespace DeepInfra
         {
             options.Converters.Add(new global::DeepInfra.JsonConverters.QuestionsJsonConverter());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
-            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.NoulAnswer, global::DeepInfra.ChoiceAnswer, global::DeepInfra.ScoreAnswer>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
@@ -138,23 +138,23 @@ namespace DeepInfra
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType)
+                    typeToConvert == typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType)
 
-                    || typeToConvert == typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType?);
+                    || typeToConvert == typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (typeToConvert == typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType))
+                if (typeToConvert == typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType))
                 {
-                    return new global::DeepInfra.JsonConverters.SystemOneRequestQuestionsDiscriminatorTypeJsonConverter();
+                    return new global::DeepInfra.JsonConverters.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorTypeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType?))
+                if (typeToConvert == typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType?))
                 {
-                    return new global::DeepInfra.JsonConverters.SystemOneRequestQuestionsDiscriminatorTypeNullableJsonConverter();
+                    return new global::DeepInfra.JsonConverters.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorTypeNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

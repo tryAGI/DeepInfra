@@ -17,29 +17,29 @@ namespace DeepInfra.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemOneRequestQuestionsDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemOneRequestQuestionsDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.SystemOneRequestQuestionsDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
-            global::DeepInfra.NoulQuestion? noul = default;
-            if (discriminator?.Type == global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType.Noul)
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? noul = default;
+            if (discriminator?.Type == global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType.Noul)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.NoulQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.NoulQuestion> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.NoulQuestion)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion)}");
                 noul = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::DeepInfra.ChoiceQuestion? choice = default;
-            if (discriminator?.Type == global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType.Choice)
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? choice = default;
+            if (discriminator?.Type == global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType.Choice)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChoiceQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChoiceQuestion> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.ChoiceQuestion)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion)}");
                 choice = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::DeepInfra.ScoreQuestion? score = default;
-            if (discriminator?.Type == global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType.Score)
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? score = default;
+            if (discriminator?.Type == global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType.Score)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ScoreQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ScoreQuestion> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.ScoreQuestion)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion)}");
                 score = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
@@ -66,20 +66,20 @@ namespace DeepInfra.JsonConverters
 
             if (value.IsNoul)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.NoulQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.NoulQuestion?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.NoulQuestion).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickNoul(), typeInfo);
             }
             else if (value.IsChoice)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChoiceQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChoiceQuestion?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChoiceQuestion).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickChoice(), typeInfo);
             }
             else if (value.IsScore)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ScoreQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ScoreQuestion?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ScoreQuestion).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickScore(), typeInfo);
             }
         }
