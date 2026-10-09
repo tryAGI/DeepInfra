@@ -26,10 +26,14 @@ namespace DeepInfra
             {                s_OpenrouterModelsSecurityRequirement0,
             };
         partial void PrepareOpenrouterModelsArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? xiApiKey,
+            ref string? xApiKey);
         partial void PrepareOpenrouterModelsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? xiApiKey,
+            string? xApiKey);
         partial void ProcessOpenrouterModelsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,14 +46,20 @@ namespace DeepInfra
         /// <summary>
         /// Openrouter Models
         /// </summary>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.OpenRouterModelsOut> OpenrouterModelsAsync(
+            string? xiApiKey = default,
+            string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await OpenrouterModelsAsResponseAsync(
+                xiApiKey: xiApiKey,
+                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -59,17 +69,23 @@ namespace DeepInfra
         /// <summary>
         /// Openrouter Models
         /// </summary>
+        /// <param name="xiApiKey"></param>
+        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.OpenRouterModelsOut>> OpenrouterModelsAsResponseAsync(
+            string? xiApiKey = default,
+            string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareOpenrouterModelsArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                xiApiKey: ref xiApiKey,
+                xApiKey: ref xApiKey);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
@@ -126,6 +142,16 @@ namespace DeepInfra
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-api-key", xiApiKey.ToString());
+            }
+            if (xApiKey != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
+            }
+
                 global::DeepInfra.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -136,7 +162,9 @@ namespace DeepInfra
                     request: __httpRequest);
                 PrepareOpenrouterModelsRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    xiApiKey: xiApiKey,
+                    xApiKey: xApiKey);
 
                 return __httpRequest;
             }
@@ -315,6 +343,43 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Validation Error
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::DeepInfra.HTTPValidationError? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+
+                                throw global::DeepInfra.ApiException<global::DeepInfra.HTTPValidationError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
 
                             if (__effectiveReadResponseAsString)
                             {
