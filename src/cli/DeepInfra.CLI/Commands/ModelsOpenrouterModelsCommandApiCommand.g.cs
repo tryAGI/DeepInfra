@@ -7,7 +7,17 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class ModelsOpenrouterModelsCommandApiCommand
 {
+    private static Option<string?> XiApiKey { get; } = new(
+        name: @"--xi-api-key")
+    {
+        Description = @"",
+    };
 
+    private static Option<string?> XApiKey { get; } = new(
+        name: @"--x-api-key")
+    {
+        Description = @"",
+    };
 
                     private static string FormatResponse(ParseResult parseResult, global::DeepInfra.OpenRouterModelsOut value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
@@ -34,18 +44,21 @@ internal static partial class ModelsOpenrouterModelsCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"openrouter-models", @"Openrouter Models");
-
+                        command.Options.Add(XiApiKey);
+                        command.Options.Add(XApiKey);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-
+                        var xiApiKey = parseResult.GetValue(XiApiKey);
+                        var xApiKey = parseResult.GetValue(XApiKey);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Models.OpenrouterModelsAsync(
-
+                                    xiApiKey: xiApiKey,
+                                    xApiKey: xApiKey,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
