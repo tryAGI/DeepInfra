@@ -12,15 +12,15 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType? Type { get; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType? Type { get; }
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::DeepInfra.NoulQuestion? Noul { get; init; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? Noul { get; init; }
 #else
-        public global::DeepInfra.NoulQuestion? Noul { get; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? Noul { get; }
 #endif
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace DeepInfra
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::DeepInfra.NoulQuestion? value)
+            out global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? value)
         {
             value = Noul;
             return IsNoul;
@@ -47,7 +47,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.NoulQuestion PickNoul() => Noul is { } value
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion PickNoul() => Noul is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Noul' but the value was {ToString()}.");
 
@@ -55,9 +55,9 @@ namespace DeepInfra
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::DeepInfra.ChoiceQuestion? Choice { get; init; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? Choice { get; init; }
 #else
-        public global::DeepInfra.ChoiceQuestion? Choice { get; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? Choice { get; }
 #endif
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DeepInfra
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::DeepInfra.ChoiceQuestion? value)
+            out global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? value)
         {
             value = Choice;
             return IsChoice;
@@ -84,7 +84,7 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ChoiceQuestion PickChoice() => Choice is { } value
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion PickChoice() => Choice is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Choice' but the value was {ToString()}.");
 
@@ -92,9 +92,9 @@ namespace DeepInfra
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::DeepInfra.ScoreQuestion? Score { get; init; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? Score { get; init; }
 #else
-        public global::DeepInfra.ScoreQuestion? Score { get; }
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? Score { get; }
 #endif
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace DeepInfra
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::DeepInfra.ScoreQuestion? value)
+            out global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? value)
         {
             value = Score;
             return IsScore;
@@ -121,23 +121,23 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ScoreQuestion PickScore() => Score is { } value
+        public global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion PickScore() => Score is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Score' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator Questions(global::DeepInfra.NoulQuestion value) => new Questions((global::DeepInfra.NoulQuestion?)value);
+        public static implicit operator Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion value) => new Questions((global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::DeepInfra.NoulQuestion?(Questions @this) => @this.Noul;
+        public static implicit operator global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion?(Questions @this) => @this.Noul;
 
         /// <summary>
         ///
         /// </summary>
-        public Questions(global::DeepInfra.NoulQuestion? value)
+        public Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? value)
         {
             Noul = value;
         }
@@ -145,22 +145,22 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static Questions FromNoul(global::DeepInfra.NoulQuestion? value) => new Questions(value);
+        public static Questions FromNoul(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? value) => new Questions(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator Questions(global::DeepInfra.ChoiceQuestion value) => new Questions((global::DeepInfra.ChoiceQuestion?)value);
+        public static implicit operator Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion value) => new Questions((global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::DeepInfra.ChoiceQuestion?(Questions @this) => @this.Choice;
+        public static implicit operator global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion?(Questions @this) => @this.Choice;
 
         /// <summary>
         ///
         /// </summary>
-        public Questions(global::DeepInfra.ChoiceQuestion? value)
+        public Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? value)
         {
             Choice = value;
         }
@@ -168,22 +168,22 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static Questions FromChoice(global::DeepInfra.ChoiceQuestion? value) => new Questions(value);
+        public static Questions FromChoice(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? value) => new Questions(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator Questions(global::DeepInfra.ScoreQuestion value) => new Questions((global::DeepInfra.ScoreQuestion?)value);
+        public static implicit operator Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion value) => new Questions((global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::DeepInfra.ScoreQuestion?(Questions @this) => @this.Score;
+        public static implicit operator global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion?(Questions @this) => @this.Score;
 
         /// <summary>
         ///
         /// </summary>
-        public Questions(global::DeepInfra.ScoreQuestion? value)
+        public Questions(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? value)
         {
             Score = value;
         }
@@ -191,16 +191,16 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static Questions FromScore(global::DeepInfra.ScoreQuestion? value) => new Questions(value);
+        public static Questions FromScore(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? value) => new Questions(value);
 
         /// <summary>
         ///
         /// </summary>
         public Questions(
-            global::DeepInfra.SystemOneRequestQuestionsDiscriminatorType? type,
-            global::DeepInfra.NoulQuestion? noul,
-            global::DeepInfra.ChoiceQuestion? choice,
-            global::DeepInfra.ScoreQuestion? score
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsDiscriminatorType? type,
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion? noul,
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion? choice,
+            global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion? score
             )
         {
             Type = type;
@@ -240,9 +240,9 @@ namespace DeepInfra
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::DeepInfra.NoulQuestion, TResult>? noul = null,
-            global::System.Func<global::DeepInfra.ChoiceQuestion, TResult>? choice = null,
-            global::System.Func<global::DeepInfra.ScoreQuestion, TResult>? score = null,
+            global::System.Func<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion, TResult>? noul = null,
+            global::System.Func<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion, TResult>? choice = null,
+            global::System.Func<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion, TResult>? score = null,
             bool validate = true)
         {
             if (validate)
@@ -270,11 +270,11 @@ namespace DeepInfra
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::DeepInfra.NoulQuestion>? noul = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion>? noul = null,
 
-            global::System.Action<global::DeepInfra.ChoiceQuestion>? choice = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion>? choice = null,
 
-            global::System.Action<global::DeepInfra.ScoreQuestion>? score = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion>? score = null,
             bool validate = true)
         {
             if (validate)
@@ -300,9 +300,9 @@ namespace DeepInfra
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::DeepInfra.NoulQuestion>? noul = null,
-            global::System.Action<global::DeepInfra.ChoiceQuestion>? choice = null,
-            global::System.Action<global::DeepInfra.ScoreQuestion>? score = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion>? noul = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion>? choice = null,
+            global::System.Action<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion>? score = null,
             bool validate = true)
         {
             if (validate)
@@ -332,11 +332,11 @@ namespace DeepInfra
             var fields = new object?[]
             {
                 Noul,
-                typeof(global::DeepInfra.NoulQuestion),
+                typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion),
                 Choice,
-                typeof(global::DeepInfra.ChoiceQuestion),
+                typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion),
                 Score,
-                typeof(global::DeepInfra.ScoreQuestion),
+                typeof(global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -353,9 +353,9 @@ namespace DeepInfra
         public bool Equals(Questions other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.NoulQuestion?>.Default.Equals(Noul, other.Noul) &&
-                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChoiceQuestion?>.Default.Equals(Choice, other.Choice) &&
-                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ScoreQuestion?>.Default.Equals(Score, other.Score)
+                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsNoulQuestion?>.Default.Equals(Noul, other.Noul) &&
+                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsChoiceQuestion?>.Default.Equals(Choice, other.Choice) &&
+                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.SystemoneV1DecisionsPostRequestQuestionsScoreQuestion?>.Default.Equals(Score, other.Score)
                 ;
         }
 

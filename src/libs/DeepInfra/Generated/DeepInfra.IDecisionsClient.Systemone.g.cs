@@ -15,7 +15,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.SystemOneResponse> SystemoneAsync(
 
-            global::DeepInfra.SystemOneRequest request,
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -31,7 +31,7 @@ namespace DeepInfra
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.SystemOneResponse>> SystemoneAsResponseAsync(
 
-            global::DeepInfra.SystemOneRequest request,
+            global::DeepInfra.SystemoneV1DecisionsPostRequest request,
             string? xiApiKey = default,
             string? xApiKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
