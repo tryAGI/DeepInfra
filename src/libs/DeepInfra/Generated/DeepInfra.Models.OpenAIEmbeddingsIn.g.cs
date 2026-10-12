@@ -29,7 +29,7 @@ namespace DeepInfra
         public required string Model { get; set; }
 
         /// <summary>
-        /// text or multimodal content to embed. Each item is either a string, or a list of content parts ({"type":"text"} / {"type":"image_url"}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.
+        /// text or multimodal content to embed; one embedding per item. Each item is either a string, or a list of content parts (text / image_url / input_audio / audio_url / video_url) embedded together in part order, for multimodal embedding models such as google/embeddinggemma-2.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>>))]
@@ -41,6 +41,12 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_type")]
         public global::DeepInfra.OpenAIEmbeddingsInInputType? InputType { get; set; }
+
+        /// <summary>
+        /// Task the embedding is optimized for, on models trained with task prompts (e.g. google/embeddinggemma-2). Applied to items containing text; mutually exclusive with input_type.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("task")]
+        public global::DeepInfra.OpenAIEmbeddingsInTask? Task { get; set; }
 
         /// <summary>
         /// format used when encoding<br/>
@@ -69,7 +75,7 @@ namespace DeepInfra
         /// model name
         /// </param>
         /// <param name="input">
-        /// text or multimodal content to embed. Each item is either a string, or a list of content parts ({"type":"text"} / {"type":"image_url"}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.
+        /// text or multimodal content to embed; one embedding per item. Each item is either a string, or a list of content parts (text / image_url / input_audio / audio_url / video_url) embedded together in part order, for multimodal embedding models such as google/embeddinggemma-2.
         /// </param>
         /// <param name="serviceTier">
         /// The service tier used for processing the request. 'priority' processes the request with higher priority (premium rate); 'flex' processes it at lower priority for a discount, served only when spare capacity exists and may be retried/timed out under load. Both apply only to models that support the respective tier. For compatibility, 'auto' is treated as 'priority' and 'standard_only' as 'default'.
@@ -80,6 +86,9 @@ namespace DeepInfra
         /// </param>
         /// <param name="inputType">
         /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
+        /// </param>
+        /// <param name="task">
+        /// Task the embedding is optimized for, on models trained with task prompts (e.g. google/embeddinggemma-2). Applied to items containing text; mutually exclusive with input_type.
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
@@ -97,6 +106,7 @@ namespace DeepInfra
             global::DeepInfra.ServiceTier? serviceTier,
             bool? failFast,
             global::DeepInfra.OpenAIEmbeddingsInInputType? inputType,
+            global::DeepInfra.OpenAIEmbeddingsInTask? task,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat,
             int? dimensions)
         {
@@ -105,6 +115,7 @@ namespace DeepInfra
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Input = input;
             this.InputType = inputType;
+            this.Task = task;
             this.EncodingFormat = encodingFormat;
             this.Dimensions = dimensions;
         }

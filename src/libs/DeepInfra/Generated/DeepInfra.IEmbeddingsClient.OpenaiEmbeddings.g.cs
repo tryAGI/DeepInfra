@@ -73,10 +73,13 @@ namespace DeepInfra
         /// model name
         /// </param>
         /// <param name="input">
-        /// text or multimodal content to embed. Each item is either a string, or a list of content parts ({"type":"text"} / {"type":"image_url"}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.
+        /// text or multimodal content to embed; one embedding per item. Each item is either a string, or a list of content parts (text / image_url / input_audio / audio_url / video_url) embedded together in part order, for multimodal embedding models such as google/embeddinggemma-2.
         /// </param>
         /// <param name="inputType">
         /// Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.
+        /// </param>
+        /// <param name="task">
+        /// Task the embedding is optimized for, on models trained with task prompts (e.g. google/embeddinggemma-2). Applied to items containing text; mutually exclusive with input_type.
         /// </param>
         /// <param name="encodingFormat">
         /// format used when encoding<br/>
@@ -99,6 +102,7 @@ namespace DeepInfra
             global::DeepInfra.ServiceTier? serviceTier = default,
             bool? failFast = default,
             global::DeepInfra.OpenAIEmbeddingsInInputType? inputType = default,
+            global::DeepInfra.OpenAIEmbeddingsInTask? task = default,
             global::DeepInfra.OpenAIEmbeddingsInEncodingFormat? encodingFormat = default,
             int? dimensions = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,

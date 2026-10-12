@@ -11,11 +11,23 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        AudioUrl,
+        /// <summary>
+        ///
+        /// </summary>
         ImageUrl,
         /// <summary>
         ///
         /// </summary>
+        InputAudio,
+        /// <summary>
+        ///
+        /// </summary>
         Text,
+        /// <summary>
+        ///
+        /// </summary>
+        VideoUrl,
     }
 
     /// <summary>
@@ -30,8 +42,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.AudioUrl => "audio_url",
                 OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.ImageUrl => "image_url",
+                OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.InputAudio => "input_audio",
                 OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.Text => "text",
+                OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.VideoUrl => "video_url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +57,11 @@ namespace DeepInfra
         {
             return value switch
             {
+                "audio_url" => OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.AudioUrl,
                 "image_url" => OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.ImageUrl,
+                "input_audio" => OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.InputAudio,
                 "text" => OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.Text,
+                "video_url" => OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.VideoUrl,
                 _ => null,
             };
         }

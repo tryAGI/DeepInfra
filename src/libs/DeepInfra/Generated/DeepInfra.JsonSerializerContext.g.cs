@@ -111,6 +111,10 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInInputTypeNullableJsonConverter),
 
+            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInTaskJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInTaskNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.OpenAIEmbeddingsInEncodingFormatNullableJsonConverter),
@@ -356,6 +360,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrors))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.BatchErrorData>))]
@@ -388,6 +393,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionMessageToolCall))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudio))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartFile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.FileData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartImage))]
@@ -560,6 +566,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType), TypeInfoPropertyName = "OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputType), TypeInfoPropertyName = "OpenAIEmbeddingsInInputType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInTask), TypeInfoPropertyName = "OpenAIEmbeddingsInTask2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat), TypeInfoPropertyName = "OpenAIEmbeddingsInEncodingFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIFile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIFilePurpose), TypeInfoPropertyName = "OpenAIFilePurpose2")]
