@@ -23,11 +23,18 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>), TypeInfoPropertyName = "AnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ServiceTier), TypeInfoPropertyName = "ServiceTier2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartText))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudio))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudio))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartImage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.PromptCacheBreakpoint))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartVideo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURLDetail), TypeInfoPropertyName = "ImageURLDetail2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudioFormat), TypeInfoPropertyName = "InputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>>), TypeInfoPropertyName = "AnyOfStringIListAnyOfStringIListInputVariant2ItemVariant2Item2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>))]
@@ -37,17 +44,20 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType), TypeInfoPropertyName = "OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputType), TypeInfoPropertyName = "OpenAIEmbeddingsInInputType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInTask), TypeInfoPropertyName = "OpenAIEmbeddingsInTask2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat), TypeInfoPropertyName = "OpenAIEmbeddingsInEncodingFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ServiceTier?), TypeInfoPropertyName = "NullableServiceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ImageURLDetail?), TypeInfoPropertyName = "NullableImageURLDetail2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudioFormat?), TypeInfoPropertyName = "NullableInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>>?), TypeInfoPropertyName = "NullableAnyOfStringIListAnyOfStringIListInputVariant2ItemVariant2Item2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>?), TypeInfoPropertyName = "NullableAnyOfStringIListInputVariant2ItemVariant2Item2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputVariant2ItemVariant2Item?), TypeInfoPropertyName = "NullableInputVariant2ItemVariant2Item2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType?), TypeInfoPropertyName = "NullableOpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInInputType?), TypeInfoPropertyName = "NullableOpenAIEmbeddingsInInputType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInTask?), TypeInfoPropertyName = "NullableOpenAIEmbeddingsInTask2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat?), TypeInfoPropertyName = "NullableOpenAIEmbeddingsInEncodingFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
@@ -146,6 +156,10 @@ namespace DeepInfra
 
                     || typeToConvert == typeof(global::DeepInfra.ImageURLDetail?)
 
+                    || typeToConvert == typeof(global::DeepInfra.InputAudioFormat)
+
+                    || typeToConvert == typeof(global::DeepInfra.InputAudioFormat?)
+
                     || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType)
 
                     || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType?)
@@ -153,6 +167,10 @@ namespace DeepInfra
                     || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputType)
 
                     || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputType?)
+
+                    || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInTask)
+
+                    || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInTask?)
 
                     || typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat)
 
@@ -177,6 +195,16 @@ namespace DeepInfra
                     return new global::DeepInfra.JsonConverters.ImageURLDetailNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::DeepInfra.InputAudioFormat))
+                {
+                    return new global::DeepInfra.JsonConverters.InputAudioFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.InputAudioFormat?))
+                {
+                    return new global::DeepInfra.JsonConverters.InputAudioFormatNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType))
                 {
                     return new global::DeepInfra.JsonConverters.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorTypeJsonConverter();
@@ -195,6 +223,16 @@ namespace DeepInfra
                 if (typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInInputType?))
                 {
                     return new global::DeepInfra.JsonConverters.OpenAIEmbeddingsInInputTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInTask))
+                {
+                    return new global::DeepInfra.JsonConverters.OpenAIEmbeddingsInTaskJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInTask?))
+                {
+                    return new global::DeepInfra.JsonConverters.OpenAIEmbeddingsInTaskNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::DeepInfra.OpenAIEmbeddingsInEncodingFormat))

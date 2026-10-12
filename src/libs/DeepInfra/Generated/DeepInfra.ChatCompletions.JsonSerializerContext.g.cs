@@ -50,6 +50,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionMessageToolCall))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InputAudio))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartAudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartFile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.FileData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatCompletionContentPartImage))]

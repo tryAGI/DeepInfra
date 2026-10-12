@@ -57,7 +57,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
     private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.InputVariant2ItemVariant2Item>>>>> InputOption { get; } = new(
         name: @"--input")
     {
-        Description = @"text or multimodal content to embed. Each item is either a string, or a list of content parts ({""type"":""text""} / {""type"":""image_url""}) for multimodal embedding models such as nvidia/llama-nemotron-embed-vl-1b-v2.",
+        Description = @"text or multimodal content to embed; one embedding per item. Each item is either a string, or a list of content parts (text / image_url / input_audio / audio_url / video_url) embedded together in part order, for multimodal embedding models such as google/embeddinggemma-2.",
         Required = true,
     };
 
@@ -65,6 +65,12 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
         name: @"--input-type")
     {
         Description = @"Role hint for asymmetric retrieval models: 'query' embeds a search query, 'passage'/'document' embeds a document. Controls the query:/passage: prefix on VL embedding models; ignored by symmetric models.",
+    };
+
+    private static Option<global::DeepInfra.OpenAIEmbeddingsInTask?> Task { get; } = new(
+        name: @"--task")
+    {
+        Description = @"Task the embedding is optimized for, on models trained with task prompts (e.g. google/embeddinggemma-2). Applied to items containing text; mutually exclusive with input_type.",
     };
 
     private static Option<global::DeepInfra.OpenAIEmbeddingsInEncodingFormat?> EncodingFormat { get; } = new(
@@ -130,6 +136,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
                         command.Options.Add(Model);
                         command.Options.Add(InputOption);
                         command.Options.Add(InputType);
+                        command.Options.Add(Task);
                         command.Options.Add(EncodingFormat);
                         command.Options.Add(Dimensions);
           command.Options.Add(RequestInput);
@@ -167,6 +174,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
                         var model = parseResult.GetRequiredValue(Model);
                         var input = parseResult.GetRequiredValue(InputOption);
                         var inputType = CliRuntime.WasSpecified(parseResult, InputType) ? parseResult.GetValue(InputType) : (__requestBase is { } __InputTypeBaseValue ? __InputTypeBaseValue.InputType : default);
+                        var task = CliRuntime.WasSpecified(parseResult, Task) ? parseResult.GetValue(Task) : (__requestBase is { } __TaskBaseValue ? __TaskBaseValue.Task : default);
                         var encodingFormat = CliRuntime.WasSpecified(parseResult, EncodingFormat) ? parseResult.GetValue(EncodingFormat) : (__requestBase is { } __EncodingFormatBaseValue ? __EncodingFormatBaseValue.EncodingFormat : default);
                         var dimensions = CliRuntime.WasSpecified(parseResult, Dimensions) ? parseResult.GetValue(Dimensions) : (__requestBase is { } __DimensionsBaseValue ? __DimensionsBaseValue.Dimensions : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
@@ -183,6 +191,7 @@ internal static partial class EmbeddingsOpenaiEmbeddingsCommandApiCommand
                                     model: model,
                                     input: input,
                                     inputType: inputType,
+                                    task: task,
                                     encodingFormat: encodingFormat,
                                     dimensions: dimensions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
