@@ -420,6 +420,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ContainerRentalUpdateIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateLoraApiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreatedApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployArgsHistoryOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployDelete))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUAvailability))]

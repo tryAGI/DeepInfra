@@ -9,13 +9,6 @@ namespace DeepInfra
     public sealed partial class ApiToken
     {
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("token")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Token { get; set; }
-
-        /// <summary>
         /// creation unix timestamp
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -44,6 +37,12 @@ namespace DeepInfra
         public global::System.Collections.Generic.IList<string>? AllowedIps { get; set; }
 
         /// <summary>
+        /// `sk-di-`, or empty on a token minted before it
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prefix")]
+        public string? Prefix { get; set; }
+
+        /// <summary>
         /// display suffix; last 5 chars of the secret
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fragment")]
@@ -58,13 +57,15 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiToken" /> class.
         /// </summary>
-        /// <param name="token"></param>
         /// <param name="createdAt">
         /// creation unix timestamp
         /// </param>
         /// <param name="name"></param>
         /// <param name="tokenId"></param>
         /// <param name="allowedIps"></param>
+        /// <param name="prefix">
+        /// `sk-di-`, or empty on a token minted before it
+        /// </param>
         /// <param name="fragment">
         /// display suffix; last 5 chars of the secret
         /// </param>
@@ -72,18 +73,18 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ApiToken(
-            string token,
             global::System.DateTimeOffset createdAt,
             string name,
             string tokenId,
             global::System.Collections.Generic.IList<string>? allowedIps,
+            string? prefix,
             string? fragment)
         {
-            this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.TokenId = tokenId ?? throw new global::System.ArgumentNullException(nameof(tokenId));
             this.AllowedIps = allowedIps;
+            this.Prefix = prefix;
             this.Fragment = fragment;
         }
 
