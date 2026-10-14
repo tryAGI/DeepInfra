@@ -46,7 +46,8 @@ namespace DeepInfra
             ref string content);
 
         /// <summary>
-        /// Create Api Token
+        /// Create Api Token<br/>
+        /// Create an API token. The reply carries the secret; no later call returns it.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -54,7 +55,7 @@ namespace DeepInfra
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.ApiToken> CreateApiTokenAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.CreatedApiToken> CreateApiTokenAsync(
 
             global::DeepInfra.ApiTokenIn request,
             string? xiApiKey = default,
@@ -74,7 +75,8 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Create Api Token
+        /// Create Api Token<br/>
+        /// Create an API token. The reply carries the secret; no later call returns it.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -82,7 +84,7 @@ namespace DeepInfra
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.ApiToken>> CreateApiTokenAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.CreatedApiToken>> CreateApiTokenAsResponseAsync(
 
             global::DeepInfra.ApiTokenIn request,
             string? xiApiKey = default,
@@ -459,9 +461,9 @@ namespace DeepInfra
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::DeepInfra.ApiToken.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::DeepInfra.CreatedApiToken.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.ApiToken>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.CreatedApiToken>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -491,9 +493,9 @@ namespace DeepInfra
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::DeepInfra.ApiToken.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::DeepInfra.CreatedApiToken.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.ApiToken>(
+                                    return new global::DeepInfra.AutoSDKHttpResponse<global::DeepInfra.CreatedApiToken>(
                                         statusCode: __response.StatusCode,
                                         headers: global::DeepInfra.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -534,7 +536,8 @@ namespace DeepInfra
             }
         }
         /// <summary>
-        /// Create Api Token
+        /// Create Api Token<br/>
+        /// Create an API token. The reply carries the secret; no later call returns it.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -542,7 +545,7 @@ namespace DeepInfra
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::DeepInfra.ApiToken> CreateApiTokenAsync(
+        public async global::System.Threading.Tasks.Task<global::DeepInfra.CreatedApiToken> CreateApiTokenAsync(
             string name,
             string? xiApiKey = default,
             string? xApiKey = default,

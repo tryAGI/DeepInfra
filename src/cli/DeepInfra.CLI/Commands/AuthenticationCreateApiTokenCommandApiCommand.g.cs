@@ -25,7 +25,7 @@ internal static partial class AuthenticationCreateApiTokenCommandApiCommand
         Description = @"",
     };
 
-                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.ApiToken value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.CreatedApiToken value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -41,7 +41,7 @@ internal static partial class AuthenticationCreateApiTokenCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.ApiToken value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.CreatedApiToken value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
@@ -49,7 +49,8 @@ internal static partial class AuthenticationCreateApiTokenCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"create-api-token", @"Create Api Token");
+        var command = new Command(commandName ?? @"create-api-token", @"Create Api Token
+Create an API token. The reply carries the secret; no later call returns it.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
