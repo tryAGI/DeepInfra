@@ -199,6 +199,12 @@ namespace DeepInfra
         public object? ChatTemplateKwargs { get; set; }
 
         /// <summary>
+        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("media_io_kwargs")]
+        public global::DeepInfra.MediaIoKwargs? MediaIoKwargs { get; set; }
+
+        /// <summary>
         /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("continue_final_message")]
@@ -317,6 +323,9 @@ namespace DeepInfra
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
         /// </param>
+        /// <param name="mediaIoKwargs">
+        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.
+        /// </param>
         /// <param name="continueFinalMessage">
         /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
         /// </param>
@@ -356,6 +365,7 @@ namespace DeepInfra
             string? promptCacheKey,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions,
             object? chatTemplateKwargs,
+            global::DeepInfra.MediaIoKwargs? mediaIoKwargs,
             bool? continueFinalMessage,
             bool? ignoreEos)
         {
@@ -388,6 +398,7 @@ namespace DeepInfra
             this.PromptCacheKey = promptCacheKey;
             this.PromptCacheOptions = promptCacheOptions;
             this.ChatTemplateKwargs = chatTemplateKwargs;
+            this.MediaIoKwargs = mediaIoKwargs;
             this.ContinueFinalMessage = continueFinalMessage;
             this.IgnoreEos = ignoreEos;
         }

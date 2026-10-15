@@ -86,6 +86,12 @@ namespace DeepInfra
         public string? Deal { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inception_check")]
+        public global::DeepInfra.InceptionMemberCheck? InceptionCheck { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -110,6 +116,7 @@ namespace DeepInfra
         /// Default Value: pending
         /// </param>
         /// <param name="deal"></param>
+        /// <param name="inceptionCheck"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -125,7 +132,8 @@ namespace DeepInfra
             bool? nvidiaConsent,
             int? createdAt,
             string? status,
-            string? deal)
+            string? deal,
+            global::DeepInfra.InceptionMemberCheck? inceptionCheck)
         {
             this.Id = id;
             this.Uid = uid;
@@ -139,6 +147,7 @@ namespace DeepInfra
             this.CreatedAt = createdAt;
             this.Status = status;
             this.Deal = deal;
+            this.InceptionCheck = inceptionCheck;
         }
 
         /// <summary>

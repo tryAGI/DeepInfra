@@ -11,6 +11,10 @@ namespace DeepInfra
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[]
         {
+            typeof(global::DeepInfra.JsonConverters.InceptionMemberCheckStatusJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.InceptionMemberCheckStatusNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.SuspendReasonJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.SuspendReasonNullableJsonConverter),
@@ -307,11 +311,13 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ConfigOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InceptionMemberCheck))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DiscountMeta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ValidationError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InceptionMemberCheckStatus), TypeInfoPropertyName = "InceptionMemberCheckStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoiceListItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoicesOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.InvoiceListItem>))]
@@ -359,7 +365,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AudioURL))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.BatchErrors))]
@@ -511,6 +516,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Me))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MeVercelConnection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MeIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MediaIoKwargs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoDecodeOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelDocBlock))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelDocBlockKey), TypeInfoPropertyName = "ModelDocBlockKey2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ModelFamilyOut))]

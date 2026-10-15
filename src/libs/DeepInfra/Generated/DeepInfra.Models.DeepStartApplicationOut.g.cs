@@ -88,6 +88,12 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inception_check")]
+        public global::DeepInfra.InceptionMemberCheck? InceptionCheck { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         public string? Email { get; set; }
 
@@ -116,6 +122,7 @@ namespace DeepInfra
         /// Default Value: pending
         /// </param>
         /// <param name="deal"></param>
+        /// <param name="inceptionCheck"></param>
         /// <param name="email"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -133,6 +140,7 @@ namespace DeepInfra
             int? createdAt,
             string? status,
             string? deal,
+            global::DeepInfra.InceptionMemberCheck? inceptionCheck,
             string? email)
         {
             this.Id = id;
@@ -147,6 +155,7 @@ namespace DeepInfra
             this.CreatedAt = createdAt;
             this.Status = status;
             this.Deal = deal;
+            this.InceptionCheck = inceptionCheck;
             this.Email = email;
         }
 

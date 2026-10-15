@@ -509,6 +509,7 @@ namespace DeepInfra
         /// Default Value: pending
         /// </param>
         /// <param name="deal"></param>
+        /// <param name="inceptionCheck"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -526,6 +527,7 @@ namespace DeepInfra
             int? createdAt = default,
             string? status = default,
             string? deal = default,
+            global::DeepInfra.InceptionMemberCheck? inceptionCheck = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -543,6 +545,7 @@ namespace DeepInfra
                 CreatedAt = createdAt,
                 Status = status,
                 Deal = deal,
+                InceptionCheck = inceptionCheck,
             };
 
             return await DeepstartApplyAsync(

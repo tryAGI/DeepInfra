@@ -32,11 +32,13 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ConfigOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InceptionMemberCheck))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepStartApplicationOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DiscountMeta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ValidationError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InceptionMemberCheckStatus), TypeInfoPropertyName = "InceptionMemberCheckStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoiceListItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InvoicesOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.InvoiceListItem>))]
@@ -63,6 +65,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SuspendReason?), TypeInfoPropertyName = "NullableSuspendReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InceptionMemberCheckStatus?), TypeInfoPropertyName = "NullableInceptionMemberCheckStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ScopedCredit>))]
@@ -153,7 +156,11 @@ namespace DeepInfra
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::DeepInfra.SuspendReason)
+                    typeToConvert == typeof(global::DeepInfra.InceptionMemberCheckStatus)
+
+                    || typeToConvert == typeof(global::DeepInfra.InceptionMemberCheckStatus?)
+
+                    || typeToConvert == typeof(global::DeepInfra.SuspendReason)
 
                     || typeToConvert == typeof(global::DeepInfra.SuspendReason?);
             }
@@ -162,6 +169,16 @@ namespace DeepInfra
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::DeepInfra.InceptionMemberCheckStatus))
+                {
+                    return new global::DeepInfra.JsonConverters.InceptionMemberCheckStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.InceptionMemberCheckStatus?))
+                {
+                    return new global::DeepInfra.JsonConverters.InceptionMemberCheckStatusNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::DeepInfra.SuspendReason))
                 {
                     return new global::DeepInfra.JsonConverters.SuspendReasonJsonConverter();
