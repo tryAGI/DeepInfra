@@ -87,6 +87,12 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
     {
         Description = @"",
     };
+
+    private static Option<global::DeepInfra.InceptionMemberCheck?> InceptionCheck { get; } = new(
+        name: @"--inception-check")
+    {
+        Description = @"",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -142,6 +148,7 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         command.Options.Add(CreatedAt);
                         command.Options.Add(Status);
                         command.Options.Add(Deal);
+                        command.Options.Add(InceptionCheck);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -180,6 +187,7 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         var createdAt = CliRuntime.WasSpecified(parseResult, CreatedAt) ? parseResult.GetValue(CreatedAt) : (__requestBase is { } __CreatedAtBaseValue ? __CreatedAtBaseValue.CreatedAt : default);
                         var status = CliRuntime.WasSpecified(parseResult, Status) ? parseResult.GetValue(Status) : (__requestBase is { } __StatusBaseValue ? __StatusBaseValue.Status : default);
                         var deal = CliRuntime.WasSpecified(parseResult, Deal) ? parseResult.GetValue(Deal) : (__requestBase is { } __DealBaseValue ? __DealBaseValue.Deal : default);
+                        var inceptionCheck = CliRuntime.WasSpecified(parseResult, InceptionCheck) ? parseResult.GetValue(InceptionCheck) : (__requestBase is { } __InceptionCheckBaseValue ? __InceptionCheckBaseValue.InceptionCheck : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -197,6 +205,7 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                                     createdAt: createdAt,
                                     status: status,
                                     deal: deal,
+                                    inceptionCheck: inceptionCheck,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

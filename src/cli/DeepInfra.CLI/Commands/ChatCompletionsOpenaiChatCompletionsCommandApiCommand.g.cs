@@ -197,6 +197,12 @@ The total length of input tokens and generated tokens is limited by the model's 
         Description = @"Chat template kwargs.",
     };
 
+    private static Option<global::DeepInfra.MediaIoKwargs?> MediaIoKwargs { get; } = new(
+        name: @"--media-io-kwargs")
+    {
+        Description = @"Per-request media decode options keyed by modality, e.g. {""video"": {""num_frames"": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.",
+    };
+
     private static Option<bool?> ContinueFinalMessage { get; } = CliRuntime.CreateNullableBoolOption(
         name: @"--continue-final-message",
         description: @"If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.");
@@ -279,6 +285,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         command.Options.Add(PromptCacheKey);
                         command.Options.Add(PromptCacheOptions);
                         command.Options.Add(ChatTemplateKwargs);
+                        command.Options.Add(MediaIoKwargs);
                         command.Options.Add(ContinueFinalMessage);
                         command.Options.Add(IgnoreEos);                        command.Options.Add(StreamOptionsOptions.IncludeUsage);
                         command.Options.Add(StreamOptionsOptions.ContinuousUsageStats);
@@ -339,6 +346,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         var promptCacheKey = CliRuntime.WasSpecified(parseResult, PromptCacheKey) ? parseResult.GetValue(PromptCacheKey) : (__requestBase is { } __PromptCacheKeyBaseValue ? __PromptCacheKeyBaseValue.PromptCacheKey : default);
                         var promptCacheOptions = CliRuntime.WasSpecified(parseResult, PromptCacheOptions) ? parseResult.GetValue(PromptCacheOptions) : (__requestBase is { } __PromptCacheOptionsBaseValue ? __PromptCacheOptionsBaseValue.PromptCacheOptions : default);
                         var chatTemplateKwargs = CliRuntime.WasSpecified(parseResult, ChatTemplateKwargs) ? parseResult.GetValue(ChatTemplateKwargs) : (__requestBase is { } __ChatTemplateKwargsBaseValue ? __ChatTemplateKwargsBaseValue.ChatTemplateKwargs : default);
+                        var mediaIoKwargs = CliRuntime.WasSpecified(parseResult, MediaIoKwargs) ? parseResult.GetValue(MediaIoKwargs) : (__requestBase is { } __MediaIoKwargsBaseValue ? __MediaIoKwargsBaseValue.MediaIoKwargs : default);
                         var continueFinalMessage = CliRuntime.WasSpecified(parseResult, ContinueFinalMessage) ? parseResult.GetValue(ContinueFinalMessage) : (__requestBase is { } __ContinueFinalMessageBaseValue ? __ContinueFinalMessageBaseValue.ContinueFinalMessage : default);
                         var ignoreEos = CliRuntime.WasSpecified(parseResult, IgnoreEos) ? parseResult.GetValue(IgnoreEos) : (__requestBase is { } __IgnoreEosBaseValue ? __IgnoreEosBaseValue.IgnoreEos : default);
 
@@ -390,6 +398,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     promptCacheKey: promptCacheKey,
                                     promptCacheOptions: promptCacheOptions,
                                     chatTemplateKwargs: chatTemplateKwargs,
+                                    mediaIoKwargs: mediaIoKwargs,
                                     continueFinalMessage: continueFinalMessage,
                                     ignoreEos: ignoreEos,
                                     streamOptions: streamOptions,

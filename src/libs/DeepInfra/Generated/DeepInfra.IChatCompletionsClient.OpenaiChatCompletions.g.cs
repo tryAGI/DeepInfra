@@ -155,6 +155,9 @@ namespace DeepInfra
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
         /// </param>
+        /// <param name="mediaIoKwargs">
+        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.
+        /// </param>
         /// <param name="continueFinalMessage">
         /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
         /// </param>
@@ -198,6 +201,7 @@ namespace DeepInfra
             string? promptCacheKey = default,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions = default,
             object? chatTemplateKwargs = default,
+            global::DeepInfra.MediaIoKwargs? mediaIoKwargs = default,
             bool? continueFinalMessage = default,
             bool? ignoreEos = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,

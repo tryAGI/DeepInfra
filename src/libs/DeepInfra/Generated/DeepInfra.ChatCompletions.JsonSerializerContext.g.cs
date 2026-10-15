@@ -72,6 +72,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonObjectResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.JsonSchemaResponseFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MediaIoKwargs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoDecodeOptions))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OpenAIChatCompletionsIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.OneOf<global::DeepInfra.ChatCompletionToolMessage, global::DeepInfra.ChatCompletionAssistantMessage, global::DeepInfra.ChatCompletionUserMessage, global::DeepInfra.ChatCompletionSystemMessage>), TypeInfoPropertyName = "OneOfChatCompletionToolMessageChatCompletionAssistantMessageChatCompletionUserMessageChatCompletionSystemMessage2")]
