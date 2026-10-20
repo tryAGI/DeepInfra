@@ -626,6 +626,9 @@ namespace DeepInfra
         /// <param name="promptCacheOptions">
         /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
         /// </param>
+        /// <param name="cacheSalt">
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </param>
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
         /// </param>
@@ -674,6 +677,7 @@ namespace DeepInfra
             global::DeepInfra.ChatReasoningSettings? reasoning = default,
             string? promptCacheKey = default,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions = default,
+            string? cacheSalt = default,
             object? chatTemplateKwargs = default,
             global::DeepInfra.MediaIoKwargs? mediaIoKwargs = default,
             bool? continueFinalMessage = default,
@@ -711,6 +715,7 @@ namespace DeepInfra
                 Reasoning = reasoning,
                 PromptCacheKey = promptCacheKey,
                 PromptCacheOptions = promptCacheOptions,
+                CacheSalt = cacheSalt,
                 ChatTemplateKwargs = chatTemplateKwargs,
                 MediaIoKwargs = mediaIoKwargs,
                 ContinueFinalMessage = continueFinalMessage,

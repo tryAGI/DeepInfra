@@ -620,6 +620,9 @@ namespace DeepInfra
         /// <param name="promptCacheOptions">
         /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
         /// </param>
+        /// <param name="cacheSalt">
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </param>
         /// <param name="data">
         /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
         /// </param>
@@ -660,6 +663,7 @@ namespace DeepInfra
             bool? returnTokensAsTokenIds = default,
             string? promptCacheKey = default,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions = default,
+            string? cacheSalt = default,
             global::DeepInfra.CompletionMultiModalData? data = default,
             bool? ignoreEos = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
@@ -693,6 +697,7 @@ namespace DeepInfra
                 ReturnTokensAsTokenIds = returnTokensAsTokenIds,
                 PromptCacheKey = promptCacheKey,
                 PromptCacheOptions = promptCacheOptions,
+                CacheSalt = cacheSalt,
                 Data = data,
                 IgnoreEos = ignoreEos,
             };

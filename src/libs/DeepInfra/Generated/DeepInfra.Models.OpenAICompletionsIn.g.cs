@@ -181,6 +181,12 @@ namespace DeepInfra
         public global::DeepInfra.PromptCacheOptions? PromptCacheOptions { get; set; }
 
         /// <summary>
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cache_salt")]
+        public string? CacheSalt { get; set; }
+
+        /// <summary>
         /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
@@ -290,6 +296,9 @@ namespace DeepInfra
         /// <param name="promptCacheOptions">
         /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
         /// </param>
+        /// <param name="cacheSalt">
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </param>
         /// <param name="data">
         /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
         /// </param>
@@ -326,6 +335,7 @@ namespace DeepInfra
             bool? returnTokensAsTokenIds,
             string? promptCacheKey,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions,
+            string? cacheSalt,
             global::DeepInfra.CompletionMultiModalData? data,
             bool? ignoreEos)
         {
@@ -355,6 +365,7 @@ namespace DeepInfra
             this.ReturnTokensAsTokenIds = returnTokensAsTokenIds;
             this.PromptCacheKey = promptCacheKey;
             this.PromptCacheOptions = promptCacheOptions;
+            this.CacheSalt = cacheSalt;
             this.Data = data;
             this.IgnoreEos = ignoreEos;
         }
