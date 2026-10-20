@@ -193,6 +193,12 @@ namespace DeepInfra
         public global::DeepInfra.PromptCacheOptions? PromptCacheOptions { get; set; }
 
         /// <summary>
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cache_salt")]
+        public string? CacheSalt { get; set; }
+
+        /// <summary>
         /// Chat template kwargs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_template_kwargs")]
@@ -320,6 +326,9 @@ namespace DeepInfra
         /// <param name="promptCacheOptions">
         /// Prompt cache options for this request's prefix, e.g. {"ttl": "1h"}.
         /// </param>
+        /// <param name="cacheSalt">
+        /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
+        /// </param>
         /// <param name="chatTemplateKwargs">
         /// Chat template kwargs.
         /// </param>
@@ -364,6 +373,7 @@ namespace DeepInfra
             global::DeepInfra.ChatReasoningSettings? reasoning,
             string? promptCacheKey,
             global::DeepInfra.PromptCacheOptions? promptCacheOptions,
+            string? cacheSalt,
             object? chatTemplateKwargs,
             global::DeepInfra.MediaIoKwargs? mediaIoKwargs,
             bool? continueFinalMessage,
@@ -397,6 +407,7 @@ namespace DeepInfra
             this.Reasoning = reasoning;
             this.PromptCacheKey = promptCacheKey;
             this.PromptCacheOptions = promptCacheOptions;
+            this.CacheSalt = cacheSalt;
             this.ChatTemplateKwargs = chatTemplateKwargs;
             this.MediaIoKwargs = mediaIoKwargs;
             this.ContinueFinalMessage = continueFinalMessage;

@@ -191,6 +191,12 @@ The total length of input tokens and generated tokens is limited by the model's 
         Description = @"Prompt cache options for this request's prefix, e.g. {""ttl"": ""1h""}.",
     };
 
+    private static Option<string?> CacheSalt { get; } = new(
+        name: @"--cache-salt")
+    {
+        Description = @"Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.",
+    };
+
     private static Option<object?> ChatTemplateKwargs { get; } = new(
         name: @"--chat-template-kwargs")
     {
@@ -284,6 +290,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         command.Options.Add(Reasoning);
                         command.Options.Add(PromptCacheKey);
                         command.Options.Add(PromptCacheOptions);
+                        command.Options.Add(CacheSalt);
                         command.Options.Add(ChatTemplateKwargs);
                         command.Options.Add(MediaIoKwargs);
                         command.Options.Add(ContinueFinalMessage);
@@ -345,6 +352,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         var reasoning = CliRuntime.WasSpecified(parseResult, Reasoning) ? parseResult.GetValue(Reasoning) : (__requestBase is { } __ReasoningBaseValue ? __ReasoningBaseValue.Reasoning : default);
                         var promptCacheKey = CliRuntime.WasSpecified(parseResult, PromptCacheKey) ? parseResult.GetValue(PromptCacheKey) : (__requestBase is { } __PromptCacheKeyBaseValue ? __PromptCacheKeyBaseValue.PromptCacheKey : default);
                         var promptCacheOptions = CliRuntime.WasSpecified(parseResult, PromptCacheOptions) ? parseResult.GetValue(PromptCacheOptions) : (__requestBase is { } __PromptCacheOptionsBaseValue ? __PromptCacheOptionsBaseValue.PromptCacheOptions : default);
+                        var cacheSalt = CliRuntime.WasSpecified(parseResult, CacheSalt) ? parseResult.GetValue(CacheSalt) : (__requestBase is { } __CacheSaltBaseValue ? __CacheSaltBaseValue.CacheSalt : default);
                         var chatTemplateKwargs = CliRuntime.WasSpecified(parseResult, ChatTemplateKwargs) ? parseResult.GetValue(ChatTemplateKwargs) : (__requestBase is { } __ChatTemplateKwargsBaseValue ? __ChatTemplateKwargsBaseValue.ChatTemplateKwargs : default);
                         var mediaIoKwargs = CliRuntime.WasSpecified(parseResult, MediaIoKwargs) ? parseResult.GetValue(MediaIoKwargs) : (__requestBase is { } __MediaIoKwargsBaseValue ? __MediaIoKwargsBaseValue.MediaIoKwargs : default);
                         var continueFinalMessage = CliRuntime.WasSpecified(parseResult, ContinueFinalMessage) ? parseResult.GetValue(ContinueFinalMessage) : (__requestBase is { } __ContinueFinalMessageBaseValue ? __ContinueFinalMessageBaseValue.ContinueFinalMessage : default);
@@ -397,6 +405,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     reasoning: reasoning,
                                     promptCacheKey: promptCacheKey,
                                     promptCacheOptions: promptCacheOptions,
+                                    cacheSalt: cacheSalt,
                                     chatTemplateKwargs: chatTemplateKwargs,
                                     mediaIoKwargs: mediaIoKwargs,
                                     continueFinalMessage: continueFinalMessage,

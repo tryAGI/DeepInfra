@@ -177,6 +177,12 @@ The total length of input tokens and generated tokens is limited by the model's 
         Description = @"Prompt cache options for this request's prefix, e.g. {""ttl"": ""1h""}.",
     };
 
+    private static Option<string?> CacheSalt { get; } = new(
+        name: @"--cache-salt")
+    {
+        Description = @"Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.",
+    };
+
     private static Option<global::DeepInfra.CompletionMultiModalData?> Data { get; } = new(
         name: @"--data")
     {
@@ -258,6 +264,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         command.Options.Add(ReturnTokensAsTokenIds);
                         command.Options.Add(PromptCacheKey);
                         command.Options.Add(PromptCacheOptions);
+                        command.Options.Add(CacheSalt);
                         command.Options.Add(Data);
                         command.Options.Add(IgnoreEos);                        command.Options.Add(StreamOptionsOptions.IncludeUsage);
                         command.Options.Add(StreamOptionsOptions.ContinuousUsageStats);
@@ -315,6 +322,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         var returnTokensAsTokenIds = CliRuntime.WasSpecified(parseResult, ReturnTokensAsTokenIds) ? parseResult.GetValue(ReturnTokensAsTokenIds) : (__requestBase is { } __ReturnTokensAsTokenIdsBaseValue ? __ReturnTokensAsTokenIdsBaseValue.ReturnTokensAsTokenIds : default);
                         var promptCacheKey = CliRuntime.WasSpecified(parseResult, PromptCacheKey) ? parseResult.GetValue(PromptCacheKey) : (__requestBase is { } __PromptCacheKeyBaseValue ? __PromptCacheKeyBaseValue.PromptCacheKey : default);
                         var promptCacheOptions = CliRuntime.WasSpecified(parseResult, PromptCacheOptions) ? parseResult.GetValue(PromptCacheOptions) : (__requestBase is { } __PromptCacheOptionsBaseValue ? __PromptCacheOptionsBaseValue.PromptCacheOptions : default);
+                        var cacheSalt = CliRuntime.WasSpecified(parseResult, CacheSalt) ? parseResult.GetValue(CacheSalt) : (__requestBase is { } __CacheSaltBaseValue ? __CacheSaltBaseValue.CacheSalt : default);
                         var data = CliRuntime.WasSpecified(parseResult, Data) ? parseResult.GetValue(Data) : (__requestBase is { } __DataBaseValue ? __DataBaseValue.Data : default);
                         var ignoreEos = CliRuntime.WasSpecified(parseResult, IgnoreEos) ? parseResult.GetValue(IgnoreEos) : (__requestBase is { } __IgnoreEosBaseValue ? __IgnoreEosBaseValue.IgnoreEos : default);
 
@@ -363,6 +371,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     returnTokensAsTokenIds: returnTokensAsTokenIds,
                                     promptCacheKey: promptCacheKey,
                                     promptCacheOptions: promptCacheOptions,
+                                    cacheSalt: cacheSalt,
                                     data: data,
                                     ignoreEos: ignoreEos,
                                     streamOptions: streamOptions,
