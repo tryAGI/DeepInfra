@@ -52,7 +52,7 @@ namespace DeepInfra
         public required double CentsPerInputToken { get; set; }
 
         /// <summary>
-        /// Price of image tokens, when billed separately from input tokens. A request containing an image reports all of its tokens as image tokens.
+        /// Price of image tokens, when billed separately from input tokens. The tokens of input items that contain an image are image tokens, their text included.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_image_token")]
         public double? CentsPerImageToken { get; set; }
@@ -86,7 +86,7 @@ namespace DeepInfra
         /// Default Value: input_tokens
         /// </param>
         /// <param name="centsPerImageToken">
-        /// Price of image tokens, when billed separately from input tokens. A request containing an image reports all of its tokens as image tokens.
+        /// Price of image tokens, when billed separately from input tokens. The tokens of input items that contain an image are image tokens, their text included.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
