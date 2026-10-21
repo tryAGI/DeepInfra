@@ -15,6 +15,12 @@ namespace DeepInfra
         public int? CachedTokens { get; set; }
 
         /// <summary>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_tokens")]
+        public int? ImageTokens { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,13 +32,18 @@ namespace DeepInfra
         /// <param name="cachedTokens">
         /// Default Value: 0
         /// </param>
+        /// <param name="imageTokens">
+        /// Default Value: 0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BatchInputTokensDetails(
-            int? cachedTokens)
+            int? cachedTokens,
+            int? imageTokens)
         {
             this.CachedTokens = cachedTokens;
+            this.ImageTokens = imageTokens;
         }
 
         /// <summary>
