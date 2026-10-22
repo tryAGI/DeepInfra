@@ -6,7 +6,7 @@ namespace DeepInfra
     /// <summary>
     ///
     /// </summary>
-    public readonly partial struct AnyOf<T1, T2, T3, T4, T5> : global::System.IEquatable<AnyOf<T1, T2, T3, T4, T5>>
+    public readonly partial struct AnyOf<T1, T2, T3, T4, T5, T6> : global::System.IEquatable<AnyOf<T1, T2, T3, T4, T5, T6>>
     {
         /// <summary>
         ///
@@ -192,15 +192,52 @@ namespace DeepInfra
         public T5 PickValue5() => Value5 is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Value5' but the value was {ToString()}.");
-        /// <summary>
-        ///
-        /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5>(T1 value) => new AnyOf<T1, T2, T3, T4, T5>((T1?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator T1?(AnyOf<T1, T2, T3, T4, T5> @this) => @this.Value1;
+#if NET6_0_OR_GREATER
+        public T6? Value6 { get; init; }
+#else
+        public T6? Value6 { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value6))]
+#endif
+        public bool IsValue6 => Value6 != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickValue6(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out T6? value)
+        {
+            value = Value6;
+            return IsValue6;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public T6 PickValue6() => Value6 is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Value6' but the value was {ToString()}.");
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T1 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T1?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator T1?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value1;
 
         /// <summary>
         ///
@@ -213,17 +250,17 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static AnyOf<T1, T2, T3, T4, T5> FromValue1(T1? value) => new AnyOf<T1, T2, T3, T4, T5>(value);
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue1(T1? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5>(T2 value) => new AnyOf<T1, T2, T3, T4, T5>((T2?)value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T2 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T2?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator T2?(AnyOf<T1, T2, T3, T4, T5> @this) => @this.Value2;
+        public static implicit operator T2?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value2;
 
         /// <summary>
         ///
@@ -236,17 +273,17 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static AnyOf<T1, T2, T3, T4, T5> FromValue2(T2? value) => new AnyOf<T1, T2, T3, T4, T5>(value);
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue2(T2? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5>(T3 value) => new AnyOf<T1, T2, T3, T4, T5>((T3?)value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T3 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T3?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator T3?(AnyOf<T1, T2, T3, T4, T5> @this) => @this.Value3;
+        public static implicit operator T3?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value3;
 
         /// <summary>
         ///
@@ -259,17 +296,17 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static AnyOf<T1, T2, T3, T4, T5> FromValue3(T3? value) => new AnyOf<T1, T2, T3, T4, T5>(value);
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue3(T3? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5>(T4 value) => new AnyOf<T1, T2, T3, T4, T5>((T4?)value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T4 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T4?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator T4?(AnyOf<T1, T2, T3, T4, T5> @this) => @this.Value4;
+        public static implicit operator T4?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value4;
 
         /// <summary>
         ///
@@ -282,17 +319,17 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static AnyOf<T1, T2, T3, T4, T5> FromValue4(T4? value) => new AnyOf<T1, T2, T3, T4, T5>(value);
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue4(T4? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator AnyOf<T1, T2, T3, T4, T5>(T5 value) => new AnyOf<T1, T2, T3, T4, T5>((T5?)value);
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T5 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T5?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator T5?(AnyOf<T1, T2, T3, T4, T5> @this) => @this.Value5;
+        public static implicit operator T5?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value5;
 
         /// <summary>
         ///
@@ -305,7 +342,30 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static AnyOf<T1, T2, T3, T4, T5> FromValue5(T5? value) => new AnyOf<T1, T2, T3, T4, T5>(value);
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue5(T5? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator AnyOf<T1, T2, T3, T4, T5, T6>(T6 value) => new AnyOf<T1, T2, T3, T4, T5, T6>((T6?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator T6?(AnyOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value6;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public AnyOf(T6? value)
+        {
+            Value6 = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static AnyOf<T1, T2, T3, T4, T5, T6> FromValue6(T6? value) => new AnyOf<T1, T2, T3, T4, T5, T6>(value);
 
         /// <summary>
         ///
@@ -315,7 +375,8 @@ namespace DeepInfra
             T2? value2,
             T3? value3,
             T4? value4,
-            T5? value5
+            T5? value5,
+            T6? value6
             )
         {
             Value1 = value1;
@@ -323,12 +384,14 @@ namespace DeepInfra
             Value3 = value3;
             Value4 = value4;
             Value5 = value5;
+            Value6 = value6;
         }
 
         /// <summary>
         ///
         /// </summary>
         public object? Object =>
+            Value6 as object ??
             Value5 as object ??
             Value4 as object ??
             Value3 as object ??
@@ -344,7 +407,8 @@ namespace DeepInfra
             Value2?.ToString() ??
             Value3?.ToString() ??
             Value4?.ToString() ??
-            Value5?.ToString()
+            Value5?.ToString() ??
+            Value6?.ToString()
             ;
 
         /// <summary>
@@ -352,7 +416,7 @@ namespace DeepInfra
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 || IsValue2 || IsValue3 || IsValue4 || IsValue5;
+            return IsValue1 || IsValue2 || IsValue3 || IsValue4 || IsValue5 || IsValue6;
         }
 
         /// <summary>
@@ -364,6 +428,7 @@ namespace DeepInfra
             global::System.Func<T3, TResult>? value3 = null,
             global::System.Func<T4, TResult>? value4 = null,
             global::System.Func<T5, TResult>? value5 = null,
+            global::System.Func<T6, TResult>? value6 = null,
             bool validate = true)
         {
             if (validate)
@@ -391,6 +456,10 @@ namespace DeepInfra
             {
                 return value5(__value4);
             }
+            else if (Value6 is { } __value5 && value6 != null)
+            {
+                return value6(__value5);
+            }
 
             return default(TResult);
         }
@@ -408,6 +477,8 @@ namespace DeepInfra
             global::System.Action<T4>? value4 = null,
 
             global::System.Action<T5>? value5 = null,
+
+            global::System.Action<T6>? value6 = null,
             bool validate = true)
         {
             if (validate)
@@ -434,6 +505,10 @@ namespace DeepInfra
             else if (Value5 is { } __value4)
             {
                 value5?.Invoke(__value4);
+            }
+            else if (Value6 is { } __value5)
+            {
+                value6?.Invoke(__value5);
             }
         }
 
@@ -446,6 +521,7 @@ namespace DeepInfra
             global::System.Action<T3>? value3 = null,
             global::System.Action<T4>? value4 = null,
             global::System.Action<T5>? value5 = null,
+            global::System.Action<T6>? value6 = null,
             bool validate = true)
         {
             if (validate)
@@ -472,6 +548,10 @@ namespace DeepInfra
             else if (Value5 is { } __value4)
             {
                 value5?.Invoke(__value4);
+            }
+            else if (Value6 is { } __value5)
+            {
+                value6?.Invoke(__value5);
             }
         }
 
@@ -492,6 +572,8 @@ namespace DeepInfra
                 typeof(T4),
                 Value5,
                 typeof(T5),
+                Value6,
+                typeof(T6),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -505,29 +587,30 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public bool Equals(AnyOf<T1, T2, T3, T4, T5> other)
+        public bool Equals(AnyOf<T1, T2, T3, T4, T5, T6> other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<T1?>.Default.Equals(Value1, other.Value1) &&
                 global::System.Collections.Generic.EqualityComparer<T2?>.Default.Equals(Value2, other.Value2) &&
                 global::System.Collections.Generic.EqualityComparer<T3?>.Default.Equals(Value3, other.Value3) &&
                 global::System.Collections.Generic.EqualityComparer<T4?>.Default.Equals(Value4, other.Value4) &&
-                global::System.Collections.Generic.EqualityComparer<T5?>.Default.Equals(Value5, other.Value5)
+                global::System.Collections.Generic.EqualityComparer<T5?>.Default.Equals(Value5, other.Value5) &&
+                global::System.Collections.Generic.EqualityComparer<T6?>.Default.Equals(Value6, other.Value6)
                 ;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static bool operator ==(AnyOf<T1, T2, T3, T4, T5> obj1, AnyOf<T1, T2, T3, T4, T5> obj2)
+        public static bool operator ==(AnyOf<T1, T2, T3, T4, T5, T6> obj1, AnyOf<T1, T2, T3, T4, T5, T6> obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<AnyOf<T1, T2, T3, T4, T5>>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<AnyOf<T1, T2, T3, T4, T5, T6>>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static bool operator !=(AnyOf<T1, T2, T3, T4, T5> obj1, AnyOf<T1, T2, T3, T4, T5> obj2)
+        public static bool operator !=(AnyOf<T1, T2, T3, T4, T5, T6> obj1, AnyOf<T1, T2, T3, T4, T5, T6> obj2)
         {
             return !(obj1 == obj2);
         }
@@ -537,7 +620,7 @@ namespace DeepInfra
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is AnyOf<T1, T2, T3, T4, T5> o && Equals(o);
+            return obj is AnyOf<T1, T2, T3, T4, T5, T6> o && Equals(o);
         }
     }
 }
