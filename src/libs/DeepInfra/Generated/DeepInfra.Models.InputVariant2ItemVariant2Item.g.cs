@@ -92,75 +92,75 @@ namespace DeepInfra
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::DeepInfra.ChatCompletionContentPartAudio? AudioUrl1 { get; init; }
+        public global::DeepInfra.ChatCompletionContentPartAudio? InputAudio { get; init; }
 #else
-        public global::DeepInfra.ChatCompletionContentPartAudio? AudioUrl1 { get; }
+        public global::DeepInfra.ChatCompletionContentPartAudio? InputAudio { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioUrl1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(InputAudio))]
 #endif
-        public bool IsAudioUrl1 => AudioUrl1 != null;
+        public bool IsInputAudio => InputAudio != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickAudioUrl1(
+        public bool TryPickInputAudio(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
             out global::DeepInfra.ChatCompletionContentPartAudio? value)
         {
-            value = AudioUrl1;
-            return IsAudioUrl1;
+            value = InputAudio;
+            return IsInputAudio;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartAudio PickAudioUrl1() => AudioUrl1 is { } value
+        public global::DeepInfra.ChatCompletionContentPartAudio PickInputAudio() => InputAudio is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl1' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'InputAudio' but the value was {ToString()}.");
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::DeepInfra.ChatCompletionContentPartAudioURL? AudioUrl2 { get; init; }
+        public global::DeepInfra.ChatCompletionContentPartAudioURL? AudioUrl { get; init; }
 #else
-        public global::DeepInfra.ChatCompletionContentPartAudioURL? AudioUrl2 { get; }
+        public global::DeepInfra.ChatCompletionContentPartAudioURL? AudioUrl { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioUrl2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioUrl))]
 #endif
-        public bool IsAudioUrl2 => AudioUrl2 != null;
+        public bool IsAudioUrl => AudioUrl != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickAudioUrl2(
+        public bool TryPickAudioUrl(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
             out global::DeepInfra.ChatCompletionContentPartAudioURL? value)
         {
-            value = AudioUrl2;
-            return IsAudioUrl2;
+            value = AudioUrl;
+            return IsAudioUrl;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.ChatCompletionContentPartAudioURL PickAudioUrl2() => AudioUrl2 is { } value
+        public global::DeepInfra.ChatCompletionContentPartAudioURL PickAudioUrl() => AudioUrl is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl2' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioUrl' but the value was {ToString()}.");
 
         /// <summary>
         ///
@@ -252,20 +252,20 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::DeepInfra.ChatCompletionContentPartAudio?(InputVariant2ItemVariant2Item @this) => @this.AudioUrl1;
+        public static implicit operator global::DeepInfra.ChatCompletionContentPartAudio?(InputVariant2ItemVariant2Item @this) => @this.InputAudio;
 
         /// <summary>
         ///
         /// </summary>
         public InputVariant2ItemVariant2Item(global::DeepInfra.ChatCompletionContentPartAudio? value)
         {
-            AudioUrl1 = value;
+            InputAudio = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static InputVariant2ItemVariant2Item FromAudioUrl1(global::DeepInfra.ChatCompletionContentPartAudio? value) => new InputVariant2ItemVariant2Item(value);
+        public static InputVariant2ItemVariant2Item FromInputAudio(global::DeepInfra.ChatCompletionContentPartAudio? value) => new InputVariant2ItemVariant2Item(value);
 
         /// <summary>
         ///
@@ -275,20 +275,20 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::DeepInfra.ChatCompletionContentPartAudioURL?(InputVariant2ItemVariant2Item @this) => @this.AudioUrl2;
+        public static implicit operator global::DeepInfra.ChatCompletionContentPartAudioURL?(InputVariant2ItemVariant2Item @this) => @this.AudioUrl;
 
         /// <summary>
         ///
         /// </summary>
         public InputVariant2ItemVariant2Item(global::DeepInfra.ChatCompletionContentPartAudioURL? value)
         {
-            AudioUrl2 = value;
+            AudioUrl = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static InputVariant2ItemVariant2Item FromAudioUrl2(global::DeepInfra.ChatCompletionContentPartAudioURL? value) => new InputVariant2ItemVariant2Item(value);
+        public static InputVariant2ItemVariant2Item FromAudioUrl(global::DeepInfra.ChatCompletionContentPartAudioURL? value) => new InputVariant2ItemVariant2Item(value);
 
         /// <summary>
         ///
@@ -320,8 +320,8 @@ namespace DeepInfra
             global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType? type,
             global::DeepInfra.ChatCompletionContentPartText? text,
             global::DeepInfra.ChatCompletionContentPartImage? imageUrl,
-            global::DeepInfra.ChatCompletionContentPartAudio? audioUrl1,
-            global::DeepInfra.ChatCompletionContentPartAudioURL? audioUrl2,
+            global::DeepInfra.ChatCompletionContentPartAudio? inputAudio,
+            global::DeepInfra.ChatCompletionContentPartAudioURL? audioUrl,
             global::DeepInfra.ChatCompletionContentPartVideo? videoUrl
             )
         {
@@ -329,8 +329,8 @@ namespace DeepInfra
 
             Text = text;
             ImageUrl = imageUrl;
-            AudioUrl1 = audioUrl1;
-            AudioUrl2 = audioUrl2;
+            InputAudio = inputAudio;
+            AudioUrl = audioUrl;
             VideoUrl = videoUrl;
         }
 
@@ -339,8 +339,8 @@ namespace DeepInfra
         /// </summary>
         public object? Object =>
             VideoUrl as object ??
-            AudioUrl2 as object ??
-            AudioUrl1 as object ??
+            AudioUrl as object ??
+            InputAudio as object ??
             ImageUrl as object ??
             Text as object
             ;
@@ -351,8 +351,8 @@ namespace DeepInfra
         public override string? ToString() =>
             Text?.ToString() ??
             ImageUrl?.ToString() ??
-            AudioUrl1?.ToString() ??
-            AudioUrl2?.ToString() ??
+            InputAudio?.ToString() ??
+            AudioUrl?.ToString() ??
             VideoUrl?.ToString()
             ;
 
@@ -361,7 +361,7 @@ namespace DeepInfra
         /// </summary>
         public bool Validate()
         {
-            return IsText && !IsImageUrl && !IsAudioUrl1 && !IsAudioUrl2 && !IsVideoUrl || !IsText && IsImageUrl && !IsAudioUrl1 && !IsAudioUrl2 && !IsVideoUrl || !IsText && !IsImageUrl && IsAudioUrl1 && !IsAudioUrl2 && !IsVideoUrl || !IsText && !IsImageUrl && !IsAudioUrl1 && IsAudioUrl2 && !IsVideoUrl || !IsText && !IsImageUrl && !IsAudioUrl1 && !IsAudioUrl2 && IsVideoUrl;
+            return IsText && !IsImageUrl && !IsInputAudio && !IsAudioUrl && !IsVideoUrl || !IsText && IsImageUrl && !IsInputAudio && !IsAudioUrl && !IsVideoUrl || !IsText && !IsImageUrl && IsInputAudio && !IsAudioUrl && !IsVideoUrl || !IsText && !IsImageUrl && !IsInputAudio && IsAudioUrl && !IsVideoUrl || !IsText && !IsImageUrl && !IsInputAudio && !IsAudioUrl && IsVideoUrl;
         }
 
         /// <summary>
@@ -370,8 +370,8 @@ namespace DeepInfra
         public TResult? Match<TResult>(
             global::System.Func<global::DeepInfra.ChatCompletionContentPartText, TResult>? text = null,
             global::System.Func<global::DeepInfra.ChatCompletionContentPartImage, TResult>? imageUrl = null,
-            global::System.Func<global::DeepInfra.ChatCompletionContentPartAudio, TResult>? audioUrl1 = null,
-            global::System.Func<global::DeepInfra.ChatCompletionContentPartAudioURL, TResult>? audioUrl2 = null,
+            global::System.Func<global::DeepInfra.ChatCompletionContentPartAudio, TResult>? inputAudio = null,
+            global::System.Func<global::DeepInfra.ChatCompletionContentPartAudioURL, TResult>? audioUrl = null,
             global::System.Func<global::DeepInfra.ChatCompletionContentPartVideo, TResult>? videoUrl = null,
             bool validate = true)
         {
@@ -388,13 +388,13 @@ namespace DeepInfra
             {
                 return imageUrl(__value1);
             }
-            else if (AudioUrl1 is { } __value2 && audioUrl1 != null)
+            else if (InputAudio is { } __value2 && inputAudio != null)
             {
-                return audioUrl1(__value2);
+                return inputAudio(__value2);
             }
-            else if (AudioUrl2 is { } __value3 && audioUrl2 != null)
+            else if (AudioUrl is { } __value3 && audioUrl != null)
             {
-                return audioUrl2(__value3);
+                return audioUrl(__value3);
             }
             else if (VideoUrl is { } __value4 && videoUrl != null)
             {
@@ -412,9 +412,9 @@ namespace DeepInfra
 
             global::System.Action<global::DeepInfra.ChatCompletionContentPartImage>? imageUrl = null,
 
-            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudio>? audioUrl1 = null,
+            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudio>? inputAudio = null,
 
-            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudioURL>? audioUrl2 = null,
+            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudioURL>? audioUrl = null,
 
             global::System.Action<global::DeepInfra.ChatCompletionContentPartVideo>? videoUrl = null,
             bool validate = true)
@@ -432,13 +432,13 @@ namespace DeepInfra
             {
                 imageUrl?.Invoke(__value1);
             }
-            else if (AudioUrl1 is { } __value2)
+            else if (InputAudio is { } __value2)
             {
-                audioUrl1?.Invoke(__value2);
+                inputAudio?.Invoke(__value2);
             }
-            else if (AudioUrl2 is { } __value3)
+            else if (AudioUrl is { } __value3)
             {
-                audioUrl2?.Invoke(__value3);
+                audioUrl?.Invoke(__value3);
             }
             else if (VideoUrl is { } __value4)
             {
@@ -452,8 +452,8 @@ namespace DeepInfra
         public void Switch(
             global::System.Action<global::DeepInfra.ChatCompletionContentPartText>? text = null,
             global::System.Action<global::DeepInfra.ChatCompletionContentPartImage>? imageUrl = null,
-            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudio>? audioUrl1 = null,
-            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudioURL>? audioUrl2 = null,
+            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudio>? inputAudio = null,
+            global::System.Action<global::DeepInfra.ChatCompletionContentPartAudioURL>? audioUrl = null,
             global::System.Action<global::DeepInfra.ChatCompletionContentPartVideo>? videoUrl = null,
             bool validate = true)
         {
@@ -470,13 +470,13 @@ namespace DeepInfra
             {
                 imageUrl?.Invoke(__value1);
             }
-            else if (AudioUrl1 is { } __value2)
+            else if (InputAudio is { } __value2)
             {
-                audioUrl1?.Invoke(__value2);
+                inputAudio?.Invoke(__value2);
             }
-            else if (AudioUrl2 is { } __value3)
+            else if (AudioUrl is { } __value3)
             {
-                audioUrl2?.Invoke(__value3);
+                audioUrl?.Invoke(__value3);
             }
             else if (VideoUrl is { } __value4)
             {
@@ -495,9 +495,9 @@ namespace DeepInfra
                 typeof(global::DeepInfra.ChatCompletionContentPartText),
                 ImageUrl,
                 typeof(global::DeepInfra.ChatCompletionContentPartImage),
-                AudioUrl1,
+                InputAudio,
                 typeof(global::DeepInfra.ChatCompletionContentPartAudio),
-                AudioUrl2,
+                AudioUrl,
                 typeof(global::DeepInfra.ChatCompletionContentPartAudioURL),
                 VideoUrl,
                 typeof(global::DeepInfra.ChatCompletionContentPartVideo),
@@ -519,8 +519,8 @@ namespace DeepInfra
             return
                 global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartText?>.Default.Equals(Text, other.Text) &&
                 global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartImage?>.Default.Equals(ImageUrl, other.ImageUrl) &&
-                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartAudio?>.Default.Equals(AudioUrl1, other.AudioUrl1) &&
-                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartAudioURL?>.Default.Equals(AudioUrl2, other.AudioUrl2) &&
+                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartAudio?>.Default.Equals(InputAudio, other.InputAudio) &&
+                global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartAudioURL?>.Default.Equals(AudioUrl, other.AudioUrl) &&
                 global::System.Collections.Generic.EqualityComparer<global::DeepInfra.ChatCompletionContentPartVideo?>.Default.Equals(VideoUrl, other.VideoUrl)
                 ;
         }
