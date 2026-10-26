@@ -35,19 +35,19 @@ namespace DeepInfra.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.ChatCompletionContentPartImage)}");
                 imageUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::DeepInfra.ChatCompletionContentPartAudio? audioUrl1 = default;
-            if (discriminator?.Type == global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.AudioUrl)
+            global::DeepInfra.ChatCompletionContentPartAudio? inputAudio = default;
+            if (discriminator?.Type == global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.InputAudio)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartAudio), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartAudio> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.ChatCompletionContentPartAudio)}");
-                audioUrl1 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                inputAudio = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::DeepInfra.ChatCompletionContentPartAudioURL? audioUrl2 = default;
+            global::DeepInfra.ChatCompletionContentPartAudioURL? audioUrl = default;
             if (discriminator?.Type == global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.AudioUrl)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartAudioURL), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartAudioURL> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::DeepInfra.ChatCompletionContentPartAudioURL)}");
-                audioUrl2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                audioUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::DeepInfra.ChatCompletionContentPartVideo? videoUrl = default;
             if (discriminator?.Type == global::DeepInfra.OpenAIEmbeddingsInInputVariant2ItemVariant2ItemDiscriminatorType.VideoUrl)
@@ -63,9 +63,9 @@ namespace DeepInfra.JsonConverters
 
                 imageUrl,
 
-                audioUrl1,
+                inputAudio,
 
-                audioUrl2,
+                audioUrl,
 
                 videoUrl
                 );
@@ -94,17 +94,17 @@ namespace DeepInfra.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChatCompletionContentPartImage).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImageUrl(), typeInfo);
             }
-            else if (value.IsAudioUrl1)
+            else if (value.IsInputAudio)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartAudio), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartAudio?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChatCompletionContentPartAudio).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAudioUrl1(), typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickInputAudio(), typeInfo);
             }
-            else if (value.IsAudioUrl2)
+            else if (value.IsAudioUrl)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::DeepInfra.ChatCompletionContentPartAudioURL), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::DeepInfra.ChatCompletionContentPartAudioURL?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::DeepInfra.ChatCompletionContentPartAudioURL).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAudioUrl2(), typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAudioUrl(), typeInfo);
             }
             else if (value.IsVideoUrl)
             {
