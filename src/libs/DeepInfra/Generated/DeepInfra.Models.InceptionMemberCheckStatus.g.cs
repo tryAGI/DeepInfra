@@ -11,7 +11,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        Approved,
+        BenefitApproved,
+        /// <summary>
+        ///
+        /// </summary>
+        BenefitNotApproved,
         /// <summary>
         ///
         /// </summary>
@@ -19,7 +23,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        Rejected,
+        InvalidWebsite,
+        /// <summary>
+        ///
+        /// </summary>
+        NotMember,
     }
 
     /// <summary>
@@ -34,9 +42,11 @@ namespace DeepInfra
         {
             return value switch
             {
-                InceptionMemberCheckStatus.Approved => "approved",
+                InceptionMemberCheckStatus.BenefitApproved => "benefit_approved",
+                InceptionMemberCheckStatus.BenefitNotApproved => "benefit_not_approved",
                 InceptionMemberCheckStatus.Error => "error",
-                InceptionMemberCheckStatus.Rejected => "rejected",
+                InceptionMemberCheckStatus.InvalidWebsite => "invalid_website",
+                InceptionMemberCheckStatus.NotMember => "not_member",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +57,11 @@ namespace DeepInfra
         {
             return value switch
             {
-                "approved" => InceptionMemberCheckStatus.Approved,
+                "benefit_approved" => InceptionMemberCheckStatus.BenefitApproved,
+                "benefit_not_approved" => InceptionMemberCheckStatus.BenefitNotApproved,
                 "error" => InceptionMemberCheckStatus.Error,
-                "rejected" => InceptionMemberCheckStatus.Rejected,
+                "invalid_website" => InceptionMemberCheckStatus.InvalidWebsite,
+                "not_member" => InceptionMemberCheckStatus.NotMember,
                 _ => null,
             };
         }
