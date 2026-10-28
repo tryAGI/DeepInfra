@@ -84,15 +84,6 @@ namespace DeepInfra
         };
 
         /// <summary>
-        /// Payment methods, usage tracking, and billing.
-        /// </summary>
-        public BillingClient Billing => new BillingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
         /// OpenAI and Anthropic-compatible chat completion endpoints for LLMs.
         /// </summary>
         public ChatCompletionsClient ChatCompletions => new ChatCompletionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
