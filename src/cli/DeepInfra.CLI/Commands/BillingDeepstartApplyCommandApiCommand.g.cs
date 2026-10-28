@@ -13,18 +13,6 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
         Description = @"",
     };
 
-    private static Option<string?> Id { get; } = new(
-        name: @"--id")
-    {
-        Description = @"",
-    };
-
-    private static Option<string?> Uid { get; } = new(
-        name: @"--uid")
-    {
-        Description = @"",
-    };
-
     private static Option<string> Company { get; } = new(
         name: @"--company")
     {
@@ -70,26 +58,8 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
         name: @"--nvidia-consent",
         description: @"");
 
-    private static Option<int?> CreatedAt { get; } = new(
-        name: @"--created-at")
-    {
-        Description = @"",
-    };
-
-    private static Option<string?> Status { get; } = new(
-        name: @"--status")
-    {
-        Description = @"",
-    };
-
     private static Option<string?> Deal { get; } = new(
         name: @"--deal")
-    {
-        Description = @"",
-    };
-
-    private static Option<global::DeepInfra.InceptionMemberCheck?> InceptionCheck { get; } = new(
-        name: @"--inception-check")
     {
         Description = @"",
     };
@@ -136,8 +106,6 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
     {
         var command = new Command(commandName ?? @"deepstart-apply", @"Deepstart Apply");
                         command.Options.Add(Session);
-                        command.Options.Add(Id);
-                        command.Options.Add(Uid);
                         command.Options.Add(Company);
                         command.Options.Add(Ceo);
                         command.Options.Add(Funding);
@@ -145,10 +113,7 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         command.Options.Add(Website);
                         command.Options.Add(CountryCode);
                         command.Options.Add(NvidiaConsent);
-                        command.Options.Add(CreatedAt);
-                        command.Options.Add(Status);
                         command.Options.Add(Deal);
-                        command.Options.Add(InceptionCheck);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -175,8 +140,6 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                             global::DeepInfra.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var session = parseResult.GetValue(Session);
-                        var id = CliRuntime.WasSpecified(parseResult, Id) ? parseResult.GetValue(Id) : (__requestBase is { } __IdBaseValue ? __IdBaseValue.Id : default);
-                        var uid = CliRuntime.WasSpecified(parseResult, Uid) ? parseResult.GetValue(Uid) : (__requestBase is { } __UidBaseValue ? __UidBaseValue.Uid : default);
                         var company = parseResult.GetRequiredValue(Company);
                         var ceo = parseResult.GetRequiredValue(Ceo);
                         var funding = parseResult.GetRequiredValue(Funding);
@@ -184,17 +147,12 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                         var website = parseResult.GetRequiredValue(Website);
                         var countryCode = CliRuntime.WasSpecified(parseResult, CountryCode) ? parseResult.GetValue(CountryCode) : (__requestBase is { } __CountryCodeBaseValue ? __CountryCodeBaseValue.CountryCode : default);
                         var nvidiaConsent = CliRuntime.WasSpecified(parseResult, NvidiaConsent) ? parseResult.GetValue(NvidiaConsent) : (__requestBase is { } __NvidiaConsentBaseValue ? __NvidiaConsentBaseValue.NvidiaConsent : default);
-                        var createdAt = CliRuntime.WasSpecified(parseResult, CreatedAt) ? parseResult.GetValue(CreatedAt) : (__requestBase is { } __CreatedAtBaseValue ? __CreatedAtBaseValue.CreatedAt : default);
-                        var status = CliRuntime.WasSpecified(parseResult, Status) ? parseResult.GetValue(Status) : (__requestBase is { } __StatusBaseValue ? __StatusBaseValue.Status : default);
                         var deal = CliRuntime.WasSpecified(parseResult, Deal) ? parseResult.GetValue(Deal) : (__requestBase is { } __DealBaseValue ? __DealBaseValue.Deal : default);
-                        var inceptionCheck = CliRuntime.WasSpecified(parseResult, InceptionCheck) ? parseResult.GetValue(InceptionCheck) : (__requestBase is { } __InceptionCheckBaseValue ? __InceptionCheckBaseValue.InceptionCheck : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Billing.DeepstartApplyAsync(
                                     session: session,
-                                    id: id,
-                                    uid: uid,
                                     company: company,
                                     ceo: ceo,
                                     funding: funding,
@@ -202,10 +160,7 @@ internal static partial class BillingDeepstartApplyCommandApiCommand
                                     website: website,
                                     countryCode: countryCode,
                                     nvidiaConsent: nvidiaConsent,
-                                    createdAt: createdAt,
-                                    status: status,
                                     deal: deal,
-                                    inceptionCheck: inceptionCheck,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
