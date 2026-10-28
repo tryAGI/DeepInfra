@@ -114,11 +114,11 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.InceptionMemberCheck? Type19 { get; set; }
+        public global::DeepInfra.DeepStartApplicationOut? Type19 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::DeepInfra.DeepStartApplicationOut? Type20 { get; set; }
+        public global::DeepInfra.InceptionMemberCheck? Type20 { get; set; }
         /// <summary>
         ///
         /// </summary>

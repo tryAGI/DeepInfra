@@ -11,18 +11,6 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("uid")]
-        public string? Uid { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("company")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Company { get; set; }
@@ -70,6 +58,24 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("deal")]
+        public string? Deal { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("uid")]
+        public string? Uid { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public int? CreatedAt { get; set; }
 
@@ -78,12 +84,6 @@ namespace DeepInfra
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         public string? Status { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deal")]
-        public string? Deal { get; set; }
 
         /// <summary>
         ///
@@ -111,17 +111,17 @@ namespace DeepInfra
         /// <param name="funding"></param>
         /// <param name="foundedOn"></param>
         /// <param name="website"></param>
-        /// <param name="id"></param>
-        /// <param name="uid"></param>
         /// <param name="countryCode"></param>
         /// <param name="nvidiaConsent">
         /// Default Value: false
         /// </param>
+        /// <param name="deal"></param>
+        /// <param name="id"></param>
+        /// <param name="uid"></param>
         /// <param name="createdAt"></param>
         /// <param name="status">
         /// Default Value: pending
         /// </param>
-        /// <param name="deal"></param>
         /// <param name="inceptionCheck"></param>
         /// <param name="email"></param>
 #if NET7_0_OR_GREATER
@@ -133,18 +133,16 @@ namespace DeepInfra
             string funding,
             string foundedOn,
             string website,
-            string? id,
-            string? uid,
             string? countryCode,
             bool? nvidiaConsent,
+            string? deal,
+            string? id,
+            string? uid,
             int? createdAt,
             string? status,
-            string? deal,
             global::DeepInfra.InceptionMemberCheck? inceptionCheck,
             string? email)
         {
-            this.Id = id;
-            this.Uid = uid;
             this.Company = company ?? throw new global::System.ArgumentNullException(nameof(company));
             this.Ceo = ceo ?? throw new global::System.ArgumentNullException(nameof(ceo));
             this.Funding = funding ?? throw new global::System.ArgumentNullException(nameof(funding));
@@ -152,9 +150,11 @@ namespace DeepInfra
             this.Website = website ?? throw new global::System.ArgumentNullException(nameof(website));
             this.CountryCode = countryCode;
             this.NvidiaConsent = nvidiaConsent;
+            this.Deal = deal;
+            this.Id = id;
+            this.Uid = uid;
             this.CreatedAt = createdAt;
             this.Status = status;
-            this.Deal = deal;
             this.InceptionCheck = inceptionCheck;
             this.Email = email;
         }

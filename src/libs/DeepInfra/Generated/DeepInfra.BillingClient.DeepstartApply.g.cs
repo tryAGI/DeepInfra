@@ -493,8 +493,6 @@ namespace DeepInfra
         /// Deepstart Apply
         /// </summary>
         /// <param name="session"></param>
-        /// <param name="id"></param>
-        /// <param name="uid"></param>
         /// <param name="company"></param>
         /// <param name="ceo"></param>
         /// <param name="funding"></param>
@@ -504,12 +502,7 @@ namespace DeepInfra
         /// <param name="nvidiaConsent">
         /// Default Value: false
         /// </param>
-        /// <param name="createdAt"></param>
-        /// <param name="status">
-        /// Default Value: pending
-        /// </param>
         /// <param name="deal"></param>
-        /// <param name="inceptionCheck"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -520,21 +513,14 @@ namespace DeepInfra
             string foundedOn,
             string website,
             object? session = default,
-            string? id = default,
-            string? uid = default,
             string? countryCode = default,
             bool? nvidiaConsent = default,
-            int? createdAt = default,
-            string? status = default,
             string? deal = default,
-            global::DeepInfra.InceptionMemberCheck? inceptionCheck = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::DeepInfra.DeepStartApplicationIn
             {
-                Id = id,
-                Uid = uid,
                 Company = company,
                 Ceo = ceo,
                 Funding = funding,
@@ -542,10 +528,7 @@ namespace DeepInfra
                 Website = website,
                 CountryCode = countryCode,
                 NvidiaConsent = nvidiaConsent,
-                CreatedAt = createdAt,
-                Status = status,
                 Deal = deal,
-                InceptionCheck = inceptionCheck,
             };
 
             return await DeepstartApplyAsync(
