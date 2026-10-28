@@ -66,6 +66,11 @@ namespace DeepInfra
         public AuthenticationClient Authentication { get; }
 
         /// <summary>
+        /// Payment methods, usage tracking, and billing.
+        /// </summary>
+        public BillingClient Billing { get; }
+
+        /// <summary>
         /// OpenAI and Anthropic-compatible chat completion endpoints for LLMs.
         /// </summary>
         public ChatCompletionsClient ChatCompletions { get; }
