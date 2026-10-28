@@ -1579,6 +1579,10 @@ namespace DeepInfra
         ///
         /// </summary>
         public global::System.Collections.Generic.IList<global::DeepInfra.SandboxPlanOut>? Type385 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::DeepInfra.KeyLimitOut>? Type386 { get; set; }
 
         /// <summary>
         ///
@@ -1836,5 +1840,9 @@ namespace DeepInfra
         ///
         /// </summary>
         public global::System.Collections.Generic.List<global::DeepInfra.SandboxPlanOut>? ListType63 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.List<global::DeepInfra.KeyLimitOut>? ListType64 { get; set; }
     }
 }

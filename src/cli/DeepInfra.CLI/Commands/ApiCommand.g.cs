@@ -16,6 +16,7 @@ internal static partial class ApiCommand
                          command.Subcommands.Add(AgentsApiGroupCommand.Create());
                          command.Subcommands.Add(AudioApiGroupCommand.Create());
                          command.Subcommands.Add(AuthenticationApiGroupCommand.Create());
+                         command.Subcommands.Add(BillingApiGroupCommand.Create());
                          command.Subcommands.Add(ChatCompletionsApiGroupCommand.Create());
                          command.Subcommands.Add(DecisionsApiGroupCommand.Create());
                          command.Subcommands.Add(DedicatedModelsApiGroupCommand.Create());
