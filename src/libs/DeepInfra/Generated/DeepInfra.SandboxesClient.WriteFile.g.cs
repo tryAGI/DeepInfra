@@ -514,7 +514,7 @@ namespace DeepInfra
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Request Entity Too Large
+                            // Content Too Large
                             if ((int)__response.StatusCode == 413)
                             {
                                 string? __content_413 = null;

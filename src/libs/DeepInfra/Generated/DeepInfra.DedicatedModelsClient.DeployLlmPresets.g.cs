@@ -389,7 +389,7 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Unprocessable Entity
+                            // Unprocessable Content
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
