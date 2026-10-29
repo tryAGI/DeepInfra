@@ -31,10 +31,6 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        Deepctl,
-        /// <summary>
-        ///
-        /// </summary>
         DeleteVoiceHttp,
         /// <summary>
         ///
@@ -251,7 +247,6 @@ namespace DeepInfra
                 ModelDocBlockKey.CreateVoiceHttp => "create-voice-http",
                 ModelDocBlockKey.CreateVoiceJs => "create-voice-js",
                 ModelDocBlockKey.CreateVoicePython => "create-voice-python",
-                ModelDocBlockKey.Deepctl => "deepctl",
                 ModelDocBlockKey.DeleteVoiceHttp => "delete-voice-http",
                 ModelDocBlockKey.DeleteVoiceJs => "delete-voice-js",
                 ModelDocBlockKey.DeleteVoicePython => "delete-voice-python",
@@ -317,7 +312,6 @@ namespace DeepInfra
                 "create-voice-http" => ModelDocBlockKey.CreateVoiceHttp,
                 "create-voice-js" => ModelDocBlockKey.CreateVoiceJs,
                 "create-voice-python" => ModelDocBlockKey.CreateVoicePython,
-                "deepctl" => ModelDocBlockKey.Deepctl,
                 "delete-voice-http" => ModelDocBlockKey.DeleteVoiceHttp,
                 "delete-voice-js" => ModelDocBlockKey.DeleteVoiceJs,
                 "delete-voice-python" => ModelDocBlockKey.DeleteVoicePython,
