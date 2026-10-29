@@ -131,6 +131,12 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
         Description = @"",
     };
 
+    private static Option<global::DeepInfra.AnthropicOutputConfig?> OutputConfig { get; } = new(
+        name: @"--output-config")
+    {
+        Description = @"",
+    };
+
     private static Option<string?> PromptCacheKey { get; } = new(
         name: @"--prompt-cache-key")
     {
@@ -200,6 +206,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
                         command.Options.Add(Metadata);
                         command.Options.Add(Tools);
                         command.Options.Add(ToolChoice);
+                        command.Options.Add(OutputConfig);
                         command.Options.Add(PromptCacheKey);                        command.Options.Add(ThinkingOptions.BudgetTokens);
                         command.Options.Add(ThinkingOptions.Enabled);
           command.Options.Add(Input);
@@ -248,6 +255,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
                         var metadata = CliRuntime.WasSpecified(parseResult, Metadata) ? parseResult.GetValue(Metadata) : (__requestBase is { } __MetadataBaseValue ? __MetadataBaseValue.Metadata : default);
                         var tools = CliRuntime.WasSpecified(parseResult, Tools) ? parseResult.GetValue(Tools) : (__requestBase is { } __ToolsBaseValue ? __ToolsBaseValue.Tools : default);
                         var toolChoice = CliRuntime.WasSpecified(parseResult, ToolChoice) ? parseResult.GetValue(ToolChoice) : (__requestBase is { } __ToolChoiceBaseValue ? __ToolChoiceBaseValue.ToolChoice : default);
+                        var outputConfig = CliRuntime.WasSpecified(parseResult, OutputConfig) ? parseResult.GetValue(OutputConfig) : (__requestBase is { } __OutputConfigBaseValue ? __OutputConfigBaseValue.OutputConfig : default);
                         var promptCacheKey = CliRuntime.WasSpecified(parseResult, PromptCacheKey) ? parseResult.GetValue(PromptCacheKey) : (__requestBase is { } __PromptCacheKeyBaseValue ? __PromptCacheKeyBaseValue.PromptCacheKey : default);
 
                         var __ThinkingBase = __requestBase is { } __ThinkingBaseValue ? __ThinkingBaseValue.Thinking : default;                        var thinkingBudgetTokens = CliRuntime.WasSpecified(parseResult, ThinkingOptions.BudgetTokens) ? parseResult.GetValue(ThinkingOptions.BudgetTokens) : (__ThinkingBase is { } __ThinkingbudgetTokensBaseValue ? __ThinkingbudgetTokensBaseValue.BudgetTokens : default);
@@ -287,6 +295,7 @@ internal static partial class ChatCompletionsAnthropicMessagesCommandApiCommand
                                     metadata: metadata,
                                     tools: tools,
                                     toolChoice: toolChoice,
+                                    outputConfig: outputConfig,
                                     promptCacheKey: promptCacheKey,
                                     thinking: thinking,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);

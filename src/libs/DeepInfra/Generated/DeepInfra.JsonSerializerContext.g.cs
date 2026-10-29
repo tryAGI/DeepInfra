@@ -23,6 +23,10 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.AgentInstanceStateNullableJsonConverter),
 
+            typeof(global::DeepInfra.JsonConverters.AnthropicOutputConfigEffortJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.AnthropicOutputConfigEffortNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.AnthropicThinkingConfigTypeJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.AnthropicThinkingConfigTypeNullableJsonConverter),
@@ -174,6 +178,10 @@ namespace DeepInfra
             typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.SchemaVariantKeyNullableJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.ScopeJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.ScopeNullableJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ServiceTierJsonConverter),
 
@@ -360,10 +368,14 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicThinkingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicOutputConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicOutputConfigEffort), TypeInfoPropertyName = "AnthropicOutputConfigEffort2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicThinkingConfigType), TypeInfoPropertyName = "AnthropicThinkingConfigType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicTokenCountRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.Scope>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Scope), TypeInfoPropertyName = "Scope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AudioURL))]
@@ -701,6 +713,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.List<global::DeepInfra.AnthropicSystemContent>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnthropicSystemContent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnthropicTool>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.Scope>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.BatchErrorData>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<byte[]>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>))]

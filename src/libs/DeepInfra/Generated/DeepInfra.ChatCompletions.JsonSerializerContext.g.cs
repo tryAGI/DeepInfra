@@ -41,6 +41,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicThinkingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicOutputConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicOutputConfigEffort), TypeInfoPropertyName = "AnthropicOutputConfigEffort2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicThinkingConfigType), TypeInfoPropertyName = "AnthropicThinkingConfigType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicTokenCountRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AudioURL))]
@@ -98,6 +100,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ServiceTier?), TypeInfoPropertyName = "NullableServiceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnthropicSystemContent>>?), TypeInfoPropertyName = "NullableAnyOfStringIListAnthropicSystemContent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicOutputConfigEffort?), TypeInfoPropertyName = "NullableAnthropicOutputConfigEffort2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnthropicThinkingConfigType?), TypeInfoPropertyName = "NullableAnthropicThinkingConfigType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.ChatCompletionContentPartText>>?), TypeInfoPropertyName = "NullableAnyOfStringIListChatCompletionContentPartText2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ChatReasoningSettingsEffort?), TypeInfoPropertyName = "NullableChatReasoningSettingsEffort2")]
@@ -220,7 +223,11 @@ namespace DeepInfra
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::DeepInfra.AnthropicThinkingConfigType)
+                    typeToConvert == typeof(global::DeepInfra.AnthropicOutputConfigEffort)
+
+                    || typeToConvert == typeof(global::DeepInfra.AnthropicOutputConfigEffort?)
+
+                    || typeToConvert == typeof(global::DeepInfra.AnthropicThinkingConfigType)
 
                     || typeToConvert == typeof(global::DeepInfra.AnthropicThinkingConfigType?)
 
@@ -261,6 +268,16 @@ namespace DeepInfra
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::DeepInfra.AnthropicOutputConfigEffort))
+                {
+                    return new global::DeepInfra.JsonConverters.AnthropicOutputConfigEffortJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.AnthropicOutputConfigEffort?))
+                {
+                    return new global::DeepInfra.JsonConverters.AnthropicOutputConfigEffortNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::DeepInfra.AnthropicThinkingConfigType))
                 {
                     return new global::DeepInfra.JsonConverters.AnthropicThinkingConfigTypeJsonConverter();

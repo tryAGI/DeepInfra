@@ -94,6 +94,7 @@ namespace DeepInfra
         /// <param name="tools"></param>
         /// <param name="toolChoice"></param>
         /// <param name="thinking"></param>
+        /// <param name="outputConfig"></param>
         /// <param name="promptCacheKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -121,6 +122,7 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>? tools = default,
             object? toolChoice = default,
             global::DeepInfra.AnthropicThinkingConfig? thinking = default,
+            global::DeepInfra.AnthropicOutputConfig? outputConfig = default,
             string? promptCacheKey = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

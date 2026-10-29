@@ -28,6 +28,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.Scope>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Scope), TypeInfoPropertyName = "Scope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreatedApiToken))]
@@ -43,9 +45,11 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTimeOffset?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Scope?), TypeInfoPropertyName = "NullableScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.Scope>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ApiToken>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.SshKeyOut>))]
     internal sealed partial class AuthenticationSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -108,6 +112,7 @@ namespace DeepInfra
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.UnixTimestampJsonConverter());
+            options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -120,6 +125,34 @@ namespace DeepInfra
             AddConverters(options);
 
             return options;
+        }
+
+
+        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
+        {
+            public override bool CanConvert(global::System.Type typeToConvert)
+            {
+                return
+                    typeToConvert == typeof(global::DeepInfra.Scope)
+
+                    || typeToConvert == typeof(global::DeepInfra.Scope?);
+            }
+
+            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
+                global::System.Type typeToConvert,
+                global::System.Text.Json.JsonSerializerOptions options)
+            {
+                if (typeToConvert == typeof(global::DeepInfra.Scope))
+                {
+                    return new global::DeepInfra.JsonConverters.ScopeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.Scope?))
+                {
+                    return new global::DeepInfra.JsonConverters.ScopeNullableJsonConverter();
+                }
+                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
+            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
