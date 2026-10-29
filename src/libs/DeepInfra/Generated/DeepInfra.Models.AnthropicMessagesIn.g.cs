@@ -111,6 +111,12 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_config")]
+        public global::DeepInfra.AnthropicOutputConfig? OutputConfig { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_cache_key")]
         public string? PromptCacheKey { get; set; }
 
@@ -150,6 +156,7 @@ namespace DeepInfra
         /// <param name="tools"></param>
         /// <param name="toolChoice"></param>
         /// <param name="thinking"></param>
+        /// <param name="outputConfig"></param>
         /// <param name="promptCacheKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -171,6 +178,7 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<global::DeepInfra.AnthropicTool>? tools,
             object? toolChoice,
             global::DeepInfra.AnthropicThinkingConfig? thinking,
+            global::DeepInfra.AnthropicOutputConfig? outputConfig,
             string? promptCacheKey)
         {
             this.ServiceTier = serviceTier;
@@ -189,6 +197,7 @@ namespace DeepInfra
             this.Tools = tools;
             this.ToolChoice = toolChoice;
             this.Thinking = thinking;
+            this.OutputConfig = outputConfig;
             this.PromptCacheKey = promptCacheKey;
         }
 

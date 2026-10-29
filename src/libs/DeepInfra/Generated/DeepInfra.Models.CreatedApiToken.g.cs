@@ -49,6 +49,13 @@ namespace DeepInfra
         public string? Fragment { get; set; }
 
         /// <summary>
+        /// what the key may do<br/>
+        /// Default Value: []
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scopes")]
+        public global::System.Collections.Generic.IList<global::DeepInfra.Scope>? Scopes { get; set; }
+
+        /// <summary>
         /// the secret; this reply is the only place it is ever returned
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
@@ -79,6 +86,10 @@ namespace DeepInfra
         /// <param name="fragment">
         /// display suffix; last 5 chars of the secret
         /// </param>
+        /// <param name="scopes">
+        /// what the key may do<br/>
+        /// Default Value: []
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,7 +100,8 @@ namespace DeepInfra
             string token,
             global::System.Collections.Generic.IList<string>? allowedIps,
             string? prefix,
-            string? fragment)
+            string? fragment,
+            global::System.Collections.Generic.IList<global::DeepInfra.Scope>? scopes)
         {
             this.CreatedAt = createdAt;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -97,6 +109,7 @@ namespace DeepInfra
             this.AllowedIps = allowedIps;
             this.Prefix = prefix;
             this.Fragment = fragment;
+            this.Scopes = scopes;
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
         }
 
