@@ -525,7 +525,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepinfraDeepapiSystemoneWireModelMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.LogQueryOut))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.LoraModelUploadIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Me))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MeVercelConnection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.MeIn))]

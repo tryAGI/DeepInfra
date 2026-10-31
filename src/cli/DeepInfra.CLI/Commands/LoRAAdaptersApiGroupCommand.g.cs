@@ -19,7 +19,6 @@ internal static partial class LoRAAdaptersApiGroupCommand
                          command.Subcommands.Add(LoRAAdaptersGetModelLorasCommandApiCommand.Create());
                          command.Subcommands.Add(LoRAAdaptersGetUserLorasCommandApiCommand.Create());
                          command.Subcommands.Add(LoRAAdaptersUpdateLoraCommandApiCommand.Create());
-                         command.Subcommands.Add(LoRAAdaptersUploadLoraModelCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;
     }

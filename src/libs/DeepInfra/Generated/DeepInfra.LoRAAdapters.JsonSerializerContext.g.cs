@@ -39,7 +39,6 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeploymentOutStandardArgs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeploymentOutStandardArgsKvCacheDtype), TypeInfoPropertyName = "DeploymentOutStandardArgsKvCacheDtype2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeploymentOutStandardArgsQuantization), TypeInfoPropertyName = "DeploymentOutStandardArgsQuantization2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.LoraModelUploadIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceTypeEnum), TypeInfoPropertyName = "SourceTypeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.UpdateLoraApiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
