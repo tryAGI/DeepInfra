@@ -206,7 +206,7 @@ The total length of input tokens and generated tokens is limited by the model's 
     private static Option<global::DeepInfra.MediaIoKwargs?> MediaIoKwargs { get; } = new(
         name: @"--media-io-kwargs")
     {
-        Description = @"Per-request media decode options keyed by modality, e.g. {""video"": {""num_frames"": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.",
+        Description = @"Per-request media decode options keyed by modality, e.g. {""video"": {""num_frames"": 16, ""width"": 448, ""height"": 252}}. num_frames is honoured by video-input models served on vLLM or Dynamo; width/height by every model that takes video natively.",
     };
 
     private static Option<bool?> ContinueFinalMessage { get; } = CliRuntime.CreateNullableBoolOption(

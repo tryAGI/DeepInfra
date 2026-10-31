@@ -205,7 +205,7 @@ namespace DeepInfra
         public object? ChatTemplateKwargs { get; set; }
 
         /// <summary>
-        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.
+        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16, "width": 448, "height": 252}}. num_frames is honoured by video-input models served on vLLM or Dynamo; width/height by every model that takes video natively.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_io_kwargs")]
         public global::DeepInfra.MediaIoKwargs? MediaIoKwargs { get; set; }
@@ -333,7 +333,7 @@ namespace DeepInfra
         /// Chat template kwargs.
         /// </param>
         /// <param name="mediaIoKwargs">
-        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16}}. Honoured by video-input models served on vLLM or Dynamo; ignored elsewhere.
+        /// Per-request media decode options keyed by modality, e.g. {"video": {"num_frames": 16, "width": 448, "height": 252}}. num_frames is honoured by video-input models served on vLLM or Dynamo; width/height by every model that takes video natively.
         /// </param>
         /// <param name="continueFinalMessage">
         /// If set, the final assistant message is used as a prefix for the model to continue generating from, rather than starting a new turn. Only applicable when the last message in the conversation is an assistant message.
