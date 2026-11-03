@@ -31,6 +31,8 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.Scope>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Scope), TypeInfoPropertyName = "Scope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenScopeOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenScopesIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ApiTokenVercelExportBodyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreatedApiToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.InspectScopedJWTOut))]
@@ -39,6 +41,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SshKeyIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SshKeyOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ApiToken>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ApiTokenScopeOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.SshKeyOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
@@ -51,6 +54,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.Scope>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ApiToken>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ApiTokenScopeOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.SshKeyOut>))]
     internal sealed partial class AuthenticationSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {

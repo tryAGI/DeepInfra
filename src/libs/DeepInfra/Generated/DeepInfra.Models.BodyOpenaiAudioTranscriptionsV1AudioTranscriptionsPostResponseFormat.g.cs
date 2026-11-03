@@ -11,6 +11,10 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        DiarizedJson,
+        /// <summary>
+        ///
+        /// </summary>
         Json,
         /// <summary>
         ///
@@ -42,6 +46,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.DiarizedJson => "diarized_json",
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Json => "json",
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Srt => "srt",
                 BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Text => "text",
@@ -57,6 +62,7 @@ namespace DeepInfra
         {
             return value switch
             {
+                "diarized_json" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.DiarizedJson,
                 "json" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Json,
                 "srt" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Srt,
                 "text" => BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat.Text,

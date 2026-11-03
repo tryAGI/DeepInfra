@@ -18,6 +18,7 @@ internal static partial class AuthenticationApiGroupCommand
                          command.Subcommands.Add(AuthenticationDeleteSshKeyCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationExportApiTokenToVercelByBodyCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetApiTokenByIdCommandApiCommand.Create());
+                         command.Subcommands.Add(AuthenticationGetApiTokenScopesCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetApiTokensCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetSshKeysCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGithubCliLoginCommandApiCommand.Create());
@@ -25,6 +26,7 @@ internal static partial class AuthenticationApiGroupCommand
                          command.Subcommands.Add(AuthenticationGoogleLoginCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationInspectScopedJwtCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationOktaLoginCommandApiCommand.Create());
+                         command.Subcommands.Add(AuthenticationUpdateApiTokenScopesByIdCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;
     }

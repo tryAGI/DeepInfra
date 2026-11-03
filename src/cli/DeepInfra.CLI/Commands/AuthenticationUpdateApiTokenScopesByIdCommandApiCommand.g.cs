@@ -1,0 +1,105 @@
+#nullable enable
+#pragma warning disable CS0618
+
+using System.CommandLine;
+
+namespace DeepInfra.CLI.Commands;
+
+internal static partial class AuthenticationUpdateApiTokenScopesByIdCommandApiCommand
+{
+    private static Argument<string> TokenId { get; } = new(
+        name: @"token-id")
+    {
+        Description = @"",
+    };
+
+    private static Option<string?> XiApiKey { get; } = new(
+        name: @"--xi-api-key")
+    {
+        Description = @"",
+    };
+
+    private static Option<string?> XApiKey { get; } = new(
+        name: @"--x-api-key")
+    {
+        Description = @"",
+    };
+
+    private static Option<global::System.Collections.Generic.IList<global::DeepInfra.Scope>> Scopes { get; } = new(
+        name: @"--scopes")
+    {
+        Description = @"what the key may do: at least one scope, never `unrestricted`",
+        Required = true,
+    };
+
+                    private static string FormatResponse(ParseResult parseResult, global::DeepInfra.ApiToken value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    {
+                        string? text = null;
+                        CustomizeResponseText(parseResult, value, ref text);
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            return text;
+                        }
+
+                        var hints = new Dictionary<string, CliFormatHint>(StringComparer.OrdinalIgnoreCase)
+                        {
+                        };
+                        CustomizeResponseFormatHints(hints);
+                        return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
+                    }
+
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::DeepInfra.ApiToken value, ref string? text);
+                    static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
+
+
+    static partial void CustomizeCommand(ref Command command);
+
+    public static Command Create(string? commandName = null)
+    {
+        var command = new Command(commandName ?? @"update-api-token-scopes-by-id", @"Update Api Token Scopes By Id
+Replace an API token's scopes, by token_id.
+
+token_id comes from Get Api Tokens (`GET /v1/api-tokens`).");
+                        command.Arguments.Add(TokenId);
+                        command.Options.Add(XiApiKey);
+                        command.Options.Add(XApiKey);
+                        command.Options.Add(Scopes);
+
+
+        command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
+            await CliRuntime.RunAsync(async () =>
+            {
+                        var tokenId = parseResult.GetRequiredValue(TokenId);
+                        var xiApiKey = parseResult.GetValue(XiApiKey);
+                        var xApiKey = parseResult.GetValue(XApiKey);
+                        var scopes = parseResult.GetRequiredValue(Scopes);
+                using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
+
+
+                                var response = await client.Authentication.UpdateApiTokenScopesByIdAsync(
+                                    tokenId: tokenId,
+                                    xiApiKey: xiApiKey,
+                                    xApiKey: xApiKey,
+                                    scopes: scopes,
+                                    cancellationToken: cancellationToken).ConfigureAwait(false);
+
+
+                                if (!await CliRuntime.TryWriteOutputDirectoryAsync(
+                                        parseResult,
+                                        response,
+                                        global::DeepInfra.SourceGenerationContext.Default,
+                                        @"Scopes",
+                                        cancellationToken).ConfigureAwait(false))
+                                {
+                                await CliRuntime.WriteResponseAsync(
+                                    parseResult,
+                                    response,
+                                    global::DeepInfra.SourceGenerationContext.Default,
+                                    FormatResponse,
+                                    cancellationToken).ConfigureAwait(false);
+                                }
+            }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
+        return command;
+    }
+}

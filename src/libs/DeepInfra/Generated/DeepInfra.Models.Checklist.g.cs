@@ -115,6 +115,19 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("payment_collection")]
+        public string? PaymentCollection { get; set; }
+
+        /// <summary>
+        /// False when a missing payment method never suspends the account (monthly invoicing paid by bank transfer or on receipt)<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("payment_method_required")]
+        public bool? PaymentMethodRequired { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scoped_credits")]
         public global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>? ScopedCredits { get; set; }
 
@@ -168,6 +181,11 @@ namespace DeepInfra
         /// Default Value: false
         /// </param>
         /// <param name="billingType"></param>
+        /// <param name="paymentCollection"></param>
+        /// <param name="paymentMethodRequired">
+        /// False when a missing payment method never suspends the account (monthly invoicing paid by bank transfer or on receipt)<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="scopedCredits"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -190,6 +208,8 @@ namespace DeepInfra
             int? topupThreshold,
             bool? topupFailed,
             string? billingType,
+            string? paymentCollection,
+            bool? paymentMethodRequired,
             global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>? scopedCredits)
         {
             this.Email = email;
@@ -209,6 +229,8 @@ namespace DeepInfra
             this.TopupThreshold = topupThreshold;
             this.TopupFailed = topupFailed;
             this.BillingType = billingType;
+            this.PaymentCollection = paymentCollection;
+            this.PaymentMethodRequired = paymentMethodRequired;
             this.ScopedCredits = scopedCredits;
         }
 
