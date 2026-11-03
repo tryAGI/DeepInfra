@@ -66,6 +66,12 @@ namespace DeepInfra
         public string? ServiceTier { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instruction")]
+        public string? Instruction { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +93,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="timestampGranularities"></param>
         /// <param name="serviceTier"></param>
+        /// <param name="instruction"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +106,8 @@ namespace DeepInfra
             global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostResponseFormat? responseFormat,
             double? temperature,
             global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities,
-            string? serviceTier)
+            string? serviceTier,
+            string? instruction)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -110,6 +118,7 @@ namespace DeepInfra
             this.Temperature = temperature;
             this.TimestampGranularities = timestampGranularities;
             this.ServiceTier = serviceTier;
+            this.Instruction = instruction;
         }
 
         /// <summary>

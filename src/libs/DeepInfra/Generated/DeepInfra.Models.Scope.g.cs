@@ -4,7 +4,13 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// What an API key may do; a login session may do everything.
+    /// What an API key may do; a login session may do everything. Listed in the order the dashboard shows.<br/>
+    /// A scope `x` also grants `x:read` (see `covers_scope`).<br/>
+    /// Adding or renaming a scope needs its dashboard description in deepinfra/web too:<br/>
+    /// `pages.dashboard.api_keys.scopes.descriptions.&lt;name with ':' as '_'&gt;` in<br/>
+    /// public/locales/en/common.json. Without one the dashboard shows the bare name.<br/>
+    /// A new scope is not initial, so unrestricted keys do not get it; one split from an<br/>
+    /// initial scope is, so they keep what they could do.
     /// </summary>
     public enum Scope
     {
@@ -15,11 +21,23 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        AccountScopedJwt,
+        /// <summary>
+        ///
+        /// </summary>
+        AccountScopedJwt_read,
+        /// <summary>
+        ///
+        /// </summary>
         Batch,
         /// <summary>
         ///
         /// </summary>
-        Billing,
+        Billing_read,
+        /// <summary>
+        ///
+        /// </summary>
+        Compute_agents,
         /// <summary>
         ///
         /// </summary>
@@ -31,11 +49,15 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
-        Deploys,
+        Inference,
         /// <summary>
         ///
         /// </summary>
-        Inference,
+        Lora,
+        /// <summary>
+        ///
+        /// </summary>
+        Lora_read,
         /// <summary>
         ///
         /// </summary>
@@ -47,7 +69,19 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        Models_read,
+        /// <summary>
+        ///
+        /// </summary>
         Unrestricted,
+        /// <summary>
+        ///
+        /// </summary>
+        Voice,
+        /// <summary>
+        ///
+        /// </summary>
+        Voice_read,
     }
 
     /// <summary>
@@ -63,15 +97,22 @@ namespace DeepInfra
             return value switch
             {
                 Scope.Account_read => "account:read",
+                Scope.AccountScopedJwt => "account_scoped_jwt",
+                Scope.AccountScopedJwt_read => "account_scoped_jwt:read",
                 Scope.Batch => "batch",
-                Scope.Billing => "billing",
+                Scope.Billing_read => "billing:read",
+                Scope.Compute_agents => "compute:agents",
                 Scope.Compute_containers => "compute:containers",
                 Scope.Compute_sandbox => "compute:sandbox",
-                Scope.Deploys => "deploys",
                 Scope.Inference => "inference",
+                Scope.Lora => "lora",
+                Scope.Lora_read => "lora:read",
                 Scope.Metrics => "metrics",
                 Scope.Models => "models",
+                Scope.Models_read => "models:read",
                 Scope.Unrestricted => "unrestricted",
+                Scope.Voice => "voice",
+                Scope.Voice_read => "voice:read",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -83,15 +124,22 @@ namespace DeepInfra
             return value switch
             {
                 "account:read" => Scope.Account_read,
+                "account_scoped_jwt" => Scope.AccountScopedJwt,
+                "account_scoped_jwt:read" => Scope.AccountScopedJwt_read,
                 "batch" => Scope.Batch,
-                "billing" => Scope.Billing,
+                "billing:read" => Scope.Billing_read,
+                "compute:agents" => Scope.Compute_agents,
                 "compute:containers" => Scope.Compute_containers,
                 "compute:sandbox" => Scope.Compute_sandbox,
-                "deploys" => Scope.Deploys,
                 "inference" => Scope.Inference,
+                "lora" => Scope.Lora,
+                "lora:read" => Scope.Lora_read,
                 "metrics" => Scope.Metrics,
                 "models" => Scope.Models,
+                "models:read" => Scope.Models_read,
                 "unrestricted" => Scope.Unrestricted,
+                "voice" => Scope.Voice,
+                "voice:read" => Scope.Voice_read,
                 _ => null,
             };
         }

@@ -57,6 +57,13 @@ namespace DeepInfra
         public bool? Expired { get; set; }
 
         /// <summary>
+        /// Applies to every model and every kind of spend, so while it has money left an empty balance blocks nothing<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("covers_everything")]
+        public bool? CoversEverything { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +81,10 @@ namespace DeepInfra
         /// <param name="expired">
         /// Default Value: false
         /// </param>
+        /// <param name="coversEverything">
+        /// Applies to every model and every kind of spend, so while it has money left an empty balance blocks nothing<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,7 +95,8 @@ namespace DeepInfra
             int grantedTs,
             string? description,
             int? expiresTs,
-            bool? expired)
+            bool? expired,
+            bool? coversEverything)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
@@ -93,6 +105,7 @@ namespace DeepInfra
             this.GrantedTs = grantedTs;
             this.ExpiresTs = expiresTs;
             this.Expired = expired;
+            this.CoversEverything = coversEverything;
         }
 
         /// <summary>

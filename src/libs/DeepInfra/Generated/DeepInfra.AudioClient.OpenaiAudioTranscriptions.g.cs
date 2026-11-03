@@ -269,6 +269,14 @@ namespace DeepInfra
                                     name: "\"service_tier\"");
 
                             }
+                            if (request.Instruction != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.Instruction ?? string.Empty),
+                                    name: "\"instruction\"");
+
+                            }
 
                             __httpRequest.Content = __httpRequestContent;
 
@@ -613,6 +621,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="timestampGranularities"></param>
         /// <param name="serviceTier"></param>
+        /// <param name="instruction"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -629,6 +638,7 @@ namespace DeepInfra
             double? temperature = default,
             global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities = default,
             string? serviceTier = default,
+            string? instruction = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -643,6 +653,7 @@ namespace DeepInfra
                 Temperature = temperature,
                 TimestampGranularities = timestampGranularities,
                 ServiceTier = serviceTier,
+                Instruction = instruction,
             };
 
             return await OpenaiAudioTranscriptionsAsync(
@@ -675,6 +686,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="timestampGranularities"></param>
         /// <param name="serviceTier"></param>
+        /// <param name="instruction"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
@@ -691,6 +703,7 @@ namespace DeepInfra
             double? temperature = default,
             global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities = default,
             string? serviceTier = default,
+            string? instruction = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -707,6 +720,7 @@ namespace DeepInfra
                 Temperature = temperature,
                 TimestampGranularities = timestampGranularities,
                 ServiceTier = serviceTier,
+                Instruction = instruction,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -876,6 +890,14 @@ namespace DeepInfra
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.ServiceTier ?? string.Empty),
                                     name: "\"service_tier\"");
+
+                            }
+                            if (request.Instruction != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.Instruction ?? string.Empty),
+                                    name: "\"instruction\"");
 
                             }
 
@@ -1216,6 +1238,7 @@ namespace DeepInfra
         /// </param>
         /// <param name="timestampGranularities"></param>
         /// <param name="serviceTier"></param>
+        /// <param name="instruction"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
@@ -1232,6 +1255,7 @@ namespace DeepInfra
             double? temperature = default,
             global::System.Collections.Generic.IList<global::DeepInfra.BodyOpenaiAudioTranscriptionsV1AudioTranscriptionsPostTimestampGranularitiesVariant1Item>? timestampGranularities = default,
             string? serviceTier = default,
+            string? instruction = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -1248,6 +1272,7 @@ namespace DeepInfra
                 Temperature = temperature,
                 TimestampGranularities = timestampGranularities,
                 ServiceTier = serviceTier,
+                Instruction = instruction,
             };
             PrepareArguments(
                 client: HttpClient);
@@ -1417,6 +1442,14 @@ namespace DeepInfra
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.ServiceTier ?? string.Empty),
                                     name: "\"service_tier\"");
+
+                            }
+                            if (request.Instruction != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.Instruction ?? string.Empty),
+                                    name: "\"instruction\"");
 
                             }
 

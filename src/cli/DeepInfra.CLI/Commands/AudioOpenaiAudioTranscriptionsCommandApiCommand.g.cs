@@ -81,6 +81,12 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
     {
         Description = @"",
     };
+
+    private static Option<string?> Instruction { get; } = new(
+        name: @"--instruction")
+    {
+        Description = @"",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -135,6 +141,7 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
                         command.Options.Add(Temperature);
                         command.Options.Add(TimestampGranularities);
                         command.Options.Add(ServiceTier);
+                        command.Options.Add(Instruction);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -172,6 +179,7 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
                         var temperature = CliRuntime.WasSpecified(parseResult, Temperature) ? parseResult.GetValue(Temperature) : (__requestBase is { } __TemperatureBaseValue ? __TemperatureBaseValue.Temperature : default);
                         var timestampGranularities = CliRuntime.WasSpecified(parseResult, TimestampGranularities) ? parseResult.GetValue(TimestampGranularities) : (__requestBase is { } __TimestampGranularitiesBaseValue ? __TimestampGranularitiesBaseValue.TimestampGranularities : default);
                         var serviceTier = CliRuntime.WasSpecified(parseResult, ServiceTier) ? parseResult.GetValue(ServiceTier) : (__requestBase is { } __ServiceTierBaseValue ? __ServiceTierBaseValue.ServiceTier : default);
+                        var instruction = CliRuntime.WasSpecified(parseResult, Instruction) ? parseResult.GetValue(Instruction) : (__requestBase is { } __InstructionBaseValue ? __InstructionBaseValue.Instruction : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -188,6 +196,7 @@ internal static partial class AudioOpenaiAudioTranscriptionsCommandApiCommand
                                     temperature: temperature,
                                     timestampGranularities: timestampGranularities,
                                     serviceTier: serviceTier,
+                                    instruction: instruction,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
