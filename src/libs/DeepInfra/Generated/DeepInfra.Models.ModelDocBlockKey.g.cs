@@ -219,6 +219,18 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        RealtimeJs,
+        /// <summary>
+        ///
+        /// </summary>
+        RealtimeOpenaiPython,
+        /// <summary>
+        ///
+        /// </summary>
+        RealtimePython,
+        /// <summary>
+        ///
+        /// </summary>
         UpdateVoiceHttp,
         /// <summary>
         ///
@@ -294,6 +306,9 @@ namespace DeepInfra
                 ModelDocBlockKey.ReadVoiceHttp => "read-voice-http",
                 ModelDocBlockKey.ReadVoiceJs => "read-voice-js",
                 ModelDocBlockKey.ReadVoicePython => "read-voice-python",
+                ModelDocBlockKey.RealtimeJs => "realtime-js",
+                ModelDocBlockKey.RealtimeOpenaiPython => "realtime-openai-python",
+                ModelDocBlockKey.RealtimePython => "realtime-python",
                 ModelDocBlockKey.UpdateVoiceHttp => "update-voice-http",
                 ModelDocBlockKey.UpdateVoiceJs => "update-voice-js",
                 ModelDocBlockKey.UpdateVoicePython => "update-voice-python",
@@ -359,6 +374,9 @@ namespace DeepInfra
                 "read-voice-http" => ModelDocBlockKey.ReadVoiceHttp,
                 "read-voice-js" => ModelDocBlockKey.ReadVoiceJs,
                 "read-voice-python" => ModelDocBlockKey.ReadVoicePython,
+                "realtime-js" => ModelDocBlockKey.RealtimeJs,
+                "realtime-openai-python" => ModelDocBlockKey.RealtimeOpenaiPython,
+                "realtime-python" => ModelDocBlockKey.RealtimePython,
                 "update-voice-http" => ModelDocBlockKey.UpdateVoiceHttp,
                 "update-voice-js" => ModelDocBlockKey.UpdateVoiceJs,
                 "update-voice-python" => ModelDocBlockKey.UpdateVoicePython,
