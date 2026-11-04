@@ -23,10 +23,17 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>), TypeInfoPropertyName = "AnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoGenerationIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoGenerationOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2>), TypeInfoPropertyName = "AllOfVideoGenerationInCreateVideoGenerationV1VideosPostRequest22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2>), TypeInfoPropertyName = "AllOfVideoGenerationInCreateVideoGenerationV1OpenaiVideosPostRequest22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2>?), TypeInfoPropertyName = "NullableAllOfVideoGenerationInCreateVideoGenerationV1VideosPostRequest22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2>?), TypeInfoPropertyName = "NullableAllOfVideoGenerationInCreateVideoGenerationV1OpenaiVideosPostRequest22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     internal sealed partial class VideosSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -80,6 +87,8 @@ namespace DeepInfra
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<int>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AllOfJsonConverter<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2>());
+            options.Converters.Add(new global::DeepInfra.JsonConverters.AllOfJsonConverter<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());
             options.Converters.Add(new global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>());

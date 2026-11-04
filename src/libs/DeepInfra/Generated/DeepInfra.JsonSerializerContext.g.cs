@@ -279,6 +279,10 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<global::DeepInfra.NoulAnswer, global::DeepInfra.ChoiceAnswer, global::DeepInfra.ScoreAnswer>),
 
+            typeof(global::DeepInfra.JsonConverters.AllOfJsonConverter<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2>),
+
+            typeof(global::DeepInfra.JsonConverters.AllOfJsonConverter<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2>),
+
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>),
 
             typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, object, global::System.Collections.Generic.IList<object>>),
@@ -674,6 +678,10 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.VideoGenerationOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.WebLiveMetricsOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.WebSearchTool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2>), TypeInfoPropertyName = "AllOfVideoGenerationInCreateVideoGenerationV1VideosPostRequest22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateVideoGenerationV1VideosPostRequest2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AllOf<global::DeepInfra.VideoGenerationIn, global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2>), TypeInfoPropertyName = "AllOfVideoGenerationInCreateVideoGenerationV1OpenaiVideosPostRequest22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateVideoGenerationV1OpenaiVideosPostRequest2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SystemoneV1DecisionsPostRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, object, global::System.Collections.Generic.IList<object>>), TypeInfoPropertyName = "AnyOfStringObjectIListObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.Questions), TypeInfoPropertyName = "Questions2")]
