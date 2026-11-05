@@ -16,7 +16,7 @@ namespace DeepInfra
         public string Type { get; set; } = "web_search";
 
         /// <summary>
-        /// Maximum results returned per search call. Values above 20 are clamped.<br/>
+        /// Maximum results returned per search call. Values above 10 are clamped.<br/>
         /// Default Value: 5
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_results")]
@@ -41,6 +41,18 @@ namespace DeepInfra
         public string? SearchPrompt { get; set; }
 
         /// <summary>
+        /// Search engine serving this request's searches. Omit for the platform default. Engines, tiers and per-search prices: https://deepinfra.com/pricing
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("engine")]
+        public string? Engine { get; set; }
+
+        /// <summary>
+        /// The engine's search tier, in the provider's own mode names. Omit for the engine's default tier.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
+        public string? Tier { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -50,7 +62,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="WebSearchTool" /> class.
         /// </summary>
         /// <param name="maxResults">
-        /// Maximum results returned per search call. Values above 20 are clamped.<br/>
+        /// Maximum results returned per search call. Values above 10 are clamped.<br/>
         /// Default Value: 5
         /// </param>
         /// <param name="includeDomains">
@@ -62,6 +74,12 @@ namespace DeepInfra
         /// <param name="searchPrompt">
         /// Steering text for how retrieved results are framed when injected into the model's context.
         /// </param>
+        /// <param name="engine">
+        /// Search engine serving this request's searches. Omit for the platform default. Engines, tiers and per-search prices: https://deepinfra.com/pricing
+        /// </param>
+        /// <param name="tier">
+        /// The engine's search tier, in the provider's own mode names. Omit for the engine's default tier.
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -71,6 +89,8 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<string>? includeDomains,
             global::System.Collections.Generic.IList<string>? excludeDomains,
             string? searchPrompt,
+            string? engine,
+            string? tier,
             string type = "web_search")
         {
             this.Type = type;
@@ -78,6 +98,8 @@ namespace DeepInfra
             this.IncludeDomains = includeDomains;
             this.ExcludeDomains = excludeDomains;
             this.SearchPrompt = searchPrompt;
+            this.Engine = engine;
+            this.Tier = tier;
         }
 
         /// <summary>

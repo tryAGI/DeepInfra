@@ -42,6 +42,18 @@ namespace DeepInfra
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("engine")]
+        public string? Engine { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tier")]
+        public string? Tier { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_web_access")]
         public bool? ExternalWebAccess { get; set; }
 
@@ -58,6 +70,8 @@ namespace DeepInfra
         /// <param name="includeDomains"></param>
         /// <param name="excludeDomains"></param>
         /// <param name="searchPrompt"></param>
+        /// <param name="engine"></param>
+        /// <param name="tier"></param>
         /// <param name="externalWebAccess"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
@@ -68,6 +82,8 @@ namespace DeepInfra
             global::System.Collections.Generic.IList<string>? includeDomains,
             global::System.Collections.Generic.IList<string>? excludeDomains,
             string? searchPrompt,
+            string? engine,
+            string? tier,
             bool? externalWebAccess,
             string type = "web_search")
         {
@@ -76,6 +92,8 @@ namespace DeepInfra
             this.IncludeDomains = includeDomains;
             this.ExcludeDomains = excludeDomains;
             this.SearchPrompt = searchPrompt;
+            this.Engine = engine;
+            this.Tier = tier;
             this.ExternalWebAccess = externalWebAccess;
         }
 

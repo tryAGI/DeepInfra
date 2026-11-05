@@ -9,6 +9,9 @@ namespace DeepInfra
     /// Adding or renaming a scope needs its dashboard description in deepinfra/web too:<br/>
     /// `pages.dashboard.api_keys.scopes.descriptions.&lt;name with ':' as '_'&gt;` in<br/>
     /// public/locales/en/common.json. Without one the dashboard shows the bare name.<br/>
+    /// Any change to this enum needs `./k8s_restart.sh token-verifier` before the callers that use<br/>
+    /// it roll: token-verifier's create_api_token checks scopes with `key_scopes` against its own<br/>
+    /// build, so until then it refuses a new scope with INVALID_ARGUMENT.<br/>
     /// A new scope is not initial, so unrestricted keys do not get it; one split from an<br/>
     /// initial scope is, so they keep what they could do.
     /// </summary>
