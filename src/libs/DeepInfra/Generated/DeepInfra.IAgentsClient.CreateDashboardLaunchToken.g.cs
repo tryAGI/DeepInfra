@@ -6,15 +6,7 @@ namespace DeepInfra
     {
         /// <summary>
         /// Create Dashboard Launch Token<br/>
-        /// Mint a single-use launch URL for the dashboard.<br/>
-        /// Called by the launcher page right when readyz flips ready. The launch URL<br/>
-        /// is used as a top-level navigation; /launch then sets the oc_auth cookie<br/>
-        /// and 302s into the proxied dashboard.<br/>
-        /// The user's bearer token is stashed in Redis under the token's jti and<br/>
-        /// retrieved (atomic GETDEL) on /launch redeem — this keeps the bearer out of<br/>
-        /// the URL and out of any signed payload while preserving the existing proxy<br/>
-        /// auth flow (oc_auth cookie value = bearer token).<br/>
-        /// Refuses instances whose agent_type has has_dashboard=False (e.g. hermes).
+        /// Mint a single-use launch URL for the dashboard; /launch trades it for the oc_auth session cookie.
         /// </summary>
         /// <param name="instanceId"></param>
         /// <param name="xiApiKey"></param>
@@ -30,15 +22,7 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Dashboard Launch Token<br/>
-        /// Mint a single-use launch URL for the dashboard.<br/>
-        /// Called by the launcher page right when readyz flips ready. The launch URL<br/>
-        /// is used as a top-level navigation; /launch then sets the oc_auth cookie<br/>
-        /// and 302s into the proxied dashboard.<br/>
-        /// The user's bearer token is stashed in Redis under the token's jti and<br/>
-        /// retrieved (atomic GETDEL) on /launch redeem — this keeps the bearer out of<br/>
-        /// the URL and out of any signed payload while preserving the existing proxy<br/>
-        /// auth flow (oc_auth cookie value = bearer token).<br/>
-        /// Refuses instances whose agent_type has has_dashboard=False (e.g. hermes).
+        /// Mint a single-use launch URL for the dashboard; /launch trades it for the oc_auth session cookie.
         /// </summary>
         /// <param name="instanceId"></param>
         /// <param name="xiApiKey"></param>
