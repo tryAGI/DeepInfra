@@ -6,7 +6,7 @@ namespace DeepInfra
     {
         /// <summary>
         /// Get Api Token Scopes<br/>
-        /// Every scope a key can be given, and which a new key starts with.
+        /// Every scope a key can be given besides `unrestricted`, and which a new key starts with.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -20,7 +20,7 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Api Token Scopes<br/>
-        /// Every scope a key can be given, and which a new key starts with.
+        /// Every scope a key can be given besides `unrestricted`, and which a new key starts with.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

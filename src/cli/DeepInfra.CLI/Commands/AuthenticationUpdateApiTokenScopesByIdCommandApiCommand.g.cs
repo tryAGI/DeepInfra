@@ -28,7 +28,7 @@ internal static partial class AuthenticationUpdateApiTokenScopesByIdCommandApiCo
     private static Option<global::System.Collections.Generic.IList<global::DeepInfra.Scope>> Scopes { get; } = new(
         name: @"--scopes")
     {
-        Description = @"what the key may do: at least one scope, never `unrestricted`",
+        Description = @"what the key may do: at least one scope, or `unrestricted` alone for every scope",
         Required = true,
     };
 
