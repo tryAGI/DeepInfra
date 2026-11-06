@@ -50,18 +50,7 @@ internal static partial class AgentsCreateDashboardLaunchTokenCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"create-dashboard-launch-token", @"Create Dashboard Launch Token
-Mint a single-use launch URL for the dashboard.
-
-Called by the launcher page right when readyz flips ready. The launch URL
-is used as a top-level navigation; /launch then sets the oc_auth cookie
-and 302s into the proxied dashboard.
-
-The user's bearer token is stashed in Redis under the token's jti and
-retrieved (atomic GETDEL) on /launch redeem — this keeps the bearer out of
-the URL and out of any signed payload while preserving the existing proxy
-auth flow (oc_auth cookie value = bearer token).
-
-Refuses instances whose agent_type has has_dashboard=False (e.g. hermes).");
+Mint a single-use launch URL for the dashboard; /launch trades it for the oc_auth session cookie.");
                         command.Arguments.Add(InstanceId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
