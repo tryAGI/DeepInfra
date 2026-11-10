@@ -18,7 +18,7 @@ namespace DeepInfra.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::DeepInfra.ContainerRentalsListV1ContainersGetStateExtensions.ToEnum(stringValue) ?? default;
+                        return global::DeepInfra.ContainerRentalsListV1ContainersGetStateExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::DeepInfra.ContainerRentalsListV1ContainersGetState.");
                     }
 
                     break;

@@ -18,7 +18,7 @@ namespace DeepInfra.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormatExtensions.ToEnum(stringValue) ?? default;
+                        return global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormatExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::DeepInfra.BodyOpenaiAudioTranslationsV1AudioTranslationsPostResponseFormat.");
                     }
 
                     break;

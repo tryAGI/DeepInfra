@@ -18,7 +18,7 @@ namespace DeepInfra.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::DeepInfra.AnthropicOutputConfigEffortExtensions.ToEnum(stringValue) ?? default;
+                        return global::DeepInfra.AnthropicOutputConfigEffortExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::DeepInfra.AnthropicOutputConfigEffort.");
                     }
 
                     break;

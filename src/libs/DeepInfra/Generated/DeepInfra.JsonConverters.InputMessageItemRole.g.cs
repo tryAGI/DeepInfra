@@ -18,7 +18,7 @@ namespace DeepInfra.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::DeepInfra.InputMessageItemRoleExtensions.ToEnum(stringValue) ?? default;
+                        return global::DeepInfra.InputMessageItemRoleExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::DeepInfra.InputMessageItemRole.");
                     }
 
                     break;
