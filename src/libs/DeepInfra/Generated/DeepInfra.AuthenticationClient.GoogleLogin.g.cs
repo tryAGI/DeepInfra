@@ -27,14 +27,12 @@ namespace DeepInfra
             };
         partial void PrepareGoogleLoginArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? loginId,
             ref string? origin,
             ref string? deal,
             ref string? tiToken);
         partial void PrepareGoogleLoginRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? loginId,
             string? origin,
             string? deal,
             string? tiToken);
@@ -51,7 +49,6 @@ namespace DeepInfra
         /// Google Login<br/>
         /// Initiate Google SSO login flow. Callback is /google/callback
         /// </summary>
-        /// <param name="loginId"></param>
         /// <param name="origin"></param>
         /// <param name="deal"></param>
         /// <param name="tiToken"></param>
@@ -59,7 +56,6 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> GoogleLoginAsync(
-            string? loginId = default,
             string? origin = default,
             string? deal = default,
             string? tiToken = default,
@@ -67,7 +63,6 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GoogleLoginAsResponseAsync(
-                loginId: loginId,
                 origin: origin,
                 deal: deal,
                 tiToken: tiToken,
@@ -81,7 +76,6 @@ namespace DeepInfra
         /// Google Login<br/>
         /// Initiate Google SSO login flow. Callback is /google/callback
         /// </summary>
-        /// <param name="loginId"></param>
         /// <param name="origin"></param>
         /// <param name="deal"></param>
         /// <param name="tiToken"></param>
@@ -89,7 +83,6 @@ namespace DeepInfra
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<string>> GoogleLoginAsResponseAsync(
-            string? loginId = default,
             string? origin = default,
             string? deal = default,
             string? tiToken = default,
@@ -100,7 +93,6 @@ namespace DeepInfra
                 client: HttpClient);
             PrepareGoogleLoginArguments(
                 httpClient: HttpClient,
-                loginId: ref loginId,
                 origin: ref origin,
                 deal: ref deal,
                 tiToken: ref tiToken);
@@ -132,7 +124,6 @@ namespace DeepInfra
                                 path: "/google/login",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("login_id", loginId)
                                 .AddOptionalParameter("origin", origin)
                                 .AddOptionalParameter("deal", deal)
                                 .AddOptionalParameter("ti_token", tiToken)
@@ -177,7 +168,6 @@ namespace DeepInfra
                 PrepareGoogleLoginRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    loginId: loginId,
                     origin: origin,
                     deal: deal,
                     tiToken: tiToken);
