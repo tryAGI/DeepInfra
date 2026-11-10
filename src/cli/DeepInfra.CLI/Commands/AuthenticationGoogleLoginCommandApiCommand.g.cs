@@ -7,12 +7,6 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class AuthenticationGoogleLoginCommandApiCommand
 {
-    private static Option<string?> LoginId { get; } = new(
-        name: @"--login-id")
-    {
-        Description = @"",
-    };
-
     private static Option<string?> Origin { get; } = new(
         name: @"--origin")
     {
@@ -57,7 +51,6 @@ internal static partial class AuthenticationGoogleLoginCommandApiCommand
     {
         var command = new Command(commandName ?? @"google-login", @"Google Login
 Initiate Google SSO login flow. Callback is /google/callback");
-                        command.Options.Add(LoginId);
                         command.Options.Add(Origin);
                         command.Options.Add(Deal);
                         command.Options.Add(TiToken);
@@ -66,7 +59,6 @@ Initiate Google SSO login flow. Callback is /google/callback");
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var loginId = parseResult.GetValue(LoginId);
                         var origin = parseResult.GetValue(Origin);
                         var deal = parseResult.GetValue(Deal);
                         var tiToken = parseResult.GetValue(TiToken);
@@ -74,7 +66,6 @@ Initiate Google SSO login flow. Callback is /google/callback");
 
 
                                 var response = await client.Authentication.GoogleLoginAsync(
-                                    loginId: loginId,
                                     origin: origin,
                                     deal: deal,
                                     tiToken: tiToken,

@@ -20,12 +20,6 @@ internal static partial class AuthenticationOktaLoginCommandApiCommand
         Description = @"",
     };
 
-    private static Option<string?> LoginId { get; } = new(
-        name: @"--login-id")
-    {
-        Description = @"",
-    };
-
                     private static string FormatResponse(ParseResult parseResult, string value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
@@ -53,7 +47,6 @@ internal static partial class AuthenticationOktaLoginCommandApiCommand
         var command = new Command(commandName ?? @"okta-login", @"Okta Login");
                         command.Options.Add(TeamId);
                         command.Options.Add(Origin);
-                        command.Options.Add(LoginId);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
@@ -61,14 +54,12 @@ internal static partial class AuthenticationOktaLoginCommandApiCommand
             {
                         var teamId = parseResult.GetRequiredValue(TeamId);
                         var origin = parseResult.GetValue(Origin);
-                        var loginId = parseResult.GetValue(LoginId);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Authentication.OktaLoginAsync(
                                     teamId: teamId,
                                     origin: origin,
-                                    loginId: loginId,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

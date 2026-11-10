@@ -21,7 +21,6 @@ internal static partial class AuthenticationApiGroupCommand
                          command.Subcommands.Add(AuthenticationGetApiTokenScopesCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetApiTokensCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGetSshKeysCommandApiCommand.Create());
-                         command.Subcommands.Add(AuthenticationGithubCliLoginCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGithubLoginCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationGoogleLoginCommandApiCommand.Create());
                          command.Subcommands.Add(AuthenticationInspectScopedJwtCommandApiCommand.Create());
