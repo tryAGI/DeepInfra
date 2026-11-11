@@ -45,7 +45,7 @@ namespace DeepInfra
 
         /// <summary>
         /// Get Api Token Scopes<br/>
-        /// Every scope a key of this account can be given besides `unrestricted`, and which a new key starts with.
+        /// Every scope a key of this account can be given besides `unrestricted`, by name, and which a new key starts with.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -69,7 +69,7 @@ namespace DeepInfra
         }
         /// <summary>
         /// Get Api Token Scopes<br/>
-        /// Every scope a key of this account can be given besides `unrestricted`, and which a new key starts with.
+        /// Every scope a key of this account can be given besides `unrestricted`, by name, and which a new key starts with.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

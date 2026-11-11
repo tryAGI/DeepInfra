@@ -50,7 +50,8 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope<br/>
+        /// the token does not already hold.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
@@ -83,7 +84,8 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope<br/>
+        /// the token does not already hold.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
@@ -549,7 +551,8 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope<br/>
+        /// the token does not already hold.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>

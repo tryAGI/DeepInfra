@@ -59,7 +59,8 @@ internal static partial class AuthenticationUpdateApiTokenScopesByIdCommandApiCo
         var command = new Command(commandName ?? @"update-api-token-scopes-by-id", @"Update Api Token Scopes By Id
 Replace an API token's scopes, by token_id.
 
-token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.");
+token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope
+the token does not already hold.");
                         command.Arguments.Add(TokenId);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
