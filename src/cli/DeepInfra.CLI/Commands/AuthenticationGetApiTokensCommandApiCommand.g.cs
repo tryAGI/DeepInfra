@@ -43,7 +43,8 @@ internal static partial class AuthenticationGetApiTokensCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"get-api-tokens", @"Get Api Tokens");
+        var command = new Command(commandName ?? @"get-api-tokens", @"Get Api Tokens
+The account's API tokens' metadata. No secret is returned.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

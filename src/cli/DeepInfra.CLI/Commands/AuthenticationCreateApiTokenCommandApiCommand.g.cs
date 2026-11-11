@@ -72,7 +72,9 @@ internal static partial class AuthenticationCreateApiTokenCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"create-api-token", @"Create Api Token
-Create an API token. The reply carries the secret; no later call returns it.");
+Create an API token. The reply carries the secret; no later call returns it.
+
+An API key calling this must name the new key's scopes and cannot grant a sensitive scope.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);

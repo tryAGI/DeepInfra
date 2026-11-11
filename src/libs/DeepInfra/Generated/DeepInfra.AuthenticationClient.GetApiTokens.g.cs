@@ -44,7 +44,8 @@ namespace DeepInfra
             ref string content);
 
         /// <summary>
-        /// Get Api Tokens
+        /// Get Api Tokens<br/>
+        /// The account's API tokens' metadata. No secret is returned.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -67,7 +68,8 @@ namespace DeepInfra
             return __response.Body;
         }
         /// <summary>
-        /// Get Api Tokens
+        /// Get Api Tokens<br/>
+        /// The account's API tokens' metadata. No secret is returned.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

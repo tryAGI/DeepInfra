@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace DeepInfra
@@ -11,7 +9,7 @@ namespace DeepInfra
     public sealed partial class ApiTokenScopeOut
     {
         /// <summary>
-        /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every scope.
+        /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every non-sensitive scope.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.ScopeJsonConverter))]
@@ -26,12 +24,11 @@ namespace DeepInfra
         public required bool IsDefault { get; set; }
 
         /// <summary>
-        /// always true: `unrestricted` grants every scope<br/>
-        /// Default Value: true
+        /// listed only for an account it is enabled for; no API key can grant it and `unrestricted` does not grant it<br/>
+        /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("is_initial")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public bool? IsInitial { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_sensitive")]
+        public bool? IsSensitive { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,20 +40,26 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ApiTokenScopeOut" /> class.
         /// </summary>
         /// <param name="name">
-        /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every scope.
+        /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every non-sensitive scope.
         /// </param>
         /// <param name="isDefault">
         /// preselected for a new key
+        /// </param>
+        /// <param name="isSensitive">
+        /// listed only for an account it is enabled for; no API key can grant it and `unrestricted` does not grant it<br/>
+        /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ApiTokenScopeOut(
             global::DeepInfra.Scope name,
-            bool isDefault)
+            bool isDefault,
+            bool? isSensitive)
         {
             this.Name = name;
             this.IsDefault = isDefault;
+            this.IsSensitive = isSensitive;
         }
 
         /// <summary>
