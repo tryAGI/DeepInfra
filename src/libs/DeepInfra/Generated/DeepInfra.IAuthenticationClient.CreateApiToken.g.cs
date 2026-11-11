@@ -6,7 +6,8 @@ namespace DeepInfra
     {
         /// <summary>
         /// Create Api Token<br/>
-        /// Create an API token. The reply carries the secret; no later call returns it.
+        /// Create an API token. The reply carries the secret; no later call returns it.<br/>
+        /// An API key calling this must name the new key's scopes and cannot grant a sensitive scope.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -23,7 +24,8 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Api Token<br/>
-        /// Create an API token. The reply carries the secret; no later call returns it.
+        /// Create an API token. The reply carries the secret; no later call returns it.<br/>
+        /// An API key calling this must name the new key's scopes and cannot grant a sensitive scope.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -40,7 +42,8 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Api Token<br/>
-        /// Create an API token. The reply carries the secret; no later call returns it.
+        /// Create an API token. The reply carries the secret; no later call returns it.<br/>
+        /// An API key calling this must name the new key's scopes and cannot grant a sensitive scope.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

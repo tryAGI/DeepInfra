@@ -7,7 +7,7 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
@@ -27,7 +27,7 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
@@ -47,13 +47,13 @@ namespace DeepInfra
         /// <summary>
         /// Update Api Token Scopes By Id<br/>
         /// Replace an API token's scopes, by token_id.<br/>
-        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
+        /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`). An API key calling this cannot grant a sensitive scope.
         /// </summary>
         /// <param name="tokenId"></param>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="scopes">
-        /// what the key may do: at least one scope, or `unrestricted` alone for every scope
+        /// what the key may do: at least one scope, or `unrestricted` alone for every non-sensitive scope
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

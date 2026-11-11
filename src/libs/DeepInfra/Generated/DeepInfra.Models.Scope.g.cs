@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every scope.
+    /// What an API key may do. A scope `x` also grants `x:read`; `unrestricted` grants every non-sensitive scope.
     /// </summary>
     public enum Scope
     {
@@ -12,6 +12,14 @@ namespace DeepInfra
         ///
         /// </summary>
         Account_read,
+        /// <summary>
+        ///
+        /// </summary>
+        AccountApiKey,
+        /// <summary>
+        ///
+        /// </summary>
+        AccountApiKey_read,
         /// <summary>
         ///
         /// </summary>
@@ -65,7 +73,7 @@ namespace DeepInfra
         /// </summary>
         Models_read,
         /// <summary>
-        /// read`; `unrestricted` grants every scope.
+        /// read`; `unrestricted` grants every non-sensitive scope.
         /// </summary>
         Unrestricted,
         /// <summary>
@@ -91,6 +99,8 @@ namespace DeepInfra
             return value switch
             {
                 Scope.Account_read => "account:read",
+                Scope.AccountApiKey => "account_api_key",
+                Scope.AccountApiKey_read => "account_api_key:read",
                 Scope.AccountScopedJwt => "account_scoped_jwt",
                 Scope.AccountScopedJwt_read => "account_scoped_jwt:read",
                 Scope.Batch => "batch",
@@ -118,6 +128,8 @@ namespace DeepInfra
             return value switch
             {
                 "account:read" => Scope.Account_read,
+                "account_api_key" => Scope.AccountApiKey,
+                "account_api_key:read" => Scope.AccountApiKey_read,
                 "account_scoped_jwt" => Scope.AccountScopedJwt,
                 "account_scoped_jwt:read" => Scope.AccountScopedJwt_read,
                 "batch" => Scope.Batch,

@@ -26,8 +26,9 @@ namespace DeepInfra
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::DeepInfra.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputTextPart, global::DeepInfra.InputImagePart, global::DeepInfra.InputFilePart>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Output { get; set; }
+        public required global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputTextPart, global::DeepInfra.InputImagePart, global::DeepInfra.InputFilePart>>> Output { get; set; }
 
         /// <summary>
         ///
@@ -60,14 +61,14 @@ namespace DeepInfra
 #endif
         public InputFunctionCallOutputItem(
             string callId,
-            string output,
+            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputTextPart, global::DeepInfra.InputImagePart, global::DeepInfra.InputFilePart>>> output,
             string? id,
             string? status,
             string type = "function_call_output")
         {
             this.Type = type;
             this.CallId = callId ?? throw new global::System.ArgumentNullException(nameof(callId));
-            this.Output = output ?? throw new global::System.ArgumentNullException(nameof(output));
+            this.Output = output;
             this.Id = id;
             this.Status = status;
         }

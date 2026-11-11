@@ -44,7 +44,7 @@ internal static partial class AuthenticationGetApiTokenScopesCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"get-api-token-scopes", @"Get Api Token Scopes
-Every scope a key can be given besides `unrestricted`, and which a new key starts with.");
+Every scope a key of this account can be given besides `unrestricted`, and which a new key starts with.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

@@ -6,7 +6,7 @@ namespace DeepInfra
     {
         /// <summary>
         /// Get Api Token By Id<br/>
-        /// One API token's metadata, by token_id.<br/>
+        /// One API token's metadata, by token_id. No secret is returned.<br/>
         /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>
@@ -23,7 +23,7 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Api Token By Id<br/>
-        /// One API token's metadata, by token_id.<br/>
+        /// One API token's metadata, by token_id. No secret is returned.<br/>
         /// token_id comes from Get Api Tokens (`GET /v1/api-tokens`).
         /// </summary>
         /// <param name="tokenId"></param>

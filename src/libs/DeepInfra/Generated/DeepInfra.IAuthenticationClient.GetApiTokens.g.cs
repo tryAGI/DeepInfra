@@ -5,7 +5,8 @@ namespace DeepInfra
     public partial interface IAuthenticationClient
     {
         /// <summary>
-        /// Get Api Tokens
+        /// Get Api Tokens<br/>
+        /// The account's API tokens' metadata. No secret is returned.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -18,7 +19,8 @@ namespace DeepInfra
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Api Tokens
+        /// Get Api Tokens<br/>
+        /// The account's API tokens' metadata. No secret is returned.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

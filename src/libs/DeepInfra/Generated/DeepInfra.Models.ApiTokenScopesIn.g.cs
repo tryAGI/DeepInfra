@@ -9,7 +9,7 @@ namespace DeepInfra
     public sealed partial class ApiTokenScopesIn
     {
         /// <summary>
-        /// what the key may do: at least one scope, or `unrestricted` alone for every scope
+        /// what the key may do: at least one scope, or `unrestricted` alone for every non-sensitive scope
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scopes")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="ApiTokenScopesIn" /> class.
         /// </summary>
         /// <param name="scopes">
-        /// what the key may do: at least one scope, or `unrestricted` alone for every scope
+        /// what the key may do: at least one scope, or `unrestricted` alone for every non-sensitive scope
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
