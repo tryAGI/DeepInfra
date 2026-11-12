@@ -11,6 +11,8 @@ internal static partial class ModelsApiGroupCommand
     public static Command Create()
     {
         var command = new Command(@"models", @"Models endpoint commands.");
+                         command.Subcommands.Add(ModelsAnthropicModelCommandApiCommand.Create());
+                         command.Subcommands.Add(ModelsAnthropicModelsCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsGetHardwareCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelDeleteCommandApiCommand.Create());
                          command.Subcommands.Add(ModelsModelFamiliesNamesCommandApiCommand.Create());
