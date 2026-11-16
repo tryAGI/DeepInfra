@@ -16,8 +16,10 @@ internal static partial class AccountApiGroupCommand
                          command.Subcommands.Add(AccountAccountRateLimitCommandApiCommand.Create());
                          command.Subcommands.Add(AccountAccountUpdateDetailsCommandApiCommand.Create());
                          command.Subcommands.Add(AccountCancelGpuPoolRequestCommandApiCommand.Create());
+                         command.Subcommands.Add(AccountCancelRateLimitRequestCommandApiCommand.Create());
                          command.Subcommands.Add(AccountDeleteAccountCommandApiCommand.Create());
                          command.Subcommands.Add(AccountGpuPoolGpuTypesCommandApiCommand.Create());
+                         command.Subcommands.Add(AccountListOwnRateLimitRequestsCommandApiCommand.Create());
                          command.Subcommands.Add(AccountMeCommandApiCommand.Create());
                          command.Subcommands.Add(AccountRequestGpuPoolChangeCommandApiCommand.Create());
                          command.Subcommands.Add(AccountRequestRateLimitIncreaseCommandApiCommand.Create());

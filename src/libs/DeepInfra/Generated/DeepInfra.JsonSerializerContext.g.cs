@@ -155,6 +155,10 @@ namespace DeepInfra
 
             typeof(global::DeepInfra.JsonConverters.PromptCacheOptionsTtlNullableJsonConverter),
 
+            typeof(global::DeepInfra.JsonConverters.RateLimitRequestStateJsonConverter),
+
+            typeof(global::DeepInfra.JsonConverters.RateLimitRequestStateNullableJsonConverter),
+
             typeof(global::DeepInfra.JsonConverters.ReasoningSummaryPartTypeJsonConverter),
 
             typeof(global::DeepInfra.JsonConverters.ReasoningSummaryPartTypeNullableJsonConverter),
@@ -452,6 +456,10 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreateLoraApiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SourceModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CreatedApiToken))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CustomerRateLimitRequestOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RateLimitRequestState), TypeInfoPropertyName = "RateLimitRequestState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CustomerRateLimitRequestsOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.CustomerRateLimitRequestOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployArgsHistoryOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployDelete))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUAvailability))]
@@ -743,6 +751,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ChatCompletionMessageToolCall>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, global::System.Collections.Generic.List<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio, global::DeepInfra.ChatCompletionContentPartAudioURL, global::DeepInfra.ChatCompletionContentPartVideo, global::DeepInfra.ChatCompletionContentPartFile>>>), TypeInfoPropertyName = "ChatCompletionContentPartFile_df47dc9f665694eb")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<global::DeepInfra.ChatCompletionContentPartText, global::DeepInfra.ChatCompletionContentPartImage, global::DeepInfra.ChatCompletionContentPartAudio, global::DeepInfra.ChatCompletionContentPartAudioURL, global::DeepInfra.ChatCompletionContentPartVideo, global::DeepInfra.ChatCompletionContentPartFile>>), TypeInfoPropertyName = "ChatCompletionContentPartFile_58ddb530ade85ec8")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.CustomerRateLimitRequestOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.GPUAvailabilityInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<global::System.Collections.Generic.List<string>>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<string>>))]
