@@ -192,6 +192,10 @@ The total length of input tokens and generated tokens is limited by the model's 
     private static Option<bool?> IgnoreEos { get; } = CliRuntime.CreateNullableBoolOption(
         name: @"--ignore-eos",
         description: @"Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.");
+
+    private static Option<bool?> SkipSpecialTokens { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--skip-special-tokens",
+        description: @"Whether to drop special tokens from the output text. Set false to keep them, e.g. when you render prompts yourself and parse the model's own markers. Defaults to the engine's behaviour.");
     private static readonly StreamOptionsOptionSet StreamOptionsOptions = StreamOptionsOptionSet.Create(@"stream");
       private static Option<string?> Input { get; } = new(@"--input")
       {
@@ -266,7 +270,8 @@ The total length of input tokens and generated tokens is limited by the model's 
                         command.Options.Add(PromptCacheOptions);
                         command.Options.Add(CacheSalt);
                         command.Options.Add(Data);
-                        command.Options.Add(IgnoreEos);                        command.Options.Add(StreamOptionsOptions.IncludeUsage);
+                        command.Options.Add(IgnoreEos);
+                        command.Options.Add(SkipSpecialTokens);                        command.Options.Add(StreamOptionsOptions.IncludeUsage);
                         command.Options.Add(StreamOptionsOptions.ContinuousUsageStats);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -325,6 +330,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         var cacheSalt = CliRuntime.WasSpecified(parseResult, CacheSalt) ? parseResult.GetValue(CacheSalt) : (__requestBase is { } __CacheSaltBaseValue ? __CacheSaltBaseValue.CacheSalt : default);
                         var data = CliRuntime.WasSpecified(parseResult, Data) ? parseResult.GetValue(Data) : (__requestBase is { } __DataBaseValue ? __DataBaseValue.Data : default);
                         var ignoreEos = CliRuntime.WasSpecified(parseResult, IgnoreEos) ? parseResult.GetValue(IgnoreEos) : (__requestBase is { } __IgnoreEosBaseValue ? __IgnoreEosBaseValue.IgnoreEos : default);
+                        var skipSpecialTokens = CliRuntime.WasSpecified(parseResult, SkipSpecialTokens) ? parseResult.GetValue(SkipSpecialTokens) : (__requestBase is { } __SkipSpecialTokensBaseValue ? __SkipSpecialTokensBaseValue.SkipSpecialTokens : default);
 
                         var __StreamOptionsBase = __requestBase is { } __StreamOptionsBaseValue ? __StreamOptionsBaseValue.StreamOptions : default;                        var streamOptionsIncludeUsage = CliRuntime.WasSpecified(parseResult, StreamOptionsOptions.IncludeUsage) ? parseResult.GetValue(StreamOptionsOptions.IncludeUsage) : (__StreamOptionsBase is { } __StreamOptionsincludeUsageBaseValue ? __StreamOptionsincludeUsageBaseValue.IncludeUsage : default);
                         var streamOptionsContinuousUsageStats = CliRuntime.WasSpecified(parseResult, StreamOptionsOptions.ContinuousUsageStats) ? parseResult.GetValue(StreamOptionsOptions.ContinuousUsageStats) : (__StreamOptionsBase is { } __StreamOptionscontinuousUsageStatsBaseValue ? __StreamOptionscontinuousUsageStatsBaseValue.ContinuousUsageStats : default);
@@ -374,6 +380,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     cacheSalt: cacheSalt,
                                     data: data,
                                     ignoreEos: ignoreEos,
+                                    skipSpecialTokens: skipSpecialTokens,
                                     streamOptions: streamOptions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

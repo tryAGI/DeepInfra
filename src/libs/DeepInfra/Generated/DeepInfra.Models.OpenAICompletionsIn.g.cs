@@ -199,6 +199,12 @@ namespace DeepInfra
         public bool? IgnoreEos { get; set; }
 
         /// <summary>
+        /// Whether to drop special tokens from the output text. Set false to keep them, e.g. when you render prompts yourself and parse the model's own markers. Defaults to the engine's behaviour.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("skip_special_tokens")]
+        public bool? SkipSpecialTokens { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -305,6 +311,9 @@ namespace DeepInfra
         /// <param name="ignoreEos">
         /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
         /// </param>
+        /// <param name="skipSpecialTokens">
+        /// Whether to drop special tokens from the output text. Set false to keep them, e.g. when you render prompts yourself and parse the model's own markers. Defaults to the engine's behaviour.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -337,7 +346,8 @@ namespace DeepInfra
             global::DeepInfra.PromptCacheOptions? promptCacheOptions,
             string? cacheSalt,
             global::DeepInfra.CompletionMultiModalData? data,
-            bool? ignoreEos)
+            bool? ignoreEos,
+            bool? skipSpecialTokens)
         {
             this.ServiceTier = serviceTier;
             this.FailFast = failFast;
@@ -368,6 +378,7 @@ namespace DeepInfra
             this.CacheSalt = cacheSalt;
             this.Data = data;
             this.IgnoreEos = ignoreEos;
+            this.SkipSpecialTokens = skipSpecialTokens;
         }
 
         /// <summary>
