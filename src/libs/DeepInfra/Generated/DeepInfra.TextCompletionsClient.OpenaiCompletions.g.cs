@@ -629,6 +629,9 @@ namespace DeepInfra
         /// <param name="ignoreEos">
         /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
         /// </param>
+        /// <param name="skipSpecialTokens">
+        /// Whether to drop special tokens from the output text. Set false to keep them, e.g. when you render prompts yourself and parse the model's own markers. Defaults to the engine's behaviour.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -666,6 +669,7 @@ namespace DeepInfra
             string? cacheSalt = default,
             global::DeepInfra.CompletionMultiModalData? data = default,
             bool? ignoreEos = default,
+            bool? skipSpecialTokens = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -700,6 +704,7 @@ namespace DeepInfra
                 CacheSalt = cacheSalt,
                 Data = data,
                 IgnoreEos = ignoreEos,
+                SkipSpecialTokens = skipSpecialTokens,
             };
 
             return await OpenaiCompletionsAsync(
