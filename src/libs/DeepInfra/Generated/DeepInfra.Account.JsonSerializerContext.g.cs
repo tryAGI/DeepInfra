@@ -36,6 +36,10 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>), TypeInfoPropertyName = "AnyOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CustomerRateLimitRequestOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RateLimitRequestState), TypeInfoPropertyName = "RateLimitRequestState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.CustomerRateLimitRequestsOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.CustomerRateLimitRequestOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUs), TypeInfoPropertyName = "DeployGPUs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DisplayNameIn))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.EmailsOut))]
@@ -55,11 +59,13 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SuspendReason?), TypeInfoPropertyName = "NullableSuspendReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.AnyOf<string, int?>?), TypeInfoPropertyName = "NullableAnyOfStringInt322")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.RateLimitRequestState?), TypeInfoPropertyName = "NullableRateLimitRequestState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeployGPUs?), TypeInfoPropertyName = "NullableDeployGPUs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ScopedCredit>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.AnyOf<string, int?>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.CustomerRateLimitRequestOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::DeepInfra.DeployGPUs>))]
     internal sealed partial class AccountSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -148,7 +154,11 @@ namespace DeepInfra
 
                     || typeToConvert == typeof(global::DeepInfra.DeployGPUs)
 
-                    || typeToConvert == typeof(global::DeepInfra.DeployGPUs?);
+                    || typeToConvert == typeof(global::DeepInfra.DeployGPUs?)
+
+                    || typeToConvert == typeof(global::DeepInfra.RateLimitRequestState)
+
+                    || typeToConvert == typeof(global::DeepInfra.RateLimitRequestState?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -173,6 +183,16 @@ namespace DeepInfra
                 if (typeToConvert == typeof(global::DeepInfra.DeployGPUs?))
                 {
                     return new global::DeepInfra.JsonConverters.DeployGPUsNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.RateLimitRequestState))
+                {
+                    return new global::DeepInfra.JsonConverters.RateLimitRequestStateJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::DeepInfra.RateLimitRequestState?))
+                {
+                    return new global::DeepInfra.JsonConverters.RateLimitRequestStateNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }
