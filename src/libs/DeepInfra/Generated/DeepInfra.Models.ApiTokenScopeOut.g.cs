@@ -24,7 +24,7 @@ namespace DeepInfra
         public required bool IsDefault { get; set; }
 
         /// <summary>
-        /// listed only for an account it is enabled for; no API key can grant it and `unrestricted` does not grant it<br/>
+        /// listed only once the account owner enabled it in the dashboard; no API key can grant it and `unrestricted` does not grant it<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_sensitive")]
@@ -46,7 +46,7 @@ namespace DeepInfra
         /// preselected for a new key
         /// </param>
         /// <param name="isSensitive">
-        /// listed only for an account it is enabled for; no API key can grant it and `unrestricted` does not grant it<br/>
+        /// listed only once the account owner enabled it in the dashboard; no API key can grant it and `unrestricted` does not grant it<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER
