@@ -28,7 +28,7 @@ namespace DeepInfra
         public int? ExpiresDelta { get; set; }
 
         /// <summary>
-        /// unix timestamp when the token should expire
+        /// unix timestamp when the token should expire; must be in the future and at most 32054400 seconds from now
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         public int? ExpiresAt { get; set; }
@@ -56,7 +56,7 @@ namespace DeepInfra
         /// how many seconds in the future should the token be valid for
         /// </param>
         /// <param name="expiresAt">
-        /// unix timestamp when the token should expire
+        /// unix timestamp when the token should expire; must be in the future and at most 32054400 seconds from now
         /// </param>
         /// <param name="spendingLimit">
         /// only allow spending that much USD until the token becomes invalid

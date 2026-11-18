@@ -41,7 +41,7 @@ internal static partial class AuthenticationCreateScopedJwtCommandApiCommand
     private static Option<int?> ExpiresAt { get; } = new(
         name: @"--expires-at")
     {
-        Description = @"unix timestamp when the token should expire",
+        Description = @"unix timestamp when the token should expire; must be in the future and at most 32054400 seconds from now",
     };
 
     private static Option<double?> SpendingLimit { get; } = new(
