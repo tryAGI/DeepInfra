@@ -19,11 +19,10 @@ internal static partial class AuthenticationCreateScopedJwtCommandApiCommand
         Description = @"",
     };
 
-    private static Option<string> ApiKeyName { get; } = new(
+    private static Option<string?> ApiKeyName { get; } = new(
         name: @"--api-key-name")
     {
-        Description = @"",
-        Required = true,
+        Description = @"name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key",
     };
 
     private static Option<global::System.Collections.Generic.IList<string>?> Models { get; } = new(
@@ -125,7 +124,7 @@ internal static partial class AuthenticationCreateScopedJwtCommandApiCommand
                             cancellationToken).ConfigureAwait(false);
                         var xiApiKey = parseResult.GetValue(XiApiKey);
                         var xApiKey = parseResult.GetValue(XApiKey);
-                        var apiKeyName = parseResult.GetRequiredValue(ApiKeyName);
+                        var apiKeyName = CliRuntime.WasSpecified(parseResult, ApiKeyName) ? parseResult.GetValue(ApiKeyName) : (__requestBase is { } __ApiKeyNameBaseValue ? __ApiKeyNameBaseValue.ApiKeyName : default);
                         var models = CliRuntime.WasSpecified(parseResult, Models) ? parseResult.GetValue(Models) : (__requestBase is { } __ModelsBaseValue ? __ModelsBaseValue.Models : default);
                         var expiresDelta = CliRuntime.WasSpecified(parseResult, ExpiresDelta) ? parseResult.GetValue(ExpiresDelta) : (__requestBase is { } __ExpiresDeltaBaseValue ? __ExpiresDeltaBaseValue.ExpiresDelta : default);
                         var expiresAt = CliRuntime.WasSpecified(parseResult, ExpiresAt) ? parseResult.GetValue(ExpiresAt) : (__requestBase is { } __ExpiresAtBaseValue ? __ExpiresAtBaseValue.ExpiresAt : default);

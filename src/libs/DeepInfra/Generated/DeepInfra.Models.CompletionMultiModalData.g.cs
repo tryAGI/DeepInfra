@@ -9,13 +9,13 @@ namespace DeepInfra
     public sealed partial class CompletionMultiModalData
     {
         /// <summary>
-        /// List of images as base64 data URIs (e.g. 'data:image/png;base64,...'). Each image must correspond to a placeholder token in the prompt.
+        /// List of images, each a base64 data URI (e.g. 'data:image/png;base64,...') or an http(s) URL. Each image must correspond to a placeholder token in the prompt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         public global::System.Collections.Generic.IList<string>? Image { get; set; }
 
         /// <summary>
-        /// List of videos as base64 data URIs (e.g. 'data:video/mp4;base64,...'). Each video must correspond to a placeholder token in the prompt.
+        /// List of videos, each a base64 data URI (e.g. 'data:video/mp4;base64,...') or an http(s) URL. Each video must correspond to a placeholder token in the prompt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
         public global::System.Collections.Generic.IList<string>? Video { get; set; }
@@ -30,10 +30,10 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="CompletionMultiModalData" /> class.
         /// </summary>
         /// <param name="image">
-        /// List of images as base64 data URIs (e.g. 'data:image/png;base64,...'). Each image must correspond to a placeholder token in the prompt.
+        /// List of images, each a base64 data URI (e.g. 'data:image/png;base64,...') or an http(s) URL. Each image must correspond to a placeholder token in the prompt.
         /// </param>
         /// <param name="video">
-        /// List of videos as base64 data URIs (e.g. 'data:video/mp4;base64,...'). Each video must correspond to a placeholder token in the prompt.
+        /// List of videos, each a base64 data URI (e.g. 'data:video/mp4;base64,...') or an http(s) URL. Each video must correspond to a placeholder token in the prompt.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

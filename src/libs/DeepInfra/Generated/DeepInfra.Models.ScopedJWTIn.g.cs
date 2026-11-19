@@ -9,11 +9,10 @@ namespace DeepInfra
     public sealed partial class ScopedJWTIn
     {
         /// <summary>
-        ///
+        /// name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ApiKeyName { get; set; }
+        public string? ApiKeyName { get; set; }
 
         /// <summary>
         /// allow inference only to the specified model names
@@ -48,7 +47,9 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ScopedJWTIn" /> class.
         /// </summary>
-        /// <param name="apiKeyName"></param>
+        /// <param name="apiKeyName">
+        /// name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key
+        /// </param>
         /// <param name="models">
         /// allow inference only to the specified model names
         /// </param>
@@ -65,13 +66,13 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ScopedJWTIn(
-            string apiKeyName,
+            string? apiKeyName,
             global::System.Collections.Generic.IList<string>? models,
             int? expiresDelta,
             int? expiresAt,
             double? spendingLimit)
         {
-            this.ApiKeyName = apiKeyName ?? throw new global::System.ArgumentNullException(nameof(apiKeyName));
+            this.ApiKeyName = apiKeyName;
             this.Models = models;
             this.ExpiresDelta = expiresDelta;
             this.ExpiresAt = expiresAt;

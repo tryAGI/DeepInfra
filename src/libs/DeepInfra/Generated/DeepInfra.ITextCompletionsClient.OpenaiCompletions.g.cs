@@ -150,7 +150,7 @@ namespace DeepInfra
         /// Isolates this request's prefix cache: only requests with the same salt reuse each other's cached prefix. Honoured by models served on vLLM; ignored elsewhere.
         /// </param>
         /// <param name="data">
-        /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').
+        /// Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images and videos are base64 data URIs (e.g. 'data:image/png;base64,...') or http(s) URLs.
         /// </param>
         /// <param name="ignoreEos">
         /// Keep generating until max_tokens instead of stopping at the end-of-sequence token. Only honoured on models tagged with the allow_ignore_eos feature flag; ignored otherwise. Intended for benchmarking, where a fixed output length is needed.
