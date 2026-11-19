@@ -186,7 +186,7 @@ The total length of input tokens and generated tokens is limited by the model's 
     private static Option<global::DeepInfra.CompletionMultiModalData?> Data { get; } = new(
         name: @"--data")
     {
-        Description = @"Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images must be base64 data URIs (e.g. 'data:image/png;base64,...').",
+        Description = @"Optional multi-modal data to pass alongside the prompt. Only supported for a small number of non-chat-native vision models. Images and videos are base64 data URIs (e.g. 'data:image/png;base64,...') or http(s) URLs.",
     };
 
     private static Option<bool?> IgnoreEos { get; } = CliRuntime.CreateNullableBoolOption(

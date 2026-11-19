@@ -25,6 +25,7 @@ namespace DeepInfra
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.SuspendReason), TypeInfoPropertyName = "SuspendReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.ScopedCredit))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.NewCustomerLimits))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.DeepError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::DeepInfra.HTTPValidationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::DeepInfra.ValidationError>))]
