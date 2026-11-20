@@ -132,12 +132,6 @@ namespace DeepInfra
         public global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>? ScopedCredits { get; set; }
 
         /// <summary>
-        /// Limits on adding funds that apply to new customers; null when none apply
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("new_customer_limits")]
-        public global::DeepInfra.NewCustomerLimits? NewCustomerLimits { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -193,9 +187,6 @@ namespace DeepInfra
         /// Default Value: true
         /// </param>
         /// <param name="scopedCredits"></param>
-        /// <param name="newCustomerLimits">
-        /// Limits on adding funds that apply to new customers; null when none apply
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -219,8 +210,7 @@ namespace DeepInfra
             string? billingType,
             string? paymentCollection,
             bool? paymentMethodRequired,
-            global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>? scopedCredits,
-            global::DeepInfra.NewCustomerLimits? newCustomerLimits)
+            global::System.Collections.Generic.IList<global::DeepInfra.ScopedCredit>? scopedCredits)
         {
             this.Email = email;
             this.BillingAddress = billingAddress;
@@ -242,7 +232,6 @@ namespace DeepInfra
             this.PaymentCollection = paymentCollection;
             this.PaymentMethodRequired = paymentMethodRequired;
             this.ScopedCredits = scopedCredits;
-            this.NewCustomerLimits = newCustomerLimits;
         }
 
         /// <summary>

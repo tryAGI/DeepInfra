@@ -54,7 +54,7 @@ internal static partial class DedicatedModelsDeployCreateLlmCommandApiCommand
     private static Option<string?> ContainerImage { get; } = new(
         name: @"--container-image")
     {
-        Description = @"Docker image for the deployment (e.g. vllm/vllm-openai:v0.8.4)",
+        Description = @"Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted.",
     };
 
     private static Option<global::System.Collections.Generic.IList<string>?> ExtraArgs { get; } = new(

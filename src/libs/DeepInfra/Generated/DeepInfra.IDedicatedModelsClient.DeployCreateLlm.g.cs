@@ -56,7 +56,7 @@ namespace DeepInfra
         /// Base public model
         /// </param>
         /// <param name="containerImage">
-        /// Docker image for the deployment (e.g. vllm/vllm-openai:v0.8.4)
+        /// Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted.
         /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
