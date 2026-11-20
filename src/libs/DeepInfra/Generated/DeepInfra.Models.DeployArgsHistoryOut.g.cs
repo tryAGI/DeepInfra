@@ -30,7 +30,7 @@ namespace DeepInfra
         public required object StandardArgs { get; set; }
 
         /// <summary>
-        /// Extra engine-specific command-line args of this config (custom-weight deploys only).
+        /// Always empty: extra_args can't be edited or restored.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
         public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
@@ -54,7 +54,7 @@ namespace DeepInfra
         /// Engine tuning knobs of this config.
         /// </param>
         /// <param name="extraArgs">
-        /// Extra engine-specific command-line args of this config (custom-weight deploys only).
+        /// Always empty: extra_args can't be edited or restored.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

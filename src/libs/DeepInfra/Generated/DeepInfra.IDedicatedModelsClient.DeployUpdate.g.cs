@@ -51,7 +51,7 @@ namespace DeepInfra
         /// Engine tuning knobs. Replaces the whole set; omitted knobs are cleared.
         /// </param>
         /// <param name="extraArgs">
-        /// Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.
+        /// No longer accepted: a non-empty value is rejected. Use standard_args.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

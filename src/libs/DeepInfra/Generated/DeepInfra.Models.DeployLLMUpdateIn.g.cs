@@ -21,7 +21,7 @@ namespace DeepInfra
         public global::DeepInfra.StandardArgs? StandardArgs { get; set; }
 
         /// <summary>
-        /// Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.
+        /// No longer accepted: a non-empty value is rejected. Use standard_args.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
         public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
@@ -40,7 +40,7 @@ namespace DeepInfra
         /// Engine tuning knobs. Replaces the whole set; omitted knobs are cleared.
         /// </param>
         /// <param name="extraArgs">
-        /// Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.
+        /// No longer accepted: a non-empty value is rejected. Use standard_args.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
