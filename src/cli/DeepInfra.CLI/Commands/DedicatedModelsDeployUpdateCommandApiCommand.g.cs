@@ -28,7 +28,7 @@ internal static partial class DedicatedModelsDeployUpdateCommandApiCommand
     private static Option<global::System.Collections.Generic.IList<string>?> ExtraArgs { get; } = new(
         name: @"--extra-args")
     {
-        Description = @"Extra engine-specific command-line args (custom-weight deploys only). Replaces the whole list; omitted args are cleared.",
+        Description = @"No longer accepted: a non-empty value is rejected. Use standard_args.",
     };
     private static readonly ScaleSettingsOptionSet SettingsOptions = ScaleSettingsOptionSet.Create(@"settings");
 

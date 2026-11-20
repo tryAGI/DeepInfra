@@ -55,7 +55,7 @@ namespace DeepInfra
         public global::DeepInfra.ScaleSettings? Settings { get; set; }
 
         /// <summary>
-        /// Extra command line arguments for custom deployments
+        /// No longer accepted: a non-empty value is rejected. Use standard_args or preset_id.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_args")]
         public global::System.Collections.Generic.IList<string>? ExtraArgs { get; set; }
@@ -67,7 +67,7 @@ namespace DeepInfra
         public global::DeepInfra.StandardArgs? StandardArgs { get; set; }
 
         /// <summary>
-        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.
+        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args in this request replaces the preset's whole standard_args.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preset_id")]
         public string? PresetId { get; set; }
@@ -100,13 +100,13 @@ namespace DeepInfra
         /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
-        /// Extra command line arguments for custom deployments
+        /// No longer accepted: a non-empty value is rejected. Use standard_args or preset_id.
         /// </param>
         /// <param name="standardArgs">
         /// Engine tuning knobs. Values are validated on submission; unsupported or out-of-range values are rejected. Unset knobs use the model/engine defaults.
         /// </param>
         /// <param name="presetId">
-        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.
+        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args in this request replaces the preset's whole standard_args.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

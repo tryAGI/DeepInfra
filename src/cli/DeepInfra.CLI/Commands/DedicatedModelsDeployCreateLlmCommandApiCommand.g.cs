@@ -60,13 +60,13 @@ internal static partial class DedicatedModelsDeployCreateLlmCommandApiCommand
     private static Option<global::System.Collections.Generic.IList<string>?> ExtraArgs { get; } = new(
         name: @"--extra-args")
     {
-        Description = @"Extra command line arguments for custom deployments",
+        Description = @"No longer accepted: a non-empty value is rejected. Use standard_args or preset_id.",
     };
 
     private static Option<string?> PresetId { get; } = new(
         name: @"--preset-id")
     {
-        Description = @"Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.",
+        Description = @"Apply a stored preset or vLLM recipe by id. A non-empty standard_args in this request replaces the preset's whole standard_args.",
     };
     private static readonly ScaleSettingsOptionSet SettingsOptions = ScaleSettingsOptionSet.Create(@"settings");
 

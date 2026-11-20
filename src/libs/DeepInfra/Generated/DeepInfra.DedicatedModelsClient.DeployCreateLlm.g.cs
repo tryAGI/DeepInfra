@@ -631,13 +631,13 @@ namespace DeepInfra
         /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
-        /// Extra command line arguments for custom deployments
+        /// No longer accepted: a non-empty value is rejected. Use standard_args or preset_id.
         /// </param>
         /// <param name="standardArgs">
         /// Engine tuning knobs. Values are validated on submission; unsupported or out-of-range values are rejected. Unset knobs use the model/engine defaults.
         /// </param>
         /// <param name="presetId">
-        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args or extra_args in this request replaces the preset's whole matching field.
+        /// Apply a stored preset or vLLM recipe by id. A non-empty standard_args in this request replaces the preset's whole standard_args.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
