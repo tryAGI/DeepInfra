@@ -43,7 +43,7 @@ namespace DeepInfra
         public string? BaseModel { get; set; }
 
         /// <summary>
-        /// Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted.
+        /// Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted. The tag is resolved to its digest once, when the deployment is created, and the deployment keeps running that image.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_image")]
         public string? ContainerImage { get; set; }
@@ -96,7 +96,7 @@ namespace DeepInfra
         /// Base public model
         /// </param>
         /// <param name="containerImage">
-        /// Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted.
+        /// Docker image for the deployment: vllm/vllm-openai:latest or an x86 release tag (e.g. vllm/vllm-openai:v0.34.0). nightly is not accepted. The tag is resolved to its digest once, when the deployment is created, and the deployment keeps running that image.
         /// </param>
         /// <param name="settings"></param>
         /// <param name="extraArgs">
