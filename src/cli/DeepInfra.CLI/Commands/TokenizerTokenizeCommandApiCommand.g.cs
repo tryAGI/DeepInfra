@@ -38,6 +38,36 @@ internal static partial class TokenizerTokenizeCommandApiCommand
         Description = @"chat messages to tokenize (chat form)",
     };
 
+    private static Option<bool?> AddSpecialTokens { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--add-special-tokens",
+        description: @"add the tokenizer's special tokens");
+
+    private static Option<bool?> AddGenerationPrompt { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--add-generation-prompt",
+        description: @"append the assistant turn header (chat form)");
+
+    private static Option<bool?> ContinueFinalMessage { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--continue-final-message",
+        description: @"leave the final message open for continuation (chat form)");
+
+    private static Option<string?> ChatTemplate { get; } = new(
+        name: @"--chat-template")
+    {
+        Description = @"chat template override (chat form; the engine may refuse it)",
+    };
+
+    private static Option<object?> ChatTemplateKwargs { get; } = new(
+        name: @"--chat-template-kwargs")
+    {
+        Description = @"extra variables for the chat template (chat form)",
+    };
+
+    private static Option<global::System.Collections.Generic.IList<object>?> Tools { get; } = new(
+        name: @"--tools")
+    {
+        Description = @"tool definitions to render (chat form)",
+    };
+
     private static Option<bool?> ReturnTokenStrs { get; } = CliRuntime.CreateNullableBoolOption(
         name: @"--return-token-strs",
         description: @"also return the per-token strings (vLLM)");
@@ -88,6 +118,12 @@ internal static partial class TokenizerTokenizeCommandApiCommand
                         command.Options.Add(Model);
                         command.Options.Add(Prompt);
                         command.Options.Add(Messages);
+                        command.Options.Add(AddSpecialTokens);
+                        command.Options.Add(AddGenerationPrompt);
+                        command.Options.Add(ContinueFinalMessage);
+                        command.Options.Add(ChatTemplate);
+                        command.Options.Add(ChatTemplateKwargs);
+                        command.Options.Add(Tools);
                         command.Options.Add(ReturnTokenStrs);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -119,6 +155,12 @@ internal static partial class TokenizerTokenizeCommandApiCommand
                         var model = parseResult.GetRequiredValue(Model);
                         var prompt = CliRuntime.WasSpecified(parseResult, Prompt) ? parseResult.GetValue(Prompt) : (__requestBase is { } __PromptBaseValue ? __PromptBaseValue.Prompt : default);
                         var messages = CliRuntime.WasSpecified(parseResult, Messages) ? parseResult.GetValue(Messages) : (__requestBase is { } __MessagesBaseValue ? __MessagesBaseValue.Messages : default);
+                        var addSpecialTokens = CliRuntime.WasSpecified(parseResult, AddSpecialTokens) ? parseResult.GetValue(AddSpecialTokens) : (__requestBase is { } __AddSpecialTokensBaseValue ? __AddSpecialTokensBaseValue.AddSpecialTokens : default);
+                        var addGenerationPrompt = CliRuntime.WasSpecified(parseResult, AddGenerationPrompt) ? parseResult.GetValue(AddGenerationPrompt) : (__requestBase is { } __AddGenerationPromptBaseValue ? __AddGenerationPromptBaseValue.AddGenerationPrompt : default);
+                        var continueFinalMessage = CliRuntime.WasSpecified(parseResult, ContinueFinalMessage) ? parseResult.GetValue(ContinueFinalMessage) : (__requestBase is { } __ContinueFinalMessageBaseValue ? __ContinueFinalMessageBaseValue.ContinueFinalMessage : default);
+                        var chatTemplate = CliRuntime.WasSpecified(parseResult, ChatTemplate) ? parseResult.GetValue(ChatTemplate) : (__requestBase is { } __ChatTemplateBaseValue ? __ChatTemplateBaseValue.ChatTemplate : default);
+                        var chatTemplateKwargs = CliRuntime.WasSpecified(parseResult, ChatTemplateKwargs) ? parseResult.GetValue(ChatTemplateKwargs) : (__requestBase is { } __ChatTemplateKwargsBaseValue ? __ChatTemplateKwargsBaseValue.ChatTemplateKwargs : default);
+                        var tools = CliRuntime.WasSpecified(parseResult, Tools) ? parseResult.GetValue(Tools) : (__requestBase is { } __ToolsBaseValue ? __ToolsBaseValue.Tools : default);
                         var returnTokenStrs = CliRuntime.WasSpecified(parseResult, ReturnTokenStrs) ? parseResult.GetValue(ReturnTokenStrs) : (__requestBase is { } __ReturnTokenStrsBaseValue ? __ReturnTokenStrsBaseValue.ReturnTokenStrs : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -129,6 +171,12 @@ internal static partial class TokenizerTokenizeCommandApiCommand
                                     model: model,
                                     prompt: prompt,
                                     messages: messages,
+                                    addSpecialTokens: addSpecialTokens,
+                                    addGenerationPrompt: addGenerationPrompt,
+                                    continueFinalMessage: continueFinalMessage,
+                                    chatTemplate: chatTemplate,
+                                    chatTemplateKwargs: chatTemplateKwargs,
+                                    tools: tools,
                                     returnTokenStrs: returnTokenStrs,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
