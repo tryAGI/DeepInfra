@@ -510,6 +510,24 @@ namespace DeepInfra
         /// <param name="messages">
         /// chat messages to tokenize (chat form)
         /// </param>
+        /// <param name="addSpecialTokens">
+        /// add the tokenizer's special tokens
+        /// </param>
+        /// <param name="addGenerationPrompt">
+        /// append the assistant turn header (chat form)
+        /// </param>
+        /// <param name="continueFinalMessage">
+        /// leave the final message open for continuation (chat form)
+        /// </param>
+        /// <param name="chatTemplate">
+        /// chat template override (chat form; the engine may refuse it)
+        /// </param>
+        /// <param name="chatTemplateKwargs">
+        /// extra variables for the chat template (chat form)
+        /// </param>
+        /// <param name="tools">
+        /// tool definitions to render (chat form)
+        /// </param>
         /// <param name="returnTokenStrs">
         /// also return the per-token strings (vLLM)
         /// </param>
@@ -522,6 +540,12 @@ namespace DeepInfra
             string? xApiKey = default,
             string? prompt = default,
             global::System.Collections.Generic.IList<object>? messages = default,
+            bool? addSpecialTokens = default,
+            bool? addGenerationPrompt = default,
+            bool? continueFinalMessage = default,
+            string? chatTemplate = default,
+            object? chatTemplateKwargs = default,
+            global::System.Collections.Generic.IList<object>? tools = default,
             bool? returnTokenStrs = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -531,6 +555,12 @@ namespace DeepInfra
                 Model = model,
                 Prompt = prompt,
                 Messages = messages,
+                AddSpecialTokens = addSpecialTokens,
+                AddGenerationPrompt = addGenerationPrompt,
+                ContinueFinalMessage = continueFinalMessage,
+                ChatTemplate = chatTemplate,
+                ChatTemplateKwargs = chatTemplateKwargs,
+                Tools = tools,
                 ReturnTokenStrs = returnTokenStrs,
             };
 
