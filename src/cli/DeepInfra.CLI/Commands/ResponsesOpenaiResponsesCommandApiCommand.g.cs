@@ -54,7 +54,7 @@ internal static partial class ResponsesOpenaiResponsesCommandApiCommand
         Required = true,
     };
 
-    private static Option<global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>>> InputOption { get; } = new(
+    private static Option<global::DeepInfra.OneOf<string, global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>>> InputOption { get; } = new(
         name: @"--input")
     {
         Description = @"",
