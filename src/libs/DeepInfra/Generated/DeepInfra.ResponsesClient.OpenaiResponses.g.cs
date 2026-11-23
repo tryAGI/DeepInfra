@@ -584,7 +584,7 @@ namespace DeepInfra
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> OpenaiResponsesAsync(
             string model,
-            global::DeepInfra.AnyOf<string, global::System.Collections.Generic.IList<global::DeepInfra.AnyOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>> input,
+            global::DeepInfra.OneOf<string, global::System.Collections.Generic.IList<global::DeepInfra.OneOf<global::DeepInfra.InputMessageItem, global::DeepInfra.InputFunctionCallItem, global::DeepInfra.InputFunctionCallOutputItem, global::DeepInfra.InputReasoningItem>>> input,
             string? xDeepinfraSource = default,
             string? xDeepinfraServiceTier = default,
             string? xiApiKey = default,
