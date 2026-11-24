@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace DeepInfra
@@ -9,9 +11,10 @@ namespace DeepInfra
     public sealed partial class ScopedJWTIn
     {
         /// <summary>
-        /// name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key
+        /// Deprecated: omit it, and the token is signed by the API key making the call
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_name")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? ApiKeyName { get; set; }
 
         /// <summary>
@@ -47,9 +50,6 @@ namespace DeepInfra
         /// <summary>
         /// Initializes a new instance of the <see cref="ScopedJWTIn" /> class.
         /// </summary>
-        /// <param name="apiKeyName">
-        /// name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key
-        /// </param>
         /// <param name="models">
         /// allow inference only to the specified model names
         /// </param>
@@ -66,13 +66,11 @@ namespace DeepInfra
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ScopedJWTIn(
-            string? apiKeyName,
             global::System.Collections.Generic.IList<string>? models,
             int? expiresDelta,
             int? expiresAt,
             double? spendingLimit)
         {
-            this.ApiKeyName = apiKeyName;
             this.Models = models;
             this.ExpiresDelta = expiresDelta;
             this.ExpiresAt = expiresAt;

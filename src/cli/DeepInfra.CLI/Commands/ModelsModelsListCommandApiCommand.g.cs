@@ -7,7 +7,9 @@ namespace DeepInfra.CLI.Commands;
 
 internal static partial class ModelsModelsListCommandApiCommand
 {
-
+    private static Option<bool?> Zdr { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--zdr",
+        description: @"true: only models covered by zero data retention (hosted by DeepInfra); false: only partner-served models; omit for all");
 
                     private static string FormatResponse(ParseResult parseResult, global::System.Collections.Generic.IList<global::DeepInfra.ModelOut> value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
@@ -34,18 +36,18 @@ internal static partial class ModelsModelsListCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"list", @"Models List");
-
+                        command.Options.Add(Zdr);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-
+                        var zdr = parseResult.GetValue(Zdr);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Models.ModelsListAsync(
-
+                                    zdr: zdr,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

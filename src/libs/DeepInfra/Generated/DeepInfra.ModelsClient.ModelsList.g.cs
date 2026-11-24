@@ -26,10 +26,12 @@ namespace DeepInfra
             {                s_ModelsListSecurityRequirement0,
             };
         partial void PrepareModelsListArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            bool? zdr);
         partial void PrepareModelsListRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? zdr);
         partial void ProcessModelsListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,14 +44,19 @@ namespace DeepInfra
         /// <summary>
         /// Models List
         /// </summary>
+        /// <param name="zdr">
+        /// true: only models covered by zero data retention (hosted by DeepInfra); false: only partner-served models; omit for all
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>> ModelsListAsync(
+            bool? zdr = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ModelsListAsResponseAsync(
+                zdr: zdr,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -59,17 +66,22 @@ namespace DeepInfra
         /// <summary>
         /// Models List
         /// </summary>
+        /// <param name="zdr">
+        /// true: only models covered by zero data retention (hosted by DeepInfra); false: only partner-served models; omit for all
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>>> ModelsListAsResponseAsync(
+            bool? zdr = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareModelsListArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                zdr: zdr);
 
 
             var __authorizations = global::DeepInfra.EndPointSecurityResolver.ResolveAuthorizations(
@@ -97,6 +109,9 @@ namespace DeepInfra
                             var __pathBuilder = new global::DeepInfra.PathBuilder(
                                 path: "/models/list",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("zdr", zdr?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::DeepInfra.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -136,7 +151,8 @@ namespace DeepInfra
                     request: __httpRequest);
                 PrepareModelsListRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    zdr: zdr);
 
                 return __httpRequest;
             }
@@ -315,6 +331,43 @@ namespace DeepInfra
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Validation Error
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::DeepInfra.HTTPValidationError? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+
+                                throw global::DeepInfra.ApiException<global::DeepInfra.HTTPValidationError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
 
                             if (__effectiveReadResponseAsString)
                             {

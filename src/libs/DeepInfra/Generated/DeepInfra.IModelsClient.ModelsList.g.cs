@@ -7,19 +7,27 @@ namespace DeepInfra
         /// <summary>
         /// Models List
         /// </summary>
+        /// <param name="zdr">
+        /// true: only models covered by zero data retention (hosted by DeepInfra); false: only partner-served models; omit for all
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>> ModelsListAsync(
+            bool? zdr = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Models List
         /// </summary>
+        /// <param name="zdr">
+        /// true: only models covered by zero data retention (hosted by DeepInfra); false: only partner-served models; omit for all
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::DeepInfra.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::DeepInfra.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::DeepInfra.ModelOut>>> ModelsListAsResponseAsync(
+            bool? zdr = default,
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
