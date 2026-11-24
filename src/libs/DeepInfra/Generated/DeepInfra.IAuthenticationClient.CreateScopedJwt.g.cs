@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace DeepInfra
 {
     public partial interface IAuthenticationClient
@@ -41,9 +43,6 @@ namespace DeepInfra
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="apiKeyName">
-        /// name of the api key that signs the token; defaults to the api key making the call. Deprecated when calling with an api key: omit it to sign with that key
-        /// </param>
         /// <param name="models">
         /// allow inference only to the specified model names
         /// </param>
@@ -62,7 +61,6 @@ namespace DeepInfra
         global::System.Threading.Tasks.Task<global::DeepInfra.ScopedJWTOut> CreateScopedJwtAsync(
             string? xiApiKey = default,
             string? xApiKey = default,
-            string? apiKeyName = default,
             global::System.Collections.Generic.IList<string>? models = default,
             int? expiresDelta = default,
             int? expiresAt = default,

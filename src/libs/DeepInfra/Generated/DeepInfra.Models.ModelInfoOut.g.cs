@@ -234,6 +234,14 @@ namespace DeepInfra
         public string? MfTitle { get; set; }
 
         /// <summary>
+        /// True when DeepInfra hosts this model and zero data retention applies; False for partner-served models<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("zdr")]
+        public bool Zdr { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -285,6 +293,10 @@ namespace DeepInfra
         /// </param>
         /// <param name="mfName"></param>
         /// <param name="mfTitle"></param>
+        /// <param name="zdr">
+        /// True when DeepInfra hosts this model and zero data retention applies; False for partner-served models<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -323,7 +335,8 @@ namespace DeepInfra
             bool? isPartner,
             bool? isCustomDeployable,
             string? mfName,
-            string? mfTitle)
+            string? mfTitle,
+            bool zdr = default!)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -360,6 +373,7 @@ namespace DeepInfra
             this.IsCustomDeployable = isCustomDeployable;
             this.MfName = mfName;
             this.MfTitle = mfTitle;
+            this.Zdr = zdr;
         }
 
         /// <summary>
