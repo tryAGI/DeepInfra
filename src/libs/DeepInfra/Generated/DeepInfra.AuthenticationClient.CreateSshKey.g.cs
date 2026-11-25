@@ -400,24 +400,24 @@ namespace DeepInfra
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Validation Error
+                            // Unprocessable Content
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
                                 global::System.Exception? __exception_422 = null;
-                                global::DeepInfra.HTTPValidationError? __value_422 = null;
+                                global::DeepInfra.DeepError? __value_422 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.DeepError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::DeepInfra.DeepError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -426,7 +426,7 @@ namespace DeepInfra
                                 }
 
 
-                                throw global::DeepInfra.ApiException<global::DeepInfra.HTTPValidationError>.Create(
+                                throw global::DeepInfra.ApiException<global::DeepInfra.DeepError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,

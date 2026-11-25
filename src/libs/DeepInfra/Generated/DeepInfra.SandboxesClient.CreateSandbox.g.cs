@@ -690,7 +690,9 @@ namespace DeepInfra
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
         /// <param name="plan"></param>
-        /// <param name="tags"></param>
+        /// <param name="tags">
+        /// Key/value labels: at most 32 pairs, keys up to 64 bytes, values up to 256 bytes (UTF-8).
+        /// </param>
         /// <param name="timeoutSeconds">
         /// Default Value: 0
         /// </param>

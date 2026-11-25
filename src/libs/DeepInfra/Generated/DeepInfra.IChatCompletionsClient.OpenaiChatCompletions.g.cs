@@ -64,6 +64,10 @@ namespace DeepInfra
         /// If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="noReplacement">
+        /// If true, a request for a deprecated model that has been replaced by another one fails with HTTP 404 (code model_deprecated, naming the replacement) instead of being served by the replacement. The default (false) serves the replacement. Unrelated to the models fallback list.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="models">
         /// Ordered list of up to 4 fallback models. The request is attempted on each model in order: when a model rejects it for lack of capacity (HTTP 429 model-busy / flex no-capacity), the next model is tried server-side. The first model that accepts serves the request; the response's model field and billing reflect that model, at that model's pricing. Models before the last are attempted without queueing (as if fail_fast were set); the last model honors the request's own fail_fast value. When models is set, the model field is ignored. Entries must be plain model names (no deploy_id:, custom_hostport, or :revision specifiers); duplicate entries are ignored, keeping the first occurrence.
         /// </param>
@@ -179,6 +183,7 @@ namespace DeepInfra
             string? xApiKey = default,
             global::DeepInfra.ServiceTier? serviceTier = default,
             bool? failFast = default,
+            bool? noReplacement = default,
             global::System.Collections.Generic.IList<string>? models = default,
             bool? stream = default,
             double? temperature = default,

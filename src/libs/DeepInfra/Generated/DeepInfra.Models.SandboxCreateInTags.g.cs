@@ -4,7 +4,7 @@
 namespace DeepInfra
 {
     /// <summary>
-    ///
+    /// Key/value labels: at most 32 pairs, keys up to 64 bytes, values up to 256 bytes (UTF-8).
     /// </summary>
     public sealed partial class SandboxCreateInTags
     {
