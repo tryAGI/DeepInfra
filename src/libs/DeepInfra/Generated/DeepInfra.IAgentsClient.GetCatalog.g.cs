@@ -5,7 +5,8 @@ namespace DeepInfra
     public partial interface IAgentsClient
     {
         /// <summary>
-        /// Get Catalog
+        /// Get Catalog<br/>
+        /// Agent types with their plans and prices. Needs no API key.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -18,7 +19,8 @@ namespace DeepInfra
             global::DeepInfra.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Catalog
+        /// Get Catalog<br/>
+        /// Agent types with their plans and prices. Needs no API key.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>

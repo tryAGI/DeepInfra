@@ -44,7 +44,7 @@ internal static partial class SandboxesListSandboxPlansCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"list-sandbox-plans", @"List Sandbox Plans
-Returns all available sandbox plans with their resource specs and pricing.");
+Returns all available sandbox plans with their resource specs and pricing. Needs no API key.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 

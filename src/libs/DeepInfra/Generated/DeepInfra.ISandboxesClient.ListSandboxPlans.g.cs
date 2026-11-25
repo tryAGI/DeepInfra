@@ -6,7 +6,7 @@ namespace DeepInfra
     {
         /// <summary>
         /// List Sandbox Plans<br/>
-        /// Returns all available sandbox plans with their resource specs and pricing.
+        /// Returns all available sandbox plans with their resource specs and pricing. Needs no API key.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
@@ -20,7 +20,7 @@ namespace DeepInfra
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Sandbox Plans<br/>
-        /// Returns all available sandbox plans with their resource specs and pricing.
+        /// Returns all available sandbox plans with their resource specs and pricing. Needs no API key.
         /// </summary>
         /// <param name="xiApiKey"></param>
         /// <param name="xApiKey"></param>
