@@ -43,7 +43,8 @@ internal static partial class AgentsGetCatalogCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"get-catalog", @"Get Catalog");
+        var command = new Command(commandName ?? @"get-catalog", @"Get Catalog
+Agent types with their plans and prices. Needs no API key.");
                         command.Options.Add(XiApiKey);
                         command.Options.Add(XApiKey);
 
