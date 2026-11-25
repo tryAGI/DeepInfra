@@ -41,6 +41,10 @@ internal static partial class ChatCompletionsOpenaiChatCompletionsCommandApiComm
         name: @"--fail-fast",
         description: @"If true, the request is rejected immediately with HTTP 429 when the model has no spare capacity, instead of waiting in the queue. Opt-in; the default (false) keeps standard queueing behavior.");
 
+    private static Option<bool?> NoReplacement { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--no-replacement",
+        description: @"If true, a request for a deprecated model that has been replaced by another one fails with HTTP 404 (code model_deprecated, naming the replacement) instead of being served by the replacement. The default (false) serves the replacement. Unrelated to the models fallback list.");
+
     private static Option<global::System.Collections.Generic.IList<string>?> Models { get; } = new(
         name: @"--models")
     {
@@ -265,6 +269,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         command.Options.Add(XApiKey);
                         command.Options.Add(ServiceTier);
                         command.Options.Add(FailFast);
+                        command.Options.Add(NoReplacement);
                         command.Options.Add(Models);
                         command.Options.Add(Model);
                         command.Options.Add(Messages);
@@ -327,6 +332,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                         var xApiKey = parseResult.GetValue(XApiKey);
                         var serviceTier = CliRuntime.WasSpecified(parseResult, ServiceTier) ? parseResult.GetValue(ServiceTier) : (__requestBase is { } __ServiceTierBaseValue ? __ServiceTierBaseValue.ServiceTier : default);
                         var failFast = CliRuntime.WasSpecified(parseResult, FailFast) ? parseResult.GetValue(FailFast) : (__requestBase is { } __FailFastBaseValue ? __FailFastBaseValue.FailFast : default);
+                        var noReplacement = CliRuntime.WasSpecified(parseResult, NoReplacement) ? parseResult.GetValue(NoReplacement) : (__requestBase is { } __NoReplacementBaseValue ? __NoReplacementBaseValue.NoReplacement : default);
                         var models = CliRuntime.WasSpecified(parseResult, Models) ? parseResult.GetValue(Models) : (__requestBase is { } __ModelsBaseValue ? __ModelsBaseValue.Models : default);
                         var model = parseResult.GetRequiredValue(Model);
                         var messages = parseResult.GetRequiredValue(Messages);
@@ -380,6 +386,7 @@ The total length of input tokens and generated tokens is limited by the model's 
                                     xApiKey: xApiKey,
                                     serviceTier: serviceTier,
                                     failFast: failFast,
+                                    noReplacement: noReplacement,
                                     models: models,
                                     model: model,
                                     messages: messages,

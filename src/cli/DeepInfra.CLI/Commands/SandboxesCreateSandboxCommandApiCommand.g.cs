@@ -28,7 +28,7 @@ internal static partial class SandboxesCreateSandboxCommandApiCommand
     private static Option<global::System.Collections.Generic.Dictionary<string, string>?> Tags { get; } = new(
         name: @"--tags")
     {
-        Description = @"",
+        Description = @"Key/value labels: at most 32 pairs, keys up to 64 bytes, values up to 256 bytes (UTF-8).",
     };
 
     private static Option<int?> TimeoutSeconds { get; } = new(

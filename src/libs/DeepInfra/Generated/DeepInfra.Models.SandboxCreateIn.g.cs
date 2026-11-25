@@ -15,7 +15,7 @@ namespace DeepInfra
         public string? Plan { get; set; }
 
         /// <summary>
-        ///
+        /// Key/value labels: at most 32 pairs, keys up to 64 bytes, values up to 256 bytes (UTF-8).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         public global::System.Collections.Generic.Dictionary<string, string>? Tags { get; set; }
@@ -36,7 +36,9 @@ namespace DeepInfra
         /// Initializes a new instance of the <see cref="SandboxCreateIn" /> class.
         /// </summary>
         /// <param name="plan"></param>
-        /// <param name="tags"></param>
+        /// <param name="tags">
+        /// Key/value labels: at most 32 pairs, keys up to 64 bytes, values up to 256 bytes (UTF-8).
+        /// </param>
         /// <param name="timeoutSeconds">
         /// Default Value: 0
         /// </param>
